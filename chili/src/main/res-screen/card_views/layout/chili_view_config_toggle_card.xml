@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/padding_8dp">
 
-        <com.design.chili.view.cells.TitledInfoCellView
+        <com.design2.chili2.view.cells.TitledInfoCellView
             android:id="@+id/ticv_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

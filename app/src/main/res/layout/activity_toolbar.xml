@@ -14,7 +14,7 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <com.design.chili.view.navigation_components.ChiliToolbar
+        <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,14 +22,14 @@
             app:titleCentered="true"
             app:title="Transparent Toolbar" />
 
-        <com.design.chili.view.navigation_components.ChiliToolbar
+        <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
             app:title="Default toolbar" />
 
-        <com.design.chili.view.navigation_components.ChiliToolbar
+        <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:title="Custom navigation icon toolbar" />
 
 
-        <com.design.chili.view.navigation_components.ChiliToolbar
+        <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             app:title="Additional text" />
 
 
-        <com.design.chili.view.navigation_components.ChiliToolbar
+        <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             app:toolbarEndIcon="@drawable/ic_cat"
             app:title="End icon" />
 
-        <com.design.chili.view.navigation_components.ChiliToolbar
+        <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
             app:toolbarEndIconSize="54dp"
             app:title="End icon size 54dp" />
 
-        <com.design.chili.view.navigation_components.ChiliToolbar
+        <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

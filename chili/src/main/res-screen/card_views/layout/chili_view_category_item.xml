@@ -38,7 +38,7 @@
             app:layout_constraintVertical_bias="0.0"
             tools:text="550" />
 
-        <com.design.chili.view.image.SquircleView
+        <com.design2.chili2.view.image.SquircleView
             android:id="@+id/sv_icon"
             android:layout_width="@dimen/view_24dp"
             android:layout_height="@dimen/view_24dp"

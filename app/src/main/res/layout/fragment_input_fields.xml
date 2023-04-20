@@ -13,7 +13,7 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <com.design.chili.view.input.MaskedInputView
+        <com.design2.chili2.view.input.MaskedInputView
             android:id="@+id/field_123"
             app:message="Simple"
             style="@style/Chili.InputViewStyle.Masked.PhoneMask"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"/>
 
-        <com.design.chili.view.input.BaseInputView
+        <com.design2.chili2.view.input.BaseInputView
             android:id="@+id/field_0"
             app:message="Simple"
             android:hint="Hint"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"/>
 
-        <com.design.chili.view.input.BaseInputView
+        <com.design2.chili2.view.input.BaseInputView
             android:id="@+id/field_1"
             android:text="Buttons"
             android:hint="Hint"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"/>
 
-        <com.design.chili.view.input.BaseInputView
+        <com.design2.chili2.view.input.BaseInputView
             android:id="@+id/field_pass"
             android:hint="Password"
             android:gravity="start"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"/>
 
-        <com.design.chili.view.input.MaskedInputView
+        <com.design2.chili2.view.input.MaskedInputView
             android:id="@+id/field_2"
             app:errorMessage="ErrorMesage"
             android:hint="Hint"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"/>
 
-        <com.design.chili.view.input.MaskedInputView
+        <com.design2.chili2.view.input.MaskedInputView
             android:id="@+id/field_2_mask"
             app:message="mask"
             app:mask="+996 XXX XXX-XXX"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"/>
 
-        <com.design.chili.view.input.MultilineInputView
+        <com.design2.chili2.view.input.MultilineInputView
             android:id="@+id/field_3"
             android:maxLength="130"
             android:hint="Введите комментарий"

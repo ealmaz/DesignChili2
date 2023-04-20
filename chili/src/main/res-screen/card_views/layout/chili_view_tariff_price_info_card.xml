@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Пакетов нет. Ваш тариф - Оной!" />
 
-    <com.design.chili.view.card.ItemInfoCardView
+    <com.design2.chili2.view.card.ItemInfoCardView
         android:id="@+id/iicv_out_call"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/iicv_in_call"/>
 
-    <com.design.chili.view.card.ItemInfoCardView
+    <com.design2.chili2.view.card.ItemInfoCardView
         android:id="@+id/iicv_in_call"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toEndOf="@id/iicv_out_call"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <com.design.chili.view.card.ItemInfoCardView
+    <com.design2.chili2.view.card.ItemInfoCardView
         android:id="@+id/iicv_internet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toStartOf="@id/iicv_sms"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <com.design.chili.view.card.ItemInfoCardView
+    <com.design2.chili2.view.card.ItemInfoCardView
         android:id="@+id/iicv_sms"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -8,7 +8,7 @@
     android:paddingBottom="@dimen/padding_8dp"
     android:id="@+id/root">
 
-    <com.design.chili.view.image.SquircleView
+    <com.design2.chili2.view.image.SquircleView
         android:id="@+id/sv_icon"
         android:layout_width="@dimen/view_32dp"
         android:layout_height="@dimen/view_32dp"

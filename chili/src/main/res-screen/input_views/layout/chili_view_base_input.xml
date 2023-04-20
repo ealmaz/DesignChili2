@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <com.design.chili.view.input.SelectionEditText
+        <com.design2.chili2.view.input.SelectionEditText
             android:id="@+id/et_input"
             android:importantForAutofill="no"
             android:layout_width="match_parent"

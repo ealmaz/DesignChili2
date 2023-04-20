@@ -18,7 +18,7 @@
         android:paddingBottom="@dimen/padding_16dp"
         tools:context=".MainActivity">
 
-        <com.design.chili.view.card.ExpandableInfoCardView
+        <com.design2.chili2.view.card.ExpandableInfoCardView
             android:id="@+id/expandable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,14 +29,14 @@
             app:subtitle="Дата погашения: 10.10.2022"
             app:title="К погашению: 8 200,00 с">
 
-            <com.design.chili.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableInfoCardItemView
                 android:id="@+id/item1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="Сумма к зачислению:"
                 app:titleValue="8 000,00 с" />
 
-            <com.design.chili.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableInfoCardItemView
                 android:id="@+id/item2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,12 +45,12 @@
                 app:title="Сумма кредита: "
                 app:titleValue="8 150,00 с" />
 
-            <com.design.chili.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableInfoCardItemView
                 android:id="@+id/item3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="Сумма % по кредиту: " />
-        </com.design.chili.view.card.ExpandableInfoCardView>
+        </com.design2.chili2.view.card.ExpandableInfoCardView>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
 
         </LinearLayout>
 
-        <com.design.chili.view.card.ExpandableInfoCardView
+        <com.design2.chili2.view.card.ExpandableInfoCardView
             android:id="@+id/expandable2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,14 +86,14 @@
             app:subtitle="Дата погашения: 10.10.2022"
             app:title="К погашению: 8 200,00 с">
 
-            <com.design.chili.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableInfoCardItemView
                 android:id="@+id/item21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="Сумма к зачислению:"
                 app:titleValue="8 000,00 с" />
 
-            <com.design.chili.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableInfoCardItemView
                 android:id="@+id/item22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                 app:title="Сумма кредита: "
                 app:titleValue="8 150,00 с" />
 
-            <com.design.chili.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableInfoCardItemView
                 android:id="@+id/item23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,9 +110,9 @@
                 app:value="50,00 с" />
 
 
-        </com.design.chili.view.card.ExpandableInfoCardView>
+        </com.design2.chili2.view.card.ExpandableInfoCardView>
 
-        <com.design.chili.view.card.ExpandableInfoCardView
+        <com.design2.chili2.view.card.ExpandableInfoCardView
             android:id="@+id/expandable3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
             app:title="К погашению"
             app:value="8 200,00 с">
 
-            <com.design.chili.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableInfoCardItemView
                 android:id="@+id/item32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                 app:title="Сумма кредита: "
                 app:titleValue="8 150,00 с" />
 
-            <com.design.chili.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableInfoCardItemView
                 android:id="@+id/item33"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
                 app:value="50,00 с" />
 
 
-        </com.design.chili.view.card.ExpandableInfoCardView>
+        </com.design2.chili2.view.card.ExpandableInfoCardView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -148,7 +148,7 @@
             android:layout_marginHorizontal="@dimen/padding_16dp"
             android:orientation="horizontal">
 
-            <com.design.chili.view.card.BalanceCardView
+            <com.design2.chili2.view.card.BalanceCardView
                 android:id="@+id/balanceView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
                 app:title="Баланс"
                 app:value="100.00 c" />
 
-            <com.design.chili.view.card.TitleLogoCardView
+            <com.design2.chili2.view.card.TitleLogoCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/padding_4dp"
@@ -175,7 +175,7 @@
 
         </LinearLayout>
 
-        <com.design.chili.view.card.BalanceCardView
+        <com.design2.chili2.view.card.BalanceCardView
             android:id="@+id/balance2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
             app:title="Баланс"
             app:value="500" />
 
-        <com.design.chili.view.card.TitleLogoCardView
+        <com.design2.chili2.view.card.TitleLogoCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -198,7 +198,7 @@
             app:roundedCornerMode="single"
             app:title="Баланс" />
 
-        <com.design.chili.view.card.NotifiedBalanceCardView
+        <com.design2.chili2.view.card.NotifiedBalanceCardView
             android:id="@+id/notified_balance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -210,7 +210,7 @@
             app:title="Баланс"
             app:value="500" />
 
-        <com.design.chili.view.card.PieChartTitledView
+        <com.design2.chili2.view.card.PieChartTitledView
             android:id="@+id/pieChart"
             android:layout_width="@dimen/view_200dp"
             android:layout_height="wrap_content"
@@ -219,7 +219,7 @@
             android:focusable="true"
             android:foreground="?selectableItemBackgroundBorderless" />
 
-        <com.design.chili.view.card.PeriodPieChartView
+        <com.design2.chili2.view.card.PeriodPieChartView
             android:id="@+id/chart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -232,7 +232,7 @@
             android:orientation="horizontal">
 
 
-            <com.design.chili.view.card.CategoryItemView
+            <com.design2.chili2.view.card.CategoryItemView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/padding_4dp"
@@ -241,7 +241,7 @@
                 app:squircleViewDrawable="@drawable/ic_darkmode_false_"
                 app:title="title mirfewfwefwefwfwewefwewefwefwefw" />
 
-            <com.design.chili.view.card.CategoryItemView
+            <com.design2.chili2.view.card.CategoryItemView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/padding_4dp"
@@ -250,7 +250,7 @@
                 app:title="title mir" />
 
 
-            <com.design.chili.view.card.CategoryItemView
+            <com.design2.chili2.view.card.CategoryItemView
                 android:id="@+id/category_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -269,7 +269,7 @@
             android:orientation="horizontal">
 
 
-            <com.design.chili.view.card.CategoryItemView
+            <com.design2.chili2.view.card.CategoryItemView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/padding_4dp"
@@ -278,7 +278,7 @@
                 app:squircleViewDrawable="@drawable/ic_squircle_phone"
                 app:title="title mir" />
 
-            <com.design.chili.view.card.CategoryItemView
+            <com.design2.chili2.view.card.CategoryItemView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/padding_4dp"
@@ -288,7 +288,7 @@
                 app:title="title mir" />
 
 
-            <com.design.chili.view.card.CategoryItemView
+            <com.design2.chili2.view.card.CategoryItemView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/padding_4dp"
@@ -307,7 +307,7 @@
             android:orientation="horizontal">
 
 
-            <com.design.chili.view.card.NavigatorCardView
+            <com.design2.chili2.view.card.NavigatorCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
@@ -317,7 +317,7 @@
                 app:isSurfaceClickable="true"
                 app:title="История платежей" />
 
-            <com.design.chili.view.card.NavigatorCardView
+            <com.design2.chili2.view.card.NavigatorCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
@@ -325,7 +325,7 @@
                 app:cardIcon="@drawable/ic_group_1"
                 app:title="dqwdqwd" />
 
-            <com.design.chili.view.card.NavigatorCardView
+            <com.design2.chili2.view.card.NavigatorCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
@@ -335,7 +335,7 @@
 
         </LinearLayout>
 
-        <com.design.chili.view.card.PhoneNumberPickerCardView
+        <com.design2.chili2.view.card.PhoneNumberPickerCardView
             android:id="@+id/nvn2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -343,7 +343,7 @@
             app:title="Стань абонентом"
             app:titleIcon="@drawable/ic_combined_shape__2_" />
 
-        <com.design.chili.view.card.PhoneNumberPickerCardView
+        <com.design2.chili2.view.card.PhoneNumberPickerCardView
             android:id="@+id/pnpcv_numbers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -353,7 +353,7 @@
             app:title="Стань абонентом"
             app:titleIcon="@drawable/ic_combined_shape__2_" />
 
-        <com.design.chili.view.card.TariffPriceInfoCardView
+        <com.design2.chili2.view.card.TariffPriceInfoCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -365,7 +365,7 @@
             app:voiceInCost="12 c/ мин"
             app:voiceOutCost="34 c/ мин" />
 
-        <com.design.chili.view.card.TariffPackagesInfoCardView
+        <com.design2.chili2.view.card.TariffPackagesInfoCardView
             android:id="@+id/tpiv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -379,7 +379,7 @@
             app:isDividerVisible="false"
             app:title="Пакеты активны до 20.06.2021. Внутри сети бесплатно!" />
 
-        <com.design.chili.view.card.TariffPackagesInfoCardView
+        <com.design2.chili2.view.card.TariffPackagesInfoCardView
             android:id="@+id/tpiv2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/cl_view">
 
-        <com.design.chili.view.cells.MultiIconedTitleCellView
+        <com.design2.chili2.view.cells.MultiIconedTitleCellView
             android:id="@+id/mitcv_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-        <com.design.chili.view.cells.ToggleCellViewNew
+        <com.design2.chili2.view.cells.ToggleCellViewNew
             android:id="@+id/tcv_toggle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

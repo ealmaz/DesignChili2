@@ -8,7 +8,7 @@
     android:layout_marginTop="@dimen/padding_16dp"
     android:layout_marginBottom="@dimen/padding_8dp">
 
-    <com.design.chili.view.image.SquircleView
+    <com.design2.chili2.view.image.SquircleView
         android:id="@+id/iv_icon"
         android:layout_width="@dimen/view_24dp"
         android:layout_height="@dimen/view_24dp"

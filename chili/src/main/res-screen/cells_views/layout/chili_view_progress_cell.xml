@@ -25,7 +25,7 @@
         android:layout_marginTop="@dimen/padding_4dp"
         tools:text="Доступный объем кошелька"/>
 
-    <com.design.chili.view.common.AnimatedProgressLine
+    <com.design2.chili2.view.common.AnimatedProgressLine
         android:id="@+id/apl_progress"
         android:layout_width="match_parent"
         android:layout_height="@dimen/padding_8dp"
