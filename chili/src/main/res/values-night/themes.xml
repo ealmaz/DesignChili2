@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseChiliDesignTheme.Night">
+
+
+        <!-- Text appearance-->
+        <item name="ChiliPrimaryTextColor">@color/gray_3</item>
+        <item name="ChiliMarkedTextColor">@color/white_1</item>
+        <!-- End text appearance-->
+
+        <!-- Primary Button-->
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_2</item>
+
+
+        <!-- ScreenBackground -->
+        <item name="ChiliScreenBackground">@color/black_2</item>
+
+        <!-- Ripple-->
+        <item name="ChiliRippleForegroundColor">@color/gray_1</item>
+
+        <!-- Divider -->
+        <item name="ChiliDividerColor">@color/black_5</item>
+
+        <!-- Snackbar attributes -->
+        <item name="ChiliSnackbarBackground">@color/black_3</item>
+        <item name="ChiliSnackbarTextColor">@color/gray_3</item>
+
+        <!-- Segmented Picker   -->
+        <item name="ChiliSegmentedPickerBackgroundColor">@color/black_4</item>
+        <item name="ChiliSegmentedPickerTabIndicatorColor">@color/black_3</item>
+        <item name="ChiliSegmentedPickerTabTextColor">@color/gray_3</item>
+
+
+        <!-- CheckBox  -->
+        <item name="ChiliCheckBoxUncheckedColor">@color/gray_3</item>
+        <item name="ChiliCheckBoxDisabledColor">@color/gray_1_alpha_50</item>
+
+        <!-- RadioButton  -->
+        <item name="ChiliRadioButtonUncheckedColor">@color/gray_3</item>
+        <item name="ChiliRadioButtonDisabledColor">@color/gray_1_alpha_50</item>
+
+        <!--  Switch box -->
+        <item name="ChiliSwitchBoxUncheckedBg">@color/black_4</item>
+        <item name="ChiliSwitchBoxUncheckedToggleColor">@color/black_5</item>
+
+        <!-- Bottom sheet -->
+        <item name="ChiliBottomSheetBackgroundColor">@color/black_2</item>
+        <item name="ChiliBottomSheetTopDrawableColor">@color/black_3</item>
+        <item name="ChiliBottomSheetGrayBackgroundColor">@color/black_2</item>
+        <!-- Bottom sheet >>> ActionBottomSheet   -->
+        <item name="ChiliActionBottomSheetButtonTextColor">@color/gray_3</item>
+
+        <!-- InAppPush -->
+        <item name="ChiliInAppPushBackground">@color/black_3</item>
+
+        <!-- Picker dialog -->
+        <item name="ChiliPickerDialogControlColor">@color/gray_3</item>
+        <item name="ChiliPickerDialogBackground">@color/black_3</item>
+
+        <!-- Toolbar -->
+        <item name="ChiliToolbarDividerColor">@color/black_4</item>
+        <item name="ChiliToolbarIconsTint">@color/white_1</item>
+        <item name="ChiliToolbarBackground">@color/black_3</item>
+
+
+        <!-- Additional Button attributes -->
+        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/black_5</item>
+        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/black_5</item>
+
+        <!-- InputView -->
+        <item name="ChiliInputViewEndIconTint">@color/gray_1</item>
+        <item name="ChiliInputViewHintTextColor">@color/gray_1_alpha_50</item>
+        <item name="ChiliInputViewBackgroundColor">@color/black_3</item>
+        <item name="ChiliInputViewBackgroundErrorColor">@color/red_2</item>
+        <item name="ChiliInputViewCursorColor">@color/magenta_1</item>
+        <item name="ChiliInputViewErrorMessageTextColor">@color/red_1</item>
+        <item name="ChiliInputViewMessageTextColor">@color/gray_3</item>
+
+
+        <!-- CardView  -->
+        <item name="ChiliCardViewBackground">@color/black_3</item>
+        <item name="ChiliCardViewSquircleBackground">@color/black_2</item>
+        <item name="ChiliAnimatedLeftoverAddButtonBackground">@color/black_4</item>
+
+        <!-- TariffPackagesInfoView -->
+        <item name="ChiliTariffPackagesInfoVerticalDivider">@color/black_4</item>
+        <item name="ChiliTariffPackagesInfoAddButtonTint">@color/black_4</item>
+
+        <!-- CellView attributes -->
+        <item name="ChiliCellViewBackground">@color/black_3</item>
+        <item name="ChiliCellSquircleIconBackground">@color/black_2</item>
+
+
+        <!-- Shimmer attributes -->
+        <item name="ChiliShimmerBoneColor">@color/black_2</item>
+        <item name="ChiliShimmerRayColor">@color/black_4</item>
+
+    </style>
+
+    <style name="ChiliDesignTheme" parent="BaseChiliDesignTheme.Night" />
+
+    <style name="ChiliDesignThemeDay" parent="BaseChiliDesignTheme" />
+
+</resources>

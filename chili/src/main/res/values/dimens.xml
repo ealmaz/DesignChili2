@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text dimens -->
+    <dimen name="text_10sp">10sp</dimen>
+    <dimen name="text_12sp">12sp</dimen>
+    <dimen name="text_14sp">14sp</dimen>
+    <dimen name="text_16sp">16sp</dimen>
+    <dimen name="text_18sp">18sp</dimen>
+    <dimen name="text_20sp">20sp</dimen>
+    <dimen name="text_24sp">24sp</dimen>
+    <dimen name="text_28sp">28sp</dimen>
+    <dimen name="text_32sp">32sp</dimen>
+    <dimen name="text_64sp">64sp</dimen>
+
+
+
+    <!-- Padding-->
+    <dimen name="padding_desc_4dp">-4dp</dimen>
+    <dimen name="padding_0dp">0dp</dimen>
+    <dimen name="padding_2dp">2dp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_6dp">6dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="padding_14dp">14dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_24dp">24dp</dimen>
+    <dimen name="padding_32dp">32dp</dimen>
+    <dimen name="padding_44dp">44dp</dimen>
+
+
+    <!-- Radius    -->
+    <dimen name="radius_0dp">0dp</dimen>
+    <dimen name="radius_4dp">4dp</dimen>
+    <dimen name="radius_8dp">8dp</dimen>
+    <dimen name="radius_10dp">10dp</dimen>
+    <dimen name="radius_12dp">12dp</dimen>
+    <dimen name="radius_24dp">24dp</dimen>
+
+
+    <!-- View_size-->
+    <dimen name="view_0dp">0dp</dimen>
+    <dimen name="view_1dp">1dp</dimen>
+    <dimen name="view_2dp">2dp</dimen>
+    <dimen name="view_4dp">4dp</dimen>
+    <dimen name="view_6dp">6dp</dimen>
+    <dimen name="view_8dp">8dp</dimen>
+    <dimen name="view_12dp">12dp</dimen>
+    <dimen name="view_14dp">14dp</dimen>
+    <dimen name="view_16dp">16dp</dimen>
+    <dimen name="view_20dp">20dp</dimen>
+    <dimen name="view_24dp">24dp</dimen>
+    <dimen name="view_30dp">30dp</dimen>
+    <dimen name="view_32dp">32dp</dimen>
+    <dimen name="view_40dp">40dp</dimen>
+    <dimen name="view_44dp">44dp</dimen>
+    <dimen name="view_46dp">46dp</dimen>
+    <dimen name="view_48dp">48dp</dimen>
+    <dimen name="view_52dp">52dp</dimen>
+    <dimen name="view_64dp">64dp</dimen>
+    <dimen name="view_72dp">72dp</dimen>
+    <dimen name="view_74dp">74dp</dimen>
+    <dimen name="view_96dp">96dp</dimen>
+    <dimen name="view_102dp">102dp</dimen>
+    <dimen name="view_110dp">110dp</dimen>
+    <dimen name="view_136dp">136dp</dimen>
+    <dimen name="view_140dp">140dp</dimen>
+    <dimen name="view_150dp">150dp</dimen>
+    <dimen name="view_200dp">200dp</dimen>
+    <dimen name="view_172dp">172dp</dimen>
+    <dimen name="view_220dp">220dp</dimen>
+
+    <!-- Elevation   -->
+    <dimen name="elevation_0dp">0dp</dimen>
+    <dimen name="elevation_4dp">4dp</dimen>
+    <dimen name="elevation_8dp">8dp</dimen>
+
+</resources>

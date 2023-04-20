@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseChiliDesignTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+
+
+        <!-- Text appearance theme-->
+        <item name="ChiliTextSizeH1">@dimen/text_64sp</item>
+        <item name="ChiliTextSizeH2">@dimen/text_32sp</item>
+        <item name="ChiliTextSizeH3">@dimen/text_28sp</item>
+        <item name="ChiliTextSizeH4">@dimen/text_24sp</item>
+        <item name="ChiliTextSizeH5">@dimen/text_20sp</item>
+        <item name="ChiliTextSizeH6">@dimen/text_18sp</item>
+        <item name="ChiliTextSizeH7">@dimen/text_16sp</item>
+        <item name="ChiliTextSizeH8">@dimen/text_14sp</item>
+        <item name="ChiliTextSizeH9">@dimen/text_12sp</item>
+        <item name="ChiliTextSizeH10">@dimen/text_10sp</item>
+
+        <item name="ChiliPrimaryTextColor">@color/black_5</item>
+        <item name="ChiliSecondaryTextColor">@color/gray_1</item>
+        <item name="ChiliMarkedTextColor">@color/black_1</item>
+        <item name="ChiliErrorTextColor">@color/red_1</item>
+        <item name="android:textColorHint">@color/gray_1_alpha_50</item>
+
+        <item name="ChiliRegularTextFont">@font/roboto_regular</item>
+        <item name="ChiliBoldTextFont">@font/roboto_medium</item>
+        <item name="ChiliItalicTextFont">@font/roboto_italic</item>
+        <item name="Chili700TextFont">@font/roboto_700</item>
+        <!-- End text appearance theme-->
+
+
+        <!-- ScreenBackground -->
+        <item name="ChiliScreenBackground">@color/gray_4</item>
+
+        <!-- Ripple-->
+        <item name="ChiliRippleForegroundColor">@color/black_1_alpha_20</item>
+        <item name="ChiliRippleForegroundCornerRadius">@dimen/radius_4dp</item>
+
+        <!-- Divider -->
+        <item name="ChiliDividerColor">@color/gray_6</item>
+        <item name="ChiliDividerHeightSize">1dp</item>
+
+        <!-- Snackbar attributes -->
+        <item name="ChiliSnackbarBackground">@color/white_1</item>
+        <item name="ChiliSnackbarCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliSnackbarElevation">@dimen/elevation_8dp</item>
+        <item name="ChiliSnackbarTextColor">@color/black_5</item>
+
+        <!-- Segmented Picker   -->
+        <item name="ChiliSegmentedPickerBackgroundColor">@color/gray_6</item>
+        <item name="ChiliSegmentedPickerTabIndicatorColor">@color/white_1</item>
+        <item name="ChiliSegmentedPickerTabTextColor">@color/black_5</item>
+
+        <!-- CheckBox  -->
+        <item name="ChiliCheckBoxCheckedColor">@color/magenta_1</item>
+        <item name="ChiliCheckBoxUncheckedColor">@color/black_5</item>
+        <item name="ChiliCheckBoxDisabledColor">@color/gray_2</item>
+
+        <!-- RadioButton  -->
+        <item name="ChiliRadioButtonCheckedColor">@color/magenta_1</item>
+        <item name="ChiliRadioButtonUncheckedColor">@color/black_5</item>
+        <item name="ChiliRadioButtonDisabledColor">@color/gray_2</item>
+
+
+        <!--  Switch box -->
+        <item name="ChiliSwitchBoxCheckedBg">@color/magenta_1_alpha_40</item>
+        <item name="ChiliSwitchBoxUncheckedBg">@color/gray_2</item>
+        <item name="ChiliSwitchBoxCheckedToggleColor">@color/magenta_1</item>
+        <item name="ChiliSwitchBoxUncheckedToggleColor">@color/white_1</item>
+
+        <item name="colorControlActivated">?ChiliSwitchBoxCheckedToggleColor</item>
+        <item name="colorSwitchThumbNormal">?ChiliSwitchBoxUncheckedToggleColor</item>
+        <item name="trackTint">@drawable/chili_bg_switch</item>
+
+        <!-- Bottom sheet -->
+        <item name="ChiliBottomSheetBackgroundColor">@color/white_1</item>
+        <item name="ChiliBottomSheetTopCornersRadius">@dimen/radius_8dp</item>
+        <item name="ChiliBottomSheetTopDrawableColor">@color/white_1</item>
+        <item name="ChiliBottomSheetGrayBackgroundColor">@color/gray_4</item>
+
+        <!-- Bottom sheet >>> ActionBottomSheet   -->
+        <item name="ChiliActionBottomSheetButtonTextColor">@color/black_5</item>
+        <item name="ChiliActionBottomSheetAccentButtonTextColor">@color/blue_1</item>
+
+        <!-- InAppPush -->
+        <item name="ChiliInAppPushBackground">@color/white_1</item>
+        <item name="ChiliInAppPushCornerRadius">@dimen/radius_24dp</item>
+
+        <!-- Picker dialog -->
+        <item name="ChiliPickerDialogControlColor">@color/black_5</item>
+        <item name="ChiliPickerDialogCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliPickerDialogBackground">@color/white_1</item>
+
+        <!-- Toolbar -->
+        <item name="ChiliToolbarAdditionalTextTextAppearance">@style/Chili.H8.Secondary</item>
+        <item name="ChiliToolbarTextAppearance">@style/Chili.H5.Marked.Bold</item>
+        <item name="ChiliToolbarDividerColor">@color/gray_8</item>
+        <item name="ChiliToolbarDividerSize">@dimen/view_1dp</item>
+        <item name="ChiliToolbarIconsTint">@color/black_1</item>
+        <item name="ChiliToolbarBackground">@color/white_1</item>
+
+        <!-- Primary Button attributes -->
+        <item name="ChiliPrimaryButtonBackgroundActive">@color/green_1</item>
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_3</item>
+        <item name="ChiliPrimaryButtonCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliPrimaryButtonTextSize">@dimen/text_14sp</item>
+        <item name="ChiliPrimaryButtonTextFont">@font/roboto_medium</item>
+        <item name="ChiliPrimaryButtonTextColorActive">@color/white_1</item>
+        <item name="ChiliPrimaryButtonTextColorPressed">@color/white_1</item>
+        <item name="ChiliPrimaryButtonTextColorDisabled">@color/white_1</item>
+        <item name="ChiliPrimaryButtonTextAllCaps">true</item>
+
+        <item name="ChiliPrimaryButtonRippleColor">@color/black_1_alpha_20</item>
+
+
+
+        <!-- Secondary Button attributes -->
+        <item name="ChiliSecondaryButtonBackgroundActive">@android:color/transparent</item>
+        <item name="ChiliSecondaryButtonBackgroundDisabled">@android:color/transparent</item>
+        <item name="ChiliSecondaryButtonCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliSecondaryButtonTextSize">@dimen/text_14sp</item>
+        <item name="ChiliSecondaryButtonTextFont">@font/roboto_medium</item>
+        <item name="ChiliSecondaryButtonTextColorActive">@color/blue_1</item>
+        <item name="ChiliSecondaryButtonTextColorPressed">@color/blue_1</item>
+        <item name="ChiliSecondaryButtonTextColorDisabled">@color/blue_1_alpha_50</item>
+
+
+        <!-- Additional Button attributes -->
+        <item name="ChiliAdditionalButtonBackgroundActive">@android:color/transparent</item>
+        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/gray_5</item>
+        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/gray_5</item>
+        <item name="ChiliNewAdditionalButtonCornerRadius">@dimen/radius_12dp</item>
+        <item name="ChiliAdditionalButtonBackgroundDisabled">@android:color/transparent</item>
+        <item name="ChiliAdditionalButtonCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliAdditionalButtonTextSize">@dimen/text_14sp</item>
+        <item name="ChiliAdditionalButtonTextFont">@font/roboto_medium</item>
+        <item name="ChiliAdditionalButtonTextColorActive">@color/gray_1</item>
+        <item name="ChiliAdditionalButtonTextColorPressed">@color/gray_1</item>
+        <item name="ChiliAdditionalButtonTextColorDisabled">@color/gray_1_alpha_50</item>
+
+        <item name="ChiliAdditionalButtonBorderColor">@color/gray_1</item>
+        <item name="ChiliAdditionalButtonDisabledBorderColor">@color/gray_1_alpha_50</item>
+
+
+        <!-- Component Button attributes -->
+        <item name="ChiliComponentButtonBackgroundActive">@android:color/transparent</item>
+        <item name="ChiliComponentButtonBackgroundDisabled">@android:color/transparent</item>
+        <item name="ChiliComponentButtonCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliComponentButtonTextSize">@dimen/text_16sp</item>
+        <item name="ChiliComponentButtonTextFont">@font/roboto_regular</item>
+        <item name="ChiliComponentButtonTextColorActive">@color/blue_1</item>
+        <item name="ChiliComponentButtonTextColorPressed">@color/blue_1</item>
+        <item name="ChiliComponentButtonTextColorDisabled">@color/blue_1_alpha_50</item>
+
+        <!-- InputView -->
+        <item name="ChiliInputViewEndIconTint">@color/gray_1</item>
+        <item name="ChiliInputViewHintTextColor">@color/gray_1_alpha_50</item>
+        <item name="ChiliInputViewBackgroundColor">@color/gray_5</item>
+        <item name="ChiliInputViewBackgroundErrorColor">@color/red_3</item>
+        <item name="ChiliInputViewCursorColor">@color/magenta_1</item>
+        <item name="ChiliInputViewErrorMessageTextColor">@color/red_1</item>
+        <item name="ChiliInputViewMessageTextColor">@color/black_5</item>
+
+        <!-- CardView -->
+        <item name="ChiliCardViewBackground">@color/white_1</item>
+        <item name="ChiliCardViewCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliCardViewCornerRadius10">@dimen/radius_10dp</item>
+        <item name="ChiliCardViewCornerRadius12">@dimen/radius_12dp</item>
+        <item name="ChiliCardViewCornerRadius24">@dimen/radius_24dp</item>
+        <item name="ChiliCardViewSquircleBackground">@color/gray_3</item>
+        <item name="ChiliCardViewPhonePickerDividerColor">@color/gray_5</item>
+        <item name="ChiliAnimatedLeftoverAddButtonBackground">@color/white_1</item>
+
+        <!-- TariffPriceInfoView -->
+        <item name="ChiliInternetLabel">Internet t</item>
+        <item name="ChiliInternetIcon">@drawable/chili_ic_clear</item>
+        <item name="ChiliVoiceInLabel">VoiceIn T</item>
+        <item name="ChiliVoiceInIcon">@drawable/chili_ic_clear</item>
+        <item name="ChiliVoiceOutLabel">VoiceOut T</item>
+        <item name="ChiliVoiceOutIcon">@drawable/chili_ic_clear</item>
+        <item name="ChiliSmsLabel">Sms T</item>
+        <item name="ChiliSmsIcon">@drawable/chili_ic_clear</item>
+
+        <!-- TariffPackagesInfoView -->
+        <item name="ChiliTariffPackagesInfoVerticalDivider">@color/gray_3</item>
+        <item name="ChiliTariffPackagesInfoAddButtonTint">@color/white_1</item>
+        <item name="ChiliTariffPackagesInfoInternetProgress">@color/cyan_1</item>
+        <item name="ChiliTariffPackagesInfoCallProgress">@color/green_1</item>
+
+        <!-- CellView attributes -->
+        <item name="ChiliCellViewBackground">@color/white_1</item>
+        <item name="ChiliCellCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliCellSquircleIconBackground">@color/gray_3</item>
+
+        <!-- Shimmer attributes -->
+        <item name="ChiliShimmerBoneColor">@color/gray_4</item>
+        <item name="ChiliShimmerRayColor">@color/white_1</item>
+        <item name="ChiliShimmerBoneRadius">@dimen/radius_10dp</item>
+
+        <!-- NotifiedBalanceCardView -->
+        <item name="ChiliNotifiedBalanceCardBackgroundTint">@color/magenta_1</item>
+        <item name="ChiliNotifiedBalanceCardNotificationColor">@color/white_1</item>
+
+    </style>
+
+
+    <style name="ChiliDesignTheme" parent="BaseChiliDesignTheme"/>
+
+    <style name="ChiliDesignThemeDay" parent="BaseChiliDesignTheme"/>
+
+</resources>

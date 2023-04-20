@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="DefaultStyleTheme">
+        <attr name="inputViewDefaultStyle" format="reference"/>
+        <attr name="maskedInputDefaultStyle" format="reference"/>
+        <attr name="multilineInputDefaultStyle" format="reference"/>
+        <attr name="balanceCardViewDefaultStyle" format="reference" />
+        <attr name="singleSelectedCardViewDefaultStyle" format="reference" />
+        <attr name="titleLogoCardViewDefaultStyle" format="reference" />
+        <attr name="categoryItemCardViewDefaultStyle" format="reference"/>
+        <attr name="navigatorCardViewDefaultStyle" format="reference"/>
+        <attr name="phoneNumberPickerCardViewDefaultStyle" format="reference"/>
+        <attr name="tariffPriceInfoCardViewDefaultStyle" format="reference"/>
+        <attr name="tariffPackagesInfoCardViewDefaultStyle" format="reference"/>
+        <attr name="logoTitleCellDefaultStyle" format="reference"/>
+        <attr name="infoCellViewDefaultStyle" format="reference"/>
+
+        <attr name="expandableInfoCardViewDefaultStyle" format="reference"/>
+        <attr name="expandableInfoCardItemViewDefaultStyle" format="reference"/>
+
+        <attr name="multiLineRightIconCellDefaultStyle" format="reference"/>
+
+        <attr name="cellViewDefaultStyle" format="reference"/>
+        <attr name="toggleCellViewDefaultStyle" format="reference"/>
+        <attr name="endIconCellViewDefaultStyle" format="reference"/>
+        <attr name="checkBoxCellViewDefaultStyle" format="reference"/>
+        <attr name="additionalTextCellViewDefaultStyle" format="reference"/>
+        <attr name="actionCellViewDefaultStyle" format="reference"/>
+        <attr name="expandableCellViewDefaultStyle" format="reference"/>
+        <attr name="progressCellViewDefaultStyle" format="reference"/>
+        <attr name="detailCellViewDefaultStyle" format="reference"/>
+
+        <attr name="componentButtonDefaultStyle" format="reference"/>
+
+        <attr name="toolbarDefaultStyle" format="reference"/>
+
+        <attr name="loaderButtonDefaultStyle" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="BaseInputView">
+        <attr name="android:gravity"/>
+        <attr name="android:inputType"/>
+        <attr name="android:hint"/>
+        <attr name="android:enabled"/>
+        <attr name="android:textAllCaps"/>
+        <attr name="android:maxLength"/>
+        <attr name="android:editTextColor" format="reference"/>
+        <attr name="android:textAppearance" format="reference"/>
+        <attr name="message" format="string"/>
+        <attr name="errorMessage" format="string"/>
+        <attr name="actionButtonText" format="string"/>
+        <attr name="fieldBackground" format="color"/>
+        <attr name="errorFieldBackground" format="color"/>
+        <attr name="messageTextColor" format="color"/>
+        <attr name="errorMessageTextColor" format="color"/>
+        <attr name="hintTextColor"/>
+        <attr name="endIconTint"/>
+        <attr name="endIconMode"/>
+        <attr name="endIconDrawable"/>
+    </declare-styleable>
+
+    <declare-styleable name="FilledSingleSelectorView">
+        <attr name="android:hint"/>
+        <attr name="android:text"/>
+    </declare-styleable>
+
+    <declare-styleable name="MaskedInputView">
+        <attr name="mask" format="string"/>
+        <attr name="allowedInputSymbols" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="MultilineInputView">
+        <attr name="android:singleLine" format="boolean" />
+        <attr name="maxInputLines" format="integer"/>
+        <attr name="android:maxLines"/>
+        <attr name="minLines" format="integer"/>
+        <attr name="maxLength" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="BalanceCardView">
+        <attr name="title"/>
+        <attr name="value" format="string"/>
+        <attr name="iconType" format="enum">
+            <enum name="plus" value="0"/>
+            <enum name="chevron" value="1"/>
+        </attr>
+        <attr name="iconDrawable" format="reference"/>
+        <attr name="logoDrawable" format="reference"/>
+        <attr name="roundedCornerMode" format="enum">
+            <enum name="single" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="middle" value="2"/>
+            <enum name="bottom" value="3"/>
+            <enum name="without" value="4"/>
+        </attr>
+        <attr name="isSurfaceClickable" format="boolean"/>
+        <attr name="isIconClickable" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="SingleSelectedCardView">
+        <attr name="title"/>
+        <attr name="value"/>
+    </declare-styleable>
+
+    <declare-styleable name="CategoryItemView">
+        <attr name="title"/>
+        <attr name="isNotificationEnabled" format="boolean"/>
+        <attr name="squircleViewDrawable" format="reference"/>
+        <attr name="amountText" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="SquircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="NavigatorCardView">
+        <attr name="title"/>
+        <attr name="countDrawable" format="reference"/>
+        <attr name="cardIcon" format="reference"/>
+        <attr name="isSurfaceClickable"/>
+    </declare-styleable>
+
+    <declare-styleable name="PhoneNumberPickerCardView">
+        <attr name="title"/>
+        <attr name="titleIcon" format="reference"/>
+        <attr name="primaryButtonText" format="string"/>
+        <attr name="secondaryButtonText" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="ItemInfoCardView">
+        <attr name="title"/>
+        <attr name="value"/>
+        <attr name="icon"/>
+    </declare-styleable>
+
+    <declare-styleable name="TariffPriceInfoCardView">
+        <attr name="title"/>
+        <attr name="internetCost" format="string"/>
+        <attr name="voiceInCost" format="string"/>
+        <attr name="voiceOutCost" format="string"/>
+        <attr name="smsCost" format="string"/>
+        <attr name="isDividerVisible" format="boolean"/>
+        <attr name="roundedCornerMode"/>
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedArcProgressView">
+        <attr name="arcWidth" format="dimension"/>
+        <attr name="arcStartAngle" format="integer"/>
+        <attr name="arcSweepAngle" format="integer"/>
+        <attr name="arcMargin" format="dimension"/>
+        <attr name="arcBaseStrokeColor" format="color"/>
+        <attr name="arcBaseStrokeWidth" format="dimension"/>
+        <attr name="arcProgressStrokeColor" format="color"/>
+        <attr name="arcProgressStrokeWidth" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedProgressLine">
+        <attr name="progressBackgroundColor" format="color"/>
+        <attr name="progressColor" format="color"/>
+        <attr name="progressPercent" format="integer"/>
+        <attr name="animateProgress" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="TariffPackagesInfoCardView">
+        <attr name="title"/>
+        <attr name="isDividerVisible"/>
+        <attr name="roundedCornerMode"/>
+        <attr name="internetArcTitle" format="string"/>
+        <attr name="internetArcSubtitle" format="string"/>
+        <attr name="internetArcCaption" format="string"/>
+        <attr name="internetArcFabVisibility" format="boolean"/>
+        <attr name="internetArcIcon" format="reference"/>
+        <attr name="callArcTitle" format="string"/>
+        <attr name="callArcSubtitle" format="string"/>
+        <attr name="callArcCaption" format="string"/>
+        <attr name="callArcFabVisibility" format="boolean"/>
+        <attr name="callArcIcon" format="reference"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="ChiliToolbar">
+        <attr name="title"/>
+        <attr name="titleCentered"/>
+        <attr name="toolbarTextAppearance" format="reference"/>
+        <attr name="additionalText" format="string"/>
+        <attr name="additionalTextTextAppearance" format="reference"/>
+        <attr name="toolbarEndIcon" format="reference"/>
+        <attr name="toolbarEndIconSize" format="dimension"/>
+        <attr name="isDividerVisible"/>
+        <attr name="background"/>
+        <attr name="navigationIcon"/>
+    </declare-styleable>
+
+    <declare-styleable name="MultiLineRightIconCell">
+        <attr name="android:icon" format="reference"/>
+        <attr name="title"  />
+        <attr name="subtitle"  />
+        <attr name="roundedCornerMode" />
+    </declare-styleable>
+
+    <declare-styleable name="LogoTitleCell">
+        <attr name="android:icon" format="reference"/>
+        <attr name="title" />
+        <attr name="roundedCornerMode" />
+    </declare-styleable>
+
+    <declare-styleable name="BaseCellView">
+        <attr name="android:icon"/>
+        <attr name="title"/>
+        <attr name="subtitle"/>
+        <attr name="cellIconSize" format="dimension">
+            <enum name="small" value="-1"/>
+            <enum name="medium" value="-2"/>
+            <enum name="large" value="-3"/>
+        </attr>
+        <attr name="cellIconVerticalMargin" format="dimension"/>
+        <attr name="cellIconHorizontalMargin" format="dimension"/>
+        <attr name="cellIconTopMargin" format="dimension"/>
+        <attr name="cellIconBottomMargin" format="dimension"/>
+        <attr name="cellIconStartMargin" format="dimension"/>
+        <attr name="cellIconEndMargin" format="dimension"/>
+        <attr name="roundedCornerMode"/>
+        <attr name="isDividerVisible"/>
+        <attr name="isSurfaceClickable"/>
+        <attr name="squircleIconBackgroundColor" format="color"/>
+        <attr name="isChevronVisible" format="boolean"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="subtitleTextAppearance"/>
+        <attr name="android:minHeight" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ToggleCellView">
+        <attr name="switch_text" format="string"/>
+        <attr name="switch_textOn" format="string"/>
+        <attr name="switch_textOff" format="string"/>
+        <attr name="isSwitchVisible" format="boolean"/>
+        <attr name="isSwitchChecked" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="EndIconCellView">
+        <attr name="endIcon" format="reference"/>
+        <attr name="isEndIconVisible" format="boolean"/>
+        <attr name="endIconSize" format="dimension">
+            <enum name="small" value="-1"/>
+            <enum name="medium" value="-2"/>
+            <enum name="large" value="-3"/>
+        </attr>
+        <attr name="isEndIconClickable" format="boolean"/>
+        <attr name="endIconEndMargin" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="CheckBoxCellView">
+        <attr name="isCheckBoxVisible" format="boolean"/>
+        <attr name="isCheckBoxChecked" format="boolean"/>
+        <attr name="checkBoxEndMargin" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="AdditionalTextCellView">
+        <attr name="additionalText"/>
+        <attr name="additionalTextTextAppearance" />
+    </declare-styleable>
+
+    <declare-styleable name="ActionCellView">
+        <attr name="actionText" format="string"/>
+        <attr name="isActionVisible" format="boolean"/>
+        <attr name="isActionEnabled" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="InfoCellView">
+        <attr name="roundedCornerMode"/>
+        <attr name="isDividerVisible"/>
+        <attr name="isSurfaceClickable"/>
+        <attr name="title"/>
+        <attr name="subtitle"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="subtitleTextAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableCellView">
+        <attr name="title"/>
+        <attr name="description" format="string"/>
+        <attr name="isExpanded" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ProgressCellView">
+        <attr name="title"/>
+        <attr name="description"/>
+        <attr name="progressBackgroundColor" />
+        <attr name="progressColor"/>
+        <attr name="progressPercent"/>
+        <attr name="animateProgress"/>
+    </declare-styleable>
+
+    <declare-styleable name="AdditionalDoubleButtonsView">
+        <attr name="firstButtonText" format="string"/>
+        <attr name="secondButtonText" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="AdditionalTextView">
+        <attr name="android:text"/>
+        <attr name="android:textAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="DetailCellView">
+        <attr name="title"/>
+        <attr name="subtitle"/>
+        <attr name="value"/>
+        <attr name="status" format="string"/>
+        <attr name="icon"/>
+        <attr name="isSurfaceClickable"/>
+        <attr name="roundedCornerMode"/>
+    </declare-styleable>
+
+    <declare-styleable name="LoaderButton">
+        <attr name="android:text"/>
+        <attr name="android:enabled"/>
+        <attr name="isLoading" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableInfoCardView">
+        <attr name="title"/>
+        <attr name="subtitle"/>
+        <attr name="value"/>
+        <attr name="isExpandable" format="boolean"/>
+        <attr name="isExpanded"/>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableInfoCardInfoView">
+        <attr name="title"/>
+        <attr name="subtitle"/>
+        <attr name="titleValue" format="string"/>
+        <attr name="subtitleValue" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="ViewBalanceInfo">
+        <attr name="title"/>
+        <attr name="value"/>
+        <attr name="icon"/>
+        <attr name="rootVerticalPadding" format="dimension"/>
+        <attr name="rootTopPadding" format="dimension"/>
+        <attr name="rootBottomPadding" format="dimension"/>
+    </declare-styleable>
+
+</resources>

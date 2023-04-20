@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Chili.InputViewStyle" parent="Chili.BaseChiliViewStyle">
+        <item name="errorFieldBackground">?attr/ChiliInputViewBackgroundErrorColor</item>
+        <item name="fieldBackground">?attr/ChiliInputViewBackgroundColor</item>
+        <item name="hintTextColor">?attr/ChiliInputViewHintTextColor</item>
+        <item name="errorMessageTextColor">?attr/ChiliInputViewErrorMessageTextColor</item>
+        <item name="messageTextColor">?attr/ChiliInputViewMessageTextColor</item>
+        <item name="android:textAppearance">@style/Chili.H5.Primary.Bold</item>
+        <item name="android:editTextColor">@color/chili_state_primary_text_color</item>
+    </style>
+
+
+    <style name="Chili.InputViewStyle.Simple"></style>
+    <style name="Chili.InputViewStyle.Masked"></style>
+
+    <style name="Chili.InputViewStyle.Masked.PhoneMask">
+        <item name="android:inputType">phone</item>
+        <item name="allowedInputSymbols">1234567890</item>
+        <item name="mask">+996 XXX XXX XXX</item>
+    </style>
+
+    <style name="Chili.InputViewStyle.Simple.Password">
+        <item name="endIconMode">password_toggle</item>
+    </style>
+
+    <style name="Chili.InputViewStyle.Multiline">
+        <item name="android:singleLine">false</item>
+    </style>
+
+</resources>

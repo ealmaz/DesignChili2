@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar_sv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/ChiliScreenBackground"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <com.design.chili.view.navigation_components.ChiliToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:background="@android:color/transparent"
+            app:titleCentered="true"
+            app:title="Transparent Toolbar" />
+
+        <com.design.chili.view.navigation_components.ChiliToolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="Default toolbar" />
+
+        <com.design.chili.view.navigation_components.ChiliToolbar
+            android:id="@+id/toolbar4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:navigationIcon="@drawable/chili_ic_success"
+            app:title="Custom navigation icon toolbar" />
+
+
+        <com.design.chili.view.navigation_components.ChiliToolbar
+            android:id="@+id/toolbar5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:additionalText="5 из 10"
+            app:title="Additional text" />
+
+
+        <com.design.chili.view.navigation_components.ChiliToolbar
+            android:id="@+id/toolbar6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:toolbarEndIcon="@drawable/ic_cat"
+            app:title="End icon" />
+
+        <com.design.chili.view.navigation_components.ChiliToolbar
+            android:id="@+id/toolbar7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:toolbarEndIcon="@drawable/ic_cat"
+            app:toolbarEndIconSize="54dp"
+            app:title="End icon size 54dp" />
+
+        <com.design.chili.view.navigation_components.ChiliToolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="Menu toolbar" />
+
+
+    </LinearLayout>
+
+</ScrollView>

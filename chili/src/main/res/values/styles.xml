@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Chili"/>
+
+    <style name="Chili.BaseChiliViewStyle"></style>
+
+    <style name="Chili.SingleLineTextView" parent="Chili.BaseChiliViewStyle">
+        <item name="android:singleLine">true</item>
+        <item name="maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+</resources>

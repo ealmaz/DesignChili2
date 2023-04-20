@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="?attr/ChiliScreenBackground"
+    android:layout_height="match_parent"
+    android:id="@+id/bt_sv">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/action"
+            android:text="Action bottom sheet"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/info"
+            android:text="Info bottom sheet"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/detail"
+            android:text="Detailed info bottom sheet"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/description"
+            android:text="Description bottom sheet"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/custom"
+            android:text="Custom fragment sheet"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/custom_with_builder"
+            android:text="Custom fragment sheet with Builder"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/in_app"
+            android:text="In App push"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/in_app_banner"
+            android:text="In App push with banner"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/visbile_bottom_sheet"
+            android:text="Interactive bottom sheet"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/serach_bottom_sheet"
+            android:text="Search Bottom sheet"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

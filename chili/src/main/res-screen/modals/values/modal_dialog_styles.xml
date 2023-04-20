@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Chili.BaseDialogStyle" parent="Chili.BaseChiliViewStyle">
+
+    </style>
+
+
+    <style name="Chili.DatePickerSpinnerStyle" parent="@android:style/Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:calendarViewShown">false</item>
+    </style>
+
+    <style name="Chili.TimePickerSpinnerStyle" parent="Widget.MaterialComponents.TimePicker">
+        <item name="android:timePickerMode">spinner</item>
+        <item name="android:calendarViewShown">false</item>
+    </style>
+
+    <style name="Chili.DatePickerSpinnerTheme" parent="@android:style/Widget.Material.DatePicker">
+        <item name="colorControlNormal">?attr/ChiliPickerDialogControlColor</item>
+        <item name="android:textSize">?attr/ChiliTextSizeH7</item>
+    </style>
+
+    <style name="Chili.InAppPushStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Chili.Modal</item>
+    </style>
+
+    <style name="Chili.Modal" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+
+</resources>
