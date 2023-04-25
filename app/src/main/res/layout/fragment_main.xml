@@ -85,6 +85,14 @@
             android:layout_margin="@dimen/padding_16dp"/>
 
         <Button
+            android:id="@+id/nav_bars"
+            android:text="Navigation bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
             android:id="@+id/pickers"
             android:text="Pickers"
             android:layout_width="match_parent"

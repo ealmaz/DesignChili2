@@ -27,6 +27,9 @@
     <color name="magenta_3">#f6a7d0</color>
     <color name="magenta_5">#F6ECF2</color>
 
+    <!-- fucsia -->
+    <color name="fucsia_1">#FF0051</color>
+
     <!-- Green -->
     <color name="green_1">#82B752</color>
     <color name="green_2">#415C29</color>

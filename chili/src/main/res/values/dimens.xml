@@ -60,6 +60,7 @@
     <dimen name="view_48dp">48dp</dimen>
     <dimen name="view_52dp">52dp</dimen>
     <dimen name="view_64dp">64dp</dimen>
+    <dimen name="view_68dp">68dp</dimen>
     <dimen name="view_72dp">72dp</dimen>
     <dimen name="view_74dp">74dp</dimen>
     <dimen name="view_96dp">96dp</dimen>

@@ -66,6 +66,10 @@
         <item name="ChiliToolbarIconsTint">@color/white_1</item>
         <item name="ChiliToolbarBackground">@color/black_3</item>
 
+        <!-- NavigationBar -->
+        <item name="ChiliNavigationBarBackground">@color/black_4</item>
+        <item name="ChiliNavigationBarInactiveItemTextColor">@color/white_1</item>
+
 
         <!-- Additional Button attributes -->
         <item name="ChiliNewAdditionalButtonBackgroundActive">@color/black_5</item>

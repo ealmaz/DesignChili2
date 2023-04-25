@@ -102,6 +102,15 @@
         <item name="ChiliToolbarIconsTint">@color/black_1</item>
         <item name="ChiliToolbarBackground">@color/white_1</item>
 
+        <!-- NavigationBar -->
+
+        <item name="ChiliNavigationBarBackground">@color/gray_3</item>
+        <item name="ChiliNavigationBarBackgroundCornerRadius">@dimen/radius_24dp</item>
+        <item name="ChiliNavigationBarActiveItemIconColor">@color/fucsia_1</item>
+        <item name="ChiliNavigationBarInactiveItemIconColor">@color/gray_1</item>
+        <item name="ChiliNavigationBarActiveItemTextColor">@color/fucsia_1</item>
+        <item name="ChiliNavigationBarInactiveItemTextColor">@color/black_1</item>
+
         <!-- Primary Button attributes -->
         <item name="ChiliPrimaryButtonBackgroundActive">@color/green_1</item>
         <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_3</item>

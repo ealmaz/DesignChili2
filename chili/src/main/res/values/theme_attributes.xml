@@ -112,6 +112,15 @@
     <attr name="ChiliToolbarIconsTint" format="color"/>
     <attr name="ChiliToolbarBackground" format="color|reference"/>
 
+    <!-- NavigationBar -->
+    <attr name="ChiliNavigationBarBackground" format="color|reference"/>
+    <attr name="ChiliNavigationBarBackgroundCornerRadius" format="color"/>
+    <attr name="ChiliNavigationBarActiveItemIconColor" format="color"/>
+    <attr name="ChiliNavigationBarInactiveItemIconColor" format="color"/>
+    <attr name="ChiliNavigationBarActiveItemTextColor" format="color"/>
+    <attr name="ChiliNavigationBarInactiveItemTextColor" format="color"/>
+
+
     <!-- InputView attributes -->
     <attr name="ChiliBaseInputViewBackground" format="reference"/>
     <attr name="ChiliBaseInputViewBackgroundError" format="reference"/>
