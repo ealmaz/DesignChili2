@@ -49,14 +49,14 @@
             app:layout_constraintBottom_toBottomOf="@+id/tv_title"
             app:layout_constraintLeft_toRightOf="@+id/tv_title"
             app:layout_constraintTop_toTopOf="@+id/tv_title"
-            tools:src="@drawable/chili_ic_chevron_light" />
+            tools:src="@drawable/depcrecated_chili_ic_chevron_light" />
 
         <LinearLayout
             android:id="@+id/ll_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_8dp"
-            android:background="@drawable/chili_card_rounded_background_24dp"
+            android:background="@drawable/chili_card_rounded_background"
             android:backgroundTint="?attr/ChiliNotifiedBalanceCardBackgroundTint"
             android:gravity="center"
             android:orientation="horizontal"

@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:drawableRight="@drawable/chili_chevron_right_black"
+            android:drawableRight="@drawable/deprecated_chili_chevron_right_black"
             android:drawableTint="?attr/ChiliInputViewHintTextColor"
             android:ellipsize="end"
             android:gravity="center_vertical"

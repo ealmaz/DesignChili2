@@ -44,7 +44,7 @@
             android:id="@+id/iv_action_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:src="@drawable/chili_ic_chevron_light"
+            tools:src="@drawable/depcrecated_chili_ic_chevron_light"
             android:layout_marginEnd="@dimen/padding_4dp"
             android:layout_marginStart="@dimen/padding_8dp"
             android:visibility="visible"

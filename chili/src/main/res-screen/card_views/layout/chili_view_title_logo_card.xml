@@ -44,7 +44,7 @@
 
         <ImageView
             android:id="@+id/iv_action_icon"
-            tools:src="@drawable/chili_ic_chevron_light"
+            tools:src="@drawable/depcrecated_chili_ic_chevron_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/padding_4dp"

@@ -150,6 +150,10 @@ open class BaseCellView @JvmOverloads constructor(
         view.tvSubtitle.setTextOrHide(text)
     }
 
+    fun setSubtitle(text: Spanned?) {
+        view.tvSubtitle.setTextOrHide(text)
+    }
+
     fun setSubtitle(@StringRes resId: Int) {
         view.tvSubtitle.setTextOrHide(resId)
     }

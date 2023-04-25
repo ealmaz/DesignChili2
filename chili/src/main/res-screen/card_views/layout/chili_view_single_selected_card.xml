@@ -21,7 +21,7 @@
         android:id="@+id/cl_view"
         android:paddingBottom="@dimen/padding_12dp"
         tools:backgroundTint="@color/blue_1_alpha_50"
-        android:background="@drawable/chili_card_rounded_background_10dp">
+        android:background="@drawable/chili_card_rounded_background">
 
         <TextView
             android:id="@+id/tv_title"

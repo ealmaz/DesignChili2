@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Chili.CellViewStyle" parent="Chili.BaseChiliViewStyle"/>
+    <style name="Chili.CellViewStyle" parent="Chili.BaseChiliViewStyle">
+        <item name="android:background">@drawable/chili_cell_rounded_background</item>
+        <item name="android:elevation">@dimen/elevation_8dp</item>
+    </style>
 
     <style name="Chili.CellViewStyle.BaseCellViewStyle"/>
 

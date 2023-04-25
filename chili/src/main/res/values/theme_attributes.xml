@@ -37,14 +37,13 @@
     <attr name="ChiliDividerColor" format="color"/>
     <attr name="ChiliDividerHeightSize" format="dimension"/>
 
+    <!-- Chevron -->
+    <attr name="ChiliChevronColor" format="color"/>
 
 
     <!-- CardView attributes -->
     <attr name="ChiliCardViewBackground" format="reference"/>
     <attr name="ChiliCardViewCornerRadius" format="dimension"/>
-    <attr name="ChiliCardViewCornerRadius10" format="dimension"/>
-    <attr name="ChiliCardViewCornerRadius12" format="dimension"/>
-    <attr name="ChiliCardViewCornerRadius24" format="dimension"/>
     <attr name="ChiliCardViewSquircleBackground" format="reference"/>
     <attr name="ChiliCardViewPhonePickerDividerColor" format="color"/>
     <attr name="ChiliAnimatedLeftoverAddButtonBackground" format="color"/>

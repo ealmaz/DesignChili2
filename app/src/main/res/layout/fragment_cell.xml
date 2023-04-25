@@ -12,9 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginHorizontal="@dimen/padding_16dp"
+        android:paddingHorizontal="@dimen/padding_16dp"
         android:layout_marginTop="@dimen/padding_16dp"
         android:paddingBottom="220dp"
+        android:clipToPadding="false"
         tools:context=".MainActivity">
         <TextView
             android:layout_width="wrap_content"
@@ -863,6 +864,8 @@
         <com.design2.chili2.view.common.AdditionalDoubleButtonsView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/chili_cell_rounded_bottom_background"
+            android:elevation="@dimen/elevation_8dp"
             app:firstButtonText="ОТМЕНИТЬ"
             app:secondButtonText="ОПЛАТИТЬ"/>
 
@@ -886,6 +889,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Chili.H8.Secondary"
+            android:background="@drawable/chili_cell_rounded_bottom_background"
+            android:elevation="@dimen/elevation_8dp"
             android:text="Поле ввода комментария вмещает в себя такое же количество символов, сколько поле поле ввода комментария - 130 символов"/>
 
         <com.design2.chili2.view.cells.BaseCellView
@@ -903,6 +908,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Chili.H8.Error"
+            android:background="@drawable/chili_cell_rounded_bottom_background"
+            android:elevation="@dimen/elevation_8dp"
             android:text="Test now в себя такое же количество символов, сколько поле поле ввода комментария - 130 символов"/>
 
 

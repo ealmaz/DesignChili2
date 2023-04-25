@@ -6,6 +6,6 @@
         android:color="?attr/ChiliCardViewBackground"
         tools:color="#fff" />
     <corners
-        android:radius="?attr/ChiliCardViewCornerRadius12"
+        android:radius="?attr/ChiliCardViewCornerRadius"
         tools:radius="12dp" />
 </shape>

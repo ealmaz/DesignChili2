@@ -140,7 +140,7 @@ class NotifiedBalanceCardView : FrameLayout, Shimmering {
     fun setIconType(type: IconType) {
         when (type) {
             IconType.PLUS -> setIconDrawableRes(R.drawable.chili_ic_magenta_plus)
-            IconType.CHEVRON -> setIconDrawableRes(R.drawable.chili_ic_chevron_light)
+            IconType.CHEVRON -> setIconDrawableRes(R.drawable.depcrecated_chili_ic_chevron_light)
         }
     }
 
