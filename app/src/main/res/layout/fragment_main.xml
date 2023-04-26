@@ -1,105 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="?attr/ChiliScreenBackground"
     android:layout_height="match_parent"
-    android:id="@+id/toor">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?ChiliScreenBackground"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Chili.H5.Primary"
+        android:layout_margin="@dimen/view_16dp"
+        android:text="Welcome to DesignChili2"/>
+
+    <com.design2.chili2.view.common.ExpandableContainer
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:layout_height="wrap_content"
+        app:title="Что нового:">
 
-        <Button
-            android:id="@+id/text"
-            android:text="Text Appearances"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_news"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/padding_16dp"/>
+            android:textAppearance="@style/Chili.H6.Secondary"
+            android:layout_marginHorizontal="@dimen/view_16dp" />
 
-        <Button
-            android:id="@+id/buttons"
-            android:text="Buttons"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/padding_16dp"/>
+    </com.design2.chili2.view.common.ExpandableContainer>
 
-        <Button
-            android:id="@+id/fileds"
-            android:text="Input fields"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_margin="@dimen/padding_16dp"/>
 
-        <Button
-            android:id="@+id/cards"
-            android:text="Cards"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_margin="@dimen/padding_16dp"/>
-
-        <Button
-            android:id="@+id/cells_new"
-            android:text="Cells ALL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_margin="@dimen/padding_16dp"/>
-
-        <Button
-            android:id="@+id/snackbar"
-            android:text="Snackbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_margin="@dimen/padding_16dp"/>
-
-        <Button
-            android:id="@+id/common"
-            android:text="Common"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_margin="@dimen/padding_16dp"/>
-
-        <Button
-            android:id="@+id/bottom_sheet"
-            android:text="Bottom sheets"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_margin="@dimen/padding_16dp"/>
-
-        <Button
-            android:id="@+id/toolbars"
-            android:text="Toolbars"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_margin="@dimen/padding_16dp"/>
-
-        <Button
-            android:id="@+id/nav_bars"
-            android:text="Navigation bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_margin="@dimen/padding_16dp"/>
-
-        <Button
-            android:id="@+id/pickers"
-            android:text="Pickers"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_margin="@dimen/padding_16dp"/>
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>

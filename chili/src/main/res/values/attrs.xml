@@ -36,6 +36,8 @@
         <attr name="toolbarDefaultStyle" format="reference"/>
 
         <attr name="loaderButtonDefaultStyle" format="reference"/>
+
+        <attr name="expandableContainerViewStyle" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="BaseInputView">
@@ -343,6 +345,23 @@
         <attr name="rootVerticalPadding" format="dimension"/>
         <attr name="rootTopPadding" format="dimension"/>
         <attr name="rootBottomPadding" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableContainer">
+        <attr name="title"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="subtitle"/>
+        <attr name="subtitleTextAppearance"/>
+        <attr name="endIcon"/>
+        <attr name="endIconSize"/>
+        <attr name="isEndIconClickable"/>
+        <attr name="actionText"/>
+        <attr name="actionTextEnabled" format="boolean"/>
+        <attr name="actionTextTextAppearance" format="reference"/>
+        <attr name="additionalText"/>
+        <attr name="additionalTextTextAppearance"/>
+        <attr name="closureIndicatorVisibility" format="boolean"/>
+        <attr name="isExpanded"/>
     </declare-styleable>
 
 </resources>

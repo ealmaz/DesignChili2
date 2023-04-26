@@ -33,4 +33,9 @@
         <item name="android:textAlignment">textStart</item>
     </style>
 
+    <style name="Chili.ExpandableContainerViewStyle" parent="Chili.BaseChiliViewStyle">
+        <item name="android:orientation">vertical</item>
+        <item name="android:animateLayoutChanges">true</item>
+    </style>
+
 </resources>

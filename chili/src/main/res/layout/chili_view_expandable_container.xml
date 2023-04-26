@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/padding_16dp"
+    android:id="@+id/root_view">
+
+    <LinearLayout
+        android:id="@+id/title_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/padding_14dp"
+        android:layout_marginBottom="@dimen/padding_8dp"
+        android:gravity="center_vertical"
+        app:layout_goneMarginBottom="@dimen/padding_14dp"
+        app:layout_constraintBottom_toTopOf="@id/tv_subtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_additional_text">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Chili.H7.Primary.700"
+            tools:text="История" />
+
+        <ImageView
+            android:id="@+id/iv_closure_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/chili_ic_shevron_down"
+            android:background="?selectableItemBackgroundBorderless"
+            android:layout_marginStart="@dimen/padding_8dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_additional_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Chili.H7.Secondary"
+        android:visibility="gone"
+        android:paddingStart="@dimen/padding_8dp"
+        app:layout_constraintTop_toTopOf="@id/title_container"
+        app:layout_constraintBottom_toBottomOf="@id/title_container"
+        app:layout_constraintEnd_toStartOf="@id/tv_action"
+        tools:visibility="visible"
+        tools:text="AdditionalText" />
+
+    <TextView
+        android:id="@+id/tv_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        style="@style/Chili.ButtonStyle.Component"
+        android:paddingHorizontal="@dimen/padding_2dp"
+        app:layout_constraintTop_toTopOf="@id/title_container"
+        app:layout_constraintBottom_toBottomOf="@id/title_container"
+        app:layout_constraintEnd_toStartOf="@id/iv_end_icon"
+        tools:visibility="visible"
+        tools:text="Смотреть"/>
+
+    <ImageView
+        android:id="@+id/iv_end_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="?selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toTopOf="@id/title_container"
+        app:layout_constraintBottom_toBottomOf="@id/title_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:src="@drawable/chili_ic_attention"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Chili.H8.Primary"
+        android:visibility="gone"
+        android:maxLines="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_subtitle"
+        tools:visibility="visible"
+        tools:text="Подзаголовок максимум \nв 2 строки" />
+        
+
+</androidx.constraintlayout.widget.ConstraintLayout>

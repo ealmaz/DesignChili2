@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:paddingBottom="124dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -204,6 +205,180 @@
                 style="@style/Chili.RadioButtonRltStyle"/>
 
         </RadioGroup>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gray_1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Chili.H7.Secondary"
+            android:layout_margin="@dimen/padding_16dp"
+            android:text="Expandable container"/>
+
+
+        <com.design2.chili2.view.common.ExpandableContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="История платежей"
+            app:actionText="Смотреть">
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginHorizontal="@dimen/view_16dp"
+                app:title="Заголовок"
+                app:subtitle="+ 996 700 500 430"
+                app:value="- 140"
+                app:status="В обработке"
+                app:icon="@drawable/chili_ic_success" />
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginHorizontal="@dimen/view_16dp"
+                app:title="Заголовок"
+                app:subtitle="+ 996 700 500 430"
+                app:value="- 140"
+                app:status="В обработке"
+                app:icon="@drawable/chili_ic_success" />
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginHorizontal="@dimen/view_16dp"
+                android:layout_marginBottom="@dimen/view_32dp"
+                app:title="Заголовок"
+                app:subtitle="+ 996 700 500 430"
+                app:value="- 140"
+                app:status="В обработке"
+                app:icon="@drawable/chili_ic_success" />
+
+        </com.design2.chili2.view.common.ExpandableContainer>
+
+        <com.design2.chili2.view.common.ExpandableContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="Избранное"
+            app:subtitle="Добавьте избранное для быстрых \nпереводов и платежей"
+            app:endIcon="@drawable/plus"
+            app:endIconSize="small"
+            app:isEndIconClickable="true">
+
+        </com.design2.chili2.view.common.ExpandableContainer>
+
+
+        <com.design2.chili2.view.common.ExpandableContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_16dp"
+            app:title="Бонусные карты"
+            app:actionText="Смотреть"
+            app:actionTextEnabled="false">
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginHorizontal="@dimen/view_16dp"
+                app:title="Заголовок"
+                app:subtitle="+ 996 700 500 430"
+                app:value="- 140"
+                app:status="В обработке"
+                app:icon="@drawable/chili_ic_success" />
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginHorizontal="@dimen/view_16dp"
+                app:title="Заголовок"
+                app:subtitle="+ 996 700 500 430"
+                app:value="- 140"
+                app:status="В обработке"
+                app:icon="@drawable/chili_ic_success" />
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginHorizontal="@dimen/view_16dp"
+                android:layout_marginBottom="@dimen/view_32dp"
+                app:title="Заголовок"
+                app:subtitle="+ 996 700 500 430"
+                app:value="- 140"
+                app:status="В обработке"
+                app:icon="@drawable/chili_ic_success" />
+
+        </com.design2.chili2.view.common.ExpandableContainer>
+
+        <com.design2.chili2.view.common.ExpandableContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="Избранное"
+            app:subtitle="Добавьте избранное для быстрых \nпереводов и платежей"
+            app:endIcon="@drawable/chili_ic_attention"
+            app:endIconSize="small"
+            app:additionalText="score problem"
+            app:isEndIconClickable="false">
+
+        </com.design2.chili2.view.common.ExpandableContainer>
+
+        <com.design2.chili2.view.common.ExpandableContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="Избранное"
+            app:endIcon="@drawable/chili_ic_success"
+            app:endIconSize="small"
+            app:closureIndicatorVisibility="false">
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginHorizontal="@dimen/view_16dp"
+                app:title="Заголовок"
+                app:subtitle="+ 996 700 500 430"
+                app:value="- 140"
+                app:status="В обработке"
+                app:icon="@drawable/chili_ic_success" />
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginHorizontal="@dimen/view_16dp"
+                app:title="Заголовок"
+                app:subtitle="+ 996 700 500 430"
+                app:value="- 140"
+                app:status="В обработке"
+                app:icon="@drawable/chili_ic_success" />
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginHorizontal="@dimen/view_16dp"
+                android:layout_marginBottom="@dimen/view_32dp"
+                app:title="Заголовок"
+                app:subtitle="+ 996 700 500 430"
+                app:value="- 140"
+                app:status="В обработке"
+                app:icon="@drawable/chili_ic_success" />
+
+        </com.design2.chili2.view.common.ExpandableContainer>
+
+
     </LinearLayout>
 
 </ScrollView>
