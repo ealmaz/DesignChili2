@@ -227,39 +227,11 @@
             app:title="История платежей"
             app:actionText="Смотреть">
 
-            <com.design2.chili2.view.cells.DetailCellView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8dp"
-                android:layout_marginHorizontal="@dimen/view_16dp"
-                app:title="Заголовок"
-                app:subtitle="+ 996 700 500 430"
-                app:value="- 140"
-                app:status="В обработке"
-                app:icon="@drawable/chili_ic_success" />
-
-            <com.design2.chili2.view.cells.DetailCellView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8dp"
-                android:layout_marginHorizontal="@dimen/view_16dp"
-                app:title="Заголовок"
-                app:subtitle="+ 996 700 500 430"
-                app:value="- 140"
-                app:status="В обработке"
-                app:icon="@drawable/chili_ic_success" />
-
-            <com.design2.chili2.view.cells.DetailCellView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8dp"
-                android:layout_marginHorizontal="@dimen/view_16dp"
-                android:layout_marginBottom="@dimen/view_32dp"
-                app:title="Заголовок"
-                app:subtitle="+ 996 700 500 430"
-                app:value="- 140"
-                app:status="В обработке"
-                app:icon="@drawable/chili_ic_success" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         </com.design2.chili2.view.common.ExpandableContainer>
 
