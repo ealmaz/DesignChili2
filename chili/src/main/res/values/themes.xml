@@ -104,7 +104,7 @@
 
         <!-- NavigationBar -->
 
-        <item name="ChiliNavigationBarBackground">@color/gray_3</item>
+        <item name="ChiliNavigationBarBackground">@color/gray_3_alpha_95</item>
         <item name="ChiliNavigationBarBackgroundCornerRadius">@dimen/radius_24dp</item>
         <item name="ChiliNavigationBarActiveItemIconColor">@color/fucsia_1</item>
         <item name="ChiliNavigationBarInactiveItemIconColor">@color/gray_1</item>
