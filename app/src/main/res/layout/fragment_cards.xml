@@ -18,7 +18,7 @@
         android:paddingBottom="@dimen/padding_16dp"
         tools:context=".MainActivity">
 
-        <com.design2.chili2.view.card.ExpandableInfoCardView
+        <com.design2.chili2.view.container.ExpandableCardContainer
             android:id="@+id/expandable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,14 +29,14 @@
             app:subtitle="Дата погашения: 10.10.2022"
             app:title="К погашению: 8 200,00 с">
 
-            <com.design2.chili2.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableCardItemView
                 android:id="@+id/item1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="Сумма к зачислению:"
                 app:titleValue="8 000,00 с" />
 
-            <com.design2.chili2.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableCardItemView
                 android:id="@+id/item2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,12 +45,12 @@
                 app:title="Сумма кредита: "
                 app:titleValue="8 150,00 с" />
 
-            <com.design2.chili2.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableCardItemView
                 android:id="@+id/item3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="Сумма % по кредиту: " />
-        </com.design2.chili2.view.card.ExpandableInfoCardView>
+        </com.design2.chili2.view.container.ExpandableCardContainer>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
 
         </LinearLayout>
 
-        <com.design2.chili2.view.card.ExpandableInfoCardView
+        <com.design2.chili2.view.container.ExpandableCardContainer
             android:id="@+id/expandable2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,14 +86,14 @@
             app:subtitle="Дата погашения: 10.10.2022"
             app:title="К погашению: 8 200,00 с">
 
-            <com.design2.chili2.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableCardItemView
                 android:id="@+id/item21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="Сумма к зачислению:"
                 app:titleValue="8 000,00 с" />
 
-            <com.design2.chili2.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableCardItemView
                 android:id="@+id/item22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                 app:title="Сумма кредита: "
                 app:titleValue="8 150,00 с" />
 
-            <com.design2.chili2.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableCardItemView
                 android:id="@+id/item23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,9 +110,9 @@
                 app:value="50,00 с" />
 
 
-        </com.design2.chili2.view.card.ExpandableInfoCardView>
+        </com.design2.chili2.view.container.ExpandableCardContainer>
 
-        <com.design2.chili2.view.card.ExpandableInfoCardView
+        <com.design2.chili2.view.container.ExpandableCardContainer
             android:id="@+id/expandable3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
             app:title="К погашению"
             app:value="8 200,00 с">
 
-            <com.design2.chili2.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableCardItemView
                 android:id="@+id/item32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                 app:title="Сумма кредита: "
                 app:titleValue="8 150,00 с" />
 
-            <com.design2.chili2.view.card.ExpandableInfoCardItemView
+            <com.design2.chili2.view.card.ExpandableCardItemView
                 android:id="@+id/item33"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
                 app:value="50,00 с" />
 
 
-        </com.design2.chili2.view.card.ExpandableInfoCardView>
+        </com.design2.chili2.view.container.ExpandableCardContainer>
 
         <LinearLayout
             android:layout_width="match_parent"

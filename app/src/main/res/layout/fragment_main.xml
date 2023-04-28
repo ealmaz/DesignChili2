@@ -13,7 +13,7 @@
         android:layout_margin="@dimen/view_16dp"
         android:text="Welcome to DesignChili2"/>
 
-    <com.design2.chili2.view.common.ExpandableContainer
+    <com.design2.chili2.view.container.ExpandableContainer
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="Что нового:">
@@ -25,7 +25,7 @@
             android:textAppearance="@style/Chili.H6.Secondary"
             android:layout_marginHorizontal="@dimen/view_16dp" />
 
-    </com.design2.chili2.view.common.ExpandableContainer>
+    </com.design2.chili2.view.container.ExpandableContainer>
 
 
 </LinearLayout>

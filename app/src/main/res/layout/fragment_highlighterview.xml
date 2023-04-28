@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.design2.chili2.view.common.HighlighterContainer
+                <com.design2.chili2.view.container.HighlighterContainer
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:highlighterColor="#FF0051"
@@ -61,9 +61,9 @@
                     </androidx.cardview.widget.CardView>
 
 
-                </com.design2.chili2.view.common.HighlighterContainer>
+                </com.design2.chili2.view.container.HighlighterContainer>
 
-                <com.design2.chili2.view.common.HighlighterContainer
+                <com.design2.chili2.view.container.HighlighterContainer
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/padding_10dp"
@@ -98,9 +98,9 @@
                     </androidx.cardview.widget.CardView>
 
 
-                </com.design2.chili2.view.common.HighlighterContainer>
+                </com.design2.chili2.view.container.HighlighterContainer>
 
-                <com.design2.chili2.view.common.HighlighterContainer
+                <com.design2.chili2.view.container.HighlighterContainer
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:highlighterColor="#FF0051"
@@ -133,9 +133,9 @@
                     </androidx.cardview.widget.CardView>
 
 
-                </com.design2.chili2.view.common.HighlighterContainer>
+                </com.design2.chili2.view.container.HighlighterContainer>
 
-                <com.design2.chili2.view.common.HighlighterContainer
+                <com.design2.chili2.view.container.HighlighterContainer
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:highlighterColor="#FF0051"
@@ -168,9 +168,9 @@
                     </androidx.cardview.widget.CardView>
 
 
-                </com.design2.chili2.view.common.HighlighterContainer>
+                </com.design2.chili2.view.container.HighlighterContainer>
 
-                <com.design2.chili2.view.common.HighlighterContainer
+                <com.design2.chili2.view.container.HighlighterContainer
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:highlighterColor="#FF0051"
@@ -203,13 +203,13 @@
                     </androidx.cardview.widget.CardView>
 
 
-                </com.design2.chili2.view.common.HighlighterContainer>
+                </com.design2.chili2.view.container.HighlighterContainer>
 
             </LinearLayout>
 
         </HorizontalScrollView>
 
-        <com.design2.chili2.view.common.HighlighterContainer
+        <com.design2.chili2.view.container.HighlighterContainer
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:highlighterColor="#FF0051"
@@ -245,9 +245,9 @@
             </androidx.cardview.widget.CardView>
 
 
-        </com.design2.chili2.view.common.HighlighterContainer>
+        </com.design2.chili2.view.container.HighlighterContainer>
 
-        <com.design2.chili2.view.common.HighlighterContainer
+        <com.design2.chili2.view.container.HighlighterContainer
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:highlighterColor="#FF0051"
@@ -283,9 +283,9 @@
             </androidx.cardview.widget.CardView>
 
 
-        </com.design2.chili2.view.common.HighlighterContainer>
+        </com.design2.chili2.view.container.HighlighterContainer>
 
-        <com.design2.chili2.view.common.HighlighterContainer
+        <com.design2.chili2.view.container.HighlighterContainer
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:highlighterGradientStartColor="#F0047F"
@@ -320,7 +320,7 @@
             </androidx.cardview.widget.CardView>
 
 
-        </com.design2.chili2.view.common.HighlighterContainer>
+        </com.design2.chili2.view.container.HighlighterContainer>
 
 
         <LinearLayout
@@ -328,7 +328,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.design2.chili2.view.common.HighlighterContainer
+            <com.design2.chili2.view.container.HighlighterContainer
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:highlighterColor="#FF0051"
@@ -355,9 +355,9 @@
                 </androidx.cardview.widget.CardView>
 
 
-            </com.design2.chili2.view.common.HighlighterContainer>
+            </com.design2.chili2.view.container.HighlighterContainer>
 
-            <com.design2.chili2.view.common.HighlighterContainer
+            <com.design2.chili2.view.container.HighlighterContainer
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:highlighterColor="#FF0051"
@@ -386,9 +386,9 @@
                 </androidx.cardview.widget.CardView>
 
 
-            </com.design2.chili2.view.common.HighlighterContainer>
+            </com.design2.chili2.view.container.HighlighterContainer>
 
-            <com.design2.chili2.view.common.HighlighterContainer
+            <com.design2.chili2.view.container.HighlighterContainer
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:highlighterColor="#FF0051"
@@ -417,7 +417,7 @@
                 </androidx.cardview.widget.CardView>
 
 
-            </com.design2.chili2.view.common.HighlighterContainer>
+            </com.design2.chili2.view.container.HighlighterContainer>
 
 
 

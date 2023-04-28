@@ -16,8 +16,7 @@
         <attr name="logoTitleCellDefaultStyle" format="reference"/>
         <attr name="infoCellViewDefaultStyle" format="reference"/>
 
-        <attr name="expandableInfoCardViewDefaultStyle" format="reference"/>
-        <attr name="expandableInfoCardItemViewDefaultStyle" format="reference"/>
+        <attr name="expandableCardItemViewDefaultStyle" format="reference"/>
 
         <attr name="multiLineRightIconCellDefaultStyle" format="reference"/>
 
@@ -37,8 +36,9 @@
 
         <attr name="loaderButtonDefaultStyle" format="reference"/>
 
-        <attr name="expandableContainerViewStyle" format="reference"/>
 
+        <attr name="expandableCardContainerDefaultStyle" format="reference"/>
+        <attr name="expandableContainerViewStyle" format="reference"/>
         <attr name="highlighterContainerDefaultStyle" format="reference"/>
 
         <attr name="baseCardViewDefaultStyle" format="reference"/>
@@ -327,7 +327,7 @@
         <attr name="isLoading" format="boolean"/>
     </declare-styleable>
 
-    <declare-styleable name="ExpandableInfoCardView">
+    <declare-styleable name="ExpandableCardContainer">
         <attr name="title"/>
         <attr name="subtitle"/>
         <attr name="value"/>
@@ -335,7 +335,7 @@
         <attr name="isExpanded"/>
     </declare-styleable>
 
-    <declare-styleable name="ExpandableInfoCardInfoView">
+    <declare-styleable name="ExpandableCardItemView">
         <attr name="title"/>
         <attr name="subtitle"/>
         <attr name="titleValue" format="string"/>

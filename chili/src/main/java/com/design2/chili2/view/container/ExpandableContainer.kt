@@ -1,4 +1,4 @@
-package com.design2.chili2.view.common
+package com.design2.chili2.view.container
 
 import android.content.Context
 import android.graphics.drawable.Drawable

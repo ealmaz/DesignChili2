@@ -26,7 +26,7 @@
 
     <style name="Chili.CardViewStyle.TariffPackagesInfoCardViewStyle"/>
 
-    <style name="Chili.CardViewStyle.ExpandableInfoCardView">
+    <style name="Chili.CardViewStyle.ExpandableCardContainer">
         <item name="android:background">@drawable/chili_bg_expandable_info_card</item>
         <item name="android:elevation">@dimen/elevation_4dp</item>
         <item name="android:paddingBottom">@dimen/padding_4dp</item>
@@ -34,6 +34,6 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="Chili.CardViewStyle.ExpandableInfoCardItemView"/>
+    <style name="Chili.CardViewStyle.ExpandableCardItemView"/>
 
 </resources>

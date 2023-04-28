@@ -221,7 +221,7 @@
             android:text="Expandable container"/>
 
 
-        <com.design2.chili2.view.common.ExpandableContainer
+        <com.design2.chili2.view.container.ExpandableContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:title="История платежей"
@@ -233,9 +233,9 @@
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        </com.design2.chili2.view.common.ExpandableContainer>
+        </com.design2.chili2.view.container.ExpandableContainer>
 
-        <com.design2.chili2.view.common.ExpandableContainer
+        <com.design2.chili2.view.container.ExpandableContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -245,10 +245,10 @@
             app:endIconSize="small"
             app:isEndIconClickable="true">
 
-        </com.design2.chili2.view.common.ExpandableContainer>
+        </com.design2.chili2.view.container.ExpandableContainer>
 
 
-        <com.design2.chili2.view.common.ExpandableContainer
+        <com.design2.chili2.view.container.ExpandableContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/view_16dp"
@@ -290,9 +290,9 @@
                 app:status="В обработке"
                 app:icon="@drawable/chili_ic_success" />
 
-        </com.design2.chili2.view.common.ExpandableContainer>
+        </com.design2.chili2.view.container.ExpandableContainer>
 
-        <com.design2.chili2.view.common.ExpandableContainer
+        <com.design2.chili2.view.container.ExpandableContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -303,9 +303,9 @@
             app:additionalText="score problem"
             app:isEndIconClickable="false">
 
-        </com.design2.chili2.view.common.ExpandableContainer>
+        </com.design2.chili2.view.container.ExpandableContainer>
 
-        <com.design2.chili2.view.common.ExpandableContainer
+        <com.design2.chili2.view.container.ExpandableContainer
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -348,7 +348,7 @@
                 app:status="В обработке"
                 app:icon="@drawable/chili_ic_success" />
 
-        </com.design2.chili2.view.common.ExpandableContainer>
+        </com.design2.chili2.view.container.ExpandableContainer>
 
 
     </LinearLayout>

@@ -1,4 +1,4 @@
-package com.design2.chili2.view.card
+package com.design2.chili2.view.container
 
 import android.content.Context
 import android.util.AttributeSet
@@ -15,16 +15,17 @@ import com.design2.chili2.R
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
+import com.design2.chili2.view.card.ExpandableCardItemView
 import com.design2.chili2.view.shimmer.FacebookShimmering
 import com.design2.chili2.view.shimmer.startShimmering
 import com.design2.chili2.view.shimmer.stopShimmering
 import com.facebook.shimmer.ShimmerFrameLayout
 
-class ExpandableInfoCardView @JvmOverloads constructor(
+class ExpandableCardContainer @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.expandableInfoCardViewDefaultStyle,
-    defStyleRes: Int = R.style.Chili_CardViewStyle_ExpandableInfoCardView,
+    defStyleAttr: Int = R.attr.expandableCardContainerDefaultStyle,
+    defStyleRes: Int = R.style.Chili_CardViewStyle_ExpandableCardContainer,
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), FacebookShimmering {
 
     private val mutableShimmeringViewMap = mutableMapOf<View, View?>()
@@ -35,7 +36,7 @@ class ExpandableInfoCardView @JvmOverloads constructor(
         )
     }
 
-    private lateinit var view: ExpandableInfoCardViewVariables
+    private lateinit var view: ExpandableCardContainerVariables
 
     private var isExpandable: Boolean = false
 
@@ -49,8 +50,8 @@ class ExpandableInfoCardView @JvmOverloads constructor(
 
     private fun inflateView(context: Context) {
         val view = LayoutInflater.from(context)
-            .inflate(R.layout.chili_view_expandable_card_info, this, true)
-        this.view = ExpandableInfoCardViewVariables(
+            .inflate(R.layout.chili_view_expandable_card_container, this, true)
+        this.view = ExpandableCardContainerVariables(
             tvTitle = view.findViewById(R.id.tv_title),
             tvSubtitle = view.findViewById(R.id.tv_subtitle),
             tvValue = view.findViewById(R.id.tv_value),
@@ -67,12 +68,12 @@ class ExpandableInfoCardView @JvmOverloads constructor(
         defStyleAttr: Int,
         defStyleRes: Int,
     ) {
-        context.obtainStyledAttributes(attrs, R.styleable.ExpandableInfoCardView, defStyleAttr, defStyleRes).run {
-            getString(R.styleable.ExpandableInfoCardView_title).run { setTitle(this) }
-            getString(R.styleable.ExpandableInfoCardView_subtitle).run { setSubtitle(this) }
-            getString(R.styleable.ExpandableInfoCardView_value).run { setValue(this) }
-            setIsExpandable(getBoolean(R.styleable.ExpandableInfoCardView_isExpandable, false))
-            setIsExpanded(getBoolean(R.styleable.ExpandableInfoCardView_isExpanded, false))
+        context.obtainStyledAttributes(attrs, R.styleable.ExpandableCardContainer, defStyleAttr, defStyleRes).run {
+            getString(R.styleable.ExpandableCardContainer_title).run { setTitle(this) }
+            getString(R.styleable.ExpandableCardContainer_subtitle).run { setSubtitle(this) }
+            getString(R.styleable.ExpandableCardContainer_value).run { setValue(this) }
+            setIsExpandable(getBoolean(R.styleable.ExpandableCardContainer_isExpandable, false))
+            setIsExpanded(getBoolean(R.styleable.ExpandableCardContainer_isExpanded, false))
             recycle()
         }
     }
@@ -137,12 +138,12 @@ class ExpandableInfoCardView @JvmOverloads constructor(
         if (this.isExpanded) {
             rotateChevron(180f)
             children.forEach {
-                if (it is ExpandableInfoCardItemView) it.visible()
+                if (it is ExpandableCardItemView) it.visible()
             }
         } else {
             rotateChevron(0f)
             children.forEach {
-                if (it is ExpandableInfoCardItemView) it.gone()
+                if (it is ExpandableCardItemView) it.gone()
             }
         }
     }
@@ -152,15 +153,15 @@ class ExpandableInfoCardView @JvmOverloads constructor(
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
-        if (child is ExpandableInfoCardItemView) child.isVisible = isExpanded
+        if (child is ExpandableCardItemView) child.isVisible = isExpanded
         super.addView(child, index, params)
     }
 
-    private fun createExpandableRow(): ExpandableInfoCardItemView {
-        return ExpandableInfoCardItemView(context)
+    private fun createExpandableRow(): ExpandableCardItemView {
+        return ExpandableCardItemView(context)
     }
 
-    private fun setupExpandableRow(item: ExpandableItemData, itemView: ExpandableInfoCardItemView) {
+    private fun setupExpandableRow(item: ExpandableItemData, itemView: ExpandableCardItemView) {
         itemView.apply {
             setTitle(item.title)
             setSubtitle(item.subTitle)
@@ -181,7 +182,7 @@ class ExpandableInfoCardView @JvmOverloads constructor(
     override fun getShimmeribleViewsPair(): Map<View, View?> = mutableShimmeringViewMap
 }
 
-data class ExpandableInfoCardViewVariables(
+data class ExpandableCardContainerVariables(
     val tvTitle: TextView,
     val tvSubtitle: TextView,
     val tvValue: TextView,

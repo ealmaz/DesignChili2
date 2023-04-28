@@ -11,14 +11,14 @@ import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.view.shimmer.FacebookShimmering
 import com.facebook.shimmer.ShimmerFrameLayout
 
-class ExpandableInfoCardItemView @JvmOverloads constructor(
+class ExpandableCardItemView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.expandableInfoCardItemViewDefaultStyle,
-    defStyleRes: Int = R.style.Chili_CardViewStyle_ExpandableInfoCardItemView
+    defStyleAttr: Int = R.attr.expandableCardItemViewDefaultStyle,
+    defStyleRes: Int = R.style.Chili_CardViewStyle_ExpandableCardItemView
 ) : BaseCardView(context, attrs, defStyleAttr, defStyleRes), FacebookShimmering {
 
-    override val styleableAttrRes: IntArray = R.styleable.ExpandableInfoCardInfoView
+    override val styleableAttrRes: IntArray = R.styleable.ExpandableCardItemView
 
     private val mutableShimmeringViewMap = mutableMapOf<View, View?>()
     private val shimmerViewGroup: List<ShimmerFrameLayout> by lazy {
@@ -30,13 +30,13 @@ class ExpandableInfoCardItemView @JvmOverloads constructor(
         )
     }
 
-    private lateinit var view: ExpandableInfoCardItemViewVariables
+    private lateinit var view: ExpandableCardItemViewVariables
 
     init { initView(context, attrs, defStyleAttr, defStyleRes) }
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_expandable_card_info_item, this, true)
-        this.view = ExpandableInfoCardItemViewVariables(
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_expandable_card_item, this, true)
+        this.view = ExpandableCardItemViewVariables(
             tvTitle = view.findViewById(R.id.tv_title),
             tvSubtitle = view.findViewById(R.id.tv_subtitle),
             tvTitleValue = view.findViewById(R.id.tv_title_value),
@@ -49,10 +49,10 @@ class ExpandableInfoCardItemView @JvmOverloads constructor(
     }
 
     override fun TypedArray.obtainAttributes() {
-        getString(R.styleable.ExpandableInfoCardInfoView_title).run { setTitle(this) }
-        getString(R.styleable.ExpandableInfoCardInfoView_subtitle).run { setSubtitle(this) }
-        getString(R.styleable.ExpandableInfoCardInfoView_titleValue).run { setTitleValue(this) }
-        getString(R.styleable.ExpandableInfoCardInfoView_subtitleValue).run { setSubtitleValue(this) }
+        getString(R.styleable.ExpandableCardItemView_title).run { setTitle(this) }
+        getString(R.styleable.ExpandableCardItemView_subtitle).run { setSubtitle(this) }
+        getString(R.styleable.ExpandableCardItemView_titleValue).run { setTitleValue(this) }
+        getString(R.styleable.ExpandableCardItemView_subtitleValue).run { setSubtitleValue(this) }
     }
 
     override fun setupView() {
@@ -108,7 +108,7 @@ class ExpandableInfoCardItemView @JvmOverloads constructor(
     override fun getShimmeribleViewsPair(): Map<View, View?> = mutableShimmeringViewMap
 }
 
-data class ExpandableInfoCardItemViewVariables(
+data class ExpandableCardItemViewVariables(
     val tvTitle: TextView,
     val tvSubtitle: TextView,
     val tvTitleValue: TextView,
