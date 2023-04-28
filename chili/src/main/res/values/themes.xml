@@ -176,6 +176,8 @@
         <!-- CardView -->
         <item name="ChiliCardViewBackground">@color/white_1</item>
         <item name="ChiliCardViewCornerRadius">@dimen/radius_12dp</item>
+        <item name="ChiliCardViewRippleColor">@color/gray_1</item>
+
         <item name="ChiliCardViewSquircleBackground">@color/gray_3</item>
         <item name="ChiliCardViewPhonePickerDividerColor">@color/gray_5</item>
         <item name="ChiliAnimatedLeftoverAddButtonBackground">@color/white_1</item>

@@ -189,11 +189,9 @@ fun View.setupRoundedCellCornersMode(modeValue: Int) {
 fun ViewGroup.setIsSurfaceClickable(isSurfaceClickable: Boolean) {
     isClickable = isSurfaceClickable
     isFocusable = isSurfaceClickable
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        foreground = when (isSurfaceClickable) {
-            true -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_rounded_corner_foreground)
-            else -> null
-        }
+    foreground = when (isSurfaceClickable) {
+        true -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_rounded_corner_foreground)
+        else -> null
     }
 }
 
@@ -202,12 +200,4 @@ fun View.setLeftMargin(margin: Int) {
     val params = layoutParams as ViewGroup.MarginLayoutParams
     params.setMargins(margin, params.topMargin, params.rightMargin, params.bottomMargin)
     layoutParams = params
-}
-
-fun TextView.setAppearance(@StyleRes resId: Int) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        this.setTextAppearance(resId)
-    } else {
-        this.setTextAppearance(context, resId)
-    }
 }

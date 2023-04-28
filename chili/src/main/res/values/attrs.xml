@@ -40,6 +40,8 @@
         <attr name="expandableContainerViewStyle" format="reference"/>
 
         <attr name="highlighterContainerDefaultStyle" format="reference"/>
+
+        <attr name="baseCardViewDefaultStyle" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="BaseInputView">
@@ -378,6 +380,10 @@
         <attr name="highlighterIcon" format="reference"/>
         <attr name="cornerRadius"/>
         <attr name="highlighterIconSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="BaseCardView">
+
     </declare-styleable>
 
 </resources>

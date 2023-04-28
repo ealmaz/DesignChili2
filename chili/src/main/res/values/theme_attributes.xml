@@ -44,6 +44,8 @@
     <!-- CardView attributes -->
     <attr name="ChiliCardViewBackground" format="reference"/>
     <attr name="ChiliCardViewCornerRadius" format="dimension"/>
+    <attr name="ChiliCardViewRippleColor" format="color"/>
+
     <attr name="ChiliCardViewSquircleBackground" format="reference"/>
     <attr name="ChiliCardViewPhonePickerDividerColor" format="color"/>
     <attr name="ChiliAnimatedLeftoverAddButtonBackground" format="color"/>

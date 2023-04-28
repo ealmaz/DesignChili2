@@ -11,7 +11,6 @@ import androidx.annotation.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
-import com.design2.chili2.extensions.setAppearance
 import com.design2.chili2.extensions.setTextOrHide
 
 class ViewBalanceInfo @JvmOverloads constructor(
@@ -71,7 +70,7 @@ class ViewBalanceInfo @JvmOverloads constructor(
     }
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {
-        view.tvTitle.setAppearance(resId)
+        view.tvTitle.setTextAppearance(resId)
     }
 
     fun setValue(text: String?) {
@@ -91,7 +90,7 @@ class ViewBalanceInfo @JvmOverloads constructor(
     }
 
     fun setValueTextAppearance(@StyleRes resId: Int) {
-        view.tvValue.setAppearance(resId)
+        view.tvValue.setTextAppearance(resId)
     }
 
     fun setIcon(@DrawableRes drawableResId: Int) {
