@@ -38,6 +38,8 @@
         <attr name="loaderButtonDefaultStyle" format="reference"/>
 
         <attr name="expandableContainerViewStyle" format="reference"/>
+
+        <attr name="highlighterContainerDefaultStyle" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="BaseInputView">
@@ -362,6 +364,20 @@
         <attr name="additionalTextTextAppearance"/>
         <attr name="closureIndicatorVisibility" format="boolean"/>
         <attr name="isExpanded"/>
+    </declare-styleable>
+
+    <declare-styleable name="HighlighterContainer">
+        <attr name="highlighterState" format="enum">
+            <enum name="gone" value="0" />
+            <enum name="visible" value="1" />
+            <enum name="withIcon" value="2" />
+        </attr>
+        <attr name="highlighterColor" format="color"/>
+        <attr name="highlighterGradientStartColor" format="color"/>
+        <attr name="highlighterGradientEndColor" format="color"/>
+        <attr name="highlighterIcon" format="reference"/>
+        <attr name="cornerRadius"/>
+        <attr name="highlighterIconSize" format="dimension"/>
     </declare-styleable>
 
 </resources>

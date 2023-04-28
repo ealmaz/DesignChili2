@@ -38,4 +38,6 @@
         <item name="android:animateLayoutChanges">true</item>
     </style>
 
+    <style name="Chili.HighlighterContainer" parent="Chili.BaseChiliViewStyle"/>
+
 </resources>

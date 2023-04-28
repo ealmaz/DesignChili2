@@ -15,3 +15,16 @@ enum class IconSize(val value: Int) {
 enum class RoundedCornerMode(var value: Int) {
     SINGLE(0), TOP(1), MIDDLE(2), BOTTOM(3),WITHOUT_ROUNDS(4)
 }
+
+enum class HighlighterState(var value: Int) {
+    GONE(0), VISIBLE(1), WITH_ICON(2)
+}
+
+fun Int.toHighlighterStateEnum(): HighlighterState? {
+    return when(this) {
+        HighlighterState.GONE.value -> HighlighterState.GONE
+        HighlighterState.VISIBLE.value -> HighlighterState.VISIBLE
+        HighlighterState.WITH_ICON.value -> HighlighterState.WITH_ICON
+        else -> null
+    }
+}

@@ -46,6 +46,9 @@ class AllViewsFragment : BaseFragment<FragmentAllViewsBinding>() {
         vb.navBars.setOnClickListener {
             openFragment(NavigationBarsFragment())
         }
+        vb.highlighters.setOnClickListener {
+            openFragment(HighlightersFragment())
+        }
 
         (activity as MainActivity).setUpHomeEnabled(false)
     }
