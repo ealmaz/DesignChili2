@@ -25,7 +25,7 @@ class ExpandableCardContainer @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.expandableCardContainerDefaultStyle,
-    defStyleRes: Int = R.style.Chili_CardViewStyle_ExpandableCardContainer,
+    defStyleRes: Int = R.style.Chili_Container_ExpandableCardContainer,
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), FacebookShimmering {
 
     private val mutableShimmeringViewMap = mutableMapOf<View, View?>()

@@ -28,6 +28,7 @@
 
     <!-- ScreenBackground -->
     <attr name="ChiliScreenBackground" format="reference"/>
+    <attr name="ChiliSurfaceBackground" format="reference"/>
 
     <!-- Ripple-->
     <attr name="ChiliRippleForegroundColor" format="dimension"/>
@@ -45,10 +46,21 @@
     <attr name="ChiliCardViewBackground" format="reference"/>
     <attr name="ChiliCardViewCornerRadius" format="dimension"/>
     <attr name="ChiliCardViewRippleColor" format="color"/>
+    <attr name="ChiliCardViewElevation" format="dimension"/>
 
     <attr name="ChiliCardViewSquircleBackground" format="reference"/>
     <attr name="ChiliCardViewPhonePickerDividerColor" format="color"/>
     <attr name="ChiliAnimatedLeftoverAddButtonBackground" format="color"/>
+
+    <!-- CategoryCardView -->
+    <attr name="ChiliCategoryCardViewLabelTopMargin" format="dimension"/>
+    <attr name="ChiliCategoryCardViewLabelBottomMargin" format="dimension"/>
+    <attr name="ChiliCategoryCardViewLabelStartMargin" format="dimension"/>
+    <attr name="ChiliCategoryCardViewLabelEndMargin" format="dimension"/>
+    <attr name="ChiliCategoryCardViewIconTopMargin" format="dimension"/>
+    <attr name="ChiliCategoryCardViewIconBottomMargin" format="dimension"/>
+    <attr name="ChiliCategoryCardViewIconStartMargin" format="dimension"/>
+    <attr name="ChiliCategoryCardViewIconEndMargin" format="dimension"/>
 
 
     <!-- CellView attributes -->

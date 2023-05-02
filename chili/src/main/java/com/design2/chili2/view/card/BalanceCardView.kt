@@ -1,159 +1,98 @@
 package com.design2.chili2.view.card
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
-import android.text.Spanned
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.view.isVisible
 import com.design2.chili2.R
-import com.design2.chili2.extensions.setupRoundedCardCornersMode
-import com.design2.chili2.util.IconType
-import com.design2.chili2.view.shimmer.CustomBone
-import com.design2.chili2.view.shimmer.Shimmering
+import com.design2.chili2.extensions.setTextOrHide
+import com.design2.chili2.extensions.visible
 
-class BalanceCardView : FrameLayout, Shimmering {
+class BalanceCardView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = R.attr.balanceCardViewDefaultStyle,
+    defStyleRes: Int = R.style.Chili_CardViewStyle_BalanceCardView
+): BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var view: BalanceCardViewVariables
+    private lateinit var view: BalanceCardViewViewVariables
 
-    constructor(context: Context) : super(context) {
-        inflateViews()
-    }
+    override val styleableAttrRes: IntArray = R.styleable.BalanceCardView
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        inflateViews()
-        obtainAttributes(attrs)
-    }
+    override val rootContainer: View
+        get() = view.root
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
-        inflateViews()
-        obtainAttributes(attrs, defStyle)
-    }
-
-    private fun inflateViews() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_balance_card, this)
-        this.view = BalanceCardViewVariables(
-            root = view.findViewById(R.id.root_view),
-            title = view.findViewById(R.id.tv_title),
-            value = view.findViewById(R.id.tv_value),
-            icon = view.findViewById(R.id.iv_action_icon),
+    override fun inflateView(context: Context) {
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_balance_card, this, true)
+        this.view = BalanceCardViewViewVariables(
+            tvLabel = view.findViewById(R.id.tv_title),
+            tvValue = view.findViewById(R.id.tv_value),
+            ivIcon = view.findViewById(R.id.iv_icon),
+            root = view.findViewById(R.id.root_view)
         )
     }
 
-    private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_CardViewStyle_BalanceCard) {
-        context?.obtainStyledAttributes(attrs, R.styleable.BalanceCardView, R.attr.balanceCardViewDefaultStyle, defStyle)?.run {
-            getString(R.styleable.BalanceCardView_title)?.let {
-                setTitleText(it)
-            }
-            getString(R.styleable.BalanceCardView_value)?.let {
-                setValue(it)
-            }
-            getInt(R.styleable.BalanceCardView_iconType, -1).let {
-                when (it) {
-                    0 -> setIconType(IconType.PLUS)
-                    1 -> setIconType(IconType.CHEVRON)
-                    else -> setIconDrawable(null)
-                }
-            }
-            getDrawable(R.styleable.BalanceCardView_iconDrawable)?.let {
-                setIconDrawable(it)
-            }
-            getInt(R.styleable.BalanceCardView_roundedCornerMode, 0).let {
-                view.root.setupRoundedCardCornersMode(it)
-            }
-            getBoolean(R.styleable.BalanceCardView_isSurfaceClickable, false).let {
-                setIsSurfaceClickable(it)
-            }
-            getBoolean(R.styleable.BalanceCardView_isIconClickable, true).let {
-                setIsIconClickable(it)
-            }
-            recycle()
+    init { initView(context, attrs, defStyleAttr, defStyleRes) }
+
+
+    override fun TypedArray.obtainAttributes() {
+        setTitle(getText(R.styleable.BalanceCardView_title))
+        setValueText(getText(R.styleable.BalanceCardView_value))
+        getResourceId(R.styleable.BalanceCardView_titleTextAppearance, -1)
+            .takeIf { it != -1 }?.let { setTitleTextAppearance(it) }
+        getResourceId(R.styleable.BalanceCardView_valueTextAppearance, -1)
+            .takeIf { it != -1 }?.let { setValueTextTextAppearance(it) }
+        getResourceId(R.styleable.BalanceCardView_icon, -1)
+            .takeIf { it != -1 }?.let { setIcon(it) }
+    }
+
+    fun setTitle(charSequence: CharSequence) {
+        view.tvLabel.text = charSequence
+    }
+
+    fun setTitle(resId: Int) {
+        view.tvLabel.setText(resId)
+    }
+
+    fun setTitleTextAppearance(resId: Int) {
+        view.tvLabel.setTextAppearance(resId)
+    }
+
+    fun setValueText(charSequence: CharSequence?) {
+        view.tvValue.setTextOrHide(charSequence)
+    }
+
+    fun setValueText(resId: Int) {
+        view.tvValue.setTextOrHide(resId)
+    }
+
+    fun setValueTextTextAppearance(resId: Int) {
+        view.tvValue.setTextAppearance(resId)
+    }
+
+    fun setIcon(resId: Int) {
+        view.ivIcon.apply {
+            setImageResource(resId)
+            visible()
         }
     }
 
-    fun setIsSurfaceClickable(isClickable: Boolean) {
-        view.root.isClickable = isClickable
-        view.root.isFocusable = isClickable
-        view.root.foreground = when (isClickable) {
-            true -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_rounded_corner_foreground)
-            else -> null
+    fun setIcon(drawable: Drawable) {
+        view.ivIcon.apply {
+            visible()
+            setImageDrawable(drawable)
         }
     }
-
-    fun setTitleText(text: String) {
-        view.title.text = text
-    }
-
-    fun setTitleTextRes(@StringRes textResId: Int) {
-        view.title.setText(textResId)
-    }
-
-    fun setValue(value: String) {
-        view.value.text = value
-    }
-
-    fun setValue(value: Spanned?) {
-        value?.let {
-            view.value.text = value
-        }
-    }
-
-    fun setValueTextRes(@StringRes textResId: Int) {
-        view.value.setText(textResId)
-    }
-
-    fun setIconDrawable(drawable: Drawable?) {
-        view.icon.setImageDrawable(drawable)
-    }
-
-    fun setIconDrawableRes(@DrawableRes resId: Int) {
-        view.icon.setImageResource(resId)
-    }
-
-    fun setIconType(type: IconType) {
-        when (type) {
-            IconType.PLUS -> setIconDrawableRes(R.drawable.chili_ic_magenta_plus)
-            IconType.CHEVRON -> setIconDrawableRes(R.drawable.depcrecated_chili_ic_chevron_light)
-        }
-    }
-
-    fun setOnCardClickListener(onClick: () -> Unit) {
-        view.root.setOnClickListener { onClick.invoke() }
-    }
-
-    fun setOnIconClickListener(onClick: () -> Unit) {
-        view.icon.setOnClickListener { onClick.invoke() }
-    }
-
-    fun setActionIconVisibility(isVisible: Boolean) {
-        view.icon.isVisible = isVisible
-    }
-
-    fun setIsIconClickable(isClickable: Boolean) {
-        view.icon.isClickable = isClickable
-        view.icon.isFocusable = isClickable
-        if (isClickable) {
-            view.icon.setBackgroundResource(R.drawable.chili_card_circle_ripple)
-        }
-    }
-
-    override fun getIgnoredViews(): Array<View> = emptyArray()
-
-    override fun getCustomBones(): Array<CustomBone> = arrayOf(
-        CustomBone(view.icon) { setWidth(0f) },
-    )
 }
 
-private data class BalanceCardViewVariables(
-    var root: FrameLayout,
-    var title: TextView,
-    var value: TextView,
-    var icon: ImageView
+data class BalanceCardViewViewVariables(
+    val tvLabel: TextView,
+    val tvValue: TextView,
+    val ivIcon: ImageView,
+    val root: LinearLayout
 )

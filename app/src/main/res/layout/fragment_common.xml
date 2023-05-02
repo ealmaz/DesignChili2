@@ -180,7 +180,7 @@
 
         <RadioGroup
             android:layout_margin="@dimen/padding_16dp"
-            android:background="@drawable/chili_card_rounded_background"
+            android:background="@drawable/chili_cell_rounded_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <RadioButton

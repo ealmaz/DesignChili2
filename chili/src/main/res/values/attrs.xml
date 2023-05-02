@@ -2,24 +2,16 @@
 <resources>
     
     <declare-styleable name="DefaultStyleTheme">
+
+        <!-- InputView -->
         <attr name="inputViewDefaultStyle" format="reference"/>
         <attr name="maskedInputDefaultStyle" format="reference"/>
         <attr name="multilineInputDefaultStyle" format="reference"/>
-        <attr name="balanceCardViewDefaultStyle" format="reference" />
-        <attr name="singleSelectedCardViewDefaultStyle" format="reference" />
-        <attr name="titleLogoCardViewDefaultStyle" format="reference" />
-        <attr name="categoryItemCardViewDefaultStyle" format="reference"/>
-        <attr name="navigatorCardViewDefaultStyle" format="reference"/>
-        <attr name="phoneNumberPickerCardViewDefaultStyle" format="reference"/>
-        <attr name="tariffPriceInfoCardViewDefaultStyle" format="reference"/>
-        <attr name="tariffPackagesInfoCardViewDefaultStyle" format="reference"/>
+
+        <!-- CellView -->
         <attr name="logoTitleCellDefaultStyle" format="reference"/>
         <attr name="infoCellViewDefaultStyle" format="reference"/>
-
-        <attr name="expandableCardItemViewDefaultStyle" format="reference"/>
-
         <attr name="multiLineRightIconCellDefaultStyle" format="reference"/>
-
         <attr name="cellViewDefaultStyle" format="reference"/>
         <attr name="toggleCellViewDefaultStyle" format="reference"/>
         <attr name="endIconCellViewDefaultStyle" format="reference"/>
@@ -37,11 +29,20 @@
         <attr name="loaderButtonDefaultStyle" format="reference"/>
 
 
+        <!-- Container -->
         <attr name="expandableCardContainerDefaultStyle" format="reference"/>
         <attr name="expandableContainerViewStyle" format="reference"/>
         <attr name="highlighterContainerDefaultStyle" format="reference"/>
 
+
+        <!-- CardView -->
         <attr name="baseCardViewDefaultStyle" format="reference"/>
+        <attr name="accentCardViewDefaultStyle" format="reference"/>
+        <attr name="expandableCardItemViewDefaultStyle" format="reference"/>
+        <attr name="categoryCardViewDefaultStyle" format="reference"/>
+        <attr name="simpleCardViewDefaultStyle" format="reference"/>
+        <attr name="balanceCardViewDefaultStyle" format="reference"/>
+
     </declare-styleable>
 
     <declare-styleable name="BaseInputView">
@@ -66,11 +67,6 @@
         <attr name="endIconDrawable"/>
     </declare-styleable>
 
-    <declare-styleable name="FilledSingleSelectorView">
-        <attr name="android:hint"/>
-        <attr name="android:text"/>
-    </declare-styleable>
-
     <declare-styleable name="MaskedInputView">
         <attr name="mask" format="string"/>
         <attr name="allowedInputSymbols" format="string"/>
@@ -84,73 +80,11 @@
         <attr name="maxLength" format="integer"/>
     </declare-styleable>
 
-    <declare-styleable name="BalanceCardView">
-        <attr name="title"/>
-        <attr name="value" format="string"/>
-        <attr name="iconType" format="enum">
-            <enum name="plus" value="0"/>
-            <enum name="chevron" value="1"/>
-        </attr>
-        <attr name="iconDrawable" format="reference"/>
-        <attr name="logoDrawable" format="reference"/>
-        <attr name="roundedCornerMode" format="enum">
-            <enum name="single" value="0"/>
-            <enum name="top" value="1"/>
-            <enum name="middle" value="2"/>
-            <enum name="bottom" value="3"/>
-            <enum name="without" value="4"/>
-        </attr>
-        <attr name="isSurfaceClickable" format="boolean"/>
-        <attr name="isIconClickable" format="boolean"/>
-    </declare-styleable>
-
-    <declare-styleable name="SingleSelectedCardView">
-        <attr name="title"/>
-        <attr name="value"/>
-    </declare-styleable>
-
-    <declare-styleable name="CategoryItemView">
-        <attr name="title"/>
-        <attr name="isNotificationEnabled" format="boolean"/>
-        <attr name="squircleViewDrawable" format="reference"/>
-        <attr name="amountText" format="string"/>
-    </declare-styleable>
-
     <declare-styleable name="SquircleImageView">
         <attr name="civ_border_width" format="dimension" />
         <attr name="civ_border_color" format="color" />
         <attr name="civ_border_overlay" format="boolean" />
         <attr name="civ_circle_background_color" format="color" />
-    </declare-styleable>
-
-    <declare-styleable name="NavigatorCardView">
-        <attr name="title"/>
-        <attr name="countDrawable" format="reference"/>
-        <attr name="cardIcon" format="reference"/>
-        <attr name="isSurfaceClickable"/>
-    </declare-styleable>
-
-    <declare-styleable name="PhoneNumberPickerCardView">
-        <attr name="title"/>
-        <attr name="titleIcon" format="reference"/>
-        <attr name="primaryButtonText" format="string"/>
-        <attr name="secondaryButtonText" format="string"/>
-    </declare-styleable>
-
-    <declare-styleable name="ItemInfoCardView">
-        <attr name="title"/>
-        <attr name="value"/>
-        <attr name="icon"/>
-    </declare-styleable>
-
-    <declare-styleable name="TariffPriceInfoCardView">
-        <attr name="title"/>
-        <attr name="internetCost" format="string"/>
-        <attr name="voiceInCost" format="string"/>
-        <attr name="voiceOutCost" format="string"/>
-        <attr name="smsCost" format="string"/>
-        <attr name="isDividerVisible" format="boolean"/>
-        <attr name="roundedCornerMode"/>
     </declare-styleable>
 
     <declare-styleable name="AnimatedArcProgressView">
@@ -171,23 +105,6 @@
         <attr name="animateProgress" format="boolean"/>
     </declare-styleable>
 
-    <declare-styleable name="TariffPackagesInfoCardView">
-        <attr name="title"/>
-        <attr name="isDividerVisible"/>
-        <attr name="roundedCornerMode"/>
-        <attr name="internetArcTitle" format="string"/>
-        <attr name="internetArcSubtitle" format="string"/>
-        <attr name="internetArcCaption" format="string"/>
-        <attr name="internetArcFabVisibility" format="boolean"/>
-        <attr name="internetArcIcon" format="reference"/>
-        <attr name="callArcTitle" format="string"/>
-        <attr name="callArcSubtitle" format="string"/>
-        <attr name="callArcCaption" format="string"/>
-        <attr name="callArcFabVisibility" format="boolean"/>
-        <attr name="callArcIcon" format="reference"/>
-
-    </declare-styleable>
-
     <declare-styleable name="ChiliToolbar">
         <attr name="title"/>
         <attr name="titleCentered"/>
@@ -205,7 +122,13 @@
         <attr name="android:icon" format="reference"/>
         <attr name="title"  />
         <attr name="subtitle"  />
-        <attr name="roundedCornerMode" />
+        <attr name="roundedCornerMode" format="enum">
+            <enum name="single" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="middle" value="2"/>
+            <enum name="bottom" value="3"/>
+            <enum name="without" value="4"/>
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="LogoTitleCell">
@@ -278,8 +201,8 @@
 
     <declare-styleable name="InfoCellView">
         <attr name="roundedCornerMode"/>
-        <attr name="isDividerVisible"/>
-        <attr name="isSurfaceClickable"/>
+        <attr name="isDividerVisible" format="boolean"/>
+        <attr name="isSurfaceClickable" format="boolean"/>
         <attr name="title"/>
         <attr name="subtitle"/>
         <attr name="titleTextAppearance"/>
@@ -330,7 +253,7 @@
     <declare-styleable name="ExpandableCardContainer">
         <attr name="title"/>
         <attr name="subtitle"/>
-        <attr name="value"/>
+        <attr name="value" format="string"/>
         <attr name="isExpandable" format="boolean"/>
         <attr name="isExpanded"/>
     </declare-styleable>
@@ -340,15 +263,6 @@
         <attr name="subtitle"/>
         <attr name="titleValue" format="string"/>
         <attr name="subtitleValue" format="string"/>
-    </declare-styleable>
-
-    <declare-styleable name="ViewBalanceInfo">
-        <attr name="title"/>
-        <attr name="value"/>
-        <attr name="icon"/>
-        <attr name="rootVerticalPadding" format="dimension"/>
-        <attr name="rootTopPadding" format="dimension"/>
-        <attr name="rootBottomPadding" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="ExpandableContainer">
@@ -383,7 +297,38 @@
     </declare-styleable>
 
     <declare-styleable name="BaseCardView">
+        <attr name="cardCornerRadius"/>
+        <attr name="cardBackground" format="reference"/>
+        <attr name="cardElevation"/>
+    </declare-styleable>
 
+    <declare-styleable name="AccentCardView">
+        <attr name="title"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="subtitle"/>
+        <attr name="subtitleTextAppearance"/>
+        <attr name="titleStartIcon" format="reference"/>
+        <attr name="endIcon"/>
+    </declare-styleable>
+
+    <declare-styleable name="CategoryCardView">
+        <attr name="title"/>
+        <attr name="icon"/>
+        <attr name="titleTextAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="SimpleCardView">
+        <attr name="title"/>
+        <attr name="icon"/>
+        <attr name="titleTextAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="BalanceCardView">
+        <attr name="title"/>
+        <attr name="value"/>
+        <attr name="icon"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="valueTextAppearance" format="reference"/>
     </declare-styleable>
 
 </resources>

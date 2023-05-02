@@ -163,18 +163,6 @@ private fun getGlideOnLoadListener(onSuccess: ((Drawable) -> Unit)?, onError: ((
     }
 }
 
-fun View.setupRoundedCardCornersMode(modeValue: Int) {
-    this.setBackgroundResource(
-        when (modeValue) {
-            RoundedCornerMode.TOP.value -> R.drawable.chili_card_rounded_top_background
-            RoundedCornerMode.MIDDLE.value -> R.drawable.chili_card_rounded_middle_background
-            RoundedCornerMode.BOTTOM.value -> R.drawable.chili_card_rounded_bottom_background
-            RoundedCornerMode.WITHOUT_ROUNDS.value -> R.drawable.chili_card_without_rounds_background
-            else -> R.drawable.chili_card_rounded_background
-        }
-    )
-}
-
 fun View.setupRoundedCellCornersMode(modeValue: Int) {
     this.setBackgroundResource(
         when (modeValue) {

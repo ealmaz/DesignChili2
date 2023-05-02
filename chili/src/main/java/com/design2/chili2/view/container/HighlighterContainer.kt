@@ -22,7 +22,7 @@ class HighlighterContainer @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.highlighterContainerDefaultStyle,
-    defStyleRes: Int = R.style.Chili_HighlighterContainer
+    defStyleRes: Int = R.style.Chili_Container_HighlighterContainer
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private var cornerRadiusPx: Float = 0f

@@ -31,6 +31,7 @@
 
         <!-- ScreenBackground -->
         <item name="ChiliScreenBackground">@color/gray_4</item>
+        <item name="ChiliSurfaceBackground">@color/white_1</item>
 
         <!-- Ripple-->
         <item name="ChiliRippleForegroundColor">@color/black_1_alpha_20</item>
@@ -177,10 +178,21 @@
         <item name="ChiliCardViewBackground">@color/white_1</item>
         <item name="ChiliCardViewCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliCardViewRippleColor">@color/gray_1</item>
+        <item name="ChiliCardViewElevation">@dimen/elevation_8dp</item>
 
         <item name="ChiliCardViewSquircleBackground">@color/gray_3</item>
         <item name="ChiliCardViewPhonePickerDividerColor">@color/gray_5</item>
         <item name="ChiliAnimatedLeftoverAddButtonBackground">@color/white_1</item>
+
+        <!-- CategoryCardView -->
+        <item name="ChiliCategoryCardViewLabelTopMargin">@dimen/padding_8dp</item>
+        <item name="ChiliCategoryCardViewLabelBottomMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewLabelStartMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewLabelEndMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewIconTopMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewIconBottomMargin">@dimen/padding_0dp</item>
+        <item name="ChiliCategoryCardViewIconStartMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewIconEndMargin">@dimen/padding_12dp</item>
 
         <!-- TariffPriceInfoView -->
         <item name="ChiliInternetLabel">Internet t</item>

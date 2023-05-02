@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.view.shimmer.FacebookShimmering
@@ -17,6 +18,9 @@ class ExpandableCardItemView @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.expandableCardItemViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CardViewStyle_ExpandableCardItemView
 ) : BaseCardView(context, attrs, defStyleAttr, defStyleRes), FacebookShimmering {
+
+    override val rootContainer: View
+        get() = view.root
 
     override val styleableAttrRes: IntArray = R.styleable.ExpandableCardItemView
 
@@ -37,6 +41,7 @@ class ExpandableCardItemView @JvmOverloads constructor(
     override fun inflateView(context: Context) {
         val view = LayoutInflater.from(context).inflate(R.layout.chili_view_expandable_card_item, this, true)
         this.view = ExpandableCardItemViewVariables(
+            root = view.findViewById(R.id.root_view),
             tvTitle = view.findViewById(R.id.tv_title),
             tvSubtitle = view.findViewById(R.id.tv_subtitle),
             tvTitleValue = view.findViewById(R.id.tv_title_value),
@@ -109,6 +114,7 @@ class ExpandableCardItemView @JvmOverloads constructor(
 }
 
 data class ExpandableCardItemViewVariables(
+    val root: ConstraintLayout,
     val tvTitle: TextView,
     val tvSubtitle: TextView,
     val tvTitleValue: TextView,

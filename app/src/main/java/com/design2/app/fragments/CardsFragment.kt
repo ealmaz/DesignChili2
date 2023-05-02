@@ -3,6 +3,7 @@ package com.design2.app.fragments
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import androidx.cardview.widget.CardView
 import com.design2.app.MainActivity
 import com.design2.app.R
 import com.design2.app.base.BaseFragment
@@ -18,45 +19,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).setUpHomeEnabled(true)
 
-        vb.balanceView.run {
-            showShimmer()
-            postDelayed({ hideShimmer() }, 5000)
-        }
 
-        vb.pieChart.apply {
-            setAmount("550 c")
-            setTitle("Траты за июль")
-            setPieData(mutableListOf(12F, 21F, 32F), mutableListOf(Color.BLUE))
-        }
-        vb.chart.apply {
-            setTitle("Траты за июль")
-            isNextEnable = false
-            setAmount("5000 c")
-            setPieChartData(mutableListOf(12F, 21F, 32F), mutableListOf(Color.BLUE))
-        }
-        vb.nvn2.setupView(listOf(), "Выбрать номер")
-        vb.pnpcvNumbers.setupView(
-            listOf(
-                "+996 700 000 001",
-                "+996 700 000 001",
-                "+996 700 000 001",
-                "+996 700 000 001",
-                "+996 700 000 001",
-                "+996 700 000 001",
-                "+996 700 000 001",
-                "+996 700 000 001"
-            ), "+996 700 000 001"
-        )
-        vb.tpiv.apply {
-            setOnCallFabClickListener { setCallRemain(0, 100) }
-            setOnInternetFabClickListener { setInternetRemain(100, 83) }
-            setInternetRemain(100, 73)
-            setCallRemain(0, 100)
-        }
-        vb.tpiv2.apply {
-            setInternetRemain(0, 73)
-            setCallRemain(0, 100)
-        }
 
 //        vb.expandable.setItems(listOf(
 //            ExpandableItemData("Сумма к зачислению:", "Из нее - комиссии и сборы:", "8 000,00 <u>с</u>".parseAsHtml(), "150,00 <u>с</u>".parseAsHtml()),
@@ -80,11 +43,6 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
             vb.expandable.stopShimmering()
         }
 
-        vb.notifiedBalance.apply {
-            setNotificationText("Подарок")
-            setNotificationDrawableRes(R.drawable.ic_gift)
-            showNotification()
-        }
     }
 
     override fun inflateViewBinging(): FragmentCardsBinding {

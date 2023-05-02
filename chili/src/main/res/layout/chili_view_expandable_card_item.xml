@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="@dimen/padding_12dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view">
 
     <TextView
         android:id="@+id/tv_title"

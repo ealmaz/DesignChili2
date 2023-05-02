@@ -23,7 +23,7 @@ class ExpandableContainer @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.expandableContainerViewStyle,
-    defStyleRes: Int = R.style.Chili_ExpandableContainerViewStyle
+    defStyleRes: Int = R.style.Chili_Container_ExpandableContainerViewStyle
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private lateinit var view: ExpandableContainerViewVariables

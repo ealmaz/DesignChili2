@@ -34,34 +34,34 @@ class SearchSelectorBottomSheet private constructor(
     }
 
     private fun setupView() {
-        val bottomSheetView: View = layoutInflater.inflate(R.layout.chili_fargment_search_selector, null)
-        setContentView(bottomSheetView)
-        searchSelectorAdapter.addItems(optionsList)
-        findViewById<RecyclerView>(R.id.recycler_view)?.run {
-            layoutManager = LinearLayoutManager(context)
-            adapter = searchSelectorAdapter
-        }
-        findViewById<ImageView>(R.id.iv_close)?.setOnClickListener {
-            this.dismiss()
-        }
-        setupSearchInputView()
+//        val bottomSheetView: View = layoutInflater.inflate(R.layout.chili_fargment_search_selector, null)
+//        setContentView(bottomSheetView)
+//        searchSelectorAdapter.addItems(optionsList)
+//        findViewById<RecyclerView>(R.id.recycler_view)?.run {
+//            layoutManager = LinearLayoutManager(context)
+//            adapter = searchSelectorAdapter
+//        }
+//        findViewById<ImageView>(R.id.iv_close)?.setOnClickListener {
+//            this.dismiss()
+//        }
+//        setupSearchInputView()
     }
 
     private fun setupSearchInputView() {
-        if (!isSearchAvailable) {
-            findViewById<LinearLayout>(R.id.ll_search)?.gone()
-            return
-        }
-        findViewById<EditText>(R.id.et_search)?.run {
-            doAfterTextChanged {
-                expandBottomSheet()
-                filterText = it?.toString() ?: ""
-                searchSelectorAdapter.addItems(optionsList, filterText)
-            }
-            setOnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) expandBottomSheet()
-            }
-        }
+//        if (!isSearchAvailable) {
+//            findViewById<LinearLayout>(R.id.ll_search)?.gone()
+//            return
+//        }
+//        findViewById<EditText>(R.id.et_search)?.run {
+//            doAfterTextChanged {
+//                expandBottomSheet()
+//                filterText = it?.toString() ?: ""
+//                searchSelectorAdapter.addItems(optionsList, filterText)
+//            }
+//            setOnFocusChangeListener { _, hasFocus ->
+//                if (hasFocus) expandBottomSheet()
+//            }
+//        }
     }
 
     private fun expandBottomSheet() {
