@@ -300,6 +300,9 @@
         <attr name="cardCornerRadius"/>
         <attr name="cardBackground" format="reference"/>
         <attr name="cardElevation"/>
+        <attr name="android:focusable"/>
+        <attr name="android:clickable"/>
+        <attr name="android:foreground"/>
     </declare-styleable>
 
     <declare-styleable name="AccentCardView">

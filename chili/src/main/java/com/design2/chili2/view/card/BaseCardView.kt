@@ -37,6 +37,9 @@ abstract class BaseCardView @JvmOverloads constructor(
             cardElevation = getDimension(R.styleable.BaseCardView_cardElevation, 0f)
             getResourceId(R.styleable.BaseCardView_cardBackground, -1)
                 .takeIf { it != -1 }?.let { setCardBackground(it) }
+            foreground = getDrawable(R.styleable.BaseCardView_android_foreground)
+            isClickable = getBoolean(R.styleable.BaseCardView_android_clickable, false)
+            isFocusable = getBoolean(R.styleable.BaseCardView_android_focusable, false)
             recycle()
         }
 

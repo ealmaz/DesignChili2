@@ -5,10 +5,15 @@
         <item name="cardBackground">?ChiliCardViewBackground</item>
         <item name="cardCornerRadius">?ChiliCardViewCornerRadius</item>
         <item name="cardElevation">?ChiliCardViewElevation</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
     </style>
 
     <style name="Chili.CardViewStyle.ExpandableCardItemView">
         <item name="cardElevation">0dp</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
     </style>
 
     <style name="Chili.CardViewStyle.AccentCardViewStyle"/>

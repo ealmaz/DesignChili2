@@ -184,11 +184,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/padding_16dp"
             app:title="Баланс"
-            app:icon="@drawable/chili_ic_bank_cards"/>
-
-
-
-
+            app:icon="@drawable/chili_ic_bank_cards"
+            android:background="?selectableItemBackground"
+            android:focusable="true"
+            android:clickable="true"/>
 
     </LinearLayout>
 
