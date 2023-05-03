@@ -199,6 +199,7 @@
 
     <!-- InputView   -->
     <attr name="ChiliInputViewEndIconTint" format="color"/>
+    <attr name="ChiliInputViewBackgroundCornerRadius" format="dimension"/>
     <attr name="ChiliInputViewHintTextColor" format="color"/>
     <attr name="ChiliInputViewBackgroundColor" format="color"/>
     <attr name="ChiliInputViewBackgroundErrorColor" format="color"/>

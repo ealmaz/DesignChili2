@@ -61,8 +61,8 @@
         <attr name="message" format="string"/>
         <attr name="errorMessage" format="string"/>
         <attr name="actionButtonText" format="string"/>
-        <attr name="fieldBackground" format="color"/>
-        <attr name="errorFieldBackground" format="color"/>
+        <attr name="fieldBackground" format="reference"/>
+        <attr name="errorFieldBackground" format="reference"/>
         <attr name="messageTextColor" format="color"/>
         <attr name="errorMessageTextColor" format="color"/>
         <attr name="hintTextColor"/>

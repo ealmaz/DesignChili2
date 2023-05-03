@@ -77,12 +77,9 @@
         <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/black_5</item>
 
         <!-- InputView -->
-        <item name="ChiliInputViewEndIconTint">@color/gray_1</item>
         <item name="ChiliInputViewHintTextColor">@color/gray_1_alpha_50</item>
         <item name="ChiliInputViewBackgroundColor">@color/black_3</item>
         <item name="ChiliInputViewBackgroundErrorColor">@color/red_2</item>
-        <item name="ChiliInputViewCursorColor">@color/magenta_1</item>
-        <item name="ChiliInputViewErrorMessageTextColor">@color/red_1</item>
         <item name="ChiliInputViewMessageTextColor">@color/gray_3</item>
 
 

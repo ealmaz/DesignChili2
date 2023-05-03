@@ -171,6 +171,7 @@
         <item name="ChiliInputViewCursorColor">@color/magenta_1</item>
         <item name="ChiliInputViewErrorMessageTextColor">@color/red_1</item>
         <item name="ChiliInputViewMessageTextColor">@color/black_5</item>
+        <item name="ChiliInputViewBackgroundCornerRadius">@dimen/radius_12dp</item>
 
         <!-- CardView -->
         <item name="ChiliCardViewBackground">@color/white_1</item>

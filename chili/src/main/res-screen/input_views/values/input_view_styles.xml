@@ -2,8 +2,8 @@
 <resources>
 
     <style name="Chili.InputViewStyle" parent="Chili.BaseChiliViewStyle">
-        <item name="errorFieldBackground">?attr/ChiliInputViewBackgroundErrorColor</item>
-        <item name="fieldBackground">?attr/ChiliInputViewBackgroundColor</item>
+        <item name="errorFieldBackground">@drawable/chili_bg_input_view_error_rounded</item>
+        <item name="fieldBackground">@drawable/chili_bg_input_view_rounded</item>
         <item name="hintTextColor">?attr/ChiliInputViewHintTextColor</item>
         <item name="errorMessageTextColor">?attr/ChiliInputViewErrorMessageTextColor</item>
         <item name="messageTextColor">?attr/ChiliInputViewMessageTextColor</item>

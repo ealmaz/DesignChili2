@@ -45,8 +45,8 @@ open class BaseInputView @JvmOverloads constructor(
     protected var messageText: String? = null
 
     @ColorInt protected var hintTextColor: Int = -1
-    @ColorInt protected var fieldBackground: Int = -1
-    @ColorInt protected var fieldErrorBackground: Int = -1
+    protected var fieldBackground: Int = -1
+    protected var fieldErrorBackground: Int = -1
 
     @StyleRes protected var inputViewTextAppearanceRes: Int = -1
 
@@ -72,7 +72,7 @@ open class BaseInputView @JvmOverloads constructor(
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int, defStyle: Int) {
         context?.obtainStyledAttributes(attrs, R.styleable.BaseInputView, defStyleAttr, defStyle)?.run {
 
-            getColor(R.styleable.BaseInputView_errorFieldBackground, ContextCompat.getColor(context, R.color.red_3)).let {
+            getResourceId(R.styleable.BaseInputView_errorFieldBackground, ContextCompat.getColor(context, R.color.red_3)).let {
                 setupErrorFieldBackground(it)
             }
             getColor(R.styleable.BaseInputView_hintTextColor, ContextCompat.getColor(context, R.color.gray_5)).let {
@@ -84,7 +84,7 @@ open class BaseInputView @JvmOverloads constructor(
             getColor(R.styleable.BaseInputView_messageTextColor, ContextCompat.getColor(context, R.color.black_5)).let {
                 messageTextColor = it
             }
-            getColor(R.styleable.BaseInputView_fieldBackground, ContextCompat.getColor(context, R.color.gray_5)).let {
+            getResourceId(R.styleable.BaseInputView_fieldBackground, ContextCompat.getColor(context, R.color.gray_5)).let {
                 setupFieldBackground(it)
             }
             getColor(R.styleable.BaseInputView_endIconTint, ContextCompat.getColor(context, R.color.gray_1)).let {
@@ -161,14 +161,14 @@ open class BaseInputView @JvmOverloads constructor(
         view.inputField.setHintTextColor(color)
     }
 
-    private fun setupErrorFieldBackground(color: Int) {
-        fieldErrorBackground = color
-        view.textInputLayout.setBackgroundColor(color)
+    private fun setupErrorFieldBackground(resId: Int) {
+        fieldErrorBackground = resId
+        view.textInputLayout.setBackgroundResource(resId)
     }
 
-    private fun setupFieldBackground(color: Int) {
-        fieldBackground = color
-        view.textInputLayout.setBackgroundColor(color)
+    private fun setupFieldBackground(resId: Int) {
+        fieldBackground = resId
+        view.textInputLayout.setBackgroundResource(resId)
     }
 
     fun getInputField(): SelectionEditText {
@@ -516,11 +516,11 @@ open class BaseInputView @JvmOverloads constructor(
             setTextColor(errorMessageTextColor)
             visible()
         }
-        view.textInputLayout.setBackgroundColor(fieldErrorBackground)
+        view.textInputLayout.setBackgroundResource(fieldErrorBackground)
     }
 
     fun clearFieldError() {
-        view.textInputLayout.setBackgroundColor(fieldBackground)
+        view.textInputLayout.setBackgroundResource(fieldBackground)
         setMessage(messageText)
     }
 
