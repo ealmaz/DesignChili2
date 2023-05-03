@@ -43,6 +43,10 @@
         <attr name="simpleCardViewDefaultStyle" format="reference"/>
         <attr name="balanceCardViewDefaultStyle" format="reference"/>
 
+
+        <!-- Common view -->
+        <attr name="titledDividerDefaultStyle" format="reference"/>
+
     </declare-styleable>
 
     <declare-styleable name="BaseInputView">
@@ -332,6 +336,14 @@
         <attr name="icon"/>
         <attr name="titleTextAppearance"/>
         <attr name="valueTextAppearance" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="TitledDividerView">
+        <attr name="title"/>
+        <attr name="startIcon" format="reference"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="actionText"/>
+        <attr name="actionTextTextAppearance"/>
     </declare-styleable>
 
 </resources>

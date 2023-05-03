@@ -17,11 +17,11 @@
         android:paddingBottom="220dp"
         android:clipToPadding="false"
         tools:context=".MainActivity">
-        <TextView
+
+        <com.design2.chili2.view.common.TitledDividerView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BaseCellView with icon"
-            android:layout_margin="@dimen/padding_16dp" />
+            app:title="BaseCellView with icon" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
