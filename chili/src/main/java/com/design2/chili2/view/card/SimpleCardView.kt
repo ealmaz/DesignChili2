@@ -26,7 +26,7 @@ class SimpleCardView @JvmOverloads constructor(
         get() = view.root
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_simple_card, this, true)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_simple, this, true)
         this.view = SimpleCardViewViewVariables(
             tvTitle = view.findViewById(R.id.tv_title),
             ivIcon = view.findViewById(R.id.iv_icon),

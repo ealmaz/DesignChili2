@@ -12,26 +12,26 @@
     </style>
 
     <style name="Chili.PrimaryButtonText" parent="Chili.BaseButtonText">
-        <item name="android:textColor">@color/chili_primary_button_text_color</item>
+        <item name="android:textColor">@color/chili_state_color_button_text_primary</item>
         <item name="android:fontFamily">?attr/ChiliPrimaryButtonTextFont</item>
         <item name="android:textSize">?attr/ChiliPrimaryButtonTextSize</item>
     </style>
 
     <style name="Chili.SecondaryButtonText" parent="Chili.BaseButtonText">
-        <item name="android:textColor">@color/chili_secondary_button_text_color</item>
+        <item name="android:textColor">@color/chili_state_color_button_text_secondary</item>
         <item name="android:fontFamily">?attr/ChiliSecondaryButtonTextFont</item>
         <item name="android:textSize">?attr/ChiliSecondaryButtonTextSize</item>
     </style>
 
     <style name="Chili.AdditionalButtonText" parent="Chili.BaseButtonText">
-        <item name="android:textColor">@color/chili_additional_button_text_color</item>
+        <item name="android:textColor">@color/chili_state_color_button_text_additional</item>
         <item name="android:fontFamily">?attr/ChiliAdditionalButtonTextFont</item>
         <item name="android:textSize">?attr/ChiliAdditionalButtonTextSize</item>
     </style>
 
     <style name="Chili.ComponentButtonText" parent="Chili.BaseButtonText">
         <item name="android:textAllCaps">false</item>
-        <item name="android:textColor">@color/chili_component_button_text_color</item>
+        <item name="android:textColor">@color/chili_state_color_button_text_component</item>
         <item name="android:fontFamily">?attr/ChiliComponentButtonTextFont</item>
         <item name="android:textSize">?attr/ChiliComponentButtonTextSize</item>
     </style>

@@ -12,8 +12,8 @@
     </style>
 
 
-    <style name="Chili.InputViewStyle.Simple"></style>
-    <style name="Chili.InputViewStyle.Masked"></style>
+    <style name="Chili.InputViewStyle.Simple"/>
+    <style name="Chili.InputViewStyle.Masked"/>
 
     <style name="Chili.InputViewStyle.Masked.PhoneMask">
         <item name="android:inputType">phone</item>

@@ -25,7 +25,7 @@ class ProgressCellView @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_progress_cell, this)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_progress, this)
         this.view = ProgressCellViewVariables(
             tvTitle = view.findViewById(R.id.tv_title),
             tvDescription = view.findViewById(R.id.tv_description),

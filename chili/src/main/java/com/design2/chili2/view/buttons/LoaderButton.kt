@@ -28,7 +28,7 @@ class LoaderButton @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_loader_button, this, true)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_button_loader, this, true)
         this.view = LoaderButtonViewVariables(
             button = view.findViewById(R.id.button),
             progress = view.findViewById(R.id.progress)

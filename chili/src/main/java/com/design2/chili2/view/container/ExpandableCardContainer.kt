@@ -50,7 +50,7 @@ class ExpandableCardContainer @JvmOverloads constructor(
 
     private fun inflateView(context: Context) {
         val view = LayoutInflater.from(context)
-            .inflate(R.layout.chili_view_expandable_card_container, this, true)
+            .inflate(R.layout.chili_view_container_expandable_card, this, true)
         this.view = ExpandableCardContainerVariables(
             tvTitle = view.findViewById(R.id.tv_title),
             tvSubtitle = view.findViewById(R.id.tv_subtitle),

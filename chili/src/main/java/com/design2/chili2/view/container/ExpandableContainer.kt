@@ -37,7 +37,7 @@ class ExpandableContainer @JvmOverloads constructor(
     }
 
     private fun inflateView() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_expandable_container, this)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_container_expandable, this)
         this.view = ExpandableContainerViewVariables(
             root = view.findViewById(R.id.root_view),
             tvTitle = view.findViewById(R.id.tv_title),

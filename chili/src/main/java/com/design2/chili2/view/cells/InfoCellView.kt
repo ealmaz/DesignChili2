@@ -30,7 +30,7 @@ class InfoCellView @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_info_cell, this)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_info, this)
         this.view = InfoCellViewVariables(
             rootView = view.findViewById(R.id.rootView),
             tvTitle = view.findViewById(R.id.tv_title),

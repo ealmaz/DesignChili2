@@ -39,7 +39,7 @@ class ChiliToolbar : LinearLayout {
     }
 
     private fun setupView() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_chili_toolbar, this)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_toolbar, this)
         this.view = ChiliToolbarViewVariables(
             toolbar = view.findViewById(R.id.toolbar_view),
             tvAdditionalText = view.findViewById(R.id.tv_additional_text),

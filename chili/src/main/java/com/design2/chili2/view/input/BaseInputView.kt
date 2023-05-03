@@ -59,7 +59,7 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     private fun inflateViews(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_base_input, this)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_input_base, this)
         this.view = BaseInputViewVariables(
             inputField = view.findViewById(R.id.et_input),
             textInputLayout = view.findViewById(R.id.til_input_container),

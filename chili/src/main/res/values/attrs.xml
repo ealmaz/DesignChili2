@@ -9,9 +9,7 @@
         <attr name="multilineInputDefaultStyle" format="reference"/>
 
         <!-- CellView -->
-        <attr name="logoTitleCellDefaultStyle" format="reference"/>
         <attr name="infoCellViewDefaultStyle" format="reference"/>
-        <attr name="multiLineRightIconCellDefaultStyle" format="reference"/>
         <attr name="cellViewDefaultStyle" format="reference"/>
         <attr name="toggleCellViewDefaultStyle" format="reference"/>
         <attr name="endIconCellViewDefaultStyle" format="reference"/>
@@ -22,17 +20,17 @@
         <attr name="progressCellViewDefaultStyle" format="reference"/>
         <attr name="detailCellViewDefaultStyle" format="reference"/>
 
-        <attr name="componentButtonDefaultStyle" format="reference"/>
-
+        <!-- Common -->
         <attr name="toolbarDefaultStyle" format="reference"/>
-
         <attr name="loaderButtonDefaultStyle" format="reference"/>
+        <attr name="componentButtonDefaultStyle" format="reference"/>
 
 
         <!-- Container -->
         <attr name="expandableCardContainerDefaultStyle" format="reference"/>
         <attr name="expandableContainerViewStyle" format="reference"/>
         <attr name="highlighterContainerDefaultStyle" format="reference"/>
+        <attr name="titledDividerDefaultStyle" format="reference"/>
 
 
         <!-- CardView -->
@@ -43,9 +41,6 @@
         <attr name="simpleCardViewDefaultStyle" format="reference"/>
         <attr name="balanceCardViewDefaultStyle" format="reference"/>
 
-
-        <!-- Common view -->
-        <attr name="titledDividerDefaultStyle" format="reference"/>
 
     </declare-styleable>
 
@@ -122,25 +117,6 @@
         <attr name="navigationIcon"/>
     </declare-styleable>
 
-    <declare-styleable name="MultiLineRightIconCell">
-        <attr name="android:icon" format="reference"/>
-        <attr name="title"  />
-        <attr name="subtitle"  />
-        <attr name="roundedCornerMode" format="enum">
-            <enum name="single" value="0"/>
-            <enum name="top" value="1"/>
-            <enum name="middle" value="2"/>
-            <enum name="bottom" value="3"/>
-            <enum name="without" value="4"/>
-        </attr>
-    </declare-styleable>
-
-    <declare-styleable name="LogoTitleCell">
-        <attr name="android:icon" format="reference"/>
-        <attr name="title" />
-        <attr name="roundedCornerMode" />
-    </declare-styleable>
-
     <declare-styleable name="BaseCellView">
         <attr name="android:icon"/>
         <attr name="title"/>
@@ -156,7 +132,13 @@
         <attr name="cellIconBottomMargin" format="dimension"/>
         <attr name="cellIconStartMargin" format="dimension"/>
         <attr name="cellIconEndMargin" format="dimension"/>
-        <attr name="roundedCornerMode"/>
+        <attr name="roundedCornerMode" format="enum">
+            <enum name="single" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="middle" value="2"/>
+            <enum name="bottom" value="3"/>
+            <enum name="without" value="4"/>
+        </attr>
         <attr name="isDividerVisible"/>
         <attr name="isSurfaceClickable"/>
         <attr name="squircleIconBackgroundColor" format="color"/>

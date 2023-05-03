@@ -179,10 +179,6 @@
         <item name="ChiliCardViewRippleColor">@color/gray_1</item>
         <item name="ChiliCardViewElevation">@dimen/elevation_8dp</item>
 
-        <item name="ChiliCardViewSquircleBackground">@color/gray_3</item>
-        <item name="ChiliCardViewPhonePickerDividerColor">@color/gray_5</item>
-        <item name="ChiliAnimatedLeftoverAddButtonBackground">@color/white_1</item>
-
         <!-- CategoryCardView -->
         <item name="ChiliCategoryCardViewLabelTopMargin">@dimen/padding_8dp</item>
         <item name="ChiliCategoryCardViewLabelBottomMargin">@dimen/padding_12dp</item>
@@ -193,22 +189,6 @@
         <item name="ChiliCategoryCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliCategoryCardViewIconEndMargin">@dimen/padding_12dp</item>
 
-        <!-- TariffPriceInfoView -->
-        <item name="ChiliInternetLabel">Internet t</item>
-        <item name="ChiliInternetIcon">@drawable/chili_ic_clear</item>
-        <item name="ChiliVoiceInLabel">VoiceIn T</item>
-        <item name="ChiliVoiceInIcon">@drawable/chili_ic_clear</item>
-        <item name="ChiliVoiceOutLabel">VoiceOut T</item>
-        <item name="ChiliVoiceOutIcon">@drawable/chili_ic_clear</item>
-        <item name="ChiliSmsLabel">Sms T</item>
-        <item name="ChiliSmsIcon">@drawable/chili_ic_clear</item>
-
-        <!-- TariffPackagesInfoView -->
-        <item name="ChiliTariffPackagesInfoVerticalDivider">@color/gray_3</item>
-        <item name="ChiliTariffPackagesInfoAddButtonTint">@color/white_1</item>
-        <item name="ChiliTariffPackagesInfoInternetProgress">@color/cyan_1</item>
-        <item name="ChiliTariffPackagesInfoCallProgress">@color/green_1</item>
-
         <!-- CellView attributes -->
         <item name="ChiliCellViewBackground">@color/white_1</item>
         <item name="ChiliCellCornerRadius">@dimen/radius_12dp</item>
@@ -218,10 +198,6 @@
         <item name="ChiliShimmerBoneColor">@color/gray_4</item>
         <item name="ChiliShimmerRayColor">@color/white_1</item>
         <item name="ChiliShimmerBoneRadius">@dimen/radius_10dp</item>
-
-        <!-- NotifiedBalanceCardView -->
-        <item name="ChiliNotifiedBalanceCardBackgroundTint">@color/magenta_1</item>
-        <item name="ChiliNotifiedBalanceCardNotificationColor">@color/white_1</item>
 
     </style>
 

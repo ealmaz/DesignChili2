@@ -39,7 +39,7 @@ class ExpandableCardItemView @JvmOverloads constructor(
     init { initView(context, attrs, defStyleAttr, defStyleRes) }
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_expandable_card_item, this, true)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_expandable_item, this, true)
         this.view = ExpandableCardItemViewVariables(
             root = view.findViewById(R.id.root_view),
             tvTitle = view.findViewById(R.id.tv_title),

@@ -34,7 +34,7 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     protected open fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_base_cell, this)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_base, this)
         this.view = BaseCellViewVariables(
             flStartPlaceholder = view.findViewById(R.id.fl_start_place_holder),
             flEndPlaceholder = view.findViewById(R.id.fl_end_place_holder),

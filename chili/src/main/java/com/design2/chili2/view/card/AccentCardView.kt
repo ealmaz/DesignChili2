@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setTextOrHide
@@ -31,7 +30,7 @@ class AccentCardView @JvmOverloads constructor(
     init { initView(context, attrs, defStyleAttr, defStyleRes) }
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_accent_card_view, this, true)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_accent, this, true)
         this.view = AccentCardViewViewVariables(
             tvTitle = view.findViewById(R.id.tv_title),
             tvSubtitle = view.findViewById(R.id.tv_subtitle),

@@ -35,7 +35,7 @@ class DetailCellView @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_detail_cell, this)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_detail, this)
         this.view = DetailCellViewVariables(
             root = view.findViewById(R.id.root),
             tvTitle = view.findViewById(R.id.tv_title),

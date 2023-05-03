@@ -9,10 +9,6 @@
         <item name="ChiliMarkedTextColor">@color/white_1</item>
         <!-- End text appearance-->
 
-        <!-- Primary Button-->
-        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_2</item>
-
-
         <!-- ScreenBackground -->
         <item name="ChiliScreenBackground">@color/black_2</item>
         <item name="ChiliSurfaceBackground">@color/black_1</item>
@@ -72,10 +68,6 @@
         <item name="ChiliNavigationBarInactiveItemTextColor">@color/white_1</item>
 
 
-        <!-- Additional Button attributes -->
-        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/black_5</item>
-        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/black_5</item>
-
         <!-- InputView -->
         <item name="ChiliInputViewHintTextColor">@color/gray_1_alpha_50</item>
         <item name="ChiliInputViewBackgroundColor">@color/black_3</item>
@@ -85,12 +77,6 @@
 
         <!-- CardView  -->
         <item name="ChiliCardViewBackground">@color/black_3</item>
-        <item name="ChiliCardViewSquircleBackground">@color/black_2</item>
-        <item name="ChiliAnimatedLeftoverAddButtonBackground">@color/black_4</item>
-
-        <!-- TariffPackagesInfoView -->
-        <item name="ChiliTariffPackagesInfoVerticalDivider">@color/black_4</item>
-        <item name="ChiliTariffPackagesInfoAddButtonTint">@color/black_4</item>
 
         <!-- CellView attributes -->
         <item name="ChiliCellViewBackground">@color/black_3</item>

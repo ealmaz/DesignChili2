@@ -48,10 +48,6 @@
     <attr name="ChiliCardViewRippleColor" format="color"/>
     <attr name="ChiliCardViewElevation" format="dimension"/>
 
-    <attr name="ChiliCardViewSquircleBackground" format="reference"/>
-    <attr name="ChiliCardViewPhonePickerDividerColor" format="color"/>
-    <attr name="ChiliAnimatedLeftoverAddButtonBackground" format="color"/>
-
     <!-- CategoryCardView -->
     <attr name="ChiliCategoryCardViewLabelTopMargin" format="dimension"/>
     <attr name="ChiliCategoryCardViewLabelBottomMargin" format="dimension"/>
@@ -135,14 +131,6 @@
     <attr name="ChiliNavigationBarInactiveItemTextColor" format="color"/>
 
 
-    <!-- InputView attributes -->
-    <attr name="ChiliBaseInputViewBackground" format="reference"/>
-    <attr name="ChiliBaseInputViewBackgroundError" format="reference"/>
-    <attr name="ChiliBaseInputViewCursorColor" format="color"/>
-    <attr name="ChiliBaseInputViewIconTint" format="color"/>
-
-
-
     <!-- Primary Button attributes -->
     <attr name="ChiliPrimaryButtonBackgroundActive" format="color"/>
     <attr name="ChiliPrimaryButtonBackgroundDisabled" format="color"/>
@@ -171,10 +159,7 @@
     <!-- Additional Button attributes -->
     <attr name="ChiliAdditionalButtonBackgroundActive" format="color"/>
     <attr name="ChiliAdditionalButtonBackgroundDisabled" format="color"/>
-    <attr name="ChiliNewAdditionalButtonBackgroundActive" format="color"/>
-    <attr name="ChiliNewAdditionalButtonBackgroundDisabled" format="color"/>
     <attr name="ChiliAdditionalButtonCornerRadius" format="dimension"/>
-    <attr name="ChiliNewAdditionalButtonCornerRadius" format="dimension"/>
     <attr name="ChiliAdditionalButtonTextSize" format="dimension"/>
     <attr name="ChiliAdditionalButtonTextFont" format="string"/>
     <attr name="ChiliAdditionalButtonTextColorActive" format="color"/>
@@ -207,30 +192,9 @@
     <attr name="ChiliInputViewErrorMessageTextColor" format="color"/>
     <attr name="ChiliInputViewMessageTextColor" format="color"/>
 
-
-    <!-- TariffPriceInfoView -->
-    <attr name="ChiliInternetLabel" format="string"/>
-    <attr name="ChiliInternetIcon" format="reference"/>
-    <attr name="ChiliVoiceInLabel" format="string"/>
-    <attr name="ChiliVoiceInIcon" format="reference"/>
-    <attr name="ChiliVoiceOutLabel" format="string"/>
-    <attr name="ChiliVoiceOutIcon" format="reference"/>
-    <attr name="ChiliSmsLabel" format="string"/>
-    <attr name="ChiliSmsIcon" format="reference"/>
-
-    <!-- TariffPackagesInfoView -->
-    <attr name="ChiliTariffPackagesInfoVerticalDivider" format="color"/>
-    <attr name="ChiliTariffPackagesInfoAddButtonTint" format="color"/>
-    <attr name="ChiliTariffPackagesInfoInternetProgress" format="color"/>
-    <attr name="ChiliTariffPackagesInfoCallProgress" format="color"/>
-
     <!-- Shimmer attributes -->
     <attr name="ChiliShimmerBoneColor" format="color"/>
     <attr name="ChiliShimmerRayColor" format="color"/>
     <attr name="ChiliShimmerBoneRadius" format="dimension"/>
-
-    <!-- NotifiedBalanceCardView -->
-    <attr name="ChiliNotifiedBalanceCardBackgroundTint" format="color"/>
-    <attr name="ChiliNotifiedBalanceCardNotificationColor" format="color"/>
 
 </resources>

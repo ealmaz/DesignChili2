@@ -43,7 +43,7 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
     override var topDrawableVisible = true
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
-        val view = inflater.inflate(R.layout.chili_view_description_bottom_sheet, container, false)
+        val view = inflater.inflate(R.layout.chili_view_bottom_sheet_description, container, false)
         tvTitle = view.findViewById(R.id.tv_title)
         tvDescription = view.findViewById(R.id.tv_desc)
         tvDescriptionSecondary = view.findViewById(R.id.tv_desc_secondary)

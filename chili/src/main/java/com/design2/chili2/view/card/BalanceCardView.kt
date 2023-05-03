@@ -28,7 +28,7 @@ class BalanceCardView @JvmOverloads constructor(
         get() = view.root
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_balance_card, this, true)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_balance, this, true)
         this.view = BalanceCardViewViewVariables(
             tvLabel = view.findViewById(R.id.tv_title),
             tvValue = view.findViewById(R.id.tv_value),

@@ -30,7 +30,7 @@ class TimePickerDialog: DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.chili_view_time_picker_dialog, container, false)
+        return inflater.inflate(R.layout.chili_view_dialog_time_picker, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

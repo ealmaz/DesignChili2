@@ -10,20 +10,11 @@ import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FrgmentBottomSheetsBinding
 import com.design2.chili2.view.modals.base.BaseFragmentBottomSheetDialogFragment
 import com.design2.chili2.view.modals.bottom_sheet.*
-import com.design2.chili2.view.modals.bottom_sheet.serach_bottom_sheet.Option
-import com.design2.chili2.view.modals.bottom_sheet.serach_bottom_sheet.SearchSelectorBottomSheet
 import com.design2.chili2.view.modals.in_app.InAppPushBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
 
-    val options = listOf(
-        Option("1", "1Item1", false),
-        Option("2", "2Item1", false),
-        Option("3", "3Item1", false),
-        Option("4", "4Item1", false),
-        Option("5", "6Item1", false),
-    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -108,22 +99,6 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
         }
         vb.visbileBottomSheet.setOnClickListener {
             openFragment(InteractiveBottomSheetFragment())
-        }
-        vb.serachBottomSheet.setOnClickListener {
-            val bs = SearchSelectorBottomSheet.Builder()
-                .setIsSingleSelection(false)
-                .setIsHeaderVisible(true)
-                .setIsSearchAvailable(true)
-                .build(requireContext(), options)
-            bs.setOnDismissListener {
-                DetailedInfoBottomSheet.Builder()
-                    .setIcon(R.drawable.ic_cat)
-                    .setMessage(options.toString())
-                    .setPrimaryButton("Понятно" to { dismiss() })
-                    .build()
-                    .show(childFragmentManager)
-            }
-            bs.show()
         }
     }
 
