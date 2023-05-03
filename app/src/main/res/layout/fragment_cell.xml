@@ -18,6 +18,10 @@
         android:clipToPadding="false"
         tools:context=".MainActivity">
 
+        <com.design2.chili2.view.cells.TitledInfoCellView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <com.design2.chili2.view.common.TitledDividerView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
