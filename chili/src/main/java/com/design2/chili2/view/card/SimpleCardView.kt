@@ -28,7 +28,7 @@ class SimpleCardView @JvmOverloads constructor(
     override fun inflateView(context: Context) {
         val view = LayoutInflater.from(context).inflate(R.layout.chili_view_simple_card, this, true)
         this.view = SimpleCardViewViewVariables(
-            tvLabel = view.findViewById(R.id.tv_title),
+            tvTitle = view.findViewById(R.id.tv_title),
             ivIcon = view.findViewById(R.id.iv_icon),
             root = view.findViewById(R.id.root_view)
         )
@@ -46,15 +46,15 @@ class SimpleCardView @JvmOverloads constructor(
     }
 
     fun setTitle(charSequence: CharSequence) {
-        view.tvLabel.text = charSequence
+        view.tvTitle.text = charSequence
     }
 
     fun setTitle(resId: Int) {
-        view.tvLabel.setText(resId)
+        view.tvTitle.setText(resId)
     }
 
     fun setTitleTextAppearance(resId: Int) {
-        view.tvLabel.setTextAppearance(resId)
+        view.tvTitle.setTextAppearance(resId)
     }
 
     fun setIcon(resId: Int) {
@@ -67,7 +67,7 @@ class SimpleCardView @JvmOverloads constructor(
 }
 
 data class SimpleCardViewViewVariables(
-    val tvLabel: TextView,
+    val tvTitle: TextView,
     val ivIcon: ImageView,
     val root: LinearLayout
 )
