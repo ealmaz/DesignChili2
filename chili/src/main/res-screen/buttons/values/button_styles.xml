@@ -16,8 +16,8 @@
     </style>
 
     <style name="Chili.ButtonStyle.Primary">
-        <item name="android:foreground">@drawable/chili_primary_button_ripple</item>
-        <item name="android:background">@drawable/chili_primary_button_background</item>
+        <item name="android:foreground">@drawable/chili_ripple_button_primary</item>
+        <item name="android:background">@drawable/chili_bg_button_primary</item>
         <item name="android:textAppearance">@style/Chili.PrimaryButtonText</item>
     </style>
 
@@ -26,17 +26,9 @@
         <item name="android:textAppearance">@style/Chili.SecondaryButtonText</item>
     </style>
 
-
     <style name="Chili.ButtonStyle.Additional">
-        <item name="android:background">@drawable/chili_additional_button_background</item>
+        <item name="android:background">@drawable/chili_bg_button_additional</item>
         <item name="android:textAppearance">@style/Chili.AdditionalButtonText</item>
-    </style>
-
-    <style name="Chili.ButtonStyle.NewAdditional">
-        <item name="android:background">@drawable/chili_new_additional_button_background</item>
-        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
-        <item name="android:fontFamily">?attr/ChiliAdditionalButtonTextFont</item>
-        <item name="android:textSize">?attr/ChiliAdditionalButtonTextSize</item>
     </style>
 
     <style name="Chili.ButtonStyle.Component">

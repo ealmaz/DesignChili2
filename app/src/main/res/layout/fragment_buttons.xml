@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?ChiliSurfaceBackground"
     android:id="@+id/buttons_sv">
 
     <LinearLayout
@@ -40,16 +41,6 @@
             android:text="Primary button disabled"
             style="@style/Chili.ButtonStyle.Primary"
             android:enabled="false"
-            android:layout_marginStart="@dimen/padding_16dp"
-            android:layout_marginEnd="@dimen/padding_16dp"
-            android:layout_marginTop="@dimen/padding_8dp"/>
-
-        <Button
-            android:id="@+id/newAdditional"
-            style="@style/Chili.ButtonStyle.NewAdditional"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New additional button"
             android:layout_marginStart="@dimen/padding_16dp"
             android:layout_marginEnd="@dimen/padding_16dp"
             android:layout_marginTop="@dimen/padding_8dp"/>

@@ -8,7 +8,6 @@
 
     <!-- Buttons text appearance   -->
     <style name="Chili.BaseButtonText" parent="Chili.BaseTextAppearance">
-        <item name="android:textAllCaps">true</item>
         <item name="android:textAlignment">center</item>
     </style>
 

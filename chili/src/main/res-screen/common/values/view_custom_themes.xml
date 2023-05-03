@@ -10,7 +10,7 @@
     </style>
 
     <style name="ThemeOverlay.ChiliCardFucsia1">
-        <item name="ChiliCardViewBackground">@color/fucsia_1</item>
+        <item name="ChiliCardViewBackground">@color/folly_1</item>
         <item name="ChiliPrimaryTextColor">@color/white_1</item>
     </style>
 

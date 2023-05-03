@@ -155,6 +155,7 @@
     <attr name="ChiliPrimaryButtonTextAllCaps" format="boolean"/>
 
     <attr name="ChiliPrimaryButtonRippleColor" format="color"/>
+    <attr name="ChiliPrimaryButtonBorderColor" format="color"/>
 
     <!-- Secondary Button attributes -->
     <attr name="ChiliSecondaryButtonBackgroundActive" format="color"/>

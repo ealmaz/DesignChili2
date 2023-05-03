@@ -8,6 +8,8 @@
             <solid
                 android:color="?attr/ChiliPrimaryButtonBackgroundDisabled"
                 tools:color="@color/green_3"/>
+            <stroke android:color="?ChiliPrimaryButtonBorderColor" android:width="1dp"
+                tools:color="@color/chartreuse_2_alpha_50"/>
         </shape>
     </item>
     <item android:state_enabled="true">
@@ -15,6 +17,8 @@
             <corners
                 android:radius="?attr/ChiliPrimaryButtonCornerRadius"
                 tools:radius="4dp"/>
+            <stroke android:color="?ChiliPrimaryButtonBorderColor" android:width="1dp"
+                tools:color="@color/chartreuse_2_alpha_50"/>
             <solid
                 android:color="?attr/ChiliPrimaryButtonBackgroundActive"
                 tools:color="@color/green_1"/>

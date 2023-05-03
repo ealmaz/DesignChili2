@@ -27,9 +27,18 @@
     <color name="magenta_2">#CC0D71</color>
     <color name="magenta_3">#f6a7d0</color>
     <color name="magenta_5">#F6ECF2</color>
+    
+    <!-- Chartreuse -->
+    <color name="chartreuse_1">#D4FF00</color>
+    <color name="chartreuse_2">#BCE200</color>
+    <color name="chartreuse_2_alpha_50">#80BCE200</color>
+    <color name="chartreuse_3">#EEFF99</color>
 
-    <!-- fucsia -->
-    <color name="fucsia_1">#FF0051</color>
+
+    <!-- Folly -->
+    <color name="folly_1">#FF0051</color>
+    <color name="folly_2">#E00047</color>
+    <color name="folly_3">#FF99B9</color>
 
     <!-- Green -->
     <color name="green_1">#82B752</color>
@@ -71,6 +80,7 @@
     <!-- Alpha colors -->
     <color name="gray_1_alpha_50">#808A8A8E</color>
     <color name="black_1_alpha_20">#33010101</color>
+    <color name="black_1_alpha_50">#80010101</color>
     <color name="blue_1_alpha_50">#80007AFF</color>
     <color name="magenta_1_alpha_40">#66F0047F</color>
 

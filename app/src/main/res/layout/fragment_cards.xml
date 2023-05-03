@@ -32,7 +32,7 @@
                 app:title="Сканер штрихкодов и QR"
                 app:subtitle="Для удобной оплаты \nбез ввода реквизитов"
                 app:endIcon="@drawable/pay"
-                app:cardBackground="@color/fucsia_1" />
+                app:cardBackground="@color/folly_1" />
 
             <com.design2.chili2.view.card.AccentCardView
                 android:id="@+id/accent2"

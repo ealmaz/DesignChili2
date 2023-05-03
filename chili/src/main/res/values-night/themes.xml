@@ -104,6 +104,19 @@
         <item name="ChiliShimmerBoneColor">@color/black_2</item>
         <item name="ChiliShimmerRayColor">@color/black_4</item>
 
+
+        <!-- Primary Button attributes -->
+        <item name="ChiliPrimaryButtonBorderColor">@color/chartreuse_2_alpha_50</item>
+
+        <!-- Additional Button attributes -->
+        <item name="ChiliAdditionalButtonBackgroundActive">@color/black_5</item>
+        <item name="ChiliAdditionalButtonBackgroundDisabled">@color/black_5</item>
+        <item name="ChiliAdditionalButtonTextColorActive">@color/white_1</item>
+        <item name="ChiliAdditionalButtonTextColorPressed">@color/white_1</item>
+
+        <item name="ChiliAdditionalButtonBorderColor">@color/black_5</item>
+        <item name="ChiliAdditionalButtonDisabledBorderColor">@color/black_5</item>
+
     </style>
 
     <style name="ChiliDesignTheme" parent="BaseChiliDesignTheme.Night" />

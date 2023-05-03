@@ -107,23 +107,24 @@
 
         <item name="ChiliNavigationBarBackground">@color/gray_3_alpha_95</item>
         <item name="ChiliNavigationBarBackgroundCornerRadius">@dimen/radius_24dp</item>
-        <item name="ChiliNavigationBarActiveItemIconColor">@color/fucsia_1</item>
+        <item name="ChiliNavigationBarActiveItemIconColor">@color/folly_1</item>
         <item name="ChiliNavigationBarInactiveItemIconColor">@color/gray_1</item>
-        <item name="ChiliNavigationBarActiveItemTextColor">@color/fucsia_1</item>
+        <item name="ChiliNavigationBarActiveItemTextColor">@color/folly_1</item>
         <item name="ChiliNavigationBarInactiveItemTextColor">@color/black_1</item>
 
         <!-- Primary Button attributes -->
-        <item name="ChiliPrimaryButtonBackgroundActive">@color/green_1</item>
-        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_3</item>
-        <item name="ChiliPrimaryButtonCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliPrimaryButtonBackgroundActive">@color/chartreuse_1</item>
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/chartreuse_2_alpha_50</item>
+        <item name="ChiliPrimaryButtonCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliPrimaryButtonTextSize">@dimen/text_14sp</item>
         <item name="ChiliPrimaryButtonTextFont">@font/roboto_medium</item>
-        <item name="ChiliPrimaryButtonTextColorActive">@color/white_1</item>
-        <item name="ChiliPrimaryButtonTextColorPressed">@color/white_1</item>
-        <item name="ChiliPrimaryButtonTextColorDisabled">@color/white_1</item>
-        <item name="ChiliPrimaryButtonTextAllCaps">true</item>
+        <item name="ChiliPrimaryButtonTextColorActive">@color/black_1</item>
+        <item name="ChiliPrimaryButtonTextColorPressed">@color/black_1</item>
+        <item name="ChiliPrimaryButtonTextColorDisabled">@color/black_1_alpha_50</item>
+        <item name="ChiliPrimaryButtonTextAllCaps">false</item>
 
         <item name="ChiliPrimaryButtonRippleColor">@color/black_1_alpha_20</item>
+        <item name="ChiliPrimaryButtonBorderColor">@color/chartreuse_2_alpha_50</item>
 
 
 
@@ -139,20 +140,17 @@
 
 
         <!-- Additional Button attributes -->
-        <item name="ChiliAdditionalButtonBackgroundActive">@android:color/transparent</item>
-        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/gray_5</item>
-        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/gray_5</item>
-        <item name="ChiliNewAdditionalButtonCornerRadius">@dimen/radius_12dp</item>
-        <item name="ChiliAdditionalButtonBackgroundDisabled">@android:color/transparent</item>
-        <item name="ChiliAdditionalButtonCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliAdditionalButtonBackgroundActive">@color/gray_5</item>
+        <item name="ChiliAdditionalButtonBackgroundDisabled">@color/gray_5</item>
+        <item name="ChiliAdditionalButtonCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliAdditionalButtonTextSize">@dimen/text_14sp</item>
         <item name="ChiliAdditionalButtonTextFont">@font/roboto_medium</item>
-        <item name="ChiliAdditionalButtonTextColorActive">@color/gray_1</item>
+        <item name="ChiliAdditionalButtonTextColorActive">@color/black_1</item>
         <item name="ChiliAdditionalButtonTextColorPressed">@color/gray_1</item>
         <item name="ChiliAdditionalButtonTextColorDisabled">@color/gray_1_alpha_50</item>
 
-        <item name="ChiliAdditionalButtonBorderColor">@color/gray_1</item>
-        <item name="ChiliAdditionalButtonDisabledBorderColor">@color/gray_1_alpha_50</item>
+        <item name="ChiliAdditionalButtonBorderColor">@color/gray_5</item>
+        <item name="ChiliAdditionalButtonDisabledBorderColor">@color/gray_5</item>
 
 
         <!-- Component Button attributes -->
