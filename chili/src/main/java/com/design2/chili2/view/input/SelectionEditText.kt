@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 class SelectionEditText(context: Context, attributeSet: AttributeSet) : androidx.appcompat.widget.AppCompatEditText(context, attributeSet) {
 
     private var pasteListener: PasteListener? = null
+    private var selectionChangedListener: SelectionChangedListener? = null
 
     var startSelectionLimit = 0
     var endSelectionLimit = -1
@@ -16,6 +17,7 @@ class SelectionEditText(context: Context, attributeSet: AttributeSet) : androidx
     }
 
     override fun onSelectionChanged(selStart: Int, selEnd: Int) {
+        if (selectionChangedListener?.onSelectionChanged(selStart, selEnd) == true) return
         when {
             selStart == selEnd && selStart < startSelectionLimit -> {
                 setSelection(startSelectionLimit)
@@ -58,8 +60,16 @@ class SelectionEditText(context: Context, attributeSet: AttributeSet) : androidx
     fun moveSelectionToStart() {
         setSelection(0)
     }
+
+    fun setSelectionChangedListener(listener: SelectionChangedListener) {
+        this.selectionChangedListener = listener
+    }
 }
 
 interface PasteListener {
     fun onPasteText(fieldText: String, newText: String, selectionPosition: Int): String?
+}
+
+interface SelectionChangedListener {
+    fun onSelectionChanged(selStart: Int, selEnd: Int): Boolean
 }

@@ -29,4 +29,9 @@
         <item name="android:singleLine">false</item>
     </style>
 
+
+    <style name="Chili.OtpInputViewStyle" parent="Chili.BaseChiliViewStyle">
+
+    </style>
+
 </resources>

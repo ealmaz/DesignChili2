@@ -192,6 +192,15 @@
     <attr name="ChiliInputViewErrorMessageTextColor" format="color"/>
     <attr name="ChiliInputViewMessageTextColor" format="color"/>
 
+    <!-- OtpInputView -->
+    <attr name="ChiliOtpInputViewItemRadius" format="dimension"/>
+    <attr name="ChiliOtpInputViewItemActiveBackground" format="reference"/>
+    <attr name="ChiliOtpInputViewItemInactiveBackground" format="reference"/>
+    <attr name="ChiliOtpInputViewItemErrorBackground" format="reference"/>
+    <attr name="ChiliOtpInputViewItemHorizontalPadding" format="dimension"/>
+    <attr name="ChiliOtpInputViewItemVerticalPadding" format="dimension"/>
+
+
     <!-- Shimmer attributes -->
     <attr name="ChiliShimmerBoneColor" format="color"/>
     <attr name="ChiliShimmerRayColor" format="color"/>

@@ -77,6 +77,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"/>
 
+        <com.design2.chili2.view.input.otp.OtpInputView
+            android:id="@+id/otp"
+            android:layout_marginVertical="@dimen/padding_32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </ScrollView>

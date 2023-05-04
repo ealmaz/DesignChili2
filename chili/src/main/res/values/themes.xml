@@ -173,6 +173,14 @@
         <item name="ChiliInputViewMessageTextColor">@color/black_5</item>
         <item name="ChiliInputViewBackgroundCornerRadius">@dimen/radius_12dp</item>
 
+        <!-- OtpInputView -->
+        <item name="ChiliOtpInputViewItemRadius">?ChiliInputViewBackgroundCornerRadius</item>
+        <item name="ChiliOtpInputViewItemActiveBackground">?ChiliInputViewBackgroundColor</item>
+        <item name="ChiliOtpInputViewItemInactiveBackground">?ChiliInputViewBackgroundColor</item>
+        <item name="ChiliOtpInputViewItemErrorBackground">?ChiliInputViewBackgroundErrorColor</item>
+        <item name="ChiliOtpInputViewItemHorizontalPadding">@dimen/padding_16dp</item>
+        <item name="ChiliOtpInputViewItemVerticalPadding">@dimen/padding_14dp</item>
+
         <!-- CardView -->
         <item name="ChiliCardViewBackground">@color/white_1</item>
         <item name="ChiliCardViewCornerRadius">@dimen/radius_12dp</item>

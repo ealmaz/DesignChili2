@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.design2.chili2.view.input.SelectionEditText
+        android:id="@+id/et_input"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@null"
+        android:inputType="number"
+        android:textColor="@android:color/transparent"
+        android:cursorVisible="false"
+        app:layout_constraintTop_toTopOf="@id/item_container"
+        app:layout_constraintBottom_toBottomOf="@id/item_container"
+        app:layout_constraintStart_toStartOf="@id/item_container"
+        app:layout_constraintEnd_toEndOf="@id/item_container"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.design2.chili2.view.input.otp.OtpItemView
+            android:id="@+id/otp_item_1"
+            android:layout_width="@dimen/view_44dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="?ChiliOtpInputViewItemHorizontalPadding"
+            android:paddingVertical="?ChiliOtpInputViewItemVerticalPadding"
+            android:textAppearance="@style/Chili.H7.Primary.Bold"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/otp_item_2"/>
+
+        <com.design2.chili2.view.input.otp.OtpItemView
+            android:id="@+id/otp_item_2"
+            android:layout_width="@dimen/view_44dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="?ChiliOtpInputViewItemHorizontalPadding"
+            android:paddingVertical="?ChiliOtpInputViewItemVerticalPadding"
+            android:textAppearance="@style/Chili.H7.Primary.Bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/otp_item_1"
+            app:layout_constraintEnd_toStartOf="@id/otp_item_3"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
+        <com.design2.chili2.view.input.otp.OtpItemView
+            android:id="@+id/otp_item_3"
+            android:layout_width="@dimen/view_44dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="?ChiliOtpInputViewItemHorizontalPadding"
+            android:paddingVertical="?ChiliOtpInputViewItemVerticalPadding"
+            android:textAppearance="@style/Chili.H7.Primary.Bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/otp_item_2"
+            app:layout_constraintEnd_toStartOf="@id/otp_item_4"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
+        <com.design2.chili2.view.input.otp.OtpItemView
+            android:id="@+id/otp_item_4"
+            android:layout_width="@dimen/view_44dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="?ChiliOtpInputViewItemHorizontalPadding"
+            android:paddingVertical="?ChiliOtpInputViewItemVerticalPadding"
+            android:textAppearance="@style/Chili.H7.Primary.Bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/otp_item_3"
+            app:layout_constraintEnd_toStartOf="@id/otp_item_5"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
+        <com.design2.chili2.view.input.otp.OtpItemView
+            android:id="@+id/otp_item_5"
+            android:layout_width="@dimen/view_44dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="?ChiliOtpInputViewItemHorizontalPadding"
+            android:paddingVertical="?ChiliOtpInputViewItemVerticalPadding"
+            android:textAppearance="@style/Chili.H7.Primary.Bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/otp_item_4"
+            app:layout_constraintEnd_toStartOf="@id/otp_item_6"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
+        <com.design2.chili2.view.input.otp.OtpItemView
+            android:id="@+id/otp_item_6"
+            android:layout_width="@dimen/view_44dp"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="?ChiliOtpInputViewItemHorizontalPadding"
+            android:paddingVertical="?ChiliOtpInputViewItemVerticalPadding"
+            android:textAppearance="@style/Chili.H7.Primary.Bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/otp_item_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Chili.H9.Primary"
+        android:textColor="@color/red_1"
+        app:layout_constraintTop_toTopOf="@id/tv_action"
+        app:layout_constraintBottom_toBottomOf="@id/tv_action"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Неверный код"/>
+
+    <TextView
+        android:id="@+id/tv_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Chili.H7.Secondary"
+        android:layout_marginTop="@dimen/padding_4dp"
+        app:layout_constraintTop_toBottomOf="@id/item_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Chili.ButtonStyle.Component"
+        tools:text="00:40"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

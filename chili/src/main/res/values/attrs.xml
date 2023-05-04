@@ -7,6 +7,7 @@
         <attr name="inputViewDefaultStyle" format="reference"/>
         <attr name="maskedInputDefaultStyle" format="reference"/>
         <attr name="multilineInputDefaultStyle" format="reference"/>
+        <attr name="otpInputViewDefaultStyle" format="reference"/>
 
         <!-- CellView -->
         <attr name="infoCellViewDefaultStyle" format="reference"/>
@@ -326,6 +327,15 @@
         <attr name="titleTextAppearance"/>
         <attr name="actionText"/>
         <attr name="actionTextTextAppearance"/>
+    </declare-styleable>
+    
+    <declare-styleable name="OtpInputView">
+        <attr name="actionText"/>
+        <attr name="actionTextTextAppearance"/>
+        <attr name="message"/>
+        <attr name="messageTextAppearance" format="reference"/>
+        <attr name="messageTextColor"/>
+        <attr name="otpLength" format="integer"/>
     </declare-styleable>
 
 </resources>
