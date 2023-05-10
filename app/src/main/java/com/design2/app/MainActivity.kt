@@ -8,12 +8,18 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.fragment.app.Fragment
+import com.design2.app.base.BaseFragment
 import com.design2.app.fragments.AllViewsFragment
 import com.design2.chili2.view.navigation_components.ChiliToolbar
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var toolbar: ChiliToolbar
+
+    private var isShimmering = false
+    private var isDarkTheme = false
+        @Synchronized get() = field
+        @Synchronized set(value) {field = value}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,10 +48,31 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.dark -> AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-            R.id.light -> AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+            R.id.theme -> setupDarkTheme()
+            R.id.shimmer -> setupShimmer(!isShimmering)
         }
         return true
+    }
+
+    private fun setupDarkTheme() {
+        when (!isDarkTheme) {
+            true -> {
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+                isDarkTheme = true
+            }
+            else -> {
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+                isDarkTheme = false
+            }
+        }
+    }
+
+    private fun setupShimmer(isShimmering: Boolean) {
+        this.isShimmering = isShimmering
+        (supportFragmentManager.findFragmentById(R.id.container) as BaseFragment<*>).apply {
+            if (isShimmering) startShimmering()
+            else stopShimmering()
+        }
     }
 
     fun openFragment(fragment: Fragment) {

@@ -10,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleCentered="true"
+        app:titleCentered="false"
         app:isDividerVisible="true"
         app:navigationIcon="@drawable/chili_ic_close"
         app:title="@string/app_name"/>

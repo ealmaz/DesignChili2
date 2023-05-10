@@ -42,6 +42,7 @@ class ActionCellView @JvmOverloads constructor(
     private fun inflateAction() {
         tvAction = TextView(context, null, R.attr.componentButtonDefaultStyle, R.style.Chili_ButtonStyle_Component).apply {
             setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+            shimmeringPairs[this] = null
         }
         view.flEndPlaceholder.addView(tvAction)
     }

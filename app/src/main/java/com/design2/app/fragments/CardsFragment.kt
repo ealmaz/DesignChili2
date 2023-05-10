@@ -5,6 +5,7 @@ import android.view.View
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCardsBinding
+import com.design2.chili2.view.shimmer.setupShimmeringForViewGroup
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>() {
 
@@ -15,5 +16,15 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
 
     override fun inflateViewBinging(): FragmentCardsBinding {
         return FragmentCardsBinding.inflate(layoutInflater)
+    }
+
+    override fun startShimmering() {
+        super.startShimmering()
+        vb.root.setupShimmeringForViewGroup(true)
+    }
+
+    override fun stopShimmering() {
+        super.stopShimmering()
+        vb.root.setupShimmeringForViewGroup(false)
     }
 }

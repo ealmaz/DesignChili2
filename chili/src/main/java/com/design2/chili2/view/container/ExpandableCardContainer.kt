@@ -16,7 +16,7 @@ import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.view.card.ExpandableCardItemView
-import com.design2.chili2.view.shimmer.FacebookShimmering
+import com.design2.chili2.view.shimmer.ShimmeringView
 import com.design2.chili2.view.shimmer.startShimmering
 import com.design2.chili2.view.shimmer.stopShimmering
 import com.facebook.shimmer.ShimmerFrameLayout
@@ -26,15 +26,9 @@ class ExpandableCardContainer @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.expandableCardContainerDefaultStyle,
     defStyleRes: Int = R.style.Chili_Container_ExpandableCardContainer,
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), FacebookShimmering {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
-    private val mutableShimmeringViewMap = mutableMapOf<View, View?>()
-    private val shimmerViewGroups: List<ShimmerFrameLayout> by lazy {
-        listOf(
-            findViewById(R.id.view_title_shimmer),
-            findViewById(R.id.view_subtitle_shimmer),
-        )
-    }
+    private val mutableShimmeringViewMap = mutableMapOf<View, ShimmerFrameLayout?>()
 
     private lateinit var view: ExpandableCardContainerVariables
 
@@ -171,15 +165,14 @@ class ExpandableCardContainer @JvmOverloads constructor(
     }
 
     override fun onStartShimmer() {
-        children.forEach { (it as? FacebookShimmering)?.startShimmering() }
+        children.forEach { (it as? ShimmeringView)?.startShimmering() }
     }
 
     override fun onStopShimmer() {
-        children.forEach { (it as? FacebookShimmering)?.stopShimmering() }
+        children.forEach { (it as? ShimmeringView)?.stopShimmering() }
     }
 
-    override fun getShimmerLayouts(): List<ShimmerFrameLayout> = shimmerViewGroups
-    override fun getShimmeribleViewsPair(): Map<View, View?> = mutableShimmeringViewMap
+    override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = mutableShimmeringViewMap
 }
 
 data class ExpandableCardContainerVariables(
@@ -188,8 +181,8 @@ data class ExpandableCardContainerVariables(
     val tvValue: TextView,
     val ivArrow: ImageView,
     val rootView: ConstraintLayout,
-    val titleShimmer: View,
-    val subtitleShimmer: View
+    val titleShimmer: ShimmerFrameLayout,
+    val subtitleShimmer: ShimmerFrameLayout
 )
 
 data class ExpandableItemData(

@@ -56,7 +56,9 @@ class EndIconCellView @JvmOverloads constructor(
     }
 
     private fun inflateEndIcon() {
-        this.endIcon = ImageView(context)
+        this.endIcon = ImageView(context).apply {
+            shimmeringPairs[this] = null
+        }
         view.flEndPlaceholder.addView(endIcon)
     }
 

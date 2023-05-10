@@ -75,4 +75,14 @@ class ToggleCellView @JvmOverloads constructor(
             textOff = text
         }
     }
+
+    override fun onStartShimmer() {
+        super.onStartShimmer()
+        switch?.isEnabled = false
+    }
+
+    override fun onStopShimmer() {
+        super.onStopShimmer()
+        switch?.isEnabled = true
+    }
 }

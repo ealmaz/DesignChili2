@@ -26,4 +26,7 @@ abstract class BaseFragment<VB: ViewBinding> : Fragment() {
     fun openFragment(fragment: Fragment) {
         (requireActivity() as MainActivity).openFragment(fragment)
     }
+
+    open fun startShimmering() {}
+    open fun stopShimmering() {}
 }

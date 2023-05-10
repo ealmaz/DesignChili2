@@ -14,19 +14,24 @@ import com.design2.chili2.R
 import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.util.RoundedCornerMode
+import com.design2.chili2.view.shimmer.ShimmeringView
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class InfoCellView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.infoCellViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CellViewStyle_InfoCellView
-) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
+) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
     lateinit var view: InfoCellViewVariables
+
+    private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
 
     init {
         initView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
+        setupShimmering()
     }
 
     private fun initView(context: Context) {
@@ -35,7 +40,9 @@ class InfoCellView @JvmOverloads constructor(
             rootView = view.findViewById(R.id.rootView),
             tvTitle = view.findViewById(R.id.tv_title),
             tvSubtitle = view.findViewById(R.id.tv_subtitle),
-            divider = view.findViewById(R.id.divider)
+            divider = view.findViewById(R.id.divider),
+            titleShimmer = view.findViewById(R.id.view_title_shimmer),
+            subtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
         )
     }
 
@@ -55,6 +62,13 @@ class InfoCellView @JvmOverloads constructor(
                 setSubtitleTextAppearance(it)
             }
             recycle()
+        }
+    }
+
+    private fun setupShimmering() {
+        shimmeringPairs.apply {
+            put(view.tvTitle, view.titleShimmer)
+            put(view.tvSubtitle, view.subtitleShimmer)
         }
     }
 
@@ -102,20 +116,14 @@ class InfoCellView @JvmOverloads constructor(
     }
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.tvTitle.setTextAppearance(resId)
-        } else {
-            view.tvTitle.setTextAppearance(context, resId)
-        }
+        view.tvTitle.setTextAppearance(resId)
     }
 
     fun setSubtitleTextAppearance(@StyleRes resId: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.tvSubtitle.setTextAppearance(resId)
-        } else {
-            view.tvSubtitle.setTextAppearance(context, resId)
-        }
+        view.tvSubtitle.setTextAppearance(resId)
     }
+
+    override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
 
 }
 
@@ -123,5 +131,7 @@ data class InfoCellViewVariables(
     val rootView: ConstraintLayout,
     val tvTitle: TextView,
     val tvSubtitle: TextView,
-    val divider: View
+    val divider: View,
+    val titleShimmer: ShimmerFrameLayout,
+    val subtitleShimmer: ShimmerFrameLayout,
 )

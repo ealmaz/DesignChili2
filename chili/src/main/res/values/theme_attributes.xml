@@ -204,7 +204,6 @@
 
     <!-- Shimmer attributes -->
     <attr name="ChiliShimmerBoneColor" format="color"/>
-    <attr name="ChiliShimmerRayColor" format="color"/>
     <attr name="ChiliShimmerBoneRadius" format="dimension"/>
 
 </resources>

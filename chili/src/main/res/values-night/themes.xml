@@ -85,7 +85,6 @@
 
         <!-- Shimmer attributes -->
         <item name="ChiliShimmerBoneColor">@color/black_2</item>
-        <item name="ChiliShimmerRayColor">@color/black_4</item>
 
 
         <!-- Primary Button attributes -->

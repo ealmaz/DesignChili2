@@ -18,19 +18,24 @@ import com.design2.chili2.extensions.*
 import com.design2.chili2.util.IconSize
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.image.SquircleView
+import com.design2.chili2.view.shimmer.ShimmeringView
+import com.facebook.shimmer.ShimmerFrameLayout
 
 open class BaseCellView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.cellViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CellViewStyle_BaseCellViewStyle
-) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
+) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
     lateinit var view: BaseCellViewVariables
+
+    protected val shimmeringPairs: MutableMap<View, ShimmerFrameLayout?> = mutableMapOf()
 
     init {
         inflateView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
+        setupShimmerViews()
     }
 
     protected open fun inflateView(context: Context) {
@@ -45,7 +50,8 @@ open class BaseCellView @JvmOverloads constructor(
             rootView = view.findViewById(R.id.root_view),
             chevron = view.findViewById(R.id.iv_chevron),
             tvTitleShimmer = view.findViewById(R.id.view_title_shimmer),
-            endPlaceholderShimmer = view.findViewById(R.id.view_end_placeholder_shimmer)
+            tvSubtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
+            iconShimmer = view.findViewById(R.id.view_icon_shimmer),
         )
     }
 
@@ -115,6 +121,10 @@ open class BaseCellView @JvmOverloads constructor(
             }
     }
 
+    private fun setupShimmerViews() {
+        shimmeringPairs[view.tvTitle] = view.tvTitleShimmer
+    }
+
     fun setTitle(text: String?) {
         view.tvTitle.text = text
     }
@@ -146,24 +156,24 @@ open class BaseCellView @JvmOverloads constructor(
         view.tvTitle.layoutParams = param
     }
 
-    fun setSubtitle(text: String?) {
-        view.tvSubtitle.setTextOrHide(text)
-    }
-
-    fun setSubtitle(text: Spanned?) {
-        view.tvSubtitle.setTextOrHide(text)
+    fun setSubtitle(charSequence: CharSequence?) {
+        view.tvSubtitle.apply {
+            setTextOrHide(charSequence)
+            if (charSequence == null) shimmeringPairs.remove(this)
+            else shimmeringPairs[this] = view.tvSubtitleShimmer
+        }
     }
 
     fun setSubtitle(@StringRes resId: Int) {
-        view.tvSubtitle.setTextOrHide(resId)
+        view.tvSubtitle.apply {
+            visible()
+            setText(resId)
+            shimmeringPairs[this] = view.tvSubtitleShimmer
+        }
     }
 
     fun setSubtitleTextAppearance(@StyleRes resId: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.tvSubtitle.setTextAppearance(resId)
-        } else {
-            view.tvSubtitle.setTextAppearance(context, resId)
-        }
+        view.tvSubtitle.setTextAppearance(resId)
     }
 
     fun setIcon(@DrawableRes drawableRes: Int) {
@@ -171,6 +181,7 @@ open class BaseCellView @JvmOverloads constructor(
             visible()
             updateTitleMargin(startMarginPx = 0)
             setImageResource(drawableRes)
+            setupIconShimmer()
         }
     }
 
@@ -179,6 +190,7 @@ open class BaseCellView @JvmOverloads constructor(
             visible()
             updateTitleMargin(startMarginPx = 0)
             setImageDrawable(drawable)
+            setupIconShimmer()
         }
     }
 
@@ -191,7 +203,12 @@ open class BaseCellView @JvmOverloads constructor(
                 .placeholder(context.drawable(placeHolderResId?:R.drawable.chili_ic_stub))
                 .dontTransform()
                 .into(view.ivIcon)
+            setupIconShimmer()
         }
+    }
+
+    private fun setupIconShimmer() {
+        shimmeringPairs[view.ivIcon] = view.iconShimmer
     }
 
     fun getIconView(): SquircleView {
@@ -303,6 +320,8 @@ open class BaseCellView @JvmOverloads constructor(
     fun updateRootViewMinHeight(minHeight: Int) {
         view.rootView.minHeight = minHeight
     }
+
+    override fun getShimmeringViewsPair() = shimmeringPairs
 }
 
 data class BaseCellViewVariables(
@@ -314,5 +333,6 @@ data class BaseCellViewVariables(
     var divider: View,
     var rootView: ConstraintLayout,
     var chevron: ImageView,
-    val tvTitleShimmer: View,
-    val endPlaceholderShimmer: View)
+    val tvTitleShimmer: ShimmerFrameLayout,
+    val tvSubtitleShimmer: ShimmerFrameLayout,
+    val iconShimmer: ShimmerFrameLayout)

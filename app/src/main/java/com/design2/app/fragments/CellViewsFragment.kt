@@ -3,9 +3,13 @@ package com.design2.app.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.core.text.parseAsHtml
+import androidx.core.view.children
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
+import com.design2.chili2.view.shimmer.ShimmeringView
+import com.design2.chili2.view.shimmer.startShimmering
+import com.design2.chili2.view.shimmer.stopShimmering
 
 
 class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
@@ -38,5 +42,19 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
 
     override fun inflateViewBinging(): FragmentCellBinding {
         return FragmentCellBinding.inflate(layoutInflater)
+    }
+
+    override fun startShimmering() {
+        super.startShimmering()
+        vb.container.children.forEach {
+            (it as? ShimmeringView)?.startShimmering()
+        }
+    }
+
+    override fun stopShimmering() {
+        super.stopShimmering()
+        vb.container.children.forEach {
+            (it as? ShimmeringView)?.stopShimmering()
+        }
     }
 }

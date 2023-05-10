@@ -32,23 +32,20 @@
         tools:src="@tools:sample/avatars" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/view_title_shimmer"
+        android:id="@+id/view_icon_shimmer"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:visibility="gone"
-        android:layout_marginStart="@dimen/padding_8dp"
-        android:layout_marginEnd="@dimen/padding_8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/fl_end_place_holder"
-        app:layout_constraintStart_toEndOf="@id/iv_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="@id/iv_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_icon">
         <View
-            android:layout_width="@dimen/view_200dp"
-            android:layout_height="@dimen/view_8dp"
-            android:background="@drawable/chili_bg_shimmer"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/chili_bg_shimmer"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
+
 
     <TextView
         android:id="@+id/tv_title"
@@ -69,6 +66,20 @@
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Заголовок" />
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_title_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/tv_title"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="@id/tv_title">
+        <View
+            android:layout_width="@dimen/view_200dp"
+            android:layout_height="@dimen/view_8dp"
+            android:background="@drawable/chili_bg_shimmer"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <TextView
         android:id="@+id/tv_subtitle"
         android:layout_width="0dp"
@@ -85,23 +96,18 @@
         tools:text="Подзаголовок" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/view_end_placeholder_shimmer"
+        android:id="@+id/view_subtitle_shimmer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_marginStart="@dimen/padding_8dp"
-        android:layout_marginEnd="@dimen/padding_8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/iv_chevron"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="@id/tv_subtitle"
+        app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
+        app:layout_constraintStart_toStartOf="@id/tv_subtitle">
         <View
-            android:layout_width="@dimen/view_40dp"
+            android:layout_width="@dimen/view_200dp"
             android:layout_height="@dimen/view_8dp"
-            android:background="@drawable/chili_bg_shimmer"
-            />
+            android:background="@drawable/chili_bg_shimmer"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
-
 
 
     <FrameLayout
@@ -111,6 +117,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/iv_chevron"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/iv_chevron"

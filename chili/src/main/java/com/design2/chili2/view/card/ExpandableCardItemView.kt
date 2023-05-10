@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setTextOrHide
-import com.design2.chili2.view.shimmer.FacebookShimmering
+import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
 
 class ExpandableCardItemView @JvmOverloads constructor(
@@ -17,22 +17,14 @@ class ExpandableCardItemView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.expandableCardItemViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CardViewStyle_ExpandableCardItemView
-) : BaseCardView(context, attrs, defStyleAttr, defStyleRes), FacebookShimmering {
+) : BaseCardView(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
     override val rootContainer: View
         get() = view.root
 
     override val styleableAttrRes: IntArray = R.styleable.ExpandableCardItemView
 
-    private val mutableShimmeringViewMap = mutableMapOf<View, View?>()
-    private val shimmerViewGroup: List<ShimmerFrameLayout> by lazy {
-        listOf(
-            findViewById(R.id.view_title_shimmer),
-            findViewById(R.id.view_subtitle_shimmer),
-            findViewById(R.id.view_title_value_shimmer),
-            findViewById(R.id.view_subtitle_value_shimmer),
-        )
-    }
+    private val mutableShimmeringViewMap = mutableMapOf<View, ShimmerFrameLayout?>()
 
     private lateinit var view: ExpandableCardItemViewVariables
 
@@ -109,8 +101,7 @@ class ExpandableCardItemView @JvmOverloads constructor(
 
     override fun onStartShimmer() {}
     override fun onStopShimmer() {}
-    override fun getShimmerLayouts(): List<ShimmerFrameLayout> = shimmerViewGroup
-    override fun getShimmeribleViewsPair(): Map<View, View?> = mutableShimmeringViewMap
+    override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = mutableShimmeringViewMap
 }
 
 data class ExpandableCardItemViewVariables(
@@ -119,8 +110,8 @@ data class ExpandableCardItemViewVariables(
     val tvSubtitle: TextView,
     val tvTitleValue: TextView,
     val tvSubtitleValue: TextView,
-    val tvTitleShimmer: View,
-    val tvSubtitleShimmer: View,
-    val tvTitleValueShimmer: View,
-    val tvSubtitleValueShimmer: View,
+    val tvTitleShimmer: ShimmerFrameLayout,
+    val tvSubtitleShimmer: ShimmerFrameLayout,
+    val tvTitleValueShimmer: ShimmerFrameLayout,
+    val tvSubtitleValueShimmer: ShimmerFrameLayout,
 )

@@ -65,4 +65,14 @@ class CheckBoxCellView @JvmOverloads constructor(
         param.marginEnd = endMarginPx
         view.flEndPlaceholder.layoutParams = param
     }
+
+    override fun onStartShimmer() {
+        super.onStartShimmer()
+        checkBox?.isEnabled = false
+    }
+
+    override fun onStopShimmer() {
+        super.onStopShimmer()
+        checkBox?.isEnabled = true
+    }
 }
