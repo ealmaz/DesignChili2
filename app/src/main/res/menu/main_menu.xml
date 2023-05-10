@@ -10,6 +10,7 @@
     <item
         android:title="Shimmer"
         app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_stars"
         android:id="@+id/shimmer"/>
 
 </menu>
