@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class AccentCardView @JvmOverloads constructor(
     context: Context,
@@ -36,7 +37,10 @@ class AccentCardView @JvmOverloads constructor(
             tvSubtitle = view.findViewById(R.id.tv_subtitle),
             ivStartIcon = view.findViewById(R.id.iv_start_icon),
             ivEndIcon = view.findViewById(R.id.iv_end_icon),
-            root = view.findViewById(R.id.root_view))
+            root = view.findViewById(R.id.root_view),
+            titleShimmer = view.findViewById(R.id.view_title_shimmer),
+            subtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
+        )
     }
 
     override fun TypedArray.obtainAttributes() {
@@ -56,6 +60,11 @@ class AccentCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setEndIcon(it) }
     }
 
+    override fun setupShimmeringViews() {
+        super.setupShimmeringViews()
+        shimmeringPairs[view.tvTitle] = view.titleShimmer
+    }
+
     fun setTitle(charSequence: CharSequence) {
         view.tvTitle.text = charSequence
     }
@@ -69,12 +78,15 @@ class AccentCardView @JvmOverloads constructor(
     }
 
 
-    fun setSubtitle(charSequence: CharSequence) {
+    fun setSubtitle(charSequence: CharSequence?) {
         view.tvSubtitle.setTextOrHide(charSequence)
+        if (charSequence == null) shimmeringPairs.remove(view.tvSubtitle)
+        else shimmeringPairs[view.tvSubtitle] = view.subtitleShimmer
     }
 
     fun setSubtitle(resId: Int) {
         view.tvSubtitle.setTextOrHide(resId)
+        shimmeringPairs[view.tvSubtitle] = view.subtitleShimmer
     }
 
     fun setSubtitleTextAppearance(resId: Int) {
@@ -115,5 +127,7 @@ data class AccentCardViewViewVariables(
     val tvSubtitle: TextView,
     val ivStartIcon: ImageView,
     val ivEndIcon: ImageView,
-    val root: ConstraintLayout
+    val root: ConstraintLayout,
+    val titleShimmer: ShimmerFrameLayout,
+    val subtitleShimmer: ShimmerFrameLayout,
 )

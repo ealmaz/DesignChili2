@@ -7,11 +7,11 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
-import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class BalanceCardView @JvmOverloads constructor(
     context: Context,
@@ -33,7 +33,9 @@ class BalanceCardView @JvmOverloads constructor(
             tvLabel = view.findViewById(R.id.tv_title),
             tvValue = view.findViewById(R.id.tv_value),
             ivIcon = view.findViewById(R.id.iv_icon),
-            root = view.findViewById(R.id.root_view)
+            root = view.findViewById(R.id.root_view),
+            titleShimmering = view.findViewById(R.id.view_title_shimmer),
+            subtitleShimmering = view.findViewById(R.id.view_subtitle_shimmer)
         )
     }
 
@@ -51,6 +53,12 @@ class BalanceCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setIcon(it) }
     }
 
+    override fun setupShimmeringViews() {
+        super.setupShimmeringViews()
+        shimmeringPairs[view.tvLabel] = view.titleShimmering
+        shimmeringPairs[view.tvValue] = view.subtitleShimmering
+    }
+
     fun setTitle(charSequence: CharSequence) {
         view.tvLabel.text = charSequence
     }
@@ -64,11 +72,11 @@ class BalanceCardView @JvmOverloads constructor(
     }
 
     fun setValueText(charSequence: CharSequence?) {
-        view.tvValue.setTextOrHide(charSequence)
+        view.tvValue.text = charSequence
     }
 
     fun setValueText(resId: Int) {
-        view.tvValue.setTextOrHide(resId)
+        view.tvValue.setText(resId)
     }
 
     fun setValueTextTextAppearance(resId: Int) {
@@ -79,6 +87,7 @@ class BalanceCardView @JvmOverloads constructor(
         view.ivIcon.apply {
             setImageResource(resId)
             visible()
+            shimmeringPairs[view.ivIcon] = null
         }
     }
 
@@ -86,6 +95,7 @@ class BalanceCardView @JvmOverloads constructor(
         view.ivIcon.apply {
             visible()
             setImageDrawable(drawable)
+            shimmeringPairs[view.ivIcon] = null
         }
     }
 }
@@ -94,5 +104,7 @@ data class BalanceCardViewViewVariables(
     val tvLabel: TextView,
     val tvValue: TextView,
     val ivIcon: ImageView,
-    val root: LinearLayout
+    val root: ConstraintLayout,
+    val titleShimmering: ShimmerFrameLayout,
+    val subtitleShimmering: ShimmerFrameLayout,
 )

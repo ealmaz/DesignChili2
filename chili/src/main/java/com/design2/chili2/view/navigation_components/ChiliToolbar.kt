@@ -2,7 +2,6 @@ package com.design2.chili2.view.navigation_components
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -99,7 +98,7 @@ class ChiliToolbar : LinearLayout {
         }
     }
 
-    private fun setNavigationIcon(@DrawableRes drawableRes: Int) {
+    fun setNavigationIcon(@DrawableRes drawableRes: Int) {
         view.toolbar.setNavigationIcon(drawableRes)
     }
 
@@ -124,11 +123,7 @@ class ChiliToolbar : LinearLayout {
     }
 
     fun setAdditionalTextTextAppearance(@StyleRes resId: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.tvAdditionalText.setTextAppearance(resId)
-        } else {
-            view.tvAdditionalText.setTextAppearance(context, resId)
-        }
+        view.tvAdditionalText.setTextAppearance(resId)
     }
 
     fun setEndIcon(@DrawableRes drawableId: Int) {

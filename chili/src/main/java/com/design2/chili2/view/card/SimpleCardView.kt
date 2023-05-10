@@ -7,9 +7,10 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class SimpleCardView @JvmOverloads constructor(
     context: Context,
@@ -30,7 +31,9 @@ class SimpleCardView @JvmOverloads constructor(
         this.view = SimpleCardViewViewVariables(
             tvTitle = view.findViewById(R.id.tv_title),
             ivIcon = view.findViewById(R.id.iv_icon),
-            root = view.findViewById(R.id.root_view)
+            root = view.findViewById(R.id.root_view),
+            iconShimmer = view.findViewById(R.id.view_icon_shimmer),
+            titleShimmer = view.findViewById(R.id.view_title_shimmer)
         )
     }
 
@@ -43,6 +46,12 @@ class SimpleCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setTitleTextAppearance(it) }
         getResourceId(R.styleable.SimpleCardView_icon, -1)
             .takeIf { it != -1 }?.let { setIcon(it) }
+    }
+
+    override fun setupShimmeringViews() {
+        super.setupShimmeringViews()
+        shimmeringPairs[view.ivIcon] = view.iconShimmer
+        shimmeringPairs[view.tvTitle] = view.titleShimmer
     }
 
     fun setTitle(charSequence: CharSequence) {
@@ -69,5 +78,7 @@ class SimpleCardView @JvmOverloads constructor(
 data class SimpleCardViewViewVariables(
     val tvTitle: TextView,
     val ivIcon: ImageView,
-    val root: LinearLayout
+    val root: ConstraintLayout,
+    val titleShimmer: ShimmerFrameLayout,
+    val iconShimmer: ShimmerFrameLayout,
 )

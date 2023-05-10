@@ -5,16 +5,19 @@ import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
-import android.widget.FrameLayout
 import androidx.cardview.widget.CardView
 import com.design2.chili2.R
+import com.design2.chili2.view.shimmer.ShimmeringView
+import com.facebook.shimmer.ShimmerFrameLayout
 
 abstract class BaseCardView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.baseCardViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CardViewStyle
-) : CardView(context, attrs, defStyleAttr) {
+) : CardView(context, attrs, defStyleAttr), ShimmeringView {
+
+    protected val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
 
     /**
      * WARNING: Call `initView` function in init block
@@ -24,6 +27,7 @@ abstract class BaseCardView @JvmOverloads constructor(
         inflateView(context)
         setupView()
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
+        setupShimmeringViews()
     }
 
     abstract val styleableAttrRes: IntArray
@@ -49,6 +53,8 @@ abstract class BaseCardView @JvmOverloads constructor(
         }
     }
 
+    override fun getShimmeringViewsPair() = shimmeringPairs
+
     fun setCardBackground(resId: Int) {
         rootContainer?.setBackgroundResource(resId)
     }
@@ -60,4 +66,6 @@ abstract class BaseCardView @JvmOverloads constructor(
     open fun TypedArray.obtainAttributes() {}
 
     open fun setupView() {}
+
+    open fun setupShimmeringViews() {}
 }
