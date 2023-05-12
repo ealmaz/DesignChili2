@@ -2,11 +2,13 @@ package com.design2.chili2.view.input.otp
 
 import android.content.ClipboardManager
 import android.content.Context
+import android.graphics.Rect
 import android.text.InputFilter.LengthFilter
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
@@ -135,6 +137,17 @@ class OtpInputView @JvmOverloads constructor(
         view.itemContainer.forEach {
             (it as? OtpItemView)?.setState(otpItemState)
         }
+    }
+
+    override fun requestFocus(direction: Int, previouslyFocusedRect: Rect?): Boolean {
+        requestFocusAndShowKeyboard()
+        return super.requestFocus(direction, previouslyFocusedRect)
+    }
+
+    fun requestFocusAndShowKeyboard() {
+        view.etInput.requestFocus()
+        val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.showSoftInput(view.etInput, InputMethodManager.SHOW_IMPLICIT)
     }
 
     private fun setupView() {
