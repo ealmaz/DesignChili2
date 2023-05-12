@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_title"
-        tools:src="@drawable/ic_info"/>
+        tools:src="@drawable/chili_ic_info"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_icon_shimmer"

@@ -2,6 +2,7 @@ package com.design2.app.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentInputFieldsBinding
@@ -21,17 +22,23 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
 
         vb.otp.apply {
             setActionText("Сбросить пароль")
-            setActionTextAppearance(com.design2.chili2.R.style.Chili_ComponentButtonText)
+            setOnActionClickListener {
+                Toast.makeText(requireContext(), "OnActionClick", Toast.LENGTH_SHORT).show()
+            }
         }
         vb.otp.setOnOtpCompleteListener(object : OnOtpCompleteListener {
             override fun onOtpInputComplete(otp: String) {
                 vb.otp.setupState(OtpItemState.ERROR)
                 vb.otp.setMessageText("Неверный пароль")
+                vb.otp.setActionText("Сбросить пароль")
+                vb.otp.setActionTextEnabled(true)
             }
 
             override fun onInput(text: String?) {
                 vb.otp.setupState(OtpItemState.INACTIVE)
                 vb.otp.setMessageText("")
+                vb.otp.setActionTextEnabled(false)
+                vb.otp.setActionText("0:45")
             }
         })
     }

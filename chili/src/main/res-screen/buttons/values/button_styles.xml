@@ -22,7 +22,7 @@
     </style>
 
     <style name="Chili.ButtonStyle.Secondary">
-        <item name="android:background">@drawable/chili_secondary_button_background</item>
+        <item name="android:background">@drawable/chili_bg_button_secondary</item>
         <item name="android:textAppearance">@style/Chili.SecondaryButtonText</item>
     </style>
 
@@ -33,6 +33,7 @@
 
     <style name="Chili.ButtonStyle.Component">
         <item name="android:layout_width">wrap_content</item>
+        <item name="android:foreground">?selectableItemBackground</item>
         <item name="android:background">@drawable/chili_component_button_background</item>
         <item name="android:textAppearance">@style/Chili.ComponentButtonText</item>
         <item name="android:paddingTop">@dimen/padding_0dp</item>

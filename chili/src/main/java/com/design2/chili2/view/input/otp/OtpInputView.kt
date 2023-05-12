@@ -16,6 +16,7 @@ import androidx.core.view.children
 import androidx.core.view.forEach
 import androidx.core.widget.addTextChangedListener
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.view.input.SelectionChangedListener
 import com.design2.chili2.view.input.SelectionEditText
@@ -92,6 +93,14 @@ class OtpInputView @JvmOverloads constructor(
 
     fun setActionTextAppearance(resId: Int) {
         view.tvAction.setTextAppearance(resId)
+    }
+
+    fun setOnActionClickListener(onClick: () -> Unit) {
+        view.tvAction.setOnSingleClickListener { onClick.invoke() }
+    }
+
+    fun setActionTextEnabled(isEnabled: Boolean) {
+        view.tvAction.isEnabled = isEnabled
     }
 
     fun setMessageText(text: CharSequence?) {

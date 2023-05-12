@@ -14,4 +14,8 @@
         <item name="ChiliPrimaryTextColor">@color/white_1</item>
     </style>
 
+    <style name="ThemeOverlay.ChiliOtpInputActionTextTheme">
+        <item name="ChiliComponentButtonTextColorDisabled">@color/gray_1</item>
+    </style>
+
 </resources>
