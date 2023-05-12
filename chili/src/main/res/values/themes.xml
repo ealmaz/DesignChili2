@@ -202,6 +202,7 @@
         <item name="ChiliCellViewBackground">@color/white_1</item>
         <item name="ChiliCellCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliCellSquircleIconBackground">@color/gray_3</item>
+        <item name="ChiliCellViewElevation">@dimen/elevation_8dp</item>
 
         <!-- Shimmer attributes -->
         <item name="ChiliShimmerBoneColor">@color/gray_4</item>

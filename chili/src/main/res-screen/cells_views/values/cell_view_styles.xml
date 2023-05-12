@@ -2,8 +2,7 @@
 <resources>
 
     <style name="Chili.CellViewStyle" parent="Chili.BaseChiliViewStyle">
-        <item name="android:background">@drawable/chili_cell_rounded_background</item>
-        <item name="android:elevation">@dimen/elevation_8dp</item>
+        <item name="android:elevation">?ChiliCellViewElevation</item>
     </style>
 
     <style name="Chili.CellViewStyle.BaseCellViewStyle"/>

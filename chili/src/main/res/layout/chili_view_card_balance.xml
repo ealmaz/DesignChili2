@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="@id/tv_title"
         android:visibility="gone">
         <View
-            android:layout_width="@dimen/view_52dp"
+            android:layout_width="@dimen/view_44dp"
             android:layout_height="@dimen/view_8dp"
             android:background="@drawable/chili_bg_shimmer"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
@@ -79,7 +79,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:visibility="gone">
         <View
-            android:layout_width="@dimen/view_52dp"
+            android:layout_width="@dimen/view_82dp"
             android:layout_height="@dimen/view_8dp"
             android:background="@drawable/chili_bg_shimmer"/>
     </com.facebook.shimmer.ShimmerFrameLayout>

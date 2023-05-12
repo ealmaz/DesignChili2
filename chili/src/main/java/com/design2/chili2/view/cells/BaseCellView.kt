@@ -64,7 +64,7 @@ open class BaseCellView @JvmOverloads constructor(
                 getString(R.styleable.BaseCellView_title)?.let { setTitle(it) }
                 getString(R.styleable.BaseCellView_subtitle)?.let { setSubtitle(it) }
                 getInteger(R.styleable.BaseCellView_roundedCornerMode, 0).let {
-                    view.rootView.setupRoundedCellCornersMode(it)
+                    this@BaseCellView.setupRoundedCellCornersMode(it)
                 }
                 getBoolean(R.styleable.BaseCellView_isDividerVisible, true).let {
                     setDividerVisibility(it)
@@ -299,7 +299,7 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     fun setRoundedMode(mode: RoundedCornerMode) {
-        view.rootView.setupRoundedCellCornersMode(mode.value)
+        this.setupRoundedCellCornersMode(mode.value)
     }
 
     fun setupIsSurfaceClickable(isSurfaceClickable: Boolean) {
@@ -307,7 +307,7 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     fun setupCornerRoundedMode(mode: RoundedCornerMode) {
-        view.rootView.setupRoundedCellCornersMode(mode.value)
+        this.setupRoundedCellCornersMode(mode.value)
     }
 
     open fun setIsChevronVisible(isVisible: Boolean) {

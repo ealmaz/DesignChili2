@@ -2,6 +2,7 @@ package com.design2.chili2.view.card
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
@@ -65,7 +66,9 @@ abstract class BaseCardView @JvmOverloads constructor(
 
     open fun TypedArray.obtainAttributes() {}
 
-    open fun setupView() {}
+    open fun setupView() {
+        setCardBackgroundColor(Color.TRANSPARENT)
+    }
 
     open fun setupShimmeringViews() {}
 }

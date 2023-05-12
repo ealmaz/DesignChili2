@@ -37,9 +37,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/tv_title"
-        app:layout_constraintBottom_toBottomOf="@id/tv_title"
-        app:layout_constraintStart_toStartOf="@id/tv_title">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintBottom_toTopOf="@id/view_subtitle_shimmer">
         <View
             android:layout_width="@dimen/view_200dp"
             android:layout_height="@dimen/view_8dp"
@@ -65,13 +65,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/tv_subtitle"
-        app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
-        app:layout_constraintStart_toStartOf="@id/tv_subtitle">
-        <View
-            android:layout_width="@dimen/view_200dp"
-            android:layout_height="@dimen/view_8dp"
-            android:background="@drawable/chili_bg_shimmer"/>
+        app:layout_constraintTop_toBottomOf="@id/view_title_shimmer"
+        app:layout_constraintStart_toStartOf="@id/tv_subtitle"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="@dimen/view_140dp"
+                android:layout_height="@dimen/view_8dp"
+                android:background="@drawable/chili_bg_shimmer"/>
+
+            <View
+                android:layout_width="@dimen/view_140dp"
+                android:layout_height="@dimen/view_8dp"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:background="@drawable/chili_bg_shimmer"/>
+
+        </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <ImageView

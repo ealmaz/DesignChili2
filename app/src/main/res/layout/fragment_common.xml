@@ -170,11 +170,12 @@
             android:layout_marginTop="@dimen/padding_16dp"
             android:background="@color/gray_1"/>
 
-        <TextView
+        <com.design2.chili2.view.common.TitledDividerView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Chili.H8.Primary"
-            android:text="RadioButton"
+            app:title="RadioButton"
+            app:startIcon="@drawable/ic_menu"
             android:layout_marginStart="@dimen/padding_16dp"
             android:layout_marginTop="@dimen/padding_8dp"/>
 
@@ -196,6 +197,11 @@
                 android:layout_margin="@dimen/padding_8dp"
                 android:text="RadioButton - RadioButtonStyle"
                 style="@style/Chili.RadioButtonStyle"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="?ChiliDividerHeightSize"
+                android:background="?ChiliDividerColor"/>
 
             <RadioButton
                 android:layout_width="match_parent"

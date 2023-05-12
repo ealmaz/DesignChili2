@@ -97,6 +97,7 @@ class AccentCardView @JvmOverloads constructor(
         view.ivStartIcon.apply {
             visible()
             setImageResource(resId)
+            shimmeringPairs[view.ivStartIcon] = null
         }
     }
 
@@ -104,6 +105,7 @@ class AccentCardView @JvmOverloads constructor(
         view.ivStartIcon.apply {
             visible()
             setImageDrawable(drawable)
+            shimmeringPairs[view.ivStartIcon] = null
         }
     }
 

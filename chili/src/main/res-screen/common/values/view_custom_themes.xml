@@ -18,4 +18,16 @@
         <item name="ChiliComponentButtonTextColorDisabled">@color/gray_1</item>
     </style>
 
+    <style name="ThemeOverlay.CategoryCardIcon8dpOffset">
+        <item name="ChiliCategoryCardViewLabelTopMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewLabelBottomMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewLabelStartMargin">@dimen/padding_8dp</item>
+        <item name="ChiliCategoryCardViewLabelEndMargin">@dimen/padding_8dp</item>
+        <item name="ChiliCategoryCardViewIconTopMargin">@dimen/padding_8dp</item>
+        <item name="ChiliCategoryCardViewIconBottomMargin">@dimen/padding_0dp</item>
+        <item name="ChiliCategoryCardViewIconStartMargin">@dimen/padding_8dp</item>
+        <item name="ChiliCategoryCardViewIconEndMargin">@dimen/padding_8dp</item>
+        <item name="titleTextAppearance">@style/Chili.H8.Primary</item>
+    </style>
+
 </resources>

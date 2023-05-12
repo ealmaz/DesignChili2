@@ -64,6 +64,7 @@
     <attr name="ChiliCellViewBackground" format="reference"/>
     <attr name="ChiliCellCornerRadius" format="dimension"/>
     <attr name="ChiliCellSquircleIconBackground" format="dimension"/>
+    <attr name="ChiliCellViewElevation" format="dimension"/>
 
 
     <!-- Snackbar attributes -->

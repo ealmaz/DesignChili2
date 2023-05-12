@@ -50,6 +50,7 @@ class ExpandableCardItemView @JvmOverloads constructor(
     }
 
     override fun setupView() {
+        super.setupView()
         shimmeringPairs[view.tvTitle] = view.tvTitleShimmer
     }
 

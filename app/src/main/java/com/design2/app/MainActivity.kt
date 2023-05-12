@@ -1,5 +1,6 @@
 package com.design2.app
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -17,9 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toolbar: ChiliToolbar
 
     private var isShimmering = false
-    private var isDarkTheme = false
-        @Synchronized get() = field
-        @Synchronized set(value) {field = value}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,14 +53,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupDarkTheme() {
-        when (!isDarkTheme) {
-            true -> {
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-                isDarkTheme = true
+        val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        when (currentNightMode) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
             }
             else -> {
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-                isDarkTheme = false
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
             }
         }
     }
@@ -88,5 +85,16 @@ class MainActivity : AppCompatActivity() {
 
     fun setUpHomeEnabled(isEnabled: Boolean) {
         toolbar.isUpHomeEnabled(this, isEnabled)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean("IS_SIMMERING", isShimmering)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        isShimmering = savedInstanceState.getBoolean("IS_SIMMERING")
+        setupShimmer(isShimmering)
     }
 }

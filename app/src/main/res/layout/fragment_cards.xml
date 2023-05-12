@@ -203,6 +203,39 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
+            app:title="CategoryCardView(8 dp icon offset)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:theme="@style/ThemeOverlay.CategoryCardIcon8dpOffset">
+
+                <com.design2.chili2.view.card.CategoryCardView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:title="Народный\nБонусная"
+                    app:icon="@drawable/ic_payment"
+                    android:layout_marginVertical="@dimen/padding_16dp"
+                    android:layout_marginStart="@dimen/padding_16dp"/>
+
+                <com.design2.chili2.view.card.CategoryCardView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:title="Кофейня.\nБонусная."
+                    app:icon="@drawable/ic_payment"
+                    android:layout_marginVertical="@dimen/padding_16dp"
+                    android:layout_marginStart="@dimen/padding_16dp"
+                    android:layout_marginEnd="74dp"/>
+            </LinearLayout>
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
             app:title="SimpleCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -222,6 +255,8 @@
                         android:layout_marginTop="@dimen/padding_16dp"
                         android:layout_marginBottom="@dimen/padding_16dp"
                         android:layout_marginStart="@dimen/padding_8dp"
+                        app:cardBackground="@drawable/simple_gray_bg"
+                        app:cardElevation="0dp"
                         app:title="4215585318631234"
                         app:icon="@drawable/ic_scaner_48" />
 
@@ -230,6 +265,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/padding_16dp"
                         android:layout_marginBottom="@dimen/padding_16dp"
+                        app:cardBackground="@drawable/simple_gray_bg"
+                        app:cardElevation="0dp"
                         android:layout_marginStart="@dimen/padding_8dp"
                         app:title="4215585318631234"
                         app:icon="@drawable/ic_scaner_48" />
@@ -241,6 +278,8 @@
                         android:layout_marginBottom="@dimen/padding_16dp"
                         android:layout_marginStart="@dimen/padding_8dp"
                         android:layout_marginEnd="@dimen/padding_8dp"
+                        app:cardElevation="0dp"
+                        app:cardBackground="@drawable/simple_gray_bg"
                         app:title="4215585318631234"
                         app:icon="@drawable/ic_scaner_48" />
 
