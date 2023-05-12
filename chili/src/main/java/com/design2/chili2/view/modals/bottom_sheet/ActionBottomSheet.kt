@@ -1,11 +1,13 @@
 package com.design2.chili2.view.modals.bottom_sheet
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.fragment.app.DialogFragment
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.view.modals.base.BaseViewBottomSheetDialogFragment
@@ -13,6 +15,11 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.io.Serializable
 
 class ActionBottomSheet : BaseViewBottomSheetDialogFragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.Chili_BottomSheetStyle)
+    }
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
         val linearLayout = LinearLayout(context).apply {

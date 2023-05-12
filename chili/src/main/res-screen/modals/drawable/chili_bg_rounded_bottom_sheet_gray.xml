@@ -7,9 +7,6 @@
         tools:color="@color/gray_4"
         />
     <corners
-        android:topLeftRadius="?attr/ChiliBottomSheetTopCornersRadius"
-        tools:topLeftRadius="@dimen/padding_8dp"
-        android:topRightRadius="?attr/ChiliBottomSheetTopCornersRadius"
-        tools:topRightRadius="@dimen/padding_8dp"
-        />
+        android:radius="?attr/ChiliBottomSheetTopCornersRadius"
+        tools:radius="@dimen/padding_12dp" />
 </shape>

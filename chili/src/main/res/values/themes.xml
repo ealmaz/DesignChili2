@@ -79,7 +79,7 @@
 
         <!-- Bottom sheet -->
         <item name="ChiliBottomSheetBackgroundColor">@color/white_1</item>
-        <item name="ChiliBottomSheetTopCornersRadius">@dimen/radius_8dp</item>
+        <item name="ChiliBottomSheetTopCornersRadius">@dimen/radius_12dp</item>
         <item name="ChiliBottomSheetTopDrawableColor">@color/white_1</item>
         <item name="ChiliBottomSheetGrayBackgroundColor">@color/gray_4</item>
 
