@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingVertical="@dimen/padding_8dp"
+    android:paddingHorizontal="?ChiliAccentCardViewHorizontalContentPadding"
     android:id="@+id/root_view">
 
     <ImageView
@@ -13,9 +14,9 @@
         android:layout_width="@dimen/view_20dp"
         android:layout_height="@dimen/view_20dp"
         android:visibility="gone"
-        android:layout_marginStart="@dimen/padding_12dp"
         app:layout_constraintTop_toTopOf="@id/tv_title"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title"/>
 
     <TextView
         android:id="@+id/tv_title"
@@ -25,7 +26,7 @@
         android:layout_marginStart="@dimen/padding_8dp"
         android:layout_marginEnd="@dimen/padding_8dp"
         app:layout_goneMarginEnd="@dimen/padding_16dp"
-        app:layout_goneMarginStart="@dimen/padding_16dp"
+        app:layout_goneMarginStart="@dimen/padding_0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_start_icon"
         app:layout_constraintEnd_toStartOf="@id/iv_end_icon"
@@ -51,7 +52,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Chili.H8.Primary"
-        android:layout_marginStart="@dimen/padding_16dp"
+        android:layout_marginStart="@dimen/padding_0dp"
         android:layout_marginEnd="@dimen/padding_8dp"
         app:layout_goneMarginEnd="@dimen/padding_16dp"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
@@ -92,7 +93,6 @@
         android:layout_width="@dimen/view_48dp"
         android:layout_height="@dimen/view_48dp"
         android:visibility="invisible"
-        android:layout_marginHorizontal="@dimen/padding_16dp"
         android:layout_marginVertical="@dimen/padding_4dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

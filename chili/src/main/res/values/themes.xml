@@ -188,6 +188,9 @@
         <item name="ChiliCardViewRippleColor">@color/gray_1</item>
         <item name="ChiliCardViewElevation">@dimen/elevation_8dp</item>
 
+        <!-- AccentCardView -->
+        <item name="ChiliAccentCardViewHorizontalContentPadding">@dimen/padding_16dp</item>
+
         <!-- CategoryCardView -->
         <item name="ChiliCategoryCardViewLabelTopMargin">@dimen/padding_8dp</item>
         <item name="ChiliCategoryCardViewLabelBottomMargin">@dimen/padding_12dp</item>
@@ -201,7 +204,6 @@
         <!-- CellView attributes -->
         <item name="ChiliCellViewBackground">@color/white_1</item>
         <item name="ChiliCellCornerRadius">@dimen/radius_12dp</item>
-        <item name="ChiliCellSquircleIconBackground">@color/gray_3</item>
         <item name="ChiliCellViewElevation">@dimen/elevation_8dp</item>
 
         <!-- Shimmer attributes -->

@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.design2.chili2.view.image.SquircleView
+    <ImageView
         android:id="@+id/iv_icon"
         android:layout_width="@dimen/view_32dp"
         android:layout_height="@dimen/view_32dp"
@@ -24,7 +24,6 @@
         android:layout_marginBottom="@dimen/padding_8dp"
         android:layout_marginEnd="@dimen/padding_12dp"
         android:visibility="gone"
-        app:civ_circle_background_color="?attr/ChiliCellSquircleIconBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/fl_start_place_holder"
         app:layout_constraintTop_toTopOf="parent"

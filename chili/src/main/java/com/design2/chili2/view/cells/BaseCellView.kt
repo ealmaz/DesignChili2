@@ -102,9 +102,6 @@ open class BaseCellView @JvmOverloads constructor(
                 getDimensionPixelSize(R.styleable.BaseCellView_cellIconBottomMargin, -1).takeIf { it != -1 }?.let {
                     updateIconMargin(bottomMarginPx = it)
                 }
-                getColor(R.styleable.BaseCellView_squircleIconBackgroundColor, -1).takeIf { it != -1 }?.let {
-                    setSquircleIconBackgroundColor(it)
-                }
                 getBoolean(R.styleable.BaseCellView_isChevronVisible, true).let {
                     setIsChevronVisible(it)
                 }
@@ -211,12 +208,8 @@ open class BaseCellView @JvmOverloads constructor(
         shimmeringPairs[view.ivIcon] = view.iconShimmer
     }
 
-    fun getIconView(): SquircleView {
+    fun getIconView(): ImageView {
         return view.ivIcon
-    }
-
-    fun setSquircleIconBackgroundColor(@ColorInt color: Int) {
-        view.ivIcon.squircleBackgroundColor = color
     }
 
     fun setDividerVisibility(isVisible: Boolean) {
@@ -327,7 +320,7 @@ open class BaseCellView @JvmOverloads constructor(
 data class BaseCellViewVariables(
     var flStartPlaceholder: FrameLayout,
     var flEndPlaceholder: FrameLayout,
-    var ivIcon: SquircleView,
+    var ivIcon: ImageView,
     var tvTitle: TextView,
     var tvSubtitle: TextView,
     var divider: View,

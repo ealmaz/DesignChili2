@@ -49,6 +49,9 @@
     <attr name="ChiliCardViewRippleColor" format="color"/>
     <attr name="ChiliCardViewElevation" format="dimension"/>
 
+    <!-- AccentCardView -->
+    <attr name="ChiliAccentCardViewHorizontalContentPadding" format="dimension"/>
+
     <!-- CategoryCardView -->
     <attr name="ChiliCategoryCardViewLabelTopMargin" format="dimension"/>
     <attr name="ChiliCategoryCardViewLabelBottomMargin" format="dimension"/>
@@ -63,7 +66,6 @@
     <!-- CellView attributes -->
     <attr name="ChiliCellViewBackground" format="reference"/>
     <attr name="ChiliCellCornerRadius" format="dimension"/>
-    <attr name="ChiliCellSquircleIconBackground" format="dimension"/>
     <attr name="ChiliCellViewElevation" format="dimension"/>
 
 

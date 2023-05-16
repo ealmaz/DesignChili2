@@ -341,7 +341,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
             android:icon="@drawable/chili_ic_success"
-            app:squircleIconBackgroundColor="@android:color/transparent"
             app:cellIconSize="@dimen/view_72dp"
             app:isDividerVisible="false"
             app:title="Заголовок"

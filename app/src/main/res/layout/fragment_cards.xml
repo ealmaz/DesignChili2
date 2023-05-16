@@ -43,7 +43,7 @@
                 android:theme="@style/ThemeOverlay.ChiliCardFucsia1"
                 app:title="Цифровая карта"
                 app:subtitle="Для бесконтактных платежей"
-                app:titleStartIcon="@drawable/chili_ic_info"
+                app:titleStartIcon="@drawable/icon_k"
                 app:cardBackground="@color/black_4" />
 
             <com.design2.chili2.view.card.AccentCardView

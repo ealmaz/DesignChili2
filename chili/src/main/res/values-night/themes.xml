@@ -80,7 +80,6 @@
 
         <!-- CellView attributes -->
         <item name="ChiliCellViewBackground">@color/black_3</item>
-        <item name="ChiliCellSquircleIconBackground">@color/black_2</item>
 
 
         <!-- Shimmer attributes -->
