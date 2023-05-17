@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
+import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.visible
 import com.facebook.shimmer.ShimmerFrameLayout
 
@@ -33,6 +34,7 @@ class BalanceCardView @JvmOverloads constructor(
             tvLabel = view.findViewById(R.id.tv_title),
             tvValue = view.findViewById(R.id.tv_value),
             ivIcon = view.findViewById(R.id.iv_icon),
+            ivTitleIcon = view.findViewById(R.id.iv_title_icon),
             root = view.findViewById(R.id.root_view),
             titleShimmering = view.findViewById(R.id.view_title_shimmer),
             subtitleShimmering = view.findViewById(R.id.view_subtitle_shimmer)
@@ -51,6 +53,9 @@ class BalanceCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setValueTextTextAppearance(it) }
         getResourceId(R.styleable.BalanceCardView_icon, -1)
             .takeIf { it != -1 }?.let { setIcon(it) }
+        getDrawable(R.styleable.BalanceCardView_titleIcon).let {
+            setTitleIcon(it)
+        }
     }
 
     override fun setupShimmeringViews() {
@@ -98,12 +103,29 @@ class BalanceCardView @JvmOverloads constructor(
             shimmeringPairs[view.ivIcon] = null
         }
     }
+
+    fun setTitleIcon(drawable: Drawable?) = with(view.ivTitleIcon) {
+        if (drawable == null) { gone() }
+        else {
+            visible()
+            setImageDrawable(drawable)
+        }
+    }
+
+    fun setTitleIcon(drawableRes: Int?) = with(view.ivTitleIcon) {
+        if (drawableRes == null) { gone() }
+        else {
+            visible()
+            setImageResource(drawableRes)
+        }
+    }
 }
 
 data class BalanceCardViewViewVariables(
     val tvLabel: TextView,
     val tvValue: TextView,
     val ivIcon: ImageView,
+    val ivTitleIcon: ImageView,
     val root: ConstraintLayout,
     val titleShimmering: ShimmerFrameLayout,
     val subtitleShimmering: ShimmerFrameLayout,

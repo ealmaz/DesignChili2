@@ -77,10 +77,6 @@ class BankCardView @JvmOverloads constructor(
         getBoolean(R.styleable.BankCardView_isCvvToggleEnabled, false).let {
             if (it) setupCvvToggle()
         }
-        radius = getDimension(R.styleable.BankCardView_cardCornerRadius, 0f)
-        cardElevation = getDimension(R.styleable.BankCardView_cardElevation, 0f)
-        getResourceId(R.styleable.BankCardView_cardBackground, -1)
-            .takeIf { it != -1 }?.let { setCardBackground(it) }
         setCardPan(getText(R.styleable.BankCardView_cardPan))
         setCardCvv(getText(R.styleable.BankCardView_cvv))
         setCardHolderName(getText(R.styleable.BankCardView_cardHolderName))

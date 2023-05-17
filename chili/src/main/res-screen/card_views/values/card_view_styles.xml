@@ -25,6 +25,9 @@
     <style name="Chili.CardViewStyle.BalanceCardView"/>
 
     <style name="Chili.CardViewStyle.BankCard">
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:foreground">@null</item>
         <item name="cardCornerRadius">?ChiliBankCardViewCornerRadius</item>
     </style>
 
