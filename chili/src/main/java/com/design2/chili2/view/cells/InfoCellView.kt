@@ -32,6 +32,7 @@ class InfoCellView @JvmOverloads constructor(
         initView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         setupShimmering()
+        setupViews()
     }
 
     private fun initView(context: Context) {
@@ -72,6 +73,10 @@ class InfoCellView @JvmOverloads constructor(
         }
     }
 
+    private fun setupViews() {
+        this.setupCornerRoundedMode(RoundedCornerMode.SINGLE)
+    }
+
     fun setTitle(@StringRes resId: Int) {
         view.tvSubtitle.setText(resId)
     }
@@ -103,16 +108,12 @@ class InfoCellView @JvmOverloads constructor(
         }
     }
 
-    fun setRoundedMode(mode: RoundedCornerMode) {
-        view.rootView.setupRoundedCellCornersMode(mode.value)
-    }
-
     fun setupIsSurfaceClickable(isSurfaceClickable: Boolean) {
         this.setIsSurfaceClickable(isSurfaceClickable)
     }
 
     fun setupCornerRoundedMode(mode: RoundedCornerMode) {
-        view.rootView.setupRoundedCellCornersMode(mode.value)
+        this.setupRoundedCellCornersMode(mode.value)
     }
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {

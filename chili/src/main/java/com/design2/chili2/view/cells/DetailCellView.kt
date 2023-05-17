@@ -64,7 +64,7 @@ class DetailCellView @JvmOverloads constructor(
             setIcon(getDrawable(R.styleable.DetailCellView_icon))
             setupIsSurfaceClickable(getBoolean(R.styleable.DetailCellView_isSurfaceClickable, true))
             getInteger(R.styleable.DetailCellView_roundedCornerMode, RoundedCornerMode.SINGLE.value).let {
-                view.root.setupRoundedCellCornersMode(it)
+                this@DetailCellView.setupRoundedCellCornersMode(it)
             }
             recycle()
         }
@@ -141,7 +141,7 @@ class DetailCellView @JvmOverloads constructor(
     }
 
     fun setupCornerRoundedMode(mode: RoundedCornerMode) {
-        view.root.setupRoundedCellCornersMode(mode.value)
+        this.setupRoundedCellCornersMode(mode.value)
     }
 
     fun setIcon(@DrawableRes drawableResId: Int) {

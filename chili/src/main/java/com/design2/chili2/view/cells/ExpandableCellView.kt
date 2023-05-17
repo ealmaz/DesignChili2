@@ -15,7 +15,9 @@ import androidx.annotation.StringRes
 import androidx.core.os.bundleOf
 import com.design2.chili2.R
 import com.design2.chili2.extensions.gone
+import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.extensions.visible
+import com.design2.chili2.util.RoundedCornerMode
 
 class ExpandableCellView @JvmOverloads constructor(
     context: Context,
@@ -44,6 +46,7 @@ class ExpandableCellView @JvmOverloads constructor(
         this.setOnClickListener {
             setIsCellExpanded(!isCellViewExpanded)
         }
+        this.setupRoundedCellCornersMode(RoundedCornerMode.SINGLE.value)
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int, defStyleRes: Int) {

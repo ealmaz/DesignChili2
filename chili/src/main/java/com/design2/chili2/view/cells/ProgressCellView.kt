@@ -8,6 +8,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.StringRes
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setupRoundedCellCornersMode
+import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.common.AnimatedProgressLine
 
 class ProgressCellView @JvmOverloads constructor(
@@ -22,6 +24,7 @@ class ProgressCellView @JvmOverloads constructor(
     init {
         initView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
+        setupViews()
     }
 
     private fun initView(context: Context) {
@@ -57,6 +60,10 @@ class ProgressCellView @JvmOverloads constructor(
 
             recycle()
         }
+    }
+
+    private fun setupViews() {
+        this.setupRoundedCellCornersMode(RoundedCornerMode.SINGLE.value)
     }
 
     fun setProgressPercent(progress: Int) {
