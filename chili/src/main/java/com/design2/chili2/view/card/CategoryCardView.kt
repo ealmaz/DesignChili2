@@ -54,7 +54,7 @@ class CategoryCardView @JvmOverloads constructor(
         shimmeringPairs[view.tvLabel] = view.labelShimmer
     }
 
-    fun setTitle(charSequence: CharSequence) {
+    fun setTitle(charSequence: CharSequence?) {
         view.tvLabel.text = charSequence
     }
 
