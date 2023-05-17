@@ -1,8 +1,6 @@
 package com.design2.chili2.view.shimmer
 
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.children
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.setIsSurfaceClickable
@@ -28,23 +26,6 @@ fun ShimmeringView.stopShimmering() {
         it.value?.apply {
             stopShimmer()
             gone()
-        }
-    }
-}
-
-fun ViewGroup.setupShimmeringForViewGroup(isShimmering: Boolean) {
-    children.forEach {
-        it.setupSimmering(isShimmering)
-    }
-}
-
-fun View.setupSimmering(isShimmering: Boolean) {
-    if (this is ShimmeringView) {
-        if (isShimmering) this.startShimmering()
-        else this.stopShimmering()
-    } else {
-        (this as? ViewGroup)?.children?.forEach {
-            it.setupSimmering(isShimmering)
         }
     }
 }

@@ -17,18 +17,360 @@
         android:clipToPadding="false"
         tools:context=".MainActivity">
 
-        <com.design.chili.view.card.BankCardView
-            android:layout_margin="@dimen/padding_16dp"
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="AccentCardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/padding_16dp"
-            app:cardBackground="@drawable/card_bg"
-            app:cardIcon="@drawable/elcard"
-            app:cardPan="9417 1243 3425 4215"
-            app:cardHolderName="Ivanov Ivanovskii"
-            app:dueDate="12 /  25"
-            app:cvv="436"/>
+            android:layout_height="wrap_content">
 
+            <com.design2.chili2.view.card.AccentCardView
+                android:id="@+id/accent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_12dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:theme="@style/ThemeOverlay.ChiliCardFucsia1"
+                app:title="Сканер штрихкодов и QR"
+                app:subtitle="Для удобной оплаты \nбез ввода реквизитов"
+                app:endIcon="@drawable/pay"
+                app:cardBackground="@color/folly_1" />
+
+            <com.design2.chili2.view.card.AccentCardView
+                android:id="@+id/accent2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_12dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:theme="@style/ThemeOverlay.ChiliCardFucsia1"
+                app:title="Цифровая карта"
+                app:subtitle="Для бесконтактных платежей"
+                app:titleStartIcon="@drawable/icon_k"
+                app:cardBackground="@color/black_4" />
+
+            <com.design2.chili2.view.card.AccentCardView
+                android:id="@+id/accent3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_12dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginBottom="@dimen/padding_16dp"
+                app:endIcon="@drawable/ic_scaner_48"
+                app:title="Цифровая карта"
+                app:subtitle="Для бесконтактных платежей" />
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="ExpandableCardContainer and ExpandableCardItemView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.design2.chili2.view.container.ExpandableCardContainer
+                android:id="@+id/expandable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginTop="@dimen/padding_12dp"
+                app:isExpandable="true"
+                app:isExpanded="true"
+                app:subtitle="Дата погашения: 10.10.2022"
+                app:title="К погашению: 8 200,00 с">
+
+                <com.design2.chili2.view.card.ExpandableCardItemView
+                    android:id="@+id/item1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="Сумма к зачислению:"
+                    app:titleValue="8 000,00 с" />
+
+                <com.design2.chili2.view.card.ExpandableCardItemView
+                    android:id="@+id/item2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:subtitle="Из нее - комиссии и сборы:"
+                    app:subtitleValue="150,00 с"
+                    app:title="Сумма кредита: "
+                    app:titleValue="8 150,00 с" />
+
+                <com.design2.chili2.view.card.ExpandableCardItemView
+                    android:id="@+id/item3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="Сумма % по кредиту: " />
+            </com.design2.chili2.view.container.ExpandableCardContainer>
+
+            <com.design2.chili2.view.container.ExpandableCardContainer
+                android:id="@+id/expandable2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginTop="@dimen/padding_12dp"
+                app:isExpandable="true"
+                app:isExpanded="false"
+                app:subtitle="Дата погашения: 10.10.2022"
+                app:title="К погашению: 8 200,00 с">
+
+                <com.design2.chili2.view.card.ExpandableCardItemView
+                    android:id="@+id/item21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="Сумма к зачислению:"
+                    app:titleValue="8 000,00 с" />
+
+                <com.design2.chili2.view.card.ExpandableCardItemView
+                    android:id="@+id/item22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:subtitle="Из нее - комиссии и сборы:"
+                    app:subtitleValue="150,00 с"
+                    app:title="Сумма кредита: "
+                    app:titleValue="8 150,00 с" />
+
+                <com.design2.chili2.view.card.ExpandableCardItemView
+                    android:id="@+id/item23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="Сумма % по кредиту: "
+                    app:value="50,00 с" />
+
+
+            </com.design2.chili2.view.container.ExpandableCardContainer>
+
+            <com.design2.chili2.view.container.ExpandableCardContainer
+                android:id="@+id/expandable3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginTop="@dimen/padding_12dp"
+                android:layout_marginBottom="@dimen/padding_16dp"
+                app:isExpandable="false"
+                app:isExpanded="true"
+                app:title="К погашению"
+                app:value="8 200,00 с">
+
+                <com.design2.chili2.view.card.ExpandableCardItemView
+                    android:id="@+id/item32"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:subtitle="Из нее - комиссии и сборы:"
+                    app:subtitleValue="150,00 с"
+                    app:title="Сумма кредита: "
+                    app:titleValue="8 150,00 с" />
+
+                <com.design2.chili2.view.card.ExpandableCardItemView
+                    android:id="@+id/item33"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:title="Сумма % по кредиту: "
+                    app:value="50,00 с" />
+
+
+            </com.design2.chili2.view.container.ExpandableCardContainer>
+
+
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="CategoryCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.design2.chili2.view.card.CategoryCardView
+                    android:id="@+id/cat_1"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    app:title="Переводы"
+                    app:icon="@drawable/ic_payment"
+                    android:layout_marginVertical="@dimen/padding_16dp"
+                    android:layout_marginStart="@dimen/padding_16dp"/>
+
+                <com.design2.chili2.view.card.CategoryCardView
+                    android:id="@+id/cat_2"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:title="Оплата"
+                    app:icon="@drawable/ic_payment"
+                    android:layout_marginVertical="@dimen/padding_16dp"
+                    android:layout_marginStart="@dimen/padding_16dp"
+                    android:layout_marginEnd="@dimen/padding_16dp"/>
+            </LinearLayout>
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="CategoryCardView(8 dp icon offset)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:theme="@style/ThemeOverlay.CategoryCardIcon8dpOffset">
+
+                <com.design2.chili2.view.card.CategoryCardView
+                    android:id="@+id/cat_3"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:title="Народный\nБонусная"
+                    app:icon="@drawable/ic_payment"
+                    android:layout_marginVertical="@dimen/padding_16dp"
+                    android:layout_marginStart="@dimen/padding_16dp"/>
+
+                <com.design2.chili2.view.card.CategoryCardView
+                    android:id="@+id/cat_4"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    app:title="Кофейня.\nБонусная."
+                    app:icon="@drawable/ic_payment"
+                    android:layout_marginVertical="@dimen/padding_16dp"
+                    android:layout_marginStart="@dimen/padding_16dp"
+                    android:layout_marginEnd="74dp"/>
+            </LinearLayout>
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="SimpleCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.design2.chili2.view.card.SimpleCardView
+                        android:id="@+id/simple"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_16dp"
+                        android:layout_marginBottom="@dimen/padding_16dp"
+                        android:layout_marginStart="@dimen/padding_8dp"
+                        app:cardBackground="@drawable/simple_gray_bg"
+                        app:cardElevation="0dp"
+                        app:title="4215585318631234"
+                        app:icon="@drawable/ic_scaner_48" />
+
+                    <com.design2.chili2.view.card.SimpleCardView
+                        android:id="@+id/simple2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_16dp"
+                        android:layout_marginBottom="@dimen/padding_16dp"
+                        app:cardBackground="@drawable/simple_gray_bg"
+                        app:cardElevation="0dp"
+                        android:layout_marginStart="@dimen/padding_8dp"
+                        app:title="4215585318631234"
+                        app:icon="@drawable/ic_scaner_48" />
+
+                    <com.design2.chili2.view.card.SimpleCardView
+                        android:id="@+id/simple3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_16dp"
+                        android:layout_marginBottom="@dimen/padding_16dp"
+                        android:layout_marginStart="@dimen/padding_8dp"
+                        android:layout_marginEnd="@dimen/padding_8dp"
+                        app:cardElevation="0dp"
+                        app:cardBackground="@drawable/simple_gray_bg"
+                        app:title="4215585318631234"
+                        app:icon="@drawable/ic_scaner_48" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="BalanceCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.design2.chili2.view.card.BalanceCardView
+                    android:id="@+id/bal1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_16dp"
+                    android:layout_marginStart="@dimen/padding_16dp"
+                    android:layout_marginEnd="@dimen/padding_8dp"
+                    app:title="Баланс"
+                    app:value="1 002 062 c"/>
+
+
+                <com.design2.chili2.view.card.BalanceCardView
+                    android:id="@+id/bal2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/padding_16dp"
+                    android:layout_marginEnd="@dimen/padding_16dp"
+                    app:title="Баланс"
+                    app:icon="@drawable/chili_ic_bank_cards"
+                    android:background="?selectableItemBackground"
+                    android:focusable="true"
+                    android:clickable="true"/>
+
+            </LinearLayout>
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="BankCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.design.chili.view.card.BankCardView
+                    android:layout_margin="@dimen/padding_16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/padding_16dp"
+                    app:cardBackground="@drawable/card_bg"
+                    app:cardIcon="@drawable/elcard"
+                    app:cardPan="9417 1243 3425 4215"
+                    app:cardHolderName="Ivanov Ivanovskii"
+                    app:dueDate="12 /  25"
+                    app:cvv="436"
+                    app:isCvvToggleEnabled="true"
+                    app:isCardPanToggleEnabled="true"/>
+
+                <com.design.chili.view.card.BankCardView
+                    android:layout_margin="@dimen/padding_16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/padding_16dp"
+                    app:cardBackground="@drawable/card_bg"
+                    app:cardIcon="@drawable/elcard"
+                    app:cardPan="9417 1243 3425 4215"
+                    app:cardHolderName="Ivanov Ivanovskii"
+                    app:dueDate="12 /  25"
+                    app:cvv="436"/>
+            </LinearLayout>
+
+
+        </com.design2.chili2.view.container.ExpandableContainer>
     </LinearLayout>
 
 </ScrollView>
