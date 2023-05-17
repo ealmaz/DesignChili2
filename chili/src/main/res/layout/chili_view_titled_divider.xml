@@ -21,7 +21,8 @@
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Chili.H7.Primary.Bold"
-        android:layout_marginVertical="@dimen/padding_16dp"
+        android:layout_marginTop="?ChiliTitledDividerTopMargin"
+        android:layout_marginBottom="?ChiliTitledDividerBottomMargin"
         android:layout_marginEnd="@dimen/padding_12dp"
         tools:text="Заголовок"/>
 

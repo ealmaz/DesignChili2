@@ -20,7 +20,7 @@
         <item name="ChiliDividerColor">@color/black_5</item>
 
         <!-- Chevron -->
-        <item name="ChiliChevronColor">@color/black_5</item>
+        <item name="ChiliChevronColor">@color/white_1</item>
 
         <!-- Snackbar attributes -->
         <item name="ChiliSnackbarBackground">@color/black_3</item>
