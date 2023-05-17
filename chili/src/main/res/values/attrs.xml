@@ -41,6 +41,7 @@
         <attr name="categoryCardViewDefaultStyle" format="reference"/>
         <attr name="simpleCardViewDefaultStyle" format="reference"/>
         <attr name="balanceCardViewDefaultStyle" format="reference"/>
+        <attr name="bankCardViewDefaultStyle" format="reference"/>
 
 
     </declare-styleable>
@@ -335,6 +336,19 @@
         <attr name="messageTextAppearance" format="reference"/>
         <attr name="messageTextColor"/>
         <attr name="otpLength" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="BankCardView">
+        <attr name="cardCornerRadius"/>
+        <attr name="cardBackground"/>
+        <attr name="cardElevation"/>
+        <attr name="cardPan" format="string"/>
+        <attr name="cvv" format="string"/>
+        <attr name="dueDate" format="string"/>
+        <attr name="cardHolderName" format="string"/>
+        <attr name="cardIcon" format="reference"/>
+        <attr name="isCvvToggleEnabled" format="boolean"/>
+        <attr name="isCardPanToggleEnabled" format="boolean"/>
     </declare-styleable>
 
 </resources>

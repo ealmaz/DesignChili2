@@ -24,4 +24,8 @@
 
     <style name="Chili.CardViewStyle.BalanceCardView"/>
 
+    <style name="Chili.CardViewStyle.BankCard">
+        <item name="cardCornerRadius">?ChiliBankCardViewCornerRadius</item>
+    </style>
+
 </resources>

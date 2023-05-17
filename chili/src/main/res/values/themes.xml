@@ -201,6 +201,11 @@
         <item name="ChiliCategoryCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliCategoryCardViewIconEndMargin">@dimen/padding_12dp</item>
 
+        <!-- BankCardView -->
+        <item name="ChiliBankCardViewCornerRadius">@dimen/radius_12dp</item>
+        <item name="ChiliBankCardViewFieldsBackground">@color/custom_blue_1</item>
+        <item name="ChiliBankCardViewFieldsCornerRadius">@dimen/radius_8dp</item>
+
         <!-- TitledDividerView -->
         <item name="ChiliTitledDividerTopMargin">@dimen/padding_16dp</item>
         <item name="ChiliTitledDividerBottomMargin">@dimen/padding_16dp</item>

@@ -30,4 +30,8 @@
         <item name="titleTextAppearance">@style/Chili.H8.Primary</item>
     </style>
 
+    <style name="ThemeOverlay_chili_back_card_field_ripple">
+        <item name="ChiliCardViewCornerRadius">?ChiliBankCardViewFieldsCornerRadius</item>
+    </style>
+
 </resources>

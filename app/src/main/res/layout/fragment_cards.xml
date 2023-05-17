@@ -322,6 +322,46 @@
             </LinearLayout>
 
         </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="BankCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.design.chili.view.card.BankCardView
+                    android:layout_margin="@dimen/padding_16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/padding_16dp"
+                    app:cardBackground="@drawable/card_bg"
+                    app:cardIcon="@drawable/elcard"
+                    app:cardPan="9417 1243 3425 4215"
+                    app:cardHolderName="Ivanov Ivanovskii"
+                    app:dueDate="12 /  25"
+                    app:cvv="436"
+                    app:isCvvToggleEnabled="true"
+                    app:isCardPanToggleEnabled="true"/>
+
+                <com.design.chili.view.card.BankCardView
+                    android:layout_margin="@dimen/padding_16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/padding_16dp"
+                    app:cardBackground="@drawable/card_bg"
+                    app:cardIcon="@drawable/elcard"
+                    app:cardPan="9417 1243 3425 4215"
+                    app:cardHolderName="Ivanov Ivanovskii"
+                    app:dueDate="12 /  25"
+                    app:cvv="436"/>
+            </LinearLayout>
+
+
+        </com.design2.chili2.view.container.ExpandableContainer>
     </LinearLayout>
 
 </ScrollView>
