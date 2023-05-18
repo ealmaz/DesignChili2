@@ -64,7 +64,7 @@ class BalanceCardView @JvmOverloads constructor(
         shimmeringPairs[view.tvValue] = view.subtitleShimmering
     }
 
-    fun setTitle(charSequence: CharSequence) {
+    fun setTitle(charSequence: CharSequence?) {
         view.tvLabel.text = charSequence
     }
 

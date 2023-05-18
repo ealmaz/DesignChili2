@@ -65,7 +65,7 @@ class AccentCardView @JvmOverloads constructor(
         shimmeringPairs[view.tvTitle] = view.titleShimmer
     }
 
-    fun setTitle(charSequence: CharSequence) {
+    fun setTitle(charSequence: CharSequence?) {
         view.tvTitle.text = charSequence
     }
 
