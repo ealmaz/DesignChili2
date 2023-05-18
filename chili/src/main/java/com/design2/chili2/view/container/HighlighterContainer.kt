@@ -29,6 +29,13 @@ class HighlighterContainer @JvmOverloads constructor(
     private var highlighterIcon: Drawable? = null
     private var highlighterState: HighlighterState? = null
 
+    private val px3 = resources.getDimensionPixelSize(R.dimen.view_3dp).toFloat()
+    private val px5 = resources.getDimensionPixelSize(R.dimen.view_5dp).toFloat()
+    private val px12 = resources.getDimensionPixelSize(R.dimen.view_12dp).toFloat()
+    private val px15 = resources.getDimensionPixelSize(R.dimen.view_15dp).toFloat()
+    private val px18 = resources.getDimensionPixelSize(R.dimen.view_18dp).toFloat()
+    private val px21 = resources.getDimensionPixelSize(R.dimen.view_21dp).toFloat()
+
     private var iconSizePx: Int = 0
 
     @ColorInt
@@ -159,8 +166,6 @@ class HighlighterContainer @JvmOverloads constructor(
     }
 
     private fun drawIconBackground(canvas: Canvas?) {
-
-
         val dest = createBitmap(Color.GREEN) {
             drawRoundRect(
                 frameStrokeWith,
@@ -172,10 +177,8 @@ class HighlighterContainer @JvmOverloads constructor(
                 it
             )
         }
-
-        val offset = 20
         val src = createBitmap(highlighterColor) {
-            drawCircle(width - frameStrokeWith - offset , frameStrokeWith + offset, iconSizePx.toFloat() + offset, it)
+            drawCircle(width - px21 + px12, 0 + px21 - px12, px12, it)
         }
 
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).applyCanvas {
@@ -187,68 +190,16 @@ class HighlighterContainer @JvmOverloads constructor(
     }
 
     private fun drawIcon(canvas: Canvas) {
-        val topOffset = 20
-        highlighterIcon?.apply {
+     highlighterIcon?.apply {
             setBounds(
-                width - iconSizePx - frameStrokeWith.toInt() - topOffset,
-                topOffset,
-                width - frameStrokeWith.toInt() - topOffset,
-                topOffset + iconSizePx
+                (width - px15 - frameStrokeWith).toInt(),
+                (px3 + frameStrokeWith).toInt(),
+                (width - px5 - frameStrokeWith).toInt(),
+                (px18).toInt()
             )
             this.draw(canvas)
         }
     }
-
-//    var rotationDeg = 0f
-//
-//    var isAnimStarted = false
-
-//    private fun drawRectAnimation(canvas: Canvas?) {
-//        prepareGradientPaintIfNeed()
-//        framePaint.color = highlighterColor
-//        val dest = createBitmap(Color.GREEN) {
-//            drawRoundRect(
-//                frameStrokeWith,
-//                frameStrokeWith,
-//                width - frameStrokeWith,
-//                height - frameStrokeWith,
-//                cornerRadiusPx,
-//                cornerRadiusPx,
-//                framePaint
-//            )
-//        }
-//
-//        val offset = width * 2
-//
-//        val src = createBitmap(Color.WHITE) {
-//            drawArc(0f - offset, 0f - offset, width.toFloat() + offset, height.toFloat() + offset, rotationDeg, 80f, true, it)
-//        }
-//
-//        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).applyCanvas {
-//            drawBitmap(dest!!, 0f, 0f, plainPaint)
-//            drawBitmap(src!!, 0f, 0f, Paint().apply {
-//                xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP)
-//            })
-//        }
-//        canvas?.drawBitmap(bitmap, 0f, 0f, plainPaint)
-//
-//        if (isAnimStarted) return
-//        rotationDeg = (rotationDeg + 4) % 360
-//
-//
-//        val valueAnimator = ValueAnimator.ofFloat(0f, 360f).apply {
-//            repeatMode = ValueAnimator.RESTART
-//            repeatCount = ValueAnimator.INFINITE
-//            duration = 800
-//            interpolator = AccelerateInterpolator()
-//        }
-//        valueAnimator.addUpdateListener {
-//            rotationDeg = it.animatedValue as Float
-//            invalidate()
-//        }
-//        isAnimStarted = true
-//        valueAnimator.start()
-//    }
 
 
     private fun createBitmap(color: Int, drawing: Canvas.(Paint) -> Unit): Bitmap? {

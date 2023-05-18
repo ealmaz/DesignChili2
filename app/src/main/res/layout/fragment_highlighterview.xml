@@ -30,7 +30,7 @@
                     app:highlighterColor="#FF0051"
                     app:highlighterIconSize="10dp"
                     app:cornerRadius="@dimen/view_14dp"
-                    app:highlighterIcon="@drawable/ic_heart"
+                    app:highlighterIcon="@drawable/lighting"
                     android:clickable="true"
                     android:focusable="true"
                     app:highlighterState="withIcon">
@@ -216,7 +216,7 @@
             app:highlighterIconSize="10dp"
             app:cornerRadius="@dimen/view_14dp"
             android:layout_margin="@dimen/view_16dp"
-            app:highlighterIcon="@drawable/ic_heart"
+            app:highlighterIcon="@drawable/lighting"
             app:highlighterState="withIcon">
 
             <androidx.cardview.widget.CardView
@@ -254,7 +254,7 @@
             app:highlighterIconSize="10dp"
             app:cornerRadius="@dimen/view_14dp"
             android:layout_margin="@dimen/view_16dp"
-            app:highlighterIcon="@drawable/ic_heart"
+            app:highlighterIcon="@drawable/lighting"
             app:highlighterState="withIcon">
 
             <androidx.cardview.widget.CardView

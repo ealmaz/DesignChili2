@@ -300,35 +300,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <com.design2.chili2.view.card.BalanceCardView
-                    android:id="@+id/bal1"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/padding_16dp"
-                    android:layout_marginStart="@dimen/padding_16dp"
-                    android:layout_marginEnd="@dimen/padding_8dp"
-                    app:title="Баланс"
-                    app:value="1 002 062 c"/>
+                    android:orientation="horizontal">
+
+                    <com.design2.chili2.view.card.BalanceCardView
+                        android:id="@+id/bal1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_16dp"
+                        android:layout_marginStart="@dimen/padding_16dp"
+                        android:layout_marginEnd="@dimen/padding_8dp"
+                        app:title="Баланс"
+                        app:value="1 002 062 c"/>
 
 
-                <com.design2.chili2.view.card.BalanceCardView
-                    android:id="@+id/bal2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/padding_16dp"
-                    android:layout_marginEnd="@dimen/padding_16dp"
-                    app:title="Баланс"
-                    app:icon="@drawable/chili_ic_bank_cards"
-                    android:background="?selectableItemBackground"
-                    android:focusable="true"
-                    android:clickable="true"/>
+                    <com.design2.chili2.view.card.BalanceCardView
+                        android:id="@+id/bal2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_16dp"
+                        android:layout_marginEnd="@dimen/padding_16dp"
+                        app:title="Баланс"
+                        app:icon="@drawable/chili_ic_bank_cards"
+                        android:background="?selectableItemBackground"
+                        android:focusable="true"
+                        android:clickable="true"/>
 
-            </LinearLayout>
+                    <com.design2.chili2.view.card.BalanceCardView
+                        android:id="@+id/bal3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/padding_16dp"
+                        android:layout_marginEnd="@dimen/padding_16dp"
+                        app:title="Баланс"
+                        app:value="1 000 c"
+                        app:titleIcon="@drawable/elcard"
+                        app:cardBackground="@color/blue_2"
+                        android:background="?selectableItemBackground"
+                        android:focusable="true"
+                        android:clickable="true"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
 
         </com.design2.chili2.view.container.ExpandableContainer>
 
