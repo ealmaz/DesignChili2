@@ -5,7 +5,8 @@
 
 
         <!-- Text appearance-->
-        <item name="ChiliPrimaryTextColor">@color/gray_3</item>
+        <item name="ChiliPrimaryTextColor">@color/white_1</item>
+        <item name="ChiliSecondaryTextColor">@color/gray_3</item>
         <item name="ChiliMarkedTextColor">@color/white_1</item>
         <!-- End text appearance-->
 
@@ -17,7 +18,7 @@
         <item name="ChiliRippleForegroundColor">@color/gray_1</item>
 
         <!-- Divider -->
-        <item name="ChiliDividerColor">@color/black_5</item>
+        <item name="ChiliDividerColor">@color/black_4</item>
 
         <!-- Chevron -->
         <item name="ChiliChevronColor">@color/white_1</item>

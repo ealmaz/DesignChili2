@@ -16,8 +16,8 @@
         <item name="ChiliTextSizeH9">@dimen/text_12sp</item>
         <item name="ChiliTextSizeH10">@dimen/text_10sp</item>
 
-        <item name="ChiliPrimaryTextColor">@color/black_5</item>
-        <item name="ChiliSecondaryTextColor">@color/gray_1</item>
+        <item name="ChiliPrimaryTextColor">@color/black_1</item>
+        <item name="ChiliSecondaryTextColor">@color/black_4</item>
         <item name="ChiliMarkedTextColor">@color/black_1</item>
         <item name="ChiliErrorTextColor">@color/red_1</item>
         <item name="android:textColorHint">@color/gray_1_alpha_50</item>
