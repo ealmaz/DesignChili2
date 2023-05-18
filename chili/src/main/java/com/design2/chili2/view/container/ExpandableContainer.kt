@@ -33,7 +33,6 @@ class ExpandableContainer @JvmOverloads constructor(
     init {
         inflateView()
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
-        setupClosureButton()
     }
 
     private fun inflateView() {
@@ -182,10 +181,12 @@ class ExpandableContainer @JvmOverloads constructor(
 
     fun setClosureIndicatorVisibility(isVisible: Boolean) {
         view.ivClosureIndicator.isVisible = isVisible
+        if (isVisible) setupClosureButton()
     }
 
     private fun setupClosureButton() {
         view.ivClosureIndicator.setOnClickListener { setIsExpanded(!isExpanded) }
+        view.tvTitle.setOnClickListener { setIsExpanded(!isExpanded) }
     }
 
     fun setIsExpanded(isExpanded: Boolean) {

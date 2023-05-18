@@ -1,4 +1,4 @@
-package com.design.chili.view.card
+package com.design2.chili2.view.card
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -16,7 +16,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.visible
-import com.design2.chili2.view.card.BaseCardView
 
 
 class BankCardView @JvmOverloads constructor(

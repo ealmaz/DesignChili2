@@ -342,7 +342,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.design.chili.view.card.BankCardView
+                <com.design2.chili2.view.card.BankCardView
                     android:layout_margin="@dimen/padding_16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -356,7 +356,7 @@
                     app:isCvvToggleEnabled="true"
                     app:isCardPanToggleEnabled="true"/>
 
-                <com.design.chili.view.card.BankCardView
+                <com.design2.chili2.view.card.BankCardView
                     android:layout_margin="@dimen/padding_16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
