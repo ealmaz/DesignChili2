@@ -19,7 +19,7 @@ class BalanceCardView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.balanceCardViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CardViewStyle_BalanceCardView
-): BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
+) : BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
     private lateinit var view: BalanceCardViewViewVariables
 
@@ -29,7 +29,8 @@ class BalanceCardView @JvmOverloads constructor(
         get() = view.root
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_balance, this, true)
+        val view =
+            LayoutInflater.from(context).inflate(R.layout.chili_view_card_balance, this, true)
         this.view = BalanceCardViewViewVariables(
             tvLabel = view.findViewById(R.id.tv_title),
             tvValue = view.findViewById(R.id.tv_value),
@@ -41,7 +42,9 @@ class BalanceCardView @JvmOverloads constructor(
         )
     }
 
-    init { initView(context, attrs, defStyleAttr, defStyleRes) }
+    init {
+        initView(context, attrs, defStyleAttr, defStyleRes)
+    }
 
 
     override fun TypedArray.obtainAttributes() {
@@ -88,24 +91,30 @@ class BalanceCardView @JvmOverloads constructor(
         view.tvValue.setTextAppearance(resId)
     }
 
-    fun setIcon(resId: Int) {
-        view.ivIcon.apply {
+    fun setIcon(resId: Int?) = with (view.ivIcon) {
+        if (resId == null) {
+            gone()
+            shimmeringPairs.remove(this)
+        } else {
             setImageResource(resId)
             visible()
-            shimmeringPairs[view.ivIcon] = null
+            shimmeringPairs[this] = null
         }
     }
 
-    fun setIcon(drawable: Drawable) {
-        view.ivIcon.apply {
+    fun setIcon(drawable: Drawable?) = with(view.ivIcon) {
+        if (drawable == null) gone()
+        else {
+
             visible()
             setImageDrawable(drawable)
-            shimmeringPairs[view.ivIcon] = null
+            shimmeringPairs[this] = null
+
         }
     }
 
     fun setTitleIcon(drawable: Drawable?) = with(view.ivTitleIcon) {
-        if (drawable == null) { gone() }
+        if (drawable == null) gone()
         else {
             visible()
             setImageDrawable(drawable)
@@ -113,7 +122,7 @@ class BalanceCardView @JvmOverloads constructor(
     }
 
     fun setTitleIcon(drawableRes: Int?) = with(view.ivTitleIcon) {
-        if (drawableRes == null) { gone() }
+        if (drawableRes == null) gone()
         else {
             visible()
             setImageResource(drawableRes)

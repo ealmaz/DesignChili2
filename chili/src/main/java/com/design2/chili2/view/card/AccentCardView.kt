@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
+import com.design2.chili2.extensions.gone
+import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
 import com.facebook.shimmer.ShimmerFrameLayout
@@ -93,31 +95,41 @@ class AccentCardView @JvmOverloads constructor(
         view.tvSubtitle.setTextAppearance(resId)
     }
 
-    fun setTitleStartIcon(resId: Int) {
-        view.ivStartIcon.apply {
+    fun setTitleStartIcon(resId: Int?) = with(view.ivStartIcon) {
+        if (resId == null) {
+            gone()
+            shimmeringPairs.remove(this)
+        }
+        else {
             visible()
             setImageResource(resId)
-            shimmeringPairs[view.ivStartIcon] = null
+            shimmeringPairs[this] = null
         }
     }
 
-    fun setTitleStartIcon(drawable: Drawable) {
+    fun setTitleStartIcon(drawable: Drawable?) = with(view.ivStartIcon) {
+        if (drawable == null) {
+            gone()
+            shimmeringPairs.remove(this)
+        }
         view.ivStartIcon.apply {
             visible()
             setImageDrawable(drawable)
-            shimmeringPairs[view.ivStartIcon] = null
+            shimmeringPairs[this] = null
         }
     }
 
-    fun setEndIcon(resId: Int) {
-        view.ivEndIcon.apply {
+    fun setEndIcon(resId: Int?) = with(view.ivEndIcon) {
+        if (resId == null) invisible()
+        else {
             visible()
             setImageResource(resId)
         }
     }
 
-    fun setEndIcon(drawable: Drawable) {
-        view.ivEndIcon.apply {
+    fun setEndIcon(drawable: Drawable?) = with(view.ivEndIcon) {
+        if (drawable == null) invisible()
+        else {
             visible()
             setImageDrawable(drawable)
         }
