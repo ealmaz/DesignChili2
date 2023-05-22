@@ -1,14 +1,12 @@
 package com.design2.chili2.extensions
 
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.text.Spanned
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
@@ -187,5 +185,17 @@ fun ViewGroup.setIsSurfaceClickable(isSurfaceClickable: Boolean) {
 fun View.setLeftMargin(margin: Int) {
     val params = layoutParams as ViewGroup.MarginLayoutParams
     params.setMargins(margin, params.topMargin, params.rightMargin, params.bottomMargin)
+    layoutParams = params
+}
+
+fun View.setHorizontalMargin(margin: Int) {
+    val params = layoutParams as ViewGroup.MarginLayoutParams
+    params.setMargins(margin, params.topMargin, margin, params.bottomMargin)
+    layoutParams = params
+}
+
+fun View.setBottomMargin(margin: Int) {
+    val params = layoutParams as ViewGroup.MarginLayoutParams
+    params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, margin)
     layoutParams = params
 }
