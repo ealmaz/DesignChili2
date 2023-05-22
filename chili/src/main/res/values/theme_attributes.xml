@@ -76,6 +76,9 @@
     <attr name="ChiliCellCornerRadius" format="dimension"/>
     <attr name="ChiliCellViewElevation" format="dimension"/>
 
+    <!-- StatusMarkerCellView -->
+    <attr name="ChiliMarkerStatusCellViewStatusCornerRadius" format="dimension"/>
+
 
     <!-- Snackbar attributes -->
     <attr name="ChiliSnackbarBackground" format="reference"/>

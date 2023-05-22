@@ -2,21 +2,21 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cell_cv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/ChiliSurfaceBackground"
-    android:paddingBottom="@dimen/padding_16dp"
-    android:id="@+id/cell_cv">
+    android:paddingBottom="@dimen/padding_16dp">
 
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/padding_16dp"
+        android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/padding_16dp"
-        android:layout_marginTop="@dimen/padding_16dp"
         android:paddingBottom="220dp"
-        android:clipToPadding="false"
         tools:context=".MainActivity">
 
         <com.design2.chili2.view.common.TitledDividerView
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
             app:isDividerVisible="false"
-            app:title="Заголовок"/>
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
@@ -47,8 +47,8 @@
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:roundedCornerMode="bottom"
             app:isDividerVisible="false"
+            app:roundedCornerMode="bottom"
             app:title="Заголовок" />
 
 
@@ -57,37 +57,37 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"/>
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
             app:roundedCornerMode="top"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:roundedCornerMode="middle"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:roundedCornerMode="bottom"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:roundedCornerMode="bottom"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BaseCellView iconSize = SMALL (32dp)"
-            android:layout_marginTop="@dimen/padding_32dp"/>
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="BaseCellView iconSize = SMALL (32dp)" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
@@ -117,8 +117,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_squircle_phone"
-            app:roundedCornerMode="bottom"
             app:isDividerVisible="false"
+            app:roundedCornerMode="bottom"
             app:title="Заголовок" />
 
 
@@ -128,8 +128,8 @@
             android:layout_marginTop="@dimen/padding_16dp"
             android:icon="@drawable/ic_squircle_phone"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"/>
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
@@ -137,32 +137,32 @@
             android:layout_marginTop="@dimen/padding_16dp"
             android:icon="@drawable/ic_squircle_phone"
             app:roundedCornerMode="top"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_squircle_phone"
             app:roundedCornerMode="middle"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:roundedCornerMode="bottom"
-            app:isDividerVisible="false"
             android:icon="@drawable/ic_squircle_phone"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:isDividerVisible="false"
+            app:roundedCornerMode="bottom"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BaseCellView iconSize = MEDIUM (46dp)"
-            android:layout_marginTop="@dimen/padding_32dp"/>
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="BaseCellView iconSize = MEDIUM (46dp)" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
@@ -195,8 +195,8 @@
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="medium"
-            app:roundedCornerMode="bottom"
             app:isDividerVisible="false"
+            app:roundedCornerMode="bottom"
             app:title="Заголовок" />
 
 
@@ -207,8 +207,8 @@
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="medium"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"/>
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
@@ -217,8 +217,8 @@
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="medium"
             app:roundedCornerMode="top"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
@@ -226,24 +226,24 @@
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="medium"
             app:roundedCornerMode="middle"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="medium"
-            app:roundedCornerMode="bottom"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:roundedCornerMode="bottom"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BaseCellView iconSize = LARGE (48dp)"
-            android:layout_marginTop="@dimen/padding_32dp"/>
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="BaseCellView iconSize = LARGE (48dp)" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
@@ -277,8 +277,8 @@
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="large"
-            app:roundedCornerMode="bottom"
             app:isDividerVisible="false"
+            app:roundedCornerMode="bottom"
             app:title="Заголовок" />
 
 
@@ -289,18 +289,18 @@
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="large"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"/>
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="large"
-            android:layout_marginTop="@dimen/padding_16dp"
             app:roundedCornerMode="top"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
@@ -308,24 +308,24 @@
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="large"
             app:roundedCornerMode="middle"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="large"
-            app:roundedCornerMode="bottom"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок" />
+            app:roundedCornerMode="bottom"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BaseCellView icon custom size 72 dp"
-            android:layout_marginTop="@dimen/padding_32dp"/>
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="BaseCellView icon custom size 72 dp" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
@@ -343,255 +343,251 @@
             android:icon="@drawable/chili_ic_success"
             app:cellIconSize="@dimen/view_72dp"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"/>
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BaseCellView max char"
-            android:layout_marginTop="@dimen/padding_32dp"/>
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="BaseCellView max char" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:isDividerVisible="false"
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="large"
-            app:title="Заголовок максимальное кол-во строк 2, строк строк строк строк строк строк строк строк строк строк строк строк строк строк строк строк"
-            app:subtitle="Заголовок максимальное кол-во строк 2, строк строк строк строк строк строк строк строк строк строк строк строк строк строк строк" />
+            app:isDividerVisible="false"
+            app:subtitle="Заголовок максимальное кол-во строк 2, строк строк строк строк строк строк строк строк строк строк строк строк строк строк строк"
+            app:title="Заголовок максимальное кол-во строк 2, строк строк строк строк строк строк строк строк строк строк строк строк строк строк строк строк" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BaseCellView indicators"
-            android:layout_marginTop="@dimen/padding_32dp"/>
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="BaseCellView indicators" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ToggleCellView разные состояния"
             android:layout_margin="@dimen/padding_16dp"
-            />
+            android:text="ToggleCellView разные состояния" />
 
         <com.design2.chili2.view.cells.ToggleCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:roundedCornerMode="single"/>
+            app:roundedCornerMode="single"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.ToggleCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
             app:isDividerVisible="false"
+            app:roundedCornerMode="single"
             app:switch_text="On/Off"
-            android:layout_marginTop="@dimen/padding_16dp"
-            app:title="Заголовок"
-            app:roundedCornerMode="single"/>
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.ToggleCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
             app:isDividerVisible="false"
-            app:switch_textOn="On"
+            app:roundedCornerMode="single"
             app:switch_textOff="Off"
-            android:layout_marginTop="@dimen/padding_16dp"
-            app:title="Заголовок"
-            app:roundedCornerMode="single"/>
+            app:switch_textOn="On"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.ToggleCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:isSwitchChecked="true"
             app:isDividerVisible="false"
-            app:title="Заголовок"
+            app:isSwitchChecked="true"
+            app:roundedCornerMode="single"
             app:subtitle="Подзаголовок"
-            app:roundedCornerMode="single"/>
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.ToggleCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"
             android:layout_marginTop="@dimen/padding_16dp"
             android:icon="@drawable/chili_ic_success"
             app:cellIconSize="small"
-            app:roundedCornerMode="top"/>
+            app:roundedCornerMode="top"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.ToggleCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"
             android:icon="@drawable/chili_ic_success"
             app:cellIconSize="medium"
-            app:roundedCornerMode="middle"/>
+            app:roundedCornerMode="middle"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.ToggleCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"
-            app:isDividerVisible="false"
             android:icon="@drawable/chili_ic_success"
             app:cellIconSize="large"
-            app:roundedCornerMode="bottom"/>
+            app:isDividerVisible="false"
+            app:roundedCornerMode="bottom"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AdditionalTextCellView разные состояния"
             android:layout_margin="@dimen/padding_16dp"
-            />
+            android:text="AdditionalTextCellView разные состояния" />
 
         <com.design2.chili2.view.cells.AdditionalTextCellView
             android:id="@+id/test_AdditionalTextCellView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:additionalText="Additional text"
             app:isDividerVisible="false"
-            app:title="Заголовок"
             app:roundedCornerMode="single"
-            app:additionalText="Additional text"/>
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.AdditionalTextCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
-            app:title="Заголовок"
+            android:layout_marginTop="@dimen/padding_8dp"
+            app:additionalText="Additional text no chevron"
             app:isChevronVisible="false"
-            app:roundedCornerMode="single"
-            android:layout_marginTop="@dimen/padding_8dp"
-            app:additionalText="Additional text no chevron"/>
-
-        <com.design2.chili2.view.cells.AdditionalTextCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            android:icon="@drawable/ic_darkmode_false_"
-            app:cellIconSize="medium"
             app:roundedCornerMode="single"
+            app:title="Заголовок" />
+
+        <com.design2.chili2.view.cells.AdditionalTextCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
-            app:additionalText="Additional text icon"/>
+            android:icon="@drawable/ic_darkmode_false_"
+            app:additionalText="Additional text icon"
+            app:cellIconSize="medium"
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
+            app:title="Заголовок" />
 
 
         <com.design2.chili2.view.cells.AdditionalTextCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="simple"
             android:layout_marginTop="@dimen/padding_8dp"
+            app:additionalText="Value"
             app:isChevronVisible="false"
             app:roundedCornerMode="top"
-            app:additionalText="Value"/>
+            app:title="simple" />
 
         <com.design2.chili2.view.cells.AdditionalTextCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="simple"
+            app:additionalText="Value"
             app:isChevronVisible="false"
             app:roundedCornerMode="middle"
-            app:additionalText="Value"/>
+            app:title="simple" />
 
         <com.design2.chili2.view.cells.AdditionalTextCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
-            app:title="simple"
+            app:additionalText="Value"
             app:isChevronVisible="false"
+            app:isDividerVisible="false"
             app:roundedCornerMode="bottom"
-            app:additionalText="Value"/>
+            app:title="simple" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="EndIconCellView разные состояния"
             android:layout_margin="@dimen/padding_16dp"
-            />
+            android:text="EndIconCellView разные состояния" />
 
         <com.design2.chili2.view.cells.EndIconCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
-            app:title="Заголовок"
             app:endIcon="@drawable/chili_ic_success"
-            app:roundedCornerMode="single"/>
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.EndIconCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:title="Заголовок"
+            app:endIcon="@drawable/chili_ic_success"
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
             app:subtitle="Подзаголовок"
-            app:endIcon="@drawable/chili_ic_success"
-            app:roundedCornerMode="single"/>
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.EndIconCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:title="Заголовок"
             app:endIcon="@drawable/chili_ic_success"
             app:endIconSize="small"
-            app:roundedCornerMode="single"/>
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.EndIconCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:title="Заголовок"
             app:endIcon="@drawable/chili_ic_success"
             app:endIconSize="large"
-            app:roundedCornerMode="single"/>
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.EndIconCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:title="Заголовок"
             android:icon="@drawable/chili_ic_success"
             app:endIcon="@drawable/chili_ic_success"
-            app:roundedCornerMode="single"/>
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.EndIconCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:title="Заголовок"
-            app:endIconSize="@dimen/view_30dp"
             app:endIcon="@drawable/ic_squircle_phone"
-            app:roundedCornerMode="top"/>
+            app:endIconSize="@dimen/view_30dp"
+            app:roundedCornerMode="top"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.EndIconCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:isChevronVisible="true"
-            app:endIconEndMargin="@dimen/view_1dp"
             app:endIcon="@drawable/chili_ic_success"
-            app:roundedCornerMode="bottom"/>
+            app:endIconEndMargin="@dimen/view_1dp"
+            app:isChevronVisible="true"
+            app:isDividerVisible="false"
+            app:roundedCornerMode="bottom"
+            app:title="Заголовок" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CheckBoxCellView разные состояния"
             android:layout_margin="@dimen/padding_16dp"
-            />
+            android:text="CheckBoxCellView разные состояния" />
 
         <com.design2.chili2.view.cells.CheckBoxCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            app:roundedCornerMode="single"/>
+            app:roundedCornerMode="single"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.CheckBoxCellView
             android:layout_width="match_parent"
@@ -599,266 +595,265 @@
             android:layout_marginTop="@dimen/padding_16dp"
             app:isCheckBoxChecked="true"
             app:isDividerVisible="false"
-            app:title="Заголовок"
+            app:roundedCornerMode="single"
             app:subtitle="Подзаголовок"
-            app:roundedCornerMode="single"/>
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.CheckBoxCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"
             android:layout_marginTop="@dimen/padding_16dp"
             android:icon="@drawable/chili_ic_success"
             app:cellIconSize="small"
-            app:roundedCornerMode="top"/>
+            app:roundedCornerMode="top"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.CheckBoxCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"
-            app:isDividerVisible="false"
             android:icon="@drawable/ic_squircle_phone"
             app:cellIconSize="medium"
-            app:roundedCornerMode="bottom"/>
+            app:isDividerVisible="false"
+            app:roundedCornerMode="bottom"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ActionCellView разные состояния"
             android:layout_margin="@dimen/padding_16dp"
-            />
+            android:text="ActionCellView разные состояния" />
 
         <com.design2.chili2.view.cells.ActionCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:actionText="Action"
             app:isDividerVisible="false"
-            app:title="Заголовок"
             app:roundedCornerMode="single"
-            app:actionText="Action"/>
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.ActionCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
-            app:title="Заголовок"
+            android:layout_marginTop="@dimen/padding_8dp"
+            app:actionText="Action no chevron"
             app:isChevronVisible="false"
-            app:roundedCornerMode="single"
-            android:layout_marginTop="@dimen/padding_8dp"
-            app:actionText="Action no chevron"/>
-
-        <com.design2.chili2.view.cells.ActionCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             app:isDividerVisible="false"
-            app:title="Заголовок"
-            android:icon="@drawable/ic_darkmode_false_"
-            app:cellIconSize="medium"
             app:roundedCornerMode="single"
+            app:title="Заголовок" />
+
+        <com.design2.chili2.view.cells.ActionCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
-            app:actionText="Action icon"/>
+            android:icon="@drawable/ic_darkmode_false_"
+            app:actionText="Action icon"
+            app:cellIconSize="medium"
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
+            app:title="Заголовок" />
 
 
         <com.design2.chili2.view.cells.ActionCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="simple"
             android:layout_marginTop="@dimen/padding_8dp"
+            app:actionText="Value"
             app:isChevronVisible="false"
             app:roundedCornerMode="top"
-            app:actionText="Value"/>
+            app:title="simple" />
 
         <com.design2.chili2.view.cells.ActionCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="simple"
+            app:actionText="Value"
             app:isChevronVisible="false"
             app:roundedCornerMode="middle"
-            app:actionText="Value"/>
+            app:title="simple" />
 
         <com.design2.chili2.view.cells.ActionCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:isDividerVisible="false"
-            app:title="simple"
+            app:actionText="Value"
             app:isActionEnabled="false"
             app:isChevronVisible="false"
-            app:roundedCornerMode="bottom"
-            app:actionText="Value"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="InfoCellView"
-            android:layout_marginTop="@dimen/padding_16dp"/>
-
-        <com.design2.chili2.view.cells.InfoCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:title="Title"
-            app:roundedCornerMode="single"
-            android:layout_marginBottom="@dimen/padding_16dp"
-            app:subtitle="subtitle"/>
-
-        <com.design2.chili2.view.cells.InfoCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:title="Title"
-            app:subtitle="subtitle"
-            app:roundedCornerMode="top"
-            app:isDividerVisible="true"/>
-
-        <com.design2.chili2.view.cells.InfoCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:title="Title"
-            app:subtitle="subtitle"
-            app:isDividerVisible="true"
-            app:roundedCornerMode="middle"/>
-
-        <com.design2.chili2.view.cells.InfoCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:title="Title"
-            app:subtitle="subtitle"
             app:isDividerVisible="false"
-            app:roundedCornerMode="bottom"/>
+            app:roundedCornerMode="bottom"
+            app:title="simple" />
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="ExpandableCellView"
-            android:layout_marginTop="@dimen/padding_16dp"/>
-
-        <com.design2.chili2.view.cells.ExpandableCellView
             android:layout_marginTop="@dimen/padding_16dp"
+            android:text="InfoCellView" />
+
+        <com.design2.chili2.view.cells.InfoCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Могу ли я оплатить товар через О!Деньги"
-            app:description="В данный момент оплата через O!Деньги находится в стадии разработки и будет доступна в ближайших обновлениях приложения."/>
+            android:layout_marginBottom="@dimen/padding_16dp"
+            app:roundedCornerMode="single"
+            app:subtitle="subtitle"
+            app:title="Title" />
 
-
-        <com.design2.chili2.view.cells.ExpandableCellView
-            android:layout_marginTop="@dimen/padding_16dp"
+        <com.design2.chili2.view.cells.InfoCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Могу ли я оплатить товар через О!Деньги"
-            app:description="В данный момент оплата через O!Деньги находится в стадии разработки и будет доступна в ближайших обновлениях приложения."/>
+            app:isDividerVisible="true"
+            app:roundedCornerMode="top"
+            app:subtitle="subtitle"
+            app:title="Title" />
 
-        <com.design2.chili2.view.cells.ExpandableCellView
-            android:layout_marginTop="@dimen/padding_16dp"
+        <com.design2.chili2.view.cells.InfoCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Могу ли я оплатить товар через О!Деньги"
-            app:description="В данный момент оплата через O!Деньги находится в стадии разработки и будет доступна в ближайших обновлениях приложения."/>
+            app:isDividerVisible="true"
+            app:roundedCornerMode="middle"
+            app:subtitle="subtitle"
+            app:title="Title" />
 
-        <com.design2.chili2.view.cells.ExpandableCellView
-            android:layout_marginTop="@dimen/padding_16dp"
+        <com.design2.chili2.view.cells.InfoCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Могу ли я оплатить товар через О!Деньги"
-            app:description="В данный момент оплата через O!Деньги находится в стадии разработки и будет доступна в ближайших обновлениях приложения."/>
+            app:isDividerVisible="false"
+            app:roundedCornerMode="bottom"
+            app:subtitle="subtitle"
+            app:title="Title" />
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="ProgressCellView"
-            android:layout_marginTop="@dimen/padding_16dp"/>
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:text="ExpandableCellView" />
+
+        <com.design2.chili2.view.cells.ExpandableCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:description="В данный момент оплата через O!Деньги находится в стадии разработки и будет доступна в ближайших обновлениях приложения."
+            app:title="Могу ли я оплатить товар через О!Деньги" />
+
+
+        <com.design2.chili2.view.cells.ExpandableCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:description="В данный момент оплата через O!Деньги находится в стадии разработки и будет доступна в ближайших обновлениях приложения."
+            app:title="Могу ли я оплатить товар через О!Деньги" />
+
+        <com.design2.chili2.view.cells.ExpandableCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:description="В данный момент оплата через O!Деньги находится в стадии разработки и будет доступна в ближайших обновлениях приложения."
+            app:title="Могу ли я оплатить товар через О!Деньги" />
+
+        <com.design2.chili2.view.cells.ExpandableCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:description="В данный момент оплата через O!Деньги находится в стадии разработки и будет доступна в ближайших обновлениях приложения."
+            app:title="Могу ли я оплатить товар через О!Деньги" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:text="ProgressCellView" />
 
         <com.design2.chili2.view.cells.ProgressCellView
             android:id="@+id/progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:progressColor="@color/orange_1"
             android:layout_marginTop="@dimen/padding_8dp"
+            app:description="Доступный объем кошелька"
             app:progressBackgroundColor="@color/gray_2"
+            app:progressColor="@color/orange_1"
             app:progressPercent="50"
-            app:title="98 000,00 с из 100 000 с"
-            app:description="Доступный объем кошелька"/>
+            app:title="98 000,00 с из 100 000 с" />
 
         <Button
             android:id="@+id/btn_p1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
-            android:text="set progress to up 100"/>
+            android:text="set progress to up 100" />
 
         <Button
             android:id="@+id/btn_p2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
-            android:text="set progress to up 0"/>
+            android:text="set progress to up 0" />
 
 
         <com.design2.chili2.view.cells.ProgressCellView
             android:id="@+id/progress2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:progressColor="@color/orange_1"
-            app:progressBackgroundColor="@color/gray_2"
             android:layout_marginTop="@dimen/padding_8dp"
+            app:description="Доступный объем кошелька"
+            app:progressBackgroundColor="@color/gray_2"
+            app:progressColor="@color/orange_1"
             app:progressPercent="50"
-            app:title="98 000,00 с из 100 000 с"
-            app:description="Доступный объем кошелька"/>
+            app:title="98 000,00 с из 100 000 с" />
 
         <com.design2.chili2.view.cells.ProgressCellView
             android:id="@+id/progress3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:progressColor="@color/orange_1"
-            app:progressBackgroundColor="@color/gray_2"
             android:layout_marginTop="@dimen/padding_8dp"
+            app:description="Доступный объем кошелька"
+            app:progressBackgroundColor="@color/gray_2"
+            app:progressColor="@color/orange_1"
             app:progressPercent="80"
-            app:title="98 000,00 с из 100 000 с"
-            app:description="Доступный объем кошелька"/>
+            app:title="98 000,00 с из 100 000 с" />
 
 
         <com.design2.chili2.view.cells.ProgressCellView
             android:id="@+id/progress4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:progressColor="@color/orange_1"
-            app:progressBackgroundColor="@color/gray_2"
-            app:progressPercent="50"
-            app:animateProgress="true"
             android:layout_marginTop="@dimen/padding_8dp"
-            app:title="Animated progress"
-            app:description="Доступный объем кошелька"/>
+            app:animateProgress="true"
+            app:description="Доступный объем кошелька"
+            app:progressBackgroundColor="@color/gray_2"
+            app:progressColor="@color/orange_1"
+            app:progressPercent="50"
+            app:title="Animated progress" />
 
         <Button
             android:id="@+id/btn_p4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
-            android:text="set progress to up 80"/>
+            android:text="set progress to up 80" />
 
         <Button
             android:id="@+id/btn_p5"
-            android:layout_marginTop="@dimen/padding_8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="set progress to up 20"/>
+            android:layout_marginTop="@dimen/padding_8dp"
+            android:text="set progress to up 20" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Additional double buttions"
-            android:layout_marginTop="@dimen/padding_32dp"/>
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="Additional double buttions" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
             android:icon="@drawable/ic_squircle_phone"
-            app:roundedCornerMode="top"
             app:cellIconSize="medium"
             app:isDividerVisible="false"
+            app:roundedCornerMode="top"
             app:title="Заголовок" />
 
         <com.design2.chili2.view.common.AdditionalDoubleButtonsView
@@ -867,91 +862,122 @@
             android:background="@drawable/chili_cell_rounded_bottom_background"
             android:elevation="@dimen/elevation_8dp"
             app:firstButtonText="ОТМЕНИТЬ"
-            app:secondButtonText="ОПЛАТИТЬ"/>
+            app:secondButtonText="ОПЛАТИТЬ" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Additional text view"
-            android:layout_marginTop="@dimen/padding_32dp"/>
+            android:layout_marginTop="@dimen/padding_32dp"
+            android:text="Additional text view" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
             android:icon="@drawable/ic_squircle_phone"
-            app:roundedCornerMode="top"
             app:cellIconSize="medium"
             app:isDividerVisible="false"
+            app:roundedCornerMode="top"
             app:title="Заголовок" />
 
         <com.design2.chili2.view.common.AdditionalTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Chili.H8.Secondary"
             android:background="@drawable/chili_cell_rounded_bottom_background"
             android:elevation="@dimen/elevation_8dp"
-            android:text="Поле ввода комментария вмещает в себя такое же количество символов, сколько поле поле ввода комментария - 130 символов"/>
+            android:text="Поле ввода комментария вмещает в себя такое же количество символов, сколько поле поле ввода комментария - 130 символов"
+            android:textAppearance="@style/Chili.H8.Secondary" />
 
         <com.design2.chili2.view.cells.BaseCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
             android:icon="@drawable/ic_squircle_phone"
-            app:roundedCornerMode="top"
             app:cellIconSize="medium"
             app:isDividerVisible="false"
+            app:roundedCornerMode="top"
             app:title="Заголовок" />
 
         <com.design2.chili2.view.common.AdditionalTextView
             android:id="@+id/test_additional"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Chili.H8.Error"
             android:background="@drawable/chili_cell_rounded_bottom_background"
             android:elevation="@dimen/elevation_8dp"
-            android:text="Test now в себя такое же количество символов, сколько поле поле ввода комментария - 130 символов"/>
+            android:text="Test now в себя такое же количество символов, сколько поле поле ввода комментария - 130 символов"
+            android:textAppearance="@style/Chili.H8.Error" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DetailCellView"
-            android:layout_margin="@dimen/padding_16dp" />
+            android:layout_margin="@dimen/padding_16dp"
+            android:text="DetailCellView" />
 
         <com.design2.chili2.view.cells.DetailCellView
             android:id="@+id/dcv_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Заголовок"
-            app:subtitle="+ 996 700 500 430"
-            app:value="- 140"
+            app:icon="@drawable/chili_ic_success"
             app:status="В обработке"
-            app:icon="@drawable/chili_ic_success" />
-
-        <com.design2.chili2.view.cells.DetailCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_8dp"
-            app:title="Заголовок"
             app:subtitle="+ 996 700 500 430"
-            app:icon="@drawable/chili_ic_success" />
+            app:title="Заголовок"
+            app:value="- 140" />
+
+        <com.design2.chili2.view.cells.DetailCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp"
+            app:icon="@drawable/chili_ic_success"
+            app:subtitle="+ 996 700 500 430"
+            app:title="Заголовок" />
 
 
         <com.design2.chili2.view.cells.DetailCellView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_8dp"
-            app:title="Заголовок"
+            app:icon="@drawable/chili_ic_success"
             app:status="В обработке"
-            app:icon="@drawable/chili_ic_success" />
+            app:title="Заголовок" />
 
         <com.design2.chili2.view.cells.DetailCellView
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/padding_8dp"
             android:layout_height="wrap_content"
-            app:title="Заголовок"
-            app:icon="@drawable/chili_ic_success" />
+            android:layout_marginTop="@dimen/padding_8dp"
+            app:icon="@drawable/chili_ic_success"
+            app:title="Заголовок" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"
+            android:text="StatusMarkerCellView" />
+
+        <com.design2.chili2.view.cells.StatusMarkerCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp"
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
+            app:statusBackgroundColor="@color/green_3"
+            app:statusIcon="@drawable/ic_payment"
+            app:statusText="Active"
+            app:title="На связь и кошелек О!Деньги"
+            app:value="323,10 c" />
+
+        <com.design2.chili2.view.cells.StatusMarkerCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp"
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
+            app:statusBackgroundColor="@color/magenta_1"
+            app:statusIcon="@drawable/ic_payment"
+            app:statusText="Active"
+            app:statusTextColor="@color/white_1"
+            app:title="На связь и кошелек О!Деньги"
+            app:value="323,10 c" />
 
     </LinearLayout>
 

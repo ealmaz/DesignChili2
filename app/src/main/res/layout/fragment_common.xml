@@ -255,6 +255,7 @@
 
 
         <com.design2.chili2.view.container.ExpandableContainer
+            android:id="@+id/ec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/view_16dp"

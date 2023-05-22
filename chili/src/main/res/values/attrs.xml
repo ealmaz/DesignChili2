@@ -20,6 +20,7 @@
         <attr name="expandableCellViewDefaultStyle" format="reference"/>
         <attr name="progressCellViewDefaultStyle" format="reference"/>
         <attr name="detailCellViewDefaultStyle" format="reference"/>
+        <attr name="statusMarkerCellViewDefaultStyle" format="reference"/>
 
         <!-- Common -->
         <attr name="toolbarDefaultStyle" format="reference"/>
@@ -209,6 +210,14 @@
         <attr name="progressColor"/>
         <attr name="progressPercent"/>
         <attr name="animateProgress"/>
+    </declare-styleable>
+
+    <declare-styleable name="StatusMarkerCellView">
+        <attr name="statusText" format="string"/>
+        <attr name="statusBackgroundColor" format="reference"/>
+        <attr name="statusTextTextAppearance" format="reference"/>
+        <attr name="statusTextColor" format="reference"/>
+        <attr name="statusIcon" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="AdditionalDoubleButtonsView">
