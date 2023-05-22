@@ -10,6 +10,8 @@ import androidx.annotation.NonNull
 import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setBottomMargin
+import com.design2.chili2.extensions.setHorizontalMargin
 
 abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFragment() {
 
@@ -17,6 +19,9 @@ abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFrag
 
     override var topDrawableView: View? = null
     override var closeIconView: View? = null
+
+    protected open var horizontalMargin: Int = 0
+    protected open var bottomMargin: Int = 0
 
     @DrawableRes
     protected open var backgroundDrawable: Int = R.drawable.chili_bg_rounded_bottom_sheet
@@ -32,6 +37,8 @@ abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFrag
             .replace(R.id.bottom_sheet_container, createFragment())
             .commit()
         llContent = view.findViewById(R.id.ll_content)
+        llContent.setHorizontalMargin(horizontalMargin)
+        llContent.setBottomMargin(bottomMargin)
         return view
     }
 
