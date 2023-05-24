@@ -32,6 +32,11 @@ class CommonViewsFragment : BaseFragment<FragmentCommonBinding>() {
             ItemData("Перевод О!Деньги", "Подзаголовок", "- 500,00 с", "+1,00 Б", "https://minio.o.kg/catalog/logos/mbank_new.png"),
             ItemData("Пополнение О!Деньги", "Подзаголовок", "", "", "https://minio.o.kg/catalog/logos/odengi.png")
         )
+        vb.swipeRefresh.run {
+            setOnRefreshListener {
+                postDelayed({ isRefreshing = false }, 3000)
+            }
+        }
     }
 }
 
