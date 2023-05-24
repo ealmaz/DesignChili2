@@ -99,8 +99,6 @@
         <item name="ChiliAdditionalButtonBorderColor">@color/black_5</item>
         <item name="ChiliAdditionalButtonDisabledBorderColor">@color/black_5</item>
 
-        <item name="ChiliSwipeToRefreshViewColor">@color/chartreuse_1</item>
-
     </style>
 
     <style name="ChiliDesignTheme" parent="BaseChiliDesignTheme.Night" />
