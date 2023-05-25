@@ -139,6 +139,10 @@ class OtpInputView @JvmOverloads constructor(
         }
     }
 
+    fun getInputText(): String {
+        return view.etInput.text?.toString() ?: ""
+    }
+
     override fun requestFocus(direction: Int, previouslyFocusedRect: Rect?): Boolean {
         requestFocusAndShowKeyboard()
         return super.requestFocus(direction, previouslyFocusedRect)
