@@ -106,7 +106,7 @@
 
         <!-- NavigationBar -->
 
-        <item name="ChiliNavigationBarBackground">@color/gray_3_alpha_95</item>
+        <item name="ChiliNavigationBarBackground">@color/gray_3_alpha_98</item>
         <item name="ChiliNavigationBarBackgroundCornerRadius">@dimen/radius_24dp</item>
         <item name="ChiliNavigationBarActiveItemIconColor">@color/folly_1</item>
         <item name="ChiliNavigationBarInactiveItemIconColor">@color/gray_1</item>
@@ -223,7 +223,7 @@
         <item name="ChiliShimmerBoneRadius">@dimen/radius_10dp</item>
 
         <!-- ChiliSwipeToRefreshView -->
-        <item name="ChiliSwipeToRefreshViewColor">@color/chartreuse_1</item>
+        <item name="ChiliSwipeToRefreshViewColor">@color/folly_1</item>
 
     </style>
 
