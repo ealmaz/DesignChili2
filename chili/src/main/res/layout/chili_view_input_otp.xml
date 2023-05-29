@@ -102,13 +102,16 @@
 
     <TextView
         android:id="@+id/tv_message"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Chili.H9.Primary"
         android:textColor="@color/red_1"
+        android:layout_marginEnd="@dimen/padding_8dp"
         app:layout_constraintTop_toTopOf="@id/tv_action"
         app:layout_constraintBottom_toBottomOf="@id/tv_action"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_action"
+        app:flow_horizontalBias="0"
         tools:text="Неверный код"/>
 
     <TextView

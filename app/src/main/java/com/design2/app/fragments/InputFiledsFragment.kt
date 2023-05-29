@@ -18,7 +18,8 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
         vb.field2Mask.setupNewMask("12313123123XXXXXXXXX")
         vb.field2Mask.requestFocus()
         vb.field0.setMaxLength(3)
-        vb.otp.requestFocusAndShowKeyboard()
+        vb.otp.setMessageText("ddweewrwerwerwerwerwerwerwerwerwerwerwerwerwerwerwe")
+        vb.otp.setActionText("fwefwefwef")
 
 
 
