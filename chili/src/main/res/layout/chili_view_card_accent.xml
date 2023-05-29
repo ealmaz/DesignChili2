@@ -18,6 +18,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/tv_title"/>
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_start_icon_shimmer"
+        android:layout_width="@dimen/view_20dp"
+        android:layout_height="@dimen/view_20dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/iv_start_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_start_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_start_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_start_icon">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/chili_bg_shimmer"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="0dp"
@@ -66,9 +82,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/view_title_shimmer"
+        app:layout_constraintTop_toTopOf="@id/tv_subtitle"
+        app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
         app:layout_constraintStart_toStartOf="@id/tv_subtitle"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintEnd_toEndOf="@id/tv_subtitle">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
