@@ -42,6 +42,7 @@ class AccentCardView @JvmOverloads constructor(
             root = view.findViewById(R.id.root_view),
             titleShimmer = view.findViewById(R.id.view_title_shimmer),
             subtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
+            startIconShimmer = view.findViewById(R.id.view_start_icon_shimmer),
         )
     }
 
@@ -103,7 +104,7 @@ class AccentCardView @JvmOverloads constructor(
         else {
             visible()
             setImageResource(resId)
-            shimmeringPairs[this] = null
+            shimmeringPairs[this] = view.startIconShimmer
         }
     }
 
@@ -112,10 +113,10 @@ class AccentCardView @JvmOverloads constructor(
             gone()
             shimmeringPairs.remove(this)
         }
-        view.ivStartIcon.apply {
+        else {
             visible()
             setImageDrawable(drawable)
-            shimmeringPairs[this] = null
+            shimmeringPairs[this] = view.startIconShimmer
         }
     }
 
@@ -144,4 +145,5 @@ data class AccentCardViewViewVariables(
     val root: ConstraintLayout,
     val titleShimmer: ShimmerFrameLayout,
     val subtitleShimmer: ShimmerFrameLayout,
+    val startIconShimmer: ShimmerFrameLayout,
 )
