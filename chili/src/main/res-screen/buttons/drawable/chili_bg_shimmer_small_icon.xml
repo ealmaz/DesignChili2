@@ -6,6 +6,6 @@
         android:color="?attr/ChiliShimmerBoneColor"
         tools:color="@color/gray_4" />
     <corners
-        android:radius="?attr/ChiliShimmerBoneRadius"
-        tools:radius="12dp" />
+        android:radius="?attr/ChiliShimmerSmallIconBoneRadius"
+        tools:radius="6dp" />
 </shape>

@@ -43,6 +43,7 @@ class AccentCardView @JvmOverloads constructor(
             titleShimmer = view.findViewById(R.id.view_title_shimmer),
             subtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
             startIconShimmer = view.findViewById(R.id.view_start_icon_shimmer),
+            endIconShimmer = view.findViewById(R.id.view_end_icon_shimmer),
         )
     }
 
@@ -121,18 +122,26 @@ class AccentCardView @JvmOverloads constructor(
     }
 
     fun setEndIcon(resId: Int?) = with(view.ivEndIcon) {
-        if (resId == null) invisible()
+        if (resId == null) {
+            invisible()
+            shimmeringPairs.remove(this)
+        }
         else {
             visible()
             setImageResource(resId)
+            shimmeringPairs[this] = view.endIconShimmer
         }
     }
 
     fun setEndIcon(drawable: Drawable?) = with(view.ivEndIcon) {
-        if (drawable == null) invisible()
+        if (drawable == null) {
+            invisible()
+            shimmeringPairs.remove(this)
+        }
         else {
             visible()
             setImageDrawable(drawable)
+            shimmeringPairs[this] = view.endIconShimmer
         }
     }
 }
@@ -146,4 +155,5 @@ data class AccentCardViewViewVariables(
     val titleShimmer: ShimmerFrameLayout,
     val subtitleShimmer: ShimmerFrameLayout,
     val startIconShimmer: ShimmerFrameLayout,
+    val endIconShimmer: ShimmerFrameLayout,
 )

@@ -220,7 +220,8 @@
 
         <!-- Shimmer attributes -->
         <item name="ChiliShimmerBoneColor">@color/gray_4</item>
-        <item name="ChiliShimmerBoneRadius">@dimen/radius_10dp</item>
+        <item name="ChiliShimmerBoneRadius">@dimen/radius_12dp</item>
+        <item name="ChiliShimmerSmallIconBoneRadius">@dimen/radius_6dp</item>
 
         <!-- ChiliSwipeToRefreshView -->
         <item name="ChiliSwipeToRefreshViewColor">@color/folly_1</item>

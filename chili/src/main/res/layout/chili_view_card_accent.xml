@@ -31,7 +31,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/chili_bg_shimmer"/>
+            android:background="@drawable/chili_bg_shimmer_small_icon"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="@id/tv_title"
         app:layout_constraintBottom_toTopOf="@id/view_subtitle_shimmer">
         <View
-            android:layout_width="@dimen/view_200dp"
+            android:layout_width="@dimen/view_82dp"
             android:layout_height="@dimen/view_8dp"
             android:background="@drawable/chili_bg_shimmer"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
@@ -92,14 +92,9 @@
             android:orientation="vertical">
 
             <View
-                android:layout_width="@dimen/view_140dp"
+                android:layout_width="match_parent"
+                android:layout_marginEnd="@dimen/padding_48dp"
                 android:layout_height="@dimen/view_8dp"
-                android:background="@drawable/chili_bg_shimmer"/>
-
-            <View
-                android:layout_width="@dimen/view_140dp"
-                android:layout_height="@dimen/view_8dp"
-                android:layout_marginTop="@dimen/padding_8dp"
                 android:background="@drawable/chili_bg_shimmer"/>
 
         </LinearLayout>
@@ -114,5 +109,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_end_icon_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/iv_end_icon"
+        app:layout_constraintBottom_toBottomOf="@id/iv_end_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_end_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_end_icon">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/chili_bg_shimmer"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
