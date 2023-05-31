@@ -65,6 +65,7 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .setIsBackButtonEnabled(true)
                 .setHorizontalMargin(resources.getDimension(com.design2.chili2.R.dimen.padding_16dp).toInt())
                 .setBottomMargin(resources.getDimension(com.design2.chili2.R.dimen.padding_16dp).toInt())
+                .setState(BottomSheetBehavior.STATE_EXPANDED)
                 .build()
                 .show(childFragmentManager)
         }
