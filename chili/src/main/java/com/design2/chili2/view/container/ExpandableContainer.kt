@@ -72,7 +72,7 @@ class ExpandableContainer @JvmOverloads constructor(
             setAdditionalText(getText(R.styleable.ExpandableContainer_additionalText))
             setAdditionalTextTextAppearance(getResourceId(R.styleable.ExpandableContainer_additionalTextTextAppearance, -1).takeIf { it != -1 })
             setClosureIndicatorVisibility(getBoolean(R.styleable.ExpandableContainer_closureIndicatorVisibility, true))
-            setIsExpanded(getBoolean(R.styleable.ExpandableContainer_isExpanded, true))
+            setIsExpanded(getBoolean(R.styleable.ExpandableContainer_isExpanded, true), false)
             recycle()
         }
     }
