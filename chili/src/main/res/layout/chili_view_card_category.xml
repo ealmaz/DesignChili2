@@ -52,10 +52,10 @@
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_label_shimmer"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:paddingHorizontal="@dimen/padding_16dp"
+        app:layout_constraintWidth_percent="0.6"
         app:layout_constraintTop_toTopOf="@id/tv_label"
         app:layout_constraintBottom_toBottomOf="@id/tv_label"
         app:layout_constraintStart_toStartOf="@id/tv_label">

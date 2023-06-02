@@ -219,6 +219,7 @@
     <!-- Shimmer attributes -->
     <attr name="ChiliShimmerBoneColor" format="color"/>
     <attr name="ChiliShimmerBoneRadius" format="dimension"/>
+    <attr name="ChiliShimmerSmallIconBoneRadius" format="dimension"/>
 
     <!-- ChiliSwipeToRefreshView -->
     <attr name="ChiliSwipeToRefreshViewColor" format="color"/>

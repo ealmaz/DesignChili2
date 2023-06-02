@@ -36,6 +36,7 @@ class BalanceCardView @JvmOverloads constructor(
             tvValue = view.findViewById(R.id.tv_value),
             ivIcon = view.findViewById(R.id.iv_icon),
             ivTitleIcon = view.findViewById(R.id.iv_title_icon),
+            ivChevron = view.findViewById(R.id.iv_chevron),
             root = view.findViewById(R.id.root_view),
             titleShimmering = view.findViewById(R.id.view_title_shimmer),
             subtitleShimmering = view.findViewById(R.id.view_subtitle_shimmer)
@@ -65,6 +66,7 @@ class BalanceCardView @JvmOverloads constructor(
         super.setupShimmeringViews()
         shimmeringPairs[view.tvLabel] = view.titleShimmering
         shimmeringPairs[view.tvValue] = view.subtitleShimmering
+        shimmeringPairs[view.ivChevron] = null
     }
 
     fun setTitle(charSequence: CharSequence?) {
@@ -135,6 +137,7 @@ data class BalanceCardViewViewVariables(
     val tvValue: TextView,
     val ivIcon: ImageView,
     val ivTitleIcon: ImageView,
+    val ivChevron: ImageView,
     val root: ConstraintLayout,
     val titleShimmering: ShimmerFrameLayout,
     val subtitleShimmering: ShimmerFrameLayout,
