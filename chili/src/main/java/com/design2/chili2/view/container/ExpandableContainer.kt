@@ -87,7 +87,10 @@ class ExpandableContainer @JvmOverloads constructor(
 
     override fun onRestoreInstanceState(state: Parcelable?) {
         (state as? Bundle).let {
-            setIsExpanded(it?.getBoolean(EXPANDED_STATE, true) ?: true)
+            setIsExpanded(
+                isExpanded = it?.getBoolean(EXPANDED_STATE, true) ?: true,
+                isAnimated = false
+            )
             super.onRestoreInstanceState(it?.getParcelable(SUPER_STATE))
         }
     }
@@ -206,16 +209,16 @@ class ExpandableContainer @JvmOverloads constructor(
         view.tvTitle.setOnClickListener { setIsExpanded(!isExpanded) }
     }
 
-    fun setIsExpanded(isExpanded: Boolean) {
+    fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true) {
         this.isExpanded = isExpanded
         if (this.isExpanded) {
-            rotateChevron(0f)
+            rotateChevron(0f, isAnimated)
             children.forEach {
                 if (it != view.root) it.visible()
             }
             if (!(view.tvSubtitle.text.isNullOrBlank())) view.tvSubtitle.visible()
         } else {
-            rotateChevron(-90f)
+            rotateChevron(-90f, isAnimated)
             children.forEach {
                 if (it != view.root) it.gone()
             }
@@ -223,8 +226,11 @@ class ExpandableContainer @JvmOverloads constructor(
         }
     }
 
-    private fun rotateChevron(rotation: Float = 0f) {
-        view.ivClosureIndicator.animate().rotation(rotation)
+    private fun rotateChevron(rotation: Float = 0f, isAnimated: Boolean = true) {
+        when (isAnimated) {
+            true -> view.ivClosureIndicator.animate().rotation(rotation)
+            else -> view.ivClosureIndicator.rotation = rotation
+        }
     }
 
     companion object {
