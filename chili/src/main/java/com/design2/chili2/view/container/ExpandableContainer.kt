@@ -28,7 +28,7 @@ class ExpandableContainer @JvmOverloads constructor(
 
     private lateinit var view: ExpandableContainerViewVariables
 
-    private var isExpanded: Boolean = false
+    var isExpanded: Boolean = false
 
     init {
         inflateView()
