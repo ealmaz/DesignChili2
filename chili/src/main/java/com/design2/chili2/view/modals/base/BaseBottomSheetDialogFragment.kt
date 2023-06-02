@@ -25,6 +25,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     protected open var hasCloseIcon: Boolean = false
     protected open var isHideable: Boolean = true
     protected open var isBackButtonEnabled: Boolean = true
+    protected open var state: Int = BottomSheetBehavior.STATE_EXPANDED
 
     abstract var topDrawableView: View?
     abstract var closeIconView: View?
@@ -93,7 +94,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 peekHeight = getWindowHeight() * 20 / 100
             }
             skipCollapsed = true
-            state = BottomSheetBehavior.STATE_EXPANDED
+            state = this@BaseBottomSheetDialogFragment.state
         }
     }
 

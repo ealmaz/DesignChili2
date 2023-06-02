@@ -14,6 +14,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
     override var hasCloseIcon: Boolean = true
     override var isHideable: Boolean = false
     override var isBackButtonEnabled: Boolean = false
+    override var state: Int = BottomSheetBehavior.STATE_HALF_EXPANDED
 
     override var horizontalMargin: Int = 0
     override var bottomMargin: Int = 0
@@ -22,7 +23,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
         behavior?.peekHeight = getWindowHeight() * 30 / 100
         behavior?.isHideable = isHideable
         behavior?.halfExpandedRatio = 0.3f
-        behavior?.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+        behavior?.state = state
     }
 
     override fun createFragment(): Fragment {
@@ -38,6 +39,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
         private var isBackButtonEnabled: Boolean = false
         private var horizontalMargin: Int = 0
         private var bottomMargin: Int = 0
+        private var state: Int = BottomSheetBehavior.STATE_HALF_EXPANDED
         @DrawableRes private var backgroundDrawable: Int = R.drawable.chili_bg_rounded_bottom_sheet
 
         fun setContentFragment(contentFragment: Fragment): Builder {
@@ -70,6 +72,11 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
             return this
         }
 
+        fun setState(state: Int): Builder {
+            this.state = state
+            return this
+        }
+
         fun setHorizontalMargin(margin: Int): Builder {
             this.horizontalMargin = margin
             return this
@@ -90,6 +97,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
                 backgroundDrawable = this@Builder.backgroundDrawable
                 horizontalMargin = this@Builder.horizontalMargin
                 bottomMargin = this@Builder.bottomMargin
+                state = this@Builder.state
             }
         }
 
