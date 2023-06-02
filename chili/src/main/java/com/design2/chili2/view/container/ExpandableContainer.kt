@@ -2,6 +2,8 @@ package com.design2.chili2.view.container
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.os.Bundle
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -72,6 +74,21 @@ class ExpandableContainer @JvmOverloads constructor(
             setClosureIndicatorVisibility(getBoolean(R.styleable.ExpandableContainer_closureIndicatorVisibility, true))
             setIsExpanded(getBoolean(R.styleable.ExpandableContainer_isExpanded, true))
             recycle()
+        }
+    }
+
+    override fun onSaveInstanceState(): Parcelable? {
+        val superState = super.onSaveInstanceState()
+        return Bundle().apply {
+            putParcelable(SUPER_STATE, superState)
+            putBoolean(EXPANDED_STATE, isExpanded)
+        }
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        (state as? Bundle).let {
+            setIsExpanded(it?.getBoolean(EXPANDED_STATE, true) ?: true)
+            super.onRestoreInstanceState(it?.getParcelable(SUPER_STATE))
         }
     }
 
@@ -208,6 +225,11 @@ class ExpandableContainer @JvmOverloads constructor(
 
     private fun rotateChevron(rotation: Float = 0f) {
         view.ivClosureIndicator.animate().rotation(rotation)
+    }
+
+    companion object {
+        const val SUPER_STATE = "super_state"
+        const val EXPANDED_STATE = "expanded_state"
     }
 }
 
