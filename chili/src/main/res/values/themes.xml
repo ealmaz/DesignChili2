@@ -186,7 +186,7 @@
         <item name="ChiliCardViewBackground">@color/white_1</item>
         <item name="ChiliCardViewCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliCardViewRippleColor">@color/gray_1</item>
-        <item name="ChiliCardViewElevation">@dimen/elevation_8dp</item>
+        <item name="ChiliCardViewElevation">@dimen/elevation_4dp</item>
 
         <!-- AccentCardView -->
         <item name="ChiliAccentCardViewHorizontalContentPadding">@dimen/padding_16dp</item>
