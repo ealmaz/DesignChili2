@@ -52,6 +52,18 @@ class StatusMarkerCellView @JvmOverloads constructor(
         }
     }
 
+    fun setupStatus(
+        status: CharSequence,
+        iconResId: Int?,
+        @ColorInt textColorInt: Int? = null,
+        @ColorInt backgroundColorInt: Int? = null
+    ) {
+        setStatusText(status)
+        setStatusIcon(iconResId)
+        textColorInt?.let { setStatusTextColor(it) }
+        backgroundColorInt?.let { setStatusBackgroundColor(it) }
+    }
+
     fun setStatusText(charSequence: CharSequence?) {
         statusView.tvStatus.text = charSequence
     }
