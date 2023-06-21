@@ -358,4 +358,10 @@
         <attr name="isCardPanToggleEnabled" format="boolean"/>
     </declare-styleable>
 
+    <declare-styleable name="AgreementView">
+        <attr name="android:checked" />
+        <attr name="title" />
+        <attr name="isEditable" format="boolean"/>
+    </declare-styleable>
+
 </resources>

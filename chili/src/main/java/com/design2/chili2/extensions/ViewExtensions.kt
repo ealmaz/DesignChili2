@@ -1,7 +1,11 @@
 package com.design2.chili2.extensions
 
 import android.graphics.drawable.Drawable
+import android.text.SpannableStringBuilder
 import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.text.style.URLSpan
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -198,4 +202,24 @@ fun View.setBottomMargin(margin: Int) {
     val params = layoutParams as ViewGroup.MarginLayoutParams
     params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, margin)
     layoutParams = params
+}
+
+/**
+ * Метод позволяет слушать клики на линки в TextView
+ * example:
+ * string resource <string>Hello <a href="https://www.google.com"</a></string>
+ * view.handleUrlClicks { url -> {action} }
+ * */
+fun TextView.handleUrlClicks(onClicked: ((String) -> Unit)? = null) {
+    text = SpannableStringBuilder.valueOf(text).apply {
+        getSpans(0, length, URLSpan::class.java).forEach {
+            setSpan(object : ClickableSpan() {
+                override fun onClick(widget: View) {
+                    onClicked?.invoke(it.url)
+                }
+            }, getSpanStart(it), getSpanEnd(it), Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+            removeSpan(it)
+        }
+    }
+    movementMethod = LinkMovementMethod.getInstance()
 }

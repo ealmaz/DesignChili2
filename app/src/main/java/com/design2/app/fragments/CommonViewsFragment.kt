@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
@@ -37,6 +38,8 @@ class CommonViewsFragment : BaseFragment<FragmentCommonBinding>() {
                 postDelayed({ isRefreshing = false }, 3000)
             }
         }
+
+        vb.av1.onUrlClick { Toast.makeText(context, "Вы нажали на ссылку $it", Toast.LENGTH_SHORT).show() }
     }
 }
 
