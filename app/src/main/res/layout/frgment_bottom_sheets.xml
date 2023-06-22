@@ -82,7 +82,14 @@
             style="@style/Chili.ButtonStyle.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
+            android:id="@+id/search_selector_bs"
+            android:text="Search selector bottom sheet"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_16dp"/>
 
 

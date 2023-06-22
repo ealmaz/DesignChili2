@@ -43,7 +43,11 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
     override var topDrawableVisible = true
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
-        val view = inflater.inflate(R.layout.chili_view_bottom_sheet_description, container, false)
+        val view = inflater.inflate(R.layout.chili_view_bottom_sheet_description, container, false).apply {
+            val padding = resources.getDimensionPixelSize(R.dimen.padding_16dp)
+            setPadding(padding, padding, padding, padding)
+            setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
+        }
         tvTitle = view.findViewById(R.id.tv_title)
         tvDescription = view.findViewById(R.id.tv_desc)
         tvDescriptionSecondary = view.findViewById(R.id.tv_desc_secondary)

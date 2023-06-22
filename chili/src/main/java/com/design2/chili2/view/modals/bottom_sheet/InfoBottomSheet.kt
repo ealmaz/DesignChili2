@@ -36,7 +36,11 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     override var hasCloseIcon: Boolean = true
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
-        val view = inflater.inflate(R.layout.chili_view_bottom_sheet_info, container, false)
+        val view = inflater.inflate(R.layout.chili_view_bottom_sheet_info, container, false).apply {
+            val padding = resources.getDimensionPixelSize(R.dimen.padding_16dp)
+            setPadding(padding, padding, padding, padding)
+            setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
+        }
         tvText = view.findViewById(R.id.tv_text)
         ivIcon = view.findViewById(R.id.iv_icon)
         btnPrimary = view.findViewById(R.id.btn_primary)
