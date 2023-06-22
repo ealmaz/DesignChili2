@@ -27,6 +27,8 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     protected open var isBackButtonEnabled: Boolean = true
     protected open var state: Int = BottomSheetBehavior.STATE_EXPANDED
 
+    protected var bottomSheetView: View? = null
+
     abstract var topDrawableView: View?
     abstract var closeIconView: View?
 
@@ -47,6 +49,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     private fun onShowDialog(dialog: Dialog) {
         val bottomSheet: FrameLayout? = dialog.findViewById(com.google.android.material.R.id.design_bottom_sheet)
+        this.bottomSheetView = bottomSheet
         val behavior = bottomSheet?.let { BottomSheetBehavior.from<View>(bottomSheet) }
         setupBottomSheetBehavior(behavior)
     }
