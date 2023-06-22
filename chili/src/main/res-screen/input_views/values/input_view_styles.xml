@@ -29,6 +29,11 @@
         <item name="android:singleLine">false</item>
     </style>
 
+    <style name="Chili.InputViewStyle.Uneditable">
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">@drawable/chili_ripple_input_field_uneditable</item>
+    </style>
 
     <style name="Chili.OtpInputViewStyle" parent="Chili.BaseChiliViewStyle">
 

@@ -8,6 +8,7 @@
         <attr name="maskedInputDefaultStyle" format="reference"/>
         <attr name="multilineInputDefaultStyle" format="reference"/>
         <attr name="otpInputViewDefaultStyle" format="reference"/>
+        <attr name="uneditableInputViewDefaultStyle" format="reference"/>
 
         <!-- CellView -->
         <attr name="infoCellViewDefaultStyle" format="reference"/>
@@ -356,6 +357,12 @@
         <attr name="cardIcon" format="reference"/>
         <attr name="isCvvToggleEnabled" format="boolean"/>
         <attr name="isCardPanToggleEnabled" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="UneditableInputView">
+        <attr name="android:hint"/>
+        <attr name="android:text"/>
+        <attr name="fieldBackground"/>
     </declare-styleable>
 
     <declare-styleable name="AgreementView">

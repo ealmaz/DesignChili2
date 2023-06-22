@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:paddingBottom="400dp"
         tools:context=".MainActivity">
 
         <com.design2.chili2.view.input.MaskedInputView
@@ -82,6 +83,21 @@
             android:layout_marginVertical="@dimen/padding_32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+
+        <com.design2.chili2.view.input.UneditableInputView
+            android:id="@+id/selection"
+            android:hint="Uneditable input filed hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"/>
+
+        <com.design2.chili2.view.input.UneditableInputView
+            android:id="@+id/uneditable"
+            android:text="Uneditable input filed text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"/>
 
     </LinearLayout>
 
