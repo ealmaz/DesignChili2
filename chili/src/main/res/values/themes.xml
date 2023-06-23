@@ -93,7 +93,7 @@
 
         <!-- Picker dialog -->
         <item name="ChiliPickerDialogControlColor">@color/black_5</item>
-        <item name="ChiliPickerDialogCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliPickerDialogCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliPickerDialogBackground">@color/white_1</item>
 
         <!-- Toolbar -->
@@ -114,29 +114,29 @@
         <item name="ChiliNavigationBarInactiveItemTextColor">@color/black_1</item>
 
         <!-- Primary Button attributes -->
-        <item name="ChiliPrimaryButtonBackgroundActive">@color/chartreuse_1</item>
-        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/chartreuse_2_alpha_50</item>
+        <item name="ChiliPrimaryButtonBackgroundActive">@color/green_1</item>
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_3</item>
         <item name="ChiliPrimaryButtonCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliPrimaryButtonTextSize">@dimen/text_14sp</item>
         <item name="ChiliPrimaryButtonTextFont">@font/roboto_medium</item>
-        <item name="ChiliPrimaryButtonTextColorActive">@color/black_1</item>
-        <item name="ChiliPrimaryButtonTextColorPressed">@color/black_1</item>
-        <item name="ChiliPrimaryButtonTextColorDisabled">@color/black_1_alpha_50</item>
+        <item name="ChiliPrimaryButtonTextColorActive">@color/white_1</item>
+        <item name="ChiliPrimaryButtonTextColorPressed">@color/white_1</item>
+        <item name="ChiliPrimaryButtonTextColorDisabled">@color/white_1</item>
         <item name="ChiliPrimaryButtonTextAllCaps">false</item>
 
         <item name="ChiliPrimaryButtonRippleColor">@color/black_1_alpha_20</item>
-        <item name="ChiliPrimaryButtonBorderColor">@color/chartreuse_2_alpha_50</item>
+        <item name="ChiliPrimaryButtonBorderColor">@android:color/transparent</item>
 
 
 
         <!-- Secondary Button attributes -->
         <item name="ChiliSecondaryButtonBackgroundActive">@android:color/transparent</item>
         <item name="ChiliSecondaryButtonBackgroundDisabled">@android:color/transparent</item>
-        <item name="ChiliSecondaryButtonCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliSecondaryButtonCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliSecondaryButtonTextSize">@dimen/text_14sp</item>
         <item name="ChiliSecondaryButtonTextFont">@font/roboto_medium</item>
         <item name="ChiliSecondaryButtonTextColorActive">@color/blue_1</item>
-        <item name="ChiliSecondaryButtonTextColorPressed">@color/blue_1</item>
+        <item name="ChiliSecondaryButtonTextColorPressed">@color/gray_1</item>
         <item name="ChiliSecondaryButtonTextColorDisabled">@color/blue_1_alpha_50</item>
 
 
@@ -186,7 +186,7 @@
         <item name="ChiliCardViewBackground">@color/white_1</item>
         <item name="ChiliCardViewCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliCardViewRippleColor">@color/gray_1</item>
-        <item name="ChiliCardViewElevation">@dimen/elevation_4dp</item>
+        <item name="ChiliCardViewElevation">@dimen/elevation_8dp</item>
 
         <!-- AccentCardView -->
         <item name="ChiliAccentCardViewHorizontalContentPadding">@dimen/padding_16dp</item>

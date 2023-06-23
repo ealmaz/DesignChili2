@@ -29,6 +29,7 @@ class StatusMarkerCellView @JvmOverloads constructor(
             ivIcon = statusView.findViewById(R.id.iv_icon),
             rootView = statusView.findViewById(R.id.marker_root_view)
         )
+        statusView.rootView.gone()
         view.flEndPlaceholder.addView(statusView)
     }
 
@@ -53,7 +54,7 @@ class StatusMarkerCellView @JvmOverloads constructor(
     }
 
     fun setupStatus(
-        status: CharSequence,
+        status: CharSequence?,
         iconResId: Int?,
         @ColorInt textColorInt: Int? = null,
         @ColorInt backgroundColorInt: Int? = null
@@ -66,10 +67,13 @@ class StatusMarkerCellView @JvmOverloads constructor(
 
     fun setStatusText(charSequence: CharSequence?) {
         statusView.tvStatus.text = charSequence
+        if (charSequence != null) statusView.rootView.visible()
+        else statusView.rootView.gone()
     }
 
     fun setStatusText(resId: Int) {
         statusView.tvStatus.setText(resId)
+        statusView.rootView.visible()
     }
 
     fun setStatusTextTextAppearance(resId: Int) {
@@ -84,6 +88,7 @@ class StatusMarkerCellView @JvmOverloads constructor(
         if (resId == null) gone()
         else {
             visible()
+            statusView.rootView.visible()
             setImageResource(resId)
         }
     }
@@ -92,6 +97,7 @@ class StatusMarkerCellView @JvmOverloads constructor(
         if (iconDrawable == null) gone()
         else {
             visible()
+            statusView.rootView.visible()
             setImageDrawable(drawable)
         }
     }

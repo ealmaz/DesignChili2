@@ -3,9 +3,11 @@ package com.design2.chili2.view.modals.picker
 import android.app.Dialog
 import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import android.widget.TimePicker
@@ -22,6 +24,7 @@ class TimePickerDialog: DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        setupDialogLayoutManagerParams(dialog)
         return dialog
     }
 
@@ -37,6 +40,7 @@ class TimePickerDialog: DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViews(view)
         setupPicker(savedInstanceState)
+        dialog?.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
     }
 
     private fun setupViews(view: View) {
@@ -53,6 +57,14 @@ class TimePickerDialog: DialogFragment() {
                 setFragmentResult()
                 dismiss()
             }
+        }
+    }
+
+    private fun setupDialogLayoutManagerParams(dialog: Dialog?) {
+        dialog?.window?.attributes = (dialog?.window?.attributes ?: WindowManager.LayoutParams()).apply {
+            gravity = Gravity.BOTTOM
+            width = WindowManager.LayoutParams.MATCH_PARENT
+            horizontalMargin = resources.getDimensionPixelSize(R.dimen.padding_16dp).toFloat()
         }
     }
 

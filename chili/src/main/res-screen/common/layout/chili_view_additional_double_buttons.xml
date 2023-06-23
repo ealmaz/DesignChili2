@@ -21,6 +21,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:foreground="@drawable/chili_ripple_rounded_corner_foreground"
             tools:text="ОТМЕНИТЬ"
             style="@style/Chili.ButtonStyle.Component"/>
 
@@ -35,6 +36,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/roboto_medium"
             android:layout_height="wrap_content"
+            android:foreground="@drawable/chili_ripple_rounded_corner_foreground"
             tools:text="ОПЛАЛИТЬ"
             style="@style/Chili.ButtonStyle.Component"/>
 

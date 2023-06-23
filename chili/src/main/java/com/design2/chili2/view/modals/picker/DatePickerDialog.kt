@@ -2,9 +2,11 @@ package com.design2.chili2.view.modals.picker
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager.LayoutParams
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
@@ -12,7 +14,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setOnSingleClickListener
-import java.util.*
+import java.util.Calendar
 
 class DatePickerDialog : DialogFragment() {
 
@@ -21,6 +23,7 @@ class DatePickerDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        setupDialogLayoutManagerParams(dialog)
         return dialog
     }
 
@@ -36,6 +39,7 @@ class DatePickerDialog : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViews(view)
         setupPicker(savedInstanceState)
+        dialog?.window?.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
     }
 
     private fun setupViews(view: View) {
@@ -51,6 +55,14 @@ class DatePickerDialog : DialogFragment() {
                 setFragmentResult()
                 dismiss()
             }
+        }
+    }
+
+    private fun setupDialogLayoutManagerParams(dialog: Dialog) {
+        dialog.window?.attributes = (dialog.window?.attributes ?: LayoutParams()).apply {
+            gravity = Gravity.BOTTOM
+            width = LayoutParams.MATCH_PARENT
+            horizontalMargin = resources.getDimensionPixelSize(R.dimen.padding_16dp).toFloat()
         }
     }
 

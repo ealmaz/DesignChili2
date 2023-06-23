@@ -15,7 +15,7 @@
         <item name="ChiliSurfaceBackground">@color/black_1</item>
 
         <!-- Ripple-->
-        <item name="ChiliRippleForegroundColor">@color/gray_1</item>
+        <item name="ChiliRippleForegroundColor">@color/gray_1_alpha_50</item>
 
         <!-- Divider -->
         <item name="ChiliDividerColor">@color/black_4</item>
