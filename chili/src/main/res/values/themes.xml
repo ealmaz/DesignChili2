@@ -48,7 +48,7 @@
         <!-- Snackbar attributes -->
         <item name="ChiliSnackbarBackground">@color/white_1</item>
         <item name="ChiliSnackbarCornerRadius">@dimen/radius_4dp</item>
-        <item name="ChiliSnackbarElevation">@dimen/elevation_8dp</item>
+        <item name="ChiliSnackbarElevation">@dimen/elevation_4dp</item>
         <item name="ChiliSnackbarTextColor">@color/black_5</item>
 
         <!-- Segmented Picker   -->
@@ -186,7 +186,7 @@
         <item name="ChiliCardViewBackground">@color/white_1</item>
         <item name="ChiliCardViewCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliCardViewRippleColor">@color/gray_1</item>
-        <item name="ChiliCardViewElevation">@dimen/elevation_8dp</item>
+        <item name="ChiliCardViewElevation">@dimen/elevation_4dp</item>
 
         <!-- AccentCardView -->
         <item name="ChiliAccentCardViewHorizontalContentPadding">@dimen/padding_16dp</item>
@@ -213,7 +213,7 @@
         <!-- CellView attributes -->
         <item name="ChiliCellViewBackground">@color/white_1</item>
         <item name="ChiliCellCornerRadius">@dimen/radius_12dp</item>
-        <item name="ChiliCellViewElevation">@dimen/elevation_8dp</item>
+        <item name="ChiliCellViewElevation">@dimen/elevation_4dp</item>
 
         <!-- StatusMarkerCellView -->
         <item name="ChiliMarkerStatusCellViewStatusCornerRadius">@dimen/radius_14dp</item>
