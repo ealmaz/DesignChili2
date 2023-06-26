@@ -88,7 +88,7 @@
 
 
         <!-- Primary Button attributes -->
-        <item name="ChiliPrimaryButtonBorderColor">@color/chartreuse_2_alpha_50</item>
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_2</item>
 
         <!-- Additional Button attributes -->
         <item name="ChiliAdditionalButtonBackgroundActive">@color/black_5</item>
