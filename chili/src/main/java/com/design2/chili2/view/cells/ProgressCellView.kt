@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
@@ -43,7 +44,7 @@ class ProgressCellView @JvmOverloads constructor(
                 view.progressLine.setIsProgressAnimated(it)
             }
             getColor(R.styleable.ProgressCellView_progressColor, -1).takeIf { it != -1 }?.let {
-                view.progressLine.setProgressColor(it)
+                setProgressColor(it)
             }
             getColor(R.styleable.ProgressCellView_progressBackgroundColor, -1).takeIf { it != -1 }?.let {
                 view.progressLine.setProgressBackgroundColor(it)
@@ -92,6 +93,10 @@ class ProgressCellView @JvmOverloads constructor(
 
     fun setDescriptionText(spanned: Spanned) {
         view.tvDescription.text = spanned
+    }
+
+    fun setProgressColor(@ColorInt colorInt: Int) {
+        view.progressLine.setProgressColor(colorInt)
     }
 }
 
