@@ -19,7 +19,7 @@
     </style>
 
     <style name="ThemeOverlay.CategoryCardIcon8dpOffset">
-        <item name="ChiliCategoryCardViewLabelTopMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewLabelTopMargin">@dimen/padding_4dp</item>
         <item name="ChiliCategoryCardViewLabelBottomMargin">@dimen/padding_12dp</item>
         <item name="ChiliCategoryCardViewLabelStartMargin">@dimen/padding_8dp</item>
         <item name="ChiliCategoryCardViewLabelEndMargin">@dimen/padding_8dp</item>
