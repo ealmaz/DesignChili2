@@ -84,7 +84,7 @@
         <item name="ChiliBottomSheetGrayBackgroundColor">@color/gray_4</item>
 
         <!-- Bottom sheet >>> ActionBottomSheet   -->
-        <item name="ChiliActionBottomSheetButtonTextColor">@color/black_5</item>
+        <item name="ChiliActionBottomSheetButtonTextColor">@color/black_4</item>
         <item name="ChiliActionBottomSheetAccentButtonTextColor">@color/blue_1</item>
 
         <!-- InAppPush -->
