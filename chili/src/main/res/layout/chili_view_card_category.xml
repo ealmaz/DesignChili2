@@ -4,8 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    tools:layout_height="match_parent"
     android:paddingEnd="@dimen/padding_8dp"
+    android:paddingBottom="?ChiliCategoryCardViewLabelEndMargin"
     android:orientation="vertical">
 
     <ImageView
@@ -44,10 +46,8 @@
         android:layout_marginTop="?ChiliCategoryCardViewLabelTopMargin"
         android:layout_marginBottom="?ChiliCategoryCardViewLabelBottomMargin"
         android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
-        android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
         app:layout_constraintTop_toBottomOf="@id/iv_icon"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="Переводы"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
