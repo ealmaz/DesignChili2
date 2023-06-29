@@ -1,9 +1,11 @@
 package com.design2.chili2.view.snackbar
 
 import android.os.CountDownTimer
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -74,7 +76,6 @@ class ChiliSnackBar private constructor(
         content.tvMessage.setText(messageRes)
     }
 
-
     fun setupActionButton(actionInfo: ActionInfo?) {
         when (actionInfo == null) {
             true -> content.tvAction.gone()
@@ -94,6 +95,17 @@ class ChiliSnackBar private constructor(
             true -> setupTimerWithCountDown(timerInfo)
             else -> setupInvisibleTimer(timerInfo)
         }
+    }
+
+    fun setupBackgroundColor(@ColorRes color: Int?) {
+        color?.let { content.setCustomBackgroundColor(it) }
+    }
+
+    fun setupGravity(gravity: Int) {
+        val view = this.getView()
+        val params = view.layoutParams as FrameLayout.LayoutParams
+        params.gravity = gravity
+        view.layoutParams = params
     }
 
     private fun setupInvisibleTimer(timerInfo: TimerInfo): CountDownTimer {
@@ -135,6 +147,8 @@ class ChiliSnackBar private constructor(
         private var snackbarTimerInfo: TimerInfo? = null
         @DrawableRes private var snackbarIcon: Int = -1
         private var isInfiniteLoaderSnackbar: Boolean = false
+        @ColorRes private var backgroundColor: Int? = null
+        private var gravity: Int = Gravity.BOTTOM
 
         fun setSnackbarMessage(snackbarMessage: String): Builder {
             this.snackbarMessage = snackbarMessage
@@ -160,6 +174,14 @@ class ChiliSnackBar private constructor(
             this.snackbarIcon = snackbarIcon
             return this
         }
+        fun setSnackbarBackgroundColor(@ColorRes color: Int): Builder {
+            this.backgroundColor = color
+            return this
+        }
+        fun setGravity(gravity: Int): Builder {
+            this.gravity = gravity
+            return this
+        }
         fun setIsInfiniteLoaderSnackbar(isInfiniteLoaderSnackbar: Boolean): Builder {
             this.isInfiniteLoaderSnackbar = isInfiniteLoaderSnackbar
             return this
@@ -176,6 +198,8 @@ class ChiliSnackBar private constructor(
                 setupTimer(snackbarTimerInfo)
                 setSnackbarIcon(snackbarIcon)
                 setupSnackbarAsLoading(isInfiniteLoaderSnackbar)
+                setupBackgroundColor(backgroundColor)
+                setupGravity(gravity)
             }
         }
     }
