@@ -59,6 +59,10 @@
         <item name="ChiliPickerDialogControlColor">@color/gray_3</item>
         <item name="ChiliPickerDialogBackground">@color/black_3</item>
 
+        <!-- Dialog -->
+        <item name="ChiliDialogBackground">@color/black_3</item>
+        <item name="ChiliDialogButtonTextColor">@color/white_1</item>
+
         <!-- Toolbar -->
         <item name="ChiliToolbarDividerColor">@color/black_4</item>
         <item name="ChiliToolbarIconsTint">@color/white_1</item>

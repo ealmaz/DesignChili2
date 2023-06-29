@@ -7,6 +7,7 @@
     tools:parentTag="android.widget.FrameLayout">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="@dimen/view_52dp"
@@ -62,7 +63,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/padding_8dp"
-                android:textAppearance="@style/Chili.H9.Primary"
+                android:textAppearance="@style/Chili.H8.Primary"
                 android:textColor="?attr/ChiliSnackbarTextColor"
                 app:layout_constraintEnd_toStartOf="@id/tv_action"
                 app:layout_constraintStart_toEndOf="@id/iv_icon"

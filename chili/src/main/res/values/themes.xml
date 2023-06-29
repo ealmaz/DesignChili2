@@ -47,7 +47,7 @@
 
         <!-- Snackbar attributes -->
         <item name="ChiliSnackbarBackground">@color/white_1</item>
-        <item name="ChiliSnackbarCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliSnackbarCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliSnackbarElevation">@dimen/elevation_4dp</item>
         <item name="ChiliSnackbarTextColor">@color/black_5</item>
 
@@ -95,6 +95,11 @@
         <item name="ChiliPickerDialogControlColor">@color/black_5</item>
         <item name="ChiliPickerDialogCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliPickerDialogBackground">@color/white_1</item>
+
+        <!-- Dialog -->
+        <item name="ChiliDialogCornerRadius">@dimen/radius_12dp</item>
+        <item name="ChiliDialogBackground">@color/white_1</item>
+        <item name="ChiliDialogButtonTextColor">@color/black_1</item>
 
         <!-- Toolbar -->
         <item name="ChiliToolbarAdditionalTextTextAppearance">@style/Chili.H8.Secondary</item>

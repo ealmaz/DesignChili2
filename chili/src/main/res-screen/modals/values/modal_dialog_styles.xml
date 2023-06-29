@@ -29,6 +29,20 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <style name="Chili.AlertDialog" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/chili_bg_dialog</item>
+        <item name="android:windowTitleStyle">@style/Chili.H7.Primary.Bold</item>
+        <item name="android:textAppearance">@style/Chili.H8.Primary</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Chili.AlertDialog.ButtonTextStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Chili.AlertDialog.ButtonTextStyle</item>
+    </style>
+    
+    <style name="Chili.AlertDialog.ButtonTextStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textAppearance">@style/Chili.H8.Primary.Bold</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textColor">?attr/ChiliDialogButtonTextColor</item>
+    </style>
+
 
 
 </resources>
