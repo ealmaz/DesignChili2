@@ -9,6 +9,7 @@ import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentDatePickerBinding
 import com.design2.chili2.view.modals.picker.DatePickerDialog
 import com.design2.chili2.view.modals.picker.RangeDatePickerDialog
+import com.design2.chili2.view.modals.picker.RangePickerListener
 import com.design2.chili2.view.modals.picker.TimePickerDialog
 import java.text.SimpleDateFormat
 import java.util.*
@@ -44,7 +45,14 @@ class DatePickerFargment : BaseFragment<FragmentDatePickerBinding>(), FragmentRe
 
         vb.rangeStart.setOnClickListener { RangeDatePickerDialog.create(
             "Готово", "Дата", "Date",
-            startLimitDate = Calendar.getInstance()
+            startLimitDate = Calendar.getInstance(),
+            listener = object : RangePickerListener {
+                override fun onRangeSelected(startDate: Calendar, endDate: Calendar) {
+                    val formatter = SimpleDateFormat("yyyy MMM d HH:mm:ss")
+                    Toast.makeText(requireContext(), "${formatter.format(startDate.time)} - ${formatter.format(endDate.time)}", Toast.LENGTH_LONG).show()
+                }
+
+            }
         ).show(childFragmentManager, "") }
         vb.rangeEnd.setOnClickListener { RangeDatePickerDialog.create(
             "Готово", "Дата", "Date",

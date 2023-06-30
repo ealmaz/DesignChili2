@@ -18,6 +18,8 @@ import java.util.*
 
 class RangeDatePickerDialog : DialogFragment() {
 
+    private var listener: RangePickerListener? = null
+
     lateinit var view: RangeDatePickerDialogVariables
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -76,10 +78,14 @@ class RangeDatePickerDialog : DialogFragment() {
     }
 
     private fun setFragmentResult() {
-        parentFragmentManager.setFragmentResult(RANGE_PICKER_DIALOG_RESULT, bundleOf(
-            ARG_SELECTED_START_DATE to getSelectedDate(DateType.FROM),
-            ARG_SELECTED_END_DATE to getSelectedDate(DateType.TO)
-        ))
+        if (listener != null) {
+            listener?.onRangeSelected(getSelectedDate(DateType.FROM), getSelectedDate(DateType.TO))
+        } else {
+            parentFragmentManager.setFragmentResult(RANGE_PICKER_DIALOG_RESULT, bundleOf(
+                ARG_SELECTED_START_DATE to getSelectedDate(DateType.FROM),
+                ARG_SELECTED_END_DATE to getSelectedDate(DateType.TO)
+            ))
+        }
     }
 
     private fun getSelectedDate(type: DateType): Calendar {
@@ -156,8 +162,10 @@ class RangeDatePickerDialog : DialogFragment() {
             currentEndDate: Calendar = Calendar.getInstance(),
             startLimitDate: Calendar? = null,
             endLimitDate: Calendar? = null,
+            listener: RangePickerListener? = null
         ): RangeDatePickerDialog {
             return RangeDatePickerDialog().apply {
+                this.listener = listener
                 arguments = bundleOf(
                     ARG_CURRENT_START_DATE to currentStartDate,
                     ARG_CURRENT_END_DATE to currentEndDate,
@@ -183,3 +191,7 @@ data class RangeDatePickerDialogVariables(
     val datePickerTo: DatePicker,
     val btnDone: Button,
 )
+
+interface RangePickerListener {
+    fun onRangeSelected(startDate: Calendar, endDate: Calendar)
+}
