@@ -130,6 +130,10 @@ class ExpandableContainer @JvmOverloads constructor(
         view.tvAction.setTextOrHide(resId)
     }
 
+    fun setActionClick(action: () -> Unit) {
+        view.tvAction.setOnSingleClickListener(action)
+    }
+
     fun setActionTextAppearance(@StyleRes resId: Int?) {
         if (resId == null) return
         view.tvAction.setTextAppearance(resId)
