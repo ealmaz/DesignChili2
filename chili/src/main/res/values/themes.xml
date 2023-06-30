@@ -224,7 +224,7 @@
         <item name="ChiliMarkerStatusCellViewStatusCornerRadius">@dimen/radius_14dp</item>
 
         <!-- Shimmer attributes -->
-        <item name="ChiliShimmerBoneColor">@color/gray_4</item>
+        <item name="ChiliShimmerBoneColor">@color/gray_6</item>
         <item name="ChiliShimmerBoneRadius">@dimen/radius_12dp</item>
         <item name="ChiliShimmerSmallIconBoneRadius">@dimen/radius_6dp</item>
 
