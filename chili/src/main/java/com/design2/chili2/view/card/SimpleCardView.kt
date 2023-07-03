@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setImageByUrl
 import com.facebook.shimmer.ShimmerFrameLayout
 
 class SimpleCardView @JvmOverloads constructor(
@@ -68,6 +69,10 @@ class SimpleCardView @JvmOverloads constructor(
 
     fun setIcon(resId: Int) {
         view.ivIcon.setImageResource(resId)
+    }
+
+    fun setIcon(url: String) {
+        view.ivIcon.setImageByUrl(url)
     }
 
     fun setIcon(drawable: Drawable) {
