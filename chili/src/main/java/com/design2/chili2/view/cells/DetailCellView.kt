@@ -113,6 +113,10 @@ class DetailCellView @JvmOverloads constructor(
         else shimmerViewPairs[view.tvValue] = null
     }
 
+    fun getValueTextView(): TextView {
+        return view.tvValue
+    }
+
     fun setValueTextColor(@ColorInt colorInt: Int) {
         view.tvValue.setTextColor(colorInt)
     }
