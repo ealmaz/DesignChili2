@@ -239,6 +239,10 @@
         <attr name="icon"/>
         <attr name="isSurfaceClickable"/>
         <attr name="roundedCornerMode"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="subtitleTextAppearance"/>
+        <attr name="valueTextAppearance"/>
+        <attr name="statusTextAppearance" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="LoaderButton">

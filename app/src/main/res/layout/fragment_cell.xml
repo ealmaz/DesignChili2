@@ -961,6 +961,23 @@
             app:icon="@drawable/chili_ic_success"
             app:title="Заголовок" />
 
+        <com.design2.chili2.view.cells.DetailCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp"
+            app:icon="@drawable/chili_ic_success"
+            app:value="500"
+            app:status="status"
+            app:title="Only status" />
+
+        <com.design2.chili2.view.cells.DetailCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp"
+            app:icon="@drawable/chili_ic_success"
+            app:title="Заголовок"
+            app:subtitle="Пополнение электронного кошелька пользователя"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -66,6 +66,18 @@ class DetailCellView @JvmOverloads constructor(
             getInteger(R.styleable.DetailCellView_roundedCornerMode, RoundedCornerMode.SINGLE.value).let {
                 this@DetailCellView.setupRoundedCellCornersMode(it)
             }
+            getResourceId(R.styleable.DetailCellView_titleTextAppearance, -1).takeIf { it != -1 }?.let {
+                setTitleTextAppearance(it)
+            }
+            getResourceId(R.styleable.DetailCellView_subtitleTextAppearance, -1).takeIf { it != -1 }?.let {
+                setSubtitleTextAppearance(it)
+            }
+            getResourceId(R.styleable.DetailCellView_valueTextAppearance, -1).takeIf { it != -1 }?.let {
+                setValueTextAppearance(it)
+            }
+            getResourceId(R.styleable.DetailCellView_statusTextAppearance, -1).takeIf { it != -1 }?.let {
+                setStatusTextAppearance(it)
+            }
             recycle()
         }
     }
