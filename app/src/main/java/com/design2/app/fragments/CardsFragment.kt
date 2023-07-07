@@ -13,6 +13,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).setUpHomeEnabled(true)
+        vb.bal2.isChevronVisible(false)
     }
 
     override fun inflateViewBinging(): FragmentCardsBinding {

@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.visible
@@ -129,6 +130,10 @@ class BalanceCardView @JvmOverloads constructor(
             visible()
             setImageResource(drawableRes)
         }
+    }
+
+    fun isChevronVisible(isVisible: Boolean) {
+        view.ivChevron.isVisible = isVisible
     }
 }
 
