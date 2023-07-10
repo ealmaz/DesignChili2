@@ -2,8 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <solid
-        android:color="?attr/ChiliOtpInputViewItemActiveBackground"
-        tools:color="#F7F7F7" />
+        android:color="?attr/ChiliOtpInputViewItemErrorBackground"
+        tools:color="#FFF5F4" />
     <corners
         android:radius="?attr/ChiliOtpInputViewItemRadius"
         tools:radius="12dp" />

@@ -2,7 +2,6 @@ package com.design2.app.fragments
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentInputFieldsBinding
@@ -19,14 +18,11 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
         vb.field2Mask.requestFocus()
         vb.field0.setMaxLength(3)
         vb.otp.setMessageText("ddweewrwerwerwerwerwerwerwerwerwerwerwerwerwerwerwe")
-        vb.otp.setActionText("fwefwefwef")
-
-
 
         vb.otp.apply {
             setActionText("Сбросить пароль")
             setOnActionClickListener {
-                Toast.makeText(requireContext(), "OnActionClick", Toast.LENGTH_SHORT).show()
+                setText("123456")
             }
         }
         vb.otp.setOnOtpCompleteListener(object : OnOtpCompleteListener {
@@ -38,7 +34,6 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
             }
 
             override fun onInput(text: String?) {
-                vb.otp.setupState(OtpItemState.INACTIVE)
                 vb.otp.setMessageText("")
                 vb.otp.setActionTextEnabled(false)
                 vb.otp.setActionText("0:45")

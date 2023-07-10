@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -163,21 +164,34 @@ class OtpInputView @JvmOverloads constructor(
             setSelectAllOnFocus(false)
             setTextIsSelectable(false)
             setSelectionChangedListener(this@OtpInputView)
-            addTextChangedListener {
-                this@OtpInputView.setTextToItems(it.toString())
+            addOnAttachStateChangeListener(object : OnAttachStateChangeListener {
+                override fun onViewAttachedToWindow(v: View?) { setFirstItemActive() }
+                override fun onViewDetachedFromWindow(v: View?) {}
+            })
+            addTextChangedListener { text ->
+                text?.let { this@OtpInputView.setTextToItems(it.toString()) }
             }
         }
     }
 
-    private fun setTextToItems(newText: String?) {
-        view.itemContainer.children.forEachIndexed {i, view ->
+    private fun setFirstItemActive() {
+        (view.itemContainer.children.toList().getOrNull(0) as? OtpItemView)
+            ?.setState(OtpItemState.ACTIVE)
+    }
+
+    private fun setTextToItems(newText: String) {
+        view.itemContainer.children.forEachIndexed { i, view ->
             (view as? OtpItemView)?.apply {
-                text = newText?.getOrNull(i)?.toString()
-                setState(OtpItemState.INACTIVE)
+                text = newText.getOrNull(i)?.toString()
+                when (newText.length) {
+                    i + 1 -> setState(OtpItemState.ACTIVE)
+                    else -> setState(OtpItemState.INACTIVE)
+                }
             }
         }
+        if (newText.isEmpty()) setFirstItemActive()
         otpCompleteListener?.onInput(newText)
-        if (newText?.length == otpLength) { otpCompleteListener?.onOtpInputComplete(newText) }
+        if (newText.length == otpLength) { otpCompleteListener?.onOtpInputComplete(newText) }
     }
 
     private fun onPastePopupMenuClicked(item: MenuItem): Boolean {

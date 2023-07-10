@@ -216,6 +216,7 @@
     <attr name="ChiliOtpInputViewItemActiveBackground" format="reference"/>
     <attr name="ChiliOtpInputViewItemInactiveBackground" format="reference"/>
     <attr name="ChiliOtpInputViewItemErrorBackground" format="reference"/>
+    <attr name="ChiliOtpInputViewItemActiveBorder" format="reference"/>
     <attr name="ChiliOtpInputViewItemHorizontalPadding" format="dimension"/>
     <attr name="ChiliOtpInputViewItemVerticalPadding" format="dimension"/>
 
