@@ -11,7 +11,7 @@ class OtpItemView(context: Context, attrs: AttributeSet?) : AppCompatTextView(co
 
     init {
         textAlignment = TEXT_ALIGNMENT_CENTER
-        setState(OtpItemState.INACTIVE)
+        setState(currentState)
     }
 
     fun setState(state: OtpItemState) {
