@@ -8,7 +8,6 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.TextView
@@ -164,10 +163,7 @@ class OtpInputView @JvmOverloads constructor(
             setSelectAllOnFocus(false)
             setTextIsSelectable(false)
             setSelectionChangedListener(this@OtpInputView)
-            addOnAttachStateChangeListener(object : OnAttachStateChangeListener {
-                override fun onViewAttachedToWindow(v: View?) { setFirstItemActive() }
-                override fun onViewDetachedFromWindow(v: View?) {}
-            })
+            setFirstItemActive()
             addTextChangedListener { text ->
                 text?.let { this@OtpInputView.setTextToItems(it.toString()) }
             }
