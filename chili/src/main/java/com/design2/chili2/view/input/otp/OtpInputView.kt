@@ -171,7 +171,7 @@ class OtpInputView @JvmOverloads constructor(
     }
 
     private fun setFirstItemActive() {
-        (view.itemContainer.children.toList().getOrNull(0) as? OtpItemView)
+        (view.itemContainer.children.firstOrNull() as? OtpItemView)
             ?.setState(OtpItemState.ACTIVE)
     }
 
