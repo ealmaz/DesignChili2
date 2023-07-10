@@ -19,9 +19,6 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
         vb.field2Mask.requestFocus()
         vb.field0.setMaxLength(3)
         vb.otp.setMessageText("ddweewrwerwerwerwerwerwerwerwerwerwerwerwerwerwerwe")
-        vb.otp.setActionText("fwefwefwef")
-
-
 
         vb.otp.apply {
             setActionText("Сбросить пароль")
@@ -38,7 +35,6 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
             }
 
             override fun onInput(text: String?) {
-                vb.otp.setupState(OtpItemState.INACTIVE)
                 vb.otp.setMessageText("")
                 vb.otp.setActionTextEnabled(false)
                 vb.otp.setActionText("0:45")
