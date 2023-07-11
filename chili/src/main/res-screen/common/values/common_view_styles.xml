@@ -35,4 +35,6 @@
 
     <style name="Chili.TitledDividerViewStyle"/>
 
+    <style name="Chili.CameraOverlayPassportCard" parent="Chili.BaseChiliViewStyle"/>
+
 </resources>
