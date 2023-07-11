@@ -17,6 +17,7 @@ class PassportCardOverlay @JvmOverloads constructor(
     private var headerText: String? = null
     private var title: String? = null
     private var description: String? = null
+    private var overlayAlpha = 100
 
     init {
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
@@ -27,6 +28,7 @@ class PassportCardOverlay @JvmOverloads constructor(
             headerText = getString(R.styleable.PassportCardOverlay_headerText)
             title = getString(R.styleable.PassportCardOverlay_title)
             description = getString(R.styleable.PassportCardOverlay_description)
+            overlayAlpha = getInteger(R.styleable.PassportCardOverlay_overlayAlpha, 77)
             recycle()
         }
     }
@@ -63,7 +65,7 @@ class PassportCardOverlay @JvmOverloads constructor(
 
 
     override fun drawShapes(canvas: Canvas) {
-        drawColor(canvas, R.color.black_1)
+        drawColor(canvas, R.color.black_1, overlayAlpha)
         var y = drawHeaderText(canvas, 0f)
         y = cutPassportCardShape(canvas, y)
         y = drawTitle(canvas, y)

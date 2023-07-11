@@ -382,6 +382,7 @@
 
     <!-- Camera Passport card overlay -->
     <declare-styleable name="PassportCardOverlay">
+        <attr name="overlayAlpha" format="integer"/>
         <attr name="headerText" format="string"/>
         <attr name="title"/>
         <attr name="description"/>
