@@ -8,16 +8,22 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.children
 import androidx.core.view.forEach
 import androidx.core.widget.addTextChangedListener
 import com.design2.chili2.R
+import com.design2.chili2.extensions.dp
+import com.design2.chili2.extensions.getPixelSizeFromAttr
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.view.input.SelectionChangedListener
@@ -83,7 +89,45 @@ class OtpInputView @JvmOverloads constructor(
         view.etInput.filters = arrayOf(
             LengthFilter(length)
         )
+        setupOtpItemView(length)
     }
+
+    fun setupOtpItemView(length: Int) = when {
+        length > DEFAULT_OTP_LENGTH -> addOtpItemsView(length - DEFAULT_OTP_LENGTH)
+        length < DEFAULT_OTP_LENGTH -> removeOtpItemsView(DEFAULT_OTP_LENGTH - length)
+        else -> {}
+    }
+
+    fun addOtpItemsView(length: Int) {
+        repeat(length) { addOtpItemView() }
+    }
+
+    fun addOtpItemView() {
+        val oiv = OtpItemView(context, null)
+        oiv.id = View.generateViewId()
+        val paddingHorizontal = context.getPixelSizeFromAttr(R.attr.ChiliOtpInputViewItemHorizontalPadding)
+        val paddingVertical = context.getPixelSizeFromAttr(R.attr.ChiliOtpInputViewItemVerticalPadding)
+        oiv.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, paddingVertical)
+        oiv.setTextAppearance(R.style.Chili_H7_Primary_Bold)
+        view.itemContainer.addView(oiv, ViewGroup.LayoutParams(44.dp, WRAP_CONTENT))
+        setupConstraint(oiv)
+    }
+
+    fun setupConstraint(oiv: OtpItemView) {
+        val childCount = view.itemContainer.childCount
+        val children = view.itemContainer.children.toList()
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(view.itemContainer)
+        constraintSet.connect(oiv.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
+        constraintSet.connect(oiv.id, ConstraintSet.START, children[childCount - 1].id, ConstraintSet.END)
+        constraintSet.connect(oiv.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
+        constraintSet.setHorizontalChainStyle(oiv.id, ConstraintSet.CHAIN_SPREAD_INSIDE)
+        constraintSet.connect(children[childCount - 1].id, ConstraintSet.START, children[childCount - 2].id, ConstraintSet.END)
+        constraintSet.connect(children[childCount - 1].id, ConstraintSet.END, oiv.id, ConstraintSet.START)
+        constraintSet.applyTo(view.itemContainer)
+    }
+
+    fun removeOtpItemsView(length: Int) {}
 
     fun setActionText(text: CharSequence?) {
         view.tvAction.setTextOrHide(text)
