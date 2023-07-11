@@ -70,7 +70,7 @@ abstract class BaseCameraOverlay @JvmOverloads constructor(
     }
 
 
-    protected fun drawColor(canvas: Canvas, @ColorRes colorId: Int, alpha: Int = 77) {
+    protected fun drawColor(canvas: Canvas, @ColorRes colorId: Int, alpha: Int = 40) {
         val color = ColorUtils.setAlphaComponent(ContextCompat.getColor(context, colorId), alpha)
         canvas.drawColor(color)
     }

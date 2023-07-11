@@ -14,9 +14,9 @@ class PassportCardOverlay @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CameraOverlayPassportCard
 ) : BaseCameraOverlay(context, attrs, defStyleAttr, defStyleRes) {
 
-    private var headerText = ""
-    private var title = ""
-    private var description = ""
+    private var headerText: String? = null
+    private var title: String? = null
+    private var description: String? = null
 
     init {
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
@@ -24,9 +24,9 @@ class PassportCardOverlay @JvmOverloads constructor(
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         context.obtainStyledAttributes(attrs, R.styleable.PassportCardOverlay, defStyleAttr, defStyleRes).run {
-            headerText = getString(R.styleable.PassportCardOverlay_headerText) ?: ""
-            title = getString(R.styleable.PassportCardOverlay_title) ?: ""
-            description = getString(R.styleable.PassportCardOverlay_description) ?: ""
+            headerText = getString(R.styleable.PassportCardOverlay_headerText)
+            title = getString(R.styleable.PassportCardOverlay_title)
+            description = getString(R.styleable.PassportCardOverlay_description)
             recycle()
         }
     }
@@ -72,11 +72,11 @@ class PassportCardOverlay @JvmOverloads constructor(
     }
 
     private fun drawHeaderText(canvas: Canvas, startY: Float): Float {
-        if (headerText.isBlank()) return startY
+        if (headerText == null) return startY
         val startYWithMargin = startY + 56.dp.toFloat()
         return drawText(
             canvas,
-            headerText,
+            headerText ?: "",
             (width / 2).toFloat(),
             startYWithMargin,
             TextConfig(16.dp.toFloat(), Typeface.BOLD)
@@ -105,11 +105,11 @@ class PassportCardOverlay @JvmOverloads constructor(
     }
 
     private fun drawTitle(canvas: Canvas, startY: Float): Float {
-        if (title.isBlank()) return startY
+        if (title == null) return startY
         val startYWithMargin = startY + 24.dp.toFloat()
         return drawText(
             canvas,
-            title,
+            title ?: "",
             (width / 2).toFloat(),
             startYWithMargin,
             TextConfig(16.dp.toFloat(), Typeface.BOLD)
@@ -117,11 +117,11 @@ class PassportCardOverlay @JvmOverloads constructor(
     }
 
     private fun drawDescription(canvas: Canvas, startY: Float): Float {
-        if (description.isBlank()) return startY
+        if (description == null) return startY
         val startYWithMargin = startY + 8.dp.toFloat()
         return drawText(
             canvas,
-            description,
+            description ?: "",
             (width / 2).toFloat(),
             startYWithMargin,
             TextConfig(16.dp.toFloat())
