@@ -116,7 +116,7 @@ class OtpInputView @JvmOverloads constructor(
         val paddingVertical = context.getPixelSizeFromAttr(R.attr.ChiliOtpInputViewItemVerticalPadding)
         oiv.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, paddingVertical)
         oiv.setTextAppearance(R.style.Chili_H7_Primary_Bold)
-        view.itemContainer.addView(oiv, ViewGroup.LayoutParams(44.dp, WRAP_CONTENT))
+        addView(oiv, ViewGroup.LayoutParams(44.dp, WRAP_CONTENT))
         setupConstraint {
             connect(oiv.id, TOP, PARENT_ID, TOP)
             connect(oiv.id, START, items[itemsCount - 1].id, END)
