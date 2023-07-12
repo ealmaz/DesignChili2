@@ -97,10 +97,11 @@ class OtpInputView @JvmOverloads constructor(
         setupOtpItemView(length)
     }
 
-    private fun setupOtpItemView(length: Int) = when {
-        length > DEFAULT_OTP_LENGTH -> addOtpItemViews(length - DEFAULT_OTP_LENGTH)
-        length < DEFAULT_OTP_LENGTH -> removeOtpItemViews(DEFAULT_OTP_LENGTH - length)
-        else -> {}
+    private fun setupOtpItemView(length: Int) {
+        when {
+            length > DEFAULT_OTP_LENGTH -> addOtpItemViews(length - DEFAULT_OTP_LENGTH)
+            length < DEFAULT_OTP_LENGTH -> removeOtpItemViews(DEFAULT_OTP_LENGTH - length)
+        }
     }
 
     private fun addOtpItemViews(times: Int) {
