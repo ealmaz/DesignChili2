@@ -47,7 +47,7 @@ fun Window.updateNavigationBarColor() {
     setBackgroundDrawable(windowBackground)
 }
 
-fun Context.getPixelSizeFromAttr(resId: Int): Int {
+fun Context.getPixelSizeFromAttr(@AttrRes resId: Int): Int {
     val typedValue = TypedValue()
     theme.resolveAttribute(resId, typedValue, true)
     return resources.getDimensionPixelSize(typedValue.resourceId)

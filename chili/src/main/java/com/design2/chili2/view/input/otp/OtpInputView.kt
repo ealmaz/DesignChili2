@@ -26,6 +26,7 @@ import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.getPixelSizeFromAttr
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
+import com.design2.chili2.extensions.setupConstraint
 import com.design2.chili2.view.input.SelectionChangedListener
 import com.design2.chili2.view.input.SelectionEditText
 
@@ -92,17 +93,19 @@ class OtpInputView @JvmOverloads constructor(
         setupOtpItemView(length)
     }
 
-    fun setupOtpItemView(length: Int) = when {
-        length > DEFAULT_OTP_LENGTH -> addOtpItemsView(length - DEFAULT_OTP_LENGTH)
-        length < DEFAULT_OTP_LENGTH -> removeOtpItemsView(DEFAULT_OTP_LENGTH - length)
+    private fun setupOtpItemView(length: Int) = when {
+        length > DEFAULT_OTP_LENGTH -> addOtpItemViews(length - DEFAULT_OTP_LENGTH)
+        length < DEFAULT_OTP_LENGTH -> removeOtpItemViews(DEFAULT_OTP_LENGTH - length)
         else -> {}
     }
 
-    fun addOtpItemsView(length: Int) {
-        repeat(length) { addOtpItemView() }
+    private fun addOtpItemViews(times: Int) {
+        repeat(times) { addOtpItemView() }
     }
 
-    fun addOtpItemView() {
+    private fun addOtpItemView() = with(view.itemContainer) {
+        val itemsCount = childCount
+        val items = children.toList()
         val oiv = OtpItemView(context, null)
         oiv.id = View.generateViewId()
         val paddingHorizontal = context.getPixelSizeFromAttr(R.attr.ChiliOtpInputViewItemHorizontalPadding)
@@ -110,24 +113,28 @@ class OtpInputView @JvmOverloads constructor(
         oiv.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, paddingVertical)
         oiv.setTextAppearance(R.style.Chili_H7_Primary_Bold)
         view.itemContainer.addView(oiv, ViewGroup.LayoutParams(44.dp, WRAP_CONTENT))
-        setupConstraint(oiv)
+        setupConstraint {
+            connect(oiv.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
+            connect(oiv.id, ConstraintSet.START, items[itemsCount - 1].id, ConstraintSet.END)
+            connect(oiv.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
+            setHorizontalChainStyle(oiv.id, ConstraintSet.CHAIN_SPREAD_INSIDE)
+            connect(items[itemsCount - 1].id, ConstraintSet.START, items[itemsCount - 2].id, ConstraintSet.END)
+            connect(items[itemsCount - 1].id, ConstraintSet.END, oiv.id, ConstraintSet.START)
+        }
     }
 
-    fun setupConstraint(oiv: OtpItemView) {
-        val childCount = view.itemContainer.childCount
-        val children = view.itemContainer.children.toList()
-        val constraintSet = ConstraintSet()
-        constraintSet.clone(view.itemContainer)
-        constraintSet.connect(oiv.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
-        constraintSet.connect(oiv.id, ConstraintSet.START, children[childCount - 1].id, ConstraintSet.END)
-        constraintSet.connect(oiv.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
-        constraintSet.setHorizontalChainStyle(oiv.id, ConstraintSet.CHAIN_SPREAD_INSIDE)
-        constraintSet.connect(children[childCount - 1].id, ConstraintSet.START, children[childCount - 2].id, ConstraintSet.END)
-        constraintSet.connect(children[childCount - 1].id, ConstraintSet.END, oiv.id, ConstraintSet.START)
-        constraintSet.applyTo(view.itemContainer)
+    private fun removeOtpItemViews(times: Int) {
+        repeat(times) { removeOtpItemView() }
     }
 
-    fun removeOtpItemsView(length: Int) {}
+    private fun removeOtpItemView() = with(view.itemContainer) {
+        removeViewAt(view.itemContainer.childCount - 1)
+        (children.last() as? OtpItemView)?.let { oiv ->
+            setupConstraint {
+                connect(oiv.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
+            }
+        }
+    }
 
     fun setActionText(text: CharSequence?) {
         view.tvAction.setTextOrHide(text)

@@ -12,6 +12,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -222,4 +224,11 @@ fun TextView.handleUrlClicks(onClicked: ((String) -> Unit)? = null) {
         }
     }
     movementMethod = LinkMovementMethod.getInstance()
+}
+
+fun ConstraintLayout.setupConstraint(action: ConstraintSet.() -> Unit) {
+    val constraintSet = ConstraintSet()
+    constraintSet.clone(this)
+    action.invoke(constraintSet)
+    constraintSet.applyTo(this)
 }
