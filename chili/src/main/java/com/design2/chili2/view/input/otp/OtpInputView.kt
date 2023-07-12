@@ -8,18 +8,29 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet.TOP
+import androidx.constraintlayout.widget.ConstraintSet.START
+import androidx.constraintlayout.widget.ConstraintSet.END
+import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
+import androidx.constraintlayout.widget.ConstraintSet.CHAIN_SPREAD_INSIDE
 import androidx.core.view.children
 import androidx.core.view.forEach
 import androidx.core.widget.addTextChangedListener
 import com.design2.chili2.R
+import com.design2.chili2.extensions.dp
+import com.design2.chili2.extensions.getPixelSizeFromAttr
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
+import com.design2.chili2.extensions.setupConstraint
 import com.design2.chili2.view.input.SelectionChangedListener
 import com.design2.chili2.view.input.SelectionEditText
 
@@ -83,6 +94,49 @@ class OtpInputView @JvmOverloads constructor(
         view.etInput.filters = arrayOf(
             LengthFilter(length)
         )
+        setupOtpItemView(length)
+    }
+
+    private fun setupOtpItemView(length: Int) {
+        when {
+            length > DEFAULT_OTP_LENGTH -> addOtpItemViews(length - DEFAULT_OTP_LENGTH)
+            length < DEFAULT_OTP_LENGTH -> removeOtpItemViews(DEFAULT_OTP_LENGTH - length)
+        }
+    }
+
+    private fun addOtpItemViews(times: Int) {
+        repeat(times) { addOtpItemView() }
+    }
+
+    private fun addOtpItemView() = with(view.itemContainer) {
+        val itemsCount = childCount
+        val items = children.toList()
+        val oiv = OtpItemView(context, null)
+        oiv.id = View.generateViewId()
+        val paddingHorizontal = context.getPixelSizeFromAttr(R.attr.ChiliOtpInputViewItemHorizontalPadding)
+        val paddingVertical = context.getPixelSizeFromAttr(R.attr.ChiliOtpInputViewItemVerticalPadding)
+        oiv.setPadding(paddingHorizontal, paddingVertical, paddingHorizontal, paddingVertical)
+        oiv.setTextAppearance(R.style.Chili_H7_Primary_Bold)
+        addView(oiv, ViewGroup.LayoutParams(44.dp, WRAP_CONTENT))
+        setupConstraint {
+            connect(oiv.id, TOP, PARENT_ID, TOP)
+            connect(oiv.id, START, items[itemsCount - 1].id, END)
+            connect(oiv.id, END, PARENT_ID, END)
+            setHorizontalChainStyle(oiv.id, CHAIN_SPREAD_INSIDE)
+            connect(items[itemsCount - 1].id, START, items[itemsCount - 2].id, END)
+            connect(items[itemsCount - 1].id, END, oiv.id, START)
+        }
+    }
+
+    private fun removeOtpItemViews(times: Int) {
+        repeat(times) { removeOtpItemView() }
+    }
+
+    private fun removeOtpItemView() = with(view.itemContainer) {
+        removeViewAt(view.itemContainer.childCount - 1)
+        (children.last() as? OtpItemView)?.let { oiv ->
+            setupConstraint { connect(oiv.id, END, PARENT_ID, END) }
+        }
     }
 
     fun setActionText(text: CharSequence?) {
