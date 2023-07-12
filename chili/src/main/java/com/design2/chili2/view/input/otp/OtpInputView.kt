@@ -17,7 +17,11 @@ import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
+import androidx.constraintlayout.widget.ConstraintSet.TOP
+import androidx.constraintlayout.widget.ConstraintSet.START
+import androidx.constraintlayout.widget.ConstraintSet.END
+import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
+import androidx.constraintlayout.widget.ConstraintSet.CHAIN_SPREAD_INSIDE
 import androidx.core.view.children
 import androidx.core.view.forEach
 import androidx.core.widget.addTextChangedListener
@@ -114,12 +118,12 @@ class OtpInputView @JvmOverloads constructor(
         oiv.setTextAppearance(R.style.Chili_H7_Primary_Bold)
         view.itemContainer.addView(oiv, ViewGroup.LayoutParams(44.dp, WRAP_CONTENT))
         setupConstraint {
-            connect(oiv.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
-            connect(oiv.id, ConstraintSet.START, items[itemsCount - 1].id, ConstraintSet.END)
-            connect(oiv.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
-            setHorizontalChainStyle(oiv.id, ConstraintSet.CHAIN_SPREAD_INSIDE)
-            connect(items[itemsCount - 1].id, ConstraintSet.START, items[itemsCount - 2].id, ConstraintSet.END)
-            connect(items[itemsCount - 1].id, ConstraintSet.END, oiv.id, ConstraintSet.START)
+            connect(oiv.id, TOP, PARENT_ID, TOP)
+            connect(oiv.id, START, items[itemsCount - 1].id, END)
+            connect(oiv.id, END, PARENT_ID, END)
+            setHorizontalChainStyle(oiv.id, CHAIN_SPREAD_INSIDE)
+            connect(items[itemsCount - 1].id, START, items[itemsCount - 2].id, END)
+            connect(items[itemsCount - 1].id, END, oiv.id, START)
         }
     }
 
@@ -130,9 +134,7 @@ class OtpInputView @JvmOverloads constructor(
     private fun removeOtpItemView() = with(view.itemContainer) {
         removeViewAt(view.itemContainer.childCount - 1)
         (children.last() as? OtpItemView)?.let { oiv ->
-            setupConstraint {
-                connect(oiv.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
-            }
+            setupConstraint { connect(oiv.id, END, PARENT_ID, END) }
         }
     }
 
