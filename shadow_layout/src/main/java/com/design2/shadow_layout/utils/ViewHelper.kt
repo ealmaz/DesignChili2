@@ -181,6 +181,15 @@ class ViewHelper(private val context: Context) {
         return list
     }
 
+    fun calculatePadding(): Int {
+        val strokeWidth = strokeInfo?.strokeWidth ?: 0f
+        return if (strokeWidth > 0f) {
+            strokeWidth.toInt()
+        } else {
+            0
+        }
+    }
+
     fun Float.toPx(): Float {
         return context.resources.displayMetrics.density * this
     }

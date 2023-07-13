@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             app:title="BaseCellView with icon" />
 
-        <com.sonsation.library.ShadowLayout
+        <com.design2.shadow_layout.ShadowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -53,51 +53,44 @@
                 app:isDividerVisible="false"
                 app:title="Заголовок" />
 
-        </com.sonsation.library.ShadowLayout>
+        </com.design2.shadow_layout.ShadowLayout>
 
-        <com.sonsation.library.ShadowLayout
+        <com.design2.shadow_layout.ShadowLayout
             android:id="@+id/sl_first"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
             app:background_radius="@dimen/padding_14dp"
-            app:shadow_color="#14010101"
             app:shadow_blur="@dimen/padding_32dp"
+            app:shadow_color="#14010101"
             app:shadow_offset_x="@dimen/padding_0dp"
             app:shadow_offset_y="@dimen/padding_8dp">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <com.design2.chili2.view.cells.BaseCellView
+                android:id="@+id/first_cell"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                app:roundedCornerMode="top"
+                app:title="Заголовок" />
 
-                <com.design2.chili2.view.cells.BaseCellView
-                    android:id="@+id/first_cell"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:roundedCornerMode="top"
-                    app:title="Заголовок" />
+            <com.design2.chili2.view.cells.BaseCellView
+                android:id="@+id/second_cell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:roundedCornerMode="middle"
+                app:title="Заголовок" />
 
-                <com.design2.chili2.view.cells.BaseCellView
-                    android:id="@+id/second_cell"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:roundedCornerMode="middle"
-                    app:title="Заголовок" />
+            <com.design2.chili2.view.cells.BaseCellView
+                android:id="@+id/third_cell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isDividerVisible="false"
+                app:roundedCornerMode="bottom"
+                app:title="Заголовок" />
 
-                <com.design2.chili2.view.cells.BaseCellView
-                    android:id="@+id/third_cell"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:isDividerVisible="false"
-                    app:roundedCornerMode="bottom"
-                    app:title="Заголовок" />
+        </com.design2.shadow_layout.ShadowLayout>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-        </com.sonsation.library.ShadowLayout>
-
-        <com.sonsation.library.ShadowLayout
+        <com.design2.shadow_layout.ShadowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -114,9 +107,9 @@
                 app:subtitle="Подзаголовок"
                 app:title="Заголовок" />
 
-        </com.sonsation.library.ShadowLayout>
+        </com.design2.shadow_layout.ShadowLayout>
 
-        <com.sonsation.library.ShadowLayout
+        <com.design2.shadow_layout.ShadowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -126,36 +119,29 @@
             app:shadow_offset_x="@dimen/padding_0dp"
             app:shadow_offset_y="@dimen/padding_8dp">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <com.design2.chili2.view.cells.BaseCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                app:roundedCornerMode="top"
+                app:subtitle="Подзаголовок"
+                app:title="Заголовок" />
 
-                <com.design2.chili2.view.cells.BaseCellView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:roundedCornerMode="top"
-                    app:subtitle="Подзаголовок"
-                    app:title="Заголовок" />
+            <com.design2.chili2.view.cells.BaseCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:roundedCornerMode="middle"
+                app:subtitle="Подзаголовок"
+                app:title="Заголовок" />
 
-                <com.design2.chili2.view.cells.BaseCellView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:roundedCornerMode="middle"
-                    app:subtitle="Подзаголовок"
-                    app:title="Заголовок" />
+            <com.design2.chili2.view.cells.BaseCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isDividerVisible="false"
+                app:roundedCornerMode="bottom"
+                app:subtitle="Подзаголовок"
+                app:title="Заголовок" />
 
-                <com.design2.chili2.view.cells.BaseCellView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:isDividerVisible="false"
-                    app:roundedCornerMode="bottom"
-                    app:subtitle="Подзаголовок"
-                    app:title="Заголовок" />
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-        </com.sonsation.library.ShadowLayout>
+        </com.design2.shadow_layout.ShadowLayout>
 
         <TextView
             android:layout_width="wrap_content"

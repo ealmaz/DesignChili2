@@ -6,12 +6,12 @@ import android.graphics.Color
 import android.graphics.Matrix
 import android.os.Build
 import android.util.AttributeSet
-import android.widget.FrameLayout
+import android.widget.LinearLayout
 import com.design2.shadow_layout.effect.*
 import com.design2.shadow_layout.utils.*
 import kotlin.math.abs
 
-class ShadowLayout : FrameLayout {
+class ShadowLayout : LinearLayout {
 
     private val viewHelper by lazy { ViewHelper(context) }
     private val background by lazy { Background() }
@@ -27,7 +27,6 @@ class ShadowLayout : FrameLayout {
     constructor(context: Context) : super(context) {
         init(context, null, 0)
     }
-
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
         init(context, attributeSet, 0)
     }
@@ -41,6 +40,8 @@ class ShadowLayout : FrameLayout {
     }
 
     private fun init(context: Context, attributeSet: AttributeSet?, defStyle: Int) {
+
+        orientation = VERTICAL
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
             setLayerType(LAYER_TYPE_SOFTWARE, null)
@@ -100,20 +101,12 @@ class ShadowLayout : FrameLayout {
                         a.getDimension(R.styleable.ShadowLayout_stroke_gradient_offset_y, 0f)
                     val gradientAngle = a.getInt(R.styleable.ShadowLayout_stroke_gradient_angle, -1)
 
-                    val gradients =
-                        viewHelper.parseGradientArray(a.getString(R.styleable.ShadowLayout_gradient_array))
-                    val gradientPositions =
-                        viewHelper.parseGradientPositions(a.getString(R.styleable.ShadowLayout_gradient_positions))
+                    val gradients = viewHelper.parseGradientArray(a.getString(R.styleable.ShadowLayout_gradient_array))
+                    val gradientPositions = viewHelper.parseGradientPositions(a.getString(R.styleable.ShadowLayout_gradient_positions))
 
                     init(
-                        gradientAngle,
-                        gradientStartColor,
-                        gradientCenterColor,
-                        gradientEndColor,
-                        gradientOffsetX,
-                        gradientOffsetY,
-                        gradients?.toIntArray(),
-                        gradientPositions?.toFloatArray()
+                        gradientAngle, gradientStartColor, gradientCenterColor, gradientEndColor,
+                        gradientOffsetX, gradientOffsetY, gradients?.toIntArray(), gradientPositions?.toFloatArray()
                     )
                 }
             }
@@ -221,20 +214,12 @@ class ShadowLayout : FrameLayout {
             val gradientOffsetY = a.getDimension(R.styleable.ShadowLayout_gradient_offset_y, 0f)
             val gradientAngle = a.getInt(R.styleable.ShadowLayout_gradient_angle, -1)
 
-            val gradients =
-                viewHelper.parseGradientArray(a.getString(R.styleable.ShadowLayout_gradient_array))
-            val gradientPositions =
-                viewHelper.parseGradientPositions(a.getString(R.styleable.ShadowLayout_gradient_positions))
+            val gradients = viewHelper.parseGradientArray(a.getString(R.styleable.ShadowLayout_gradient_array))
+            val gradientPositions = viewHelper.parseGradientPositions(a.getString(R.styleable.ShadowLayout_gradient_positions))
 
             gradient.init(
-                gradientAngle,
-                gradientStartColor,
-                gradientCenterColor,
-                gradientEndColor,
-                gradientOffsetX,
-                gradientOffsetY,
-                gradients?.toIntArray(),
-                gradientPositions?.toFloatArray()
+                gradientAngle, gradientStartColor, gradientCenterColor, gradientEndColor,
+                gradientOffsetX, gradientOffsetY, gradients?.toIntArray(), gradientPositions?.toFloatArray()
             )
         } finally {
             a.recycle()
@@ -247,7 +232,7 @@ class ShadowLayout : FrameLayout {
         if (canvas == null)
             return
 
-        with(viewHelper) {
+        with (viewHelper) {
 
             updateCanvas(canvas)
 
@@ -278,7 +263,7 @@ class ShadowLayout : FrameLayout {
         val width = abs(right - left)
         val height = abs(bottom - top)
 
-        with(viewHelper) {
+        with (viewHelper) {
 
             updateCanvas(canvas)
 
@@ -300,7 +285,8 @@ class ShadowLayout : FrameLayout {
     }
 
     private fun updatePadding() {
-
+        val padding = viewHelper.calculatePadding()
+        setPadding(padding, padding, padding, padding)
     }
 
     fun updateBackgroundColor(color: Int) {
