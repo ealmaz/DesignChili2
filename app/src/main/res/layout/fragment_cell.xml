@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/padding_16dp"
+        android:clipChildren="false"
         android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/padding_16dp"
@@ -24,77 +25,137 @@
             android:layout_width="140dp"
             android:layout_height="8dp"
             app:shimmer_auto_start="true">
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/chili_bg_shimmer"/>
+                android:background="@drawable/chili_bg_shimmer" />
         </com.facebook.shimmer.ShimmerFrameLayout>
-
-
 
         <com.design2.chili2.view.common.TitledDividerView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:title="BaseCellView with icon" />
 
-        <com.design2.chili2.view.cells.BaseCellView
+        <com.sonsation.library.ShadowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:isDividerVisible="false"
-            app:title="Заголовок" />
+            app:background_radius="@dimen/padding_14dp"
+            app:shadow_blur="@dimen/padding_32dp"
+            app:shadow_color="#14010101"
+            app:shadow_offset_x="@dimen/padding_0dp"
+            app:shadow_offset_y="@dimen/padding_8dp">
 
-        <com.design2.chili2.view.cells.BaseCellView
+            <com.design2.chili2.view.cells.BaseCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isDividerVisible="false"
+                app:title="Заголовок" />
+
+        </com.sonsation.library.ShadowLayout>
+
+        <com.sonsation.library.ShadowLayout
+            android:id="@+id/sl_first"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:roundedCornerMode="top"
-            app:title="Заголовок" />
+            app:background_radius="@dimen/padding_14dp"
+            app:shadow_color="#14010101"
+            app:shadow_blur="@dimen/padding_32dp"
+            app:shadow_offset_x="@dimen/padding_0dp"
+            app:shadow_offset_y="@dimen/padding_8dp">
 
-        <com.design2.chili2.view.cells.BaseCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:roundedCornerMode="middle"
-            app:title="Заголовок" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <com.design2.chili2.view.cells.BaseCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:isDividerVisible="false"
-            app:roundedCornerMode="bottom"
-            app:title="Заголовок" />
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:id="@+id/first_cell"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:roundedCornerMode="top"
+                    app:title="Заголовок" />
 
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:id="@+id/second_cell"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:roundedCornerMode="middle"
+                    app:title="Заголовок" />
 
-        <com.design2.chili2.view.cells.BaseCellView
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:id="@+id/third_cell"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:isDividerVisible="false"
+                    app:roundedCornerMode="bottom"
+                    app:title="Заголовок" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </com.sonsation.library.ShadowLayout>
+
+        <com.sonsation.library.ShadowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:isDividerVisible="false"
-            app:subtitle="Подзаголовок"
-            app:title="Заголовок" />
+            app:background_radius="@dimen/padding_14dp"
+            app:shadow_blur="@dimen/padding_32dp"
+            app:shadow_color="#14010101"
+            app:shadow_offset_x="@dimen/padding_0dp"
+            app:shadow_offset_y="@dimen/padding_8dp">
 
-        <com.design2.chili2.view.cells.BaseCellView
+            <com.design2.chili2.view.cells.BaseCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isDividerVisible="false"
+                app:subtitle="Подзаголовок"
+                app:title="Заголовок" />
+
+        </com.sonsation.library.ShadowLayout>
+
+        <com.sonsation.library.ShadowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:roundedCornerMode="top"
-            app:subtitle="Подзаголовок"
-            app:title="Заголовок" />
+            app:background_radius="@dimen/padding_14dp"
+            app:shadow_blur="@dimen/padding_32dp"
+            app:shadow_color="#14010101"
+            app:shadow_offset_x="@dimen/padding_0dp"
+            app:shadow_offset_y="@dimen/padding_8dp">
 
-        <com.design2.chili2.view.cells.BaseCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:roundedCornerMode="middle"
-            app:subtitle="Подзаголовок"
-            app:title="Заголовок" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <com.design2.chili2.view.cells.BaseCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:isDividerVisible="false"
-            app:roundedCornerMode="bottom"
-            app:subtitle="Подзаголовок"
-            app:title="Заголовок" />
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:roundedCornerMode="top"
+                    app:subtitle="Подзаголовок"
+                    app:title="Заголовок" />
+
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:roundedCornerMode="middle"
+                    app:subtitle="Подзаголовок"
+                    app:title="Заголовок" />
+
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:isDividerVisible="false"
+                    app:roundedCornerMode="bottom"
+                    app:subtitle="Подзаголовок"
+                    app:title="Заголовок" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </com.sonsation.library.ShadowLayout>
 
         <TextView
             android:layout_width="wrap_content"
