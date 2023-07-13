@@ -50,6 +50,10 @@ class AllViewsFragment : BaseFragment<FragmentAllViewsBinding>() {
             openFragment(HighlightersFragment())
         }
 
+        vb.overlays.setOnClickListener {
+            openFragment(OverlaysFragment())
+        }
+
         (activity as MainActivity).setUpHomeEnabled(false)
     }
 
