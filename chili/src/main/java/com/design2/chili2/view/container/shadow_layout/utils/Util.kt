@@ -1,7 +1,7 @@
-package com.design2.shadow_layout.utils
+package com.design2.chili2.view.container.shadow_layout.utils
 
 import android.graphics.Color
-import com.design2.shadow_layout.model.ColorModel
+import com.design2.chili2.view.container.shadow_layout.model.ColorModel
 
 object Util {
 

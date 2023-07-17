@@ -1,6 +1,6 @@
-package com.design2.shadow_layout.effect
+package com.design2.chili2.view.container.shadow_layout.effect
 
-import com.design2.shadow_layout.utils.ViewHelper
+import com.design2.chili2.view.container.shadow_layout.utils.ViewHelper
 
 class Stroke {
 

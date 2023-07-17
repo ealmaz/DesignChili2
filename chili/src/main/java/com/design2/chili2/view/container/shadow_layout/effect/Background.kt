@@ -1,8 +1,11 @@
-package com.design2.shadow_layout.effect
+package com.design2.chili2.view.container.shadow_layout.effect
 
-import android.graphics.*
-import com.design2.shadow_layout.utils.Util
-import com.design2.shadow_layout.utils.ViewHelper
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Path
+import android.graphics.RectF
+import com.design2.chili2.view.container.shadow_layout.utils.Util
+import com.design2.chili2.view.container.shadow_layout.utils.ViewHelper
 
 class Background : Effect {
 
@@ -72,7 +75,12 @@ class Background : Effect {
         if (strokeInfo?.isEnable == true) {
 
             val adjustOffset = strokeInfo!!.strokeWidth.div(2f).toInt()
-            val strokeRect = RectF(offsetLeft - adjustOffset, offsetTop - adjustOffset, offsetRight + adjustOffset, offsetBottom + adjustOffset)
+            val strokeRect = RectF(
+                offsetLeft - adjustOffset,
+                offsetTop - adjustOffset,
+                offsetRight + adjustOffset,
+                offsetBottom + adjustOffset
+            )
 
             strokePath.apply {
                 reset()

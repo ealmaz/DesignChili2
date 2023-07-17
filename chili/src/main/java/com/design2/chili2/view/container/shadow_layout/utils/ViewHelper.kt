@@ -1,14 +1,9 @@
-package com.design2.shadow_layout.utils
+package com.design2.chili2.view.container.shadow_layout.utils
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
-import com.design2.shadow_layout.effect.Background
-import com.design2.shadow_layout.effect.Effect
-import com.design2.shadow_layout.effect.Gradient
-import com.design2.shadow_layout.effect.Radius
-import com.design2.shadow_layout.effect.Shadow
-import com.design2.shadow_layout.effect.Stroke
+import com.design2.chili2.view.container.shadow_layout.effect.*
 import java.lang.NumberFormatException
 
 class ViewHelper(private val context: Context) {
@@ -68,9 +63,11 @@ class ViewHelper(private val context: Context) {
                     effect.updateOffset(dx, dy, right, bottom)
                 }
             }
+
             is Background -> {
                 effect.updateOffset(0f, 0f, width.toFloat(), height.toFloat())
             }
+
             is Gradient -> {
                 effect.updateOffset(0f, 0f, width.toFloat(), height.toFloat())
                 effect.updatePaint()

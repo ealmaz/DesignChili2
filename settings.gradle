@@ -17,4 +17,3 @@ dependencyResolutionManagement {
 rootProject.name = "DesignChili2"
 include ':app'
 include ':chili'
-include ':shadow_layout'

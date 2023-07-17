@@ -1,4 +1,4 @@
-package com.design2.shadow_layout
+package com.design2.chili2.view.container.shadow_layout
 
 import android.content.Context
 import android.graphics.Canvas
@@ -7,8 +7,9 @@ import android.graphics.Matrix
 import android.os.Build
 import android.util.AttributeSet
 import android.widget.LinearLayout
-import com.design2.shadow_layout.effect.*
-import com.design2.shadow_layout.utils.*
+import com.design2.chili2.R
+import com.design2.chili2.view.container.shadow_layout.effect.*
+import com.design2.chili2.view.container.shadow_layout.utils.ViewHelper
 import kotlin.math.abs
 
 class ShadowLayout : LinearLayout {
@@ -27,6 +28,7 @@ class ShadowLayout : LinearLayout {
     constructor(context: Context) : super(context) {
         init(context, null, 0)
     }
+
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
         init(context, attributeSet, 0)
     }
@@ -101,12 +103,20 @@ class ShadowLayout : LinearLayout {
                         a.getDimension(R.styleable.ShadowLayout_stroke_gradient_offset_y, 0f)
                     val gradientAngle = a.getInt(R.styleable.ShadowLayout_stroke_gradient_angle, -1)
 
-                    val gradients = viewHelper.parseGradientArray(a.getString(R.styleable.ShadowLayout_gradient_array))
-                    val gradientPositions = viewHelper.parseGradientPositions(a.getString(R.styleable.ShadowLayout_gradient_positions))
+                    val gradients =
+                        viewHelper.parseGradientArray(a.getString(R.styleable.ShadowLayout_gradient_array))
+                    val gradientPositions =
+                        viewHelper.parseGradientPositions(a.getString(R.styleable.ShadowLayout_gradient_positions))
 
                     init(
-                        gradientAngle, gradientStartColor, gradientCenterColor, gradientEndColor,
-                        gradientOffsetX, gradientOffsetY, gradients?.toIntArray(), gradientPositions?.toFloatArray()
+                        gradientAngle,
+                        gradientStartColor,
+                        gradientCenterColor,
+                        gradientEndColor,
+                        gradientOffsetX,
+                        gradientOffsetY,
+                        gradients?.toIntArray(),
+                        gradientPositions?.toFloatArray()
                     )
                 }
             }
@@ -214,12 +224,20 @@ class ShadowLayout : LinearLayout {
             val gradientOffsetY = a.getDimension(R.styleable.ShadowLayout_gradient_offset_y, 0f)
             val gradientAngle = a.getInt(R.styleable.ShadowLayout_gradient_angle, -1)
 
-            val gradients = viewHelper.parseGradientArray(a.getString(R.styleable.ShadowLayout_gradient_array))
-            val gradientPositions = viewHelper.parseGradientPositions(a.getString(R.styleable.ShadowLayout_gradient_positions))
+            val gradients =
+                viewHelper.parseGradientArray(a.getString(R.styleable.ShadowLayout_gradient_array))
+            val gradientPositions =
+                viewHelper.parseGradientPositions(a.getString(R.styleable.ShadowLayout_gradient_positions))
 
             gradient.init(
-                gradientAngle, gradientStartColor, gradientCenterColor, gradientEndColor,
-                gradientOffsetX, gradientOffsetY, gradients?.toIntArray(), gradientPositions?.toFloatArray()
+                gradientAngle,
+                gradientStartColor,
+                gradientCenterColor,
+                gradientEndColor,
+                gradientOffsetX,
+                gradientOffsetY,
+                gradients?.toIntArray(),
+                gradientPositions?.toFloatArray()
             )
         } finally {
             a.recycle()
@@ -232,7 +250,7 @@ class ShadowLayout : LinearLayout {
         if (canvas == null)
             return
 
-        with (viewHelper) {
+        with(viewHelper) {
 
             updateCanvas(canvas)
 
@@ -263,7 +281,7 @@ class ShadowLayout : LinearLayout {
         val width = abs(right - left)
         val height = abs(bottom - top)
 
-        with (viewHelper) {
+        with(viewHelper) {
 
             updateCanvas(canvas)
 

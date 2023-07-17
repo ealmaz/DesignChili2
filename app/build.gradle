@@ -38,7 +38,6 @@ android {
 dependencies {
 
     implementation project(':chili')
-    implementation project(':shadow_layout')
 
     implementation 'com.github.Miha-x64:FiftyShades:-SNAPSHOT'
 
