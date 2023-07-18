@@ -17,11 +17,11 @@ import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.PopupMenu
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet.TOP
-import androidx.constraintlayout.widget.ConstraintSet.START
+import androidx.constraintlayout.widget.ConstraintSet.CHAIN_SPREAD_INSIDE
 import androidx.constraintlayout.widget.ConstraintSet.END
 import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
-import androidx.constraintlayout.widget.ConstraintSet.CHAIN_SPREAD_INSIDE
+import androidx.constraintlayout.widget.ConstraintSet.START
+import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.core.view.children
 import androidx.core.view.forEach
 import androidx.core.widget.addTextChangedListener
@@ -229,19 +229,27 @@ class OtpInputView @JvmOverloads constructor(
             ?.setState(OtpItemState.ACTIVE)
     }
 
+    private fun setLastItemActive() {
+        (view.itemContainer.children.lastOrNull() as? OtpItemView)
+            ?.setState(OtpItemState.ACTIVE)
+    }
+
     private fun setTextToItems(newText: String) {
         view.itemContainer.children.forEachIndexed { i, view ->
             (view as? OtpItemView)?.apply {
                 text = newText.getOrNull(i)?.toString()
                 when (newText.length) {
-                    i + 1 -> setState(OtpItemState.ACTIVE)
+                    i -> setState(OtpItemState.ACTIVE)
                     else -> setState(OtpItemState.INACTIVE)
                 }
             }
         }
         if (newText.isEmpty()) setFirstItemActive()
         otpCompleteListener?.onInput(newText)
-        if (newText.length == otpLength) { otpCompleteListener?.onOtpInputComplete(newText) }
+        if (newText.length == otpLength) {
+            setLastItemActive()
+            otpCompleteListener?.onOtpInputComplete(newText)
+        }
     }
 
     private fun onPastePopupMenuClicked(item: MenuItem): Boolean {

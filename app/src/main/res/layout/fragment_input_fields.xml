@@ -81,7 +81,6 @@
         <com.design2.chili2.view.input.otp.OtpInputView
             android:id="@+id/otp"
             android:layout_marginVertical="@dimen/padding_32dp"
-            app:otpLength="7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
