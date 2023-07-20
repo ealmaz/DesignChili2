@@ -192,7 +192,7 @@
         <item name="ChiliCardViewBackground">@color/white_1</item>
         <item name="ChiliCardViewCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliCardViewRippleColor">@color/gray_1</item>
-        <item name="ChiliCardViewElevation">@dimen/elevation_4dp</item>
+        <item name="ChiliCardViewElevation">@dimen/elevation_0dp</item>
 
         <!-- AccentCardView -->
         <item name="ChiliAccentCardViewHorizontalContentPadding">@dimen/padding_16dp</item>
@@ -219,7 +219,7 @@
         <!-- CellView attributes -->
         <item name="ChiliCellViewBackground">@color/white_1</item>
         <item name="ChiliCellCornerRadius">@dimen/radius_12dp</item>
-        <item name="ChiliCellViewElevation">@dimen/elevation_4dp</item>
+        <item name="ChiliCellViewElevation">@dimen/elevation_0dp</item>
 
         <!-- StatusMarkerCellView -->
         <item name="ChiliMarkerStatusCellViewStatusCornerRadius">@dimen/radius_14dp</item>

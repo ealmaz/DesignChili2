@@ -12,10 +12,18 @@
 
     <style name="Chili.Container.ExpandableCardContainer">
         <item name="android:background">@drawable/chili_bg_expandable_info_card</item>
-        <item name="android:elevation">@dimen/elevation_4dp</item>
+        <item name="android:elevation">@dimen/elevation_0dp</item>
         <item name="android:paddingBottom">@dimen/padding_4dp</item>
         <item name="android:animateLayoutChanges">true</item>
         <item name="android:orientation">vertical</item>
+    </style>
+    
+    <style name="ShadowLayoutStyle">
+        <item name="background_radius">@dimen/padding_14dp</item>
+        <item name="shadow_blur">@dimen/padding_32dp</item>
+        <item name="shadow_color">@color/black_alpha_0_08</item>
+        <item name="shadow_offset_x">@dimen/padding_0dp</item>
+        <item name="shadow_offset_y">@dimen/padding_8dp</item>
     </style>
 
 </resources>

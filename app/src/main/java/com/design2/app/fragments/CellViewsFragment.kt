@@ -2,8 +2,10 @@ package com.design2.app.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.text.parseAsHtml
 import androidx.core.view.children
+import androidx.core.view.forEach
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
@@ -47,14 +49,18 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
     override fun startShimmering() {
         super.startShimmering()
         vb.container.children.forEach {
-            (it as? ShimmeringView)?.startShimmering()
+            (it as? ViewGroup)?.forEach { view ->
+                (view as? ShimmeringView)?.startShimmering()
+            }
         }
     }
 
     override fun stopShimmering() {
         super.stopShimmering()
         vb.container.children.forEach {
-            (it as? ShimmeringView)?.stopShimmering()
+            (it as? ViewGroup)?.forEach { view ->
+                (view as? ShimmeringView)?.stopShimmering()
+            }
         }
     }
 }
