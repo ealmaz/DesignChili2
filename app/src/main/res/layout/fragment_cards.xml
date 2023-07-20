@@ -15,15 +15,12 @@
         android:orientation="vertical"
         android:paddingBottom="160dp"
         android:clipToPadding="false"
-        android:clipChildren="false"
         tools:context=".MainActivity">
 
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="AccentCardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipChildren="false"
-            android:clipToPadding="false">
+            android:layout_height="wrap_content">
 
             <com.design2.chili2.view.card.AccentCardView
                 android:id="@+id/accent"
@@ -49,23 +46,16 @@
                 app:titleStartIcon="@drawable/icon_k"
                 app:cardBackground="@color/black_4" />
 
-            <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            <com.design2.chili2.view.card.AccentCardView
+                android:id="@+id/accent3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_12dp"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
                 android:layout_marginBottom="@dimen/padding_16dp"
-                style="@style/ShadowLayoutStyle">
-
-                <com.design2.chili2.view.card.AccentCardView
-                    android:id="@+id/accent3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:endIcon="@drawable/ic_scaner_48"
-                    app:title="Цифровая карта"
-                    app:subtitle="Для бесконтактных платежей" />
-
-            </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+                app:endIcon="@drawable/ic_scaner_48"
+                app:title="Цифровая карта"
+                app:subtitle="Для бесконтактных платежей" />
 
         </com.design2.chili2.view.container.ExpandableContainer>
 
