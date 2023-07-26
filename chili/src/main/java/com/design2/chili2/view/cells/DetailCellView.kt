@@ -143,6 +143,10 @@ class DetailCellView @JvmOverloads constructor(
         else shimmerViewPairs[view.tvStatus] = null
     }
 
+    fun getStatusTextView(): TextView {
+        return view.tvStatus
+    }
+
     fun setStatus(@StringRes textResId: Int) {
         view.tvStatus.setTextOrHide(textResId)
         shimmerViewPairs[view.tvStatus] = null
