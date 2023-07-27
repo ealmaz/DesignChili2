@@ -898,6 +898,7 @@
             style="@style/ShadowLayoutStyle">
 
             <com.design2.chili2.view.cells.ActionCellView
+                android:id="@+id/action_cell"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:actionText="Action"
@@ -1302,8 +1303,10 @@
                 android:layout_height="wrap_content"
                 app:icon="@drawable/chili_ic_success"
                 app:status="В обработке"
-                app:subtitle="+ 996 700 500 430"
-                app:title="Заголовок"
+                app:titleMaxLines="2"
+                app:subtitleMaxLines="2"
+                app:subtitle="+ 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430"
+                app:title="Заголовок Заголовок ЗаголовокЗаголовокЗаголовок Заголовок Заголовок"
                 app:value="- 140" />
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>

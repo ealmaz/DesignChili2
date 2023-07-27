@@ -58,6 +58,7 @@ class ActionCellView @JvmOverloads constructor(
     override fun setIsChevronVisible(isVisible: Boolean) {
         super.setIsChevronVisible(isVisible)
         if (isVisible) tvAction?.setPadding(0, 0,0, 0)
+        else tvAction?.setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
     }
 
     fun setActionClickListener(action: () -> Unit) {

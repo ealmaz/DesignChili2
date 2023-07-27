@@ -19,6 +19,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).setUpHomeEnabled(true)
+        vb.actionCell.setIsChevronVisible(false)
         vb.btnP1.setOnClickListener {
             vb.progress.setProgressPercent(100)
         }
