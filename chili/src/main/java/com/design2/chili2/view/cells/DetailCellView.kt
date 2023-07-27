@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.Spanned
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -78,6 +79,12 @@ class DetailCellView @JvmOverloads constructor(
             getResourceId(R.styleable.DetailCellView_statusTextAppearance, -1).takeIf { it != -1 }?.let {
                 setStatusTextAppearance(it)
             }
+            getInteger(R.styleable.DetailCellView_titleMaxLines, -1).takeIf { it != -1 }?.let {
+                setTitleMaxLines(it)
+            }
+            getInteger(R.styleable.DetailCellView_subtitleMaxLines, -1).takeIf { it != -1 }?.let {
+                setSubtitleMaxLines(it)
+            }
             recycle()
         }
     }
@@ -97,6 +104,20 @@ class DetailCellView @JvmOverloads constructor(
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {
         view.tvTitle.setTextAppearance(resId)
+    }
+
+    fun setTitleMaxLines(value: Int) {
+        view.tvTitle.apply {
+            maxLines = value
+            ellipsize = TextUtils.TruncateAt.END
+        }
+    }
+
+    fun setSubtitleMaxLines(value: Int) {
+        view.tvSubtitle.apply {
+            maxLines = value
+            ellipsize = TextUtils.TruncateAt.END
+        }
     }
 
     fun setSubtitle(text: CharSequence?) {
