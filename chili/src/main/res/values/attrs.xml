@@ -17,6 +17,7 @@
         <attr name="endIconCellViewDefaultStyle" format="reference"/>
         <attr name="checkBoxCellViewDefaultStyle" format="reference"/>
         <attr name="additionalTextCellViewDefaultStyle" format="reference"/>
+        <attr name="additionalTextWithIconCellViewDefaultStyle" format="reference"/>
         <attr name="actionCellViewDefaultStyle" format="reference"/>
         <attr name="expandableCellViewDefaultStyle" format="reference"/>
         <attr name="progressCellViewDefaultStyle" format="reference"/>
@@ -182,6 +183,12 @@
     </declare-styleable>
 
     <declare-styleable name="AdditionalTextCellView">
+        <attr name="additionalText"/>
+        <attr name="additionalTextTextAppearance" />
+    </declare-styleable>
+
+    <declare-styleable name="AdditionalTextWithIconCellView">
+        <attr name="additionalIcon" format="reference"/>
         <attr name="additionalText"/>
         <attr name="additionalTextTextAppearance" />
     </declare-styleable>

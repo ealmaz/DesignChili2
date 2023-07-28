@@ -711,6 +711,46 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_16dp"
+            android:text="AdditionalTextCellViewWithIcon разные состояния" />
+
+        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ShadowLayoutStyle">
+
+            <com.design2.chili2.view.cells.AdditionalTextWithIconCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isDividerVisible="false"
+                app:roundedCornerMode="single"
+                app:title="Заголовок"
+                app:additionalText="Additional text"
+                app:additionalIcon="@drawable/ic_info"/>
+
+        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            style="@style/ShadowLayoutStyle">
+
+            <com.design2.chili2.view.cells.AdditionalTextWithIconCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isDividerVisible="false"
+                app:roundedCornerMode="single"
+                app:isChevronVisible="false"
+                app:title="Заголовок"
+                app:additionalText="Additional text"
+                app:additionalIcon="@drawable/ic_info"/>
+
+        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"
             android:text="EndIconCellView разные состояния" />
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
@@ -1224,7 +1264,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/chili_cell_rounded_bottom_background"
-                android:elevation="@dimen/elevation_8dp"
                 app:firstButtonText="ОТМЕНИТЬ"
                 app:secondButtonText="ОПЛАТИТЬ" />
 
@@ -1255,7 +1294,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/chili_cell_rounded_bottom_background"
-                android:elevation="@dimen/elevation_8dp"
                 android:text="Поле ввода комментария вмещает в себя такое же количество символов, сколько поле поле ввода комментария - 130 символов"
                 android:textAppearance="@style/Chili.H8.Secondary" />
 

@@ -24,6 +24,11 @@
         <item name="additionalTextTextAppearance">@style/Chili.H7.Secondary</item>
     </style>
 
+    <style name="Chili.CellViewStyle.BaseCellViewStyle.AdditionalTextWithIcon">
+        <item name="titleTextAppearance">@style/Chili.H9.Primary</item>
+        <item name="additionalTextTextAppearance">@style/Chili.H7.Primary.Bold</item>
+    </style>
+
     <style name="Chili.CellViewStyle.BaseCellViewStyle.Action"/>
 
     <style name="Chili.CellViewStyle.InfoCellView"/>
