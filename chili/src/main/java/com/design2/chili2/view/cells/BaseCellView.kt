@@ -315,6 +315,13 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     override fun getShimmeringViewsPair() = shimmeringPairs
+
+    fun setChevron(drawable: Drawable) {
+        view.chevron.apply {
+            visible()
+            setImageDrawable(drawable)
+        }
+    }
 }
 
 data class BaseCellViewVariables(
