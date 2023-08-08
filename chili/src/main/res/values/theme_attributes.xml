@@ -19,6 +19,7 @@
     <attr name="ChiliMarkedTextColor" format="color"/>
     <attr name="ChiliErrorTextColor" format="color"/>
     <attr name="ChiliLinkTextColor" format="color"/>
+    <attr name="ChiliValueTextColor" format="color"/>
 
     <!-- Text font attributes   -->
     <attr name="ChiliRegularTextFont" format="string"/>

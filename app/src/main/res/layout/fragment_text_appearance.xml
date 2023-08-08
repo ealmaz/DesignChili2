@@ -159,6 +159,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Value Color"
+            android:textAppearance="@style/Chili.H6.Value"
+            android:layout_marginTop="@dimen/padding_16dp"/>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:background="?attr/ChiliDividerColor"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Error Color"
             android:textAppearance="@style/Chili.H6.Error"
             android:layout_marginTop="@dimen/padding_16dp"/>
