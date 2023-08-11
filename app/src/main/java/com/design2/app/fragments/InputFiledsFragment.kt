@@ -19,6 +19,10 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
         vb.field2Mask.requestFocus()
         vb.field0.setMaxLength(3)
         vb.otp.setMessageText("ddweewrwerwerwerwerwerwerwerwerwerwerwerwerwerwerwe")
+        vb.input57.setupOnGetFocusAction {
+            Toast.makeText(requireContext(), "Focus", Toast.LENGTH_SHORT).show()
+            vb.inputSv.smoothScrollTo(0, vb.input57.bottom + resources.getDimensionPixelSize(com.design2.chili2.R.dimen.padding_16dp))
+        }
 
         vb.otp.apply {
             setActionText("Сбросить пароль")
