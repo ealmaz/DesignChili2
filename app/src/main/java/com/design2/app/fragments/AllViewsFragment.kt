@@ -54,6 +54,10 @@ class AllViewsFragment : BaseFragment<FragmentAllViewsBinding>() {
             openFragment(OverlaysFragment())
         }
 
+        vb.groupingContainer.setOnClickListener {
+            openFragment(GroupdableRVFragment())
+        }
+
         (activity as MainActivity).setUpHomeEnabled(false)
     }
 

@@ -20,7 +20,7 @@
     
     <style name="ShadowLayoutStyle">
         <item name="background_radius">@dimen/padding_14dp</item>
-        <item name="shadow_blur">@dimen/padding_32dp</item>
+        <item name="shadow_blur">80dp</item>
         <item name="shadow_color">@color/black_alpha_0_08</item>
         <item name="shadow_offset_x">@dimen/padding_0dp</item>
         <item name="shadow_offset_y">@dimen/padding_8dp</item>
