@@ -60,7 +60,7 @@ class BalanceCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setValueTextTextAppearance(it) }
         getResourceId(R.styleable.BalanceCardView_icon, -1)
             .takeIf { it != -1 }?.let { setIcon(it) }
-        getDrawable(R.styleable.BalanceCardView_cardEndIcon).let {
+        getDrawable(R.styleable.BalanceCardView_endIcon).let {
             setEndIcon(it)
         }
         getDrawable(R.styleable.BalanceCardView_titleIcon).let {
