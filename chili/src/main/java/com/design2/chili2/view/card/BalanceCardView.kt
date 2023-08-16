@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.ColorInt
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.R
@@ -36,6 +37,7 @@ class BalanceCardView @JvmOverloads constructor(
             tvLabel = view.findViewById(R.id.tv_title),
             tvValue = view.findViewById(R.id.tv_value),
             ivIcon = view.findViewById(R.id.iv_icon),
+            ivEndIcon = view.findViewById(R.id.iv_end_icon),
             ivTitleIcon = view.findViewById(R.id.iv_title_icon),
             ivChevron = view.findViewById(R.id.iv_chevron),
             root = view.findViewById(R.id.root_view),
@@ -58,6 +60,9 @@ class BalanceCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setValueTextTextAppearance(it) }
         getResourceId(R.styleable.BalanceCardView_icon, -1)
             .takeIf { it != -1 }?.let { setIcon(it) }
+        getDrawable(R.styleable.BalanceCardView_cardEndIcon).let {
+            setEndIcon(it)
+        }
         getDrawable(R.styleable.BalanceCardView_titleIcon).let {
             setTitleIcon(it)
         }
@@ -92,6 +97,10 @@ class BalanceCardView @JvmOverloads constructor(
 
     fun setValueTextTextAppearance(resId: Int) {
         view.tvValue.setTextAppearance(resId)
+    }
+
+    fun setValueTextColor(@ColorInt colorId: Int) {
+        view.tvValue.setTextColor(colorId)
     }
 
     fun setIcon(resId: Int?) = with (view.ivIcon) {
@@ -132,6 +141,22 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
+    fun setEndIcon(drawable: Drawable?) = with(view.ivEndIcon) {
+        if (drawable == null) gone()
+        else {
+            visible()
+            setImageDrawable(drawable)
+        }
+    }
+
+    fun setEndIcon(drawableRes: Int?) = with(view.ivEndIcon) {
+        if (drawableRes == null) gone()
+        else {
+            visible()
+            setImageResource(drawableRes)
+        }
+    }
+
     fun isChevronVisible(isVisible: Boolean) {
         view.ivChevron.isVisible = isVisible
     }
@@ -141,6 +166,7 @@ data class BalanceCardViewViewVariables(
     val tvLabel: TextView,
     val tvValue: TextView,
     val ivIcon: ImageView,
+    val ivEndIcon: ImageView,
     val ivTitleIcon: ImageView,
     val ivChevron: ImageView,
     val root: ConstraintLayout,
