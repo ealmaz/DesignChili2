@@ -157,6 +157,8 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
+    fun setIsEndIconVisible(isVisible: Boolean) { view.ivEndIcon.isVisible = isVisible }
+
     fun isChevronVisible(isVisible: Boolean) {
         view.ivChevron.isVisible = isVisible
     }
