@@ -22,8 +22,9 @@
             app:titleTextAppearance="?attr/ChiliToolbarTextAppearance"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_icon"
             app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="@dimen/padding_8dp"
             tools:title="Toolbar" />
 
         <TextView
