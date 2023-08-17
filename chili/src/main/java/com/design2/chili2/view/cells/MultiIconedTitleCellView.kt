@@ -20,6 +20,7 @@ import com.design2.chili2.extensions.visible
 import com.design2.chili2.util.ItemDecorator
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.image.SquircleView
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class MultiIconedTitleCellView @JvmOverloads constructor(
     context: Context,
@@ -29,6 +30,7 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     lateinit var view: MultiIconedTitleCellViewVariables
+    lateinit var adapter: MultiIconedAdapter
 
     init {
         initView(context)
@@ -43,8 +45,22 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
             tvDescription = view.findViewById(R.id.tv_description),
             rvIcons = view.findViewById(R.id.rv_icons),
             divider = view.findViewById(R.id.divider),
-            ivInfo = view.findViewById(R.id.iv_info)
+            ivInfo = view.findViewById(R.id.iv_info),
+            iconsShimmer = view.findViewById(R.id.shimmer)
         )
+        setupRecyclerView()
+    }
+
+    private fun setupRecyclerView() {
+        adapter = MultiIconedAdapter()
+        view.rvIcons.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        view.rvIcons.addItemDecoration(
+            ItemDecorator(
+                context.resources.getDimension(R.dimen.padding_desc_4dp).toInt()
+            )
+        )
+        view.rvIcons.adapter = adapter
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -101,12 +117,17 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
         }
     }
 
-    fun setIcons(icons: ArrayList<String>) {
-        val adapter = MultiIconedAdapter()
-        view.rvIcons.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        view.rvIcons.addItemDecoration(ItemDecorator(context.resources.getDimension(R.dimen.padding_desc_4dp).toInt()))
-        view.rvIcons.adapter = adapter
+    fun setIcons(icons: ArrayList<Any>) {
         adapter.addIcons(icons)
+    }
+
+    fun startShimmering() {
+        view.iconsShimmer.startShimmer()
+        adapter.addIcons(arrayListOf(R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,))
+    }
+
+    fun stopShimmering(){
+        view.iconsShimmer.stopShimmer()
     }
 }
 
@@ -116,12 +137,13 @@ data class MultiIconedTitleCellViewVariables(
     val tvDescription: TextView,
     val rvIcons: RecyclerView,
     val divider: View,
-    val ivInfo: ImageView
+    val ivInfo: ImageView,
+    val iconsShimmer: ShimmerFrameLayout
 )
 
-class MultiIconedAdapter(): RecyclerView.Adapter<MultiIconedAdapter.IconVH>() {
+class MultiIconedAdapter() : RecyclerView.Adapter<MultiIconedAdapter.IconVH>() {
 
-    private val icons = ArrayList<String>()
+    private val icons = ArrayList<Any>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconVH {
         return IconVH(LayoutInflater.from(parent.context)
@@ -134,16 +156,21 @@ class MultiIconedAdapter(): RecyclerView.Adapter<MultiIconedAdapter.IconVH>() {
 
     override fun getItemCount(): Int = icons.size
 
-    fun addIcons(icons: ArrayList<String>) {
+    fun addIcons(icons: ArrayList<Any>) {
         this.icons.clear()
         this.icons.addAll(icons)
         notifyDataSetChanged()
     }
 
-    class IconVH(view: View): RecyclerView.ViewHolder(view) {
-        fun bind(item: String) {
+    class IconVH(view: View) : RecyclerView.ViewHolder(view) {
+        fun bind(item: Any) {
             val ivImg = itemView.findViewById<SquircleView>(R.id.iv_img)
-            ivImg.setImageByUrl(item)
+            if (item is String) {
+                ivImg.setImageByUrl(item)
+            }
+            if (item is Int) {
+                ivImg.setImageResource(item)
+            }
         }
     }
 }
