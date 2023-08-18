@@ -1,5 +1,6 @@
 package com.design2.chili2.view.container
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -214,6 +215,24 @@ class ExpandableContainer @JvmOverloads constructor(
     }
 
     fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true) {
+        if (this.isExpanded == isExpanded) return
+
+        val newHeight = if (isExpanded) calculateExpandedHeight() else calculateCollapsedHeight()
+
+        if (isAnimated) {
+            val animator = ValueAnimator.ofInt(height, newHeight)
+            animator.addUpdateListener { valueAnimator ->
+                val height = valueAnimator.animatedValue as Int
+                layoutParams.height = height
+                requestLayout()
+            }
+            animator.duration = 300
+            animator.start()
+        } else {
+            layoutParams?.height = newHeight
+            requestLayout()
+        }
+
         this.isExpanded = isExpanded
         if (this.isExpanded) {
             rotateChevron(0f, isAnimated)
@@ -228,6 +247,20 @@ class ExpandableContainer @JvmOverloads constructor(
             }
             view.tvSubtitle.gone()
         }
+    }
+
+    private fun calculateExpandedHeight(): Int {
+        val childViewsHeight = children.sumBy { it.height }
+        val paddingTop = paddingTop
+        val paddingBottom = paddingBottom
+        return childViewsHeight + paddingTop + paddingBottom
+    }
+
+    private fun calculateCollapsedHeight(): Int {
+        val firstChildHeight = getChildAt(0)?.height ?: 0
+        val paddingTop = paddingTop
+        val paddingBottom = paddingBottom
+        return firstChildHeight + paddingTop + paddingBottom
     }
 
     private fun rotateChevron(rotation: Float = 0f, isAnimated: Boolean = true) {
