@@ -32,6 +32,8 @@ class ExpandableContainer @JvmOverloads constructor(
     private lateinit var view: ExpandableContainerViewVariables
 
     var isExpanded: Boolean = false
+    private var expandedHeight = 0
+    private var collapsedHeight = 0
 
     init {
         inflateView()
@@ -215,9 +217,10 @@ class ExpandableContainer @JvmOverloads constructor(
     }
 
     fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true) {
-        if (this.isExpanded == isExpanded) return
+        if (expandedHeight == 0) expandedHeight = calculateExpandedHeight()
+        if (collapsedHeight == 0) collapsedHeight = calculateCollapsedHeight()
 
-        val newHeight = if (isExpanded) calculateExpandedHeight() else calculateCollapsedHeight()
+        val newHeight = if (isExpanded) expandedHeight else collapsedHeight
 
         if (isAnimated) {
             val animator = ValueAnimator.ofInt(height, newHeight)
