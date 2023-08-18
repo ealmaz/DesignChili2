@@ -16,7 +16,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:textAppearance="@style/Chili.H7.Primary.Bold"
-        app:layout_constraintBottom_toTopOf="@id/shimmer"
+        app:layout_constraintBottom_toTopOf="@id/icons_container"
         app:layout_constraintEnd_toStartOf="@id/iv_info"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,8 +24,8 @@
         app:layout_goneMarginBottom="@dimen/padding_8dp"
         tools:text="Заголовок" />
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmer"
+    <FrameLayout
+        android:id="@+id/icons_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/divider"
@@ -36,14 +36,39 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_icons"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="@dimen/padding_12dp"
             android:layout_marginTop="@dimen/padding_4dp"
             android:layout_marginEnd="@dimen/padding_12dp"
             android:layout_marginBottom="@dimen/padding_12dp"
-            android:orientation="horizontal" />
-    </com.facebook.shimmer.ShimmerFrameLayout>
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/divider"
+            app:layout_constraintEnd_toStartOf="@id/iv_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/divider"
+            app:layout_constraintEnd_toStartOf="@id/iv_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_icons_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_12dp"
+                android:layout_marginTop="@dimen/padding_4dp"
+                android:layout_marginEnd="@dimen/padding_12dp"
+                android:layout_marginBottom="@dimen/padding_12dp"
+                android:orientation="horizontal" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/iv_info"
@@ -75,6 +100,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shimmer" />
+        app:layout_constraintTop_toBottomOf="@id/icons_container" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
