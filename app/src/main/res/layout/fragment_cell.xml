@@ -1469,6 +1469,18 @@
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"
+            android:text="MultiIconedCellView" />
+
+        <com.design2.chili2.view.cells.MultiIconedTitleCellView
+            app:title="Заголовок"
+            android:id="@+id/multiiconed_cell_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </ScrollView>

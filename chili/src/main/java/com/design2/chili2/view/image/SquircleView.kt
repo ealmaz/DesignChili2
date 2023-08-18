@@ -325,6 +325,7 @@ class SquircleView : AppCompatImageView {
             2.0) <= Math.pow(mBorderRadius.toDouble(), 2.0)
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private inner class OutlineProvider : ViewOutlineProvider() {
         override fun getOutline(view: View, outline: Outline) {

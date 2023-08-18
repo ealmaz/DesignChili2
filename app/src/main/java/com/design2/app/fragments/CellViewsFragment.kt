@@ -41,6 +41,8 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
                 setAdditionalText("0")
             }
         }
+        val icon = "https://tal7aouy.gallerycdn.vsassets.io/extensions/tal7aouy/icons/3.6.3/1679578385939/Microsoft.VisualStudio.Services.Icons.Default"
+        vb.multiiconedCellView.setIcons(arrayListOf(icon, icon, icon))
     }
 
     override fun inflateViewBinging(): FragmentCellBinding {
@@ -54,6 +56,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
                 (view as? ShimmeringView)?.startShimmering()
             }
         }
+        vb.multiiconedCellView.startShimmering()
     }
 
     override fun stopShimmering() {
@@ -63,5 +66,6 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
                 (view as? ShimmeringView)?.stopShimmering()
             }
         }
+        vb.multiiconedCellView.stopShimmering()
     }
 }
