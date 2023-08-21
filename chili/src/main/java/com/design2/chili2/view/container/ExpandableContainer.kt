@@ -243,6 +243,7 @@ class ExpandableContainer @JvmOverloads constructor(
         if (collapsedHeight == 0) collapsedHeight = calculateCollapsedHeight()
 
         val newHeight = if (isExpanded) expandedHeight else collapsedHeight
+        val childHeight = children.find { it is RecyclerView }?.height ?: newHeight
 
         if (isAnimated) {
             val animator = ValueAnimator.ofInt(height, newHeight)
@@ -255,7 +256,7 @@ class ExpandableContainer @JvmOverloads constructor(
             animator.addListener(object : Animator.AnimatorListener {
                 override fun onAnimationStart(p0: Animator?) {}
                 override fun onAnimationEnd(p0: Animator?) {
-                    updateChildrenHeight(this@ExpandableContainer, newHeight)
+                    updateChildrenHeight(this@ExpandableContainer, childHeight)
                 }
                 override fun onAnimationCancel(p0: Animator?) {}
                 override fun onAnimationRepeat(p0: Animator?) {}
@@ -270,7 +271,7 @@ class ExpandableContainer @JvmOverloads constructor(
 
     private fun updateChildrenHeight(viewGroup: ViewGroup, height: Int) {
         viewGroup.children.find { it is RecyclerView }?.apply {
-            layoutParams?.height = height - paddingTop - paddingBottom
+            layoutParams?.height = height
             requestLayout()
             invalidate()
         }
