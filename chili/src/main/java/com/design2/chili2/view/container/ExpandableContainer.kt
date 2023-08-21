@@ -1,5 +1,6 @@
 package com.design2.chili2.view.container
 
+import android.animation.Animator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.drawable.Drawable
@@ -8,6 +9,7 @@ import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -15,6 +17,7 @@ import androidx.annotation.DimenRes
 import androidx.annotation.StyleRes
 import androidx.core.view.children
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setOnSingleClickListener
@@ -217,24 +220,7 @@ class ExpandableContainer @JvmOverloads constructor(
     }
 
     fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true) {
-        if (expandedHeight == 0) expandedHeight = calculateExpandedHeight()
-        if (collapsedHeight == 0) collapsedHeight = calculateCollapsedHeight()
-
-        val newHeight = if (isExpanded) expandedHeight else collapsedHeight
-
-        if (isAnimated) {
-            val animator = ValueAnimator.ofInt(height, newHeight)
-            animator.addUpdateListener { valueAnimator ->
-                val height = valueAnimator.animatedValue as Int
-                layoutParams.height = height
-                requestLayout()
-            }
-            animator.duration = 300
-            animator.start()
-        } else {
-            layoutParams?.height = newHeight
-            requestLayout()
-        }
+        animateExpanding(isAnimated, isExpanded)
 
         this.isExpanded = isExpanded
         if (this.isExpanded) {
@@ -252,17 +238,51 @@ class ExpandableContainer @JvmOverloads constructor(
         }
     }
 
+    private fun animateExpanding(isAnimated: Boolean, isExpanded: Boolean) {
+        if (expandedHeight == 0) expandedHeight = calculateExpandedHeight()
+        if (collapsedHeight == 0) collapsedHeight = calculateCollapsedHeight()
+
+        val newHeight = if (isExpanded) expandedHeight else collapsedHeight
+
+        if (isAnimated) {
+            val animator = ValueAnimator.ofInt(height, newHeight)
+            animator.addUpdateListener { valueAnimator ->
+                val height = valueAnimator.animatedValue as Int
+                layoutParams.height = height
+                requestLayout()
+            }
+            animator.duration = 300
+            animator.addListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(p0: Animator?) {}
+                override fun onAnimationEnd(p0: Animator?) {
+                    updateChildrenHeight(this@ExpandableContainer, newHeight)
+                }
+                override fun onAnimationCancel(p0: Animator?) {}
+                override fun onAnimationRepeat(p0: Animator?) {}
+            })
+            animator.start()
+        } else {
+            layoutParams?.height = newHeight
+            requestLayout()
+            updateChildrenHeight(this, newHeight)
+        }
+    }
+
+    private fun updateChildrenHeight(viewGroup: ViewGroup, height: Int) {
+        viewGroup.children.find { it is RecyclerView }?.apply {
+            layoutParams?.height = height - paddingTop - paddingBottom
+            requestLayout()
+            invalidate()
+        }
+    }
+
     private fun calculateExpandedHeight(): Int {
         val childViewsHeight = children.sumBy { it.height }
-        val paddingTop = paddingTop
-        val paddingBottom = paddingBottom
         return childViewsHeight + paddingTop + paddingBottom
     }
 
     private fun calculateCollapsedHeight(): Int {
         val firstChildHeight = getChildAt(0)?.height ?: 0
-        val paddingTop = paddingTop
-        val paddingBottom = paddingBottom
         return firstChildHeight + paddingTop + paddingBottom
     }
 
