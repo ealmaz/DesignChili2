@@ -31,4 +31,8 @@
         <item name="cardCornerRadius">?ChiliBankCardViewCornerRadius</item>
     </style>
 
+    <style name="Chili.CardViewStyle.SingleSelectedCard"/>
+
+    <style name="Chili.CardViewStyle.TitleLogoCard"/>
+
 </resources>
