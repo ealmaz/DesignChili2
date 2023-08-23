@@ -155,6 +155,9 @@
         <item name="ChiliAdditionalButtonTextColorActive">@color/black_1</item>
         <item name="ChiliAdditionalButtonTextColorPressed">@color/gray_1</item>
         <item name="ChiliAdditionalButtonTextColorDisabled">@color/gray_1_alpha_50</item>
+        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/gray_5</item>
+        <item name="ChiliNewAdditionalButtonCornerRadius">@dimen/radius_12dp</item>
+        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/gray_5</item>
 
         <item name="ChiliAdditionalButtonBorderColor">@color/gray_5</item>
         <item name="ChiliAdditionalButtonDisabledBorderColor">@color/gray_5</item>
@@ -221,6 +224,7 @@
         <item name="ChiliCellViewBackground">@color/white_1</item>
         <item name="ChiliCellCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliCellViewElevation">@dimen/elevation_0dp</item>
+        <item name="ChiliCellSquircleIconBackground">@color/gray_3</item>
 
         <!-- StatusMarkerCellView -->
         <item name="ChiliMarkerStatusCellViewStatusCornerRadius">@dimen/radius_14dp</item>
@@ -232,6 +236,10 @@
 
         <!-- ChiliSwipeToRefreshView -->
         <item name="ChiliSwipeToRefreshViewColor">@color/folly_1</item>
+
+        <!-- Tooltip attributes -->
+        <item name="ChiliTooltipBackground">@color/black_3</item>
+        <item name="ChiliTooltipCornerRadius">@dimen/radius_12dp</item>
 
     </style>
 

@@ -76,6 +76,7 @@
     <attr name="ChiliCellViewBackground" format="reference"/>
     <attr name="ChiliCellCornerRadius" format="dimension"/>
     <attr name="ChiliCellViewElevation" format="dimension"/>
+    <attr name="ChiliCellSquircleIconBackground" format="dimension"/>
 
     <!-- StatusMarkerCellView -->
     <attr name="ChiliMarkerStatusCellViewStatusCornerRadius" format="dimension"/>
@@ -186,6 +187,9 @@
     <attr name="ChiliAdditionalButtonTextColorPressed" format="color"/>
     <attr name="ChiliAdditionalButtonTextColorDisabled" format="color"/>
     <attr name="ChiliAdditionalButtonTextAllCaps" format="boolean"/>
+    <attr name="ChiliNewAdditionalButtonBackgroundActive" format="color"/>
+    <attr name="ChiliNewAdditionalButtonBackgroundDisabled" format="color"/>
+    <attr name="ChiliNewAdditionalButtonCornerRadius" format="dimension"/>
 
     <attr name="ChiliAdditionalButtonBorderColor" format="color"/>
     <attr name="ChiliAdditionalButtonDisabledBorderColor" format="color"/>
@@ -229,5 +233,9 @@
 
     <!-- ChiliSwipeToRefreshView -->
     <attr name="ChiliSwipeToRefreshViewColor" format="color"/>
+
+    <!-- Tooltip attributes -->
+    <attr name="ChiliTooltipBackground" format="color"/>
+    <attr name="ChiliTooltipCornerRadius" format="dimension"/>
 
 </resources>

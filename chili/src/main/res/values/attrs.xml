@@ -45,6 +45,7 @@
         <attr name="simpleCardViewDefaultStyle" format="reference"/>
         <attr name="balanceCardViewDefaultStyle" format="reference"/>
         <attr name="bankCardViewDefaultStyle" format="reference"/>
+        <attr name="singleSelectedCardViewDefaultStyle" format="reference" />
 
 
         <!-- PassportCardCameraOverlay -->
@@ -441,6 +442,11 @@
         <attr name="gradient_positions" format="string"/>
 
         <attr name="smooth_corner" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SingleSelectedCardView">
+        <attr name="title"/>
+        <attr name="value"/>
     </declare-styleable>
 
 </resources>

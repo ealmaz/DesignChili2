@@ -17,7 +17,6 @@ import com.design2.chili2.R
 import com.design2.chili2.extensions.*
 import com.design2.chili2.util.IconSize
 import com.design2.chili2.util.RoundedCornerMode
-import com.design2.chili2.view.image.SquircleView
 import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
 
