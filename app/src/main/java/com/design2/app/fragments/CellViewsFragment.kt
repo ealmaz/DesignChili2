@@ -2,16 +2,12 @@ package com.design2.app.fragments
 
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.text.parseAsHtml
-import androidx.core.view.children
-import androidx.core.view.forEach
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
-import com.design2.chili2.view.shimmer.ShimmeringView
-import com.design2.chili2.view.shimmer.startShimmering
-import com.design2.chili2.view.shimmer.stopShimmering
+import com.design2.chili2.view.shimmer.startGroupShimmering
+import com.design2.chili2.view.shimmer.stopGroupShimmering
 
 
 class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
@@ -51,21 +47,11 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
 
     override fun startShimmering() {
         super.startShimmering()
-        vb.container.children.forEach {
-            (it as? ViewGroup)?.forEach { view ->
-                (view as? ShimmeringView)?.startShimmering()
-            }
-        }
-        vb.multiiconedCellView.startShimmering()
+        vb.root.startGroupShimmering()
     }
 
     override fun stopShimmering() {
         super.stopShimmering()
-        vb.container.children.forEach {
-            (it as? ViewGroup)?.forEach { view ->
-                (view as? ShimmeringView)?.stopShimmering()
-            }
-        }
-        vb.multiiconedCellView.stopShimmering()
+        vb.root.stopGroupShimmering()
     }
 }

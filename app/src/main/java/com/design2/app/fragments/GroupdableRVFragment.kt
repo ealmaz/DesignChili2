@@ -14,6 +14,8 @@ import com.design2.chili2.view.container.grouping_rv.GroupableAdapter
 import com.design2.chili2.view.container.grouping_rv.GroupingItem
 import com.design2.chili2.view.container.grouping_rv.GroupingRVAdapter
 import com.design2.chili2.view.container.grouping_rv.ShadowGroupItems
+import com.design2.chili2.view.shimmer.startGroupShimmering
+import com.design2.chili2.view.shimmer.stopGroupShimmering
 
 class GroupdableRVFragment : BaseFragment<FragmentGroupableRvBinding>() {
 
@@ -68,6 +70,16 @@ class GroupdableRVFragment : BaseFragment<FragmentGroupableRvBinding>() {
 
     override fun inflateViewBinging(): FragmentGroupableRvBinding {
         return FragmentGroupableRvBinding.inflate(layoutInflater)
+    }
+
+    override fun startShimmering() {
+        super.startShimmering()
+        vb.root.startGroupShimmering()
+    }
+
+    override fun stopShimmering() {
+        super.stopShimmering()
+        vb.root.stopGroupShimmering()
     }
 }
 
