@@ -1,4 +1,4 @@
-package com.design.chili.model
+package com.design2.chili2.model
 
 data class Option<T>(
     val type: T,

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
-import com.design.chili.model.Option
+import com.design2.chili2.model.Option
 
 class ConfigSelectorCardView : ConstraintLayout {
 

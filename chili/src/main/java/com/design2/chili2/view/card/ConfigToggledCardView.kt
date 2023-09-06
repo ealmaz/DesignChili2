@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.design.chili.model.Option
+import com.design2.chili2.model.Option
 import com.design2.chili2.R
 import com.design2.chili2.view.cells.TitledInfoCellView
 
