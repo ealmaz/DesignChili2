@@ -85,6 +85,7 @@
 
         <!-- CellView attributes -->
         <item name="ChiliCellViewBackground">@color/black_3</item>
+        <item name="ChiliCellSquircleIconBackground">@color/black_2</item>
 
 
         <!-- Shimmer attributes -->
@@ -99,6 +100,9 @@
         <item name="ChiliAdditionalButtonBackgroundDisabled">@color/black_5</item>
         <item name="ChiliAdditionalButtonTextColorActive">@color/white_1</item>
         <item name="ChiliAdditionalButtonTextColorPressed">@color/white_1</item>
+
+        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/black_5</item>
+        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/black_5</item>
 
         <item name="ChiliAdditionalButtonBorderColor">@color/black_5</item>
         <item name="ChiliAdditionalButtonDisabledBorderColor">@color/black_5</item>

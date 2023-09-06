@@ -329,12 +329,16 @@ open class BaseCellView @JvmOverloads constructor(
             setImageResource(drawableRes)
         }
     }
+
+    fun setSquircleIconBackgroundColor(@ColorInt color: Int) {
+        view.ivIcon.squircleBackgroundColor = color
+    }
 }
 
 data class BaseCellViewVariables(
     var flStartPlaceholder: FrameLayout,
     var flEndPlaceholder: FrameLayout,
-    var ivIcon: ImageView,
+    var ivIcon: SquircleView,
     var tvTitle: TextView,
     var tvSubtitle: TextView,
     var divider: View,
