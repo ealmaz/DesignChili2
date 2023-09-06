@@ -234,4 +234,8 @@
     <!-- ChiliSwipeToRefreshView -->
     <attr name="ChiliSwipeToRefreshViewColor" format="color"/>
 
+    <!-- Tooltip attributes -->
+    <attr name="ChiliTooltipBackground" format="color"/>
+    <attr name="ChiliTooltipCornerRadius" format="dimension"/>
+
 </resources>
