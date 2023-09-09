@@ -481,6 +481,24 @@
 
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
+                    <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/ShadowLayoutStyle"
+                        android:layout_marginBottom="@dimen/padding_16dp"
+                        android:layout_marginEnd="@dimen/padding_16dp">
+
+                        <com.design2.chili2.view.card.BalanceCardView
+                            android:id="@+id/bal4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:title="Баланс"
+                            android:background="?selectableItemBackground"
+                            android:focusable="true"
+                            android:clickable="true"/>
+
+                    </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
                 </LinearLayout>
 
             </HorizontalScrollView>

@@ -92,6 +92,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:text="1 002 062 c" />
 
+    <ImageView
+        android:id="@+id/iv_value_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/tv_value"
+        app:layout_constraintTop_toTopOf="@id/tv_value"
+        app:layout_constraintBottom_toBottomOf="@id/tv_value"
+        android:layout_marginStart="@dimen/padding_8dp"
+        tools:src="@drawable/chili_ic_warning"
+        tools:visibility="gone" />
+
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_subtitle_shimmer"
         android:layout_width="0dp"

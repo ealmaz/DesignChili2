@@ -36,6 +36,7 @@ class BalanceCardView @JvmOverloads constructor(
         this.view = BalanceCardViewViewVariables(
             tvLabel = view.findViewById(R.id.tv_title),
             tvValue = view.findViewById(R.id.tv_value),
+            ivValueIcon = view.findViewById(R.id.iv_value_icon),
             ivIcon = view.findViewById(R.id.iv_icon),
             ivEndIcon = view.findViewById(R.id.iv_end_icon),
             ivTitleIcon = view.findViewById(R.id.iv_title_icon),
@@ -157,6 +158,28 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
+    fun setValueIcon(resId: Int?) = with (view.ivValueIcon) {
+        if (resId == null) {
+            gone()
+            shimmeringPairs.remove(this)
+        } else {
+            setImageResource(resId)
+            visible()
+            shimmeringPairs[this] = null
+        }
+    }
+
+    fun setValueIcon(drawable: Drawable?) = with(view.ivValueIcon) {
+        if (drawable == null) gone()
+        else {
+
+            visible()
+            setImageDrawable(drawable)
+            shimmeringPairs[this] = null
+
+        }
+    }
+
     fun setIsEndIconVisible(isVisible: Boolean) { view.ivEndIcon.isVisible = isVisible }
 
     fun isChevronVisible(isVisible: Boolean) {
@@ -167,6 +190,7 @@ class BalanceCardView @JvmOverloads constructor(
 data class BalanceCardViewViewVariables(
     val tvLabel: TextView,
     val tvValue: TextView,
+    val ivValueIcon: ImageView,
     val ivIcon: ImageView,
     val ivEndIcon: ImageView,
     val ivTitleIcon: ImageView,

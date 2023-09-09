@@ -14,6 +14,10 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).setUpHomeEnabled(true)
         vb.bal2.isChevronVisible(false)
+        vb.bal4.apply {
+            setValueText("2435 c")
+            setValueIcon(com.design2.chili2.R.drawable.chili_ic_warning)
+        }
     }
 
     override fun inflateViewBinging(): FragmentCardsBinding {
