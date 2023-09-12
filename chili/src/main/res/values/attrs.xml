@@ -130,6 +130,7 @@
     <declare-styleable name="StartIconChiliToolbar">
         <attr name="title"/>
         <attr name="toolbarStartIcon" format="reference"/>
+        <attr name="textAppearance" format="reference"/>
         <attr name="background"/>
         <attr name="navigationIcon"/>
     </declare-styleable>

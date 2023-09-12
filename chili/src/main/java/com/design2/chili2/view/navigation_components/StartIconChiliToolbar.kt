@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
+import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
@@ -47,10 +48,13 @@ class StartIconChiliToolbar : LinearLayout {
         context?.obtainStyledAttributes(attrs, R.styleable.StartIconChiliToolbar, R.attr.toolbarDefaultStyle, defStyle)?.run {
             setTitle(getString(R.styleable.StartIconChiliToolbar_title))
             getResourceId(R.styleable.StartIconChiliToolbar_toolbarStartIcon, -1).takeIf { it != -1 }?.let {
-                setFirstIconIcon(it)
+                setStartIcon(it)
             }
             getColor(R.styleable.StartIconChiliToolbar_background, -1).takeIf { it != -1 }?.let {
                 setToolbarBackgroundColor(it)
+            }
+            getResourceId(R.styleable.StartIconChiliToolbar_textAppearance, -1).takeIf { it != -1 }?.let {
+                setTitleTextAppearance(it)
             }
             getResourceId(R.styleable.StartIconChiliToolbar_navigationIcon, -1).takeIf { it != -1 }?.let {
                 setNavigationIcon(it)
@@ -77,7 +81,11 @@ class StartIconChiliToolbar : LinearLayout {
         view.toolbarTitle.text = title
     }
 
-    fun setFirstIconIcon(@DrawableRes drawableId: Int) {
+    fun setTitleTextAppearance(@StyleRes textAppearanceRes: Int) {
+        view.toolbarTitle.setTextAppearance(textAppearanceRes)
+    }
+
+    fun setStartIcon(@DrawableRes drawableId: Int) {
         setIconVisibility(true)
         view.ivStartIcon.setImageResource(drawableId)
     }
