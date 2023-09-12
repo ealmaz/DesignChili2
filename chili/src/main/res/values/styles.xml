@@ -10,4 +10,17 @@
         <item name="maxLines">1</item>
         <item name="android:ellipsize">end</item>
     </style>
+
+    <style name="Chili.ToolbarTitleTextView">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/black_5</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/text_16sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

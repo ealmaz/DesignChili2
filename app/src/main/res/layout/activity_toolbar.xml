@@ -71,6 +71,12 @@
             android:layout_marginTop="@dimen/padding_16dp"
             app:title="Menu toolbar" />
 
+        <com.design2.chili2.view.navigation_components.StartIconChiliToolbar
+            android:id="@+id/toolbar8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="Start icon toolbar \nStart icon toolbar" />
 
     </LinearLayout>
 

@@ -1,18 +1,12 @@
 package com.design2.app
 
 import android.os.Bundle
-import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.design2.app.databinding.ActivityToolbarBinding
 import com.design2.chili2.view.navigation_components.ChiliToolbar
+import com.design2.chili2.view.navigation_components.StartIconChiliToolbar
 
 class ToolbarActivity : AppCompatActivity() {
-
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +48,11 @@ class ToolbarActivity : AppCompatActivity() {
         vb.toolbar3.initToolbar(ChiliToolbar.Configuration(
             this,
             isNavigateUpButtonEnabled = true,
+        ))
+
+        vb.toolbar8.initToolbar(StartIconChiliToolbar.Configuration(
+            hostActivity = this,
+            onNavigateUpClick = { onBackPressed() },
         ))
     }
 }

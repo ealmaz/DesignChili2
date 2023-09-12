@@ -127,6 +127,14 @@
         <attr name="navigationIcon"/>
     </declare-styleable>
 
+    <declare-styleable name="StartIconChiliToolbar">
+        <attr name="title"/>
+        <attr name="toolbarStartIcon" format="reference"/>
+        <attr name="background"/>
+        <attr name="navigationIcon"/>
+    </declare-styleable>
+
+
     <declare-styleable name="BaseCellView">
         <attr name="android:icon"/>
         <attr name="title"/>
