@@ -3,18 +3,21 @@ package com.design2.chili2.view.navigation_components
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
+import androidx.annotation.MenuRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.view.image.SquircleView
+import com.google.android.material.appbar.MaterialToolbar
 
 class StartIconChiliToolbar : LinearLayout {
 
@@ -63,6 +66,8 @@ class StartIconChiliToolbar : LinearLayout {
         }
     }
 
+    /** Toolbar */
+
     fun initToolbar(config: Configuration) {
         configureToolbar(config)
         (config.hostActivity as? AppCompatActivity)?.run { setSupportActionBar(view.toolbar)}
@@ -73,33 +78,76 @@ class StartIconChiliToolbar : LinearLayout {
         view.toolbar.apply { config.title?.let { this@StartIconChiliToolbar.setTitle(it) } }
     }
 
+    fun setToolbarBackgroundColor(@ColorInt colorInt: Int) {
+        view.rootView.setBackgroundColor(colorInt)
+    }
+
+    /** Navigation Icon */
+
     fun setNavigationIcon(@DrawableRes drawableRes: Int) {
         view.toolbar.setNavigationIcon(drawableRes)
     }
+
+    fun onNavigationIconClick(onNavigationIconClick: () -> Unit) {
+        view.toolbar.setNavigationOnClickListener {
+            onNavigationIconClick()
+        }
+    }
+
+    fun hideNavigationIcon() {
+        view.toolbar.navigationIcon = null
+    }
+
+    /** Toolbar title */
 
     fun setTitle(title: String?) {
         view.toolbarTitle.text = title
     }
 
+    fun getTitle(): String = view.toolbarTitle.text.toString()
+
     fun setTitleTextAppearance(@StyleRes textAppearanceRes: Int) {
         view.toolbarTitle.setTextAppearance(textAppearanceRes)
     }
 
-    fun setStartIcon(@DrawableRes drawableId: Int) {
-        setIconVisibility(true)
-        view.ivStartIcon.setImageResource(drawableId)
+    /** Start icon */
+
+    fun setStartIcon(icon: Any?) {
+        setStartIconVisibility(true)
+        when (icon) {
+            is String -> setStartIcon(icon)
+            is Int -> setStartIcon(icon)
+        }
     }
 
-    fun setIconVisibility(isVisible: Boolean) {
+    private fun setStartIcon(@DrawableRes drawableId: Int) {
+        view.ivStartIcon.setImageResource(drawableId)
+    }
+    private fun setStartIcon(uri: String?) {
+        uri?.let {  view.ivStartIcon.setImageByUrl(uri) }
+    }
+
+    fun setStartIconVisibility(isVisible: Boolean) {
         view.ivStartIcon.visibility = when(isVisible) {
             true -> View.VISIBLE
             else -> View.GONE
         }
     }
 
-    fun setToolbarBackgroundColor(@ColorInt colorInt: Int) {
-        view.rootView.setBackgroundColor(colorInt)
+    /** Menu */
+
+    fun inflateChiliMenu(@MenuRes menuId: Int, onMenuItemClicked: (MenuItem) -> Unit){
+        view.toolbar.inflateMenu(menuId)
+        view.toolbar.setOnMenuItemClickListener {
+            onMenuItemClicked(it)
+            true
+        }
     }
+    fun setMenuItemInvisible(id: Int) {
+        view.toolbar.menu?.findItem(id)?.isVisible = false
+    }
+
+    /** Configuration */
 
     data class Configuration(
         val hostActivity: FragmentActivity,
@@ -110,6 +158,6 @@ class StartIconChiliToolbar : LinearLayout {
 
 data class StartIconChiliToolbarViewVariables(
     val rootView: ConstraintLayout,
-    val toolbar: Toolbar,
+    val toolbar: MaterialToolbar,
     val toolbarTitle: TextView,
-    val ivStartIcon: ImageView)
+    val ivStartIcon: SquircleView)
