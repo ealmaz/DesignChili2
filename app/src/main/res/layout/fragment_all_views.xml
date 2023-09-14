@@ -12,6 +12,12 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/cover"
+            android:layout_gravity="top" />
+
         <Button
             android:id="@+id/text"
             android:text="Text Appearances"
