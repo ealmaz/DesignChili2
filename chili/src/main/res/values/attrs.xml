@@ -146,6 +146,7 @@
             <enum name="large" value="-3"/>
         </attr>
         <attr name="cellIconVerticalMargin" format="dimension"/>
+        <attr name="cellBackground" format="reference" />
         <attr name="cellIconHorizontalMargin" format="dimension"/>
         <attr name="cellIconTopMargin" format="dimension"/>
         <attr name="cellIconBottomMargin" format="dimension"/>
