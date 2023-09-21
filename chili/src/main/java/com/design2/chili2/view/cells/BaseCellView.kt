@@ -10,11 +10,20 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.annotation.*
+import androidx.annotation.DimenRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
-import com.design2.chili2.extensions.*
+import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.gone
+import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setIsSurfaceClickable
+import com.design2.chili2.extensions.setTextOrHide
+import com.design2.chili2.extensions.setupRoundedCellCornersMode
+import com.design2.chili2.extensions.visible
 import com.design2.chili2.util.IconSize
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.shimmer.ShimmeringView
@@ -57,6 +66,9 @@ open class BaseCellView @JvmOverloads constructor(
     protected open fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         context.obtainStyledAttributes(attrs, R.styleable.BaseCellView, defStyleAttr, defStyleRes)
             .run {
+                getResourceId(R.styleable.BaseCellView_cellBackground, -1).takeIf { it != -1 }?.let {
+                    view.rootView.setBackgroundResource(it)
+                }
                 getResourceId(R.styleable.BaseCellView_android_icon, -1).takeIf { it != -1 }?.let {
                     setIcon(it)
                 }
