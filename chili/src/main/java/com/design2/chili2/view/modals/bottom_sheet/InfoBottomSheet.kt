@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.view.modals.base.BaseViewBottomSheetDialogFragment
@@ -27,6 +28,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     private var textResId: Int? = null
 
     private var iconRes: Int? = null
+    private var iconUri: String? = null
 
     private var primaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
     private var secondaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
@@ -59,6 +61,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         textResId?.let { setMessage(it)}
 
         iconRes?.let { setIcon(it) }
+        iconUri?.let { setIcon(it) }
 
         primaryButton?.let { setPrimaryButton(it.first, it.second) }
         secondaryButton?.let { setSecondaryButton(it.first, it.second) }
@@ -69,6 +72,13 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     private fun setIcon(@DrawableRes resId: Int) {
         ivIcon.apply {
             setImageResource(resId)
+            visible()
+        }
+    }
+
+    private fun setIcon(uri: String){
+        ivIcon.apply {
+            setImageByUrl(uri)
             visible()
         }
     }
@@ -132,6 +142,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         private var textResId: Int? = null
 
         private var iconRes: Int? = null
+        private var iconUri: String? = null
 
         private var primaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
         private var secondaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
@@ -157,6 +168,11 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
 
         fun setIcon(iconRes: Int): Builder {
             this.iconRes = iconRes
+            return this
+        }
+
+        fun setIcon(iconUri: String): Builder {
+            this.iconUri = iconUri
             return this
         }
 
@@ -191,6 +207,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
                 this.textSpanned = this@Builder.textSpanned
                 this.textResId = this@Builder.textResId
                 this.iconRes = this@Builder.iconRes
+                this.iconUri = this@Builder.iconUri
                 this.primaryButton = this@Builder.primaryButton
                 this.secondaryButton = this@Builder.secondaryButton
                 this.primaryButtonRes = this@Builder.primaryButtonRes

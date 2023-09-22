@@ -22,7 +22,6 @@
             android:layout_height="wrap_content">
 
             <com.design2.chili2.view.image.SquircleView
-                android:src="@drawable/chili_ic_stub"
                 android:id="@+id/toolbar_icon"
                 android:layout_width="@dimen/view_40dp"
                 android:layout_height="@dimen/view_40dp"
