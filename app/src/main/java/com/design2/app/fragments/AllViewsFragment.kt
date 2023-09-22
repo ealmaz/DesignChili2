@@ -58,6 +58,10 @@ class AllViewsFragment : BaseFragment<FragmentAllViewsBinding>() {
             openFragment(GroupdableRVFragment())
         }
 
+        vb.tooltips.setOnClickListener {
+            openFragment(TooltipsFragment())
+        }
+        
         (activity as MainActivity).setUpHomeEnabled(false)
     }
 

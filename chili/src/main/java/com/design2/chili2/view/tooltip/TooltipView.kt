@@ -30,6 +30,7 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
     private var mOnDismissListener: OnDismissListener? = null
     private var mOnCloseBtnListener: OnCloseBtnListener? = null
     private var mOnClickListener: OnClickListener? = null
+    private var mOnSkipListener: OnSkipListener? = null
 
     private var mPopupWindow: PopupWindow? = null
     private var mContext: Context
@@ -42,6 +43,8 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
     private var mArrowAlign: Int
     private var mFocusable: Boolean
     private var mMargin = 0f
+
+    private var mEventAction: String = ON_SKIP_ACTION
 
     init {
         mContext = builder.context
@@ -57,6 +60,7 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
         mOnDismissListener = builder.onDismissListener
         mOnCloseBtnListener = builder.onCloseBtnListener
         mOnClickListener = builder.onClickListener
+        mOnSkipListener = builder.onSkipListener
         init()
     }
 
@@ -97,10 +101,10 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
 
     private fun configContentView() {
         with(view) {
-            root.setOnClickListener { onClick() }
+            root.setOnClickListener { setAction(ON_VIEW_CLICK_ACTION) }
             title.text = mTitle
             subtitle.text = mSubtitle
-            close.setOnClickListener { onCloseBtnClick() }
+            close.setOnClickListener { setAction(ON_CLOSE_BTN_ACTION) }
         }
         initArrow()
         mPopupWindow?.contentView = mContentLayout
@@ -153,13 +157,9 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
         }
     }
 
-    private fun onCloseBtnClick() {
+    private fun setAction(action: String) {
+        mEventAction = action
         dismiss()
-        mOnCloseBtnListener?.onClose(this)
-    }
-
-    private fun onClick() {
-        mOnClickListener?.onClick(this@TooltipView)
     }
 
     fun show() {
@@ -252,6 +252,13 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
             mPopupWindow?.contentView,
             mLocationLayoutListener
         )
+
+        when (mEventAction) {
+            ON_CLOSE_BTN_ACTION -> mOnCloseBtnListener?.onClose(this)
+            ON_VIEW_CLICK_ACTION -> mOnClickListener?.onClick(this@TooltipView)
+            else -> mOnSkipListener?.onSkip(this@TooltipView)
+        }
+
         mOnDismissListener?.onDismiss(this)
 
         TooltipUtils.removeOnGlobalLayoutListener(
@@ -281,11 +288,16 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
         fun onClick(tooltipView: TooltipView)
     }
 
+    interface OnSkipListener {
+        fun onSkip(tooltipView: TooltipView)
+    }
+
     class Builder(context: Context) {
         var onShowListener: OnShowListener? = null
         var onDismissListener: OnDismissListener? = null
         var onCloseBtnListener: OnCloseBtnListener? = null
         var onClickListener: OnClickListener? = null
+        var onSkipListener: OnSkipListener? = null
 
         val context: Context
         var title: CharSequence = ""
@@ -357,6 +369,11 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
             return this
         }
 
+        fun onSkipListener(listener: OnSkipListener): Builder {
+            onSkipListener = listener
+            return this
+        }
+
         fun build(): TooltipView {
             return TooltipView(this)
         }
@@ -370,6 +387,10 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
         const val ALIGN_CENTER = 0
         const val ALIGN_START = 1
         const val ALIGN_END = 2
+
+        const val ON_VIEW_CLICK_ACTION = "ON_VIEW_CLICK_ACTION"
+        const val ON_CLOSE_BTN_ACTION = "ON_CLOSE_BTN_ACTION"
+        const val ON_SKIP_ACTION = "ON_SKIP_ACTION"
     }
 }
 

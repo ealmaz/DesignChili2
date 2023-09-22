@@ -39,6 +39,7 @@ fun Context.createTooltipView(
     onDismiss: (TooltipView) -> Unit = {},
     onCloseClick: (TooltipView) -> Unit = {},
     onShow : (TooltipView) -> Unit = {},
+    onSkip: (TooltipView) -> Unit = {},
     gravity: Int = TooltipView.GRAVITY_BOTTOM,
     arrowAlign: Int = TooltipView.ALIGN_START,
     @DimenRes marginRes: Int = R.dimen.padding_0dp
@@ -61,6 +62,9 @@ fun Context.createTooltipView(
         })
         .onShowListener(object : TooltipView.OnShowListener {
             override fun onShow(tooltipView: TooltipView) { onShow(tooltipView) }
+        })
+        .onSkipListener(object : TooltipView.OnSkipListener {
+            override fun onSkip(tooltipView: TooltipView) { onSkip(tooltipView) }
         })
         .build()
 }
