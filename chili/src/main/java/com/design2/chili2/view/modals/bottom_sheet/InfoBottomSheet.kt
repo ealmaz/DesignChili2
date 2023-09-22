@@ -76,7 +76,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         }
     }
 
-    private fun setIcon(uri: String){
+    private fun setIcon(uri: String?){
         ivIcon.apply {
             setImageByUrl(uri)
             visible()
@@ -171,7 +171,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
             return this
         }
 
-        fun setIcon(iconUri: String): Builder {
+        fun setIcon(iconUri: String?): Builder {
             this.iconUri = iconUri
             return this
         }
