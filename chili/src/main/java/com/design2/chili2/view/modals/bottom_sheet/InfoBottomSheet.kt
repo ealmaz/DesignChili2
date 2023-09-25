@@ -1,5 +1,6 @@
 package com.design2.chili2.view.modals.bottom_sheet
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Spanned
 import android.view.LayoutInflater
@@ -37,6 +38,8 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
 
     override var hasCloseIcon: Boolean = true
 
+    private var dismissEvent: (() -> Unit)? = null
+
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
         val view = inflater.inflate(R.layout.chili_view_bottom_sheet_info, container, false).apply {
             val padding = resources.getDimensionPixelSize(R.dimen.padding_16dp)
@@ -55,6 +58,11 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         setupViews()
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        dismissEvent?.invoke()
+        super.onDismiss(dialog)
+    }
+
     private fun setupViews() {
         text?.let { setMessage(it) }
         textSpanned?.let { setMessage(it) }
@@ -67,6 +75,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         secondaryButton?.let { setSecondaryButton(it.first, it.second) }
         primaryButtonRes?.let { setPrimaryButton(it.first, it.second) }
         secondaryButtonRes?.let { setSecondaryButton(it.first, it.second) }
+
     }
 
     private fun setIcon(@DrawableRes resId: Int) {
@@ -136,6 +145,13 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         }
     }
 
+    fun setDismissEvent(dismissEvent: (() -> Unit)?) {
+        this.dismissEvent = dismissEvent
+    }
+
+    fun setClosedEvent(closedEvent: Unit){
+    }
+
     class Builder {
         private var text: String? = null
         private var textSpanned: Spanned? = null
@@ -143,6 +159,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
 
         private var iconRes: Int? = null
         private var iconUri: String? = null
+        private var hasCloseIcon: Boolean = true
 
         private var primaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
         private var secondaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
@@ -150,6 +167,9 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         private var secondaryButtonRes: Pair<Int, (InfoBottomSheet.() -> Unit)>? = null
 
         private var isHideable: Boolean = true
+
+        private var dismissEvent: (() -> Unit)? = null
+        private var closedEvent: Unit? = null
 
         fun setMessage(text: String): Builder {
             this.text = text
@@ -201,6 +221,16 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
             return this
         }
 
+        fun setDismissEvent(dismissEvent: () -> Unit): Builder {
+            this.dismissEvent = dismissEvent
+            return this
+        }
+
+        fun setClosedEvent(closedEvent: Unit): Builder{
+            this.closedEvent = closedEvent
+            return this
+        }
+
         fun build(): InfoBottomSheet {
             return InfoBottomSheet().apply {
                 this.text = this@Builder.text
@@ -213,6 +243,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
                 this.primaryButtonRes = this@Builder.primaryButtonRes
                 this.secondaryButtonRes = this@Builder.secondaryButtonRes
                 this.isHideable = this@Builder.isHideable
+                this.dismissEvent = this@Builder.dismissEvent
             }
         }
     }
