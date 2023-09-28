@@ -17,7 +17,8 @@ import com.design2.chili2.view.shimmer.stopGroupShimmering
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>() {
     private lateinit var simpleAdapter: SimpleRecyclerViewAdapter
-    private var simpleList = listOf("Test 1", "Test 2", "Test 3")
+//    private var simpleList = listOf("Test 1", "Test 2", "Test 3")
+    private var simpleList = listOf<String>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

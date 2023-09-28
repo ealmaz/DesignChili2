@@ -258,26 +258,40 @@ class ExpandableContainer @JvmOverloads constructor(
         }
     }
     private fun animateExpanding(isAnimated: Boolean, isExpanded: Boolean) {
-        val targetHeight = calculateTargetHeight(isExpanded)
 
-        if (rvMarginsHeight == 0) {
-            rvMarginsHeight = calculateRVMargins()
+        if (expandedHeight == 0) {
+            expandedHeight = calculateExpandedHeight()
         }
 
-        if (rvHeight == 0 || rvHeight == null) {
+        if (collapsedHeight == 0) {
+            collapsedHeight = calculateCollapsedHeight()
+        }
+
+        if (rvHeight == 0 || rvHeight == null){
             rvHeight = children.find { it is RecyclerView }?.height
         }
 
-        val childHeight = rvHeight ?: targetHeight
+        if (rvMarginsHeight == 0){
+            rvMarginsHeight = calculateRVMargins(rvHeight ?: 0)
+        }
+
+        if (expandedHeight < (rvHeight ?: 0) || expandedHeight == rvHeight) {
+            expandedHeight = calculateExpandedHeight() + rvHeight!!
+        }
+
+        val newHeight = if (isExpanded) expandedHeight else collapsedHeight
+        val childHeight = rvHeight ?: newHeight
 
         if (isAnimated) {
-            val withoutMarginsRvHeight = expandedHeight - (childHeight - rvMarginsHeight)
-            val emptyHeight = if (isExpanded) withoutMarginsRvHeight else collapsedHeight
+            var withoutMarginsRvHeight = expandedHeight - (childHeight - rvMarginsHeight)
+            var emptyHeight = if (isExpanded) withoutMarginsRvHeight else collapsedHeight
 
-            val animator = if (isEmpty) {
+            var animator: ValueAnimator? = null
+
+            animator = if (isEmpty){
                 ValueAnimator.ofInt(height, emptyHeight)
             } else {
-                ValueAnimator.ofInt(height, targetHeight)
+                ValueAnimator.ofInt(height, newHeight)
             }
 
             animator.addUpdateListener { valueAnimator ->
@@ -292,18 +306,16 @@ class ExpandableContainer @JvmOverloads constructor(
                 override fun onAnimationEnd(p0: Animator?) {
                     updateChildrenHeight(this@ExpandableContainer, if (!isEmpty) childHeight else emptyHeight)
                 }
-
                 override fun onAnimationCancel(p0: Animator?) {}
                 override fun onAnimationRepeat(p0: Animator?) {}
             })
             animator.start()
         } else {
-            layoutParams?.height = targetHeight
+            layoutParams?.height = newHeight
             requestLayout()
-            updateChildrenHeight(this, targetHeight)
+            updateChildrenHeight(this, newHeight)
         }
     }
-
 
     private fun updateChildrenHeight(viewGroup: ViewGroup, height: Int) {
         viewGroup.children.find { it is RecyclerView }?.apply {
@@ -319,27 +331,14 @@ class ExpandableContainer @JvmOverloads constructor(
         return (headerViewsHeight + childViewsHeight) + paddingTop + paddingBottom
     }
 
-    private fun calculateRVMargins(): Int{
-        return (children.find { it is RecyclerView }?.marginTop ?: 0) + (children.find { it is RecyclerView }?.marginBottom ?: 0)
+    private fun calculateRVMargins(rvHeight: Int): Int {
+        return if (rvHeight > 0) (children.find { it is RecyclerView }?.marginTop
+            ?: 0) + (children.find { it is RecyclerView }?.marginBottom ?: 0) else 0
     }
 
     private fun calculateCollapsedHeight(): Int {
         val firstChildHeight = getChildAt(0)?.height ?: 0
         return firstChildHeight + paddingTop + paddingBottom
-    }
-
-    private fun calculateTargetHeight(isExpanded: Boolean): Int {
-        return if (isExpanded) {
-            if (expandedHeight == 0) {
-                expandedHeight = calculateExpandedHeight()
-            }
-            expandedHeight
-        } else {
-            if (collapsedHeight == 0) {
-                collapsedHeight = calculateCollapsedHeight()
-            }
-            collapsedHeight
-        }
     }
 
     private fun rotateChevron(rotation: Float = 0f, isAnimated: Boolean = true) {
