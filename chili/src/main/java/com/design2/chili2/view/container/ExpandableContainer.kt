@@ -17,6 +17,8 @@ import androidx.annotation.DimenRes
 import androidx.annotation.StyleRes
 import androidx.core.view.children
 import androidx.core.view.isVisible
+import androidx.core.view.marginBottom
+import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
 import com.design2.chili2.extensions.gone
@@ -35,8 +37,12 @@ class ExpandableContainer @JvmOverloads constructor(
     private lateinit var view: ExpandableContainerViewVariables
 
     var isExpanded: Boolean = false
+    var isEmpty: Boolean = false
+    var isEndIconClicked: Boolean = false
     private var expandedHeight = 0
     private var collapsedHeight = 0
+    private var rvMarginsHeight = 0
+    private var rvHeight: Int?=null
 
     init {
         inflateView()
@@ -79,6 +85,7 @@ class ExpandableContainer @JvmOverloads constructor(
             setAdditionalTextTextAppearance(getResourceId(R.styleable.ExpandableContainer_additionalTextTextAppearance, -1).takeIf { it != -1 })
             setClosureIndicatorVisibility(getBoolean(R.styleable.ExpandableContainer_closureIndicatorVisibility, true))
             setIsExpanded(getBoolean(R.styleable.ExpandableContainer_isExpanded, true), false)
+            isEmpty = getBoolean(R.styleable.ExpandableContainer_isEmpty, false)
             recycle()
         }
     }
@@ -108,6 +115,10 @@ class ExpandableContainer @JvmOverloads constructor(
     fun setTitle(resId: Int?) {
         if (resId == null) return
         view.tvTitle.setText(resId)
+    }
+
+    fun setIsListEmpty(isEmpty: Boolean){
+        this.isEmpty = isEmpty
     }
 
     fun setTitleTextAppearance(@StyleRes resId: Int?) {
@@ -215,59 +226,84 @@ class ExpandableContainer @JvmOverloads constructor(
     }
 
     private fun setupClosureButton() {
-        view.ivClosureIndicator.setOnClickListener { setIsExpanded(!isExpanded) }
+        view.ivClosureIndicator.setOnClickListener {
+            isEndIconClicked = true
+            setIsExpanded(!isExpanded)
+        }
         view.tvTitle.setOnClickListener { setIsExpanded(!isExpanded) }
     }
 
     fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true) {
-        animateExpanding(isAnimated, isExpanded)
+        if (isEndIconClicked){
+            animateExpanding(isAnimated, isExpanded)
 
-        this.isExpanded = isExpanded
-        if (this.isExpanded) {
-            rotateChevron(0f, isAnimated)
-            children.forEach {
-                if (it != view.root) it.visible()
+            this.isExpanded = isExpanded
+            if (this.isExpanded) {
+                rotateChevron(0f, isAnimated)
+                children.forEach {
+                    if (it != view.root) {
+                        it.visible()
+                    }
+                }
+                if (!(view.tvSubtitle.text.isNullOrBlank())) view.tvSubtitle.visible()
+            } else {
+                rotateChevron(-90f, isAnimated)
+                children.forEach {
+                    if (it != view.root) {
+                        it.gone()
+                    }
+                }
+                view.tvSubtitle.gone()
             }
-            if (!(view.tvSubtitle.text.isNullOrBlank())) view.tvSubtitle.visible()
-        } else {
-            rotateChevron(-90f, isAnimated)
-            children.forEach {
-                if (it != view.root) it.gone()
-            }
-            view.tvSubtitle.gone()
         }
     }
-
     private fun animateExpanding(isAnimated: Boolean, isExpanded: Boolean) {
-        if (expandedHeight == 0) expandedHeight = calculateExpandedHeight()
-        if (collapsedHeight == 0) collapsedHeight = calculateCollapsedHeight()
+        val targetHeight = calculateTargetHeight(isExpanded)
 
-        val newHeight = if (isExpanded) expandedHeight else collapsedHeight
-        val childHeight = children.find { it is RecyclerView }?.height ?: newHeight
+        if (rvMarginsHeight == 0) {
+            rvMarginsHeight = calculateRVMargins()
+        }
+
+        if (rvHeight == 0 || rvHeight == null) {
+            rvHeight = children.find { it is RecyclerView }?.height
+        }
+
+        val childHeight = rvHeight ?: targetHeight
 
         if (isAnimated) {
-            val animator = ValueAnimator.ofInt(height, newHeight)
+            val withoutMarginsRvHeight = expandedHeight - (childHeight - rvMarginsHeight)
+            val emptyHeight = if (isExpanded) withoutMarginsRvHeight else collapsedHeight
+
+            val animator = if (isEmpty) {
+                ValueAnimator.ofInt(height, emptyHeight)
+            } else {
+                ValueAnimator.ofInt(height, targetHeight)
+            }
+
             animator.addUpdateListener { valueAnimator ->
                 val height = valueAnimator.animatedValue as Int
                 layoutParams.height = height
                 requestLayout()
             }
+
             animator.duration = 300
             animator.addListener(object : Animator.AnimatorListener {
                 override fun onAnimationStart(p0: Animator?) {}
                 override fun onAnimationEnd(p0: Animator?) {
-                    updateChildrenHeight(this@ExpandableContainer, childHeight)
+                    updateChildrenHeight(this@ExpandableContainer, if (!isEmpty) childHeight else emptyHeight)
                 }
+
                 override fun onAnimationCancel(p0: Animator?) {}
                 override fun onAnimationRepeat(p0: Animator?) {}
             })
             animator.start()
         } else {
-            layoutParams?.height = newHeight
+            layoutParams?.height = targetHeight
             requestLayout()
-            updateChildrenHeight(this, newHeight)
+            updateChildrenHeight(this, targetHeight)
         }
     }
+
 
     private fun updateChildrenHeight(viewGroup: ViewGroup, height: Int) {
         viewGroup.children.find { it is RecyclerView }?.apply {
@@ -278,13 +314,32 @@ class ExpandableContainer @JvmOverloads constructor(
     }
 
     private fun calculateExpandedHeight(): Int {
-        val childViewsHeight = children.sumBy { it.height }
-        return childViewsHeight + paddingTop + paddingBottom
+        val headerViewsHeight = (height - children.sumOf {it.height})
+        val childViewsHeight = children.sumOf {it.height}
+        return (headerViewsHeight + childViewsHeight) + paddingTop + paddingBottom
+    }
+
+    private fun calculateRVMargins(): Int{
+        return (children.find { it is RecyclerView }?.marginTop ?: 0) + (children.find { it is RecyclerView }?.marginBottom ?: 0)
     }
 
     private fun calculateCollapsedHeight(): Int {
         val firstChildHeight = getChildAt(0)?.height ?: 0
         return firstChildHeight + paddingTop + paddingBottom
+    }
+
+    private fun calculateTargetHeight(isExpanded: Boolean): Int {
+        return if (isExpanded) {
+            if (expandedHeight == 0) {
+                expandedHeight = calculateExpandedHeight()
+            }
+            expandedHeight
+        } else {
+            if (collapsedHeight == 0) {
+                collapsedHeight = calculateCollapsedHeight()
+            }
+            collapsedHeight
+        }
     }
 
     private fun rotateChevron(rotation: Float = 0f, isAnimated: Boolean = true) {

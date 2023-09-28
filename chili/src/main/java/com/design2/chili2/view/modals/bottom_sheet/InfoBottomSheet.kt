@@ -149,7 +149,8 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         this.dismissEvent = dismissEvent
     }
 
-    fun setClosedEvent(closedEvent: Unit){
+    fun hideCloseIcon(){
+        this.hasCloseIcon = false
     }
 
     class Builder {
@@ -169,7 +170,6 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         private var isHideable: Boolean = true
 
         private var dismissEvent: (() -> Unit)? = null
-        private var closedEvent: Unit? = null
 
         fun setMessage(text: String): Builder {
             this.text = text
@@ -226,8 +226,8 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
             return this
         }
 
-        fun setClosedEvent(closedEvent: Unit): Builder{
-            this.closedEvent = closedEvent
+        fun hideCloseIcon(): Builder{
+            this.hasCloseIcon = false
             return this
         }
 
@@ -244,6 +244,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
                 this.secondaryButtonRes = this@Builder.secondaryButtonRes
                 this.isHideable = this@Builder.isHideable
                 this.dismissEvent = this@Builder.dismissEvent
+                this.hasCloseIcon = this@Builder.hasCloseIcon
             }
         }
     }
