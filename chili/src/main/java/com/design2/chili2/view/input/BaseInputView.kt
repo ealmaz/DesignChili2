@@ -217,6 +217,8 @@ open class BaseInputView @JvmOverloads constructor(
 
     fun setIsTextAllCaps(isCaps: Boolean) {
         view.inputField.isAllCaps =isCaps
+        view.inputField.inputType = InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+        view.inputField.transformationMethod = null
     }
 
     fun showSystemKeyboard() {
