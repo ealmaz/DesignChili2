@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             onNavigateUpClick = { onBackPressed() },
             isNavigateUpButtonEnabled = false
         ))
+        toolbar.setOnLongClick { Toast.makeText(this, "Long click!", Toast.LENGTH_SHORT).show() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

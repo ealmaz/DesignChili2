@@ -173,6 +173,10 @@ class ChiliToolbar : LinearLayout {
         }
     }
 
+    fun setOnLongClick(action: () -> Unit) {
+        view.toolbar.setOnLongClickListener { action.invoke(); true }
+    }
+
     data class Configuration(
         val hostActivity: FragmentActivity,
         val title: String? = null,
