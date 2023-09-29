@@ -100,6 +100,7 @@
             android:layout_marginTop="@dimen/padding_16dp"/>
 
         <com.design2.chili2.view.input.BaseInputView
+            android:textAllCaps="true"
             android:id="@+id/input_57"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -35,6 +35,9 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .setMessage("Текстовый блок, который содержит 120 символов, и этого количества, должно хватить для информации в четыре строки.")
                 .setPrimaryButton("Понятно" to {Toast.makeText(context, "Понятно", Toast.LENGTH_SHORT).show()})
                 .setSecondaryButton("Ясно" to {Toast.makeText(context, "Ясно", Toast.LENGTH_SHORT).show()})
+//                .setDismissEvent { Toast.makeText(context, "Dismissed", Toast.LENGTH_SHORT).show() }
+                .setIsHideable(false)
+                .hideCloseIcon()
                 .build()
                 .show(childFragmentManager)
         }

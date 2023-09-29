@@ -305,6 +305,9 @@
         <attr name="additionalTextTextAppearance"/>
         <attr name="closureIndicatorVisibility" format="boolean"/>
         <attr name="isExpanded"/>
+        <attr name="isEmpty"/>
+
+
     </declare-styleable>
 
     <declare-styleable name="HighlighterContainer">
