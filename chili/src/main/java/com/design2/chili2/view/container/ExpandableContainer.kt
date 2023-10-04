@@ -246,19 +246,9 @@ class ExpandableContainer @JvmOverloads constructor(
             this.isExpanded = isExpanded
             if (this.isExpanded) {
                 rotateChevron(0f, isAnimated)
-                children.forEach {
-                    if (it != view.root) {
-                        it.visible()
-                    }
-                }
                 if (!(view.tvSubtitle.text.isNullOrBlank())) view.tvSubtitle.visible()
             } else {
                 rotateChevron(-90f, isAnimated)
-                children.forEach {
-                    if (it != view.root) {
-                        it.gone()
-                    }
-                }
                 view.tvSubtitle.gone()
             }
         }
@@ -328,6 +318,20 @@ class ExpandableContainer @JvmOverloads constructor(
             layoutParams?.height = height
             requestLayout()
             invalidate()
+        }
+
+        childrenViewsVisibilityAfterAnimation(isExpanded)
+    }
+
+    private fun childrenViewsVisibilityAfterAnimation(isExpanded: Boolean){
+        children.forEach {
+            if (it != view.root) {
+                if (isExpanded) {
+                    it.visible()
+                } else {
+                    it.gone()
+                }
+            }
         }
     }
 
