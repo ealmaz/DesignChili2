@@ -293,6 +293,7 @@ class ExpandableContainer @JvmOverloads constructor(
             animator.addUpdateListener { valueAnimator ->
                 val height = valueAnimator.animatedValue as Int
                 layoutParams.height = height
+                childrenViewsVisibilityAfterAnimation(isExpanded)
                 requestLayout()
             }
 
@@ -319,8 +320,6 @@ class ExpandableContainer @JvmOverloads constructor(
             requestLayout()
             invalidate()
         }
-
-        childrenViewsVisibilityAfterAnimation(isExpanded)
     }
 
     private fun childrenViewsVisibilityAfterAnimation(isExpanded: Boolean){
