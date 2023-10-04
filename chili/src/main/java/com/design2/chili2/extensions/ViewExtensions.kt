@@ -1,5 +1,6 @@
 package com.design2.chili2.extensions
 
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -11,9 +12,13 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -231,4 +236,20 @@ fun ConstraintLayout.setupConstraint(action: ConstraintSet.() -> Unit) {
     constraintSet.clone(this)
     action.invoke(constraintSet)
     constraintSet.applyTo(this)
+}
+
+fun Drawable.recolorDrawable(@ColorInt color: Int): Drawable {
+    val wrapped = DrawableCompat.wrap(this)
+    DrawableCompat.setTint(wrapped, color)
+    return wrapped
+}
+
+fun Context.recolorDrawable(@DrawableRes drawableId: Int, @ColorRes colorId: Int): Drawable {
+    val wrapped = DrawableCompat.wrap(this.drawable(drawableId)!!)
+    DrawableCompat.setTint(wrapped, this.color(colorId))
+    return wrapped
+}
+
+fun Drawable.copy(): Drawable {
+    return this.mutate().constantState?.newDrawable()?.mutate() ?: this
 }

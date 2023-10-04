@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.design2.chili2.view.container.shadow_layout.ShadowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ShadowLayoutStyle"
+    android:layout_marginStart="@dimen/padding_16dp"
+    android:layout_marginEnd="@dimen/padding_4dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.design2.chili2.view.card.DiscountCardView
+        android:id="@+id/card"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Добавить новое"/>
+
+</com.design2.chili2.view.container.shadow_layout.ShadowLayout>
