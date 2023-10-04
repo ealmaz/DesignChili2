@@ -39,6 +39,7 @@ class ExpandableContainer @JvmOverloads constructor(
     var isExpanded: Boolean = false
     var isEmpty: Boolean = false
     var isEndIconClicked: Boolean = false
+    var onClosureAction: ((isExpanded: Boolean) -> Unit)? = null
     private var expandedHeight = 0
     private var collapsedHeight = 0
     private var rvMarginsHeight = 0
@@ -229,8 +230,13 @@ class ExpandableContainer @JvmOverloads constructor(
         view.ivClosureIndicator.setOnClickListener {
             isEndIconClicked = true
             setIsExpanded(!isExpanded)
+            onClosureAction?.invoke(isExpanded)
         }
-        view.tvTitle.setOnClickListener { setIsExpanded(!isExpanded) }
+        view.tvTitle.setOnClickListener {
+            isEndIconClicked = true
+            setIsExpanded(!isExpanded)
+            onClosureAction?.invoke(isExpanded)
+        }
     }
 
     fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true) {
@@ -240,19 +246,9 @@ class ExpandableContainer @JvmOverloads constructor(
             this.isExpanded = isExpanded
             if (this.isExpanded) {
                 rotateChevron(0f, isAnimated)
-                children.forEach {
-                    if (it != view.root) {
-                        it.visible()
-                    }
-                }
                 if (!(view.tvSubtitle.text.isNullOrBlank())) view.tvSubtitle.visible()
             } else {
                 rotateChevron(-90f, isAnimated)
-                children.forEach {
-                    if (it != view.root) {
-                        it.gone()
-                    }
-                }
                 view.tvSubtitle.gone()
             }
         }
@@ -322,6 +318,20 @@ class ExpandableContainer @JvmOverloads constructor(
             layoutParams?.height = height
             requestLayout()
             invalidate()
+        }
+
+        childrenViewsVisibilityAfterAnimation(isExpanded)
+    }
+
+    private fun childrenViewsVisibilityAfterAnimation(isExpanded: Boolean){
+        children.forEach {
+            if (it != view.root) {
+                if (isExpanded) {
+                    it.visible()
+                } else {
+                    it.gone()
+                }
+            }
         }
     }
 
