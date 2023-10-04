@@ -176,25 +176,37 @@
     </declare-styleable>
 
     <declare-styleable name="EndIconCellView">
-        <attr name="endIcon" format="reference"/>
-        <attr name="isEndIconVisible" format="boolean"/>
+        <attr name="endIcon" format="reference" />
+        <attr name="isEndIconVisible" format="boolean" />
         <attr name="endIconSize" format="dimension">
-            <enum name="small" value="-1"/>
-            <enum name="medium" value="-2"/>
-            <enum name="large" value="-3"/>
+            <enum name="small" value="-1" />
+            <enum name="medium" value="-2" />
+            <enum name="large" value="-3" />
         </attr>
-        <attr name="isEndIconClickable" format="boolean"/>
-        <attr name="endIconEndMargin" format="dimension"/>
+        <attr name="isEndIconClickable" format="boolean" />
+        <attr name="endIconEndMargin" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="EditableCellView">
+        <attr name="dragIcon" format="reference" />
+        <attr name="optionIcon" format="reference" />
+        <attr name="isDragIconVisible" format="boolean" />
+        <attr name="isOptionIconVisible" format="boolean" />
+        <attr name="editableIconsSize" format="dimension">
+            <enum name="small" value="-1" />
+            <enum name="medium" value="-2" />
+            <enum name="large" value="-3" />
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="CheckBoxCellView">
-        <attr name="isCheckBoxVisible" format="boolean"/>
-        <attr name="isCheckBoxChecked" format="boolean"/>
-        <attr name="checkBoxEndMargin" format="dimension"/>
+        <attr name="isCheckBoxVisible" format="boolean" />
+        <attr name="isCheckBoxChecked" format="boolean" />
+        <attr name="checkBoxEndMargin" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="AdditionalTextCellView">
-        <attr name="additionalText"/>
+        <attr name="additionalText" />
         <attr name="additionalTextTextAppearance" />
     </declare-styleable>
 

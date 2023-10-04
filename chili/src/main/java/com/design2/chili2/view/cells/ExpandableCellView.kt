@@ -34,8 +34,6 @@ class ExpandableCellView @JvmOverloads constructor(
         setupView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
     }
-
-
     private fun setupView(context: Context) {
         val view = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_expandable, this)
         this.view = ExpandableCellViewVariables(

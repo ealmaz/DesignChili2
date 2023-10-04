@@ -13,7 +13,7 @@ import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.util.IconSize
 
-class EndIconCellView @JvmOverloads constructor(
+open class EndIconCellView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.endIconCellViewDefaultStyle,
