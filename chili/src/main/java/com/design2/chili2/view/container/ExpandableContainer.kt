@@ -239,9 +239,9 @@ class ExpandableContainer @JvmOverloads constructor(
         }
     }
 
-    fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true) {
+    fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true, isExpandingAnimated: Boolean = true) {
         if (isEndIconClicked){
-            animateExpanding(isAnimated, isExpanded)
+            if (isExpandingAnimated) animateExpanding(isAnimated, isExpanded)
 
             this.isExpanded = isExpanded
             if (this.isExpanded) {
@@ -253,6 +253,7 @@ class ExpandableContainer @JvmOverloads constructor(
             }
         }
     }
+
     private fun animateExpanding(isAnimated: Boolean, isExpanded: Boolean) {
 
         if (expandedHeight == 0) {
