@@ -39,6 +39,7 @@ class ExpandableContainer @JvmOverloads constructor(
     var isExpanded: Boolean = false
     var isEmpty: Boolean = false
     var isEndIconClicked: Boolean = false
+    var onClosureAction: ((isExpanded: Boolean) -> Unit)? = null
     private var expandedHeight = 0
     private var collapsedHeight = 0
     private var rvMarginsHeight = 0
@@ -229,8 +230,13 @@ class ExpandableContainer @JvmOverloads constructor(
         view.ivClosureIndicator.setOnClickListener {
             isEndIconClicked = true
             setIsExpanded(!isExpanded)
+            onClosureAction?.invoke(isExpanded)
         }
-        view.tvTitle.setOnClickListener { setIsExpanded(!isExpanded) }
+        view.tvTitle.setOnClickListener {
+            isEndIconClicked = true
+            setIsExpanded(!isExpanded)
+            onClosureAction?.invoke(isExpanded)
+        }
     }
 
     fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true) {
