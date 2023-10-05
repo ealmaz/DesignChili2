@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MotionEvent
+import android.view.View
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.core.view.MotionEventCompat
@@ -21,11 +22,39 @@ class EditableCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_BaseCellViewStyle_EndIcon
 ) : EndIconCellView(context, attrs, defStyleAttr, defStyleRes) {
 
-    lateinit var views: EditableCellViewVariables
+    private lateinit var views: EditableCellViewVariables
+    private var chevronIsVisible: Boolean? = null
+
+    private fun inflateView() {
+        val view =
+            LayoutInflater.from(context).inflate(R.layout.chili_view_cell_editable, this)
+        views = EditableCellViewVariables(
+            dragImg = view.findViewById(R.id.iv_drag),
+            optionImg = view.findViewById(R.id.iv_option),
+            chevron = view.findViewById(R.id.iv_chevron),
+            endIconFrame = view.findViewById(R.id.fl_end_place_holder),
+            verticalDivider = view.findViewById(R.id.vertical_divider)
+        )
+    }
 
     override fun inflateView(context: Context) {
         super.inflateView(context)
         inflateView()
+        saveChevronState()
+    }
+
+    fun setEditMode(isOn: Boolean) {
+        views.optionImg.isVisible = isOn
+        views.dragImg.isVisible = isOn
+        views.verticalDivider.isVisible = isOn
+        views.endIconFrame.isVisible = !isOn
+        if (chevronIsVisible!!) views.chevron.isVisible = !isOn
+    }
+
+    private fun saveChevronState() {
+        if (chevronIsVisible == null) {
+            chevronIsVisible = views.chevron.isVisible
+        }
     }
 
     override fun obtainAttributes(
@@ -66,10 +95,11 @@ class EditableCellView @JvmOverloads constructor(
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    fun setRvItemDragListener(block: () -> Unit) {
+    fun setItemDragListener(started: () -> Unit, end: (() -> Unit)? = null) {
         views.dragImg.setOnTouchListener { _, event ->
-            if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
-                block.invoke()
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> started.invoke()
+                MotionEvent.ACTION_UP -> end?.invoke()
             }
             false
         }
@@ -90,8 +120,12 @@ class EditableCellView @JvmOverloads constructor(
         views.dragImg.isVisible = isVisible
     }
 
+    fun setVerticalDividerVisibility(isVisible: Boolean) {
+        views.verticalDivider.isVisible = isVisible
+    }
+
     fun setOptionIconVisibility(isVisible: Boolean) {
-        views.dragImg.isVisible = isVisible
+        views.optionImg.isVisible = isVisible
     }
 
     fun setDragIcon(@DrawableRes drawableRes: Int?) {
@@ -106,17 +140,12 @@ class EditableCellView @JvmOverloads constructor(
         }
     }
 
-    private fun inflateView() {
-        val view =
-            LayoutInflater.from(context).inflate(R.layout.chili_view_cell_editable, this, false)
-        views = EditableCellViewVariables(
-            dragImg = view.findViewById(R.id.iv_chevron),
-            optionImg = view.findViewById(R.id.iv_chevron)
-        )
-    }
-
 }
 
 class EditableCellViewVariables(
-    val dragImg: ImageView, val optionImg: ImageView
+    val verticalDivider: View,
+    val dragImg: ImageView,
+    val optionImg: ImageView,
+    val chevron: View,
+    val endIconFrame: View,
 )
