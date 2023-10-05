@@ -8,7 +8,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <com.design2.chili2.view.card.DiscountCardView
+    <com.design2.chili2.view.card.IconHolderCardItemView
         android:id="@+id/card"
         android:layout_width="140dp"
         android:layout_height="wrap_content"

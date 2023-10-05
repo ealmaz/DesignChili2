@@ -23,18 +23,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv_label">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:id="@+id/iv_emoji_holder"
             android:layout_width="@dimen/view_24dp"
             android:layout_height="@dimen/view_24dp"
-            app:actualImageScaleType="centerInside"
+            android:layout_gravity="center"
+            android:background="@drawable/chili_bg_circular"
+            android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:placeholderImageScaleType="centerInside"
-            app:roundAsCircle="true"
-            app:backgroundImage="@color/white_1" />
+
+            />
+
 
         <ImageView
             android:id="@+id/iv_icon"

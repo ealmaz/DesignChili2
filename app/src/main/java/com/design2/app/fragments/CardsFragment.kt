@@ -35,8 +35,8 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
 
     private fun initDiscountCard(){
         discountCardAdapter = SimpleDiscountCardRecyclerViewAdapter(requireContext())
-        vb.ecvDiscount.layoutManager = LinearLayoutManager(requireContext())
-        vb.ecvDiscount.adapter = discountCardAdapter
+        vb.ecvDiscountRv.layoutManager = LinearLayoutManager(requireContext())
+        vb.ecvDiscountRv.adapter = discountCardAdapter
         discountCardAdapter.updateListWithIcons(listOf("https://minio.o.kg/pams-receiver-documents/33944000008719-kvxZCbF1Gpb7iDGSyGXhgEcsRbvoKTOx3cYWIlK89mPgSI3L4F.pdf"))
         vb.ecvDiscountContainer.setState("Test case", false)
     }

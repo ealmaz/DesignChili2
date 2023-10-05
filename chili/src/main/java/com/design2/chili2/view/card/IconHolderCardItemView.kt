@@ -7,31 +7,27 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowInsetsAnimation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.recolorDrawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
-import com.design2.chili2.view.card.BaseCardView
-import com.facebook.drawee.view.SimpleDraweeView
 import com.facebook.shimmer.ShimmerFrameLayout
 
-class DiscountCardView @JvmOverloads constructor(
+class IconHolderCardItemView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.categoryCardViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CardViewStyle_CategoryCardView
 ): BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var view: DiscountCardViewViewVariables
+    private lateinit var view: IconHolderCardItemViewVariables
 
     override val styleableAttrRes: IntArray = R.styleable.CategoryCardView
 
@@ -40,7 +36,7 @@ class DiscountCardView @JvmOverloads constructor(
 
     override fun inflateView(context: Context) {
         val view = LayoutInflater.from(context).inflate(R.layout.chili_view_discount_card, this, true)
-        this.view = DiscountCardViewViewVariables(
+        this.view = IconHolderCardItemViewVariables(
             tvLabel = view.findViewById(R.id.tv_label),
             ivIcon = view.findViewById(R.id.iv_icon),
             ivEmojiHolder = view.findViewById(R.id.iv_emoji_holder),
@@ -119,14 +115,13 @@ class DiscountCardView @JvmOverloads constructor(
     }
 }
 
-data class DiscountCardViewViewVariables(
+data class IconHolderCardItemViewVariables(
     val tvLabel: TextView,
     val ivIcon : ImageView,
-    val ivEmojiHolder: SimpleDraweeView,
+    val ivEmojiHolder: ImageView,
     val placeholder: ConstraintLayout,
     val tvEmoji: TextView,
     val root: ConstraintLayout,
     val labelShimmer: ShimmerFrameLayout,
     val iconShimmer: ShimmerFrameLayout,
-
 )

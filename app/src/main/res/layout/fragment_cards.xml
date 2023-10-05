@@ -18,6 +18,31 @@
         android:clipChildren="false"
         tools:context=".MainActivity">
 
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="ExpandableDiscountCardView"
+            android:id="@+id/ecv_discount_container"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:endIcon="@drawable/chili_ic_magenta_plus"
+            app:subtitle="Some subtitle"
+            tools:actionText="@string/view">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ecv_discount_rv"
+                android:layout_marginTop="@dimen/padding_8dp"
+                tools:itemCount="3"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_discount_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/padding_8dp" />
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="AccentCardView"
             android:layout_width="match_parent"
@@ -423,25 +448,6 @@
 
         </com.design2.chili2.view.container.ExpandableContainer>
 
-        <com.design2.chili2.view.container.ExpandableContainer
-            app:title="ExpandableDiscountCardView"
-            android:id="@+id/ecv_discount_container"
-            android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_16dp"
-            app:endIcon="@drawable/chili_ic_magenta_plus"
-            app:subtitle="Some subtitle"
-            tools:actionText="@string/view">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/ecv_discount"
-                android:layout_marginTop="@dimen/padding_8dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingEnd="@dimen/padding_8dp" />
-
-        </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="BalanceCardView"
