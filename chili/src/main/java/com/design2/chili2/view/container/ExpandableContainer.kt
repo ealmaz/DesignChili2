@@ -241,7 +241,9 @@ class ExpandableContainer @JvmOverloads constructor(
 
     fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true, isExpandingAnimated: Boolean = true) {
         if (isEndIconClicked){
-            if (isExpandingAnimated) animateExpanding(isAnimated, isExpanded)
+            if (isExpandingAnimated) {
+                animateExpanding(isAnimated, isExpanded)
+            }
 
             this.isExpanded = isExpanded
             if (this.isExpanded) {
@@ -251,11 +253,11 @@ class ExpandableContainer @JvmOverloads constructor(
                 rotateChevron(-90f, isAnimated)
                 view.tvSubtitle.gone()
             }
+            childrenViewsVisibilityAfterAnimation(isExpanded)
         }
     }
 
     private fun animateExpanding(isAnimated: Boolean, isExpanded: Boolean) {
-
         if (expandedHeight == 0) {
             expandedHeight = calculateExpandedHeight()
         }
@@ -275,7 +277,6 @@ class ExpandableContainer @JvmOverloads constructor(
         if (expandedHeight < (rvHeight ?: 0) || expandedHeight == rvHeight) {
             expandedHeight = calculateExpandedHeight() + rvHeight!!
         }
-
         val newHeight = if (isExpanded) expandedHeight else collapsedHeight
         val childHeight = rvHeight ?: newHeight
 
@@ -294,7 +295,6 @@ class ExpandableContainer @JvmOverloads constructor(
             animator.addUpdateListener { valueAnimator ->
                 val height = valueAnimator.animatedValue as Int
                 layoutParams.height = height
-                childrenViewsVisibilityAfterAnimation(isExpanded)
                 requestLayout()
             }
 
@@ -302,10 +302,11 @@ class ExpandableContainer @JvmOverloads constructor(
             animator.addListener(object : Animator.AnimatorListener {
                 override fun onAnimationStart(p0: Animator?) {}
                 override fun onAnimationEnd(p0: Animator?) {
-                    updateChildrenHeight(this@ExpandableContainer, if (!isEmpty) childHeight else emptyHeight)
+                    updateChildrenHeight(this@ExpandableContainer, if (isEmpty) emptyHeight else childHeight)
                 }
                 override fun onAnimationCancel(p0: Animator?) {}
-                override fun onAnimationRepeat(p0: Animator?) {}
+                override fun onAnimationRepeat(p0: Animator?) {
+                }
             })
             animator.start()
         } else {

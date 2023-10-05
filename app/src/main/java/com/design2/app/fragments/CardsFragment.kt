@@ -1,14 +1,13 @@
 package com.design2.app.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.design2.app.MainActivity
 import com.design2.app.R
-import com.design2.app.adapter.SimpleRecyclerViewAdapter
+import com.design2.app.adapter.SimpleDiscountCardRecyclerViewAdapter
+import com.design2.app.adapter.SimpleTextRecyclerViewAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCardsBinding
 import com.design2.chili2.view.container.ExpandableContainer
@@ -16,7 +15,8 @@ import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>() {
-    private lateinit var simpleAdapter: SimpleRecyclerViewAdapter
+    private lateinit var simpleAdapter: SimpleTextRecyclerViewAdapter
+    private lateinit var discountCardAdapter: SimpleDiscountCardRecyclerViewAdapter
 //    private var simpleList = listOf("Test 1", "Test 2", "Test 3")
     private var simpleList = listOf<String>()
 
@@ -30,10 +30,19 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
             setValueIcon(com.design2.chili2.R.drawable.chili_ic_warning)
         }
         initRV()
+        initDiscountCard()
+    }
+
+    private fun initDiscountCard(){
+        discountCardAdapter = SimpleDiscountCardRecyclerViewAdapter(requireContext())
+        vb.ecvDiscountRv.layoutManager = LinearLayoutManager(requireContext())
+        vb.ecvDiscountRv.adapter = discountCardAdapter
+        discountCardAdapter.updateListWithIcons(listOf("https://minio.o.kg/pams-receiver-documents/33944000008719-kvxZCbF1Gpb7iDGSyGXhgEcsRbvoKTOx3cYWIlK89mPgSI3L4F.pdf"))
+        vb.ecvDiscountContainer.setState("Test case", false)
     }
 
     private fun initRV(){
-        simpleAdapter = SimpleRecyclerViewAdapter(requireContext())
+        simpleAdapter = SimpleTextRecyclerViewAdapter(requireContext())
         vb.ecvRv.layoutManager = LinearLayoutManager(requireContext())
         vb.ecvRv.adapter = simpleAdapter
         simpleAdapter.updateList(simpleList)

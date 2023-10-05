@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.app.R
 
-class SimpleRecyclerViewAdapter(private val context: Context) :
-    RecyclerView.Adapter<SimpleRecyclerViewAdapter.ViewHolder>() {
+class SimpleTextRecyclerViewAdapter(private val context: Context) :
+    RecyclerView.Adapter<SimpleTextRecyclerViewAdapter.ViewHolder>() {
 
     private var data: List<String> = emptyList()
 
