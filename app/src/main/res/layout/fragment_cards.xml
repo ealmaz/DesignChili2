@@ -607,6 +607,43 @@
 
         </com.design2.chili2.view.container.ExpandableContainer>
 
+        <com.design2.chili2.view.container.ExpandableContainer
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:title="PromoBannerCard">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical">
+
+                <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    style="@style/ShadowLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_16dp">
+
+                    <com.design2.chili2.view.card.PromoBannerCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:title="Карта ЭЛКАРТ"
+                        app:subtitleTextColor="@color/white"
+                        app:subtitle="Откойте карту в О!Store"
+                        android:icon="@drawable/ic_elcart_title_logo"
+                        android:background="@drawable/bg_rounded_gradient"
+                        app:right_image="@drawable/bg_virtual_cards_2"
+                        app:titleTextColor="@color/white"
+                        />
+                </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+
+            </LinearLayout>
+        </com.design2.chili2.view.container.ExpandableContainer>
+
     </LinearLayout>
 
 </ScrollView>

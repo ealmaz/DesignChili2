@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_1"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackground"
+    android:paddingStart="@dimen/padding_12dp">
+
+    <LinearLayout
+        android:id="@+id/ll_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/ll_subtitle_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/view_28dp"
+            android:layout_height="@dimen/view_28dp"
+            android:layout_marginEnd="@dimen/padding_8dp"
+            android:src="@drawable/chilli_ic_cancel" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Chili.H7.Primary.700"
+            tools:text="Title" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_subtitle_container"
+        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginTop="@dimen/padding_4dp"
+        android:layout_marginEnd="@dimen/padding_12dp"
+        android:layout_marginBottom="@dimen/padding_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_right_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_subtitle"
+            app:shimmer_colored="true"
+            app:shimmer_auto_start="false"
+            app:shimmer_highlight_color="@color/gray_8"
+            app:shimmer_base_color="@color/magenta_1"
+            app:shimmer_base_alpha="1"
+            app:shimmer_highlight_alpha="1"
+            app:shimmer_direction="left_to_right"
+            app:shimmer_shape="linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Chili.H8.Primary"
+                tools:text="Subtitle" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_right_image"
+        android:layout_width="@dimen/view_80dp"
+        android:layout_height="@dimen/view_80dp"
+        android:src="@drawable/chilli_ic_angry_family"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/iv_chevron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_12dp"
+        android:src="@drawable/chili_ic_chevron"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
