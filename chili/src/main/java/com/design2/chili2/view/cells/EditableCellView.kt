@@ -110,7 +110,7 @@ class EditableCellView @JvmOverloads constructor(
 
     fun setupEditableIconSize(widthPx: Int, heightPx: Int) {
         val dragParams = views.dragImg.layoutParams
-        val optionParams = views.dragImg.layoutParams
+        val optionParams = views.optionImg.layoutParams
         dragParams?.height = heightPx
         dragParams?.width = widthPx
         optionParams?.height = heightPx
