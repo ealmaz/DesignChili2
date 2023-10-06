@@ -3,16 +3,19 @@ package com.design2.chili2.view.cells
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.util.IconSize
+
 
 class EditableCellView @JvmOverloads constructor(
     context: Context,
@@ -36,23 +39,71 @@ class EditableCellView @JvmOverloads constructor(
             field = value
         }
 
-    private fun inflateView() {
-        val view =
-            LayoutInflater.from(context).inflate(R.layout.chili_view_cell_editable, this)
+    private fun inflateEditToolsView() {
+        val dragImg = ImageView(context)
+        val optionImg = ImageView(context)
+        val divider = View(context)
+        view.editToolsPlaceholder.addView(optionImg)
+        view.editToolsPlaceholder.addView(divider)
+        view.editToolsPlaceholder.addView(dragImg)
+        dragImg.setImgDefaultParam()
+        optionImg.setImgDefaultParam()
+        divider.setDividerDefaultParam()
         views = EditableCellViewVariables(
-            dragImg = view.findViewById(R.id.iv_drag),
-            optionImg = view.findViewById(R.id.iv_option),
-            chevron = view.findViewById(R.id.iv_chevron),
-            endIconFrame = view.findViewById(R.id.fl_end_place_holder),
-            verticalDivider = view.findViewById(R.id.vertical_divider)
+            verticalDivider = divider,
+            dragImg = dragImg,
+            optionImg = optionImg,
+            chevron = view.chevron,
+            endIconFrame = view.flEndPlaceholder
         )
+
+    }
+
+    private fun ImageView.setImgDefaultParam() {
+        val dp32 = (32 * resources.displayMetrics.density).toInt()
+        val layoutParams = this.layoutParams as LinearLayout.LayoutParams
+        layoutParams.width = dp32
+        layoutParams.height = dp32
+        this.layoutParams = layoutParams
+
+        val outValue = TypedValue()
+        context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+        this.setBackgroundResource(outValue.resourceId)
+
+        this.isFocusable = true
+
+        this.isClickable = true
+
+        val margin8dp = (8 * resources.displayMetrics.density).toInt()
+        val marginLayoutParams = this.layoutParams as MarginLayoutParams
+        marginLayoutParams.marginStart = margin8dp
+        marginLayoutParams.marginEnd = margin8dp
+        this.layoutParams = marginLayoutParams
+
+        this.visibility = View.GONE
+    }
+
+    @SuppressLint("ResourceType")
+    fun View.setDividerDefaultParam() {
+        val outValue = TypedValue()
+        context.theme.resolveAttribute(R.attr.ChiliDividerColor, outValue, true)
+        this.setBackgroundResource(outValue.resourceId)
+
+        val layoutParams = LinearLayout.LayoutParams(
+            (0.8 * resources.displayMetrics.density).toInt(),
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
+        this.layoutParams = layoutParams
+
+        visibility = View.GONE
     }
 
     override fun inflateView(context: Context) {
         super.inflateView(context)
-        inflateView()
+        inflateEditToolsView()
         saveChevronState()
     }
+
 
     private fun saveChevronState() {
         if (chevronIsVisible == null) {

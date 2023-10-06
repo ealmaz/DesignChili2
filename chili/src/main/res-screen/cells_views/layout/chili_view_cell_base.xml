@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="72dp"
     android:minHeight="@dimen/view_48dp">
 
     <FrameLayout
@@ -57,7 +57,6 @@
         app:layout_goneMarginBottom="@dimen/padding_12dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textAppearance="@style/Chili.H7.Primary"
         app:layout_constraintBottom_toTopOf="@id/tv_subtitle"
         app:layout_constraintEnd_toStartOf="@id/fl_end_place_holder"
         app:layout_constraintStart_toEndOf="@id/iv_icon"
@@ -108,7 +107,6 @@
             android:background="@drawable/chili_bg_shimmer"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-
     <FrameLayout
         android:id="@+id/fl_end_place_holder"
         android:layout_width="wrap_content"
@@ -139,5 +137,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_icon" />
+
+    <LinearLayout
+        android:id="@+id/edit_tools_place_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
