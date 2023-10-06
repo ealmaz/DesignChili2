@@ -19,7 +19,7 @@ import com.design2.chili2.extensions.visible
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerFrameLayout
 
-class PromoBannerCardView(
+class PromoBannerCardView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.promoBannerCardViewDefaultStyle,
