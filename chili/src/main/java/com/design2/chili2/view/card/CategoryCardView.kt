@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -77,6 +78,27 @@ class CategoryCardView @JvmOverloads constructor(
 
     fun setIcon(drawable: Drawable) {
         view.ivIcon.setImageDrawable(drawable)
+    }
+
+    fun setGravity(gravity: Int){
+        val iconParams = view.ivIcon.layoutParams as ConstraintLayout.LayoutParams
+        val labelParams = view.tvLabel.layoutParams as ConstraintLayout.LayoutParams
+        when(gravity){
+            Gravity.CENTER_HORIZONTAL -> {
+                iconParams.horizontalBias = 0.5f
+                labelParams.horizontalBias = 0.5f
+            }
+            Gravity.START -> {
+                iconParams.horizontalBias = 0f
+                labelParams.horizontalBias = 0f
+            }
+            Gravity.END -> {
+                iconParams.horizontalBias = 1f
+                labelParams.horizontalBias = 1f
+            }
+        }
+        view.ivIcon.layoutParams = iconParams
+        view.tvLabel.layoutParams = labelParams
     }
 }
 
