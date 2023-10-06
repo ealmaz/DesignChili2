@@ -46,6 +46,7 @@
         <attr name="balanceCardViewDefaultStyle" format="reference"/>
         <attr name="bankCardViewDefaultStyle" format="reference"/>
         <attr name="singleSelectedCardViewDefaultStyle" format="reference" />
+        <attr name="promoBannerCardViewDefaultStyle" format="reference"/>
 
 
         <!-- PassportCardCameraOverlay -->
