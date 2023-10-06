@@ -285,7 +285,7 @@
                         android:id="@+id/cat_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:title="Оплата"
+                        app:title="Centered"
                         app:icon="@drawable/ic_payment" />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>

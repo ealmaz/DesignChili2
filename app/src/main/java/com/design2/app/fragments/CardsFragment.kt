@@ -1,6 +1,7 @@
 package com.design2.app.fragments
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +30,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
             setValueText("2435 c")
             setValueIcon(com.design2.chili2.R.drawable.chili_ic_warning)
         }
+        vb.cat2.setGravity(Gravity.CENTER_HORIZONTAL)
         initRV()
         initDiscountCard()
     }
