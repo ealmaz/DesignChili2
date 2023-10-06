@@ -1,6 +1,7 @@
 package com.design2.chili2.view.card
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView
@@ -9,7 +10,6 @@ import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
-import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.R
@@ -19,30 +19,23 @@ import com.design2.chili2.extensions.visible
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerFrameLayout
 
-class PromoBannerCardView : CardView {
+class PromoBannerCardView(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = R.attr.promoBannerCardViewDefaultStyle,
+    defStyleRes: Int = R.style.Chili_CardViewStyle_PromoBannerCard
+) : BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
+
     private lateinit var view: PromoBannerCardViewVariables
 
-    constructor(context: Context) : super(context) {
-        inflateViews()
+    override val styleableAttrRes: IntArray = R.styleable.PromoBannerCardView
+
+    init {
+        initView(context, attrs, defStyleAttr, defStyleRes)
     }
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        inflateViews()
-        obtainAttributes(attrs)
-    }
-
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
-        context,
-        attrs,
-        defStyle
-    ) {
-        inflateViews()
-        obtainAttributes(attrs)
-    }
-
-
-    private fun inflateViews() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chilli_view_banner_card, this)
+    override fun inflateView(context: Context) {
+        val view = LayoutInflater.from(context).inflate(R.layout.chilli_view_card_banner, this)
         this.view = PromoBannerCardViewVariables(
             root = view.findViewById(R.id.cl_container),
             title = view.findViewById(R.id.tv_title),
@@ -53,32 +46,48 @@ class PromoBannerCardView : CardView {
             subtitleShimmer = view.findViewById(R.id.shimmer_subtitle),
             subtitleContainer = view.findViewById(R.id.ll_subtitle_container),
         )
-        cardElevation = 0.0f
-        radius = resources.getDimension(R.dimen.radius_12dp)
     }
 
-    private fun obtainAttributes(attrs: AttributeSet) {
-        context?.obtainStyledAttributes(attrs, R.styleable.PromoBannerCardView)?.run {
-            getResourceId(R.styleable.PromoBannerCardView_android_background, -1)
-                .takeIf { it != -1 }?.let { setBackgroundResId(it) }
-            getString(R.styleable.PromoBannerCardView_title)?.let { setTitleText(it) }
-            getString(R.styleable.PromoBannerCardView_subtitle)?.let { setSubtitleText(it) }
-            setChevronVisibility(!getBoolean(R.styleable.PromoBannerCardView_hide_chevron, true))
-            getResourceId(R.styleable.PromoBannerCardView_android_icon, -1)
-                .takeIf { it != -1 }?.let { setIcon(it) }
-            getResourceId(R.styleable.PromoBannerCardView_right_image, -1)
-                .takeIf { it != -1 }?.let { setRightImage(it) }
-            getResourceId(R.styleable.PromoBannerCardView_titleTextAppearance, -1)
-                .takeIf { it != -1 }?.let { setTitleTextTextAppearance(it) }
-            getResourceId(R.styleable.PromoBannerCardView_subtitleTextAppearance, -1)
-                .takeIf { it != -1 }?.let { setSubtitleTextTextAppearance(it) }
-            getResourceId(R.styleable.PromoBannerCardView_titleTextColor, R.color.white_1)
-                .takeIf { it != -1 }?.let { view.title.setTextColor(context.color(it)) }
-            getResourceId(R.styleable.PromoBannerCardView_subtitleTextColor, R.color.white_1)
-                .takeIf { it != -1 }?.let { view.subTitle.setTextColor(context.color(it)) }
-            setSubtitleShimmer(null)
-            recycle()
-        }
+    override fun TypedArray.obtainAttributes() {
+        getResourceId(R.styleable.PromoBannerCardView_android_background, -1)
+            .takeIf { it != -1 }?.let { setBackgroundResId(it) }
+        getString(R.styleable.PromoBannerCardView_title)?.let { setTitleText(it) }
+        getString(R.styleable.PromoBannerCardView_subtitle)?.let { setSubtitleText(it) }
+        setChevronVisibility(!getBoolean(R.styleable.PromoBannerCardView_hide_chevron, true))
+        getResourceId(R.styleable.PromoBannerCardView_android_icon, -1)
+            .takeIf { it != -1 }?.let { setIcon(it) }
+        getResourceId(R.styleable.PromoBannerCardView_right_image, -1)
+            .takeIf { it != -1 }?.let { setRightImage(it) }
+        getResourceId(R.styleable.PromoBannerCardView_titleTextAppearance, -1)
+            .takeIf { it != -1 }?.let { setTitleTextTextAppearance(it) }
+        getResourceId(R.styleable.PromoBannerCardView_subtitleTextAppearance, -1)
+            .takeIf { it != -1 }?.let { setSubtitleTextTextAppearance(it) }
+        getResourceId(R.styleable.PromoBannerCardView_titleTextColor, R.color.white_1)
+            .takeIf { it != -1 }?.let { view.title.setTextColor(context.color(it)) }
+        getResourceId(R.styleable.PromoBannerCardView_subtitleTextColor, R.color.white_1)
+            .takeIf { it != -1 }?.let { view.subTitle.setTextColor(context.color(it)) }
+        radius = getDimension(R.styleable.PromoBannerCardView_cardCornerRadius, 12f)
+    }
+
+    override fun setupShimmeringViews() {
+        super.setupShimmeringViews()
+        shimmeringPairs[view.subtitleShimmer] = view.subtitleShimmer
+        onStopShimmer()
+    }
+
+    override fun onStartShimmer() {
+        val subtitleShimmer = Shimmer.ColorHighlightBuilder()
+            .setHighlightAlpha(1f)
+            .setBaseAlpha(1f)
+            .setWidthRatio(2.0F)
+            .setBaseColor(context.color(R.color.magenta_1))
+            .setHighlightColor(context.color(R.color.gray_8))
+            .build()
+        view.subtitleShimmer.setShimmer(subtitleShimmer)
+    }
+
+    override fun onStopShimmer() {
+        view.subtitleShimmer.setShimmer(null)
     }
 
     private fun setIcon(iconResId: Int) {
@@ -130,25 +139,9 @@ class PromoBannerCardView : CardView {
         }
     }
 
-    fun setSubtitleShimmerVisibility(isVisible: Boolean) {
-        if (isVisible) {
-            view.subtitleShimmer.startShimmer()
-        } else {
-            view.subtitleShimmer.stopShimmer()
-        }
-    }
-
-    fun setSubtitleShimmer(shimmer: Shimmer?) {
-        view.subtitleShimmer.setShimmer(shimmer)
-    }
-
-    override fun setOnClickListener(l: OnClickListener?) {
-        view.root.setOnClickListener(l)
-    }
-
 }
 
-private data class PromoBannerCardViewVariables(
+data class PromoBannerCardViewVariables(
     var root: ConstraintLayout,
     var title: TextView,
     var subTitle: TextView,
