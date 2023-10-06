@@ -35,4 +35,6 @@
 
     <style name="Chili.CardViewStyle.TitleLogoCard"/>
 
+    <style name="Chili.CardViewStyle.PromoBannerCard"/>
+
 </resources>

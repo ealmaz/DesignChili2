@@ -462,4 +462,18 @@
         <attr name="value"/>
     </declare-styleable>
 
+    <declare-styleable name="PromoBannerCardView">
+        <attr name="title" />
+        <attr name="subtitle" />
+        <attr name="android:background" />
+        <attr name="hide_chevron" format="boolean" />
+        <attr name="android:icon" />
+        <attr name="right_image" format="reference" />
+        <attr name="titleTextAppearance" />
+        <attr name="subtitleTextAppearance" />
+        <attr name="titleTextColor" />
+        <attr name="subtitleTextColor" />
+        <attr name="cardCornerRadius"/>
+    </declare-styleable>
+
 </resources>
