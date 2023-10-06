@@ -8,7 +8,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
-import androidx.core.view.MotionEventCompat
 import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.extensions.drawable
@@ -24,6 +23,18 @@ class EditableCellView @JvmOverloads constructor(
 
     private lateinit var views: EditableCellViewVariables
     private var chevronIsVisible: Boolean? = null
+
+    var isEditMode: Boolean = false
+        set(value) {
+            views.apply {
+                optionImg.isVisible = value
+                dragImg.isVisible = value
+                verticalDivider.isVisible = value
+                endIconFrame.isVisible = !value
+                if (chevronIsVisible!!) chevron.isVisible = !value
+            }
+            field = value
+        }
 
     private fun inflateView() {
         val view =
@@ -41,14 +52,6 @@ class EditableCellView @JvmOverloads constructor(
         super.inflateView(context)
         inflateView()
         saveChevronState()
-    }
-
-    fun setEditMode(isOn: Boolean) {
-        views.optionImg.isVisible = isOn
-        views.dragImg.isVisible = isOn
-        views.verticalDivider.isVisible = isOn
-        views.endIconFrame.isVisible = !isOn
-        if (chevronIsVisible!!) views.chevron.isVisible = !isOn
     }
 
     private fun saveChevronState() {

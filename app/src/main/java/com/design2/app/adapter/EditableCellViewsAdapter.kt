@@ -25,7 +25,7 @@ class EditableCellViewsAdapter(var dragStart: ((RecyclerView.ViewHolder) -> Unit
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cell = holder.itemView.findViewById<EditableCellView>(R.id.editable_cell_view)
-        cell.setEditMode(isEditMode)
+        cell.isEditMode = this.isEditMode
         cell.setItemDragListener(
             started = {
                 dragStart?.invoke(holder)
