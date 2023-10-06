@@ -42,6 +42,7 @@
         <attr name="accentCardViewDefaultStyle" format="reference"/>
         <attr name="expandableCardItemViewDefaultStyle" format="reference"/>
         <attr name="categoryCardViewDefaultStyle" format="reference"/>
+        <attr name="paymentCardViewDefaultStyle" format="reference"/>
         <attr name="simpleCardViewDefaultStyle" format="reference"/>
         <attr name="balanceCardViewDefaultStyle" format="reference"/>
         <attr name="bankCardViewDefaultStyle" format="reference"/>
@@ -347,6 +348,13 @@
         <attr name="title"/>
         <attr name="icon"/>
         <attr name="titleTextAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="PaymentCardView">
+        <attr name="title"/>
+        <attr name="icon"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="android:gravity"/>
     </declare-styleable>
 
     <declare-styleable name="SimpleCardView">

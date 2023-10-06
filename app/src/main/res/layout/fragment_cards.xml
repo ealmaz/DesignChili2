@@ -349,6 +349,72 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
+            app:title="PaymentCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    style="@style/ShadowLayoutStyle"
+                    android:layout_marginStart="@dimen/padding_16dp">
+
+                    <com.design2.chili2.view.card.PaymentCardView
+                        android:id="@+id/pcv_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/view_80dp"
+                        app:title="Вывести"
+                        app:icon="@drawable/ic_arrow_right" />
+
+                </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+                
+                <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    style="@style/ShadowLayoutStyle"
+                    android:layout_marginHorizontal="@dimen/padding_16dp">
+
+                    <com.design2.chili2.view.card.PaymentCardView
+                        android:id="@+id/pcv_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:title="Пополнить"
+                        app:icon="@drawable/ic_plus" />
+
+                </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    style="@style/ShadowLayoutStyle"
+                    android:layout_marginEnd="@dimen/padding_16dp">
+
+                    <com.design2.chili2.view.card.PaymentCardView
+                        android:id="@+id/pcv_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:title="QR-код"
+                        app:icon="@drawable/ic_qr_code" />
+
+                </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+            </LinearLayout>
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
             app:title="SimpleCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

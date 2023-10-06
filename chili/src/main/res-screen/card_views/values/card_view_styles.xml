@@ -20,6 +20,8 @@
 
     <style name="Chili.CardViewStyle.CategoryCardView"/>
 
+    <style name="Chili.CardViewStyle.PaymentCardView"/>
+
     <style name="Chili.CardViewStyle.SimpleCardView"/>
 
     <style name="Chili.CardViewStyle.BalanceCardView"/>
