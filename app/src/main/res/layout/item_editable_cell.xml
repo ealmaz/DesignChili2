@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.design2.chili2.view.container.shadow_layout.ShadowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ShadowLayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:ignore="MissingDefaultResource">
+
+    <com.design2.chili2.view.cells.EditableCellView
+        android:id="@+id/editable_cell_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:icon="@drawable/ic_squircle_phone"
+        app:cellIconSize="small"
+        app:dragIcon="@drawable/chili_ic_drag"
+        app:editableIconsSize="small"
+        app:isChevronVisible="true"
+        app:optionIcon="@drawable/chili_ic_option"
+        app:subtitle="Подзаголовок"
+        app:title="Заголовок" />
+
+</com.design2.chili2.view.container.shadow_layout.ShadowLayout>

@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
@@ -60,6 +61,7 @@ open class BaseCellView @JvmOverloads constructor(
             tvTitleShimmer = view.findViewById(R.id.view_title_shimmer),
             tvSubtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
             iconShimmer = view.findViewById(R.id.view_icon_shimmer),
+            editToolsPlaceholder = view.findViewById(R.id.edit_tools_place_holder)
         )
     }
 
@@ -353,4 +355,6 @@ data class BaseCellViewVariables(
     var chevron: ImageView,
     val tvTitleShimmer: ShimmerFrameLayout,
     val tvSubtitleShimmer: ShimmerFrameLayout,
-    val iconShimmer: ShimmerFrameLayout)
+    val iconShimmer: ShimmerFrameLayout,
+    val editToolsPlaceholder: LinearLayout
+)

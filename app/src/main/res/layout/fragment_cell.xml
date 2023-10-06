@@ -139,6 +139,7 @@
 
             <com.design2.chili2.view.cells.BaseCellView
                 android:layout_width="match_parent"
+                android:id="@+id/cellView"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/chili_ic_success"
                 app:cellIconSize="small"
@@ -228,6 +229,7 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/testtest"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_32dp"
             android:text="BaseCellView iconSize = MEDIUM (46dp)" />
@@ -486,6 +488,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_32dp"
+            android:text="EditableCellView iconSize = SMALL (32 dp)" />
+
+        <Button
+            android:id="@+id/editModeBtn"
+            android:layout_width="wrap_content"
+            android:text="editMode"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/editCellViewRv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            android:nestedScrollingEnabled="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_32dp"
             android:text="BaseCellView max char" />
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
@@ -593,15 +615,6 @@
                 android:icon="@drawable/chili_ic_success"
                 app:cellIconSize="small"
                 app:roundedCornerMode="top"
-                app:subtitle="Подзаголовок"
-                app:title="Заголовок" />
-
-            <com.design2.chili2.view.cells.ToggleCellView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/chili_ic_success"
-                app:cellIconSize="medium"
-                app:roundedCornerMode="middle"
                 app:subtitle="Подзаголовок"
                 app:title="Заголовок" />
 
@@ -1485,9 +1498,18 @@
                 app:title="Заголовок"
                 android:id="@+id/multiiconed_cell_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+        <com.design2.chili2.view.cells.ToggleCellView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/chili_ic_success"
+            app:cellIconSize="medium"
+            app:roundedCornerMode="middle"
+            app:subtitle="Подзаголовок"
+            app:title="Заголовок" />
 
     </LinearLayout>
 
