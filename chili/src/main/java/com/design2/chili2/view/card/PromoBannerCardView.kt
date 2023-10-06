@@ -35,7 +35,7 @@ class PromoBannerCardView @JvmOverloads constructor(
     }
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chilli_view_card_banner, this)
+        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_banner, this)
         this.view = PromoBannerCardViewVariables(
             root = view.findViewById(R.id.cl_container),
             title = view.findViewById(R.id.tv_title),
