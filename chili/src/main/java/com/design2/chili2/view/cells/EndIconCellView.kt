@@ -9,8 +9,10 @@ import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import com.design2.chili2.R
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setOnSingleClickListener
+import com.design2.chili2.extensions.visible
 import com.design2.chili2.util.IconSize
 
 open class EndIconCellView @JvmOverloads constructor(
@@ -60,6 +62,14 @@ open class EndIconCellView @JvmOverloads constructor(
             shimmeringPairs[this] = null
         }
         view.flEndPlaceholder.addView(endIcon)
+    }
+
+    override fun onStartShimmer() {
+        view.flEndPlaceholder.gone()
+    }
+
+    override fun onStopShimmer() {
+        view.flEndPlaceholder.visible()
     }
 
     fun setEndIcon(endIcon: Any?) {
