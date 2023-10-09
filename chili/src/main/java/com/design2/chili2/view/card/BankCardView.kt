@@ -12,8 +12,10 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.ColorInt
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
+import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.visible
 
@@ -152,6 +154,11 @@ class BankCardView @JvmOverloads constructor(
 
     fun setCvvHidingDelegate(delegate :((CharSequence?, Boolean) -> CharSequence)) {
         this.cardCvvHideDelegate = delegate
+    }
+
+    fun setFieldBackgroundTint(@ColorInt color: Int) {
+        view.llPan.background.setTint(context.color(color))
+        view.llCvv.background.setTint(context.color(color))
     }
 
     private fun setupCardPanToggle() = with(view) {
