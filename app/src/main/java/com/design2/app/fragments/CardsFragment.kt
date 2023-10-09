@@ -56,6 +56,9 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         vb.ecvRvContainer.setEndIconClickListener {
             imitateListFromRV()
         }
+        vb.elcardBanner.setOnClickListener {
+            Toast.makeText(requireContext(), "Banner clicked", Toast.LENGTH_SHORT).show()
+        }
     }
     private fun imitateListFromRV(){
         if (simpleList.isEmpty()) {

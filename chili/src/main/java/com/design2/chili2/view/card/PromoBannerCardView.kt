@@ -139,6 +139,10 @@ class PromoBannerCardView @JvmOverloads constructor(
         }
     }
 
+    override fun setOnClickListener(l: OnClickListener?) {
+        view.root.setOnClickListener(l)
+    }
+
 }
 
 data class PromoBannerCardViewVariables(
