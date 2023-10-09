@@ -54,6 +54,7 @@
         android:layout_marginTop="@dimen/padding_12dp"
         android:layout_marginEnd="@dimen/padding_12dp"
         android:layout_marginBottom="@dimen/padding_4dp"
+        android:textAppearance="@style/Chili.H7.Primary"
         app:layout_goneMarginBottom="@dimen/padding_12dp"
         android:ellipsize="end"
         android:maxLines="2"
