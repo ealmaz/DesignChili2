@@ -186,6 +186,38 @@ class BankCardView @JvmOverloads constructor(
         }
     }
 
+    fun setupCardPanToggle(onClick: () -> Unit) = with(view) {
+        ivPanToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
+        panToggleState = CardFieldToggleState.ICON_SHOW
+        llPan.isClickable = true
+        llPan.isFocusable = true
+        llPan.setOnClickListener {
+            if (panToggleState == CardFieldToggleState.ICON_SHOW) {
+                panToggleState = CardFieldToggleState.ICON_COPY
+                ivPanToggle.setImageResource(R.drawable.chili_ic_copy)
+                onClick()
+            } else {
+                copyText(pan)
+            }
+        }
+    }
+
+    fun setupCvvToggle(onClick: () -> Unit) = with(view) {
+        ivCvvToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
+        cvvToggleState = CardFieldToggleState.ICON_SHOW
+        llCvv.isClickable = true
+        llCvv.isFocusable = true
+        llCvv.setOnClickListener {
+            if (cvvToggleState == CardFieldToggleState.ICON_SHOW) {
+                cvvToggleState = CardFieldToggleState.ICON_COPY
+                ivCvvToggle.setImageResource(R.drawable.chili_ic_copy)
+                onClick()
+            } else {
+                copyText(cvv)
+            }
+        }
+    }
+
     private fun copyText(text: String) {
         val clipboard: ClipboardManager? = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
         val clip = ClipData.newPlainText(text, text)
