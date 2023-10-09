@@ -3,6 +3,7 @@ package com.design2.chili2.view.card
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Color
 import android.graphics.drawable.Drawable
@@ -13,7 +14,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import com.design2.chili2.R
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.invisible
@@ -156,9 +159,20 @@ class BankCardView @JvmOverloads constructor(
         this.cardCvvHideDelegate = delegate
     }
 
-    fun setFieldBackgroundTint(@ColorInt color: Int) {
+    fun setPanBackgroundTint(@ColorRes color: Int) {
         view.llPan.background.setTint(context.color(color))
+    }
+
+    fun setCvvBackgroundTint(@ColorRes color: Int) {
         view.llCvv.background.setTint(context.color(color))
+    }
+
+    fun setCvvToggleTint(@ColorRes color: Int) {
+        view.ivCvvToggle.imageTintList = ColorStateList.valueOf(context.color(color))
+    }
+
+    fun setPanToggleTint(@ColorRes color: Int) {
+        view.ivPanToggle.imageTintList = ColorStateList.valueOf(context.color(color))
     }
 
     private fun setupCardPanToggle() = with(view) {
