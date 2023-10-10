@@ -33,6 +33,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         vb.cat2.setGravity(Gravity.CENTER_HORIZONTAL)
         initRV()
         initDiscountCard()
+        initBanners()
     }
 
     private fun initDiscountCard(){
@@ -55,9 +56,6 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         }
         vb.ecvRvContainer.setEndIconClickListener {
             imitateListFromRV()
-        }
-        vb.elcardBanner.setOnClickListener {
-            Toast.makeText(requireContext(), "Banner clicked", Toast.LENGTH_SHORT).show()
         }
     }
     private fun imitateListFromRV(){
@@ -87,6 +85,26 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
             setIsListEmpty(false)
         }
         setIsExpanded(isExpanded)
+    }
+
+    private var isElcapSubtitleShimmerShow = false
+    private fun initBanners() = with(vb) {
+        pbcvElcap.apply {
+            setOnClickListener {
+                isElcapSubtitleShimmerShow = !isElcapSubtitleShimmerShow
+                if (isElcapSubtitleShimmerShow) {
+                    setSubtitleText("Your card is ready")
+                    setSubtitleColor(com.design2.chili2.R.color.magenta_1)
+                    setSubtitleContainerBackground(R.drawable.bg_rounded_white_with_paddings)
+                    onStartShimmer()
+                } else {
+                    setSubtitleText("Apply card right now")
+                    setSubtitleColor(com.design2.chili2.R.color.white_1)
+                    setSubtitleContainerBackground(0)
+                    onStopShimmer()
+                }
+            }
+        }
     }
 
 
