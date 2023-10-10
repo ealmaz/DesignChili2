@@ -25,8 +25,8 @@
         <ImageView
             android:visibility="gone"
             android:id="@+id/iv_icon"
-            android:layout_width="@dimen/view_28dp"
-            android:layout_height="@dimen/view_28dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/padding_8dp"
             android:src="@drawable/chilli_ic_cancel" />
 

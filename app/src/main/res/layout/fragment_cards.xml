@@ -681,35 +681,73 @@
             android:clipToPadding="false"
             app:title="PromoBannerCard">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <HorizontalScrollView
+                android:id="@+id/hsv_banners"
+                android:orientation="horizontal"
+                style="@style/ShadowLayoutStyle"
+                android:scrollbars="none"
+                android:overScrollMode="never"
                 android:clipChildren="false"
                 android:clipToPadding="false"
-                android:orientation="vertical">
+                android:layout_marginBottom="@dimen/padding_16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <com.design2.chili2.view.container.shadow_layout.ShadowLayout
-                    style="@style/ShadowLayoutStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/padding_16dp">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/padding_16dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                    <com.design2.chili2.view.card.PromoBannerCardView
-                        android:id="@+id/elcardBanner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:title="Карта ЭЛКАРТ"
-                        app:subtitleTextColor="@color/white"
-                        app:subtitle="Откойте карту в О!Store"
-                        android:icon="@drawable/ic_elcart_title_logo"
-                        android:background="@drawable/bg_rounded_gradient"
-                        app:right_image="@drawable/bg_virtual_cards_2"
-                        app:titleTextColor="@color/white"
-                        />
-                </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+                    <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        android:id="@+id/visa_shadow"
+                        style="@style/ShadowLayoutStyle"
+                        android:layout_marginEnd="@dimen/padding_16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
+                        <com.design2.chili2.view.card.PromoBannerCardView
+                            android:id="@+id/pbcv_visa"
+                            android:icon="@drawable/ic_visa_banner_logo"
+                            app:hide_chevron="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/view_80dp"
+                            android:background="@drawable/bg_rounded_virtual_card_gradient"
+                            app:right_image="@drawable/bg_virtual_cards_3"
+                            app:subtitleTextAppearance="@style/Chili.H9.Primary"
+                            app:subtitleTextColor="?ChiliPrimaryTextColor"
+                            app:title="Виртуальная карта"
+                            app:titleTextAppearance="@style/Chili.H7.Primary.Bold"
+                            app:titleTextColor="?ChiliPrimaryTextColor"
+                            app:subtitle="Открой бесплатно в приложении!" />
 
-            </LinearLayout>
+                    </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                    <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        android:id="@+id/elcap_shadow"
+                        style="@style/ShadowLayoutStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.design2.chili2.view.card.PromoBannerCardView
+                            android:id="@+id/pbcv_elcap"
+                            android:icon="@drawable/ic_elcart_title_logo"
+                            app:hide_chevron="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/view_80dp"
+                            android:background="@drawable/bg_rounded_gradient"
+                            app:right_image="@drawable/bg_virtual_cards_2"
+                            app:subtitleTextAppearance="@style/Chili.H9.Primary"
+                            app:title="Карта ЭЛКАРТ"
+                            app:titleTextAppearance="@style/Chili.H7.Primary.700"
+                            app:subtitle="Откойте карту в О!Store" />
+                    </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
         </com.design2.chili2.view.container.ExpandableContainer>
 
     </LinearLayout>
