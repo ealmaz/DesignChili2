@@ -109,6 +109,13 @@
             android:layout_marginEnd="@dimen/padding_16dp"
             android:layout_marginTop="@dimen/padding_8dp"/>
 
+        <com.design2.chili2.view.buttons.IconedButton
+            android:id="@+id/iconed_button"
+            style="@style/Chili.ButtonStyle.Additional"
+            android:text="Google Pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </ScrollView>
