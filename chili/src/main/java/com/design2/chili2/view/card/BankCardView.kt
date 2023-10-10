@@ -15,10 +15,12 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.design2.chili2.R
 import com.design2.chili2.extensions.color
+import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.visible
 
@@ -165,6 +167,14 @@ class BankCardView @JvmOverloads constructor(
 
     fun setCvvBackgroundTint(@ColorRes color: Int) {
         view.llCvv.background.setTint(context.color(color))
+    }
+
+    fun setPanBackground(@DrawableRes drawable: Int) {
+        view.llPan.background = context.drawable(drawable)
+    }
+
+    fun setCvvBackground(@DrawableRes drawable: Int) {
+        view.llCvv.background = context.drawable(drawable)
     }
 
     fun setCvvToggleTint(@ColorRes color: Int) {
