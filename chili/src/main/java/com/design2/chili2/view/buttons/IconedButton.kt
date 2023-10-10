@@ -1,14 +1,17 @@
 package com.design2.chili2.view.buttons
 
 import android.content.Context
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
@@ -39,8 +42,8 @@ class IconedButton @JvmOverloads constructor(
 
     private fun obtainAttributes(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int, defStyle: Int) {
         context.obtainStyledAttributes(attributeSet, R.styleable.IconedButton, defStyleAttr, defStyle).run {
-            setText(getString(R.styleable.LoaderButton_android_text))
-            setEnabled(getBoolean(R.styleable.LoaderButton_android_enabled, true))
+            setText(getString(R.styleable.IconedButton_android_text))
+            setEnabled(getBoolean(R.styleable.IconedButton_android_enabled, true))
             recycle()
         }
     }
@@ -77,6 +80,18 @@ class IconedButton @JvmOverloads constructor(
 
     override fun setEnabled(enabled: Boolean) {
         view.rootView.isEnabled = enabled
+    }
+
+    fun setTextColor(@ColorInt color: Int) {
+        view.title.setTextColor(color)
+    }
+
+    fun setTextStyle(typeface: Typeface) {
+        view.title.typeface = typeface
+    }
+
+    fun setTextAppearance(@StyleRes resId: Int) {
+        view.title.setTextAppearance(resId)
     }
 }
 
