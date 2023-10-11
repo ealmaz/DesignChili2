@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.app.MainActivity
+import com.design2.app.R
 import com.design2.app.adapter.EditableCellViewsAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
@@ -55,6 +56,12 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         touchHelper.attachToRecyclerView(vb.editCellViewRv)
         vb.editModeBtn.setOnClickListener {
             adapter.isEditMode = !adapter.isEditMode
+        }
+        vb.checkboxWithEndText.apply {
+            setTitleTextAppearance(com.design2.chili2.R.style.Chili_H7_Value)
+            setSubtitle("Тазалык 30402340234")
+            setSubtitleTextAppearance(com.design2.chili2.R.style.Chili_H7_Value)
+            insertEndText("4000 c")
         }
     }
 

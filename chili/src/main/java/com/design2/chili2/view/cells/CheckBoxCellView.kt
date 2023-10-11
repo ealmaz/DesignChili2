@@ -4,9 +4,15 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.CompoundButton
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.annotation.DimenRes
 import androidx.appcompat.widget.AppCompatCheckBox
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.get
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setOnSingleClickListener
+import org.w3c.dom.Text
 
 class CheckBoxCellView @JvmOverloads constructor(
     context: Context,
@@ -16,6 +22,7 @@ class CheckBoxCellView @JvmOverloads constructor(
 ) : BaseCellView(context, attrs, defStyleAttr, defStyleRes) {
 
     private var checkBox: AppCompatCheckBox? = null
+    private var endText: TextView? = null
 
     override fun inflateView(context: Context) {
         super.inflateView(context)
@@ -41,7 +48,22 @@ class CheckBoxCellView @JvmOverloads constructor(
 
     private fun inflateCheckBox() {
         checkBox = AppCompatCheckBox(context)
-        view.flEndPlaceholder.addView(checkBox)
+        view.flEndPlaceholder.addView(LinearLayout(context).apply {
+            this.orientation = LinearLayout.HORIZONTAL
+        })
+        (view.flEndPlaceholder[0] as LinearLayout).addView(checkBox)
+    }
+
+    fun insertEndText(text: String) {
+        endText = TextView(context).apply {
+            setTextAppearance(R.style.Chili_H7_Primary)
+            setText(text)
+        }
+        (view.flEndPlaceholder[0] as LinearLayout).addView(endText, 0)
+    }
+
+    fun setEndText(text: String) {
+        endText?.text = text
     }
 
     fun setIsCheckBoxVisible(isVisible: Boolean) {
