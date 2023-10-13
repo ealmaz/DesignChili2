@@ -21,8 +21,10 @@ import androidx.core.content.ContextCompat
 import com.design2.chili2.R
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.visible
+import com.facebook.shimmer.ShimmerFrameLayout
 
 
 class BankCardView @JvmOverloads constructor(
@@ -72,7 +74,9 @@ class BankCardView @JvmOverloads constructor(
             ivPanToggle = view.findViewById(R.id.iv_pan_toggle),
             ivCvvToggle = view.findViewById(R.id.iv_cvv_toggle),
             llPan = view.findViewById(R.id.ll_card_pan),
-            llCvv = view.findViewById(R.id.ll_cvv)
+            llCvv = view.findViewById(R.id.ll_cvv),
+            panShimmer = view.findViewById(R.id.pan_shimmer),
+            cvvShimmer = view.findViewById(R.id.cvv_shimmer)
         )
     }
 
@@ -98,6 +102,8 @@ class BankCardView @JvmOverloads constructor(
     fun setCardPan(charSequence: CharSequence?) {
         if (charSequence == null) return
         this.pan = charSequence.toString()
+        view.panShimmer.gone()
+        view.tvCardPan.visible()
         cardPanHideDelegate(charSequence, panToggleState == CardFieldToggleState.ICON_SHOW).let {
             view.tvCardPan.text = it
         }
@@ -106,6 +112,8 @@ class BankCardView @JvmOverloads constructor(
     fun setCardCvv(charSequence: CharSequence?) {
         if (charSequence == null) return
         this.cvv = charSequence.toString()
+        view.cvvShimmer.gone()
+        view.tvCvv.visible()
        cardCvvHideDelegate(charSequence, cvvToggleState == CardFieldToggleState.ICON_SHOW).let {
            view.tvCvv.text = it
        }
@@ -224,6 +232,8 @@ class BankCardView @JvmOverloads constructor(
         llPan.isFocusable = true
         llPan.setOnClickListener {
             if (panToggleState == CardFieldToggleState.ICON_SHOW) {
+                tvCardPan.gone()
+                panShimmer.visible()
                 panToggleState = CardFieldToggleState.ICON_COPY
                 ivPanToggle.setImageResource(R.drawable.chili_ic_copy)
                 onClick()
@@ -240,6 +250,8 @@ class BankCardView @JvmOverloads constructor(
         llCvv.isFocusable = true
         llCvv.setOnClickListener {
             if (cvvToggleState == CardFieldToggleState.ICON_SHOW) {
+                tvCvv.gone()
+                cvvShimmer.visible()
                 cvvToggleState = CardFieldToggleState.ICON_COPY
                 ivCvvToggle.setImageResource(R.drawable.chili_ic_copy)
                 onClick()
@@ -265,9 +277,11 @@ data class BankCardViewVariables(
     val ivIcon: ImageView,
     val ivCvvToggle: ImageView,
     val ivPanToggle: ImageView,
-    val llCvv: LinearLayout,
-    val llPan: LinearLayout,
-    val rootContainer: ConstraintLayout
+    val llCvv: ConstraintLayout,
+    val llPan: ConstraintLayout,
+    val rootContainer: ConstraintLayout,
+    val panShimmer: ShimmerFrameLayout,
+    val cvvShimmer: ShimmerFrameLayout
 )
 
 enum class CardFieldToggleState {
