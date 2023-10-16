@@ -34,14 +34,15 @@ class BankCardView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CardViewStyle_BankCard
 ) : BaseCardView(context, attrs, defStyleAttr) {
 
+
+    private var isPanShimmering = false
+    private var isCvvShimmering = false
     private var pan: String = ""
     private var panToggleState = CardFieldToggleState.ICON_NONE
-    private var cardPanHideDelegate = {pan: CharSequence, isHidden: Boolean ->
+    private var cardPanHideDelegate: (CharSequence, Boolean) -> CharSequence = {pan: CharSequence, isHidden: Boolean ->
         if (isHidden) {
             try { pan.replaceRange(6..11, " • • •  • •") }
-            catch (_: Exception) {}
-            pan
-
+            catch (_: Exception) { pan}
         } else pan
     }
 
@@ -104,6 +105,8 @@ class BankCardView @JvmOverloads constructor(
         this.pan = charSequence.toString()
         view.panShimmer.gone()
         view.tvCardPan.visible()
+        view.ivPanToggle.visible()
+        isPanShimmering = false
         cardPanHideDelegate(charSequence, panToggleState == CardFieldToggleState.ICON_SHOW).let {
             view.tvCardPan.text = it
         }
@@ -114,6 +117,8 @@ class BankCardView @JvmOverloads constructor(
         this.cvv = charSequence.toString()
         view.cvvShimmer.gone()
         view.tvCvv.visible()
+        view.ivCvvToggle.visible()
+        isCvvShimmering = false
        cardCvvHideDelegate(charSequence, cvvToggleState == CardFieldToggleState.ICON_SHOW).let {
            view.tvCvv.text = it
        }
@@ -231,13 +236,19 @@ class BankCardView @JvmOverloads constructor(
         llPan.isClickable = true
         llPan.isFocusable = true
         llPan.setOnClickListener {
+            if (isPanShimmering) return@setOnClickListener
             if (panToggleState == CardFieldToggleState.ICON_SHOW) {
+                isPanShimmering = true
                 tvCardPan.gone()
                 panShimmer.visible()
+                ivPanToggle.invisible()
                 panToggleState = CardFieldToggleState.ICON_COPY
                 ivPanToggle.setImageResource(R.drawable.chili_ic_copy)
                 onClick()
             } else {
+                panToggleState = CardFieldToggleState.ICON_SHOW
+                ivPanToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
+                setCardPan(pan)
                 copyText(pan)
             }
         }
@@ -249,13 +260,19 @@ class BankCardView @JvmOverloads constructor(
         llCvv.isClickable = true
         llCvv.isFocusable = true
         llCvv.setOnClickListener {
+            if (isCvvShimmering) return@setOnClickListener
             if (cvvToggleState == CardFieldToggleState.ICON_SHOW) {
+                isCvvShimmering = true
                 tvCvv.gone()
+                ivCvvToggle.invisible()
                 cvvShimmer.visible()
                 cvvToggleState = CardFieldToggleState.ICON_COPY
                 ivCvvToggle.setImageResource(R.drawable.chili_ic_copy)
                 onClick()
             } else {
+                cvvToggleState = CardFieldToggleState.ICON_SHOW
+                ivCvvToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
+                setCardCvv(cvv)
                 copyText(cvv)
             }
         }

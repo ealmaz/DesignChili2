@@ -34,6 +34,18 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         initRV()
         initDiscountCard()
         initBanners()
+        vb.bankCardView.setupCardPanToggle {
+            vb.root.postDelayed({
+                                vb.bankCardView.setCardPan("9417 1243 3425 4215")
+            }, 1000)
+        }
+        vb.bankCardView.setCardPan("9417 1243 3425 4215")
+        vb.bankCardView.setupCvvToggle {
+            vb.root.postDelayed({
+                vb.bankCardView.setCardCvv("321")
+            }, 1000)
+        }
+        vb.bankCardView.setCardCvv("321")
     }
 
     private fun initDiscountCard(){
