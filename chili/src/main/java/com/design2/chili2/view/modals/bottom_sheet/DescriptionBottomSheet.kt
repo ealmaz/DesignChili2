@@ -41,13 +41,15 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
     private var secondaryButtonRes: Pair<Int, (DescriptionBottomSheet.() -> Unit)>? = null
 
     override var topDrawableVisible = true
+    override var hasCloseIcon: Boolean = false
+    override var closeIconView: View? = null
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
-        val view = inflater.inflate(R.layout.chili_view_bottom_sheet_description, container, false).apply {
-            val padding = resources.getDimensionPixelSize(R.dimen.padding_16dp)
-            setPadding(padding, padding, padding, padding)
-            setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
-        }
+        val view =
+            inflater.inflate(R.layout.chili_view_bottom_sheet_description, container, false).apply {
+                setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
+            }
+        closeIconView = view.findViewById(R.id.iv_desc_close)
         tvTitle = view.findViewById(R.id.tv_title)
         tvDescription = view.findViewById(R.id.tv_desc)
         tvDescriptionSecondary = view.findViewById(R.id.tv_desc_secondary)
@@ -64,15 +66,15 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
     private fun setupViews() {
         title?.let { setTitle(it) }
         titleSpanned?.let { setTitle(it) }
-        titleResId?.let { setTitle(it)}
+        titleResId?.let { setTitle(it) }
 
         description?.let { setDescription(it) }
         descriptionSpanned?.let { setDescription(it) }
-        descriptionResId?.let { setDescription(it)}
+        descriptionResId?.let { setDescription(it) }
 
         descriptionSecondary?.let { setDescriptionSecondary(it) }
         descriptionSecondarySpanned?.let { setDescriptionSecondary(it) }
-        descriptionSecondaryResId?.let { setDescriptionSecondary(it)}
+        descriptionSecondaryResId?.let { setDescriptionSecondary(it) }
 
         iconRes?.let { setIcon(it) }
 
@@ -150,7 +152,10 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
         }
     }
 
-    private fun setSecondaryButton(@StringRes resId: Int, action: (DescriptionBottomSheet.() -> Unit)? = null) {
+    private fun setSecondaryButton(
+        @StringRes resId: Int,
+        action: (DescriptionBottomSheet.() -> Unit)? = null
+    ) {
         btnSecondary.apply {
             visible()
             setText(resId)
@@ -158,12 +163,19 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
         }
     }
 
-    private fun setSecondaryButton(text: String, action: (DescriptionBottomSheet.() -> Unit)? = null) {
+    private fun setSecondaryButton(
+        text: String,
+        action: (DescriptionBottomSheet.() -> Unit)? = null
+    ) {
         btnSecondary.apply {
             visible()
             setText(text)
             setOnSingleClickListener { action?.invoke(this@DescriptionBottomSheet) }
         }
+    }
+
+    fun showCloseIcon() {
+        this.hasCloseIcon = true
     }
 
     class Builder {
@@ -180,6 +192,7 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
         private var descriptionSecondaryResId: Int? = null
 
         private var iconRes: Int? = null
+        private var hasCloseIcon: Boolean = false
 
         private var secondaryButton: Pair<String, (DescriptionBottomSheet.() -> Unit)>? = null
         private var secondaryButtonRes: Pair<Int, (DescriptionBottomSheet.() -> Unit)>? = null
@@ -251,6 +264,11 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
             return this
         }
 
+        fun showCloseIcon(): Builder {
+            this.hasCloseIcon = true
+            return this
+        }
+
         fun build(): DescriptionBottomSheet {
             return DescriptionBottomSheet().apply {
                 this.title = this@Builder.title
@@ -266,6 +284,7 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
                 this.secondaryButton = this@Builder.secondaryButton
                 this.secondaryButtonRes = this@Builder.secondaryButtonRes
                 this.isHideable = this@Builder.isHideable
+                this.hasCloseIcon = this@Builder.hasCloseIcon
             }
         }
     }

@@ -31,14 +31,14 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     private var primaryButtonRes: Pair<Int, (DetailedInfoBottomSheet.() -> Unit)>? = null
 
     override var hasCloseIcon: Boolean = true
+    override var closeIconView: View? = null
     override var topDrawableVisible = true
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
         val view = inflater.inflate(R.layout.chili_view_bottom_sheet_detailed_info, container, false).apply {
-            val padding = resources.getDimensionPixelSize(R.dimen.padding_16dp)
-            setPadding(padding, padding, padding, padding)
             setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
         }
+        closeIconView = view.findViewById(R.id.iv_detail_close)
         tvText = view.findViewById(R.id.tv_text)
         ivIcon = view.findViewById(R.id.iv_icon)
         btnPrimary = view.findViewById(R.id.btn_primary)
@@ -105,12 +105,17 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         }
     }
 
+    fun hideCloseIcon() {
+        this.hasCloseIcon = false
+    }
+
     class Builder {
         private var text: String? = null
         private var textSpanned: Spanned? = null
         private var textResId: Int? = null
 
         private var iconRes: Int? = null
+        private var hasCloseIcon: Boolean = true
 
         private var primaryButton: Pair<String, (DetailedInfoBottomSheet.() -> Unit)>? = null
         private var primaryButtonRes: Pair<Int, (DetailedInfoBottomSheet.() -> Unit)>? = null
@@ -152,6 +157,11 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
             return this
         }
 
+        fun hideCloseIcon(): Builder {
+            this.hasCloseIcon = false
+            return this
+        }
+
         fun build(): DetailedInfoBottomSheet {
             return DetailedInfoBottomSheet().apply {
                 this.text = this@Builder.text
@@ -161,6 +171,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
                 this.primaryButton = this@Builder.primaryButton
                 this.primaryButtonRes = this@Builder.primaryButtonRes
                 this.isHideable = this@Builder.isHideable
+                this.hasCloseIcon = this@Builder.hasCloseIcon
             }
         }
     }

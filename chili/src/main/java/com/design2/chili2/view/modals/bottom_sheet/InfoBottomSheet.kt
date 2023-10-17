@@ -37,15 +37,15 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     private var secondaryButtonRes: Pair<Int, (InfoBottomSheet.() -> Unit)>? = null
 
     override var hasCloseIcon: Boolean = true
+    override var closeIconView: View? = null
 
     private var dismissEvent: (() -> Unit)? = null
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
         val view = inflater.inflate(R.layout.chili_view_bottom_sheet_info, container, false).apply {
-            val padding = resources.getDimensionPixelSize(R.dimen.padding_16dp)
-            setPadding(padding, padding, padding, padding)
             setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
         }
+        closeIconView = view.findViewById(R.id.iv_info_close)
         tvText = view.findViewById(R.id.tv_text)
         ivIcon = view.findViewById(R.id.iv_icon)
         btnPrimary = view.findViewById(R.id.btn_primary)
@@ -75,7 +75,6 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         secondaryButton?.let { setSecondaryButton(it.first, it.second) }
         primaryButtonRes?.let { setPrimaryButton(it.first, it.second) }
         secondaryButtonRes?.let { setSecondaryButton(it.first, it.second) }
-
     }
 
     private fun setIcon(@DrawableRes resId: Int) {
