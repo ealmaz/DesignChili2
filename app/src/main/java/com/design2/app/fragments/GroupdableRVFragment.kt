@@ -1,5 +1,6 @@
 package com.design2.app.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.design2.chili2.view.container.grouping_rv.BaseGroupingVH
 import com.design2.chili2.view.container.grouping_rv.GroupableAdapter
 import com.design2.chili2.view.container.grouping_rv.GroupingItem
 import com.design2.chili2.view.container.grouping_rv.GroupingRVAdapter
+import com.design2.chili2.view.container.grouping_rv.NonShadowGroupItems
 import com.design2.chili2.view.container.grouping_rv.ShadowGroupItems
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
@@ -27,7 +29,7 @@ class GroupdableRVFragment : BaseFragment<FragmentGroupableRvBinding>() {
         ).apply {
             submitList(
                 listOf(
-                    ShadowGroupItems(listOf(
+                    NonShadowGroupItems(listOf(
                         PoleItem("1"),
                         PoleItem("2"),
                         PoleItem("3"),

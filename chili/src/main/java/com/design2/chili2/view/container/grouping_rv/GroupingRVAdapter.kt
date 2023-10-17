@@ -13,6 +13,7 @@ class GroupingRVAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseGroupingVH {
         return when (viewType) {
             SHADOW_GROUP -> ShadowGroupVH.create(parent, adapterCreator.invoke(viewType))
+            NON_SHADOW_GROUP -> NonShadowGroupVH.create(parent, adapterCreator.invoke(viewType))
             else -> emptyVHCreator.invoke(parent)
         }
     }
@@ -31,6 +32,7 @@ class GroupingRVAdapter(
 
     companion object {
         const val SHADOW_GROUP = 1
+        const val NON_SHADOW_GROUP = 2
     }
 }
 
