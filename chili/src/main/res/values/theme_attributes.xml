@@ -208,6 +208,9 @@
     <attr name="ChiliComponentButtonTextColorDisabled" format="color"/>
     <attr name="ChiliComponentButtonTextAllCaps" format="boolean"/>
 
+    <attr name="ChiliComponentButtonHorizontalPadding" format="dimension"/>
+    <attr name="ChiliComponentButtonVerticalPadding" format="dimension"/>
+
 
     <!-- InputView   -->
     <attr name="ChiliInputViewEndIconTint" format="color"/>

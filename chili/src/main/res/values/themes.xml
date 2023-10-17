@@ -172,6 +172,8 @@
         <item name="ChiliComponentButtonTextColorActive">@color/blue_1</item>
         <item name="ChiliComponentButtonTextColorPressed">@color/blue_1</item>
         <item name="ChiliComponentButtonTextColorDisabled">@color/blue_1_alpha_50</item>
+        <item name="ChiliComponentButtonHorizontalPadding">@dimen/padding_4dp</item>
+        <item name="ChiliComponentButtonVerticalPadding">@dimen/padding_0dp</item>
 
         <!-- InputView -->
         <item name="ChiliInputViewEndIconTint">@color/gray_1</item>

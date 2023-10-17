@@ -34,4 +34,9 @@
         <item name="ChiliCellCornerRadius">?ChiliBankCardViewFieldsCornerRadius</item>
     </style>
 
+    <style name="ThemeOverlay.ComponentButtonWiderPadding">
+        <item name="ChiliComponentButtonHorizontalPadding">@dimen/padding_16dp</item>
+        <item name="ChiliComponentButtonVerticalPadding">@dimen/padding_8dp</item>
+    </style>
+
 </resources>

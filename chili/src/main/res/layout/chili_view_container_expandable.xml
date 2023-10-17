@@ -55,6 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        android:theme="@style/ThemeOverlay.ComponentButtonWiderPadding"
         style="@style/Chili.ButtonStyle.Component"
         android:paddingHorizontal="@dimen/padding_2dp"
         app:layout_constraintTop_toTopOf="@id/title_container"
