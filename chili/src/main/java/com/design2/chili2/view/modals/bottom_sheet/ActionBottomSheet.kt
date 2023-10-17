@@ -16,8 +16,6 @@ import java.io.Serializable
 
 class ActionBottomSheet : BaseViewBottomSheetDialogFragment() {
 
-    override var closeIconView: View? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL, R.style.Chili_BottomSheetStyle)

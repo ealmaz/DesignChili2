@@ -174,10 +174,6 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
         }
     }
 
-    fun showCloseIcon() {
-        this.hasCloseIcon = true
-    }
-
     class Builder {
         private var title: String? = null
         private var titleSpanned: Spanned? = null

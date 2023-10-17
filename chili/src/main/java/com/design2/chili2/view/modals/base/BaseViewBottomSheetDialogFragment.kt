@@ -12,6 +12,7 @@ import com.design2.chili2.R
 abstract class BaseViewBottomSheetDialogFragment : BaseBottomSheetDialogFragment() {
 
     override var topDrawableView: View? = null
+    override var closeIconView: View? = null
 
     @Nullable
     override fun onCreateView(

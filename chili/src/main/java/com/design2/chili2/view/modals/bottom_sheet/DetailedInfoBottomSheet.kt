@@ -105,10 +105,6 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         }
     }
 
-    fun hideCloseIcon() {
-        this.hasCloseIcon = false
-    }
-
     class Builder {
         private var text: String? = null
         private var textSpanned: Spanned? = null
