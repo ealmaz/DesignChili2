@@ -28,7 +28,6 @@ abstract class BaseViewBottomSheetDialogFragment : BaseBottomSheetDialogFragment
 
     private fun initViewVariables(view: View) {
         topDrawableView = view.findViewById(R.id.iv_top_drawable)
-        closeIconView = view.findViewById(R.id.iv_close)
     }
 
     abstract fun createContentView(inflater: LayoutInflater, @Nullable container: ViewGroup?): View

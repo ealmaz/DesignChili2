@@ -11,6 +11,16 @@
         android:paddingBottom="@dimen/padding_16dp">
 
         <ImageView
+            android:id="@+id/iv_detail_close"
+            android:layout_width="@dimen/view_24dp"
+            android:layout_height="@dimen/view_24dp"
+            android:layout_gravity="top|right"
+            android:layout_marginTop="@dimen/padding_10dp"
+            android:layout_marginEnd="@dimen/padding_10dp"
+            android:background="@drawable/chili_ic_clear"
+            android:visibility="gone" />
+
+        <ImageView
             android:id="@+id/iv_icon"
             android:layout_width="@dimen/view_140dp"
             android:layout_height="@dimen/view_140dp"
