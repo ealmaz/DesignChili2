@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentGroupableRvBinding
@@ -22,55 +23,70 @@ import com.design2.chili2.view.shimmer.stopGroupShimmering
 
 class GroupdableRVFragment : BaseFragment<FragmentGroupableRvBinding>() {
 
+    lateinit var adapterL: ListAdapter<GroupingItem, BaseGroupingVH>
+    var isEddtin = false
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        vb.rv.adapter = GroupingRVAdapter(
+        vb.btn.setOnClickListener {
+            isEddtin = !isEddtin
+            submit(isEddtin)
+        }
+        adapterL = GroupingRVAdapter(
             { ItemsAdapter() },
             { EmptyVH.create(it) }
-        ).apply {
-            submitList(
-                listOf(
-                    ShadowGroupItems(listOf(
-                        PoleItem("1"),
-                        PoleItem("2"),
-                        PoleItem("3"),
-                        PoleItem("4"),
-                        PoleItem("5"),
-                        PoleItem("6"),
-                        PoleItem("7"),
-                    )).apply {
-                             setItemStateMode(ItemsStateMode.EDITING)
-                    },
-                    ShadowGroupItems(listOf(
-                        PoleItem("21"),
-                        PoleItem("22"),
-                        PoleItem("23"),
-                        PoleItem("24"),
-                        PoleItem("25"),
-                        PoleItem("26"),
-                        PoleItem("27"),
-                    )),
-                    ShadowGroupItems(listOf(
-                        PoleItem("31"),
-                        PoleItem("32"),
-                        PoleItem("33"),
-                        PoleItem("34"),
-                        PoleItem("35"),
-                        PoleItem("36"),
-                        PoleItem("37"),
-                    )),
-                    ShadowGroupItems(listOf(
-                        PoleItem("41"),
-                        PoleItem("42"),
-                        PoleItem("43"),
-                        PoleItem("44"),
-                        PoleItem("45"),
-                        PoleItem("46"),
-                        PoleItem("47"),
-                    ))
-                )
+        )
+        vb.rv.adapter = adapterL
+        submit(false)
+    }
+
+    private fun submit(isEditing: Boolean) {
+        adapterL.submitList(
+            listOf(
+                ShadowGroupItems(listOf(
+                    PoleItem("1"),
+                    PoleItem("2"),
+                    PoleItem("3"),
+                    PoleItem("4"),
+                    PoleItem("5"),
+                    PoleItem("6"),
+                    PoleItem("7"),
+                )).apply {
+                    if (isEditing) setItemStateMode(ItemsStateMode.EDITING)
+                },
+                ShadowGroupItems(listOf(
+                    PoleItem("21"),
+                    PoleItem("22"),
+                    PoleItem("23"),
+                    PoleItem("24"),
+                    PoleItem("25"),
+                    PoleItem("26"),
+                    PoleItem("27"),
+                )).apply {
+                    if (isEditing) setItemStateMode(ItemsStateMode.EDITING)
+                },
+                ShadowGroupItems(listOf(
+                    PoleItem("31"),
+                    PoleItem("32"),
+                    PoleItem("33"),
+                    PoleItem("34"),
+                    PoleItem("35"),
+                    PoleItem("36"),
+                    PoleItem("37"),
+                )).apply {
+                    if (isEditing) setItemStateMode(ItemsStateMode.EDITING)
+                },
+                ShadowGroupItems(listOf(
+                    PoleItem("41 - Non editable"),
+                    PoleItem("42 - Non editable"),
+                    PoleItem("43 - Non editable"),
+                    PoleItem("44 - Non editable"),
+                    PoleItem("45 - Non editable"),
+                    PoleItem("46 - Non editable"),
+                    PoleItem("47 - Non editable"),
+                ))
             )
-        }
+        )
     }
 
     override fun inflateViewBinging(): FragmentGroupableRvBinding {
@@ -148,7 +164,7 @@ data class PoleItem(
 class PoleItemVH(val vb: ItemPoleItemBinding) : RecyclerView.ViewHolder(vb.root) {
 
     fun onBind(item: PoleItem, isFirst: Boolean, isLast: Boolean, isEditing: Boolean) {
-        if (isEditing) vb.bcv.setTitle("EDITING!" + item.title)
+        if (isEditing) vb.bcv.setTitle("Editing mode for " + item.title)
         else vb.bcv.setTitle(item.title)
         vb.bcv.setupRoundedModeByPosition(isFirst, isLast)
     }

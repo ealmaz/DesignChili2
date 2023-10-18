@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:clipToPadding="false"
+    android:orientation="vertical"
     android:clipChildren="false"
     android:background="?ChiliSurfaceBackground"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -11,11 +12,20 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:layout_marginTop="@dimen/padding_16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/chili_item_shadow_group" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn"
+        style="@style/Chili.ButtonStyle.Primary"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/padding_16dp"
+        android:layout_height="wrap_content"
+        android:text="Is editing"/>
+
+</LinearLayout>
