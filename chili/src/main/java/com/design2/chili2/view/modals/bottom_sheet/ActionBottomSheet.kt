@@ -62,12 +62,12 @@ class ActionBottomSheet : BaseViewBottomSheetDialogFragment() {
     }
 }
 
-enum class ActionBottomSheetButtonType {
+enum class ActionBottomSheetButtonType: Serializable {
     SIMPLE, ACCENT
 }
 
 data class ActionBottomSheetButton(
     val title: String?,
     val type: ActionBottomSheetButtonType,
-    val onClickAction: BottomSheetDialogFragment.() -> Unit
+    @Transient val onClickAction: BottomSheetDialogFragment.() -> Unit
 ): Serializable
