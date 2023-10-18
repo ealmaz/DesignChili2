@@ -31,9 +31,8 @@ class NonShadowGroupVH(val view: View) : BaseGroupingVH(view) {
     }
 }
 
-data class NonShadowGroupItems(val items: List<GroupingItem>): GroupingItem {
-
-    private var itemsStateMode = ItemsStateMode.DEFAULT
+data class NonShadowGroupItems(val items: List<GroupingItem>,
+                               var itemsStateMode: ItemsStateMode = ItemsStateMode.DEFAULT): GroupingItem {
 
     override fun getItemType(): Int {
         return GroupingRVAdapter.NON_SHADOW_GROUP

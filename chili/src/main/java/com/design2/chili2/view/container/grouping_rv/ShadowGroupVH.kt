@@ -31,9 +31,8 @@ class ShadowGroupVH(val view: View) : BaseGroupingVH(view) {
     }
 }
 
-data class ShadowGroupItems(val items: List<GroupingItem>): GroupingItem {
-
-    private var itemsStateMode = ItemsStateMode.DEFAULT
+data class ShadowGroupItems(val items: List<GroupingItem>,
+                            var itemsStateMode: ItemsStateMode = ItemsStateMode.DEFAULT): GroupingItem {
 
     override fun getItemType(): Int {
         return GroupingRVAdapter.SHADOW_GROUP
