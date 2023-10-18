@@ -45,6 +45,9 @@
 
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="AccentCardView"
+            app:actionText="ActionText"
+            app:endIcon="@drawable/ic_visa_banner_logo"
+            app:additionalText="AdditionalText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
@@ -111,6 +114,8 @@
 
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="ExpandableCardContainer and ExpandableCardItemView"
+            app:endIcon="@drawable/chili_ic_magenta_plus"
+            app:additionalText="Additional Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
