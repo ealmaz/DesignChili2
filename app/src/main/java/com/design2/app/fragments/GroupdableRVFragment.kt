@@ -14,6 +14,7 @@ import com.design2.chili2.view.container.grouping_rv.BaseGroupingVH
 import com.design2.chili2.view.container.grouping_rv.GroupableAdapter
 import com.design2.chili2.view.container.grouping_rv.GroupingItem
 import com.design2.chili2.view.container.grouping_rv.GroupingRVAdapter
+import com.design2.chili2.view.container.grouping_rv.ItemsStateMode
 import com.design2.chili2.view.container.grouping_rv.NonShadowGroupItems
 import com.design2.chili2.view.container.grouping_rv.ShadowGroupItems
 import com.design2.chili2.view.shimmer.startGroupShimmering
@@ -29,7 +30,7 @@ class GroupdableRVFragment : BaseFragment<FragmentGroupableRvBinding>() {
         ).apply {
             submitList(
                 listOf(
-                    NonShadowGroupItems(listOf(
+                    ShadowGroupItems(listOf(
                         PoleItem("1"),
                         PoleItem("2"),
                         PoleItem("3"),
@@ -37,7 +38,9 @@ class GroupdableRVFragment : BaseFragment<FragmentGroupableRvBinding>() {
                         PoleItem("5"),
                         PoleItem("6"),
                         PoleItem("7"),
-                    )),
+                    )).apply {
+                             setItemStateMode(ItemsStateMode.EDITING)
+                    },
                     ShadowGroupItems(listOf(
                         PoleItem("21"),
                         PoleItem("22"),
@@ -87,6 +90,14 @@ class GroupdableRVFragment : BaseFragment<FragmentGroupableRvBinding>() {
 
 class ItemsAdapter : RecyclerView.Adapter<PoleItemVH>(), GroupableAdapter {
 
+    private lateinit var state: ItemsStateMode
+
+    override fun setItemsStateMode(itemsStateMode: ItemsStateMode) {
+        super.setItemsStateMode(itemsStateMode)
+        state = itemsStateMode
+
+    }
+
     private val items = mutableListOf<PoleItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PoleItemVH {
@@ -98,7 +109,7 @@ class ItemsAdapter : RecyclerView.Adapter<PoleItemVH>(), GroupableAdapter {
     }
 
     override fun onBindViewHolder(holder: PoleItemVH, position: Int) {
-        holder.onBind(items[position], position == 0, items.lastIndex == position)
+        holder.onBind(items[position], position == 0, items.lastIndex == position, state == ItemsStateMode.EDITING)
     }
 
     override fun setItems(items: List<out GroupingItem?>) {
@@ -136,8 +147,9 @@ data class PoleItem(
 
 class PoleItemVH(val vb: ItemPoleItemBinding) : RecyclerView.ViewHolder(vb.root) {
 
-    fun onBind(item: PoleItem, isFirst: Boolean, isLast: Boolean) {
-        vb.bcv.setTitle(item.title)
+    fun onBind(item: PoleItem, isFirst: Boolean, isLast: Boolean, isEditing: Boolean) {
+        if (isEditing) vb.bcv.setTitle("EDITING!" + item.title)
+        else vb.bcv.setTitle(item.title)
         vb.bcv.setupRoundedModeByPosition(isFirst, isLast)
     }
 

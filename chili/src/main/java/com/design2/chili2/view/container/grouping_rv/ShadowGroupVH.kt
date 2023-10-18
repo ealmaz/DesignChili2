@@ -12,6 +12,7 @@ class ShadowGroupVH(val view: View) : BaseGroupingVH(view) {
 
     override fun bind(item: GroupingItem?) {
         super.bind(item)
+        adapter.setItemsStateMode(item?.getItemStateMode() ?: ItemsStateMode.DEFAULT)
         adapter.setItems((item as ShadowGroupItems).items)
     }
 
@@ -32,6 +33,8 @@ class ShadowGroupVH(val view: View) : BaseGroupingVH(view) {
 
 data class ShadowGroupItems(val items: List<GroupingItem>): GroupingItem {
 
+    private var itemsStateMode = ItemsStateMode.DEFAULT
+
     override fun getItemType(): Int {
         return GroupingRVAdapter.SHADOW_GROUP
     }
@@ -42,5 +45,13 @@ data class ShadowGroupItems(val items: List<GroupingItem>): GroupingItem {
 
     override fun isContentsSame(newItem: GroupingItem): Boolean {
         return (newItem as? ShadowGroupItems)?.equals(this) == true
+    }
+
+    override fun setItemStateMode(itemsStateMode: ItemsStateMode) {
+        this.itemsStateMode = itemsStateMode
+    }
+
+    override fun getItemStateMode(): ItemsStateMode {
+        return this.itemsStateMode
     }
 }
