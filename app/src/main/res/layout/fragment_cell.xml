@@ -1517,15 +1517,6 @@
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
-        <com.design2.chili2.view.cells.ToggleCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:icon="@drawable/chili_ic_success"
-            app:cellIconSize="medium"
-            app:roundedCornerMode="middle"
-            app:subtitle="Подзаголовок"
-            app:title="Заголовок" />
-
     </LinearLayout>
 
 </ScrollView>

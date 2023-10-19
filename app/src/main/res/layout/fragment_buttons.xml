@@ -112,7 +112,8 @@
         <com.design2.chili2.view.buttons.IconedButton
             android:id="@+id/iconed_button"
             style="@style/Chili.ButtonStyle.Additional"
-            android:text="Google Pay"
+            android:text="Iconed button"
+            android:layout_margin="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
