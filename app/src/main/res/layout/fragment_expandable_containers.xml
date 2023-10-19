@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <com.design2.chili2.view.container.ExpandableContainer
+        app:title="Expandable Container 1"
+        app:isExpanded="false"
+        app:actionText="Action Text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </com.design2.chili2.view.container.ExpandableContainer>
+
+    <com.design2.chili2.view.container.ExpandableContainer
+        android:layout_marginTop="@dimen/padding_16dp"
+        app:isExpanded="false"
+        app:title="Expandable Container 2"
+        app:actionText="Action Text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </com.design2.chili2.view.container.ExpandableContainer>
+
+    <com.design2.chili2.view.container.ExpandableContainer
+        android:layout_marginTop="@dimen/padding_16dp"
+        app:endIcon="@drawable/chili_ic_magenta_plus"
+        app:actionText="Action Text 3"
+        app:subtitle="Subtitle 3"
+        app:title="Expandable Container 3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </com.design2.chili2.view.container.ExpandableContainer>
+
+
+    <com.design2.chili2.view.container.ExpandableContainer
+        android:layout_marginTop="@dimen/padding_16dp"
+        app:title="Expandable Container 4"
+        app:actionText="Action Text4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </com.design2.chili2.view.container.ExpandableContainer>
+
+</LinearLayout>
