@@ -254,8 +254,8 @@ class ExpandableContainer @JvmOverloads constructor(
             view.tvSubtitle.post {
                 if (isExpandingAnimated) {
                     animateExpanding(isAnimated, isExpanded)
-                    childrenViewsVisibilityAfterAnimation(isExpanded)
                 }
+                childrenViewsVisibilityAfterAnimation(isExpanded)
             }
         }
     }
