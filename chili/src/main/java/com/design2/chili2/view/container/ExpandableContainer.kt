@@ -241,19 +241,22 @@ class ExpandableContainer @JvmOverloads constructor(
 
     fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true, isExpandingAnimated: Boolean = true) {
         if (isEndIconClicked){
-            if (isExpandingAnimated) {
-                animateExpanding(isAnimated, isExpanded)
-            }
-
             this.isExpanded = isExpanded
             if (this.isExpanded) {
                 rotateChevron(0f, isAnimated)
-                if (!(view.tvSubtitle.text.isNullOrBlank())) view.tvSubtitle.visible()
+                view.tvSubtitle.isVisible = !view.tvSubtitle.text.isNullOrBlank()
             } else {
                 rotateChevron(-90f, isAnimated)
+                collapsedHeight = 0
                 view.tvSubtitle.gone()
             }
-            childrenViewsVisibilityAfterAnimation(isExpanded)
+
+            view.tvSubtitle.post {
+                if (isExpandingAnimated) {
+                    animateExpanding(isAnimated, isExpanded)
+                }
+                childrenViewsVisibilityAfterAnimation(isExpanded)
+            }
         }
     }
 
