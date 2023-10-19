@@ -1,6 +1,7 @@
 package com.design2.chili2.view.cells
 
 import android.content.Context
+import android.text.Spanned
 import android.util.AttributeSet
 import android.view.View
 import android.widget.CompoundButton
@@ -55,6 +56,21 @@ class CheckBoxCellView @JvmOverloads constructor(
     }
 
     fun insertEndText(text: String) {
+        if (endText != null){
+            setEndText(text)
+            return
+        }
+        endText = TextView(context).apply {
+            setTextAppearance(R.style.Chili_H7_Primary)
+            setText(text)
+        }
+        (view.flEndPlaceholder[0] as LinearLayout).addView(endText, 0)
+    }
+    fun insertEndText(text: Spanned) {
+        if (endText != null){
+            setEndText(text)
+            return
+        }
         endText = TextView(context).apply {
             setTextAppearance(R.style.Chili_H7_Primary)
             setText(text)
@@ -63,6 +79,10 @@ class CheckBoxCellView @JvmOverloads constructor(
     }
 
     fun setEndText(text: String) {
+        endText?.text = text
+    }
+
+    fun setEndText(text: Spanned) {
         endText?.text = text
     }
 
