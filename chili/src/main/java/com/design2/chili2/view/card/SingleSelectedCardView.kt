@@ -7,14 +7,12 @@ import android.text.Spanned
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.text.parseAsHtml
 import androidx.core.view.isVisible
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewSingleSelectedCardBinding
 import com.design2.chili2.extensions.getColorFromAttr
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.visible
@@ -22,7 +20,7 @@ import com.design2.chili2.util.IconStatus
 
 class SingleSelectedCardView : FrameLayout {
 
-    private lateinit var view: SingleSelectedCardViewVariables
+    private lateinit var vb: ChiliViewSingleSelectedCardBinding
 
     var isActive = false
     private var color: String? = ""
@@ -36,24 +34,29 @@ class SingleSelectedCardView : FrameLayout {
         obtainAttributes(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         inflateViews()
         obtainAttributes(attrs, defStyle)
     }
 
     private fun inflateViews() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_single_selected_card, this)
-        this.view = SingleSelectedCardViewVariables(
-            root = view.findViewById(R.id.root_view),
-            innerLayout = view.findViewById(R.id.cl_view),
-            title = view.findViewById(R.id.tv_title),
-            value = view.findViewById(R.id.tv_value),
-            icon = view.findViewById(R.id.iv_action_icon),
-        )
+        vb = ChiliViewSingleSelectedCardBinding.inflate(LayoutInflater.from(context))
     }
 
-    private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_CardViewStyle_SingleSelectedCard) {
-        context?.obtainStyledAttributes(attrs, R.styleable.SingleSelectedCardView, R.attr.singleSelectedCardViewDefaultStyle, defStyle)?.run {
+    private fun obtainAttributes(
+        attrs: AttributeSet,
+        defStyle: Int = R.style.Chili_CardViewStyle_SingleSelectedCard
+    ) {
+        context?.obtainStyledAttributes(
+            attrs,
+            R.styleable.SingleSelectedCardView,
+            R.attr.singleSelectedCardViewDefaultStyle,
+            defStyle
+        )?.run {
             getString(R.styleable.SingleSelectedCardView_title)?.let {
                 setTitleText(it)
             }
@@ -65,25 +68,25 @@ class SingleSelectedCardView : FrameLayout {
     }
 
     fun setTitleText(text: String) {
-        view.title.text = text
+        vb.tvTitle.text = text
     }
 
     fun setValue(value: String) {
-        view.value.visible()
-        view.value.text = value
+        vb.tvValue.visible()
+        vb.tvValue.text = value
     }
 
     fun setValue(value: Spanned?) {
         value?.let {
-            view.value.visible()
-            view.value.text = value
+            vb.tvValue.visible()
+            vb.tvValue.text = value
         }
     }
 
     fun setValueHtml(value: String?) {
         value?.let {
-            view.value.visible()
-            view.value.text = value.parseAsHtml()
+            vb.tvValue.visible()
+            vb.tvValue.text = value.parseAsHtml()
         }
     }
 
@@ -92,26 +95,29 @@ class SingleSelectedCardView : FrameLayout {
     }
 
     private fun setupBorder(color: String) {
-        val borderBackground = view.root.background as? GradientDrawable
+        val borderBackground = vb.root.background as? GradientDrawable
         borderBackground?.mutate()
-        borderBackground?.setStroke(context.resources.getDimension(R.dimen.view_2dp).toInt(), Color.parseColor(color))
+        borderBackground?.setStroke(
+            context.resources.getDimension(R.dimen.view_2dp).toInt(),
+            Color.parseColor(color)
+        )
     }
 
     private fun setupBackground(color: String) {
-        val background = view.innerLayout.background as? GradientDrawable
+        val background = vb.clView.background as? GradientDrawable
         background?.mutate()
         background?.setColor(Color.parseColor(color))
         background?.alpha = 51
     }
 
     private fun setupBorder(color: Int) {
-        val borderBackground = view.root.background as? GradientDrawable
+        val borderBackground = vb.root.background as? GradientDrawable
         borderBackground?.mutate()
         borderBackground?.setStroke(context.resources.getDimension(R.dimen.view_2dp).toInt(), color)
     }
 
     private fun setupBackground(color: Int) {
-        val background = view.innerLayout.background as? GradientDrawable
+        val background = vb.clView.background as? GradientDrawable
         background?.mutate()
         background?.setColor(color)
         background?.alpha = 51
@@ -139,50 +145,49 @@ class SingleSelectedCardView : FrameLayout {
     }
 
     fun setValueTextRes(@StringRes textResId: Int) {
-        view.value.setText(textResId)
+        vb.tvValue.setText(textResId)
     }
 
     private fun setIconDrawableRes(@DrawableRes resId: Int) {
-        view.icon.visible()
-        view.icon.setImageResource(resId)
+        vb.ivActionIcon.visible()
+        vb.ivActionIcon.setImageResource(resId)
     }
 
     private fun setStatus(status: IconStatus) {
-        view.icon.visible()
+        vb.ivActionIcon.visible()
         when (status) {
             IconStatus.SELECTED -> setIconDrawableRes(R.drawable.chili_ic_reset)
             IconStatus.ACTIVE -> setIconDrawableRes(R.drawable.chili_ic_done)
-            else -> view.icon.invisible()
+            else -> vb.ivActionIcon.invisible()
         }
         setIsIconClickable(status)
     }
 
     fun setUnavailable(isUnavailable: Boolean) {
-        with(view) {
+        with(vb) {
             root.isClickable = !isUnavailable
             if (isUnavailable) {
-                title.setTextColor(context.getColorFromAttr(R.attr.ChiliSecondaryTextColor))
-                value.invisible()
-                icon.invisible()
+                tvTitle.setTextColor(context.getColorFromAttr(R.attr.ChiliSecondaryTextColor))
+                tvValue.invisible()
+                ivActionIcon.invisible()
                 setupBorder(context.getColorFromAttr(R.attr.ChiliCardViewBackground))
                 setupBackground(context.getColorFromAttr(R.attr.ChiliCardViewBackground))
-            }
-            else {
-                title.setTextColor(context.getColorFromAttr(R.attr.ChiliMarkedTextColor))
-                value.visible()
+            } else {
+                tvTitle.setTextColor(context.getColorFromAttr(R.attr.ChiliMarkedTextColor))
+                tvValue.visible()
             }
         }
     }
 
     private fun setIsIconClickable(status: IconStatus) {
         when (status) {
-            IconStatus.SELECTED -> view.icon.isClickable = true
-            else -> view.icon.isClickable = false
+            IconStatus.SELECTED -> vb.ivActionIcon.isClickable = true
+            else -> vb.ivActionIcon.isClickable = false
         }
     }
 
     fun setOnClickListener(onClick: () -> Boolean) {
-        view.root.setOnClickListener {
+        vb.rootView.setOnClickListener {
             val isCheckedNewValue = onClick.invoke()
             if (isCheckedNewValue) {
                 setSelected()
@@ -193,21 +198,13 @@ class SingleSelectedCardView : FrameLayout {
     }
 
     fun setOnIconClickListener(onClick: () -> Unit) {
-        view.icon.setOnClickListener {
+        vb.ivActionIcon.setOnClickListener {
             reset()
             onClick.invoke()
         }
     }
 
-    fun setActionIconVisibility(isVisible: Boolean){
-        view.icon.isVisible = isVisible
+    fun setActionIconVisibility(isVisible: Boolean) {
+        vb.ivActionIcon.isVisible = isVisible
     }
 }
-
-private data class SingleSelectedCardViewVariables(
-    var root: FrameLayout,
-    var innerLayout: ConstraintLayout,
-    var title: TextView,
-    var value: TextView,
-    var icon: ImageView
-)

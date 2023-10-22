@@ -6,15 +6,12 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewCardAccentBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
-import com.facebook.shimmer.ShimmerFrameLayout
 
 class AccentCardView @JvmOverloads constructor(
     context: Context,
@@ -23,28 +20,17 @@ class AccentCardView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CardViewStyle_AccentCardViewStyle
 ) : BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var view: AccentCardViewViewVariables
+    private lateinit var vb: ChiliViewCardAccentBinding
 
     override val styleableAttrRes: IntArray = R.styleable.AccentCardView
 
     override val rootContainer: View
-        get() = view.root
+        get() = vb.rootView
 
     init { initView(context, attrs, defStyleAttr, defStyleRes) }
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_accent, this, true)
-        this.view = AccentCardViewViewVariables(
-            tvTitle = view.findViewById(R.id.tv_title),
-            tvSubtitle = view.findViewById(R.id.tv_subtitle),
-            ivStartIcon = view.findViewById(R.id.iv_start_icon),
-            ivEndIcon = view.findViewById(R.id.iv_end_icon),
-            root = view.findViewById(R.id.root_view),
-            titleShimmer = view.findViewById(R.id.view_title_shimmer),
-            subtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
-            startIconShimmer = view.findViewById(R.id.view_start_icon_shimmer),
-            endIconShimmer = view.findViewById(R.id.view_end_icon_shimmer),
-        )
+        vb = ChiliViewCardAccentBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     override fun TypedArray.obtainAttributes() {
@@ -66,38 +52,38 @@ class AccentCardView @JvmOverloads constructor(
 
     override fun setupShimmeringViews() {
         super.setupShimmeringViews()
-        shimmeringPairs[view.tvTitle] = view.titleShimmer
+        shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
     }
 
     fun setTitle(charSequence: CharSequence?) {
-        view.tvTitle.text = charSequence
+        vb.tvTitle.text = charSequence
     }
 
     fun setTitle(resId: Int) {
-        view.tvTitle.setText(resId)
+        vb.tvTitle.setText(resId)
     }
 
     fun setTitleTextAppearance(resId: Int) {
-        view.tvTitle.setTextAppearance(resId)
+        vb.tvTitle.setTextAppearance(resId)
     }
 
 
     fun setSubtitle(charSequence: CharSequence?) {
-        view.tvSubtitle.setTextOrHide(charSequence)
-        if (charSequence == null) shimmeringPairs.remove(view.tvSubtitle)
-        else shimmeringPairs[view.tvSubtitle] = view.subtitleShimmer
+        vb.tvSubtitle.setTextOrHide(charSequence)
+        if (charSequence == null) shimmeringPairs.remove(vb.tvSubtitle)
+        else shimmeringPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
     }
 
     fun setSubtitle(resId: Int) {
-        view.tvSubtitle.setTextOrHide(resId)
-        shimmeringPairs[view.tvSubtitle] = view.subtitleShimmer
+        vb.tvSubtitle.setTextOrHide(resId)
+        shimmeringPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
     }
 
     fun setSubtitleTextAppearance(resId: Int) {
-        view.tvSubtitle.setTextAppearance(resId)
+        vb.tvSubtitle.setTextAppearance(resId)
     }
 
-    fun setTitleStartIcon(resId: Int?) = with(view.ivStartIcon) {
+    fun setTitleStartIcon(resId: Int?) = with(vb.ivStartIcon) {
         if (resId == null) {
             gone()
             shimmeringPairs.remove(this)
@@ -105,11 +91,11 @@ class AccentCardView @JvmOverloads constructor(
         else {
             visible()
             setImageResource(resId)
-            shimmeringPairs[this] = view.startIconShimmer
+            shimmeringPairs[this] = vb.viewStartIconShimmer
         }
     }
 
-    fun setTitleStartIcon(drawable: Drawable?) = with(view.ivStartIcon) {
+    fun setTitleStartIcon(drawable: Drawable?) = with(vb.ivStartIcon) {
         if (drawable == null) {
             gone()
             shimmeringPairs.remove(this)
@@ -117,11 +103,11 @@ class AccentCardView @JvmOverloads constructor(
         else {
             visible()
             setImageDrawable(drawable)
-            shimmeringPairs[this] = view.startIconShimmer
+            shimmeringPairs[this] = vb.viewStartIconShimmer
         }
     }
 
-    fun setEndIcon(resId: Int?) = with(view.ivEndIcon) {
+    fun setEndIcon(resId: Int?) = with(vb.ivEndIcon) {
         if (resId == null) {
             invisible()
             shimmeringPairs.remove(this)
@@ -129,11 +115,11 @@ class AccentCardView @JvmOverloads constructor(
         else {
             visible()
             setImageResource(resId)
-            shimmeringPairs[this] = view.endIconShimmer
+            shimmeringPairs[this] = vb.viewEndIconShimmer
         }
     }
 
-    fun setEndIcon(drawable: Drawable?) = with(view.ivEndIcon) {
+    fun setEndIcon(drawable: Drawable?) = with(vb.ivEndIcon) {
         if (drawable == null) {
             invisible()
             shimmeringPairs.remove(this)
@@ -141,19 +127,7 @@ class AccentCardView @JvmOverloads constructor(
         else {
             visible()
             setImageDrawable(drawable)
-            shimmeringPairs[this] = view.endIconShimmer
+            shimmeringPairs[this] = vb.viewEndIconShimmer
         }
     }
 }
-
-data class AccentCardViewViewVariables(
-    val tvTitle: TextView,
-    val tvSubtitle: TextView,
-    val ivStartIcon: ImageView,
-    val ivEndIcon: ImageView,
-    val root: ConstraintLayout,
-    val titleShimmer: ShimmerFrameLayout,
-    val subtitleShimmer: ShimmerFrameLayout,
-    val startIconShimmer: ShimmerFrameLayout,
-    val endIconShimmer: ShimmerFrameLayout,
-)

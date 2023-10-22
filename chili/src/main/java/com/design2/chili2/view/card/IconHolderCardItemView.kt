@@ -7,18 +7,15 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewDiscountCardBinding
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.recolorDrawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
-import com.facebook.shimmer.ShimmerFrameLayout
 
 class IconHolderCardItemView @JvmOverloads constructor(
     context: Context,
@@ -27,25 +24,15 @@ class IconHolderCardItemView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CardViewStyle_CategoryCardView
 ): BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var view: IconHolderCardItemViewVariables
+    private lateinit var vb: ChiliViewDiscountCardBinding
 
     override val styleableAttrRes: IntArray = R.styleable.CategoryCardView
 
     override val rootContainer: View
-        get() = view.root
+        get() = vb.rootView
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_discount_card, this, true)
-        this.view = IconHolderCardItemViewVariables(
-            tvLabel = view.findViewById(R.id.tv_label),
-            ivIcon = view.findViewById(R.id.iv_icon),
-            ivEmojiHolder = view.findViewById(R.id.iv_emoji_holder),
-            root = view.findViewById(R.id.root_view),
-            tvEmoji = view.findViewById(R.id.tv_emoji),
-            placeholder = view.findViewById(R.id.superellipse_icon),
-            labelShimmer = view.findViewById(R.id.view_label_shimmer),
-            iconShimmer = view.findViewById(R.id.view_icon_shimmer),
-        )
+        vb = ChiliViewDiscountCardBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     init { initView(context, attrs, defStyleAttr, defStyleRes) }
@@ -61,67 +48,56 @@ class IconHolderCardItemView @JvmOverloads constructor(
 
     override fun setupShimmeringViews() {
         super.setupShimmeringViews()
-        shimmeringPairs[view.ivIcon] = view.iconShimmer
-        shimmeringPairs[view.tvLabel] = view.labelShimmer
+        shimmeringPairs[vb.ivIcon] = vb.viewIconShimmer
+        shimmeringPairs[vb.tvLabel] = vb.viewLabelShimmer
     }
 
     fun setEmoji(emoji: String) {
-        view.tvEmoji.visible()
-        view.ivEmojiHolder.visible()
-        view.ivIcon.invisible()
-        view.tvEmoji.text = emoji
+        vb.tvEmoji.visible()
+        vb.ivEmojiHolder.visible()
+        vb.ivIcon.invisible()
+        vb.tvEmoji.text = emoji
     }
 
     fun setColor(@ColorRes colorRes: Int?) {
         colorRes?.let {
-            view.placeholder.background = view.placeholder.background.mutate().recolorDrawable(context.color(colorRes))
+            vb.placeHolder.background = vb.placeHolder.background.mutate().recolorDrawable(context.color(colorRes))
         }
     }
 
     fun setColor(color: String?) {
         color?.let {
-            view.placeholder.background = view.placeholder.background.mutate()
+            vb.placeHolder.background = vb.placeHolder.background.mutate()
                     .recolorDrawable(Color.parseColor(it))
         }
     }
 
     fun setTitle(charSequence: CharSequence?) {
-        view.tvLabel.text = charSequence
+        vb.tvLabel.text = charSequence
     }
 
     fun setTitle(resId: Int) {
-        view.tvLabel.setText(resId)
+        vb.tvLabel.setText(resId)
     }
 
     fun setTitleTextAppearance(resId: Int) {
-        view.tvLabel.setTextAppearance(resId)
+        vb.tvLabel.setTextAppearance(resId)
     }
 
     fun setIcon(@DrawableRes resId: Int) {
-        view.tvEmoji.invisible()
-        view.ivEmojiHolder.invisible()
-        view.ivIcon.setImageResource(resId)
+        vb.tvEmoji.invisible()
+        vb.ivEmojiHolder.invisible()
+        vb.ivIcon.setImageResource(resId)
     }
 
     fun setIcon(url: String) {
-        view.tvEmoji.invisible()
-        view.ivEmojiHolder.visible()
-        view.ivIcon.setImageByUrl(url)
+        vb.tvEmoji.invisible()
+        vb.ivEmojiHolder.visible()
+        vb.ivIcon.setImageByUrl(url)
     }
 
     fun setIcon(drawable: Drawable) {
-        view.tvEmoji.invisible()
-        view.ivIcon.setImageDrawable(drawable)
+        vb.tvEmoji.invisible()
+        vb.ivIcon.setImageDrawable(drawable)
     }
 }
-
-data class IconHolderCardItemViewVariables(
-    val tvLabel: TextView,
-    val ivIcon : ImageView,
-    val ivEmojiHolder: ImageView,
-    val placeholder: ConstraintLayout,
-    val tvEmoji: TextView,
-    val root: ConstraintLayout,
-    val labelShimmer: ShimmerFrameLayout,
-    val iconShimmer: ShimmerFrameLayout,
-)

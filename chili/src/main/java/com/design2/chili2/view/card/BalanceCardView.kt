@@ -6,15 +6,12 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.ColorInt
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewCardBalanceBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.visible
-import com.facebook.shimmer.ShimmerFrameLayout
 
 class BalanceCardView @JvmOverloads constructor(
     context: Context,
@@ -23,28 +20,15 @@ class BalanceCardView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CardViewStyle_BalanceCardView
 ) : BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var view: BalanceCardViewViewVariables
+    private lateinit var vb: ChiliViewCardBalanceBinding
 
     override val styleableAttrRes: IntArray = R.styleable.BalanceCardView
 
     override val rootContainer: View
-        get() = view.root
+        get() = vb.rootView
 
     override fun inflateView(context: Context) {
-        val view =
-            LayoutInflater.from(context).inflate(R.layout.chili_view_card_balance, this, true)
-        this.view = BalanceCardViewViewVariables(
-            tvLabel = view.findViewById(R.id.tv_title),
-            tvValue = view.findViewById(R.id.tv_value),
-            ivValueIcon = view.findViewById(R.id.iv_value_icon),
-            ivIcon = view.findViewById(R.id.iv_icon),
-            ivEndIcon = view.findViewById(R.id.iv_end_icon),
-            ivTitleIcon = view.findViewById(R.id.iv_title_icon),
-            ivChevron = view.findViewById(R.id.iv_chevron),
-            root = view.findViewById(R.id.root_view),
-            titleShimmering = view.findViewById(R.id.view_title_shimmer),
-            subtitleShimmering = view.findViewById(R.id.view_subtitle_shimmer)
-        )
+        vb = ChiliViewCardBalanceBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     init {
@@ -71,40 +55,40 @@ class BalanceCardView @JvmOverloads constructor(
 
     override fun setupShimmeringViews() {
         super.setupShimmeringViews()
-        shimmeringPairs[view.tvLabel] = view.titleShimmering
-        shimmeringPairs[view.tvValue] = view.subtitleShimmering
-        shimmeringPairs[view.ivChevron] = null
+        shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
+        shimmeringPairs[vb.tvValue] = vb.viewSubtitleShimmer
+        shimmeringPairs[vb.ivChevron] = null
     }
 
     fun setTitle(charSequence: CharSequence?) {
-        view.tvLabel.text = charSequence
+        vb.tvTitle.text = charSequence
     }
 
     fun setTitle(resId: Int) {
-        view.tvLabel.setText(resId)
+        vb.tvTitle.setText(resId)
     }
 
     fun setTitleTextAppearance(resId: Int) {
-        view.tvLabel.setTextAppearance(resId)
+        vb.tvTitle.setTextAppearance(resId)
     }
 
     fun setValueText(charSequence: CharSequence?) {
-        view.tvValue.text = charSequence
+        vb.tvValue.text = charSequence
     }
 
     fun setValueText(resId: Int) {
-        view.tvValue.setText(resId)
+        vb.tvValue.setText(resId)
     }
 
     fun setValueTextTextAppearance(resId: Int) {
-        view.tvValue.setTextAppearance(resId)
+        vb.tvValue.setTextAppearance(resId)
     }
 
     fun setValueTextColor(@ColorInt colorId: Int) {
-        view.tvValue.setTextColor(colorId)
+        vb.tvValue.setTextColor(colorId)
     }
 
-    fun setIcon(resId: Int?) = with (view.ivIcon) {
+    fun setIcon(resId: Int?) = with(vb.ivIcon) {
         if (resId == null) {
             gone()
             shimmeringPairs.remove(this)
@@ -115,7 +99,7 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
-    fun setIcon(drawable: Drawable?) = with(view.ivIcon) {
+    fun setIcon(drawable: Drawable?) = with(vb.ivIcon) {
         if (drawable == null) gone()
         else {
 
@@ -126,7 +110,7 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
-    fun setTitleIcon(drawable: Drawable?) = with(view.ivTitleIcon) {
+    fun setTitleIcon(drawable: Drawable?) = with(vb.ivTitleIcon) {
         if (drawable == null) gone()
         else {
             visible()
@@ -134,7 +118,7 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
-    fun setTitleIcon(drawableRes: Int?) = with(view.ivTitleIcon) {
+    fun setTitleIcon(drawableRes: Int?) = with(vb.ivTitleIcon) {
         if (drawableRes == null) gone()
         else {
             visible()
@@ -142,7 +126,7 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
-    fun setEndIcon(drawable: Drawable?) = with(view.ivEndIcon) {
+    fun setEndIcon(drawable: Drawable?) = with(vb.ivEndIcon) {
         if (drawable == null) gone()
         else {
             visible()
@@ -150,7 +134,7 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
-    fun setEndIcon(drawableRes: Int?) = with(view.ivEndIcon) {
+    fun setEndIcon(drawableRes: Int?) = with(vb.ivEndIcon) {
         if (drawableRes == null) gone()
         else {
             visible()
@@ -158,7 +142,7 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
-    fun setValueIcon(resId: Int?) = with (view.ivValueIcon) {
+    fun setValueIcon(resId: Int?) = with(vb.ivValueIcon) {
         if (resId == null) {
             gone()
             shimmeringPairs.remove(this)
@@ -169,7 +153,7 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
-    fun setValueIcon(drawable: Drawable?) = with(view.ivValueIcon) {
+    fun setValueIcon(drawable: Drawable?) = with(vb.ivValueIcon) {
         if (drawable == null) gone()
         else {
 
@@ -180,24 +164,15 @@ class BalanceCardView @JvmOverloads constructor(
         }
     }
 
-    fun setIsValueIconVisible(isVisible: Boolean) { view.ivValueIcon.isVisible = isVisible }
+    fun setIsValueIconVisible(isVisible: Boolean) {
+        vb.ivValueIcon.isVisible = isVisible
+    }
 
-    fun setIsEndIconVisible(isVisible: Boolean) { view.ivEndIcon.isVisible = isVisible }
+    fun setIsEndIconVisible(isVisible: Boolean) {
+        vb.ivEndIcon.isVisible = isVisible
+    }
 
     fun isChevronVisible(isVisible: Boolean) {
-        view.ivChevron.isVisible = isVisible
+        vb.ivChevron.isVisible = isVisible
     }
 }
-
-data class BalanceCardViewViewVariables(
-    val tvLabel: TextView,
-    val tvValue: TextView,
-    val ivValueIcon: ImageView,
-    val ivIcon: ImageView,
-    val ivEndIcon: ImageView,
-    val ivTitleIcon: ImageView,
-    val ivChevron: ImageView,
-    val root: ConstraintLayout,
-    val titleShimmering: ShimmerFrameLayout,
-    val subtitleShimmering: ShimmerFrameLayout,
-)

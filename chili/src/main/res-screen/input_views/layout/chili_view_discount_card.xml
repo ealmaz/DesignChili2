@@ -11,7 +11,7 @@
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/superellipse_icon"
+        android:id="@+id/place_holder"
         android:layout_width="@dimen/view_32dp"
         android:layout_height="@dimen/view_32dp"
         android:layout_marginTop="?ChiliCategoryCardViewIconTopMargin"
@@ -67,10 +67,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/superellipse_icon"
-        app:layout_constraintBottom_toBottomOf="@id/superellipse_icon"
-        app:layout_constraintStart_toStartOf="@id/superellipse_icon"
-        app:layout_constraintEnd_toEndOf="@id/superellipse_icon">
+        app:layout_constraintTop_toTopOf="@id/place_holder"
+        app:layout_constraintBottom_toBottomOf="@id/place_holder"
+        app:layout_constraintStart_toStartOf="@id/place_holder"
+        app:layout_constraintEnd_toEndOf="@id/place_holder">
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -86,7 +86,7 @@
         android:layout_marginTop="?ChiliCategoryCardViewLabelTopMargin"
         android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
         android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
-        app:layout_constraintTop_toBottomOf="@id/superellipse_icon"
+        app:layout_constraintTop_toBottomOf="@id/place_holder"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Переводы"/>
 

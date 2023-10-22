@@ -10,11 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.model.Option
 import com.design2.chili2.R
-import com.design2.chili2.view.cells.TitledInfoCellView
+import com.design2.chili2.databinding.ChiliViewConfigToggleCardBinding
 
 class ConfigToggledCardView : ConstraintLayout {
 
-    private lateinit var view: ConfigToggledCardViewVariables
+    private lateinit var vb: ChiliViewConfigToggleCardBinding
 
     constructor(context: Context) : super(context) {
         inflateViews()
@@ -31,12 +31,7 @@ class ConfigToggledCardView : ConstraintLayout {
     }
 
     private fun inflateViews() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_config_toggle_card, this)
-        this.view = ConfigToggledCardViewVariables(
-            root = view.findViewById(R.id.root_view),
-            titledInfoView = view.findViewById(R.id.ticv_view),
-            rvItems = view.findViewById(R.id.rv_items)
-        )
+        vb = ChiliViewConfigToggleCardBinding.inflate(LayoutInflater.from(context))
     }
 
     private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_CardViewStyle_SingleSelectedCard) {
@@ -52,35 +47,29 @@ class ConfigToggledCardView : ConstraintLayout {
     }
 
     fun setTitleText(title: String) {
-        view.titledInfoView.setTitle(title)
+        vb.ticvView.setTitle(title)
     }
 
     fun setSubtitle(subtitle: String) {
-        view.titledInfoView.setSubtitle(subtitle)
+        vb.ticvView.setSubtitle(subtitle)
     }
 
     fun setInfoBtnVisibilty(isVisible: Boolean) {
-        view.titledInfoView.setIsInfoButtonVisible(isVisible)
+        vb.ticvView.setIsInfoButtonVisible(isVisible)
     }
 
     fun setInfoBtnClickListener(onClick: () -> Unit) {
-        view.titledInfoView.setInfoButtonClickListener(onClick)
+        vb.ticvView.setInfoButtonClickListener(onClick)
     }
 
     fun setToggles(items: ArrayList<Option<*>>, listener: TitledTogglesAdapter.MultiCheckedListener) {
         val adapter = TitledTogglesAdapter(listener)
-        view.rvItems.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        view.rvItems.adapter = adapter
+        vb.rvItems.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        vb.rvItems.adapter = adapter
         adapter.addItems(items)
     }
 
 }
-
-private data class ConfigToggledCardViewVariables(
-    var root: ConstraintLayout,
-    var titledInfoView: TitledInfoCellView,
-    var rvItems: RecyclerView
-)
 
 class TitledTogglesAdapter(private val listener: MultiCheckedListener) : RecyclerView.Adapter<TitledTogglesAdapter.TitledToggleVH>() {
 
