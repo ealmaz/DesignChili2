@@ -10,21 +10,15 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewBankCardBinding
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.visible
-import com.facebook.shimmer.ShimmerFrameLayout
 
 
 class BankCardView @JvmOverloads constructor(
@@ -55,30 +49,16 @@ class BankCardView @JvmOverloads constructor(
 
     override val styleableAttrRes: IntArray = R.styleable.BankCardView
     override val rootContainer: View
-        get() = view.rootContainer
+        get() = vb.rootView
 
-    private lateinit var view: BankCardViewVariables
+    private lateinit var vb: ChiliViewBankCardBinding
 
     init {
         initView(context, attrs, defStyleAttr, defStyleRes)
     }
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_bank_card, this, true)
-        this.view = BankCardViewVariables(
-            tvCardHolderName = view.findViewById(R.id.tv_card_holder_name),
-            tvCardPan = view.findViewById(R.id.tv_card_pan),
-            tvCvv = view.findViewById(R.id.tv_cvv),
-            tvDueDate = view.findViewById(R.id.tv_due_date),
-            ivIcon = view.findViewById(R.id.iv_card_icon),
-            rootContainer = view.findViewById(R.id.root_view),
-            ivPanToggle = view.findViewById(R.id.iv_pan_toggle),
-            ivCvvToggle = view.findViewById(R.id.iv_cvv_toggle),
-            llPan = view.findViewById(R.id.ll_card_pan),
-            llCvv = view.findViewById(R.id.ll_cvv),
-            panShimmer = view.findViewById(R.id.pan_shimmer),
-            cvvShimmer = view.findViewById(R.id.cvv_shimmer)
-        )
+        vb = ChiliViewBankCardBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     override fun TypedArray.obtainAttributes() {
@@ -103,53 +83,53 @@ class BankCardView @JvmOverloads constructor(
     fun setCardPan(charSequence: CharSequence?) {
         if (charSequence == null) return
         this.pan = charSequence.toString()
-        view.panShimmer.gone()
-        view.tvCardPan.visible()
-        view.ivPanToggle.visible()
+        vb.panShimmer.gone()
+        vb.tvCardPan.visible()
+        vb.ivPanToggle.visible()
         isPanShimmering = false
         cardPanHideDelegate(charSequence, panToggleState == CardFieldToggleState.ICON_SHOW).let {
-            view.tvCardPan.text = it
+            vb.tvCardPan.text = it
         }
     }
 
     fun setCardCvv(charSequence: CharSequence?) {
         if (charSequence == null) return
         this.cvv = charSequence.toString()
-        view.cvvShimmer.gone()
-        view.tvCvv.visible()
-        view.ivCvvToggle.visible()
+        vb.cvvShimmer.gone()
+        vb.tvCvv.visible()
+        vb.ivCvvToggle.visible()
         isCvvShimmering = false
        cardCvvHideDelegate(charSequence, cvvToggleState == CardFieldToggleState.ICON_SHOW).let {
-           view.tvCvv.text = it
+           vb.tvCvv.text = it
        }
     }
 
     fun setCardDueDate(charSequence: CharSequence?) {
-        view.tvDueDate.text = charSequence
+        vb.tvDueDate.text = charSequence
     }
 
     fun setCardHolderName(charSequence: CharSequence?) {
-        view.tvCardHolderName.text = charSequence
+        vb.tvCardHolderName.text = charSequence
     }
 
     fun setCardPanTextAppearance(textAppearance: Int) {
-        view.tvCardPan.setTextAppearance(textAppearance)
+        vb.tvCardPan.setTextAppearance(textAppearance)
     }
 
     fun setCardCvvTextAppearance(textAppearance: Int) {
-        view.tvCvv.setTextAppearance(textAppearance)
+        vb.tvCvv.setTextAppearance(textAppearance)
     }
 
     fun setCardDueDateTextAppearance(textAppearance: Int) {
-        view.tvDueDate.setTextAppearance(textAppearance)
+        vb.tvDueDate.setTextAppearance(textAppearance)
     }
 
     fun setCardHolderNameTextAppearance(textAppearance: Int) {
-        view.tvCardHolderName.setTextAppearance(textAppearance)
+        vb.tvCardHolderName.setTextAppearance(textAppearance)
     }
 
     fun setCardIcon(drawable: Drawable?) {
-        view.ivIcon.apply {
+        vb.ivCardIcon.apply {
             if (drawable != null) visible()
             else invisible()
             setImageDrawable(drawable)
@@ -157,7 +137,7 @@ class BankCardView @JvmOverloads constructor(
     }
 
     fun setCardIcon(resId: Int?) {
-        view.ivIcon.apply {
+        vb.ivCardIcon.apply {
             if (resId != null) {
                 visible()
                 setImageResource(resId)
@@ -175,35 +155,35 @@ class BankCardView @JvmOverloads constructor(
     }
 
     fun setPanBackgroundTint(@ColorRes color: Int) {
-        view.llPan.background.setTint(context.color(color))
+        vb.llCardPan.background.setTint(context.color(color))
     }
 
     fun setCvvBackgroundTint(@ColorRes color: Int) {
-        view.llCvv.background.setTint(context.color(color))
+        vb.llCvv.background.setTint(context.color(color))
     }
 
     fun setPanBackground(@DrawableRes drawable: Int) {
-        view.llPan.background = context.drawable(drawable)
+        vb.llCardPan.background = context.drawable(drawable)
     }
 
     fun setCvvBackground(@DrawableRes drawable: Int) {
-        view.llCvv.background = context.drawable(drawable)
+        vb.llCvv.background = context.drawable(drawable)
     }
 
     fun setCvvToggleTint(@ColorRes color: Int) {
-        view.ivCvvToggle.imageTintList = ColorStateList.valueOf(context.color(color))
+        vb.ivCvvToggle.imageTintList = ColorStateList.valueOf(context.color(color))
     }
 
     fun setPanToggleTint(@ColorRes color: Int) {
-        view.ivPanToggle.imageTintList = ColorStateList.valueOf(context.color(color))
+        vb.ivPanToggle.imageTintList = ColorStateList.valueOf(context.color(color))
     }
 
-    private fun setupCardPanToggle() = with(view) {
+    private fun setupCardPanToggle() = with(vb) {
         ivPanToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
         panToggleState = CardFieldToggleState.ICON_SHOW
-        llPan.isClickable = true
-        llPan.isFocusable = true
-        llPan.setOnClickListener {
+        llCardPan.isClickable = true
+        llCardPan.isFocusable = true
+        llCardPan.setOnClickListener {
             if (panToggleState == CardFieldToggleState.ICON_SHOW) {
                 panToggleState = CardFieldToggleState.ICON_COPY
                 ivPanToggle.setImageResource(R.drawable.chili_ic_copy)
@@ -214,7 +194,7 @@ class BankCardView @JvmOverloads constructor(
         }
     }
 
-    private fun setupCvvToggle() = with(view) {
+    private fun setupCvvToggle() = with(vb) {
         ivCvvToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
         cvvToggleState = CardFieldToggleState.ICON_SHOW
         llCvv.isClickable = true
@@ -230,12 +210,12 @@ class BankCardView @JvmOverloads constructor(
         }
     }
 
-    fun setupCardPanToggle(onClick: () -> Unit) = with(view) {
+    fun setupCardPanToggle(onClick: () -> Unit) = with(vb) {
         ivPanToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
         panToggleState = CardFieldToggleState.ICON_SHOW
-        llPan.isClickable = true
-        llPan.isFocusable = true
-        llPan.setOnClickListener {
+        llCardPan.isClickable = true
+        llCardPan.isFocusable = true
+        llCardPan.setOnClickListener {
             if (isPanShimmering) return@setOnClickListener
             if (panToggleState == CardFieldToggleState.ICON_SHOW) {
                 isPanShimmering = true
@@ -254,7 +234,7 @@ class BankCardView @JvmOverloads constructor(
         }
     }
 
-    fun setupCvvToggle(onClick: () -> Unit) = with(view) {
+    fun setupCvvToggle(onClick: () -> Unit) = with(vb) {
         ivCvvToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
         cvvToggleState = CardFieldToggleState.ICON_SHOW
         llCvv.isClickable = true
@@ -285,21 +265,6 @@ class BankCardView @JvmOverloads constructor(
     }
 
 }
-
-data class BankCardViewVariables(
-    val tvCardPan: TextView,
-    val tvDueDate: TextView,
-    val tvCvv: TextView,
-    val tvCardHolderName: TextView,
-    val ivIcon: ImageView,
-    val ivCvvToggle: ImageView,
-    val ivPanToggle: ImageView,
-    val llCvv: ConstraintLayout,
-    val llPan: ConstraintLayout,
-    val rootContainer: ConstraintLayout,
-    val panShimmer: ShimmerFrameLayout,
-    val cvvShimmer: ShimmerFrameLayout
-)
 
 enum class CardFieldToggleState {
     ICON_SHOW, ICON_COPY, ICON_NONE

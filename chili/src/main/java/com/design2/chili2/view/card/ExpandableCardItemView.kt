@@ -5,11 +5,9 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewCardExpandableItemBinding
 import com.design2.chili2.extensions.setTextOrHide
-import com.facebook.shimmer.ShimmerFrameLayout
 
 class ExpandableCardItemView @JvmOverloads constructor(
     context: Context,
@@ -19,27 +17,16 @@ class ExpandableCardItemView @JvmOverloads constructor(
 ) : BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
     override val rootContainer: View
-        get() = view.root
+        get() = vb.rootView
 
     override val styleableAttrRes: IntArray = R.styleable.ExpandableCardItemView
 
-    private lateinit var view: ExpandableCardItemViewVariables
+    private lateinit var vb: ChiliViewCardExpandableItemBinding
 
     init { initView(context, attrs, defStyleAttr, defStyleRes) }
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_expandable_item, this, true)
-        this.view = ExpandableCardItemViewVariables(
-            root = view.findViewById(R.id.root_view),
-            tvTitle = view.findViewById(R.id.tv_title),
-            tvSubtitle = view.findViewById(R.id.tv_subtitle),
-            tvTitleValue = view.findViewById(R.id.tv_title_value),
-            tvSubtitleValue = view.findViewById(R.id.tv_subtitle_value),
-            tvTitleShimmer = view.findViewById(R.id.view_title_shimmer),
-            tvSubtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
-            tvTitleValueShimmer = view.findViewById(R.id.view_title_value_shimmer),
-            tvSubtitleValueShimmer = view.findViewById(R.id.view_subtitle_value_shimmer),
-        )
+        vb = ChiliViewCardExpandableItemBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     override fun TypedArray.obtainAttributes() {
@@ -51,61 +38,49 @@ class ExpandableCardItemView @JvmOverloads constructor(
 
     override fun setupView() {
         super.setupView()
-        shimmeringPairs[view.tvTitle] = view.tvTitleShimmer
+        shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
     }
 
 
     fun setTitle(charSequence: CharSequence?) {
-        view.tvTitle.text = charSequence
+        vb.tvTitle.text = charSequence
     }
 
     fun setTitle(resId: Int) {
-        view.tvTitle.setText(resId)
+        vb.tvTitle.setText(resId)
     }
 
     fun setSubtitle(charSequence: CharSequence?) {
-        view.tvSubtitle.setTextOrHide(charSequence)
-        if (charSequence == null) shimmeringPairs.remove(view.tvSubtitle)
-        else shimmeringPairs[view.tvSubtitle] = view.tvSubtitleShimmer
+        vb.tvSubtitle.setTextOrHide(charSequence)
+        if (charSequence == null) shimmeringPairs.remove(vb.tvSubtitle)
+        else shimmeringPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
     }
 
     fun setSubtitle(resId: Int?) {
-        view.tvSubtitle.setTextOrHide(resId)
-        if (resId == null) shimmeringPairs.remove(view.tvSubtitle)
-        else shimmeringPairs[view.tvSubtitle] = view.tvSubtitleShimmer
+        vb.tvSubtitle.setTextOrHide(resId)
+        if (resId == null) shimmeringPairs.remove(vb.tvSubtitle)
+        else shimmeringPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
     }
 
     fun setTitleValue(charSequence: CharSequence?) {
-        view.tvTitleValue.setTextOrHide(charSequence)
-        if (charSequence == null) shimmeringPairs.remove(view.tvTitleValue)
-        else shimmeringPairs[view.tvTitleValue] = view.tvTitleValueShimmer
+        vb.tvTitleValue.setTextOrHide(charSequence)
+        if (charSequence == null) shimmeringPairs.remove(vb.tvTitleValue)
+        else shimmeringPairs[vb.tvTitleValue] = vb.viewTitleValueShimmer
     }
 
     fun setTitleValue(resId: Int) {
-        view.tvTitleValue.setText(resId)
-        shimmeringPairs[view.tvTitleValue] = view.tvTitleValueShimmer
+        vb.tvTitleValue.setText(resId)
+        shimmeringPairs[vb.tvTitleValue] = vb.viewTitleValueShimmer
     }
 
     fun setSubtitleValue(charSequence: CharSequence?) {
-        view.tvSubtitleValue.setTextOrHide(charSequence)
-        if (charSequence == null) shimmeringPairs.remove(view.tvSubtitleValue)
-        else shimmeringPairs[view.tvSubtitleValue] = view.tvSubtitleValueShimmer
+        vb.tvSubtitleValue.setTextOrHide(charSequence)
+        if (charSequence == null) shimmeringPairs.remove(vb.tvSubtitleValue)
+        else shimmeringPairs[vb.tvSubtitleValue] = vb.viewSubtitleValueShimmer
     }
 
     fun setSubtitleValue(resId: Int) {
-        view.tvSubtitleValue.setText(resId)
-        shimmeringPairs[view.tvSubtitleValue] = view.tvSubtitleValueShimmer
+        vb.tvSubtitleValue.setText(resId)
+        shimmeringPairs[vb.tvSubtitleValue] = vb.viewSubtitleValueShimmer
     }
 }
-
-data class ExpandableCardItemViewVariables(
-    val root: ConstraintLayout,
-    val tvTitle: TextView,
-    val tvSubtitle: TextView,
-    val tvTitleValue: TextView,
-    val tvSubtitleValue: TextView,
-    val tvTitleShimmer: ShimmerFrameLayout,
-    val tvSubtitleShimmer: ShimmerFrameLayout,
-    val tvTitleValueShimmer: ShimmerFrameLayout,
-    val tvSubtitleValueShimmer: ShimmerFrameLayout,
-)

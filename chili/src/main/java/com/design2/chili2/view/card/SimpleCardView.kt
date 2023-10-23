@@ -6,12 +6,9 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewCardSimpleBinding
 import com.design2.chili2.extensions.setImageByUrl
-import com.facebook.shimmer.ShimmerFrameLayout
 
 class SimpleCardView @JvmOverloads constructor(
     context: Context,
@@ -20,22 +17,15 @@ class SimpleCardView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CardViewStyle_SimpleCardView
 ): BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var view: SimpleCardViewViewVariables
+    private lateinit var vb: ChiliViewCardSimpleBinding
 
     override val styleableAttrRes: IntArray = R.styleable.SimpleCardView
 
     override val rootContainer: View
-        get() = view.root
+        get() = vb.rootView
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_simple, this, true)
-        this.view = SimpleCardViewViewVariables(
-            tvTitle = view.findViewById(R.id.tv_title),
-            ivIcon = view.findViewById(R.id.iv_icon),
-            root = view.findViewById(R.id.root_view),
-            iconShimmer = view.findViewById(R.id.view_icon_shimmer),
-            titleShimmer = view.findViewById(R.id.view_title_shimmer)
-        )
+        vb = ChiliViewCardSimpleBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     init { initView(context, attrs, defStyleAttr, defStyleRes) }
@@ -51,39 +41,31 @@ class SimpleCardView @JvmOverloads constructor(
 
     override fun setupShimmeringViews() {
         super.setupShimmeringViews()
-        shimmeringPairs[view.ivIcon] = view.iconShimmer
-        shimmeringPairs[view.tvTitle] = view.titleShimmer
+        shimmeringPairs[vb.ivIcon] = vb.viewIconShimmer
+        shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
     }
 
     fun setTitle(charSequence: CharSequence?) {
-        view.tvTitle.text = charSequence
+        vb.tvTitle.text = charSequence
     }
 
     fun setTitle(resId: Int) {
-        view.tvTitle.setText(resId)
+        vb.tvTitle.setText(resId)
     }
 
     fun setTitleTextAppearance(resId: Int) {
-        view.tvTitle.setTextAppearance(resId)
+        vb.tvTitle.setTextAppearance(resId)
     }
 
     fun setIcon(resId: Int) {
-        view.ivIcon.setImageResource(resId)
+        vb.ivIcon.setImageResource(resId)
     }
 
     fun setIcon(url: String) {
-        view.ivIcon.setImageByUrl(url)
+        vb.ivIcon.setImageByUrl(url)
     }
 
     fun setIcon(drawable: Drawable) {
-        view.ivIcon.setImageDrawable(drawable)
+        vb.ivIcon.setImageDrawable(drawable)
     }
 }
-
-data class SimpleCardViewViewVariables(
-    val tvTitle: TextView,
-    val ivIcon: ImageView,
-    val root: ConstraintLayout,
-    val titleShimmer: ShimmerFrameLayout,
-    val iconShimmer: ShimmerFrameLayout,
-)

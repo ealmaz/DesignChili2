@@ -7,10 +7,8 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewCardPaymentBinding
 import com.design2.chili2.extensions.setImageByUrl
 
 class PaymentCardView @JvmOverloads constructor(
@@ -20,20 +18,15 @@ class PaymentCardView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CardViewStyle_PaymentCardView
 ): BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var view: PaymentCardViewViewVariables
+    private lateinit var vb: ChiliViewCardPaymentBinding
 
     override val styleableAttrRes: IntArray = R.styleable.PaymentCardView
 
     override val rootContainer: View
-        get() = view.root
+        get() = vb.rootView
 
     override fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_card_payment, this, true)
-        this.view = PaymentCardViewViewVariables(
-            tvLabel = view.findViewById(R.id.tv_label),
-            ivIcon = view.findViewById(R.id.iv_icon),
-            root = view.findViewById(R.id.root_view)
-        )
+        vb = ChiliViewCardPaymentBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     init { initView(context, attrs, defStyleAttr, defStyleRes) }
@@ -50,36 +43,30 @@ class PaymentCardView @JvmOverloads constructor(
     }
 
     fun setTitle(charSequence: CharSequence?) {
-        view.tvLabel.text = charSequence
+        vb.tvLabel.text = charSequence
     }
 
     fun setTitle(resId: Int) {
-        view.tvLabel.setText(resId)
+        vb.tvLabel.setText(resId)
     }
 
     fun setTitleTextAppearance(resId: Int) {
-        view.tvLabel.setTextAppearance(resId)
+        vb.tvLabel.setTextAppearance(resId)
     }
 
     fun setIcon(resId: Int) {
-        view.ivIcon.setImageResource(resId)
+        vb.ivIcon.setImageResource(resId)
     }
 
     fun setIcon(url: String) {
-        view.ivIcon.setImageByUrl(url)
+        vb.ivIcon.setImageByUrl(url)
     }
 
     fun setIcon(drawable: Drawable) {
-        view.ivIcon.setImageDrawable(drawable)
+        vb.ivIcon.setImageDrawable(drawable)
     }
 
     fun setGravity(gravity: Int) {
-        view.root.gravity = gravity
+        vb.root.gravity = gravity
     }
 }
-
-data class PaymentCardViewViewVariables(
-    val tvLabel: TextView,
-    val ivIcon: ImageView,
-    val root: LinearLayout
-)

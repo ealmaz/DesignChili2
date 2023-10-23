@@ -8,12 +8,11 @@ import android.widget.CompoundButton
 import android.widget.FrameLayout
 import androidx.core.text.parseAsHtml
 import com.design2.chili2.R
-import com.design2.chili2.view.cells.MultiIconedTitleCellView
-import com.design2.chili2.view.cells.ToggleCellViewNew
+import com.design2.chili2.databinding.ChiliViewTitledToggleCardBinding
 
 class TitledToggleCardView : FrameLayout {
 
-    private lateinit var view: TitledToggleCardViewVariables
+    private lateinit var vb: ChiliViewTitledToggleCardBinding
 
     constructor(context: Context) : super(context) {
         inflateViews()
@@ -31,12 +30,7 @@ class TitledToggleCardView : FrameLayout {
 
     @SuppressLint("MissingInflatedId")
     private fun inflateViews() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_titled_toggle_card, this)
-        this.view = TitledToggleCardViewVariables(
-            root = view.findViewById(R.id.root_view),
-            multiIconedTitleView = view.findViewById(R.id.mitcv_view),
-            toggleView = view.findViewById(R.id.tcv_toggle)
-        )
+        vb = ChiliViewTitledToggleCardBinding.inflate(LayoutInflater.from(context))
     }
 
     private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_CardViewStyle_SingleSelectedCard) {
@@ -52,40 +46,34 @@ class TitledToggleCardView : FrameLayout {
     }
 
     fun setTitleText(text: String) {
-        view.multiIconedTitleView.setTitle(text)
+        vb.mitcvView.setTitle(text)
     }
 
     fun setValue(value: String) {
-        view.toggleView.setTitle(value)
+        vb.tcvToggle.setTitle(value)
     }
 
     fun setValueHtml(value: String) {
-        view.toggleView.setTitle(value.parseAsHtml())
+        vb.tcvToggle.setTitle(value.parseAsHtml())
     }
 
     fun setIcons(icons: ArrayList<String>) {
-        view.multiIconedTitleView.setIcons(icons)
+        vb.mitcvView.setIcons(icons)
     }
 
     fun setIsInfoButtonVisible(isVisible: Boolean) {
-        view.multiIconedTitleView.setIsInfoButtonVisible(isVisible)
+        vb.mitcvView.setIsInfoButtonVisible(isVisible)
     }
 
     fun setInfoButtonClickListener(onClick: () -> Unit) {
-        view.multiIconedTitleView.setInfoButtonClickListener(onClick)
+        vb.mitcvView.setInfoButtonClickListener(onClick)
     }
 
     fun setOnCheckChangeListener(listener: (CompoundButton, Boolean) -> Unit) {
-        view.toggleView.setOnCheckChangeListener(listener)
+        vb.tcvToggle.setOnCheckChangeListener(listener)
     }
 
     fun setUnavailable(isUnavailable: Boolean) {
-        view.toggleView.setIsEnabled(!isUnavailable)
+        vb.tcvToggle.setIsEnabled(!isUnavailable)
     }
 }
-
-private data class TitledToggleCardViewVariables(
-    var root: FrameLayout,
-    var multiIconedTitleView: MultiIconedTitleCellView,
-    var toggleView: ToggleCellViewNew
-)
