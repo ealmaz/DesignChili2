@@ -479,6 +479,10 @@ open class BaseInputView @JvmOverloads constructor(
         }
     }
 
+    fun setActionEnabled(isEnabled: Boolean) {
+        view.tvAction.isEnabled = isEnabled
+    }
+
     fun setSingleLine(singleLine: Boolean){
         view.inputField.isSingleLine = singleLine
     }
