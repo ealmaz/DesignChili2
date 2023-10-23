@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_title"/>
+        app:layout_constraintEnd_toStartOf="@id/guideline"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_subtitle_shimmer"
@@ -37,17 +37,16 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Chili.H7.Primary"
         android:gravity="end"
         android:layout_marginEnd="@dimen/padding_8dp"
-        android:maxLength="30"
         tools:text="Information"
         app:layout_constraintTop_toTopOf="@id/tv_subtitle"
         app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_subtitle"/>
+        app:layout_constraintStart_toEndOf="@id/guideline"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_title_shimmer"
@@ -73,5 +72,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
