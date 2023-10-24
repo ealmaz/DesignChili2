@@ -31,7 +31,7 @@ class ConfigToggledCardView : ConstraintLayout {
     }
 
     private fun inflateViews() {
-        vb = ChiliViewConfigToggleCardBinding.inflate(LayoutInflater.from(context))
+        vb = ChiliViewConfigToggleCardBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_CardViewStyle_SingleSelectedCard) {

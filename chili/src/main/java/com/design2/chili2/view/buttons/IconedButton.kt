@@ -5,18 +5,15 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewButtonIconedBinding
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
 
-@Deprecated("")
 class IconedButton @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
@@ -24,7 +21,7 @@ class IconedButton @JvmOverloads constructor(
     defStyle: Int = R.style.Chili_ButtonStyle
 ) : FrameLayout(context, attributeSet, defStyleAttr, defStyle) {
 
-    private lateinit var view: IconedButtonViewVariables
+    private lateinit var vb: ChiliViewButtonIconedBinding
 
     init {
         initView(context)
@@ -32,12 +29,7 @@ class IconedButton @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_button_iconed, this, true)
-        this.view = IconedButtonViewVariables(
-            rootView = view.findViewById(R.id.root_view),
-            title = view.findViewById(R.id.tv_title),
-            icon = view.findViewById(R.id.iv_icon)
-        )
+        vb = ChiliViewButtonIconedBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int, defStyle: Int) {
@@ -49,54 +41,48 @@ class IconedButton @JvmOverloads constructor(
     }
 
     fun setText(text: String?) {
-        view.title.text = text
+        vb.tvTitle.text = text
     }
 
     fun setText(@StringRes textResId: Int) {
-        view.title.setText(textResId)
+        vb.tvTitle.setText(textResId)
     }
 
     fun setIcon(string: String) {
-        view.icon.apply {
+        vb.ivIcon.apply {
             visible()
             setImageByUrl(string)
         }
     }
 
     fun setIcon(@DrawableRes drawableRes: Int) {
-        view.icon.apply {
+        vb.ivIcon.apply {
             visible()
             setImageResource(drawableRes)
         }
     }
 
     override fun setOnClickListener(l: OnClickListener?) {
-        view.rootView.setOnClickListener(l)
+        vb.rootView.setOnClickListener(l)
     }
 
     override fun isEnabled(): Boolean {
-        return view.rootView.isEnabled
+        return vb.rootView.isEnabled
     }
 
     override fun setEnabled(enabled: Boolean) {
-        view.rootView.isEnabled = enabled
+        vb.rootView.isEnabled = enabled
     }
 
     fun setTextColor(@ColorInt color: Int) {
-        view.title.setTextColor(color)
+        vb.tvTitle.setTextColor(color)
     }
 
     fun setTextStyle(typeface: Typeface) {
-        view.title.typeface = typeface
+        vb.tvTitle.typeface = typeface
     }
 
     fun setTextAppearance(@StyleRes resId: Int) {
-        view.title.setTextAppearance(resId)
+        vb.tvTitle.setTextAppearance(resId)
     }
 }
-
-data class IconedButtonViewVariables(
-    val rootView: LinearLayout,
-    val title: TextView,
-    val icon: ImageView
-)

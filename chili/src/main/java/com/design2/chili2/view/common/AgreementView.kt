@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.widget.*
 import androidx.core.text.parseAsHtml
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewAgreementBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.handleUrlClicks
 import com.design2.chili2.extensions.visible
@@ -15,7 +16,7 @@ class AgreementView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
 ) : LinearLayout(context, attrs) {
 
-    private lateinit var view: AgreementViewVariables
+    private lateinit var vb: ChiliViewAgreementBinding
 
     init {
         initView(context)
@@ -23,12 +24,7 @@ class AgreementView @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view =  LayoutInflater.from(context).inflate(R.layout.chili_view_agreement, this)
-        this.view = AgreementViewVariables(
-            cbAgreement = view.findViewById(R.id.cb_agreement),
-            ivChecked = view.findViewById(R.id.iv_checked),
-            tvTitle = view.findViewById(R.id.tv_title)
-        )
+        vb = ChiliViewAgreementBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?) {
@@ -41,19 +37,19 @@ class AgreementView @JvmOverloads constructor(
     }
 
     fun setTitle(title: String) {
-        view.tvTitle.text = title.parseAsHtml()
+        vb.tvTitle.text = title.parseAsHtml()
     }
 
     fun onUrlClick(action: (url: String) -> (Unit)) {
-        view.tvTitle.handleUrlClicks { action.invoke(it) }
+        vb.tvTitle.handleUrlClicks { action.invoke(it) }
     }
 
     fun setChecked(isChecked: Boolean) {
-        view.cbAgreement.isChecked = isChecked
+        vb.cbAgreement.isChecked = isChecked
     }
 
     fun setOnCheckChangeListener(listener: (CompoundButton, Boolean) -> Unit) {
-        view.cbAgreement.setOnCheckedChangeListener(listener)
+        vb.cbAgreement.setOnCheckedChangeListener(listener)
     }
 
     fun setIsEditable(isEditable: Boolean) {
@@ -64,19 +60,12 @@ class AgreementView @JvmOverloads constructor(
     }
 
     private fun editableMode() {
-        view.ivChecked.gone()
-        view.cbAgreement.visible()
+        vb.ivChecked.gone()
+        vb.cbAgreement.visible()
     }
 
     private fun nonEditableMode() {
-        view.ivChecked.visible()
-        view.cbAgreement.gone()
+        vb.ivChecked.visible()
+        vb.cbAgreement.gone()
     }
-
 }
-
-data class AgreementViewVariables(
-    val cbAgreement: CheckBox,
-    val ivChecked: ImageView,
-    val tvTitle: TextView
-)

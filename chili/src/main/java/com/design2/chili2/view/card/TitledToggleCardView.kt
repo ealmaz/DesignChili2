@@ -30,7 +30,7 @@ class TitledToggleCardView : FrameLayout {
 
     @SuppressLint("MissingInflatedId")
     private fun inflateViews() {
-        vb = ChiliViewTitledToggleCardBinding.inflate(LayoutInflater.from(context))
+        vb = ChiliViewTitledToggleCardBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_CardViewStyle_SingleSelectedCard) {

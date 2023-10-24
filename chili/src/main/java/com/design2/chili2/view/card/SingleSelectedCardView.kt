@@ -44,7 +44,7 @@ class SingleSelectedCardView : FrameLayout {
     }
 
     private fun inflateViews() {
-        vb = ChiliViewSingleSelectedCardBinding.inflate(LayoutInflater.from(context))
+        vb = ChiliViewSingleSelectedCardBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(
