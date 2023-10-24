@@ -38,7 +38,7 @@ class ConfigSelectorCardView : ConstraintLayout {
     }
 
     private fun inflateViews() {
-        vb = ChiliViewConfigSelectorCardBinding.inflate(LayoutInflater.from(context))
+        vb = ChiliViewConfigSelectorCardBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(

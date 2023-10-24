@@ -7,13 +7,14 @@ import android.widget.Button
 import android.widget.LinearLayout
 import androidx.annotation.StringRes
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewAdditionalDoubleButtonsBinding
 
 class AdditionalDoubleButtonsView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
 ) : LinearLayout(context, attrs) {
 
-    private lateinit var view: AdditionalDoubleButtonsCellViewVariables
+    private lateinit var vb: ChiliViewAdditionalDoubleButtonsBinding
 
     init {
         initView(context)
@@ -21,11 +22,7 @@ class AdditionalDoubleButtonsView @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_additional_double_buttons, this)
-        this.view = AdditionalDoubleButtonsCellViewVariables(
-            btnFirst = view.findViewById(R.id.btn_first),
-            btnSecond = view.findViewById(R.id.btn_second)
-        )
+        vb = ChiliViewAdditionalDoubleButtonsBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?) {
@@ -41,35 +38,30 @@ class AdditionalDoubleButtonsView @JvmOverloads constructor(
     }
 
     fun setFirstButtonText(text: String) {
-        view.btnFirst.text = text
+        vb.btnFirst.text = text
     }
     fun setFirstButtonText(@StringRes textResId: Int) {
-        view.btnFirst.setText(textResId)
+        vb.btnFirst.setText(textResId)
     }
 
     fun setSecondButtonText(text: String) {
-        view.btnSecond.text = text
+        vb.btnSecond.text = text
     }
     fun setSecondButtonText(@StringRes textResId: Int) {
-        view.btnSecond.setText(textResId)
+        vb.btnSecond.setText(textResId)
     }
 
     fun setFirstButtonOnClickListener(onClick: () -> Unit) {
-        view.btnFirst.setOnClickListener { onClick.invoke() }
+        vb.btnFirst.setOnClickListener { onClick.invoke() }
     }
 
     fun setSecondButtonOnClickListener(onClick: () -> Unit) {
-        view.btnSecond.setOnClickListener { onClick.invoke() }
+        vb.btnSecond.setOnClickListener { onClick.invoke() }
     }
 
     fun setIsButtonsEnabled(isEnabled: Boolean){
-        view.btnFirst.isEnabled = isEnabled
-        view.btnSecond.isEnabled = isEnabled
+        vb.btnFirst.isEnabled = isEnabled
+        vb.btnSecond.isEnabled = isEnabled
     }
 
 }
-
-data class AdditionalDoubleButtonsCellViewVariables(
-    val btnFirst: Button,
-    val btnSecond: Button
-)

@@ -5,13 +5,11 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
 import androidx.core.view.isVisible
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewContainerExpandableCardBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
@@ -30,7 +28,7 @@ class ExpandableCardContainer @JvmOverloads constructor(
 
     private val mutableShimmeringViewMap = mutableMapOf<View, ShimmerFrameLayout?>()
 
-    private lateinit var view: ExpandableCardContainerVariables
+    private lateinit var vb: ChiliViewContainerExpandableCardBinding
 
     private var isExpandable: Boolean = false
 
@@ -43,16 +41,10 @@ class ExpandableCardContainer @JvmOverloads constructor(
     }
 
     private fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context)
-            .inflate(R.layout.chili_view_container_expandable_card, this, true)
-        this.view = ExpandableCardContainerVariables(
-            tvTitle = view.findViewById(R.id.tv_title),
-            tvSubtitle = view.findViewById(R.id.tv_subtitle),
-            tvValue = view.findViewById(R.id.tv_value),
-            ivArrow = view.findViewById(R.id.iv_arrow),
-            rootView = view.findViewById(R.id.root_view),
-            titleShimmer = view.findViewById(R.id.view_title_shimmer),
-            subtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer)
+        vb = ChiliViewContainerExpandableCardBinding.inflate(
+            LayoutInflater.from(context),
+            this,
+            true
         )
     }
 
@@ -73,40 +65,40 @@ class ExpandableCardContainer @JvmOverloads constructor(
     }
 
     private fun setupViews() {
-        mutableShimmeringViewMap[view.tvTitle] = view.titleShimmer
+        mutableShimmeringViewMap[vb.tvTitle] = vb.viewTitleShimmer
     }
 
 
     fun setTitle(charSequence: CharSequence?) {
-        view.tvTitle.text = charSequence
+        vb.tvTitle.text = charSequence
     }
 
     fun setTitle(resId: Int) {
-        view.tvTitle.setText(resId)
+        vb.tvTitle.setText(resId)
     }
 
     fun setSubtitle(charSequence: CharSequence?) {
-        view.tvSubtitle.setTextOrHide(charSequence)
-        if (charSequence == null) mutableShimmeringViewMap.remove(view.tvSubtitle)
-        else mutableShimmeringViewMap[view.tvSubtitle] = view.subtitleShimmer
+        vb.tvSubtitle.setTextOrHide(charSequence)
+        if (charSequence == null) mutableShimmeringViewMap.remove(vb.tvSubtitle)
+        else mutableShimmeringViewMap[vb.tvSubtitle] = vb.viewSubtitleShimmer
     }
 
     fun setSubtitle(resId: Int?) {
-        view.tvSubtitle.setTextOrHide(resId)
-        if (resId == null) mutableShimmeringViewMap.remove(view.tvSubtitle)
-        else mutableShimmeringViewMap[view.tvSubtitle] = view.subtitleShimmer
+        vb.tvSubtitle.setTextOrHide(resId)
+        if (resId == null) mutableShimmeringViewMap.remove(vb.tvSubtitle)
+        else mutableShimmeringViewMap[vb.tvSubtitle] = vb.viewSubtitleShimmer
     }
 
     fun setValue(charSequence: CharSequence?) {
-        view.tvValue.setTextOrHide(charSequence)
-        if (charSequence == null) mutableShimmeringViewMap.remove(view.tvValue)
-        else mutableShimmeringViewMap[view.tvValue] = null
+        vb.tvValue.setTextOrHide(charSequence)
+        if (charSequence == null) mutableShimmeringViewMap.remove(vb.tvValue)
+        else mutableShimmeringViewMap[vb.tvValue] = null
     }
 
     fun setValue(resId: Int) {
-        view.tvValue.setText(resId)
-        if (resId == null) mutableShimmeringViewMap.remove(view.tvValue)
-        else mutableShimmeringViewMap[view.tvValue] = null
+        vb.tvValue.setText(resId)
+        if (resId == null) mutableShimmeringViewMap.remove(vb.tvValue)
+        else mutableShimmeringViewMap[vb.tvValue] = null
     }
 
     fun setIsExpandable(isExpandable: Boolean?) {
@@ -115,13 +107,13 @@ class ExpandableCardContainer @JvmOverloads constructor(
         else setupAsUnExpandable()
     }
 
-    private fun setupAsExpandable() = with(view) {
+    private fun setupAsExpandable() = with(vb) {
         ivArrow.visible()
         ivArrow.setOnClickListener { setIsExpanded(!isExpanded) }
         rootView.setOnClickListener { setIsExpanded(!isExpanded) }
     }
 
-    private fun setupAsUnExpandable() = with(view) {
+    private fun setupAsUnExpandable() = with(vb) {
         ivArrow.gone()
         ivArrow.setOnClickListener {}
         rootView.setOnClickListener {}
@@ -143,7 +135,7 @@ class ExpandableCardContainer @JvmOverloads constructor(
     }
 
     private fun rotateChevron(rotation: Float = 0f) {
-        view.ivArrow.animate().rotation(rotation)
+        vb.ivArrow.animate().rotation(rotation)
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
@@ -174,16 +166,6 @@ class ExpandableCardContainer @JvmOverloads constructor(
 
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = mutableShimmeringViewMap
 }
-
-data class ExpandableCardContainerVariables(
-    val tvTitle: TextView,
-    val tvSubtitle: TextView,
-    val tvValue: TextView,
-    val ivArrow: ImageView,
-    val rootView: ConstraintLayout,
-    val titleShimmer: ShimmerFrameLayout,
-    val subtitleShimmer: ShimmerFrameLayout
-)
 
 data class ExpandableItemData(
     val title: CharSequence? = null,

@@ -3,16 +3,14 @@ package com.design2.chili2.view.buttons
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.Button
 import android.widget.FrameLayout
-import android.widget.ProgressBar
 import androidx.annotation.StringRes
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewButtonLoaderBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.visible
 
-@Deprecated("")
 class LoaderButton @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
@@ -20,7 +18,7 @@ class LoaderButton @JvmOverloads constructor(
     defStyle: Int = R.style.Chili_LoaderButton
 ) : FrameLayout(context, attributeSet, defStyleAttr, defStyle) {
 
-    private lateinit var view: LoaderButtonViewVariables
+    private lateinit var vb: ChiliViewButtonLoaderBinding
 
     init {
         initView(context)
@@ -28,11 +26,7 @@ class LoaderButton @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_button_loader, this, true)
-        this.view = LoaderButtonViewVariables(
-            button = view.findViewById(R.id.button),
-            progress = view.findViewById(R.id.progress)
-        )
+        vb = ChiliViewButtonLoaderBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int, defStyle: Int) {
@@ -45,11 +39,11 @@ class LoaderButton @JvmOverloads constructor(
     }
 
     fun setText(text: String?) {
-        view.button.text = text
+        vb.button.text = text
     }
 
     fun setText(@StringRes textResId: Int) {
-        view.button.setText(textResId)
+        vb.button.setText(textResId)
     }
 
     fun setIsLoading(isLoading: Boolean) {
@@ -59,30 +53,25 @@ class LoaderButton @JvmOverloads constructor(
         }
     }
 
-    private fun showLoader() = with (view){
+    private fun showLoader() = with(vb) {
         button.invisible()
         progress.visible()
     }
 
-    private fun hideLoader() = with (view){
+    private fun hideLoader() = with (vb) {
         button.visible()
         progress.gone()
     }
 
     override fun setOnClickListener(l: OnClickListener?) {
-        view.button.setOnClickListener(l)
+        vb.button.setOnClickListener(l)
     }
 
     override fun isEnabled(): Boolean {
-        return view.button.isEnabled
+        return vb.button.isEnabled
     }
 
     override fun setEnabled(enabled: Boolean) {
-        view.button.isEnabled = enabled
+        vb.button.isEnabled = enabled
     }
 }
-
-data class LoaderButtonViewVariables(
-    val button: Button,
-    val progress: ProgressBar
-)

@@ -5,22 +5,19 @@ import android.os.Build
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.StyleRes
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewAdditionalTextBinding
 
 class AdditionalTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
 ) : LinearLayout(context, attrs) {
 
-    private val tvText: TextView
+    private var vb: ChiliViewAdditionalTextBinding
 
     init {
-        val view = LayoutInflater
-            .from(context)
-            .inflate(R.layout.chili_view_additional_text, this)
-        tvText = view.findViewById(R.id.tv_text)
+        vb = ChiliViewAdditionalTextBinding.inflate(LayoutInflater.from(context), this, true)
         obtainAttributes(context, attrs)
     }
 
@@ -35,18 +32,18 @@ class AdditionalTextView @JvmOverloads constructor(
     }
 
     fun setText(text: String?) {
-        tvText.text = text
+        vb.tvText.text = text
     }
 
     fun setText(textResId: Int) {
-        tvText.setText(textResId)
+        vb.tvText.setText(textResId)
     }
 
     fun setTextAppearance(@StyleRes resId: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            tvText.setTextAppearance(resId)
+            vb.tvText.setTextAppearance(resId)
         } else {
-            tvText.setTextAppearance(context, resId)
+            vb.tvText.setTextAppearance(context, resId)
         }
     }
 }

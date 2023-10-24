@@ -8,11 +8,8 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.DimenRes
 import androidx.annotation.StyleRes
 import androidx.core.view.children
@@ -21,6 +18,7 @@ import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewContainerExpandableBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
@@ -34,7 +32,7 @@ class ExpandableContainer @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_Container_ExpandableContainerViewStyle
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var view: ExpandableContainerViewVariables
+    private lateinit var vb: ChiliViewContainerExpandableBinding
 
     var isExpanded: Boolean = false
     var isEmpty: Boolean = false
@@ -51,15 +49,10 @@ class ExpandableContainer @JvmOverloads constructor(
     }
 
     private fun inflateView() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_container_expandable, this)
-        this.view = ExpandableContainerViewVariables(
-            root = view.findViewById(R.id.root_view),
-            tvTitle = view.findViewById(R.id.tv_title),
-            tvSubtitle = view.findViewById(R.id.tv_subtitle),
-            tvAction = view.findViewById(R.id.tv_action),
-            ivEndIcon = view.findViewById(R.id.iv_end_icon),
-            ivClosureIndicator = view.findViewById(R.id.iv_closure_indicator),
-            tvAdditionalText = view.findViewById(R.id.tv_additional_text)
+        vb = ChiliViewContainerExpandableBinding.inflate(
+            LayoutInflater.from(context),
+            this,
+            true
         )
     }
 
@@ -110,12 +103,12 @@ class ExpandableContainer @JvmOverloads constructor(
     }
 
     fun setTitle(charSequence: CharSequence?) {
-        view.tvTitle.text = charSequence
+        vb.tvTitle.text = charSequence
     }
 
     fun setTitle(resId: Int?) {
         if (resId == null) return
-        view.tvTitle.setText(resId)
+        vb.tvTitle.setText(resId)
     }
 
     fun setIsListEmpty(isEmpty: Boolean){
@@ -124,79 +117,79 @@ class ExpandableContainer @JvmOverloads constructor(
 
     fun setTitleTextAppearance(@StyleRes resId: Int?) {
         if (resId == null) return
-        view.tvTitle.setTextAppearance(resId)
+        vb.tvTitle.setTextAppearance(resId)
     }
 
     fun setSubtitle(charSequence: CharSequence?) {
-        view.tvSubtitle.setTextOrHide(charSequence)
+        vb.tvSubtitle.setTextOrHide(charSequence)
     }
 
     fun setSubtitle(resId: Int?) {
-        view.tvSubtitle.setTextOrHide(resId)
+        vb.tvSubtitle.setTextOrHide(resId)
     }
 
     fun setSubtitleTextAppearance(@StyleRes resId: Int?) {
         if (resId == null) return
-        view.tvSubtitle.setTextAppearance(resId)
+        vb.tvSubtitle.setTextAppearance(resId)
     }
 
     fun setActionText(charSequence: CharSequence?) {
-        view.tvAction.setTextOrHide(charSequence)
+        vb.tvAction.setTextOrHide(charSequence)
     }
 
     fun setActionText(resId: Int?) {
-        view.tvAction.setTextOrHide(resId)
+        vb.tvAction.setTextOrHide(resId)
     }
 
     fun setActionClick(action: () -> Unit) {
-        view.tvAction.setOnSingleClickListener(action)
+        vb.tvAction.setOnSingleClickListener(action)
     }
 
     fun setActionTextAppearance(@StyleRes resId: Int?) {
         if (resId == null) return
-        view.tvAction.setTextAppearance(resId)
+        vb.tvAction.setTextAppearance(resId)
     }
 
     fun setIsActionTextEnabled(isEnabled: Boolean) {
-        view.tvAction.isEnabled = isEnabled
+        vb.tvAction.isEnabled = isEnabled
     }
 
     fun setAdditionalText(charSequence: CharSequence?) {
-        view.tvAdditionalText.setTextOrHide(charSequence)
+        vb.tvAdditionalText.setTextOrHide(charSequence)
     }
 
     fun setAdditionalText(resId: Int?) {
-        view.tvAdditionalText.setTextOrHide(resId)
+        vb.tvAdditionalText.setTextOrHide(resId)
     }
 
     fun setAdditionalTextTextAppearance(@StyleRes resId: Int?) {
         if (resId == null) return
-        view.tvAdditionalText.setTextAppearance(resId)
+        vb.tvAdditionalText.setTextAppearance(resId)
     }
 
 
     fun setEndIcon(resId: Int) {
-        view.ivEndIcon.apply {
+        vb.ivEndIcon.apply {
             setImageResource(resId)
             visible()
         }
     }
 
     fun setEndIcon(drawable: Drawable?) {
-        view.ivEndIcon.apply {
+        vb.ivEndIcon.apply {
             setImageDrawable(drawable)
             if (drawable != null) visible() else gone()
         }
     }
 
 
-    fun setIsEndIconClickable(isClickableValue: Boolean) = with(view.ivEndIcon) {
+    fun setIsEndIconClickable(isClickableValue: Boolean) = with(vb.ivEndIcon) {
         isFocusable = isClickableValue
         isClickable = isClickableValue
     }
 
     fun setEndIconClickListener(action: () -> Unit) {
-        view.ivEndIcon.setOnSingleClickListener(action)
+        vb.ivEndIcon.setOnSingleClickListener(action)
     }
 
     fun setEndIconSize(iconSize: IconSize) {
@@ -215,24 +208,24 @@ class ExpandableContainer @JvmOverloads constructor(
     }
 
     private fun setupEndIconSize(widthPx: Int, heightPx: Int) {
-        val params = view.ivEndIcon.layoutParams
+        val params = vb.ivEndIcon.layoutParams
         params?.height = heightPx
         params?.width = widthPx
-        view.ivEndIcon.layoutParams = params
+        vb.ivEndIcon.layoutParams = params
     }
 
     fun setClosureIndicatorVisibility(isVisible: Boolean) {
-        view.ivClosureIndicator.isVisible = isVisible
+        vb.ivClosureIndicator.isVisible = isVisible
         if (isVisible) setupClosureButton()
     }
 
     private fun setupClosureButton() {
-        view.ivClosureIndicator.setOnClickListener {
+        vb.ivClosureIndicator.setOnClickListener {
             isEndIconClicked = true
             setIsExpanded(!isExpanded)
             onClosureAction?.invoke(isExpanded)
         }
-        view.tvTitle.setOnClickListener {
+        vb.tvTitle.setOnClickListener {
             isEndIconClicked = true
             setIsExpanded(!isExpanded)
             onClosureAction?.invoke(isExpanded)
@@ -244,14 +237,14 @@ class ExpandableContainer @JvmOverloads constructor(
             this.isExpanded = isExpanded
             if (this.isExpanded) {
                 rotateChevron(0f, isAnimated)
-                view.tvSubtitle.isVisible = !view.tvSubtitle.text.isNullOrBlank()
+                vb.tvSubtitle.isVisible = !vb.tvSubtitle.text.isNullOrBlank()
             } else {
                 rotateChevron(-90f, isAnimated)
                 collapsedHeight = 0
-                view.tvSubtitle.gone()
+                vb.tvSubtitle.gone()
             }
 
-            view.tvSubtitle.post {
+            vb.tvSubtitle.post {
                 if (isExpandingAnimated) {
                     animateExpanding(isAnimated, isExpanded)
                 }
@@ -329,7 +322,7 @@ class ExpandableContainer @JvmOverloads constructor(
 
     private fun childrenViewsVisibilityAfterAnimation(isExpanded: Boolean){
         children.forEach {
-            if (it != view.root) {
+            if (it != vb.rootView) {
                 if (isExpanded) {
                     it.visible()
                 } else {
@@ -357,8 +350,8 @@ class ExpandableContainer @JvmOverloads constructor(
 
     private fun rotateChevron(rotation: Float = 0f, isAnimated: Boolean = true) {
         when (isAnimated) {
-            true -> view.ivClosureIndicator.animate().rotation(rotation)
-            else -> view.ivClosureIndicator.rotation = rotation
+            true -> vb.ivClosureIndicator.animate().rotation(rotation)
+            else -> vb.ivClosureIndicator.rotation = rotation
         }
     }
 
@@ -367,13 +360,3 @@ class ExpandableContainer @JvmOverloads constructor(
         const val EXPANDED_STATE = "expanded_state"
     }
 }
-
-data class ExpandableContainerViewVariables(
-    val root: View,
-    val tvTitle: TextView,
-    val tvSubtitle: TextView,
-    val tvAction: TextView,
-    val ivEndIcon: ImageView,
-    val ivClosureIndicator: ImageView,
-    val tvAdditionalText: TextView,
-)

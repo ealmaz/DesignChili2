@@ -4,10 +4,9 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewTitledDividerBinding
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
 
@@ -18,7 +17,7 @@ class TitledDividerView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_TitledDividerViewStyle
 ): LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var view: TitledDiverViewVariables
+    private lateinit var vb: ChiliViewTitledDividerBinding
 
     init {
         inflateView(context)
@@ -26,12 +25,7 @@ class TitledDividerView @JvmOverloads constructor(
     }
 
     private fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_titled_divider, this, true)
-        this.view = TitledDiverViewVariables(
-            tvTitle = view.findViewById(R.id.tv_title),
-            ivIcon = view.findViewById(R.id.iv_icon),
-            tvActionText = view.findViewById(R.id.tv_action)
-        )
+        vb = ChiliViewTitledDividerBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(
@@ -54,46 +48,40 @@ class TitledDividerView @JvmOverloads constructor(
     }
 
     fun setTitle(charSequence: CharSequence?) {
-        view.tvTitle.text = charSequence
+        vb.tvTitle.text = charSequence
     }
 
     fun setTitle(resId: Int) {
-        view.tvTitle.setText(resId)
+        vb.tvTitle.setText(resId)
     }
 
     fun setTitleTextAppearance(resId: Int) {
-        view.tvTitle.setTextAppearance(resId)
+        vb.tvTitle.setTextAppearance(resId)
     }
 
     fun setActionText(charSequence: CharSequence?) {
-        view.tvActionText.setTextOrHide(charSequence)
+        vb.tvAction.setTextOrHide(charSequence)
     }
 
     fun setActionText(resId: Int) {
-        view.tvActionText.setTextOrHide(resId)
+        vb.tvAction.setTextOrHide(resId)
     }
 
     fun setActionTextTextAppearance(resId: Int) {
-        view.tvActionText.setTextAppearance(resId)
+        vb.tvAction.setTextAppearance(resId)
     }
 
     fun setIcon(resId: Int) {
-        view.ivIcon.apply {
+        vb.ivIcon.apply {
             visible()
             setImageResource(resId)
         }
     }
 
     fun setIcon(drawable: Drawable) {
-        view.ivIcon.apply {
+        vb.ivIcon.apply {
             visible()
             setImageDrawable(drawable)
         }
     }
 }
-
-data class TitledDiverViewVariables(
-    val tvTitle: TextView,
-    val ivIcon: ImageView,
-    val tvActionText: TextView,
-)
