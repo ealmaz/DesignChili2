@@ -40,7 +40,7 @@ class ToggleCellView @JvmOverloads constructor(
 
     private fun inflateSwitch() {
         this.switch = SwitchCompat(context)
-        view.flEndPlaceholder.addView(switch)
+        vb.flEndPlaceHolder.addView(switch)
     }
 
     fun setIsSwitchVisible(isVisible: Boolean) {

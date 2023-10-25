@@ -2,8 +2,6 @@ package com.design2.chili2.view.cells
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.os.Build
-import android.text.Spanned
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -16,6 +14,7 @@ import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewCellDetailBinding
 import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
@@ -31,7 +30,7 @@ class DetailCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_DetailCellView
 ) : ConstraintLayout(context, attributeSet, defStyleAttr, defStyleRes), ShimmeringView {
 
-    private lateinit var view: DetailCellViewVariables
+    private lateinit var vb: ChiliViewCellDetailBinding
 
     private val shimmerViewPairs = mutableMapOf<View, ShimmerFrameLayout?>()
 
@@ -42,18 +41,7 @@ class DetailCellView @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_detail, this)
-        this.view = DetailCellViewVariables(
-            root = view.findViewById(R.id.root),
-            tvTitle = view.findViewById(R.id.tv_title),
-            tvSubtitle = view.findViewById(R.id.tv_subtitle),
-            tvValue = view.findViewById(R.id.tv_value),
-            tvStatus = view.findViewById(R.id.tv_status),
-            svIcon = view.findViewById(R.id.sv_icon),
-            titleShimmer = view.findViewById(R.id.view_title_shimmer),
-            subtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
-            iconShimmer = view.findViewById(R.id.view_icon_shimmer),
-        )
+        vb = ChiliViewCellDetailBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -90,91 +78,91 @@ class DetailCellView @JvmOverloads constructor(
     }
 
     private fun setupShimmering() {
-        shimmerViewPairs[view.tvTitle] = view.titleShimmer
-        shimmerViewPairs[view.svIcon] = view.iconShimmer
+        shimmerViewPairs[vb.tvTitle] = vb.viewTitleShimmer
+        shimmerViewPairs[vb.svIcon] = vb.viewIconShimmer
     }
 
     fun setTitle(text: CharSequence?) {
-        view.tvTitle.text = text
+        vb.tvTitle.text = text
     }
 
     fun setTitle(@StringRes textResId: Int) {
-        view.tvTitle.setText(textResId)
+        vb.tvTitle.setText(textResId)
     }
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {
-        view.tvTitle.setTextAppearance(resId)
+        vb.tvTitle.setTextAppearance(resId)
     }
 
     fun setTitleMaxLines(value: Int) {
-        view.tvTitle.apply {
+        vb.tvTitle.apply {
             maxLines = value
             ellipsize = TextUtils.TruncateAt.END
         }
     }
 
     fun setSubtitleMaxLines(value: Int) {
-        view.tvSubtitle.apply {
+        vb.tvSubtitle.apply {
             maxLines = value
             ellipsize = TextUtils.TruncateAt.END
         }
     }
 
     fun setSubtitle(text: CharSequence?) {
-        view.tvSubtitle.setTextOrHide(text)
-        if (text == null) shimmerViewPairs.remove(view.tvSubtitle)
-        else shimmerViewPairs[view.tvSubtitle] = view.subtitleShimmer
+        vb.tvSubtitle.setTextOrHide(text)
+        if (text == null) shimmerViewPairs.remove(vb.tvSubtitle)
+        else shimmerViewPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
     }
 
     fun setSubtitle(@StringRes textResId: Int) {
-        view.tvSubtitle.setTextOrHide(textResId)
-        shimmerViewPairs[view.tvSubtitle] = view.subtitleShimmer
+        vb.tvSubtitle.setTextOrHide(textResId)
+        shimmerViewPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
     }
 
     fun setSubtitleTextAppearance(@StyleRes resId: Int) {
-        view.tvSubtitle.setTextAppearance(resId)
+        vb.tvSubtitle.setTextAppearance(resId)
     }
 
     fun setValue(@StringRes textResId: Int) {
-        view.tvValue.setTextOrHide(textResId)
-        shimmerViewPairs[view.tvValue] = null
+        vb.tvValue.setTextOrHide(textResId)
+        shimmerViewPairs[vb.tvValue] = null
     }
 
     fun setValue(text: CharSequence?) {
-        view.tvValue.setTextOrHide(text)
-        if (text == null) shimmerViewPairs.remove(view.tvValue)
-        else shimmerViewPairs[view.tvValue] = null
+        vb.tvValue.setTextOrHide(text)
+        if (text == null) shimmerViewPairs.remove(vb.tvValue)
+        else shimmerViewPairs[vb.tvValue] = null
     }
 
     fun getValueTextView(): TextView {
-        return view.tvValue
+        return vb.tvValue
     }
 
     fun setValueTextColor(@ColorInt colorInt: Int) {
-        view.tvValue.setTextColor(colorInt)
+        vb.tvValue.setTextColor(colorInt)
     }
 
     fun setValueTextAppearance(@StyleRes resId: Int) {
-        view.tvValue.setTextAppearance(resId)
+        vb.tvValue.setTextAppearance(resId)
     }
 
     fun setStatus(text: CharSequence?) {
-        view.tvStatus.setTextOrHide(text)
-        if (text == null) shimmerViewPairs.remove(view.tvStatus)
-        else shimmerViewPairs[view.tvStatus] = null
+        vb.tvStatus.setTextOrHide(text)
+        if (text == null) shimmerViewPairs.remove(vb.tvStatus)
+        else shimmerViewPairs[vb.tvStatus] = null
     }
 
     fun getStatusTextView(): TextView {
-        return view.tvStatus
+        return vb.tvStatus
     }
 
     fun setStatus(@StringRes textResId: Int) {
-        view.tvStatus.setTextOrHide(textResId)
-        shimmerViewPairs[view.tvStatus] = null
+        vb.tvStatus.setTextOrHide(textResId)
+        shimmerViewPairs[vb.tvStatus] = null
     }
 
     fun setStatusTextAppearance(@StyleRes resId: Int) {
-        view.tvStatus.setTextAppearance(resId)
+        vb.tvStatus.setTextAppearance(resId)
     }
 
     fun setupIsSurfaceClickable(isSurfaceClickable: Boolean) {
@@ -186,32 +174,20 @@ class DetailCellView @JvmOverloads constructor(
     }
 
     fun setIcon(@DrawableRes drawableResId: Int) {
-        view.svIcon.setImageResource(drawableResId)
+        vb.svIcon.setImageResource(drawableResId)
     }
 
     fun setIcon(drawable: Drawable?) {
-        view.svIcon.setImageDrawable(drawable)
+        vb.svIcon.setImageDrawable(drawable)
     }
 
     fun setIconUrl(url: String?) {
         if (url == null) return
-        Glide.with(view.svIcon)
+        Glide.with(vb.svIcon)
             .load(url)
             .dontTransform()
-            .into(view.svIcon)
+            .into(vb.svIcon)
     }
 
     override fun getShimmeringViewsPair() = shimmerViewPairs
 }
-
-data class DetailCellViewVariables(
-    val root: ConstraintLayout,
-    val tvTitle: TextView,
-    val tvSubtitle: TextView,
-    val tvValue: TextView,
-    val tvStatus: TextView,
-    val svIcon: SquircleView,
-    val titleShimmer: ShimmerFrameLayout,
-    val subtitleShimmer: ShimmerFrameLayout,
-    val iconShimmer: ShimmerFrameLayout
-)

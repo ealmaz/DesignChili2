@@ -4,11 +4,9 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.ColorInt
-import androidx.cardview.widget.CardView
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewCellStatusMarkerMarkerBgBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.visible
 
@@ -19,18 +17,14 @@ class StatusMarkerCellView @JvmOverloads constructor(
     private val defStyleRes: Int = R.style.Chili_CellViewStyle_StatusMarkerCellView
 ): BaseCellView(context, attrs, R.attr.cellViewDefaultStyle, R.style.Chili_CellViewStyle_BaseCellViewStyle) {
 
-    private lateinit var statusView: StatusMarkerViewViewVariables
+    private lateinit var statusVb: ChiliViewCellStatusMarkerMarkerBgBinding
 
     override fun inflateView(context: Context) {
         super.inflateView(context)
-        val statusView = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_status_marker_marker_bg, view.flEndPlaceholder, false)
-        this.statusView = StatusMarkerViewViewVariables(
-            tvStatus = statusView.findViewById(R.id.tv_status),
-            ivIcon = statusView.findViewById(R.id.iv_icon),
-            rootView = statusView.findViewById(R.id.marker_root_view)
-        )
+        val statusView = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_status_marker_marker_bg, vb.flEndPlaceHolder, false)
+        statusVb = ChiliViewCellStatusMarkerMarkerBgBinding.bind(statusView)
         statusView.rootView.gone()
-        view.flEndPlaceholder.addView(statusView)
+        vb.flEndPlaceHolder.addView(statusView)
     }
 
     override fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttrParent: Int, defStyleResParet: Int) {
@@ -66,49 +60,43 @@ class StatusMarkerCellView @JvmOverloads constructor(
     }
 
     fun setStatusText(charSequence: CharSequence?) {
-        statusView.tvStatus.text = charSequence
-        if (charSequence != null) statusView.rootView.visible()
-        else statusView.rootView.gone()
+        statusVb.tvStatus.text = charSequence
+        if (charSequence != null) statusVb.markerRootView.visible()
+        else statusVb.markerRootView.gone()
     }
 
     fun setStatusText(resId: Int) {
-        statusView.tvStatus.setText(resId)
-        statusView.rootView.visible()
+        statusVb.tvStatus.setText(resId)
+        statusVb.markerRootView.visible()
     }
 
     fun setStatusTextTextAppearance(resId: Int) {
-        statusView.tvStatus.setTextAppearance(resId)
+        statusVb.tvStatus.setTextAppearance(resId)
     }
 
     fun setStatusTextColor(@ColorInt color: Int) {
-        statusView.tvStatus.setTextColor(color)
+        statusVb.tvStatus.setTextColor(color)
     }
 
-    fun setStatusIcon(resId: Int?) = with(statusView.ivIcon) {
+    fun setStatusIcon(resId: Int?) = with(statusVb.ivIcon) {
         if (resId == null) gone()
         else {
             visible()
-            statusView.rootView.visible()
+            statusVb.markerRootView.visible()
             setImageResource(resId)
         }
     }
 
-    fun setStatusIcon(iconDrawable: Drawable?) = with(statusView.ivIcon) {
+    fun setStatusIcon(iconDrawable: Drawable?) = with(statusVb.ivIcon) {
         if (iconDrawable == null) gone()
         else {
             visible()
-            statusView.rootView.visible()
+            statusVb.markerRootView.visible()
             setImageDrawable(drawable)
         }
     }
 
     fun setStatusBackgroundColor(@ColorInt color: Int) {
-        statusView.rootView.setCardBackgroundColor(color)
+        statusVb.markerRootView.setCardBackgroundColor(color)
     }
 }
-
-data class StatusMarkerViewViewVariables(
-    val tvStatus: TextView,
-    val ivIcon: ImageView,
-    val rootView: CardView
-)

@@ -44,7 +44,7 @@ class ActionCellView @JvmOverloads constructor(
             setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
             shimmeringPairs[this] = null
         }
-        view.flEndPlaceholder.addView(tvAction)
+        vb.flEndPlaceHolder.addView(tvAction)
     }
 
     fun setActionText(text: String?) {

@@ -10,6 +10,7 @@ import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewTitledInfoCellBinding
 import com.design2.chili2.extensions.visible
 
 class TitledInfoCellView @JvmOverloads constructor(
@@ -19,7 +20,7 @@ class TitledInfoCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_InfoCellView
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    lateinit var view: TitledInfoCellViewVariables
+    lateinit var vb: ChiliViewTitledInfoCellBinding
 
     init {
         initView(context)
@@ -27,14 +28,7 @@ class TitledInfoCellView @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_titled_info_cell, this)
-        this.view = TitledInfoCellViewVariables(
-            rootView = view.findViewById(R.id.rootView),
-            tvTitle = view.findViewById(R.id.tv_title),
-            tvSubtitle = view.findViewById(R.id.tv_subtitle),
-            infoBtn = view.findViewById(R.id.iv_info),
-            divider = view.findViewById(R.id.divider)
-        )
+        vb = ChiliViewTitledInfoCellBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -46,44 +40,36 @@ class TitledInfoCellView @JvmOverloads constructor(
     }
 
     fun setTitle(@StringRes resId: Int) {
-        view.tvSubtitle.setText(resId)
+        vb.tvSubtitle.setText(resId)
     }
 
     fun setSubtitle(@StringRes resId: Int) {
-        view.tvSubtitle.setText(resId)
+        vb.tvSubtitle.setText(resId)
     }
 
     fun setTitle(text: String) {
-        view.tvTitle.text = text
+        vb.tvTitle.text = text
     }
 
     fun setSubtitle(subtitle: String) {
-        view.tvSubtitle.visible()
-        view.tvSubtitle.text = subtitle
+        vb.tvSubtitle.visible()
+        vb.tvSubtitle.text = subtitle
     }
 
     fun setDividerVisibility(isVisible: Boolean) {
-        view.divider.visibility = when (isVisible) {
+        vb.divider.visibility = when (isVisible) {
             true -> View.VISIBLE
             else -> View.GONE
         }
     }
 
     fun setIsInfoButtonVisible(isVisible: Boolean) {
-        view.infoBtn.isVisible = isVisible
+        vb.ivInfo.isVisible = isVisible
     }
 
     fun setInfoButtonClickListener(onClick: () -> Unit) {
-        view.infoBtn.setOnClickListener {
+        vb.ivInfo.setOnClickListener {
             onClick.invoke()
         }
     }
 }
-
-data class TitledInfoCellViewVariables(
-    val rootView: ConstraintLayout,
-    val tvTitle: TextView,
-    val tvSubtitle: TextView,
-    val infoBtn: ImageView,
-    val divider: View
-)

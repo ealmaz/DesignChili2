@@ -48,7 +48,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmer"
+            android:id="@+id/icons_shimmer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="invisible"
