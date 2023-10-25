@@ -61,15 +61,15 @@ open class EndIconCellView @JvmOverloads constructor(
         this.endIcon = ImageView(context).apply {
             shimmeringPairs[this] = null
         }
-        view.flEndPlaceholder.addView(endIcon)
+        vb.flEndPlaceHolder.addView(endIcon)
     }
 
     override fun onStartShimmer() {
-        view.flEndPlaceholder.gone()
+        vb.flEndPlaceHolder.gone()
     }
 
     override fun onStopShimmer() {
-        view.flEndPlaceholder.visible()
+        vb.flEndPlaceHolder.visible()
     }
 
     fun setEndIcon(endIcon: Any?) {
@@ -138,8 +138,8 @@ open class EndIconCellView @JvmOverloads constructor(
 
     fun setEndIconEndMargin(@DimenRes endMarginRes: Int) {
         val endMarginPx = resources.getDimensionPixelSize(endMarginRes)
-        val param = view.flEndPlaceholder.layoutParams as? MarginLayoutParams ?: return
+        val param = vb.flEndPlaceHolder.layoutParams as? MarginLayoutParams ?: return
         param.marginEnd = endMarginPx
-        view.flEndPlaceholder.layoutParams = param
+        vb.flEndPlaceHolder.layoutParams = param
     }
 }

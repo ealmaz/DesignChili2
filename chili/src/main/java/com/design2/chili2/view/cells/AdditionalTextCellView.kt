@@ -42,7 +42,7 @@ class AdditionalTextCellView @JvmOverloads constructor(
             textAlignment = TEXT_ALIGNMENT_TEXT_END
             shimmeringPairs[this] = null
         }
-        view.flEndPlaceholder.addView(additionalText)
+        vb.flEndPlaceHolder.addView(additionalText)
     }
 
     fun setAdditionalText(text: String?) {

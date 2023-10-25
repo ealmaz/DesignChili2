@@ -43,9 +43,9 @@ class EditableCellView @JvmOverloads constructor(
         val dragImg = ImageView(context)
         val optionImg = ImageView(context)
         val divider = View(context)
-        view.editToolsPlaceholder.addView(optionImg)
-        view.editToolsPlaceholder.addView(divider)
-        view.editToolsPlaceholder.addView(dragImg)
+        vb.editToolsPlaceHolder.addView(optionImg)
+        vb.editToolsPlaceHolder.addView(divider)
+        vb.editToolsPlaceHolder.addView(dragImg)
         dragImg.setImgDefaultParam()
         optionImg.setImgDefaultParam()
         divider.setDividerDefaultParam()
@@ -53,8 +53,8 @@ class EditableCellView @JvmOverloads constructor(
             verticalDivider = divider,
             dragImg = dragImg,
             optionImg = optionImg,
-            chevron = view.chevron,
-            endIconFrame = view.flEndPlaceholder
+            chevron = vb.ivChevron,
+            endIconFrame = vb.flEndPlaceHolder
         )
 
     }

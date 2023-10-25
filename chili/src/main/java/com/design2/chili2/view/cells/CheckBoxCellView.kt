@@ -9,11 +9,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DimenRes
 import androidx.appcompat.widget.AppCompatCheckBox
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
 import com.design2.chili2.R
-import com.design2.chili2.extensions.setOnSingleClickListener
-import org.w3c.dom.Text
 
 class CheckBoxCellView @JvmOverloads constructor(
     context: Context,
@@ -49,10 +46,10 @@ class CheckBoxCellView @JvmOverloads constructor(
 
     private fun inflateCheckBox() {
         checkBox = AppCompatCheckBox(context)
-        view.flEndPlaceholder.addView(LinearLayout(context).apply {
+        vb.flEndPlaceHolder.addView(LinearLayout(context).apply {
             this.orientation = LinearLayout.HORIZONTAL
         })
-        (view.flEndPlaceholder[0] as LinearLayout).addView(checkBox)
+        (vb.flEndPlaceHolder[0] as LinearLayout).addView(checkBox)
     }
 
     fun insertEndText(text: String) {
@@ -64,7 +61,7 @@ class CheckBoxCellView @JvmOverloads constructor(
             setTextAppearance(R.style.Chili_H7_Primary)
             setText(text)
         }
-        (view.flEndPlaceholder[0] as LinearLayout).addView(endText, 0)
+        (vb.flEndPlaceHolder[0] as LinearLayout).addView(endText, 0)
     }
     fun insertEndText(text: Spanned) {
         if (endText != null){
@@ -75,7 +72,7 @@ class CheckBoxCellView @JvmOverloads constructor(
             setTextAppearance(R.style.Chili_H7_Primary)
             setText(text)
         }
-        (view.flEndPlaceholder[0] as LinearLayout).addView(endText, 0)
+        (vb.flEndPlaceHolder[0] as LinearLayout).addView(endText, 0)
     }
 
     fun setEndText(text: String) {
@@ -103,9 +100,9 @@ class CheckBoxCellView @JvmOverloads constructor(
 
     fun setCheckBoxEndMargin(@DimenRes endMarginRes: Int) {
         val endMarginPx = resources.getDimensionPixelSize(endMarginRes)
-        val param = view.flEndPlaceholder.layoutParams as? MarginLayoutParams ?: return
+        val param = vb.flEndPlaceHolder.layoutParams as? MarginLayoutParams ?: return
         param.marginEnd = endMarginPx
-        view.flEndPlaceholder.layoutParams = param
+        vb.flEndPlaceHolder.layoutParams = param
     }
 
     override fun onStartShimmer() {

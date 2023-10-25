@@ -7,10 +7,7 @@ import android.text.Spanned
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -18,6 +15,7 @@ import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewCellBaseBinding
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageByUrl
@@ -37,7 +35,7 @@ open class BaseCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_BaseCellViewStyle
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
-    lateinit var view: BaseCellViewVariables
+    lateinit var vb: ChiliViewCellBaseBinding
 
     protected val shimmeringPairs: MutableMap<View, ShimmerFrameLayout?> = mutableMapOf()
 
@@ -48,28 +46,14 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     protected open fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_base, this)
-        this.view = BaseCellViewVariables(
-            flStartPlaceholder = view.findViewById(R.id.fl_start_place_holder),
-            flEndPlaceholder = view.findViewById(R.id.fl_end_place_holder),
-            ivIcon = view.findViewById(R.id.iv_icon),
-            tvTitle = view.findViewById(R.id.tv_title),
-            tvSubtitle = view.findViewById(R.id.tv_subtitle),
-            divider = view.findViewById(R.id.divider),
-            rootView = view.findViewById(R.id.root_view),
-            chevron = view.findViewById(R.id.iv_chevron),
-            tvTitleShimmer = view.findViewById(R.id.view_title_shimmer),
-            tvSubtitleShimmer = view.findViewById(R.id.view_subtitle_shimmer),
-            iconShimmer = view.findViewById(R.id.view_icon_shimmer),
-            editToolsPlaceholder = view.findViewById(R.id.edit_tools_place_holder)
-        )
+        vb = ChiliViewCellBaseBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     protected open fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         context.obtainStyledAttributes(attrs, R.styleable.BaseCellView, defStyleAttr, defStyleRes)
             .run {
                 getResourceId(R.styleable.BaseCellView_cellBackground, -1).takeIf { it != -1 }?.let {
-                    view.rootView.setBackgroundResource(it)
+                    vb.rootView.setBackgroundResource(it)
                 }
                 getResourceId(R.styleable.BaseCellView_android_icon, -1).takeIf { it != -1 }?.let {
                     setIcon(it)
@@ -132,62 +116,62 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     private fun setupShimmerViews() {
-        shimmeringPairs[view.tvTitle] = view.tvTitleShimmer
+        shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
     }
 
     fun setTitle(text: String?) {
-        view.tvTitle.text = text
+        vb.tvTitle.text = text
     }
 
     fun setTitle(@StringRes resId: Int) {
-        view.tvTitle.setText(resId)
+        vb.tvTitle.setText(resId)
     }
 
     fun setTitle(text: Spanned) {
-        view.tvTitle.text = text
+        vb.tvTitle.text = text
     }
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.tvTitle.setTextAppearance(resId)
+            vb.tvTitle.setTextAppearance(resId)
         } else {
-            view.tvTitle.setTextAppearance(context, resId)
+            vb.tvTitle.setTextAppearance(context, resId)
         }
     }
 
     fun updateTitleMargin(startMarginPx: Int? = null, topMarginPx: Int? = null, endMarginPx: Int? = null, bottomMarginPx: Int? = null) {
-        val param = view.tvTitle.layoutParams as? MarginLayoutParams ?: return
+        val param = vb.tvTitle.layoutParams as? MarginLayoutParams ?: return
         param.apply {
             leftMargin = startMarginPx ?: leftMargin
             topMargin = topMarginPx ?: topMargin
             rightMargin = endMarginPx ?: rightMargin
             bottomMargin = bottomMarginPx ?: bottomMargin
         }
-        view.tvTitle.layoutParams = param
+        vb.tvTitle.layoutParams = param
     }
 
     fun setSubtitle(charSequence: CharSequence?) {
-        view.tvSubtitle.apply {
+        vb.tvSubtitle.apply {
             setTextOrHide(charSequence)
             if (charSequence == null) shimmeringPairs.remove(this)
-            else shimmeringPairs[this] = view.tvSubtitleShimmer
+            else shimmeringPairs[this] = vb.viewSubtitleShimmer
         }
     }
 
     fun setSubtitle(@StringRes resId: Int) {
-        view.tvSubtitle.apply {
+        vb.tvSubtitle.apply {
             visible()
             setText(resId)
-            shimmeringPairs[this] = view.tvSubtitleShimmer
+            shimmeringPairs[this] = vb.viewSubtitleShimmer
         }
     }
 
     fun setSubtitleTextAppearance(@StyleRes resId: Int) {
-        view.tvSubtitle.setTextAppearance(resId)
+        vb.tvSubtitle.setTextAppearance(resId)
     }
 
     fun setIcon(@DrawableRes drawableRes: Int) {
-        view.ivIcon.apply {
+        vb.ivIcon.apply {
             visible()
             updateTitleMargin(startMarginPx = 0)
             setImageResource(drawableRes)
@@ -196,7 +180,7 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     fun setIcon(drawable: Drawable) {
-        view.ivIcon.apply {
+        vb.ivIcon.apply {
             visible()
             updateTitleMargin(startMarginPx = 0)
             setImageDrawable(drawable)
@@ -205,28 +189,28 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     fun setIcon(url: String?, placeHolderResId: Int? = null) {
-        view.ivIcon.apply {
+        vb.ivIcon.apply {
             visible()
             updateTitleMargin(startMarginPx = 0)
             Glide.with(this)
                 .load(url)
                 .placeholder(context.drawable(placeHolderResId?:R.drawable.chili_ic_stub))
                 .dontTransform()
-                .into(view.ivIcon)
+                .into(vb.ivIcon)
             setupIconShimmer()
         }
     }
 
     private fun setupIconShimmer() {
-        shimmeringPairs[view.ivIcon] = view.iconShimmer
+        shimmeringPairs[vb.ivIcon] = vb.viewIconShimmer
     }
 
     fun getIconView(): ImageView {
-        return view.ivIcon
+        return vb.ivIcon
     }
 
     fun setDividerVisibility(isVisible: Boolean) {
-        view.divider.apply {
+        vb.divider.apply {
             when(isVisible) {
                 true -> visible()
                 else -> gone()
@@ -235,12 +219,12 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     fun getDividerView(): View {
-        return view.divider
+        return vb.divider
     }
 
     fun loadIcon(url: String?) {
         url?.let {
-            view.ivIcon.run {
+            vb.ivIcon.run {
                 setImageByUrl(url)
                 visible()
                 updateTitleMargin(startMarginPx = 0)
@@ -249,14 +233,14 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     fun updateIconMargin(startMarginPx: Int? = null, topMarginPx: Int? = null, endMarginPx: Int? = null, bottomMarginPx: Int? = null) {
-        val param = view.ivIcon.layoutParams as? MarginLayoutParams ?: return
+        val param = vb.ivIcon.layoutParams as? MarginLayoutParams ?: return
         param.apply {
             leftMargin = startMarginPx ?: leftMargin
             topMargin = topMarginPx ?: topMargin
             rightMargin = endMarginPx ?: rightMargin
             bottomMargin = bottomMarginPx ?: bottomMargin
         }
-        view.ivIcon.layoutParams = param
+        vb.ivIcon.layoutParams = param
     }
 
     fun setIconSize(iconSize: IconSize) {
@@ -287,10 +271,10 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     private fun setupIconSize(widthPx: Int, heightPx: Int) {
-        val params = view.ivIcon.layoutParams
+        val params = vb.ivIcon.layoutParams
         params.height = heightPx
         params.width = widthPx
-        view.ivIcon.layoutParams = params
+        vb.ivIcon.layoutParams = params
     }
 
     fun setupRoundedModeByPosition(isFirst: Boolean, isLast: Boolean) {
@@ -317,44 +301,29 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     open fun setIsChevronVisible(isVisible: Boolean) {
-        view.chevron.visibility = when (isVisible) {
+        vb.ivChevron.visibility = when (isVisible) {
             true -> View.VISIBLE
             else -> View.GONE
         }
     }
 
     fun updateRootViewMinHeight(minHeight: Int) {
-        view.rootView.minHeight = minHeight
+        vb.rootView.minHeight = minHeight
     }
 
     override fun getShimmeringViewsPair() = shimmeringPairs
 
     fun setChevron(drawable: Drawable) {
-        view.chevron.apply {
+        vb.ivChevron.apply {
             visible()
             setImageDrawable(drawable)
         }
     }
 
     fun setChevron(drawableRes: Int) {
-        view.chevron.apply {
+        vb.ivChevron.apply {
             visible()
             setImageResource(drawableRes)
         }
     }
 }
-
-data class BaseCellViewVariables(
-    var flStartPlaceholder: FrameLayout,
-    var flEndPlaceholder: FrameLayout,
-    var ivIcon: ImageView,
-    var tvTitle: TextView,
-    var tvSubtitle: TextView,
-    var divider: View,
-    var rootView: ConstraintLayout,
-    var chevron: ImageView,
-    val tvTitleShimmer: ShimmerFrameLayout,
-    val tvSubtitleShimmer: ShimmerFrameLayout,
-    val iconShimmer: ShimmerFrameLayout,
-    val editToolsPlaceholder: LinearLayout
-)

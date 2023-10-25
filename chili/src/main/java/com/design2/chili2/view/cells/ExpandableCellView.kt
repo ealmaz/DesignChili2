@@ -7,13 +7,11 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.core.os.bundleOf
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewCellExpandableBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.extensions.visible
@@ -26,7 +24,7 @@ class ExpandableCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_ExpandableCellView
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    lateinit var view: ExpandableCellViewVariables
+    lateinit var vb: ChiliViewCellExpandableBinding
 
     private var isCellViewExpanded = false
 
@@ -35,12 +33,7 @@ class ExpandableCellView @JvmOverloads constructor(
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
     }
     private fun setupView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_expandable, this)
-        this.view = ExpandableCellViewVariables(
-            tvTitle = view.findViewById(R.id.tv_title),
-            tvDescription = view.findViewById(R.id.tv_description),
-            ivChevron = view.findViewById(R.id.iv_chevron),
-            divider = view.findViewById(R.id.divider))
+        vb = ChiliViewCellExpandableBinding.inflate(LayoutInflater.from(context), this, true)
         this.setOnClickListener {
             setIsCellExpanded(!isCellViewExpanded)
         }
@@ -57,20 +50,19 @@ class ExpandableCellView @JvmOverloads constructor(
     }
 
     fun setTitle(text: String?) {
-        view.tvTitle.text = text
+        vb.tvTitle.text = text
     }
 
-
     fun setTitle(@StringRes textResId: Int) {
-        view.tvTitle.setText(textResId)
+        vb.tvTitle.setText(textResId)
     }
 
     fun setDescription(text: String?) {
-        view.tvDescription.text = text
+        vb.tvDescription.text = text
     }
 
     fun setDescription(@StringRes textResId: Int) {
-        view.tvDescription.setText(textResId)
+        vb.tvDescription.setText(textResId)
     }
 
     fun setIsCellExpanded(isExpanded: Boolean) {
@@ -83,35 +75,35 @@ class ExpandableCellView @JvmOverloads constructor(
 
     fun expandCellView() {
         isCellViewExpanded = true
-        view.tvDescription.animate()
+        vb.tvDescription.animate()
             .translationY(0f).alpha(1.0f)
             .setDuration(100)
             .setListener( object : AnimatorListenerAdapter() {
                 override fun onAnimationStart(animation : Animator) {
                     super.onAnimationStart(animation)
-                    view.tvDescription.visible()
-                    view.tvDescription.alpha = 0.0f
+                    vb.tvDescription.visible()
+                    vb.tvDescription.alpha = 0.0f
                 }
             })
 
-        view.ivChevron.animate().rotation(0F)
-        view.divider.visible()
+        vb.ivChevron.animate().rotation(0F)
+        vb.divider.visible()
     }
 
     fun reduceCellView() {
         isCellViewExpanded = false
-        view.divider.gone()
-        view.tvDescription.animate()
-            .translationY(-view.tvDescription.height.toFloat()+50)
+        vb.divider.gone()
+        vb.tvDescription.animate()
+            .translationY(-vb.tvDescription.height.toFloat()+50)
             .setDuration(100)
             .setListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation : Animator) {
                     super.onAnimationEnd(animation)
-                    view.tvDescription.alpha = 0.0f
-                    view.tvDescription.gone()
+                    vb.tvDescription.alpha = 0.0f
+                    vb.tvDescription.gone()
                 }
             })
-        view.ivChevron.animate().rotation(180F)
+        vb.ivChevron.animate().rotation(180F)
     }
 
     override fun onSaveInstanceState(): Parcelable? {
@@ -136,10 +128,3 @@ class ExpandableCellView @JvmOverloads constructor(
         const val EXPANDED_STATE = "expanded_state"
     }
 }
-
-data class ExpandableCellViewVariables(
-    val tvTitle: TextView,
-    val tvDescription: TextView,
-    val ivChevron: ImageView,
-    val divider: View
-)

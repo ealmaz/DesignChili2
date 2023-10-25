@@ -34,14 +34,14 @@ class ToggleCellViewNew @JvmOverloads constructor(
                 getBoolean(R.styleable.ToggleCellView_isSwitchVisible, true).let {
                     setIsSwitchVisible(it)
                 }
-                view.rootView.setBackgroundResource(R.drawable.chili_card_rounded_border)
+                vb.rootView.setBackgroundResource(R.drawable.chili_card_rounded_border)
                 recycle()
             }
     }
 
     private fun inflateSwitch() {
         this.switch = SwitchCompat(context)
-        view.flEndPlaceholder.addView(switch)
+        vb.flEndPlaceHolder.addView(switch)
     }
 
     fun setIsSwitchVisible(isVisible: Boolean) {

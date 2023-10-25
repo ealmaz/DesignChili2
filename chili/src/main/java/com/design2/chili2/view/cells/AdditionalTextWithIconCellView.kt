@@ -55,7 +55,7 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
             setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_12dp), 0)
             shimmeringPairs[this] = null
         }
-        view.flEndPlaceholder.addView(LinearLayout(context).apply {
+        vb.flEndPlaceHolder.addView(LinearLayout(context).apply {
             layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT)
             gravity = Gravity.CENTER_VERTICAL
             orientation = LinearLayout.HORIZONTAL
