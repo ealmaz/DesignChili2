@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewDialogRangeDatePickerBinding
 import com.design2.chili2.extensions.setOnSingleClickListener
 import java.util.*
 
@@ -20,7 +18,7 @@ class RangeDatePickerDialog : DialogFragment() {
 
     private var listener: RangePickerListener? = null
 
-    lateinit var view: RangeDatePickerDialogVariables
+    lateinit var vb: ChiliViewDialogRangeDatePickerBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
@@ -34,25 +32,19 @@ class RangeDatePickerDialog : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.chili_view_dialog_range_date_picker, container, false)
+        vb = ChiliViewDialogRangeDatePickerBinding.inflate(inflater, container, false)
+        return vb.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViews(view)
+        setupViews()
         setupPicker(savedInstanceState)
         dialog?.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
     }
 
-    private fun setupViews(view: View) {
-        this.view = RangeDatePickerDialogVariables(
-            tvTitleTo = view.findViewById(R.id.tv_title_to),
-            datePickerTo = view.findViewById(R.id.datePicker_to),
-            tvTitleFrom= view.findViewById(R.id.tv_title_from),
-            datePickerFrom = view.findViewById(R.id.datePicker_from),
-            btnDone = view.findViewById(R.id.btn_done)
-        )
-        this.view.run {
+    private fun setupViews() {
+        this.vb.run {
             btnDone.text = arguments?.getString(ARG_BUTTON_TEXT)
             tvTitleFrom.text = arguments?.getString(ARG_START_TITLE)
             tvTitleTo.text = arguments?.getString(ARG_END_TITLE)
@@ -91,11 +83,11 @@ class RangeDatePickerDialog : DialogFragment() {
     private fun getSelectedDate(type: DateType): Calendar {
         val result = Calendar.getInstance()
         when (type) {
-            DateType.FROM -> view.datePickerFrom.apply {
+            DateType.FROM -> vb.datePickerFrom.apply {
                 result.set(year, month, dayOfMonth, 0, 0, 0)
 
             }
-            DateType.TO -> view.datePickerTo.apply {
+            DateType.TO -> vb.datePickerTo.apply {
                 result.set(year, month, dayOfMonth, 23, 59, 59)
             }
         }
@@ -108,7 +100,7 @@ class RangeDatePickerDialog : DialogFragment() {
             else -> requireArguments().getSerializable(ARG_CURRENT_START_DATE) as? Calendar
         }
         (currentStartDate ?: Calendar.getInstance()).run {
-            view.datePickerFrom.updateDate(
+            vb.datePickerFrom.updateDate(
                 get(Calendar.YEAR),
                 get(Calendar.MONTH),
                 get(Calendar.DAY_OF_MONTH)
@@ -120,7 +112,7 @@ class RangeDatePickerDialog : DialogFragment() {
             else -> requireArguments().getSerializable(ARG_CURRENT_END_DATE) as? Calendar
         }
         (currentEndDate ?: Calendar.getInstance()).run {
-            view.datePickerTo.updateDate(
+            vb.datePickerTo.updateDate(
                 get(Calendar.YEAR),
                 get(Calendar.MONTH),
                 get(Calendar.DAY_OF_MONTH)
@@ -129,14 +121,14 @@ class RangeDatePickerDialog : DialogFragment() {
 
         val endLimitDate = requireArguments().getSerializable(ARG_END_LIMIT_DATE) as? Calendar
         endLimitDate?.let {
-            view.datePickerTo.maxDate = endLimitDate.timeInMillis
-            view.datePickerFrom.maxDate = endLimitDate.timeInMillis
+            vb.datePickerTo.maxDate = endLimitDate.timeInMillis
+            vb.datePickerFrom.maxDate = endLimitDate.timeInMillis
         }
 
         val startLimitDate = requireArguments().getSerializable(ARG_START_LIMIT_DATE) as? Calendar
         startLimitDate?.let {
-            view.datePickerTo.minDate = startLimitDate.timeInMillis
-            view.datePickerFrom.minDate = startLimitDate.timeInMillis
+            vb.datePickerTo.minDate = startLimitDate.timeInMillis
+            vb.datePickerFrom.minDate = startLimitDate.timeInMillis
         }
     }
 
@@ -183,14 +175,6 @@ class RangeDatePickerDialog : DialogFragment() {
 private enum class DateType {
     FROM, TO
 }
-
-data class RangeDatePickerDialogVariables(
-    val tvTitleFrom: TextView,
-    val datePickerFrom: DatePicker,
-    val tvTitleTo: TextView,
-    val datePickerTo: DatePicker,
-    val btnDone: Button,
-)
 
 interface RangePickerListener {
     fun onRangeSelected(startDate: Calendar, endDate: Calendar)

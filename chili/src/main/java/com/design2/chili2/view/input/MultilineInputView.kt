@@ -41,16 +41,16 @@ class MultilineInputView : BaseInputView {
     }
 
     fun setMaxLines(linesCount: Int) {
-        view.inputField.maxLines = linesCount
+        vb.etInput.maxLines = linesCount
     }
 
     fun setMaxInputLines(linesCount: Int) {
-        view.inputField.addTextChangedListener(
-            LimitedInputLinesWatcher(view.inputField, linesCount)
+        vb.etInput.addTextChangedListener(
+            LimitedInputLinesWatcher(vb.etInput, linesCount)
         )
     }
 
     fun setMinLines(linesCount: Int) {
-        view.inputField.minLines = linesCount
+        vb.etInput.minLines = linesCount
     }
 }

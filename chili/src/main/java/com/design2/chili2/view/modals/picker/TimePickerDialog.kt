@@ -8,18 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.TextView
-import android.widget.TimePicker
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewDialogTimePickerBinding
 import com.design2.chili2.extensions.setOnSingleClickListener
 import java.util.*
 
 class TimePickerDialog: DialogFragment() {
 
-    lateinit var view: TimePickerDialogVariables
+    lateinit var vb: ChiliViewDialogTimePickerBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
@@ -33,23 +31,19 @@ class TimePickerDialog: DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.chili_view_dialog_time_picker, container, false)
+        vb = ChiliViewDialogTimePickerBinding.inflate(inflater, container, false)
+        return vb.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViews(view)
+        setupViews()
         setupPicker(savedInstanceState)
         dialog?.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
     }
 
-    private fun setupViews(view: View) {
-        this.view = TimePickerDialogVariables(
-            tvTitle = view.findViewById(R.id.tv_title),
-            timePicker = view.findViewById(R.id.timePicker),
-            btnDone = view.findViewById(R.id.btn_done)
-        )
-        this.view.run {
+    private fun setupViews() {
+        this.vb.run {
             timePicker.setIs24HourView(true)
             tvTitle.text = arguments?.getString(TIME_ARG_TITLE)
             btnDone.text = arguments?.getString(TIME_ARG_BUTTON_TEXT)
@@ -82,7 +76,7 @@ class TimePickerDialog: DialogFragment() {
 
     private fun getSelectedTime(): Calendar {
         val result = Calendar.getInstance()
-        view.timePicker.run {
+        vb.timePicker.run {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 result.set(Calendar.HOUR_OF_DAY, hour)
                 result.set(Calendar.MINUTE, minute)
@@ -97,7 +91,7 @@ class TimePickerDialog: DialogFragment() {
             else -> requireArguments().getSerializable(TIME_ARG_CURRENT_TIME) as? Calendar
         }
         (currentDate ?: Calendar.getInstance()).run {
-            view.timePicker.setIs24HourView(true)
+            vb.timePicker.setIs24HourView(true)
             setPickerCurrentHour(get(Calendar.HOUR_OF_DAY))
             setPickerCurrentMinute(get(Calendar.MINUTE))
         }
@@ -105,17 +99,17 @@ class TimePickerDialog: DialogFragment() {
 
     private fun setPickerCurrentHour(currentHour: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.timePicker.hour = currentHour
+            vb.timePicker.hour = currentHour
         } else {
-            view.timePicker.currentHour = currentHour
+            vb.timePicker.currentHour = currentHour
         }
     }
 
     private fun setPickerCurrentMinute(currentMinute: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.timePicker.minute = currentMinute
+            vb.timePicker.minute = currentMinute
         } else {
-            view.timePicker.currentMinute = currentMinute
+            vb.timePicker.currentMinute = currentMinute
         }
     }
 
@@ -144,9 +138,3 @@ class TimePickerDialog: DialogFragment() {
         }
     }
 }
-
-data class TimePickerDialogVariables(
-    val tvTitle: TextView,
-    val timePicker: TimePicker,
-    val btnDone: Button,
-)

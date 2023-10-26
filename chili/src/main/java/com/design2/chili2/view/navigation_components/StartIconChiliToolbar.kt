@@ -6,22 +6,19 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.MenuRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliStartIconViewToolbarBinding
 import com.design2.chili2.extensions.setImageByUrl
-import com.design2.chili2.view.image.SquircleView
-import com.google.android.material.appbar.MaterialToolbar
 
 class StartIconChiliToolbar : LinearLayout {
 
-    private lateinit var view: StartIconChiliToolbarViewVariables
+    private lateinit var vb: ChiliStartIconViewToolbarBinding
 
     constructor(context: Context) : super(context) {
         setupView()
@@ -38,13 +35,7 @@ class StartIconChiliToolbar : LinearLayout {
     }
 
     private fun setupView() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_start_icon_view_toolbar, this)
-        this.view = StartIconChiliToolbarViewVariables(
-            toolbar = view.findViewById(R.id.toolbar),
-            rootView = view.findViewById(R.id.ll_root_start_icon),
-            ivStartIcon = view.findViewById(R.id.toolbar_icon),
-            toolbarTitle = view.findViewById(R.id.toolbar_title)
-        )
+        vb = ChiliStartIconViewToolbarBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_BaseNavigationComponentsStyle_ChiliToolbar) {
@@ -70,44 +61,44 @@ class StartIconChiliToolbar : LinearLayout {
 
     fun initToolbar(config: Configuration) {
         configureToolbar(config)
-        (config.hostActivity as? AppCompatActivity)?.run { setSupportActionBar(view.toolbar)}
-        view.toolbar.setNavigationOnClickListener { config.onNavigateUpClick.invoke(config.hostActivity) }
+        (config.hostActivity as? AppCompatActivity)?.run { setSupportActionBar(vb.toolbar)}
+        vb.toolbar.setNavigationOnClickListener { config.onNavigateUpClick.invoke(config.hostActivity) }
     }
 
     private fun configureToolbar(config: Configuration) {
-        view.toolbar.apply { config.title?.let { this@StartIconChiliToolbar.setTitle(it) } }
+        vb.toolbar.apply { config.title?.let { this@StartIconChiliToolbar.setTitle(it) } }
     }
 
     fun setToolbarBackgroundColor(@ColorInt colorInt: Int) {
-        view.rootView.setBackgroundColor(colorInt)
+        vb.llRootStartIcon.setBackgroundColor(colorInt)
     }
 
     /** Navigation Icon */
 
     fun setNavigationIcon(@DrawableRes drawableRes: Int) {
-        view.toolbar.setNavigationIcon(drawableRes)
+        vb.toolbar.setNavigationIcon(drawableRes)
     }
 
     fun onNavigationIconClick(onNavigationIconClick: () -> Unit) {
-        view.toolbar.setNavigationOnClickListener {
+        vb.toolbar.setNavigationOnClickListener {
             onNavigationIconClick()
         }
     }
 
     fun hideNavigationIcon() {
-        view.toolbar.navigationIcon = null
+        vb.toolbar.navigationIcon = null
     }
 
     /** Toolbar title */
 
     fun setTitle(title: String?) {
-        view.toolbarTitle.text = title
+        vb.toolbarTitle.text = title
     }
 
-    fun getTitle(): String = view.toolbarTitle.text.toString()
+    fun getTitle(): String = vb.toolbarTitle.text.toString()
 
     fun setTitleTextAppearance(@StyleRes textAppearanceRes: Int) {
-        view.toolbarTitle.setTextAppearance(textAppearanceRes)
+        vb.toolbarTitle.setTextAppearance(textAppearanceRes)
     }
 
     /** Start icon */
@@ -121,14 +112,14 @@ class StartIconChiliToolbar : LinearLayout {
     }
 
     private fun setStartIcon(@DrawableRes drawableId: Int) {
-        view.ivStartIcon.setImageResource(drawableId)
+        vb.toolbarIcon.setImageResource(drawableId)
     }
     private fun setStartIcon(uri: String?) {
-        uri?.let {  view.ivStartIcon.setImageByUrl(uri) }
+        uri?.let {  vb.toolbarIcon.setImageByUrl(uri) }
     }
 
     fun setStartIconVisibility(isVisible: Boolean) {
-        view.ivStartIcon.visibility = when(isVisible) {
+        vb.toolbarIcon.visibility = when(isVisible) {
             true -> View.VISIBLE
             else -> View.GONE
         }
@@ -137,14 +128,14 @@ class StartIconChiliToolbar : LinearLayout {
     /** Menu */
 
     fun inflateChiliMenu(@MenuRes menuId: Int, onMenuItemClicked: (MenuItem) -> Unit){
-        view.toolbar.inflateMenu(menuId)
-        view.toolbar.setOnMenuItemClickListener {
+        vb.toolbar.inflateMenu(menuId)
+        vb.toolbar.setOnMenuItemClickListener {
             onMenuItemClicked(it)
             true
         }
     }
     fun setMenuItemInvisible(id: Int) {
-        view.toolbar.menu?.findItem(id)?.isVisible = false
+        vb.toolbar.menu?.findItem(id)?.isVisible = false
     }
 
     /** Configuration */
@@ -155,9 +146,3 @@ class StartIconChiliToolbar : LinearLayout {
         val onNavigateUpClick: FragmentActivity.() -> Unit = { onBackPressed() },
     )
 }
-
-data class StartIconChiliToolbarViewVariables(
-    val rootView: ConstraintLayout,
-    val toolbar: MaterialToolbar,
-    val toolbarTitle: TextView,
-    val ivStartIcon: SquircleView)

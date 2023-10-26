@@ -4,24 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewInAppPushBinding
 import com.design2.chili2.extensions.*
 import com.design2.chili2.view.modals.base.BaseBottomSheetDialogFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment() {
 
+    private lateinit var vb: ChiliViewInAppPushBinding
+
     override var hasCloseIcon: Boolean = true
 
     var rootView: View? = null
-    var tvTitle: TextView? = null
-    var tvDescription: TextView? = null
-    var btnMore: Button? = null
-    var ivBanner: ImageView? = null
     override var topDrawableView: View? = null
     override var closeIconView: View? = null
 
@@ -41,9 +37,9 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val view = inflater.inflate(R.layout.chili_view_in_app_push, container, false)
-        initViewVariables(view)
-        return view
+        vb = ChiliViewInAppPushBinding.inflate(inflater, container, false)
+        initViewVariables()
+        return vb.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,25 +58,21 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
         }
     }
 
-    private fun initViewVariables(view: View) {
-        closeIconView = view.findViewById(R.id.btn_close)
-        rootView = view.findViewById(R.id.fl_root_view)
-        tvTitle = view.findViewById(R.id.tv_title)
-        tvDescription = view.findViewById(R.id.tv_description)
-        btnMore = view.findViewById(R.id.btn_more)
-        ivBanner = view.findViewById(R.id.iv_banner)
+    private fun initViewVariables() {
+        closeIconView = vb.btnClose
+        rootView = vb.flRootView
     }
 
     private fun setupTitle() {
-        tvTitle?.setTextOrHide(title)
+        vb.tvTitle.setTextOrHide(title)
     }
 
     private fun setupDescription() {
-        tvDescription?.setTextOrHide(description)
+        vb.tvDescription.setTextOrHide(description)
     }
 
     private fun setupButton() {
-        btnMore?.apply {
+        vb.btnMore.apply {
             when (btnMoreInfo == null) {
                 true -> gone()
                 else -> {
@@ -93,7 +85,7 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
     }
 
     private fun setupBanner() {
-        ivBanner?.let { bannerView ->
+        vb.ivBanner.let { bannerView ->
             bannerView.setImageByUrlWithListener(
                 imageUrl = bannerUrl,
                 onSuccess = { resource ->
@@ -102,7 +94,7 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
                 onError = { bannerView.gone() }
             )
         }
-        ivBanner?.setOnSingleClickListener { onBannerClick?.invoke(this) }
+        vb.ivBanner.setOnSingleClickListener { onBannerClick?.invoke(this) }
     }
 
     class Builder {

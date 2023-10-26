@@ -5,23 +5,17 @@ import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewBottomSheetDescriptionBinding
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.view.modals.base.BaseViewBottomSheetDialogFragment
 
 class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
 
-    private lateinit var tvTitle: TextView
-    private lateinit var tvDescription: TextView
-    private lateinit var tvDescriptionSecondary: TextView
-    private lateinit var ivIcon: ImageView
-    private lateinit var btnSecondary: Button
+    private lateinit var vb : ChiliViewBottomSheetDescriptionBinding
 
     private var title: String? = null
     private var titleSpanned: Spanned? = null
@@ -45,17 +39,11 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
     override var closeIconView: View? = null
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
-        val view =
-            inflater.inflate(R.layout.chili_view_bottom_sheet_description, container, false).apply {
-                setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
-            }
-        closeIconView = view.findViewById(R.id.iv_desc_close)
-        tvTitle = view.findViewById(R.id.tv_title)
-        tvDescription = view.findViewById(R.id.tv_desc)
-        tvDescriptionSecondary = view.findViewById(R.id.tv_desc_secondary)
-        ivIcon = view.findViewById(R.id.iv_icon)
-        btnSecondary = view.findViewById(R.id.btn_secondary)
-        return view
+        vb = ChiliViewBottomSheetDescriptionBinding.inflate(inflater, container, false).apply { 
+            root.setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
+        }
+        closeIconView = vb.ivDescClose
+        return vb.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -83,70 +71,70 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
     }
 
     private fun setIcon(@DrawableRes resId: Int) {
-        ivIcon.apply {
+        vb.ivIcon.apply {
             setImageResource(resId)
             visible()
         }
     }
 
     private fun setTitle(@StringRes resId: Int) {
-        tvTitle.apply {
+        vb.tvTitle.apply {
             visible()
             setText(resId)
         }
     }
 
     private fun setTitle(message: String) {
-        tvTitle.apply {
+        vb.tvTitle.apply {
             visible()
             text = message
         }
     }
 
     private fun setTitle(spanned: Spanned?) {
-        tvTitle.apply {
+        vb.tvTitle.apply {
             text = spanned
             visible()
         }
     }
 
     private fun setDescription(@StringRes resId: Int) {
-        tvDescription.apply {
+        vb.tvDesc.apply {
             visible()
             setText(resId)
         }
     }
 
     private fun setDescription(message: String) {
-        tvDescription.apply {
+        vb.tvDesc.apply {
             visible()
             text = message
         }
     }
 
     private fun setDescription(spanned: Spanned?) {
-        tvDescription.apply {
+        vb.tvDesc.apply {
             text = spanned
             visible()
         }
     }
 
     private fun setDescriptionSecondary(@StringRes resId: Int) {
-        tvDescriptionSecondary.apply {
+        vb.tvDescSecondary.apply {
             visible()
             setText(resId)
         }
     }
 
     private fun setDescriptionSecondary(message: String) {
-        tvDescriptionSecondary.apply {
+        vb.tvDescSecondary.apply {
             visible()
             text = message
         }
     }
 
     private fun setDescriptionSecondary(spanned: Spanned?) {
-        tvDescriptionSecondary.apply {
+        vb.tvDescSecondary.apply {
             text = spanned
             visible()
         }
@@ -156,7 +144,7 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
         @StringRes resId: Int,
         action: (DescriptionBottomSheet.() -> Unit)? = null
     ) {
-        btnSecondary.apply {
+        vb.btnSecondary.apply {
             visible()
             setText(resId)
             setOnSingleClickListener { action?.invoke(this@DescriptionBottomSheet) }
@@ -167,7 +155,7 @@ class DescriptionBottomSheet : BaseViewBottomSheetDialogFragment() {
         text: String,
         action: (DescriptionBottomSheet.() -> Unit)? = null
     ) {
-        btnSecondary.apply {
+        vb.btnSecondary.apply {
             visible()
             setText(text)
             setOnSingleClickListener { action?.invoke(this@DescriptionBottomSheet) }

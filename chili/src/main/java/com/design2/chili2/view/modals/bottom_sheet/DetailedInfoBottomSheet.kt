@@ -5,21 +5,17 @@ import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewBottomSheetDetailedInfoBinding
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.view.modals.base.BaseViewBottomSheetDialogFragment
 
 class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment() {
 
-    private lateinit var tvText: TextView
-    private lateinit var ivIcon: ImageView
-    private lateinit var btnPrimary: Button
+    private lateinit var vb: ChiliViewBottomSheetDetailedInfoBinding
 
     private var text: String? = null
     private var textSpanned: Spanned? = null
@@ -35,14 +31,11 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     override var topDrawableVisible = true
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
-        val view = inflater.inflate(R.layout.chili_view_bottom_sheet_detailed_info, container, false).apply {
-            setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
+        vb = ChiliViewBottomSheetDetailedInfoBinding.inflate(inflater, container, false).apply {
+            root.setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
         }
-        closeIconView = view.findViewById(R.id.iv_detail_close)
-        tvText = view.findViewById(R.id.tv_text)
-        ivIcon = view.findViewById(R.id.iv_icon)
-        btnPrimary = view.findViewById(R.id.btn_primary)
-        return view
+        closeIconView = vb.ivDetailClose
+        return vb.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,35 +55,35 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     }
 
     private fun setIcon(@DrawableRes resId: Int) {
-        ivIcon.apply {
+        vb.ivIcon.apply {
             setImageResource(resId)
             visible()
         }
     }
 
     private fun setMessage(@StringRes resId: Int) {
-        tvText.apply {
+        vb.tvText.apply {
             visible()
             setText(resId)
         }
     }
 
     private fun setMessage(message: String) {
-        tvText.apply {
+        vb.tvText.apply {
             visible()
             text = message
         }
     }
 
     private fun setMessage(spanned: Spanned?) {
-        tvText.apply {
+        vb.tvText.apply {
             text = spanned
             visible()
         }
     }
 
     private fun setPrimaryButton(@StringRes resId: Int, action: (DetailedInfoBottomSheet.() -> Unit)? = null) {
-        btnPrimary.apply {
+        vb.btnPrimary.apply {
             visible()
             setText(resId)
             setOnSingleClickListener { action?.invoke(this@DetailedInfoBottomSheet) }
@@ -98,7 +91,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     }
 
     private fun setPrimaryButton(text: String, action: (DetailedInfoBottomSheet.() -> Unit)? = null) {
-        btnPrimary.apply {
+        vb.btnPrimary.apply {
             visible()
             setText(text)
             setOnSingleClickListener { action?.invoke(this@DetailedInfoBottomSheet) }

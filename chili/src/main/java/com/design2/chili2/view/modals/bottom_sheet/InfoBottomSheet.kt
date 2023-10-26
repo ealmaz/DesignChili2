@@ -6,12 +6,10 @@ import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewBottomSheetInfoBinding
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.visible
@@ -19,10 +17,7 @@ import com.design2.chili2.view.modals.base.BaseViewBottomSheetDialogFragment
 
 class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment() {
 
-    private lateinit var tvText: TextView
-    private lateinit var ivIcon: ImageView
-    private lateinit var btnPrimary: Button
-    private lateinit var btnSecondary: Button
+    private lateinit var vb: ChiliViewBottomSheetInfoBinding
 
     private var text: String? = null
     private var textSpanned: Spanned? = null
@@ -42,15 +37,11 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     private var dismissEvent: (() -> Unit)? = null
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
-        val view = inflater.inflate(R.layout.chili_view_bottom_sheet_info, container, false).apply {
-            setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
+        vb = ChiliViewBottomSheetInfoBinding.inflate(inflater, container, false).apply {
+            root.setBackgroundResource(R.drawable.chili_bg_rounded_bottom_sheet)
         }
-        closeIconView = view.findViewById(R.id.iv_info_close)
-        tvText = view.findViewById(R.id.tv_text)
-        ivIcon = view.findViewById(R.id.iv_icon)
-        btnPrimary = view.findViewById(R.id.btn_primary)
-        btnSecondary = view.findViewById(R.id.btn_secondary)
-        return view
+        closeIconView = vb.ivInfoClose
+        return vb.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -78,42 +69,42 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     }
 
     private fun setIcon(@DrawableRes resId: Int) {
-        ivIcon.apply {
+        vb.ivIcon.apply {
             setImageResource(resId)
             visible()
         }
     }
 
     private fun setIcon(uri: String?){
-        ivIcon.apply {
+        vb.ivIcon.apply {
             setImageByUrl(uri)
             visible()
         }
     }
 
     private fun setMessage(@StringRes resId: Int) {
-        tvText.apply {
+        vb.tvText.apply {
             visible()
             setText(resId)
         }
     }
 
     private fun setMessage(message: String) {
-        tvText.apply {
+        vb.tvText.apply {
             visible()
             text = message
         }
     }
 
     private fun setMessage(spanned: Spanned?) {
-        tvText.apply {
+        vb.tvText.apply {
             text = spanned
             visible()
         }
     }
 
     private fun setPrimaryButton(@StringRes resId: Int, action: (InfoBottomSheet.() -> Unit)? = null) {
-        btnPrimary.apply {
+        vb.btnPrimary.apply {
             visible()
             setText(resId)
             setOnSingleClickListener { action?.invoke(this@InfoBottomSheet) }
@@ -121,7 +112,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     }
 
     private fun setSecondaryButton(@StringRes resId: Int, action: (InfoBottomSheet.() -> Unit)? = null) {
-        btnSecondary.apply {
+        vb.btnSecondary.apply {
             visible()
             setText(resId)
             setOnSingleClickListener { action?.invoke(this@InfoBottomSheet) }
@@ -129,7 +120,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     }
 
     private fun setPrimaryButton(text: String, action: (InfoBottomSheet.() -> Unit)? = null) {
-        btnPrimary.apply {
+        vb.btnPrimary.apply {
             visible()
             setText(text)
             setOnSingleClickListener { action?.invoke(this@InfoBottomSheet) }
@@ -137,7 +128,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     }
 
     private fun setSecondaryButton(text: String, action: (InfoBottomSheet.() -> Unit)? = null) {
-        btnSecondary.apply {
+        vb.btnSecondary.apply {
             visible()
             setText(text)
             setOnSingleClickListener { action?.invoke(this@InfoBottomSheet) }

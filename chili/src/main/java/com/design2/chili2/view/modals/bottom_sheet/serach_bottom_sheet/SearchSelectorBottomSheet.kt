@@ -3,13 +3,10 @@ package com.design2.chili2.view.modals.bottom_sheet.serach_bottom_sheet
 import android.content.Context
 import android.view.View
 import android.view.WindowManager
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.LinearLayout
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewBottomSheetSearchSelectorBinding
 import com.design2.chili2.extensions.gone
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -24,6 +21,8 @@ class SearchSelectorBottomSheet private constructor(
     private val idGroupList: Boolean
 ) : BottomSheetDialog(mContext, R.style.Chili_BottomSheetStyle), SearchSelectorItemListener {
 
+    private lateinit var vb: ChiliViewBottomSheetSearchSelectorBinding
+
     private var filterText: String = ""
 
     private val searchSelectorAdapter: SearchSelectorAdapter by lazy {
@@ -35,25 +34,27 @@ class SearchSelectorBottomSheet private constructor(
     }
 
     private fun setupView() {
-        val bottomSheetView: View = layoutInflater.inflate(R.layout.chili_view_bottom_sheet_search_selector, null)
-        setContentView(bottomSheetView)
+        vb = ChiliViewBottomSheetSearchSelectorBinding.inflate(layoutInflater)
+        setContentView(vb.root)
         searchSelectorAdapter.addItems(optionsList)
-        findViewById<RecyclerView>(R.id.recycler_view)?.run {
-            layoutManager = LinearLayoutManager(context)
-            adapter = searchSelectorAdapter
-        }
-        findViewById<ImageView>(R.id.iv_close)?.setOnClickListener {
-            this.dismiss()
+        with(vb) {
+            recyclerView.run {
+                layoutManager = LinearLayoutManager(context)
+                adapter = searchSelectorAdapter
+            }
+            ivClose.setOnClickListener {
+                this@SearchSelectorBottomSheet.dismiss()
+            }
         }
         setupSearchInputView()
     }
 
     private fun setupSearchInputView() {
         if (!isSearchAvailable) {
-            findViewById<LinearLayout>(R.id.ll_search)?.gone()
+            vb.llSearch.gone()
             return
         }
-        findViewById<EditText>(R.id.et_search)?.run {
+        vb.etSearch.run {
             doAfterTextChanged {
                 expandBottomSheet()
                 filterText = it?.toString() ?: ""
