@@ -662,6 +662,7 @@
                     style="@style/ShadowLayoutStyle">
 
                     <com.design2.chili2.view.card.BankCardView
+                        android:id="@+id/bank_card_icon"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardBackground="@drawable/card_bg"

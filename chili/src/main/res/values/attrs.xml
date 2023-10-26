@@ -415,6 +415,7 @@
         <attr name="cardIcon" format="reference"/>
         <attr name="isCvvToggleEnabled" format="boolean"/>
         <attr name="isCardPanToggleEnabled" format="boolean"/>
+        <attr name="startIcon"/>
     </declare-styleable>
 
     <declare-styleable name="UneditableInputView">

@@ -7,19 +7,31 @@
     android:layout_height="wrap_content"
     tools:background="@color/blue_2">
 
+    <ImageView
+        android:id="@+id/iv_start_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_17dp"
+        android:layout_marginTop="@dimen/padding_12dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ll_card_pan"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/padding_16dp"
-        android:layout_marginTop="@dimen/padding_32dp"
+        android:layout_marginTop="@dimen/padding_8dp"
+        app:layout_goneMarginTop="@dimen/padding_32dp"
         android:background="@drawable/chili_bg_card_bank_fields_rounded"
         android:foreground="@drawable/chili_ripple_rounded_corner_foreground"
         android:padding="@dimen/padding_12dp"
         android:theme="@style/ThemeOverlay_chili_back_card_field_ripple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/iv_start_icon">
 
         <TextView
             android:id="@+id/tv_card_pan"

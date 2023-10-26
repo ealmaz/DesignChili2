@@ -73,6 +73,7 @@ class BankCardView @JvmOverloads constructor(
         setCardHolderName(getText(R.styleable.BankCardView_cardHolderName))
         setCardDueDate(getText(R.styleable.BankCardView_dueDate))
         setCardIcon(getResourceId(R.styleable.BankCardView_cardIcon, -1).takeIf { it != -1 })
+        setStartIcon(getResourceId(R.styleable.BankCardView_startIcon, -1).takeIf { it != -1 })
     }
 
     override fun setupView() {
@@ -141,6 +142,26 @@ class BankCardView @JvmOverloads constructor(
             if (resId != null) {
                 visible()
                 setImageResource(resId)
+            }
+            else invisible()
+        }
+    }
+
+    fun setStartIcon(resId: Int?) {
+        vb.ivStartIcon.apply {
+            if (resId != null) {
+                visible()
+                setImageResource(resId)
+            }
+            else invisible()
+        }
+    }
+
+    fun setStartIcon(drawable: Drawable?) {
+        vb.ivStartIcon.apply {
+            if (drawable != null) {
+                visible()
+                setImageDrawable(drawable)
             }
             else invisible()
         }
