@@ -6,9 +6,15 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 
-class SearchSelectorAdapter(private var listener: SearchSelectorItemListener, val isHeaderVisible: Boolean) : ListAdapter<Pair<Type, Any>, RecyclerView.ViewHolder>(AsyncDifferConfig.Builder(
-    SelectorItemsDiffUtil()
-).build()) {
+class SearchSelectorAdapter(
+    private var listener: SearchSelectorItemListener,
+    val isHeaderVisible: Boolean,
+    val isGroupList: Boolean
+) : ListAdapter<Pair<Type, Any>, RecyclerView.ViewHolder>(
+    AsyncDifferConfig.Builder(
+        SelectorItemsDiffUtil()
+    ).build()
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
@@ -34,7 +40,9 @@ class SearchSelectorAdapter(private var listener: SearchSelectorItemListener, va
 
     fun addItems(list: List<Option>, filter: String = "") {
         val filteredList = list.filter { it.value.contains(filter, true) }
-        val sortedList = filteredList.groupBy { it.value.firstOrNull()?.uppercase() ?: "" }
+        val sortedList = if (isGroupList) filteredList.groupBy {
+            it.value.firstOrNull()?.uppercase() ?: ""
+        } else mapOf("" to filteredList)
         val newList = mutableListOf<Pair<Type, Any>>()
         sortedList.forEach {
             if (isHeaderVisible) newList.add(Type.HEADER to it.key)

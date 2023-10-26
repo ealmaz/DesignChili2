@@ -20,13 +20,14 @@ class SearchSelectorBottomSheet private constructor(
     private val optionsList: List<Option>,
     private val isSingleSelectionType: Boolean,
     private val isSearchAvailable: Boolean,
-    private val isHeadersVisible: Boolean
+    private val isHeadersVisible: Boolean,
+    private val idGroupList: Boolean
 ) : BottomSheetDialog(mContext, R.style.Chili_BottomSheetStyle), SearchSelectorItemListener {
 
     private var filterText: String = ""
 
     private val searchSelectorAdapter: SearchSelectorAdapter by lazy {
-        SearchSelectorAdapter(this, isHeadersVisible)
+        SearchSelectorAdapter(this, isHeadersVisible, idGroupList)
     }
 
     init {
@@ -104,6 +105,7 @@ class SearchSelectorBottomSheet private constructor(
         private var isSearchAvailable: Boolean = true
         private var isSingleSelection: Boolean = true
         private var isHeaderVisible: Boolean = true
+        private var idGroupList: Boolean = true
         private var options: List<Option>? = null
 
         fun setIsSearchAvailable(isAvailable: Boolean): Builder {
@@ -121,8 +123,13 @@ class SearchSelectorBottomSheet private constructor(
             return this
         }
 
+        fun setIsGroupList(isGroup: Boolean): Builder {
+            idGroupList = isGroup
+            return this
+        }
+
         fun build(context: Context, options: List<Option>): SearchSelectorBottomSheet {
-            return SearchSelectorBottomSheet(context, options, isSingleSelection, isSearchAvailable, isHeaderVisible)
+            return SearchSelectorBottomSheet(context, options, isSingleSelection, isSearchAvailable, isHeaderVisible, idGroupList)
         }
     }
 }
