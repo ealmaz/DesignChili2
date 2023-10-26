@@ -6,6 +6,7 @@ import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentOverlaysBinding
 import com.design2.chili2.view.camera_overlays.PassportCardOverlay
+import com.design2.chili2.view.camera_overlays.RectangleOverlay
 
 class OverlaysFragment : BaseFragment<FragmentOverlaysBinding>() {
 
@@ -24,6 +25,12 @@ class OverlaysFragment : BaseFragment<FragmentOverlaysBinding>() {
                         setTitle("Проверьте паспорт")
                         setDescription("Поместите паспорт в рамку \n и нажмите на кнопку «сфотографировать»")
                     }
+                ))
+        }
+        vb.btnRectngle.setOnClickListener {
+            (requireContext() as MainActivity).openFragment(
+                OverlayFragment(
+                    RectangleOverlay(requireContext())
                 ))
         }
     }

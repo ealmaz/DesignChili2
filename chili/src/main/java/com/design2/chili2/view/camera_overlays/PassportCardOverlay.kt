@@ -75,7 +75,6 @@ class PassportCardOverlay @JvmOverloads constructor(
         y = cutPassportCardShape(canvas, y)
         y = drawTitle(canvas, y)
         drawDescription(canvas, y)
-
     }
 
     private fun drawHeaderText(canvas: Canvas, startY: Float): Float {

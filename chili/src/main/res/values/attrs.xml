@@ -52,6 +52,8 @@
 
         <!-- PassportCardCameraOverlay -->
         <attr name="passportCardCameraOverlay" format="reference"/>
+        <!-- RectangleCameraOverlay -->
+        <attr name="rectangleCameraOverlay" format="reference"/>
 
 
     </declare-styleable>
@@ -437,6 +439,11 @@
         <attr name="headerText" format="string"/>
         <attr name="title"/>
         <attr name="description"/>
+    </declare-styleable>
+
+    <!-- Rectangle overlay -->
+    <declare-styleable name="RectangleOverlay">
+        <attr name="overlayAlpha"/>
     </declare-styleable>
 
     <declare-styleable name="ShadowLayout">

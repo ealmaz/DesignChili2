@@ -37,4 +37,6 @@
 
     <style name="Chili.CameraOverlayPassportCard" parent="Chili.BaseChiliViewStyle"/>
 
+    <style name="Chili.CameraOverlayRectangle" parent="Chili.BaseChiliViewStyle"/>
+
 </resources>
