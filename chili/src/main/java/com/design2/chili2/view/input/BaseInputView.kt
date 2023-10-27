@@ -10,12 +10,10 @@ import android.text.method.DigitsKeyListener
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -24,6 +22,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.updatePadding
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewInputBaseBinding
 import com.design2.chili2.extensions.*
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.visible
@@ -39,7 +38,7 @@ open class BaseInputView @JvmOverloads constructor(
     defStyle: Int = R.style.Chili_InputViewStyle_Simple
 ): ConstraintLayout(context, attrs, defStyleAttr, defStyle) {
 
-    lateinit var view: BaseInputViewVariables
+    lateinit var vb: ChiliViewInputBaseBinding
 
     protected val textWatchers by lazy { mutableListOf<TextWatcher>() }
 
@@ -62,15 +61,7 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     private fun inflateViews(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_input_base, this)
-        this.view = BaseInputViewVariables(
-            inputField = view.findViewById(R.id.et_input),
-            textInputLayout = view.findViewById(R.id.til_input_container),
-            tvMessage = view.findViewById(R.id.tv_message),
-            tvAction = view.findViewById(R.id.tv_action),
-            flActionBg = view.findViewById(R.id.fl_action_bg),
-            ivEndIcon = view.findViewById(R.id.iv_end_icon),
-            clickableMask = view.findViewById(R.id.clickable_mask))
+        vb = ChiliViewInputBaseBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int, defStyle: Int) {
@@ -92,7 +83,7 @@ open class BaseInputView @JvmOverloads constructor(
                 setupFieldBackground(it)
             }
             getColor(R.styleable.BaseInputView_endIconTint, ContextCompat.getColor(context, R.color.gray_1)).let {
-                view.ivEndIcon.setColorFilter(it)
+                vb.ivEndIcon.setColorFilter(it)
             }
             getDrawable(R.styleable.BaseInputView_endIconDrawable)?.let {
                 setInputRightDrawable(it)
@@ -133,7 +124,7 @@ open class BaseInputView @JvmOverloads constructor(
                 setupInputTextAppearance(it)
             }
             getColorStateList(R.styleable.BaseInputView_android_editTextColor)?.let {
-                view.inputField.setTextColor(it)
+                vb.etInput.setTextColor(it)
             }
             getInteger(R.styleable.BaseInputView_android_maxLength, -1)
                 .takeIf { it != -1 }?.let {
@@ -162,63 +153,63 @@ open class BaseInputView @JvmOverloads constructor(
 
     protected open fun setupHintTextColor(@ColorInt color: Int) {
         hintTextColor = color
-        view.inputField.setHintTextColor(color)
+        vb.etInput.setHintTextColor(color)
     }
 
     private fun setupErrorFieldBackground(resId: Int) {
         fieldErrorBackground = resId
-        view.textInputLayout.setBackgroundResource(resId)
+        vb.tilInputContainer.setBackgroundResource(resId)
     }
 
     private fun setupFieldBackground(resId: Int) {
         fieldBackground = resId
-        view.textInputLayout.setBackgroundResource(resId)
+        vb.tilInputContainer.setBackgroundResource(resId)
     }
 
     fun getInputField(): SelectionEditText {
-        return view.inputField
+        return vb.etInput
     }
 
     fun setText(text: String?) {
-        view.inputField.setText(text)
+        vb.etInput.setText(text)
     }
 
     fun appendString(text: String) {
-        view.inputField.append(text)
+        vb.etInput.append(text)
     }
 
     fun setSelectionStartLimit(limit: Int) {
-        view.inputField.startSelectionLimit = limit
+        vb.etInput.startSelectionLimit = limit
     }
 
     fun setSelection(selection: Int) {
-        view.inputField.setSelection(selection)
+        vb.etInput.setSelection(selection)
     }
 
     fun setSelectionToEnd() {
-        view.inputField.text?.length?.let {
+        vb.etInput.text?.length?.let {
             setSelection(it)
         }
     }
 
-    open fun getInputText() = view.inputField.text?.toString() ?: ""
+    open fun getInputText() = vb.etInput.text?.toString() ?: ""
 
     open fun isInputEmpty() = getInputText().isEmpty()
 
     open fun clearInput() = setText("")
 
     fun setHint(hint: String?) {
-        view.inputField.hint = hint
+        vb.etInput.hint = hint
     }
 
     fun setInputType(type: Int) {
-        view.inputField.inputType = type
+        vb.etInput.inputType = type
     }
 
     fun setIsTextAllCaps(isCaps: Boolean) {
-        view.inputField.isAllCaps =isCaps
-        view.inputField.inputType = InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
-        view.inputField.transformationMethod = null
+        vb.etInput.isAllCaps =isCaps
+        vb.etInput.inputType = InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+        vb.etInput.transformationMethod = null
     }
 
     fun showSystemKeyboard() {
@@ -227,20 +218,20 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun requestInputFocus() {
-        view.inputField.requestFocus()
+        vb.etInput.requestFocus()
     }
 
     private fun showKeyboard() {
         val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.showSoftInput(view.inputField, InputMethodManager.SHOW_IMPLICIT)
+        inputMethodManager.showSoftInput(vb.etInput, InputMethodManager.SHOW_IMPLICIT)
     }
 
     fun clearAndSetFilters(filter: Array<InputFilter>) {
-        view.inputField.filters = filter
+        vb.etInput.filters = filter
     }
 
     fun addFilter(inputFilter: InputFilter) {
-        view.inputField.filters += inputFilter
+        vb.etInput.filters += inputFilter
     }
 
     fun addRegexFilter(regex: Regex) {
@@ -270,33 +261,33 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setOnLongClick(action: () -> Unit) {
-        view.inputField.setOnLongClickListener { action(); true }
+        vb.etInput.setOnLongClickListener { action(); true }
     }
 
     fun setOnDoubleClick(action: () -> Unit) {
-        view.inputField.setOnDoubleClickListener { action() }
+        vb.etInput.setOnDoubleClickListener { action() }
     }
 
     fun disableSuggestions() {
-        view.inputField.apply { inputType = inputType or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS }
+        vb.etInput.apply { inputType = inputType or InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS }
     }
 
     fun disableEdition() {
-        view.inputField.isEnabled = false
+        vb.etInput.isEnabled = false
     }
 
-    fun isInputEnabled() = view.inputField.isEnabled
+    fun isInputEnabled() = vb.etInput.isEnabled
 
     fun setIsInputEnabled(isEnabled: Boolean) {
-        view.inputField.isEnabled = isEnabled
+        vb.etInput.isEnabled = isEnabled
     }
 
     fun disableSystemKeyboard() {
-        view.inputField.showSoftInputOnFocus = false
+        vb.etInput.showSoftInputOnFocus = false
     }
 
     fun setInputLetterSpacing(spacing: Float) {
-        view.inputField.letterSpacing = spacing
+        vb.etInput.letterSpacing = spacing
     }
 
     fun changeInputPositionToStart() {
@@ -308,15 +299,15 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setGravity(gravity: Int) {
-        view.inputField.gravity = gravity
+        vb.etInput.gravity = gravity
     }
 
     fun setEms(n: Int) {
-        view.inputField.setEms(n)
+        vb.etInput.setEms(n)
     }
 
     fun setFocusChangeListener(onFocus: () -> Unit = {}, onFocusLost: () -> Unit = {}) {
-        view.inputField.setOnFocusChangeListener { _, hasFocus ->
+        vb.etInput.setOnFocusChangeListener { _, hasFocus ->
             when {
                 hasFocus -> onFocus()
                 else -> onFocusLost()
@@ -329,7 +320,7 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setDigitKeyListener(symbols: String) {
-        view.inputField.keyListener = DigitsKeyListener.getInstance(symbols)
+        vb.etInput.keyListener = DigitsKeyListener.getInstance(symbols)
     }
 
     fun addTextWatcher(
@@ -339,18 +330,18 @@ open class BaseInputView @JvmOverloads constructor(
         onTextChangedListener: ((String?) -> Unit)? = null
     ) {
         val textWatcher = SimpleTextWatcher(beforeTextChanged, onTextChanged, afterTextChanged, onTextChangedListener)
-        view.inputField.addTextChangedListener(textWatcher)
+        vb.etInput.addTextChangedListener(textWatcher)
         textWatchers.add(textWatcher)
     }
 
     fun addTextWatcher(textWatcher: TextWatcher) {
-        view.inputField.addTextChangedListener(textWatcher)
+        vb.etInput.addTextChangedListener(textWatcher)
         textWatchers.add(textWatcher)
     }
 
     fun removeAllTextWatcher() {
         textWatchers.forEach {
-            view.inputField.removeTextChangedListener(it)
+            vb.etInput.removeTextChangedListener(it)
         }
         textWatchers.clear()
     }
@@ -361,30 +352,30 @@ open class BaseInputView @JvmOverloads constructor(
 
     fun setSimpleTextChangedListener(onTextChanged: (String?) -> Unit) {
         val textWatcher = SimpleTextWatcher(onTextChangedListener = onTextChanged)
-        view.inputField.addTextChangedListener(textWatcher)
+        vb.etInput.addTextChangedListener(textWatcher)
     }
 
     fun doAfterTextChanged(action: (Editable?) -> Unit) {
         val textWatcher = SimpleTextWatcher(afterTextChanged = action)
-        view.inputField.addTextChangedListener(textWatcher)
+        vb.etInput.addTextChangedListener(textWatcher)
     }
 
     fun setTextChangeListener(onTextChanged: ((CharSequence?, Int, Int, Int) -> Unit)? = null) {
         val textWatcher = SimpleTextWatcher(
             onTextChanged = onTextChanged,
             beforeTextChanged = { _, _, _, _ -> clearFieldError() })
-        view.inputField.addTextChangedListener(textWatcher)
+        vb.etInput.addTextChangedListener(textWatcher)
     }
 
 
     fun setInputTailedIcon(@DrawableRes drawableId: Int) {
-        view.inputField.run {
+        vb.etInput.run {
             setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawableId, 0)
             val frameLayoutParams = FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.WRAP_CONTENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT
             )
-            if (view.inputField.gravity in listOf(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, Gravity.CENTER_VERTICAL)) {
+            if (vb.etInput.gravity in listOf(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, Gravity.CENTER_VERTICAL)) {
                 frameLayoutParams.gravity = Gravity.CENTER_HORIZONTAL or Gravity.CENTER_VERTICAL
             }
             this.layoutParams = frameLayoutParams
@@ -393,13 +384,13 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setInputTailedIcon(drawable: Drawable) {
-        view.inputField.run {
+        vb.etInput.run {
             setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, drawable, null)
             val frameLayoutParams = FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.WRAP_CONTENT,
                 FrameLayout.LayoutParams.WRAP_CONTENT
             )
-            if (view.inputField.gravity in listOf(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, Gravity.CENTER_VERTICAL)) {
+            if (vb.etInput.gravity in listOf(Gravity.CENTER, Gravity.CENTER_HORIZONTAL, Gravity.CENTER_VERTICAL)) {
                 frameLayoutParams.gravity = Gravity.CENTER_HORIZONTAL or Gravity.CENTER_VERTICAL
             }
             this.layoutParams = frameLayoutParams
@@ -408,7 +399,7 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun matchInputWidthToParentWidth() {
-        view.inputField.layoutParams = FrameLayout.LayoutParams(
+        vb.etInput.layoutParams = FrameLayout.LayoutParams(
             FrameLayout.LayoutParams.WRAP_CONTENT,
             FrameLayout.LayoutParams.WRAP_CONTENT
         )
@@ -419,7 +410,7 @@ open class BaseInputView @JvmOverloads constructor(
             visible()
             setImageDrawable(drawable)
         }
-        view.inputField.updatePadding(right = resources.getDimensionPixelSize(R.dimen.padding_32dp))
+        vb.etInput.updatePadding(right = resources.getDimensionPixelSize(R.dimen.padding_32dp))
     }
 
     fun setInputRightDrawable(@DrawableRes drawableId: Int) {
@@ -427,7 +418,7 @@ open class BaseInputView @JvmOverloads constructor(
             visible()
             setImageResource(drawableId)
         }
-        view.inputField.updatePadding(right = resources.getDimensionPixelSize(R.dimen.padding_32dp))
+        vb.etInput.updatePadding(right = resources.getDimensionPixelSize(R.dimen.padding_32dp))
     }
 
     fun isInputRightDrawableExist(): Boolean {
@@ -436,19 +427,19 @@ open class BaseInputView @JvmOverloads constructor(
 
     fun removeInputRightDrawable() {
         getInputRightImageView().gone()
-        view.inputField.updatePadding(right = resources.getDimensionPixelSize(R.dimen.padding_0dp))
+        vb.etInput.updatePadding(right = resources.getDimensionPixelSize(R.dimen.padding_0dp))
     }
 
     fun getInputRightImageView(): ImageView {
-        return view.ivEndIcon
+        return vb.ivEndIcon
     }
 
     fun setupInputTextAppearance(@StyleRes inputViewTextAppearanceRes: Int) {
         this.inputViewTextAppearanceRes = inputViewTextAppearanceRes
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.inputField.setTextAppearance(inputViewTextAppearanceRes)
+            vb.etInput.setTextAppearance(inputViewTextAppearanceRes)
         } else {
-            view.inputField.setTextAppearance(context, inputViewTextAppearanceRes)
+            vb.etInput.setTextAppearance(context, inputViewTextAppearanceRes)
         }
     }
 
@@ -462,7 +453,7 @@ open class BaseInputView @JvmOverloads constructor(
 
     fun setupAsPasswordField() {
         removeInputRightDrawable()
-        view.textInputLayout.apply {
+        vb.tilInputContainer.apply {
             setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
             endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
             setEndIconDrawable(R.drawable.chili_password_toggle_drawable)
@@ -471,8 +462,8 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setAction(title: String, action: () -> Unit = {}) {
-        view.flActionBg.visible()
-        view.tvAction.apply {
+        vb.flActionBg.visible()
+        vb.tvAction.apply {
             text = title
             setOnSingleClickListener(action)
             visible()
@@ -480,19 +471,19 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setActionEnabled(isEnabled: Boolean) {
-        view.tvAction.isEnabled = isEnabled
+        vb.tvAction.isEnabled = isEnabled
     }
 
     fun setSingleLine(singleLine: Boolean){
-        view.inputField.isSingleLine = singleLine
+        vb.etInput.isSingleLine = singleLine
     }
 
     fun setOnActionClickListener(action: () -> Unit = {}) {
-        view.tvAction.setOnClickListener { action.invoke() }
+        vb.tvAction.setOnClickListener { action.invoke() }
     }
 
     fun hideAction() {
-        view.apply {
+        vb.apply {
             tvAction.gone()
             flActionBg.gone()
         }
@@ -505,9 +496,9 @@ open class BaseInputView @JvmOverloads constructor(
     fun setMessage(text: String?) {
         messageText = text
         when (text.isNullOrBlank()) {
-            true -> view.tvMessage.gone()
+            true -> vb.tvMessage.gone()
             else -> {
-                view.tvMessage.apply {
+                vb.tvMessage.apply {
                     setText(messageText)
                     setTextColor(messageTextColor)
                     visible()
@@ -522,24 +513,24 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setupFieldAsError(errorText: String) {
-        view.tvMessage.apply {
+        vb.tvMessage.apply {
             text = errorText
             setTextColor(errorMessageTextColor)
             isErrorShown = true
             visible()
         }
-        view.textInputLayout.setBackgroundResource(fieldErrorBackground)
+        vb.tilInputContainer.setBackgroundResource(fieldErrorBackground)
     }
 
     fun clearFieldError() {
         if (!isErrorShown) return
-        view.textInputLayout.setBackgroundResource(fieldBackground)
+        vb.tilInputContainer.setBackgroundResource(fieldBackground)
         setMessage(messageText)
         isErrorShown = false
     }
 
     fun hideMessage() {
-        view.tvMessage.gone()
+        vb.tvMessage.gone()
     }
 
     fun setupClearTextButton(
@@ -547,13 +538,13 @@ open class BaseInputView @JvmOverloads constructor(
         isInputEmpty: (() -> Boolean)? = null,
         isInputEnabled: (() -> Boolean)? = null,
     ) {
-        view.textInputLayout.apply {
+        vb.tilInputContainer.apply {
             if (endIconMode == TextInputLayout.END_ICON_PASSWORD_TOGGLE) {
                 endIconMode = TextInputLayout.END_ICON_NONE
             }
         }
         if (!isInputRightDrawableExist()) setInputRightDrawable(R.drawable.chili_ic_clear)
-        view.inputField.addTextChangedListener(
+        vb.etInput.addTextChangedListener(
             ClearTextIconTextWatcher(
                 getInputRightImageView(),
                 clearText ?: ::clearInput,
@@ -563,26 +554,26 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setPasteTextListener(onPasteListener: PasteListener) {
-        view.inputField.setPasteListener(onPasteListener)
+        vb.etInput.setPasteListener(onPasteListener)
     }
 
     fun setActionWithColor(title: String, @ColorInt textColor: Int, action: () -> Unit = {}) {
         setAction(title, action)
-        view.tvAction.setTextColor(textColor)
+        vb.tvAction.setTextColor(textColor)
     }
 
     fun setupMessageAsLabelBehavior(isEnabled: Boolean) {
         isLabelBehaviorEnabled = isEnabled
-        if (!isErrorShown) view.tvMessage.gone()
+        if (!isErrorShown) vb.tvMessage.gone()
         setFocusChangeListener({
-            if (!isErrorShown && isLabelBehaviorEnabled) view.tvMessage.visible()
+            if (!isErrorShown && isLabelBehaviorEnabled) vb.tvMessage.visible()
         }, {
-            if (!isErrorShown && isLabelBehaviorEnabled) view.tvMessage.gone()
+            if (!isErrorShown && isLabelBehaviorEnabled) vb.tvMessage.gone()
         })
     }
 
     fun setupOnGetFocusAction(action: () -> Unit) {
-        view.clickableMask.apply {
+        vb.clickableMask.apply {
             visible()
             setOnSingleClickListener {
                 requestFocus()
@@ -591,10 +582,10 @@ open class BaseInputView @JvmOverloads constructor(
             }
         }
         setFocusChangeListener({
-            view.clickableMask.gone()
+            vb.clickableMask.gone()
             action.invoke()
         }, {
-            view.clickableMask.visible()
+            vb.clickableMask.visible()
         })
     }
 
@@ -603,13 +594,3 @@ open class BaseInputView @JvmOverloads constructor(
         const val SUPER_STATE = "superState"
     }
 }
-
-data class BaseInputViewVariables(
-    var inputField: SelectionEditText,
-    var textInputLayout: TextInputLayout,
-    var tvMessage: TextView,
-    var tvAction: TextView,
-    var flActionBg: FrameLayout,
-    var ivEndIcon: ImageView,
-    var clickableMask: View,
-)

@@ -5,9 +5,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -15,13 +13,13 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewToolbarBinding
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
-import com.google.android.material.appbar.MaterialToolbar
 
 class ChiliToolbar : LinearLayout {
 
-    private lateinit var view: ChiliToolbarViewVariables
+    private lateinit var vb: ChiliViewToolbarBinding
 
     constructor(context: Context) : super(context) {
         setupView()
@@ -38,14 +36,7 @@ class ChiliToolbar : LinearLayout {
     }
 
     private fun setupView() {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_toolbar, this)
-        this.view = ChiliToolbarViewVariables(
-            toolbar = view.findViewById(R.id.toolbar_view),
-            tvAdditionalText = view.findViewById(R.id.tv_additional_text),
-            ivEndIcon = view.findViewById(R.id.iv_icon),
-            rootView = view.findViewById(R.id.ll_root),
-            divider = view.findViewById(R.id.divider)
-        )
+        vb = ChiliViewToolbarBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_BaseNavigationComponentsStyle_ChiliToolbar) {
@@ -83,15 +74,15 @@ class ChiliToolbar : LinearLayout {
     fun initToolbar(config: Configuration) {
         configureToolbar(config)
         (config.hostActivity as? AppCompatActivity)?.run {
-            setSupportActionBar(view.toolbar)
+            setSupportActionBar(vb.toolbarView)
             supportActionBar?.setDisplayHomeAsUpEnabled(config.isNavigateUpButtonEnabled)
             supportActionBar?.setHomeButtonEnabled(config.isNavigateUpButtonEnabled)
         }
-        view.toolbar.setNavigationOnClickListener { config.onNavigateUpClick.invoke(config.hostActivity) }
+        vb.toolbarView.setNavigationOnClickListener { config.onNavigateUpClick.invoke(config.hostActivity) }
     }
 
     private fun configureToolbar(config: Configuration) {
-        view.toolbar.apply {
+        vb.toolbarView.apply {
             config.navigationIconRes?.let { this@ChiliToolbar.setNavigationIcon(it) }
             config.title?.let { this@ChiliToolbar.setTitle(it) }
             config.centeredTitle?.let { setIsTitleCentered(it) }
@@ -99,68 +90,68 @@ class ChiliToolbar : LinearLayout {
     }
 
     fun setNavigationIcon(@DrawableRes drawableRes: Int) {
-        view.toolbar.setNavigationIcon(drawableRes)
+        vb.toolbarView.setNavigationIcon(drawableRes)
     }
 
     fun setTitle(title: String?) {
-        view.toolbar.title = title
+        vb.toolbarView.title = title
     }
 
     fun setTitleTextAppearance(@StyleRes textAppearanceRes: Int) {
-        view.toolbar.setTitleTextAppearance(context, textAppearanceRes)
+        vb.toolbarView.setTitleTextAppearance(context, textAppearanceRes)
     }
 
     fun setIsTitleCentered(centered: Boolean) {
-        view.toolbar.isTitleCentered = centered
+        vb.toolbarView.isTitleCentered = centered
     }
 
     fun setAdditionalText(@StringRes resId: Int?) {
-        view.tvAdditionalText.setTextOrHide(resId)
+        vb.tvAdditionalText.setTextOrHide(resId)
     }
 
     fun setAdditionalText(text: String?) {
-        view.tvAdditionalText.setTextOrHide(text)
+        vb.tvAdditionalText.setTextOrHide(text)
     }
 
     fun setAdditionalTextTextAppearance(@StyleRes resId: Int) {
-        view.tvAdditionalText.setTextAppearance(resId)
+        vb.tvAdditionalText.setTextAppearance(resId)
     }
 
     fun setEndIcon(@DrawableRes drawableId: Int) {
         setIconVisibility(true)
-        view.ivEndIcon.setImageResource(drawableId)
+        vb.ivEndIcon.setImageResource(drawableId)
     }
 
     fun setEndIcon(drawable: Drawable?) {
         setIconVisibility(true)
-        view.ivEndIcon.setImageDrawable(drawable)
+        vb.ivEndIcon.setImageDrawable(drawable)
     }
 
     fun setIconVisibility(isVisible: Boolean) {
-        view.ivEndIcon.visibility = when(isVisible) {
+        vb.ivEndIcon.visibility = when(isVisible) {
             true -> View.VISIBLE
             else -> View.GONE
         }
     }
 
     fun setEndIconClickListener(action: () -> Unit) {
-        view.ivEndIcon.setOnSingleClickListener { action.invoke() }
+        vb.ivEndIcon.setOnSingleClickListener { action.invoke() }
     }
 
     fun setEndIconSize(widthPx: Int, heightPx: Int) {
-        val layoutParams = view.ivEndIcon.layoutParams?.apply {
+        val layoutParams = vb.ivEndIcon.layoutParams?.apply {
             width = widthPx
             height = heightPx
         } ?: LayoutParams(widthPx, heightPx)
-        view.ivEndIcon.layoutParams = layoutParams
+        vb.ivEndIcon.layoutParams = layoutParams
     }
 
     fun setToolbarBackgroundColor(@ColorInt colorInt: Int) {
-        view.rootView.setBackgroundColor(colorInt)
+        vb.llRoot.setBackgroundColor(colorInt)
     }
 
     fun setupDividerVisibility(isVisible: Boolean) {
-        view.divider.visibility = when (isVisible) {
+        vb.divider.visibility = when (isVisible) {
             true -> View.VISIBLE
             else -> View.GONE
         }
@@ -174,7 +165,7 @@ class ChiliToolbar : LinearLayout {
     }
 
     fun setOnLongClick(action: () -> Unit) {
-        view.toolbar.setOnLongClickListener { action.invoke(); true }
+        vb.toolbarView.setOnLongClickListener { action.invoke(); true }
     }
 
     data class Configuration(
@@ -186,12 +177,3 @@ class ChiliToolbar : LinearLayout {
         val isNavigateUpButtonEnabled: Boolean = false,
     )
 }
-
-
-
-data class ChiliToolbarViewVariables(
-    val rootView: LinearLayout,
-    val toolbar: MaterialToolbar,
-    val tvAdditionalText: TextView,
-    val ivEndIcon: ImageView,
-    val divider: View)

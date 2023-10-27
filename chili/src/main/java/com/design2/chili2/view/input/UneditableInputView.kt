@@ -4,9 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
-import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.content.ContextCompat
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewInputUneditableBinding
 import com.design2.chili2.extensions.getColorFromAttr
 
 class UneditableInputView @JvmOverloads constructor(
@@ -16,7 +15,7 @@ class UneditableInputView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_InputViewStyle_Uneditable
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes)  {
 
-    lateinit var view: UneditableInputViewViewVariables
+    lateinit var vb: ChiliViewInputUneditableBinding
 
     init {
         initView(context)
@@ -24,10 +23,7 @@ class UneditableInputView @JvmOverloads constructor(
     }
 
     private fun initView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_input_uneditable, this)
-        this.view = UneditableInputViewViewVariables(
-            tvInput = view.findViewById(R.id.tv_input)
-        )
+        vb = ChiliViewInputUneditableBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int, defStyle: Int) {
@@ -47,21 +43,21 @@ class UneditableInputView @JvmOverloads constructor(
 
     fun getInputText(): String {
         return when {
-            !isInputEmpty() -> view.tvInput.text.toString()
+            !isInputEmpty() -> vb.tvInput.text.toString()
             else -> ""
         }
     }
 
-    fun isInputEmpty() = view.tvInput.currentTextColor == context.getColorFromAttr(R.attr.ChiliInputViewHintTextColor)
+    fun isInputEmpty() = vb.tvInput.currentTextColor == context.getColorFromAttr(R.attr.ChiliInputViewHintTextColor)
 
     fun setHint(hint: String?) {
         this.tag = hint
-        view.tvInput.hint = hint
-        view.tvInput.setHintTextColor(context.getColorFromAttr(R.attr.ChiliInputViewHintTextColor))
+        vb.tvInput.hint = hint
+        vb.tvInput.setHintTextColor(context.getColorFromAttr(R.attr.ChiliInputViewHintTextColor))
     }
 
     fun setText(label: String?) {
-        view.tvInput.run {
+        vb.tvInput.run {
             text = label
             setTextColor(context.getColorFromAttr(R.attr.ChiliPrimaryTextColor))
         }
@@ -73,9 +69,6 @@ class UneditableInputView @JvmOverloads constructor(
     }
 
     private fun setupFieldBackground(resId: Int) {
-        view.tvInput.setBackgroundResource(resId)
+        vb.tvInput.setBackgroundResource(resId)
     }
 }
-
-data class UneditableInputViewViewVariables(
-    val tvInput: AppCompatTextView)

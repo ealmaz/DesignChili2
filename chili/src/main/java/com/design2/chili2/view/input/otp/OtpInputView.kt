@@ -13,10 +13,8 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.PopupMenu
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet.CHAIN_SPREAD_INSIDE
 import androidx.constraintlayout.widget.ConstraintSet.END
 import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
@@ -26,13 +24,13 @@ import androidx.core.view.children
 import androidx.core.view.forEach
 import androidx.core.widget.addTextChangedListener
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewInputOtpBinding
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.getPixelSizeFromAttr
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setupConstraint
 import com.design2.chili2.view.input.SelectionChangedListener
-import com.design2.chili2.view.input.SelectionEditText
 
 class OtpInputView @JvmOverloads constructor(
     context: Context,
@@ -41,7 +39,7 @@ class OtpInputView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_OtpInputViewStyle,
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes), SelectionChangedListener {
 
-    private lateinit var view: OtpInputViewVariables
+    private lateinit var vb: ChiliViewInputOtpBinding
     private var otpLength = DEFAULT_OTP_LENGTH
 
     private val pastePopupMenu: PopupMenu by lazy {
@@ -65,13 +63,7 @@ class OtpInputView @JvmOverloads constructor(
     }
 
     private fun inflateView(context: Context) {
-        val view = LayoutInflater.from(context).inflate(R.layout.chili_view_input_otp, this, true)
-        this.view = OtpInputViewVariables(
-            etInput = view.findViewById(R.id.et_input),
-            tvAction = view.findViewById(R.id.tv_action),
-            tvMessage = view.findViewById(R.id.tv_message),
-            itemContainer = view.findViewById(R.id.item_container)
-        )
+        vb = ChiliViewInputOtpBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -91,7 +83,7 @@ class OtpInputView @JvmOverloads constructor(
 
     fun setOtpLength(length: Int) {
         this.otpLength = length
-        view.etInput.filters = arrayOf(
+        vb.etInput.filters = arrayOf(
             LengthFilter(length)
         )
         setupOtpItemView(length)
@@ -108,7 +100,7 @@ class OtpInputView @JvmOverloads constructor(
         repeat(times) { addOtpItemView() }
     }
 
-    private fun addOtpItemView() = with(view.itemContainer) {
+    private fun addOtpItemView() = with(vb.itemContainer) {
         val itemsCount = childCount
         val items = children.toList()
         val oiv = OtpItemView(context, null)
@@ -132,55 +124,55 @@ class OtpInputView @JvmOverloads constructor(
         repeat(times) { removeOtpItemView() }
     }
 
-    private fun removeOtpItemView() = with(view.itemContainer) {
-        removeViewAt(view.itemContainer.childCount - 1)
+    private fun removeOtpItemView() = with(vb.itemContainer) {
+        removeViewAt(vb.itemContainer.childCount - 1)
         (children.last() as? OtpItemView)?.let { oiv ->
             setupConstraint { connect(oiv.id, END, PARENT_ID, END) }
         }
     }
 
     fun setActionText(text: CharSequence?) {
-        view.tvAction.setTextOrHide(text)
+        vb.tvAction.setTextOrHide(text)
     }
 
     fun setActionText(resId: Int) {
-        view.tvAction.setTextOrHide(resId)
+        vb.tvAction.setTextOrHide(resId)
     }
 
     fun setActionTextAppearance(resId: Int) {
-        view.tvAction.setTextAppearance(resId)
+        vb.tvAction.setTextAppearance(resId)
     }
 
     fun setOnActionClickListener(onClick: () -> Unit) {
-        view.tvAction.setOnSingleClickListener { onClick.invoke() }
+        vb.tvAction.setOnSingleClickListener { onClick.invoke() }
     }
 
     fun setActionTextEnabled(isEnabled: Boolean) {
-        view.tvAction.isEnabled = isEnabled
+        vb.tvAction.isEnabled = isEnabled
     }
 
     fun setMessageText(text: CharSequence?) {
-        view.tvMessage.setTextOrHide(text)
+        vb.tvMessage.setTextOrHide(text)
     }
 
     fun setMessageText(resId: Int) {
-        view.tvMessage.setTextOrHide(resId)
+        vb.tvMessage.setTextOrHide(resId)
     }
 
     fun setMessageTextAppearance(resId: Int) {
-        view.tvMessage.setTextAppearance(resId)
+        vb.tvMessage.setTextAppearance(resId)
     }
 
     fun setMessageTextColor(@ColorInt colorInt: Int) {
-        view.tvMessage.setTextColor(colorInt)
+        vb.tvMessage.setTextColor(colorInt)
     }
 
     fun setText(charSequence: CharSequence?) {
-        view.etInput.setText(charSequence)
+        vb.etInput.setText(charSequence)
     }
 
     fun setText(resId: Int) {
-        view.etInput.setText(resId)
+        vb.etInput.setText(resId)
     }
 
     fun setOnOtpCompleteListener(otpCompleteListener: OnOtpCompleteListener) {
@@ -188,13 +180,13 @@ class OtpInputView @JvmOverloads constructor(
     }
 
     fun setupState(otpItemState: OtpItemState) {
-        view.itemContainer.forEach {
+        vb.itemContainer.forEach {
             (it as? OtpItemView)?.setState(otpItemState)
         }
     }
 
     fun getInputText(): String {
-        return view.etInput.text?.toString() ?: ""
+        return vb.etInput.text?.toString() ?: ""
     }
 
     override fun requestFocus(direction: Int, previouslyFocusedRect: Rect?): Boolean {
@@ -203,13 +195,13 @@ class OtpInputView @JvmOverloads constructor(
     }
 
     fun requestFocusAndShowKeyboard() {
-        view.etInput.requestFocus()
+        vb.etInput.requestFocus()
         val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.showSoftInput(view.etInput, InputMethodManager.SHOW_IMPLICIT)
+        inputMethodManager.showSoftInput(vb.etInput, InputMethodManager.SHOW_IMPLICIT)
     }
 
     private fun setupView() {
-        view.etInput.apply {
+        vb.etInput.apply {
             setOnLongClickListener {
                 pastePopupMenu.show()
                 true
@@ -225,17 +217,17 @@ class OtpInputView @JvmOverloads constructor(
     }
 
     private fun setFirstItemActive() {
-        (view.itemContainer.children.firstOrNull() as? OtpItemView)
+        (vb.itemContainer.children.firstOrNull() as? OtpItemView)
             ?.setState(OtpItemState.ACTIVE)
     }
 
     private fun setLastItemActive() {
-        (view.itemContainer.children.lastOrNull() as? OtpItemView)
+        (vb.itemContainer.children.lastOrNull() as? OtpItemView)
             ?.setState(OtpItemState.ACTIVE)
     }
 
     private fun setTextToItems(newText: String) {
-        view.itemContainer.children.forEachIndexed { i, view ->
+        vb.itemContainer.children.forEachIndexed { i, view ->
             (view as? OtpItemView)?.apply {
                 text = newText.getOrNull(i)?.toString()
                 when (newText.length) {
@@ -269,7 +261,7 @@ class OtpInputView @JvmOverloads constructor(
     }
 
     override fun onSelectionChanged(selStart: Int, selEnd: Int): Boolean {
-        if (selStart != selEnd || selStart != view.etInput.length()) view.etInput.moveSelectionToEnd()
+        if (selStart != selEnd || selStart != vb.etInput.length()) vb.etInput.moveSelectionToEnd()
         return true
     }
 }
@@ -278,10 +270,3 @@ interface OnOtpCompleteListener {
     fun onOtpInputComplete(otp: String)
     fun onInput(text: String?)
 }
-
-data class OtpInputViewVariables(
-    val etInput: SelectionEditText,
-    val itemContainer: ConstraintLayout,
-    val tvMessage: TextView,
-    val tvAction: TextView,
-)

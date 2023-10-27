@@ -10,20 +10,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupWindow
-import android.widget.TextView
 import androidx.annotation.DimenRes
 import androidx.annotation.StringRes
-import androidx.constraintlayout.widget.ConstraintLayout
-import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewTooltipBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.visible
 
 class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
 
-    private lateinit var view: TooltipVariables
+    private lateinit var vb: ChiliViewTooltipBinding
 
     private var mDefaultPopupWindowStyleRes = android.R.attr.popupWindowStyle
     private var mOnShowListener: OnShowListener? = null
@@ -83,28 +80,16 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
     }
 
     private fun inflateViews() {
-        val view = LayoutInflater.from(mContext).inflate(R.layout.chili_view_tooltip, null)
-        this.view = TooltipVariables(
-            root = view.findViewById(R.id.cl_root),
-            title = view.findViewById(R.id.tv_title),
-            subtitle = view.findViewById(R.id.tv_subtitle),
-            close = view.findViewById(R.id.img_close),
-            topArrowStart = view.findViewById(R.id.top_arrow_start),
-            topArrowCenter = view.findViewById(R.id.top_arrow_center),
-            topArrowEnd = view.findViewById(R.id.top_arrow_end),
-            bottomArrowStart = view.findViewById(R.id.bottom_arrow_start),
-            bottomArrowCenter = view.findViewById(R.id.bottom_arrow_center),
-            bottomArrowEnd = view.findViewById(R.id.bottom_arrow_end)
-        )
-        mContentLayout = view
+        vb = ChiliViewTooltipBinding.inflate(LayoutInflater.from(mContext))
+        mContentLayout = vb.root
     }
 
     private fun configContentView() {
-        with(view) {
-            root.setOnClickListener { setAction(ON_VIEW_CLICK_ACTION) }
-            title.text = mTitle
-            subtitle.text = mSubtitle
-            close.setOnClickListener { setAction(ON_CLOSE_BTN_ACTION) }
+        with(vb) {
+            clRoot.setOnClickListener { setAction(ON_VIEW_CLICK_ACTION) }
+            tvTitle.text = mTitle
+            tvSubtitle.text = mSubtitle
+            imgClose.setOnClickListener { setAction(ON_CLOSE_BTN_ACTION) }
         }
         initArrow()
         mPopupWindow?.contentView = mContentLayout
@@ -114,32 +99,32 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
         when {
             mGravity == GRAVITY_TOP && mArrowAlign == ALIGN_START -> {
                 hideAllArrows()
-                view.bottomArrowStart.visible()
+                vb.bottomArrowStart.visible()
             }
 
             mGravity == GRAVITY_TOP && mArrowAlign == ALIGN_CENTER -> {
                 hideAllArrows()
-                view.bottomArrowCenter.visible()
+                vb.bottomArrowCenter.visible()
             }
 
             mGravity == GRAVITY_TOP && mArrowAlign == ALIGN_END -> {
                 hideAllArrows()
-                view.bottomArrowEnd.visible()
+                vb.bottomArrowEnd.visible()
             }
 
             mGravity == GRAVITY_BOTTOM && mArrowAlign == ALIGN_START -> {
                 hideAllArrows()
-                view.topArrowStart.visible()
+                vb.topArrowStart.visible()
             }
 
             mGravity == GRAVITY_BOTTOM && mArrowAlign == ALIGN_CENTER -> {
                 hideAllArrows()
-                view.topArrowCenter.visible()
+                vb.topArrowCenter.visible()
             }
 
             mGravity == GRAVITY_BOTTOM && mArrowAlign == ALIGN_END -> {
                 hideAllArrows()
-                view.topArrowEnd.visible()
+                vb.topArrowEnd.visible()
             }
 
             else -> hideAllArrows()
@@ -147,7 +132,7 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
     }
 
     private fun hideAllArrows() {
-        with(view) {
+        with(vb) {
             topArrowStart.gone()
             topArrowCenter.gone()
             topArrowEnd.gone()
@@ -393,16 +378,3 @@ class TooltipView(builder: Builder) : PopupWindow.OnDismissListener {
         const val ON_SKIP_ACTION = "ON_SKIP_ACTION"
     }
 }
-
-private data class TooltipVariables(
-    val root: ConstraintLayout,
-    var title: TextView,
-    var subtitle: TextView,
-    var close: ImageView,
-    var topArrowStart: ImageView,
-    var topArrowCenter: ImageView,
-    var topArrowEnd: ImageView,
-    var bottomArrowStart: ImageView,
-    var bottomArrowCenter: ImageView,
-    var bottomArrowEnd: ImageView
-)

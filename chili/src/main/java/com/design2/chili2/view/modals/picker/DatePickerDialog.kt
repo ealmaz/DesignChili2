@@ -7,18 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager.LayoutParams
-import android.widget.Button
-import android.widget.DatePicker
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliViewDialogDatePickerBinding
 import com.design2.chili2.extensions.setOnSingleClickListener
 import java.util.Calendar
 
 class DatePickerDialog : DialogFragment() {
 
-    lateinit var view: DatePickerDialogVariables
+    lateinit var vb: ChiliViewDialogDatePickerBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
@@ -32,23 +30,19 @@ class DatePickerDialog : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.chili_view_dialog_date_picker, container, false)
+        vb = ChiliViewDialogDatePickerBinding.inflate(inflater, container, false)
+        return vb.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViews(view)
+        setupViews()
         setupPicker(savedInstanceState)
         dialog?.window?.setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
     }
 
-    private fun setupViews(view: View) {
-        this.view = DatePickerDialogVariables(
-            tvTitle = view.findViewById(R.id.tv_title),
-            datePicker = view.findViewById(R.id.datePicker),
-            btnDone = view.findViewById(R.id.btn_done)
-        )
-        this.view.run {
+    private fun setupViews() {
+        this.vb.run {
             tvTitle.text = arguments?.getString(ARG_TITLE)
             btnDone.text = arguments?.getString(ARG_BUTTON_TEXT)
             btnDone.setOnSingleClickListener {
@@ -79,7 +73,7 @@ class DatePickerDialog : DialogFragment() {
 
     private fun getSelectedDate(): Calendar {
         val result = Calendar.getInstance()
-        view.datePicker.run {
+        vb.datePicker.run {
             result.set(year, month, dayOfMonth, 0, 0, 0)
         }
         return result
@@ -91,7 +85,7 @@ class DatePickerDialog : DialogFragment() {
             else -> requireArguments().getSerializable(ARG_CURRENT_DATE) as? Calendar
         }
         (currentDate ?: Calendar.getInstance()).run {
-            view.datePicker.updateDate(
+            vb.datePicker.updateDate(
                 get(Calendar.YEAR),
                 get(Calendar.MONTH),
                 get(Calendar.DAY_OF_MONTH)
@@ -99,10 +93,10 @@ class DatePickerDialog : DialogFragment() {
         }
 
         val endLimitDate = requireArguments().getSerializable(ARG_END_LIMIT_DATE) as? Calendar
-        endLimitDate?.let { view.datePicker.maxDate = endLimitDate.timeInMillis }
+        endLimitDate?.let { vb.datePicker.maxDate = endLimitDate.timeInMillis }
 
         val startLimitDate = requireArguments().getSerializable(ARG_START_LIMIT_DATE) as? Calendar
-        startLimitDate?.let { view.datePicker.minDate = startLimitDate.timeInMillis }
+        startLimitDate?.let { vb.datePicker.minDate = startLimitDate.timeInMillis }
     }
 
     companion object {
@@ -134,9 +128,3 @@ class DatePickerDialog : DialogFragment() {
         }
     }
 }
-
-data class DatePickerDialogVariables(
-    val tvTitle: TextView,
-    val datePicker: DatePicker,
-    val btnDone: Button,
-)
