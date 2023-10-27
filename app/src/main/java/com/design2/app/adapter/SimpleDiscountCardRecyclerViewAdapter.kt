@@ -2,10 +2,10 @@ package com.design2.app.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.app.R
+import com.design2.app.databinding.ItemDiscountCardBinding
 import com.design2.chili2.view.card.IconHolderCardItemView
 
 class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
@@ -16,8 +16,12 @@ class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
     private var data: List<String> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_discount_card, parent, false)
-        return ViewHolder(view)
+        val vb = ItemDiscountCardBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return ViewHolder(vb)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -36,8 +40,8 @@ class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
         return data.size
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val discountCard: IconHolderCardItemView = itemView.findViewById(R.id.card)
+    inner class ViewHolder(vb: ItemDiscountCardBinding) : RecyclerView.ViewHolder(vb.root) {
+        val discountCard: IconHolderCardItemView = vb.card
     }
 
     // Method to update the dataset and refresh the adapter

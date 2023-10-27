@@ -1,12 +1,10 @@
 package com.design2.app.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.design2.app.R
-import com.design2.chili2.view.cells.EditableCellView
+import com.design2.app.databinding.ItemEditableCellBinding
 
 class EditableCellViewsAdapter(var dragStart: ((RecyclerView.ViewHolder) -> Unit)?) :
     RecyclerView.Adapter<EditableCellViewsAdapter.ViewHolder>() {
@@ -18,13 +16,16 @@ class EditableCellViewsAdapter(var dragStart: ((RecyclerView.ViewHolder) -> Unit
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_editable_cell, parent, false)
-        return ViewHolder(view)
+        val vb = ItemEditableCellBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return ViewHolder(vb)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val cell = holder.itemView.findViewById<EditableCellView>(R.id.editable_cell_view)
+        val cell = holder.vb.editableCellView
         cell.isEditMode = this.isEditMode
         cell.setItemDragListener(
             started = {
@@ -49,6 +50,5 @@ class EditableCellViewsAdapter(var dragStart: ((RecyclerView.ViewHolder) -> Unit
         return true
     }
 
-
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {}
+    class ViewHolder(val vb: ItemEditableCellBinding) : RecyclerView.ViewHolder(vb.root) {}
 }

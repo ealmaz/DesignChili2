@@ -1,12 +1,11 @@
 package com.design2.chili2.view.container.grouping_rv
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.design2.chili2.R
+import com.design2.chili2.databinding.ChiliItemNonShadowGroupBinding
 
-class NonShadowGroupVH(val view: View) : BaseGroupingVH(view) {
+class NonShadowGroupVH(val vb: ChiliItemNonShadowGroupBinding) : BaseGroupingVH(vb.root) {
 
     private lateinit var adapter: GroupableAdapter
 
@@ -22,10 +21,14 @@ class NonShadowGroupVH(val view: View) : BaseGroupingVH(view) {
 
     companion object {
         fun create(parent: ViewGroup, adapter: GroupableAdapter): NonShadowGroupVH {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.chili_item_non_shadow_group, parent, false)
-            return NonShadowGroupVH(view).apply {
+            val vb = ChiliItemNonShadowGroupBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+            return NonShadowGroupVH(vb).apply {
                 this.adapter = adapter
-                view.findViewById<RecyclerView>(R.id.rv_items).adapter = adapter as? RecyclerView.Adapter<*>
+                vb.rvItems.adapter = adapter as? RecyclerView.Adapter<*>
             }
         }
     }
