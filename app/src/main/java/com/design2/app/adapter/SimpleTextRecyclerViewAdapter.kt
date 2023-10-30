@@ -30,8 +30,8 @@ class SimpleTextRecyclerViewAdapter(private val context: Context) :
         return data.size
     }
 
-    inner class ViewHolder(vb: ItemSimpleTextBinding) : RecyclerView.ViewHolder(vb.root) {
-        val textView: TextView = vb.tvItem
+    inner class ViewHolder(holderVb: ItemSimpleTextBinding) : RecyclerView.ViewHolder(holderVb.root) {
+        val textView: TextView = holderVb.tvItem
     }
 
     // Method to update the dataset and refresh the adapter

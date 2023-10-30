@@ -38,7 +38,7 @@ open class BaseInputView @JvmOverloads constructor(
     defStyle: Int = R.style.Chili_InputViewStyle_Simple
 ): ConstraintLayout(context, attrs, defStyleAttr, defStyle) {
 
-    lateinit var vb: ChiliViewInputBaseBinding
+    protected lateinit var vb: ChiliViewInputBaseBinding
 
     protected val textWatchers by lazy { mutableListOf<TextWatcher>() }
 

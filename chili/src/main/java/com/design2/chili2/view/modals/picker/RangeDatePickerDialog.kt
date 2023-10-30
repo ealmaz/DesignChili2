@@ -18,7 +18,7 @@ class RangeDatePickerDialog : DialogFragment() {
 
     private var listener: RangePickerListener? = null
 
-    lateinit var vb: ChiliViewDialogRangeDatePickerBinding
+    private lateinit var vb: ChiliViewDialogRangeDatePickerBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)

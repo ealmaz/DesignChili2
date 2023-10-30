@@ -23,7 +23,7 @@ class InfoCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_InfoCellView
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
-    lateinit var vb: ChiliViewCellInfoBinding
+    private lateinit var vb: ChiliViewCellInfoBinding
 
     private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
 

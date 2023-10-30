@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.databinding.ChiliItemNonShadowGroupBinding
 
-class NonShadowGroupVH(val vb: ChiliItemNonShadowGroupBinding) : BaseGroupingVH(vb.root) {
+class NonShadowGroupVH(val holderVb: ChiliItemNonShadowGroupBinding) : BaseGroupingVH(holderVb.root) {
 
     private lateinit var adapter: GroupableAdapter
 
