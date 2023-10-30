@@ -17,7 +17,7 @@ import java.util.*
 
 class TimePickerDialog: DialogFragment() {
 
-    lateinit var vb: ChiliViewDialogTimePickerBinding
+    private lateinit var vb: ChiliViewDialogTimePickerBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)

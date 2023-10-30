@@ -40,8 +40,8 @@ class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
         return data.size
     }
 
-    inner class ViewHolder(vb: ItemDiscountCardBinding) : RecyclerView.ViewHolder(vb.root) {
-        val discountCard: IconHolderCardItemView = vb.card
+    inner class ViewHolder(holderVb: ItemDiscountCardBinding) : RecyclerView.ViewHolder(holderVb.root) {
+        val discountCard: IconHolderCardItemView = holderVb.card
     }
 
     // Method to update the dataset and refresh the adapter

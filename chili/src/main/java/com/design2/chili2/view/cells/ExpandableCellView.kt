@@ -24,7 +24,7 @@ class ExpandableCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_ExpandableCellView
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    lateinit var vb: ChiliViewCellExpandableBinding
+    private lateinit var vb: ChiliViewCellExpandableBinding
 
     private var isCellViewExpanded = false
 

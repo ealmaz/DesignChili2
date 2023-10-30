@@ -10,15 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBottomSheetSearchSelectorItemBinding
 
-class SearchSelectorItemVH(val vb: ChiliViewBottomSheetSearchSelectorItemBinding): RecyclerView.ViewHolder(vb.root) {
+class SearchSelectorItemVH(val holderVb: ChiliViewBottomSheetSearchSelectorItemBinding): RecyclerView.ViewHolder(holderVb.root) {
 
     private var item: Option? = null
 
     fun onBind(item: Option, isLast: Boolean) {
         this.item = item
-        vb.ivChoice.isVisible = item.isSelected
-        vb.tvTitle.text = item.value
-        vb.divider.isVisible = !isLast
+        holderVb.ivChoice.isVisible = item.isSelected
+        holderVb.tvTitle.text = item.value
+        holderVb.divider.isVisible = !isLast
     }
 
     companion object{

@@ -15,7 +15,7 @@ class UneditableInputView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_InputViewStyle_Uneditable
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes)  {
 
-    lateinit var vb: ChiliViewInputUneditableBinding
+    private lateinit var vb: ChiliViewInputUneditableBinding
 
     init {
         initView(context)

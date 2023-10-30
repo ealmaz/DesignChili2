@@ -4,8 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
@@ -20,7 +18,7 @@ class TitledInfoCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_InfoCellView
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    lateinit var vb: ChiliViewTitledInfoCellBinding
+    private lateinit var vb: ChiliViewTitledInfoCellBinding
 
     init {
         initView(context)

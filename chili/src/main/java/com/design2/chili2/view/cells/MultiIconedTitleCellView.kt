@@ -4,13 +4,10 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewMultiIconedCellBinding
 import com.design2.chili2.extensions.setOnSingleClickListener
@@ -32,7 +29,7 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
 
     private val mutableShimmeringViewMap = mutableMapOf<View, ShimmerFrameLayout?>()
 
-    lateinit var vb: ChiliViewMultiIconedCellBinding
+    private lateinit var vb: ChiliViewMultiIconedCellBinding
     lateinit var adapter: MultiIconedAdapter
     lateinit var shimmerAdapter: MultiIconedShimmerAdapter
 

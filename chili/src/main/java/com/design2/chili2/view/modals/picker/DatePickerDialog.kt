@@ -16,7 +16,7 @@ import java.util.Calendar
 
 class DatePickerDialog : DialogFragment() {
 
-    lateinit var vb: ChiliViewDialogDatePickerBinding
+    private lateinit var vb: ChiliViewDialogDatePickerBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)

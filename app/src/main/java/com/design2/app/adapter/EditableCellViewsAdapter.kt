@@ -25,7 +25,7 @@ class EditableCellViewsAdapter(var dragStart: ((RecyclerView.ViewHolder) -> Unit
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val cell = holder.vb.editableCellView
+        val cell = holder.holderVb.editableCellView
         cell.isEditMode = this.isEditMode
         cell.setItemDragListener(
             started = {
@@ -50,5 +50,5 @@ class EditableCellViewsAdapter(var dragStart: ((RecyclerView.ViewHolder) -> Unit
         return true
     }
 
-    class ViewHolder(val vb: ItemEditableCellBinding) : RecyclerView.ViewHolder(vb.root) {}
+    class ViewHolder(val holderVb: ItemEditableCellBinding) : RecyclerView.ViewHolder(holderVb.root) {}
 }

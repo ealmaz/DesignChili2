@@ -35,7 +35,7 @@ open class BaseCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_BaseCellViewStyle
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
-    lateinit var vb: ChiliViewCellBaseBinding
+    protected lateinit var vb: ChiliViewCellBaseBinding
 
     protected val shimmeringPairs: MutableMap<View, ShimmerFrameLayout?> = mutableMapOf()
 
