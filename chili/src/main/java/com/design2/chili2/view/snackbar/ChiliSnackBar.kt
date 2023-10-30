@@ -20,6 +20,7 @@ class ChiliSnackBar private constructor(
     : BaseTransientBottomBar<ChiliSnackBar>(parent, content, content) {
 
     private var timer: CountDownTimer? = null
+    private var vb = content.vb
 
     init {
         getView().setBackgroundColor(ContextCompat.getColor(view.context, android.R.color.transparent))
@@ -44,7 +45,7 @@ class ChiliSnackBar private constructor(
 
     fun setSnackbarIcon(@DrawableRes icon: Int = -1) {
         if (icon == -1) return
-        content.apply {
+        vb.apply {
             ivIcon.visible()
             ivIcon.setImageResource(icon)
             pbProgress.gone()
@@ -55,7 +56,7 @@ class ChiliSnackBar private constructor(
     fun setupSnackbarAsLoading(isInfiniteLoaderSnackbar: Boolean) {
         if (!isInfiniteLoaderSnackbar) return
         setInfinitiveDuration()
-        content.apply {
+        vb.apply {
             ivIcon.invisible()
             tvSecondsLeft.gone()
             pbProgress.indeterminateDrawable = context?.drawable(R.drawable.chili_circular_loop_progress_bar)
@@ -69,18 +70,18 @@ class ChiliSnackBar private constructor(
     }
 
     fun setMessage(message: String?) {
-        content.tvMessage.text = message
+        vb.tvMessage.text = message
     }
 
     fun setMessage(@StringRes messageRes: Int) {
-        content.tvMessage.setText(messageRes)
+        vb.tvMessage.setText(messageRes)
     }
 
     fun setupActionButton(actionInfo: ActionInfo?) {
         when (actionInfo == null) {
-            true -> content.tvAction.gone()
+            true -> vb.tvAction.gone()
             else -> {
-                content.tvAction.apply {
+                vb.tvAction.apply {
                     visible()
                     text = actionInfo.title
                     setOnSingleClickListener { actionInfo.onClick?.invoke(this@ChiliSnackBar) }
@@ -118,17 +119,17 @@ class ChiliSnackBar private constructor(
     }
 
     private fun setupTimerWithCountDown(timerInfo: TimerInfo): CountDownTimer {
-        content.ivIcon.invisible()
-        content.tvSecondsLeft.visible()
-        content.pbProgress.apply {
+        vb.ivIcon.invisible()
+        vb.tvSecondsLeft.visible()
+        vb.pbProgress.apply {
             visible()
             max = timerInfo.durationMills.toInt()
             progressDrawable = context?.drawable(R.drawable.chili_circular_progress_bar)
         }
         return object : CountDownTimer(timerInfo.durationMills, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                content.tvSecondsLeft.text = (millisUntilFinished / 1000 + 1).toString()
-                content.pbProgress.progress = millisUntilFinished.toInt()
+                vb.tvSecondsLeft.text = (millisUntilFinished / 1000 + 1).toString()
+                vb.pbProgress.progress = millisUntilFinished.toInt()
             }
 
             override fun onFinish() {
