@@ -131,6 +131,8 @@ open class BaseCellView @JvmOverloads constructor(
         vb.tvTitle.text = text
     }
 
+    fun setTitleOrHide(title: String?) = vb.tvTitle.setTextOrHide(title)
+
     fun setTitleTextAppearance(@StyleRes resId: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             vb.tvTitle.setTextAppearance(resId)
