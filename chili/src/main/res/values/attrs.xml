@@ -249,6 +249,7 @@
         <attr name="progressColor"/>
         <attr name="progressPercent"/>
         <attr name="animateProgress"/>
+        <attr name="isBackgroundTransparent" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="StatusMarkerCellView">

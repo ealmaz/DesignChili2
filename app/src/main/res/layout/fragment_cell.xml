@@ -43,6 +43,7 @@
             style="@style/ShadowLayoutStyle">
 
             <com.design2.chili2.view.cells.BaseCellView
+                android:id="@+id/cell_first"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:isDividerVisible="false"
@@ -1166,23 +1167,15 @@
             android:layout_marginTop="@dimen/padding_16dp"
             android:text="ProgressCellView" />
 
-        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+        <com.design2.chili2.view.cells.ProgressCellView
+            android:id="@+id/progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_8dp"
-            style="@style/ShadowLayoutStyle">
-
-            <com.design2.chili2.view.cells.ProgressCellView
-                android:id="@+id/progress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:description="Доступный объем кошелька"
-                app:progressBackgroundColor="@color/gray_2"
-                app:progressColor="@color/orange_1"
-                app:progressPercent="50"
-                app:title="98 000,00 с из 100 000 с" />
-
-        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+            app:description="Доступный объем кошелька112"
+            app:progressBackgroundColor="@color/gray_2"
+            app:progressColor="@color/orange_1"
+            app:progressPercent="50"
+            app:title="98 000,00 с из 100 000 с" />
 
         <Button
             android:id="@+id/btn_p1"
@@ -1204,17 +1197,20 @@
             android:layout_marginTop="@dimen/padding_8dp"
             style="@style/ShadowLayoutStyle">
 
-            <com.design2.chili2.view.cells.ProgressCellView
-                android:id="@+id/progress2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:description="Доступный объем кошелька"
-                app:progressBackgroundColor="@color/gray_2"
-                app:progressColor="@color/orange_1"
-                app:progressPercent="50"
-                app:title="98 000,00 с из 100 000 с" />
+
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+        <com.design2.chili2.view.cells.ProgressCellView
+            android:id="@+id/progress2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:isBackgroundTransparent="true"
+            app:description="Доступный объем кошелька"
+            app:progressBackgroundColor="@color/gray_2"
+            app:progressColor="@color/orange_1"
+            app:progressPercent="50"
+            app:title="98 000,00 с из 100 000 с" />
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
             android:layout_width="match_parent"

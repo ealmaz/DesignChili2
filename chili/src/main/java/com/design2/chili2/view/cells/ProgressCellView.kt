@@ -26,7 +26,6 @@ class ProgressCellView @JvmOverloads constructor(
     init {
         initView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
-        setupViews()
     }
 
     private fun initView(context: Context) {
@@ -54,13 +53,19 @@ class ProgressCellView @JvmOverloads constructor(
             getString(R.styleable.ProgressCellView_description)?.let {
                 setDescriptionText(it)
             }
-
+            getBoolean(R.styleable.ProgressCellView_isBackgroundTransparent, false).let {
+                if (it) removeBackground() else setupRoundedBackground()
+            }
             recycle()
         }
     }
 
-    private fun setupViews() {
+    fun setupRoundedBackground() {
         this.setupRoundedCellCornersMode(RoundedCornerMode.SINGLE.value)
+    }
+
+    fun removeBackground() {
+        this.background = null
     }
 
     fun setProgressPercent(progress: Int) {

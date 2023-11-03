@@ -42,6 +42,9 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
                 setAdditionalText("0")
             }
         }
+
+        vb.progress.removeBackground()
+
         val icon =
             "https://tal7aouy.gallerycdn.vsassets.io/extensions/tal7aouy/icons/3.6.3/1679578385939/Microsoft.VisualStudio.Services.Icons.Default"
         vb.multiiconedCellView.setIcons(arrayListOf(icon, icon, icon))
