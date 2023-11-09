@@ -22,13 +22,12 @@
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="ExpandableDiscountCardView"
             android:id="@+id/ecv_discount_container"
+            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:background="@color/white"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            app:endIcon="@drawable/chili_ic_magenta_plus"
-            app:subtitle="Some subtitle"
-            tools:actionText="@string/view">
+            app:subtitle="Some subtitle">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ecv_discount_rv"
@@ -44,10 +43,10 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
+            android:id="@+id/ec_accent"
+            app:isNeedToSaveExpandedState="true"
             app:title="AccentCardView"
-            app:actionText="ActionText"
             app:endIcon="@drawable/ic_visa_banner_logo"
-            app:additionalText="AdditionalText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
@@ -113,6 +112,8 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
+            android:id="@+id/ec_item"
+            app:isNeedToSaveExpandedState="true"
             app:title="ExpandableCardContainer and ExpandableCardItemView"
             app:endIcon="@drawable/chili_ic_magenta_plus"
             app:additionalText="Additional Text"
@@ -246,7 +247,9 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
+            android:id="@+id/ec_category"
             app:title="CategoryCardView"
+            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
@@ -300,6 +303,8 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
+            android:id="@+id/ec_category_2"
+            app:isNeedToSaveExpandedState="true"
             app:title="CategoryCardView(8 dp icon offset)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -355,6 +360,8 @@
 
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="PaymentCardView"
+            android:id="@+id/ec_paymrne"
+            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
@@ -421,6 +428,8 @@
 
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="SimpleCardView"
+            android:id="@+id/ec_simplemCard"
+            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"

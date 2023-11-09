@@ -23,6 +23,7 @@ import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
+import com.design2.chili2.storage.ComponentsPreferences
 import com.design2.chili2.util.IconSize
 
 class ExpandableContainer @JvmOverloads constructor(
@@ -34,10 +35,14 @@ class ExpandableContainer @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewContainerExpandableBinding
 
+    private val componentPref: ComponentsPreferences by lazy {
+        ComponentsPreferences.getInstance(context)
+    }
+
     var isExpanded: Boolean = false
     var isEmpty: Boolean = false
-    var isEndIconClicked: Boolean = false
     var onClosureAction: ((isExpanded: Boolean) -> Unit)? = null
+    private var isNeedToSaveState: Boolean = false
     private var expandedHeight = 0
     private var collapsedHeight = 0
     private var rvMarginsHeight = 0
@@ -79,12 +84,15 @@ class ExpandableContainer @JvmOverloads constructor(
             setAdditionalTextTextAppearance(getResourceId(R.styleable.ExpandableContainer_additionalTextTextAppearance, -1).takeIf { it != -1 })
             setClosureIndicatorVisibility(getBoolean(R.styleable.ExpandableContainer_closureIndicatorVisibility, true))
             setIsExpanded(getBoolean(R.styleable.ExpandableContainer_isExpanded, true), false)
+            setIsNeedToSaveExpandedState(getBoolean(R.styleable.ExpandableContainer_isNeedToSaveExpandedState, false))
             isEmpty = getBoolean(R.styleable.ExpandableContainer_isEmpty, false)
+            restoreStateFromPreferences()
             recycle()
         }
     }
 
     override fun onSaveInstanceState(): Parcelable? {
+        if (isNeedToSaveState) componentPref.saveIsExpandableContainerExpanded(id.toString(), isExpanded)
         val superState = super.onSaveInstanceState()
         return Bundle().apply {
             putParcelable(SUPER_STATE, superState)
@@ -100,6 +108,11 @@ class ExpandableContainer @JvmOverloads constructor(
             )
             super.onRestoreInstanceState(it?.getParcelable(SUPER_STATE))
         }
+    }
+
+    private fun restoreStateFromPreferences() {
+        if (!isNeedToSaveState) return
+        setIsExpanded(componentPref.getIsExpandableContainerExpanded(id.toString()))
     }
 
     fun setTitle(charSequence: CharSequence?) {
@@ -221,36 +234,36 @@ class ExpandableContainer @JvmOverloads constructor(
 
     private fun setupClosureButton() {
         vb.ivClosureIndicator.setOnClickListener {
-            isEndIconClicked = true
             setIsExpanded(!isExpanded)
             onClosureAction?.invoke(isExpanded)
         }
         vb.tvTitle.setOnClickListener {
-            isEndIconClicked = true
             setIsExpanded(!isExpanded)
             onClosureAction?.invoke(isExpanded)
         }
     }
 
     fun setIsExpanded(isExpanded: Boolean, isAnimated: Boolean = true, isExpandingAnimated: Boolean = true) {
-        if (isEndIconClicked){
-            this.isExpanded = isExpanded
-            if (this.isExpanded) {
-                rotateChevron(0f, isAnimated)
-                vb.tvSubtitle.isVisible = !vb.tvSubtitle.text.isNullOrBlank()
-            } else {
-                rotateChevron(-90f, isAnimated)
-                collapsedHeight = 0
-                vb.tvSubtitle.gone()
-            }
-
-            vb.tvSubtitle.post {
-                if (isExpandingAnimated) {
-                    animateExpanding(isAnimated, isExpanded)
-                }
-                childrenViewsVisibilityAfterAnimation(isExpanded)
-            }
+        this.isExpanded = isExpanded
+        if (this.isExpanded) {
+            rotateChevron(0f, isAnimated)
+            vb.tvSubtitle.isVisible = !vb.tvSubtitle.text.isNullOrBlank()
+        } else {
+            rotateChevron(-90f, isAnimated)
+            collapsedHeight = 0
+            vb.tvSubtitle.gone()
         }
+
+        vb.tvSubtitle.post {
+            if (isExpandingAnimated) {
+                animateExpanding(isAnimated, isExpanded)
+            }
+            childrenViewsVisibilityAfterAnimation(isExpanded)
+        }
+    }
+
+    fun setIsNeedToSaveExpandedState(isNeed: Boolean) {
+        this.isNeedToSaveState = isNeed
     }
 
     private fun animateExpanding(isAnimated: Boolean, isExpanded: Boolean) {
