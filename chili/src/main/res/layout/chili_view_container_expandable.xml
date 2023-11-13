@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Chili.H7.Primary.700"
-            tools:text="Историяdewd wedw wed" />
+            tools:text="История" />
 
         <ImageView
             android:id="@+id/iv_closure_indicator"
@@ -48,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="@id/title_container"
         app:layout_constraintEnd_toStartOf="@id/tv_action"
         tools:visibility="visible"
-        tools:text="AdditionalText" />
+        tools:text="Additional text" />
 
     <TextView
         android:id="@+id/tv_action"
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toTopOf="@id/title_container"
         app:layout_constraintBottom_toBottomOf="@id/title_container"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:src="@drawable/chili_ic_attention"
+        tools:src="@drawable/chili_ic_option"
         tools:visibility="visible" />
 
     <TextView

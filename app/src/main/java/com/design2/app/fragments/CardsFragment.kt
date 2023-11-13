@@ -21,6 +21,8 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
 //    private var simpleList = listOf("Test 1", "Test 2", "Test 3")
     private var simpleList = listOf<String>()
 
+    var isExpanded = false
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,14 +49,21 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
             }, 1000)
         }
         vb.bankCardView.setCardCvv("321")
+        vb.btnExpand.setOnClickListener {
+            setExpandedState(!isExpanded)
+        }
+    }
+
+    private fun setExpandedState(isExpanded: Boolean) {
+        this.isExpanded = isExpanded
+        setAllContainersIsExpanded(isExpanded)
     }
 
     private fun initDiscountCard(){
         discountCardAdapter = SimpleDiscountCardRecyclerViewAdapter(requireContext())
         vb.ecvDiscountRv.layoutManager = LinearLayoutManager(requireContext())
         vb.ecvDiscountRv.adapter = discountCardAdapter
-        discountCardAdapter.updateListWithIcons(listOf("https://minio.o.kg/pams-receiver-documents/33944000008719-kvxZCbF1Gpb7iDGSyGXhgEcsRbvoKTOx3cYWIlK89mPgSI3L4F.pdf"))
-        vb.ecvDiscountContainer.setState("Test case", false)
+        discountCardAdapter.updateListWithIcons(listOf("https://minio.o.kg/pams-receiver-documents/33944000008719-kvxZCbF1Gpb7iDGSyGXhgEcsRbvoKTOx3cYWIlK89mPgSI3L4F.png"))
     }
 
     private fun initRV(){
@@ -131,4 +140,6 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         super.stopShimmering()
         vb.root.stopGroupShimmering()
     }
+
+
 }

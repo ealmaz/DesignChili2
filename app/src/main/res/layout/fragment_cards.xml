@@ -18,22 +18,32 @@
         android:clipChildren="false"
         tools:context=".MainActivity">
 
+        <Button
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:id="@+id/btn_expand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Expand/hide all"/>
+
 
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="ExpandableDiscountCardView"
             android:id="@+id/ecv_discount_container"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
-            android:background="@color/white"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_16dp"
-            app:subtitle="Some subtitle">
+            android:layout_marginTop="@dimen/padding_16dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ecv_discount_rv"
                 android:layout_marginTop="@dimen/padding_8dp"
                 tools:itemCount="3"
                 android:orientation="horizontal"
+                android:clipToPadding="false"
+                android:clipChildren="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/item_discount_card"
                 android:layout_width="match_parent"
@@ -114,9 +124,8 @@
         <com.design2.chili2.view.container.ExpandableContainer
             android:id="@+id/ec_item"
             app:isNeedToSaveExpandedState="true"
-            app:title="ExpandableCardContainer and ExpandableCardItemView"
+            app:title="ExpandableCardContainer"
             app:endIcon="@drawable/chili_ic_magenta_plus"
-            app:additionalText="Additional Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
@@ -514,23 +523,23 @@
             android:layout_width="match_parent"
             android:background="@color/white"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_16dp"
             app:endIcon="@drawable/chili_ic_magenta_plus"
             app:subtitle="Some subtitle"
             tools:actionText="@string/view">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ecv_rv"
-                android:layout_marginTop="@dimen/padding_8dp"
+                android:paddingTop="@dimen/padding_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingEnd="@dimen/padding_8dp" />
 
         </com.design2.chili2.view.container.ExpandableContainer>
 
-
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="BalanceCardView"
+            android:id="@+id/balanceContainer"
+            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
@@ -633,6 +642,8 @@
 
         <com.design2.chili2.view.container.ExpandableContainer
             app:title="BankCardView"
+            android:id="@+id/promoBankCardView"
+            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
@@ -692,6 +703,8 @@
             android:layout_height="wrap_content"
             android:clipChildren="false"
             android:clipToPadding="false"
+            android:id="@+id/promoBannerCard"
+            app:isNeedToSaveExpandedState="true"
             app:title="PromoBannerCard">
 
             <HorizontalScrollView
