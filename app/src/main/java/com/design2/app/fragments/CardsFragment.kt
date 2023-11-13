@@ -90,14 +90,11 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
             setSubtitle(text)
             setEndIcon(R.drawable.plus)
             setActionText(emptyText)
-            setIsListEmpty(true)
         }else{
             setSubtitle(emptyText)
             setEndIcon(null)
             setActionText("Action")
-            setIsListEmpty(false)
         }
-        setIsExpanded(isExpanded)
     }
 
     private var isElcapSubtitleShimmerShow = false
