@@ -114,12 +114,14 @@ class ExpandableContainer @JvmOverloads constructor(
         vb.tvTitle.setTextAppearance(resId)
     }
 
-    fun setSubtitle(charSequence: CharSequence?) {
-        vb.tvSubtitle.setTextOrHide(charSequence)
+    fun setSubtitle(charSequence: CharSequence?) = with(vb.tvSubtitle) {
+        setText(charSequence)
+        isVisible = (charSequence != null && isExpanded)
     }
 
-    fun setSubtitle(resId: Int?) {
-        vb.tvSubtitle.setTextOrHide(resId)
+    fun setSubtitle(resId: Int?) = with(vb.tvSubtitle) {
+        resId?.let { setText(it) }
+        isVisible = (resId != null && isExpanded)
     }
 
     fun setSubtitleTextAppearance(@StyleRes resId: Int?) {
