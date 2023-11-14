@@ -128,6 +128,10 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
         }
     }
 
+    fun setOnItemClicked(clickListener : () -> Unit){
+        adapter.listener = clickListener
+    }
+
     fun setIcons(icons: ArrayList<String>) {
         adapter.addIcons(icons)
     }
