@@ -111,6 +111,15 @@ open class BaseCellView @JvmOverloads constructor(
                 getDimensionPixelSize(R.styleable.BaseCellView_android_minHeight, -1).takeIf { it != -1 }?.let {
                     updateRootViewMinHeight(it)
                 }
+                getInteger(R.styleable.BaseCellView_android_maxLines, -1).takeIf { it != -1 }?.let {
+                    setTitleMaxLines(it)
+                }
+                getInteger(R.styleable.BaseCellView_titleMaxLines, -1).takeIf { it != -1 }?.let {
+                    setTitleMaxLines(it)
+                }
+                getInteger(R.styleable.BaseCellView_subtitleMaxLines, -1).takeIf { it != -1 }?.let {
+                    setSubtitleMaxLines(it)
+                }
                 recycle()
             }
     }
@@ -139,6 +148,10 @@ open class BaseCellView @JvmOverloads constructor(
         } else {
             vb.tvTitle.setTextAppearance(context, resId)
         }
+    }
+
+    fun setTitleMaxLines(maxLines: Int) {
+        vb.tvTitle.maxLines = maxLines
     }
 
     fun updateTitleMargin(startMarginPx: Int? = null, topMarginPx: Int? = null, endMarginPx: Int? = null, bottomMarginPx: Int? = null) {
@@ -170,6 +183,10 @@ open class BaseCellView @JvmOverloads constructor(
 
     fun setSubtitleTextAppearance(@StyleRes resId: Int) {
         vb.tvSubtitle.setTextAppearance(resId)
+    }
+
+    fun setSubtitleMaxLines(maxLines: Int) {
+        vb.tvSubtitle.maxLines = maxLines
     }
 
     fun setIcon(@DrawableRes drawableRes: Int) {

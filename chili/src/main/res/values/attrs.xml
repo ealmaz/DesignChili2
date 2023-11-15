@@ -169,6 +169,9 @@
         <attr name="titleTextAppearance"/>
         <attr name="subtitleTextAppearance"/>
         <attr name="android:minHeight" format="dimension"/>
+        <attr name="android:maxLines"/>
+        <attr name="titleMaxLines"/>
+        <attr name="subtitleMaxLines"/>
     </declare-styleable>
 
     <declare-styleable name="ToggleCellView">
