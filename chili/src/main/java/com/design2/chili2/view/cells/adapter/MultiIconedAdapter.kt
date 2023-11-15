@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.view.image.SquircleView
 
-class MultiIconedAdapter : RecyclerView.Adapter<MultiIconedAdapter.IconVH>() {
+class MultiIconedAdapter(var listener : (() -> Unit)? = null) : RecyclerView.Adapter<MultiIconedAdapter.IconVH>() {
 
     private val icons = ArrayList<String>()
 
@@ -35,6 +36,7 @@ class MultiIconedAdapter : RecyclerView.Adapter<MultiIconedAdapter.IconVH>() {
         fun bind(item: String) {
             val ivImg = itemView.findViewById<SquircleView>(R.id.iv_img)
             ivImg.setImageByUrl(item)
+            ivImg.setOnSingleClickListener { listener?.invoke() }
         }
     }
 }

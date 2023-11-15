@@ -2,12 +2,12 @@ package com.design2.app.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.text.parseAsHtml
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.app.MainActivity
-import com.design2.app.R
 import com.design2.app.adapter.EditableCellViewsAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
@@ -48,6 +48,9 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         val icon =
             "https://tal7aouy.gallerycdn.vsassets.io/extensions/tal7aouy/icons/3.6.3/1679578385939/Microsoft.VisualStudio.Services.Icons.Default"
         vb.multiiconedCellView.setIcons(arrayListOf(icon, icon, icon))
+        vb.multiiconedCellView.setOnItemClicked {
+            Toast.makeText(this.context, "Cell Clicked", Toast.LENGTH_SHORT).show()
+        }
 
         val adapter = EditableCellViewsAdapter(null)
         val touchHelper = getItemTouchHelper(adapter)
