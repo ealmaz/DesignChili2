@@ -25,7 +25,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="@dimen/padding_8dp"
-        android:paddingBottom="@dimen/padding_8dp">
+        android:paddingBottom="@dimen/padding_8dp"
+        android:layout_margin="@dimen/padding_16dp">
 
         <ImageView
             android:id="@+id/iv_close"
