@@ -128,6 +128,22 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 ))
                 .show()
         }
+        vb.detailCustom.setOnClickListener {
+            DetailedInfoBottomSheet.Builder()
+                .setIcon(R.drawable.ic_cat)
+                .setMessage(R.string.agree_terms)
+                .setIconSizeDimenRes(com.design2.chili2.R.dimen.view_64dp)
+                .setIsTopDrawableVisible(false)
+                .setPrimaryButton("Start" to {
+                    this.dismiss()
+                })
+                .setSecondaryButton("Later" to {
+                    this.dismiss()
+                })
+                .setTextCentered(true)
+                .build()
+                .show(childFragmentManager)
+        }
     }
 
     override fun inflateViewBinging(): FrgmentBottomSheetsBinding {

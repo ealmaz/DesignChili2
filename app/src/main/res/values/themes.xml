@@ -17,4 +17,9 @@
         <!-- Customize your theme here. -->
         <item name="windowColor">@color/gray_4</item>
     </style>
+
+    <style name="Centered" parent="Chili.H7.Primary.700">
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>

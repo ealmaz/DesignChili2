@@ -37,6 +37,14 @@
             android:layout_margin="@dimen/padding_16dp"/>
 
         <Button
+            android:id="@+id/detailCustom"
+            android:text="Detailed info bottom sheet with custom"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
+        <Button
             android:id="@+id/description"
             android:text="Description bottom sheet"
             style="@style/Chili.ButtonStyle.Primary"

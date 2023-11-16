@@ -2,6 +2,7 @@ package com.design2.chili2.view.modals.bottom_sheet
 
 import android.os.Bundle
 import android.text.Spanned
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,9 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     private var text: String? = null
     private var textSpanned: Spanned? = null
     private var textResId: Int? = null
+
+    private var titleTextCentered: Boolean? = null
+    private var textCentered: Boolean? = null
 
     private var title: String? = null
     private var titleSpanned: Spanned? = null
@@ -70,6 +74,14 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
             vb.tvTitle.setText(it)
         }
 
+        titleTextCentered?.let {
+            if (it) vb.tvTitle.gravity = Gravity.CENTER
+        }
+
+        textCentered?.let {
+            if (it) vb.tvText.gravity = Gravity.CENTER
+        }
+
         text?.let { setMessage(it) }
         textSpanned?.let { setMessage(it) }
         textResId?.let { setMessage(it)}
@@ -79,7 +91,9 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         iconSizeDimenRes?.let {
             vb.ivIcon.apply {
                 val size = context.resources.getDimensionPixelSize(it)
-                layoutParams = LinearLayout.LayoutParams(size, size)
+                layoutParams = LinearLayout.LayoutParams(size, size).apply {
+                    gravity = Gravity.CENTER
+                }
                 requestLayout()
             }
         }
@@ -173,6 +187,9 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         private var secondaryButton: Pair<String, (DetailedInfoBottomSheet.() -> Unit)>? = null
         private var secondaryButtonRes: Pair<Int, (DetailedInfoBottomSheet.() -> Unit)>? = null
 
+        private var titleTextCentered: Boolean? = null
+        private var textCentered: Boolean? = null
+
         private var isHideable: Boolean = true
 
         fun setMessage(text: String): Builder {
@@ -187,6 +204,16 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
         fun setMessage(textResId: Int): Builder {
             this.textResId = textResId
+            return this
+        }
+
+        fun setTitleCentered(titleCentered: Boolean): Builder {
+            this.titleTextCentered = titleCentered
+            return this
+        }
+
+        fun setTextCentered(textCentered: Boolean): Builder {
+            this.textCentered = textCentered
             return this
         }
 
@@ -267,6 +294,8 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
                 this.isHideable = this@Builder.isHideable
                 this.hasCloseIcon = this@Builder.hasCloseIcon
                 this.topDrawableVisible = this@Builder.isTopDrawableVisible
+                this.textCentered = this@Builder.textCentered
+                this.titleTextCentered = this@Builder.titleTextCentered
             }
         }
     }
