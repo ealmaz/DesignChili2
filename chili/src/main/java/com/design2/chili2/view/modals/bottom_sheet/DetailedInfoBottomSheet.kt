@@ -1,5 +1,6 @@
 package com.design2.chili2.view.modals.bottom_sheet
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Spanned
 import android.view.Gravity
@@ -39,6 +40,8 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
     private var secondaryButton: Pair<String, (DetailedInfoBottomSheet.() -> Unit)>? = null
     private var secondaryButtonRes: Pair<Int, (DetailedInfoBottomSheet.() -> Unit)>? = null
+
+    private var onDismissCallback: (() -> Unit)? = null
 
 
     override var hasCloseIcon: Boolean = true
@@ -166,6 +169,11 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         }
     }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        onDismissCallback?.invoke()
+    }
+
     class Builder {
         private var text: String? = null
         private var textSpanned: Spanned? = null
@@ -191,6 +199,8 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         private var textCentered: Boolean? = null
 
         private var isHideable: Boolean = true
+
+        private var onDismissCallback: (() -> Unit)? = null
 
         fun setMessage(text: String): Builder {
             this.text = text
@@ -277,6 +287,11 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
             return this
         }
 
+        fun setOnDismissCallback(callback: () -> Unit): Builder {
+            this.onDismissCallback = callback
+            return this
+        }
+
         fun build(): DetailedInfoBottomSheet {
             return DetailedInfoBottomSheet().apply {
                 this.text = this@Builder.text
@@ -296,6 +311,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
                 this.topDrawableVisible = this@Builder.isTopDrawableVisible
                 this.textCentered = this@Builder.textCentered
                 this.titleTextCentered = this@Builder.titleTextCentered
+                this.onDismissCallback = this@Builder.onDismissCallback
             }
         }
     }

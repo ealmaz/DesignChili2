@@ -140,6 +140,9 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .setSecondaryButton("Later" to {
                     this.dismiss()
                 })
+                .setOnDismissCallback {
+                    Toast.makeText(requireContext(), "OnDismiss", Toast.LENGTH_SHORT).show()
+                }
                 .setTextCentered(true)
                 .build()
                 .show(childFragmentManager)
