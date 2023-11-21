@@ -11,6 +11,7 @@ import com.design2.app.adapter.SimpleDiscountCardRecyclerViewAdapter
 import com.design2.app.adapter.SimpleTextRecyclerViewAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCardsBinding
+import com.design2.chili2.view.card.CardFieldToggleState
 import com.design2.chili2.view.container.ExpandableContainer
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
@@ -46,6 +47,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         vb.bankCardView.setupCvvToggle {
             vb.root.postDelayed({
                 vb.bankCardView.setCardCvv("321")
+                vb.bankCardView.setPanToggleState(CardFieldToggleState.ICON_NONE)
             }, 1000)
         }
         vb.bankCardView.setCardCvv("321")

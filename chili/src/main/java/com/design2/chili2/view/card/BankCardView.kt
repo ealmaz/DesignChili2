@@ -239,19 +239,30 @@ class BankCardView @JvmOverloads constructor(
         llCardPan.setOnClickListener {
             if (isPanShimmering) return@setOnClickListener
             if (panToggleState == CardFieldToggleState.ICON_SHOW) {
-                isPanShimmering = true
-                tvCardPan.gone()
-                panShimmer.visible()
-                ivPanToggle.invisible()
-                panToggleState = CardFieldToggleState.ICON_COPY
-                ivPanToggle.setImageResource(R.drawable.chili_ic_copy)
                 onClick()
-            } else {
-                panToggleState = CardFieldToggleState.ICON_SHOW
-                ivPanToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
-                setCardPan(pan)
-                copyText(pan)
             }
+            togglePanToggleState()
+        }
+    }
+
+    fun setPanToggleState(panToggleState: CardFieldToggleState) {
+        this.panToggleState = panToggleState
+        togglePanToggleState()
+    }
+
+    fun togglePanToggleState() = with(vb) {
+        if (panToggleState == CardFieldToggleState.ICON_SHOW) {
+            isPanShimmering = true
+            tvCardPan.gone()
+            panShimmer.visible()
+            ivPanToggle.invisible()
+            panToggleState = CardFieldToggleState.ICON_COPY
+            ivPanToggle.setImageResource(R.drawable.chili_ic_copy)
+        } else {
+            panToggleState = CardFieldToggleState.ICON_SHOW
+            ivPanToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
+            setCardPan(pan)
+            copyText(pan)
         }
     }
 
@@ -262,20 +273,29 @@ class BankCardView @JvmOverloads constructor(
         llCvv.isFocusable = true
         llCvv.setOnClickListener {
             if (isCvvShimmering) return@setOnClickListener
-            if (cvvToggleState == CardFieldToggleState.ICON_SHOW) {
-                isCvvShimmering = true
-                tvCvv.gone()
-                ivCvvToggle.invisible()
-                cvvShimmer.visible()
-                cvvToggleState = CardFieldToggleState.ICON_COPY
-                ivCvvToggle.setImageResource(R.drawable.chili_ic_copy)
-                onClick()
-            } else {
-                cvvToggleState = CardFieldToggleState.ICON_SHOW
-                ivCvvToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
-                setCardCvv(cvv)
-                copyText(cvv)
-            }
+            if (cvvToggleState == CardFieldToggleState.ICON_SHOW) { onClick() }
+            toggleCvvToggleState()
+        }
+    }
+
+    fun setCvvToggleState(cvvToggleState: CardFieldToggleState) {
+        this.cvvToggleState = cvvToggleState
+        toggleCvvToggleState()
+    }
+
+    fun toggleCvvToggleState() = with(vb) {
+        if (cvvToggleState == CardFieldToggleState.ICON_SHOW) {
+            isCvvShimmering = true
+            tvCvv.gone()
+            ivCvvToggle.invisible()
+            cvvShimmer.visible()
+            cvvToggleState = CardFieldToggleState.ICON_COPY
+            ivCvvToggle.setImageResource(R.drawable.chili_ic_copy)
+        } else {
+            cvvToggleState = CardFieldToggleState.ICON_SHOW
+            ivCvvToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
+            setCardCvv(cvv)
+            copyText(cvv)
         }
     }
 
