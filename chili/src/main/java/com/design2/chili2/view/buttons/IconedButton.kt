@@ -62,10 +62,6 @@ class IconedButton @JvmOverloads constructor(
         }
     }
 
-    override fun setOnClickListener(l: OnClickListener?) {
-        vb.rootView.setOnClickListener(l)
-    }
-
     override fun isEnabled(): Boolean {
         return vb.rootView.isEnabled
     }

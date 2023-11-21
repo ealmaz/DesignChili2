@@ -6,6 +6,7 @@ import com.design2.app.MainActivity
 import com.design2.app.R
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentButtonsBinding
+import com.design2.chili2.extensions.setOnSingleClickListener
 
 class ButtonsFragment : BaseFragment<FragmentButtonsBinding>() {
 
@@ -19,6 +20,9 @@ class ButtonsFragment : BaseFragment<FragmentButtonsBinding>() {
             vb.loader.setIsLoading(false)
         }
         vb.iconedButton.setIcon(R.drawable.ic_market)
+        vb.iconedButton.setOnSingleClickListener {
+            println("Click")
+        }
     }
 
     override fun inflateViewBinging(): FragmentButtonsBinding {
