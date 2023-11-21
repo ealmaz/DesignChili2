@@ -245,8 +245,8 @@ class BankCardView @JvmOverloads constructor(
         }
     }
 
-    fun setPanToggleState(panToggleState: CardFieldToggleState) {
-        this.panToggleState = panToggleState
+    fun resetPanToggleState() {
+        this.panToggleState = CardFieldToggleState.ICON_NONE
         togglePanToggleState()
     }
 
@@ -278,8 +278,8 @@ class BankCardView @JvmOverloads constructor(
         }
     }
 
-    fun setCvvToggleState(cvvToggleState: CardFieldToggleState) {
-        this.cvvToggleState = cvvToggleState
+    fun resetCvvToggleState() {
+        this.cvvToggleState = CardFieldToggleState.ICON_NONE
         toggleCvvToggleState()
     }
 
