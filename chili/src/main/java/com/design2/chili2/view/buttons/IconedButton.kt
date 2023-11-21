@@ -62,14 +62,6 @@ class IconedButton @JvmOverloads constructor(
         }
     }
 
-    override fun isEnabled(): Boolean {
-        return vb.rootView.isEnabled
-    }
-
-    override fun setEnabled(enabled: Boolean) {
-        vb.rootView.isEnabled = enabled
-    }
-
     fun setTextColor(@ColorInt color: Int) {
         vb.tvTitle.setTextColor(color)
     }
