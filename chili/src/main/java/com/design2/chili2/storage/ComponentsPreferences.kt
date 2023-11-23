@@ -17,6 +17,10 @@ class ComponentsPreferences(context: Context) {
         return pref.getBoolean(containerId, true)
     }
 
+    fun resetAll() {
+        pref.edit { clear() }
+    }
+
     companion object {
 
         const val STORAGE_NAME = "com.design2.chili2.storage.ComponentsPreferences"
