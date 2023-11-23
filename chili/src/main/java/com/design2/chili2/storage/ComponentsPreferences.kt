@@ -18,7 +18,7 @@ class ComponentsPreferences(context: Context) {
     }
 
     fun resetAll() {
-        pref.edit { clear() }
+        pref.edit(commit = true) { clear() }
     }
 
     companion object {
