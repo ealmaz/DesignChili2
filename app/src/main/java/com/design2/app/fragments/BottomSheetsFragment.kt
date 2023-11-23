@@ -1,25 +1,126 @@
 package com.design2.app.fragments
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.design2.app.MainActivity
 import com.design2.app.R
+import com.design2.app.adapter.SimpleTextRecyclerViewAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FrgmentBottomSheetsBinding
+import com.design2.chili2.extensions.dp
 import com.design2.chili2.view.modals.base.BaseFragmentBottomSheetDialogFragment
 import com.design2.chili2.view.modals.bottom_sheet.*
 import com.design2.chili2.view.modals.bottom_sheet.serach_bottom_sheet.Option
 import com.design2.chili2.view.modals.bottom_sheet.serach_bottom_sheet.SearchSelectorBottomSheet
+import com.design2.chili2.view.modals.bottom_sheet_constructor.BottomSheetConfig
+import com.design2.chili2.view.modals.bottom_sheet_constructor.Margins
+import com.design2.chili2.view.modals.bottom_sheet_constructor.buildBottomSheet
 import com.design2.chili2.view.modals.in_app.InAppPushBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
+
+    val list: RecyclerView by lazy {
+        RecyclerView(requireContext()).apply {
+            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = SimpleTextRecyclerViewAdapter(requireContext()).apply {
+                updateList(listOf(
+                    "Назначение платежа:\nBalance",
+                    "Реквизит:\n+996777999000",
+                    "Сумма:\n5000,00 c",
+                    "Комиссия:\n151,00 с",
+                    "Оплачено: \n5000",
+                    "Способ оплаты:\n" + "VISA •••• 6445",
+                    "Дата совершения перевода:\n" + "12.02.2020 / 14:13:27",
+                    "Квитанция:\n" + "123681263786128"
+                )
+
+                )
+            }
+        }
+    }
+
+
+    var customBS1: BottomSheetDialogFragment? = null
+
+    val customBS2: BottomSheetDialogFragment by lazy {
+        requireContext().buildBottomSheet(BottomSheetConfig()) {
+            block(Gravity.CENTER, LinearLayout.VERTICAL) {
+                image(R.drawable.ic_cat, com.design2.chili2.R.dimen.view_64dp, margins = Margins(top = 10.dp, bottom = 16.dp))
+                customView(list)
+            }
+            block(Gravity.CENTER, LinearLayout.HORIZONTAL) {
+                button(
+                    textCharSequence = "Ясно",
+                    buttonStyle = com.design2.chili2.R.style.Chili_ButtonStyle_Additional,
+                    margins = Margins(top = 16.dp, left = 16.dp, right = 8.dp, bottom = 16.dp)
+                ) {
+                    Toast.makeText(requireContext(), "ясно", Toast.LENGTH_SHORT).show()
+                }
+                button(
+                    textCharSequence = "Понятно",
+                    buttonStyle = com.design2.chili2.R.style.Chili_ButtonStyle_Primary,
+                    margins = Margins(top = 16.dp, right = 16.dp, bottom = 16.dp)
+                ) {
+                    Toast.makeText(requireContext(), "Понятно", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+        }
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        customBS1 = requireContext().buildBottomSheet(BottomSheetConfig()) {
+            block(Gravity.CENTER, LinearLayout.VERTICAL) {
+                image(
+                    R.drawable.ic_cat,
+                    com.design2.chili2.R.dimen.view_64dp,
+                    margins = Margins(top = 10.dp, bottom = 16.dp)
+                )
+                text(
+                    textCharSequence = "Заголовок содержит в себе до 60\nсимволов и может быть в 2 строки",
+                    textAppearance = com.design2.chili2.R.style.Chili_H8_Primary_Bold,
+                    isCentered = true,
+                    margins = Margins(left = 16.dp, right = 16.dp, bottom = 8.dp)
+                )
+                text(
+                    textCharSequence = "Описание содержит до 113 символов, что очень приятно, потому что теперь можно написать его аж в целых три строки и развернуть любую мысль",
+                    textAppearance = com.design2.chili2.R.style.Chili_H8_Primary,
+                    isCentered = true,
+                    margins = Margins(left = 16.dp, right = 16.dp)
+                )
+            }
+
+            block(Gravity.CENTER, LinearLayout.VERTICAL) {
+                button(
+                    textCharSequence = "Ясно",
+                    buttonStyle = com.design2.chili2.R.style.Chili_ButtonStyle_Additional,
+                    margins = Margins(top = 16.dp, left = 16.dp, right = 16.dp, bottom = 12.dp)
+                ) {
+                    Toast.makeText(requireContext(), "ясно", Toast.LENGTH_SHORT).show()
+                }
+                button(
+                    textCharSequence = "Понятно",
+                    buttonStyle = com.design2.chili2.R.style.Chili_ButtonStyle_Primary,
+                    margins = Margins(left = 16.dp, right = 16.dp, bottom = 12.dp)
+                ) {
+                    Toast.makeText(requireContext(), "Понятно", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+
         (activity as MainActivity).setUpHomeEnabled(true)
         vb.action.setOnClickListener {
             ActionBottomSheet.create(listOf(
@@ -147,6 +248,21 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .build()
                 .show(childFragmentManager)
         }
+
+
+        vb.bsConstructor.setOnClickListener {
+            customBS1?.show(childFragmentManager, null)
+        }
+
+
+        vb.bsConstructor2.setOnClickListener {
+            customBS2.show(childFragmentManager, null)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        customBS1 = null
     }
 
     override fun inflateViewBinging(): FrgmentBottomSheetsBinding {

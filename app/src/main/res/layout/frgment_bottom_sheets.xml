@@ -100,6 +100,21 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_16dp"/>
 
+        <Button
+            android:id="@+id/bs_constructor"
+            android:layout_width="match_parent"
+            android:text="BS constructor"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_margin="@dimen/padding_16dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/bs_constructor2"
+            android:layout_width="match_parent"
+            android:text="BS constructor2"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_margin="@dimen/padding_16dp"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
