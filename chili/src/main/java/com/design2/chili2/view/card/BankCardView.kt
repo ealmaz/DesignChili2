@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
+import androidx.core.view.isInvisible
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBankCardBinding
 import com.design2.chili2.extensions.color
@@ -165,6 +166,10 @@ class BankCardView @JvmOverloads constructor(
             }
             else invisible()
         }
+    }
+
+    fun setStartIconVisibility(isVisible: Boolean) {
+        vb.ivStartIcon.isInvisible = !isVisible
     }
 
     fun setCardPanHidingDelegate(delegate :((CharSequence?, Boolean) -> CharSequence)) {
