@@ -75,6 +75,7 @@ class BankCardView @JvmOverloads constructor(
         setCardDueDate(getText(R.styleable.BankCardView_dueDate))
         setCardIcon(getResourceId(R.styleable.BankCardView_cardIcon, -1).takeIf { it != -1 })
         setStartIcon(getResourceId(R.styleable.BankCardView_startIcon, -1).takeIf { it != -1 })
+        setStartIconVisibility(getBoolean(R.styleable.BankCardView_isStartIconVisible, false))
     }
 
     override fun setupView() {

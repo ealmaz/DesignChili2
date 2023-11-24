@@ -422,6 +422,7 @@
         <attr name="isCvvToggleEnabled" format="boolean"/>
         <attr name="isCardPanToggleEnabled" format="boolean"/>
         <attr name="startIcon"/>
+        <attr name="isStartIconVisible" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="UneditableInputView">
