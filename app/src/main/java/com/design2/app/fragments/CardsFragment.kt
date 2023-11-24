@@ -39,6 +39,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         initDiscountCard()
         initBanners()
         vb.bankCardIcon.setStartIcon(R.drawable.gpay)
+        vb.bankCardIcon.setStartIcon(R.drawable.gpay)
         vb.bankCardView.setupCardPanToggle {
             vb.root.postDelayed({
                                 vb.bankCardView.setCardPan("9417 1243 3425 4215")

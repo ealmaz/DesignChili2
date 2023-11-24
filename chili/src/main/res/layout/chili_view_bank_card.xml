@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:background="@color/blue_2">
 
     <ImageView
@@ -14,6 +14,8 @@
         android:layout_marginStart="@dimen/padding_17dp"
         android:layout_marginTop="@dimen/padding_12dp"
         android:visibility="gone"
+        tools:visibility="visible"
+        tools:src="@drawable/chili_ic_done"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,9 +31,11 @@
         android:foreground="@drawable/chili_ripple_rounded_corner_foreground"
         android:padding="@dimen/padding_12dp"
         android:theme="@style/ThemeOverlay_chili_back_card_field_ripple"
+        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_start_icon">
+        app:layout_constraintTop_toBottomOf="@id/iv_start_icon"
+        app:layout_constraintBottom_toTopOf="@id/ll_cvv">
 
         <TextView
             android:id="@+id/tv_card_pan"
@@ -85,13 +89,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_16dp"
         android:layout_marginEnd="@dimen/padding_16dp"
+        android:layout_marginBottom="@dimen/padding_24dp"
         android:background="@drawable/chili_bg_card_bank_fields_rounded"
         android:drawablePadding="@dimen/padding_16dp"
         android:foreground="@drawable/chili_ripple_rounded_corner_foreground"
         android:padding="@dimen/padding_12dp"
         android:theme="@style/ThemeOverlay_chili_back_card_field_ripple"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_card_pan">
+        app:layout_constraintTop_toBottomOf="@id/ll_card_pan"
+        app:layout_constraintBottom_toTopOf="@id/iv_card_icon">
 
         <TextView
             android:id="@+id/tv_cvv"
@@ -169,11 +175,10 @@
         android:id="@+id/iv_card_icon"
         android:layout_width="@dimen/view_52dp"
         android:layout_height="@dimen/view_35dp"
-        android:layout_marginTop="@dimen/padding_24dp"
         android:layout_marginBottom="@dimen/padding_10dp"
         android:layout_marginEnd="@dimen/padding_16dp"
         android:visibility="invisible"
-        app:layout_constraintTop_toBottomOf="@id/ll_cvv"
+        tools:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/chili_ic_bank_cards"/>
