@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.design2.app.MainActivity
+import com.design2.app.StoriesActivity
 import com.design2.app.ToolbarActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentAllViewsBinding
@@ -14,6 +15,10 @@ class AllViewsFragment : BaseFragment<FragmentAllViewsBinding>() {
         super.onViewCreated(view, savedInstanceState)
         vb.text.setOnClickListener {
             openFragment(TextAppearancesFragment())
+        }
+        vb.stories.setOnClickListener {
+            val intent = Intent(requireContext(), StoriesActivity::class.java)
+            startActivity(intent)
         }
         vb.buttons.setOnClickListener {
             openFragment(ButtonsFragment())

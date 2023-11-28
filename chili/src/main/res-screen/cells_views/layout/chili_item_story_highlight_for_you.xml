@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.design2.chili2.view.container.HighlighterContainer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/border_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/padding_4dp"
+    app:highlighterColor="@color/folly_1"
+    app:cornerRadius="@dimen/view_14dp"
+    app:highlighterState="visible">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="12dp"
+        android:layout_margin="5dp"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="@color/black_alpha_40"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Chili.H10.Primary.Bold"
+            android:textColor="@color/white_1"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/view_8dp"
+            android:layout_marginBottom="@dimen/padding_8dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/chili_heart_side_icon"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/padding_2dp"/>
+
+
+</com.design2.chili2.view.container.HighlighterContainer>

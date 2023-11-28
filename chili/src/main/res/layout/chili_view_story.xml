@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_1">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="22dp">
+
+        <FrameLayout
+            android:id="@+id/overlayLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/chili_bg_shading">
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:id="@+id/storyImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <FrameLayout
+                android:id="@+id/border_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <com.design2.chili2.view.card.BadgeCardView
+                android:id="@+id/badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                app:icon="@drawable/chili_ic_heart"
+                app:title="Для тебя"
+                app:cardBackground="@color/magenta_1"
+                app:cardCornerRadius="@dimen/radius_14dp"
+                android:layout_marginTop="28dp"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chili_ic_close_white"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginTop="34dp"
+                android:layout_gravity="end"/>
+
+            <com.design2.chili2.view.story.StoryProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:barsHeight="@dimen/padding_6dp"
+                app:animationDuration="10"
+                app:gapBetweenBars="@dimen/padding_8dp"
+                app:progressColor="@color/white_1"
+                app:progressBackgroundColor="@color/gray_4"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginTop="@dimen/padding_12dp">
+            </com.design2.chili2.view.story.StoryProgressBar>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_1"
+                android:textAppearance="@style/Chili.H4.Primary.Bold"
+                android:layout_margin="@dimen/padding_16dp"/>
+
+            <TextView
+                android:id="@+id/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_1"
+                android:textAppearance="@style/Chili.H7"
+                android:layout_marginBottom="36dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"/>
+
+            <Button
+                android:id="@+id/btn_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Chili.ButtonStyle.Accent"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginBottom="@dimen/padding_16dp"
+                android:text="Детали"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.design2.chili2.view.common.GesturesView
+        android:id="@+id/gestures_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/view_72dp"/>
+</FrameLayout>

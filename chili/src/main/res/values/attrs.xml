@@ -116,6 +116,7 @@
         <attr name="progressColor" format="color"/>
         <attr name="progressPercent" format="integer"/>
         <attr name="animateProgress" format="boolean"/>
+        <attr name="animationDuration" format="integer"/>
     </declare-styleable>
 
     <declare-styleable name="ChiliToolbar">
@@ -515,4 +516,19 @@
         <attr name="cardCornerRadius"/>
     </declare-styleable>
 
+    <declare-styleable name="StoryProgressBar">
+        <attr name="progressBackgroundColor" />
+        <attr name="progressColor" />
+        <attr name="animationDuration" />
+        <attr name="progressBarCount" format="integer" />
+        <attr name="barsHeight" format="dimension" />
+        <attr name="gapBetweenBars" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="BadgeCardView">
+        <attr name="title"/>
+        <attr name="titleTextColor"/>
+        <attr name="icon"/>
+        <attr name="cardBackground"/>
+    </declare-styleable>
 </resources>
