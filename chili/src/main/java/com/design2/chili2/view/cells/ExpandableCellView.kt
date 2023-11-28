@@ -86,7 +86,7 @@ class ExpandableCellView @JvmOverloads constructor(
                 }
             })
 
-        vb.ivChevron.animate().rotation(0F)
+        vb.ivChevron.animate().rotation(180F)
         vb.divider.visible()
     }
 
@@ -103,7 +103,7 @@ class ExpandableCellView @JvmOverloads constructor(
                     moveDescriptionUp()
                 }
             })
-        vb.ivChevron.animate().rotation(180F)
+        vb.ivChevron.animate().rotation(0F)
     }
 
     private fun moveDescriptionUp() {
