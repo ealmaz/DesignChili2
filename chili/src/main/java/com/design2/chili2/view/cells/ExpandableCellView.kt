@@ -86,7 +86,7 @@ class ExpandableCellView @JvmOverloads constructor(
                 }
             })
 
-        vb.ivChevron.animate().rotation(0F)
+        vb.ivChevron.animate().rotation(180F)
         vb.divider.visible()
     }
 
@@ -94,16 +94,23 @@ class ExpandableCellView @JvmOverloads constructor(
         isCellViewExpanded = false
         vb.divider.gone()
         vb.tvDescription.animate()
-            .translationY(-vb.tvDescription.height.toFloat()+50)
+            .alpha(0.0f)
             .setDuration(100)
             .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation : Animator) {
+                override fun onAnimationEnd(animation: Animator) {
                     super.onAnimationEnd(animation)
-                    vb.tvDescription.alpha = 0.0f
                     vb.tvDescription.gone()
+                    moveDescriptionUp()
                 }
             })
-        vb.ivChevron.animate().rotation(180F)
+        vb.ivChevron.animate().rotation(0F)
+    }
+
+    private fun moveDescriptionUp() {
+        vb.tvDescription.animate()
+            .translationY(-vb.tvDescription.height.toFloat() + 50)
+            .setDuration(100)
+            .start()
     }
 
     override fun onSaveInstanceState(): Parcelable? {
