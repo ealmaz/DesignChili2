@@ -90,7 +90,6 @@
         android:id="@+id/iv_chevron"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/padding_12dp"
         android:src="@drawable/chili_ic_chevron"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
