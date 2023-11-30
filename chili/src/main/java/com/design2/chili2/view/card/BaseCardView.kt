@@ -56,11 +56,11 @@ abstract class BaseCardView @JvmOverloads constructor(
 
     override fun getShimmeringViewsPair() = shimmeringPairs
 
-    fun setCardBackground(resId: Int) {
+    open fun setCardBackground(resId: Int) {
         rootContainer?.setBackgroundResource(resId)
     }
 
-    fun setCardBackground(drawable: Drawable) {
+    open fun setCardBackground(drawable: Drawable) {
         rootContainer?.background = drawable
     }
 

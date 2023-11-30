@@ -211,6 +211,12 @@ fun View.setBottomMargin(margin: Int) {
     layoutParams = params
 }
 
+fun View.setTopMargin(margin: Int) {
+    val params = layoutParams as ViewGroup.MarginLayoutParams
+    params.setMargins(params.leftMargin, margin, params.rightMargin, params.bottomMargin)
+    layoutParams = params
+}
+
 /**
  * Метод позволяет слушать клики на линки в TextView
  * example:

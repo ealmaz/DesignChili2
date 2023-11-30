@@ -11,8 +11,7 @@ import com.design2.app.adapter.SimpleDiscountCardRecyclerViewAdapter
 import com.design2.app.adapter.SimpleTextRecyclerViewAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCardsBinding
-import com.design2.chili2.storage.ComponentsPreferences
-import com.design2.chili2.view.card.CardFieldToggleState
+import com.design2.chili2.extensions.dp
 import com.design2.chili2.view.container.ExpandableContainer
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
@@ -39,13 +38,13 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         initDiscountCard()
         initBanners()
         vb.bankCardIcon.setStartIcon(R.drawable.gpay)
-        vb.bankCardIcon.setStartIcon(R.drawable.gpay)
         vb.bankCardView.setupCardPanToggle {
             vb.root.postDelayed({
                                 vb.bankCardView.setCardPan("9417 1243 3425 4215")
             }, 1000)
         }
         vb.bankCardView.setCardPan("9417 1243 3425 4215")
+        vb.bankCardView.setPanPinFieldYOffset(25.dp)
         vb.bankCardView.setupCvvToggle {
             vb.root.postDelayed({
                 vb.bankCardView.setCardCvv("321")

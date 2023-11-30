@@ -4,8 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:background="@color/blue_2">
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_card_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/card_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_start_icon"
@@ -25,17 +33,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/padding_16dp"
-        android:layout_marginTop="@dimen/padding_8dp"
-        app:layout_goneMarginTop="@dimen/padding_32dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/chili_bg_card_bank_fields_rounded"
         android:foreground="@drawable/chili_ripple_rounded_corner_foreground"
         android:padding="@dimen/padding_12dp"
         android:theme="@style/ThemeOverlay_chili_back_card_field_ripple"
-        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/ll_cvv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_start_icon"
-        app:layout_constraintBottom_toTopOf="@id/ll_cvv">
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_goneMarginTop="@dimen/padding_32dp">
 
         <TextView
             android:id="@+id/tv_card_pan"
@@ -45,20 +53,20 @@
             android:layout_weight="1"
             android:textAppearance="@style/Chili.H7.Primary.Bold"
             android:textColor="@color/white_1"
-            tools:text="9417 1243 3425 4215"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_pan_toggle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/iv_pan_toggle"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9417 1243 3425 4215" />
 
         <ImageView
             android:id="@+id/iv_pan_toggle"
             android:layout_width="@dimen/view_24dp"
             android:layout_height="@dimen/view_24dp"
-            app:tint="@color/gray_2"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray_2" />
 
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/pan_shimmer"
@@ -67,10 +75,10 @@
             android:layout_marginEnd="@dimen/padding_8dp"
             android:layout_weight="1"
             android:visibility="gone"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_pan_toggle"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/iv_pan_toggle">
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="@dimen/view_200dp"
@@ -179,7 +187,7 @@
         android:layout_marginEnd="@dimen/padding_16dp"
         android:visibility="invisible"
         tools:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/iv_card_bg"
+        app:layout_constraintBottom_toBottomOf="@id/iv_card_bg"
         android:src="@drawable/chili_ic_bank_cards"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,9 +16,11 @@ import androidx.core.view.isInvisible
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBankCardBinding
 import com.design2.chili2.extensions.color
+import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
+import com.design2.chili2.extensions.setTopMargin
 import com.design2.chili2.extensions.visible
 
 
@@ -34,16 +36,20 @@ class BankCardView @JvmOverloads constructor(
     private var isCvvShimmering = false
     private var pan: String = ""
     private var panToggleState = CardFieldToggleState.ICON_NONE
-    private var cardPanHideDelegate: (CharSequence, Boolean) -> CharSequence = {pan: CharSequence, isHidden: Boolean ->
-        if (isHidden) {
-            try { pan.replaceRange(6..11, " • • •  • •") }
-            catch (_: Exception) { pan}
-        } else pan
-    }
+    private var cardPanHideDelegate: (CharSequence, Boolean) -> CharSequence =
+        { pan: CharSequence, isHidden: Boolean ->
+            if (isHidden) {
+                try {
+                    pan.replaceRange(6..11, " • • •  • •")
+                } catch (_: Exception) {
+                    pan
+                }
+            } else pan
+        }
 
     private var cvvToggleState = CardFieldToggleState.ICON_NONE
     private var cvv: String = ""
-    private var cardCvvHideDelegate = {pan: CharSequence, isHidden: Boolean ->
+    private var cardCvvHideDelegate = { pan: CharSequence, isHidden: Boolean ->
         if (isHidden) "• • •"
         else pan
     }
@@ -69,6 +75,9 @@ class BankCardView @JvmOverloads constructor(
         getBoolean(R.styleable.BankCardView_isCvvToggleEnabled, false).let {
             if (it) setupCvvToggle()
         }
+        getResourceId(R.styleable.BaseCardView_cardBackground, -1).takeIf { it != -1 }?.let {
+            setCardBackground(it)
+        }
         setCardPan(getText(R.styleable.BankCardView_cardPan))
         setCardCvv(getText(R.styleable.BankCardView_cvv))
         setCardHolderName(getText(R.styleable.BankCardView_cardHolderName))
@@ -76,6 +85,7 @@ class BankCardView @JvmOverloads constructor(
         setCardIcon(getResourceId(R.styleable.BankCardView_cardIcon, -1).takeIf { it != -1 })
         setStartIcon(getResourceId(R.styleable.BankCardView_startIcon, -1).takeIf { it != -1 })
         setStartIconVisibility(getBoolean(R.styleable.BankCardView_isStartIconVisible, false))
+
     }
 
     override fun setupView() {
@@ -102,9 +112,9 @@ class BankCardView @JvmOverloads constructor(
         vb.tvCvv.visible()
         vb.ivCvvToggle.visible()
         isCvvShimmering = false
-       cardCvvHideDelegate(charSequence, cvvToggleState == CardFieldToggleState.ICON_SHOW).let {
-           vb.tvCvv.text = it
-       }
+        cardCvvHideDelegate(charSequence, cvvToggleState == CardFieldToggleState.ICON_SHOW).let {
+            vb.tvCvv.text = it
+        }
     }
 
     fun setCardDueDate(charSequence: CharSequence?) {
@@ -144,8 +154,7 @@ class BankCardView @JvmOverloads constructor(
             if (resId != null) {
                 visible()
                 setImageResource(resId)
-            }
-            else invisible()
+            } else invisible()
         }
     }
 
@@ -154,8 +163,7 @@ class BankCardView @JvmOverloads constructor(
             if (resId != null) {
                 visible()
                 setImageResource(resId)
-            }
-            else invisible()
+            } else invisible()
         }
     }
 
@@ -164,8 +172,7 @@ class BankCardView @JvmOverloads constructor(
             if (drawable != null) {
                 visible()
                 setImageDrawable(drawable)
-            }
-            else invisible()
+            } else invisible()
         }
     }
 
@@ -173,11 +180,11 @@ class BankCardView @JvmOverloads constructor(
         vb.ivStartIcon.isInvisible = !isVisible
     }
 
-    fun setCardPanHidingDelegate(delegate :((CharSequence?, Boolean) -> CharSequence)) {
+    fun setCardPanHidingDelegate(delegate: ((CharSequence?, Boolean) -> CharSequence)) {
         this.cardPanHideDelegate = delegate
     }
 
-    fun setCvvHidingDelegate(delegate :((CharSequence?, Boolean) -> CharSequence)) {
+    fun setCvvHidingDelegate(delegate: ((CharSequence?, Boolean) -> CharSequence)) {
         this.cardCvvHideDelegate = delegate
     }
 
@@ -279,7 +286,9 @@ class BankCardView @JvmOverloads constructor(
         llCvv.isFocusable = true
         llCvv.setOnClickListener {
             if (isCvvShimmering) return@setOnClickListener
-            if (cvvToggleState == CardFieldToggleState.ICON_SHOW) { onClick() }
+            if (cvvToggleState == CardFieldToggleState.ICON_SHOW) {
+                onClick()
+            }
             toggleCvvToggleState()
         }
     }
@@ -306,11 +315,23 @@ class BankCardView @JvmOverloads constructor(
     }
 
     private fun copyText(text: String) {
-        val clipboard: ClipboardManager? = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+        val clipboard: ClipboardManager? =
+            context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
         val clip = ClipData.newPlainText(text, text)
         clipboard?.setPrimaryClip(clip)
     }
 
+    fun setPanPinFieldYOffset(marginTop: Int) {
+        vb.llCardPan.setTopMargin(marginTop.dp)
+    }
+
+    override fun setCardBackground(drawable: Drawable) {
+        vb.ivCardBg.setImageDrawable(drawable)
+    }
+
+    override fun setCardBackground(resId: Int) {
+        vb.ivCardBg.setImageResource(resId)
+    }
 }
 
 enum class CardFieldToggleState {
