@@ -48,6 +48,9 @@ class BalanceCardView @JvmOverloads constructor(
         getDrawable(R.styleable.BalanceCardView_endIcon).let {
             setEndIcon(it)
         }
+        getDrawable(R.styleable.BalanceCardView_badgeIcon).let {
+            setBadgeIcon(it)
+        }
         getDrawable(R.styleable.BalanceCardView_titleIcon).let {
             setTitleIcon(it)
         }
@@ -174,5 +177,13 @@ class BalanceCardView @JvmOverloads constructor(
 
     fun isChevronVisible(isVisible: Boolean) {
         vb.ivChevron.isVisible = isVisible
+    }
+
+    fun setBadgeIcon(drawable: Drawable?) = with(vb.ivIconBadge) {
+        if (drawable == null) gone()
+        else {
+            visible()
+            setImageDrawable(drawable)
+        }
     }
 }

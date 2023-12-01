@@ -602,6 +602,7 @@
                         android:layout_marginEnd="@dimen/padding_16dp">
 
                         <com.design2.chili2.view.card.BalanceCardView
+                            app:badgeIcon="@drawable/ic_lock"
                             android:id="@+id/bal3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
