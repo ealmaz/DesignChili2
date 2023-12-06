@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.view.isInvisible
@@ -309,6 +310,7 @@ class BankCardView @JvmOverloads constructor(
         val clipboard: ClipboardManager? = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
         val clip = ClipData.newPlainText(text, text)
         clipboard?.setPrimaryClip(clip)
+        Toast.makeText(context, R.string.chili_copied_to_clipboard, Toast.LENGTH_SHORT).show()
     }
 
 }
