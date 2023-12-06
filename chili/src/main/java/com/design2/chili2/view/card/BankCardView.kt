@@ -273,10 +273,10 @@ class BankCardView @JvmOverloads constructor(
             panToggleState = CardFieldToggleState.ICON_COPY
             ivPanToggle.setImageResource(R.drawable.chili_ic_copy)
         } else {
+            if (panToggleState == CardFieldToggleState.ICON_COPY) copyText(pan)
             panToggleState = CardFieldToggleState.ICON_SHOW
             ivPanToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
             setCardPan(pan)
-            copyText(pan)
         }
     }
 
@@ -308,10 +308,10 @@ class BankCardView @JvmOverloads constructor(
             cvvToggleState = CardFieldToggleState.ICON_COPY
             ivCvvToggle.setImageResource(R.drawable.chili_ic_copy)
         } else {
+            if (cvvToggleState == CardFieldToggleState.ICON_COPY) copyText(cvv)
             cvvToggleState = CardFieldToggleState.ICON_SHOW
             ivCvvToggle.setImageResource(R.drawable.chili_password_toggle_drawable)
             setCardCvv(cvv)
-            copyText(cvv)
         }
     }
 
