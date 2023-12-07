@@ -8,7 +8,10 @@ import com.design2.chili2.view.input.text_watchers.LimitedInputLinesWatcher
 
 class MultilineInputView : BaseInputView {
 
-    constructor(context: Context) : super(context)
+    constructor(context: Context) : super(context) {
+        setSingleLine(false)
+        setupViews()
+    }
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         obtainAttributes(attrs)
     }
