@@ -298,6 +298,7 @@
     <declare-styleable name="IconedButton">
         <attr name="android:text"/>
         <attr name="android:enabled"/>
+        <attr name="android:textAppearance"/>
     </declare-styleable>
 
     <declare-styleable name="ExpandableCardContainer">

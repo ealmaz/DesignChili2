@@ -32,10 +32,22 @@ class IconedButton @JvmOverloads constructor(
         vb = ChiliViewButtonIconedBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    private fun obtainAttributes(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int, defStyle: Int) {
-        context.obtainStyledAttributes(attributeSet, R.styleable.IconedButton, defStyleAttr, defStyle).run {
+    private fun obtainAttributes(
+        context: Context,
+        attributeSet: AttributeSet?,
+        defStyleAttr: Int,
+        defStyle: Int
+    ) {
+        context.obtainStyledAttributes(
+            attributeSet,
+            R.styleable.IconedButton,
+            defStyleAttr,
+            defStyle
+        ).run {
             setText(getString(R.styleable.IconedButton_android_text))
             setEnabled(getBoolean(R.styleable.IconedButton_android_enabled, true))
+            getResourceId(R.styleable.IconedButton_android_textAppearance, -1).takeIf { it != -1 }
+                ?.let { setTextAppearance(it) }
             recycle()
         }
     }
