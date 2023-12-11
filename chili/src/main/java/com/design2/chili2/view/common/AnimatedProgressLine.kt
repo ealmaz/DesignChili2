@@ -15,7 +15,24 @@ interface ProgressListener {
     fun onLineProgressFull()
 }
 
-class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : View(context, attrs) {
+class AnimatedProgressLine : View {
+
+    constructor(context: Context) : super(context) {
+        setupViews()
+    }
+
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        setupViews()
+        obtainAttributes(attrs)
+    }
+
+    private fun setupViews() {
+        paint.apply {
+            isAntiAlias = true
+            style = Paint.Style.STROKE
+            strokeCap = Paint.Cap.ROUND
+        }
+    }
 
     private val paint = Paint()
     private var animator: ValueAnimator? = null
@@ -28,16 +45,7 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
     private var animationDuration: Long = 1000
     private var isProgressAnimated: Boolean = false
 
-    init {
-        paint.apply {
-            isAntiAlias = true
-            style = Paint.Style.STROKE
-            strokeCap = Paint.Cap.ROUND
-        }
-        initViews()
-    }
-
-    private fun initViews() {
+    private fun obtainAttributes(attrs: AttributeSet) {
         context?.obtainStyledAttributes(attrs, R.styleable.AnimatedProgressLine)?.run {
             getBoolean(R.styleable.AnimatedProgressLine_animateProgress, false).let {
                 setIsProgressAnimated(it)

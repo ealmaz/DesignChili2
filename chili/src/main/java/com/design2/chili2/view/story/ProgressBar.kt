@@ -113,7 +113,7 @@ class StoryProgressBar @JvmOverloads constructor(
     }
 
     private fun getProgressLine() =
-        AnimatedProgressLine(context, attrs).apply {
+        AnimatedProgressLine(context).apply {
             setProgressPercent(0)
             setIsProgressAnimated(true)
             setAnimationDuration(animationDuration)
