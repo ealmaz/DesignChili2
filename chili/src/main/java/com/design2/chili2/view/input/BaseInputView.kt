@@ -26,6 +26,7 @@ import com.design2.chili2.databinding.ChiliViewInputBaseBinding
 import com.design2.chili2.extensions.*
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.visible
+import com.design2.chili2.util.CompositeOnFocusChangeListener
 import com.design2.chili2.util.cyrillicRegex
 import com.design2.chili2.view.input.text_watchers.ClearTextIconTextWatcher
 import com.design2.chili2.view.input.text_watchers.SimpleTextWatcher
@@ -55,9 +56,12 @@ open class BaseInputView @JvmOverloads constructor(
     @ColorInt protected var messageTextColor: Int = -1
     @ColorInt protected var errorMessageTextColor: Int = -1
 
+    private val compositeOnFocusChangeListener = CompositeOnFocusChangeListener()
+
     init {
         inflateViews(context)
         obtainAttributes(attrs, defStyleAttr, defStyle)
+        setupViews()
     }
 
     private fun inflateViews(context: Context) {
@@ -132,6 +136,10 @@ open class BaseInputView @JvmOverloads constructor(
                 }
             recycle()
         }
+    }
+
+    private fun setupViews() {
+        vb.etInput.onFocusChangeListener = compositeOnFocusChangeListener
     }
 
     override fun onRestoreInstanceState(state: Parcelable?) {
@@ -307,7 +315,7 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setFocusChangeListener(onFocus: () -> Unit = {}, onFocusLost: () -> Unit = {}) {
-        vb.etInput.setOnFocusChangeListener { _, hasFocus ->
+        compositeOnFocusChangeListener.addListener { _, hasFocus ->
             when {
                 hasFocus -> onFocus()
                 else -> onFocusLost()
