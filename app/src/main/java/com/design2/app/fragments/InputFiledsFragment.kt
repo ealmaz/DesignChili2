@@ -18,7 +18,8 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
         vb.field2Mask.setupNewMask("12313123123XXXXXXXXX")
         vb.field2Mask.requestFocus()
         vb.field0.setMaxLength(3)
-        vb.otp.setMessageText("ddweewrwerwerwerwerwerwerwerwerwerwerwerwerwerwerwe")
+        vb.otp.setMessageText("ddweewrw")
+        vb.otp.setActionText("Gjdnjhbnm xthtp 45:34")
         vb.input57.setupOnGetFocusAction {
             Toast.makeText(requireContext(), "Focus", Toast.LENGTH_SHORT).show()
             vb.inputSv.smoothScrollTo(0, vb.input57.bottom + resources.getDimensionPixelSize(com.design2.chili2.R.dimen.padding_16dp))
