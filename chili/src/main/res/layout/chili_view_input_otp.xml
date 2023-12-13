@@ -100,29 +100,35 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tv_message"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Chili.H9.Primary"
-        android:textColor="@color/red_1"
-        android:layout_marginEnd="@dimen/padding_8dp"
-        android:layout_marginTop="@dimen/padding_4dp"
-        app:layout_constraintTop_toBottomOf="@id/item_container"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding_4dp"
+        android:gravity="center_vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_action"
-        app:flow_horizontalBias="0"
-        tools:text="Неверный код"/>
+        app:layout_constraintTop_toBottomOf="@id/item_container">
 
-    <TextView
-        android:id="@+id/tv_action"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_4dp"
-        android:theme="@style/ThemeOverlay.ChiliOtpInputActionTextTheme"
-        app:layout_constraintTop_toBottomOf="@id/item_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        style="@style/Chili.ButtonStyle.Component"
-        tools:text="00:40"/>
 
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="0dp"
+            android:layout_weight="6"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Chili.H9.Primary"
+            android:textColor="@color/red_1"
+            android:layout_marginEnd="@dimen/padding_8dp"
+            tools:text="Неверный код"/>
+
+        <TextView
+            android:id="@+id/tv_action"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:theme="@style/ThemeOverlay.ChiliOtpInputActionTextTheme"
+            style="@style/Chili.ButtonStyle.Component"
+            tools:text="00:40"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
