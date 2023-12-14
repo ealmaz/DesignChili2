@@ -61,7 +61,6 @@
                 android:id="@+id/first_cell"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:roundedCornerMode="top"
                 app:title="Заголовок" />
 
             <com.design2.chili2.view.cells.BaseCellView

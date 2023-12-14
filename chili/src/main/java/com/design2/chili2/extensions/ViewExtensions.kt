@@ -172,7 +172,7 @@ private fun getGlideOnLoadListener(onSuccess: ((Drawable) -> Unit)?, onError: ((
     }
 }
 
-fun View.setupRoundedCellCornersMode(modeValue: Int) {
+fun View.setupRoundedCellCornersMode(modeValue: Int, isSurfaceClickable: Boolean? = null) {
     this.setBackgroundResource(
         when (modeValue) {
             RoundedCornerMode.TOP.value -> R.drawable.chili_cell_rounded_top_background
@@ -181,11 +181,18 @@ fun View.setupRoundedCellCornersMode(modeValue: Int) {
             else -> R.drawable.chili_cell_rounded_background
         }
     )
+    isSurfaceClickable?.let {
+        setRippleForeground(modeValue, it)
+    }
 }
 
 fun ViewGroup.setIsSurfaceClickable(isSurfaceClickable: Boolean, cornerMode: Int? = null) {
     isClickable = isSurfaceClickable
     isFocusable = isSurfaceClickable
+    setRippleForeground(cornerMode, isSurfaceClickable)
+}
+
+fun View.setRippleForeground(cornerMode: Int? = null, isSurfaceClickable: Boolean) {
     foreground = if (isSurfaceClickable) {
         when (cornerMode) {
             RoundedCornerMode.TOP.value -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_top_corner_foreground)
