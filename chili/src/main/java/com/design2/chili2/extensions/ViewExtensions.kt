@@ -183,13 +183,17 @@ fun View.setupRoundedCellCornersMode(modeValue: Int) {
     )
 }
 
-fun ViewGroup.setIsSurfaceClickable(isSurfaceClickable: Boolean) {
+fun ViewGroup.setIsSurfaceClickable(isSurfaceClickable: Boolean, cornerMode: Int? = null) {
     isClickable = isSurfaceClickable
     isFocusable = isSurfaceClickable
-    foreground = when (isSurfaceClickable) {
-        true -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_rounded_corner_foreground)
-        else -> null
-    }
+    foreground = if (isSurfaceClickable) {
+        when (cornerMode) {
+            RoundedCornerMode.TOP.value -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_top_corner_foreground)
+            RoundedCornerMode.MIDDLE.value -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_middle_corner_foreground)
+            RoundedCornerMode.BOTTOM.value -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_bottom_corner_background)
+            else -> AppCompatResources.getDrawable(context, R.drawable.chili_ripple_rounded_corner_foreground)
+        }
+    } else  null
 }
 
 

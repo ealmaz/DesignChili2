@@ -84,6 +84,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <com.design2.chili2.view.input.otp.OtpInputView
+            android:id="@+id/otp_2"
+            app:otpLength="4"
+            android:layout_marginVertical="@dimen/padding_32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <com.design2.chili2.view.input.UneditableInputView
             android:id="@+id/selection"

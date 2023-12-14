@@ -39,6 +39,8 @@ open class BaseCellView @JvmOverloads constructor(
 
     protected val shimmeringPairs: MutableMap<View, ShimmerFrameLayout?> = mutableMapOf()
 
+    private var roundedCornerMode = RoundedCornerMode.SINGLE.value
+
     init {
         inflateView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
@@ -60,7 +62,8 @@ open class BaseCellView @JvmOverloads constructor(
                 }
                 getString(R.styleable.BaseCellView_title)?.let { setTitle(it) }
                 getString(R.styleable.BaseCellView_subtitle)?.let { setSubtitle(it) }
-                getInteger(R.styleable.BaseCellView_roundedCornerMode, 0).let {
+                getInteger(R.styleable.BaseCellView_roundedCornerMode, roundedCornerMode).let {
+                    roundedCornerMode = getInteger(R.styleable.BaseCellView_roundedCornerMode, roundedCornerMode)
                     this@BaseCellView.setupRoundedCellCornersMode(it)
                 }
                 getBoolean(R.styleable.BaseCellView_isDividerVisible, true).let {
@@ -308,14 +311,16 @@ open class BaseCellView @JvmOverloads constructor(
     }
 
     fun setRoundedMode(mode: RoundedCornerMode) {
+        roundedCornerMode = mode.value
         this.setupRoundedCellCornersMode(mode.value)
     }
 
     fun setupIsSurfaceClickable(isSurfaceClickable: Boolean) {
-        this.setIsSurfaceClickable(isSurfaceClickable)
+        this.setIsSurfaceClickable(isSurfaceClickable, roundedCornerMode)
     }
 
     fun setupCornerRoundedMode(mode: RoundedCornerMode) {
+        roundedCornerMode = mode.value
         this.setupRoundedCellCornersMode(mode.value)
     }
 

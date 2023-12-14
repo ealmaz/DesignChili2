@@ -2,6 +2,7 @@ package com.design2.chili2.view.cells
 
 import android.content.Context
 import android.text.Spanned
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.widget.TextView
 import androidx.annotation.StringRes
@@ -41,6 +42,9 @@ class AdditionalTextCellView @JvmOverloads constructor(
             setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
             textAlignment = TEXT_ALIGNMENT_TEXT_END
             shimmeringPairs[this] = null
+            maxEms = 8
+            maxLines = 2
+            ellipsize = TextUtils.TruncateAt.END
         }
         vb.flEndPlaceHolder.addView(additionalText)
     }
