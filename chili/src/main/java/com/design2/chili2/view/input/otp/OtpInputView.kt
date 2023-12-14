@@ -122,6 +122,12 @@ class OtpInputView @JvmOverloads constructor(
 
     private fun removeOtpItemViews(times: Int) {
         repeat(times) { removeOtpItemView() }
+        if (times == 2){
+            vb.itemContainer.children.forEach {
+                it.layoutParams.width = 64.dp
+                it.layoutParams.height = 48.dp
+            }
+        }
     }
 
     private fun removeOtpItemView() = with(vb.itemContainer) {

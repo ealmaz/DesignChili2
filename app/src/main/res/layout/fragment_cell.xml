@@ -646,10 +646,10 @@
                 android:id="@+id/test_AdditionalTextCellView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:additionalText="Additional text"
+                app:additionalText="Текст значения выходящий за свои рамки своей вместимости"
                 app:isDividerVisible="false"
                 app:roundedCornerMode="single"
-                app:title="Заголовок" />
+                app:title="Длинный текст" />
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
