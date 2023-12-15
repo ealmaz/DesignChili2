@@ -46,7 +46,8 @@ data class NonShadowGroupItems(val items: List<GroupingItem>,
     }
 
     override fun isContentsSame(newItem: GroupingItem): Boolean {
-        return (newItem as? NonShadowGroupItems)?.equals(this) == true
+        return if (items.isEmpty()) (newItem as? NonShadowGroupItems)?.equals(this) == true
+        else newItem.getChildItems().equals(items)
     }
 
     override fun setItemStateMode(itemsStateMode: ItemsStateMode) {
