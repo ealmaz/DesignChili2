@@ -159,6 +159,9 @@ data class PoleItem(
         return (newItem as? PoleItem)?.equals(this) == true
     }
 
+    override fun getItems(): List<GroupingItem> {
+        return emptyList()
+    }
 }
 
 class PoleItemVH(val vb: ItemPoleItemBinding) : RecyclerView.ViewHolder(vb.root) {

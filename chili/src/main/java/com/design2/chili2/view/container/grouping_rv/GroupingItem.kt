@@ -9,6 +9,8 @@ interface GroupingItem {
 
     fun setItemStateMode(itemsStateMode: ItemsStateMode) {}
     fun getItemStateMode(): ItemsStateMode = ItemsStateMode.DEFAULT
+
+    fun getItems() : List<GroupingItem>
 }
 
 enum class ItemsStateMode {
