@@ -27,6 +27,9 @@ class InfoCellView @JvmOverloads constructor(
 
     private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
 
+    private var roundedCornerMode = RoundedCornerMode.SINGLE.value
+    private var surfaceClickAbility = true
+
     init {
         initView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
@@ -43,9 +46,10 @@ class InfoCellView @JvmOverloads constructor(
             getString(R.styleable.InfoCellView_title)?.let { setTitle(it) }
             getString(R.styleable.InfoCellView_subtitle)?.let { setSubtitle(it) }
             getBoolean(R.styleable.InfoCellView_isDividerVisible, false).let { setDividerVisibility(it) }
-            getBoolean(R.styleable.InfoCellView_isSurfaceClickable, true).let { setIsSurfaceClickable(it) }
+            getBoolean(R.styleable.InfoCellView_isSurfaceClickable, true).let { setupIsSurfaceClickable(it) }
             getInteger(R.styleable.InfoCellView_roundedCornerMode, -1).takeIf { it != -1 }?.let {
-                vb.rootView.setupRoundedCellCornersMode(it)
+                roundedCornerMode = it
+                vb.rootView.setupRoundedCellCornersMode(it, surfaceClickAbility)
             }
             getResourceId(R.styleable.InfoCellView_titleTextAppearance, -1).takeIf { it != -1 }?.let {
                 setTitleTextAppearance(it)
@@ -100,11 +104,13 @@ class InfoCellView @JvmOverloads constructor(
     }
 
     fun setupIsSurfaceClickable(isSurfaceClickable: Boolean) {
-        this.setIsSurfaceClickable(isSurfaceClickable)
+        surfaceClickAbility = isSurfaceClickable
+        this.setIsSurfaceClickable(isSurfaceClickable, roundedCornerMode)
     }
 
     fun setupCornerRoundedMode(mode: RoundedCornerMode) {
-        this.setupRoundedCellCornersMode(mode.value)
+        roundedCornerMode = mode.value
+        this.setupRoundedCellCornersMode(mode.value, surfaceClickAbility)
     }
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {

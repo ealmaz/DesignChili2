@@ -40,6 +40,7 @@ open class BaseCellView @JvmOverloads constructor(
     protected val shimmeringPairs: MutableMap<View, ShimmerFrameLayout?> = mutableMapOf()
 
     private var roundedCornerMode = RoundedCornerMode.SINGLE.value
+    private var surfaceClickAbility = true
 
     init {
         inflateView(context)
@@ -63,7 +64,7 @@ open class BaseCellView @JvmOverloads constructor(
                 getString(R.styleable.BaseCellView_title)?.let { setTitle(it) }
                 getString(R.styleable.BaseCellView_subtitle)?.let { setSubtitle(it) }
                 getInteger(R.styleable.BaseCellView_roundedCornerMode, roundedCornerMode).let {
-                    roundedCornerMode = getInteger(R.styleable.BaseCellView_roundedCornerMode, roundedCornerMode)
+                    roundedCornerMode = it
                     this@BaseCellView.setupRoundedCellCornersMode(it)
                 }
                 getBoolean(R.styleable.BaseCellView_isDividerVisible, true).let {
@@ -78,6 +79,7 @@ open class BaseCellView @JvmOverloads constructor(
                     }
                 }
                 getBoolean(R.styleable.BaseCellView_isSurfaceClickable, true).let {
+                    surfaceClickAbility = it
                     setupIsSurfaceClickable(it)
                 }
                 getDimensionPixelSize(R.styleable.BaseCellView_cellIconVerticalMargin, -1).takeIf { it != -1 }?.let {
@@ -312,16 +314,17 @@ open class BaseCellView @JvmOverloads constructor(
 
     fun setRoundedMode(mode: RoundedCornerMode) {
         roundedCornerMode = mode.value
-        this.setupRoundedCellCornersMode(mode.value)
+        this.setupRoundedCellCornersMode(roundedCornerMode, surfaceClickAbility)
     }
 
     fun setupIsSurfaceClickable(isSurfaceClickable: Boolean) {
+        surfaceClickAbility = isSurfaceClickable
         this.setIsSurfaceClickable(isSurfaceClickable, roundedCornerMode)
     }
 
     fun setupCornerRoundedMode(mode: RoundedCornerMode) {
         roundedCornerMode = mode.value
-        this.setupRoundedCellCornersMode(mode.value)
+        this.setupRoundedCellCornersMode(roundedCornerMode, surfaceClickAbility)
     }
 
     open fun setIsChevronVisible(isVisible: Boolean) {

@@ -34,6 +34,9 @@ class DetailCellView @JvmOverloads constructor(
 
     private val shimmerViewPairs = mutableMapOf<View, ShimmerFrameLayout?>()
 
+    private var roundedCornerMode = RoundedCornerMode.SINGLE.value
+    private var surfaceClickAbility = true
+
     init {
         initView(context)
         obtainAttributes(context, attributeSet, defStyleAttr, defStyleRes)
@@ -53,6 +56,7 @@ class DetailCellView @JvmOverloads constructor(
             setIcon(getDrawable(R.styleable.DetailCellView_icon))
             setupIsSurfaceClickable(getBoolean(R.styleable.DetailCellView_isSurfaceClickable, true))
             getInteger(R.styleable.DetailCellView_roundedCornerMode, RoundedCornerMode.SINGLE.value).let {
+                roundedCornerMode = it
                 this@DetailCellView.setupRoundedCellCornersMode(it)
             }
             getResourceId(R.styleable.DetailCellView_titleTextAppearance, -1).takeIf { it != -1 }?.let {
@@ -166,11 +170,13 @@ class DetailCellView @JvmOverloads constructor(
     }
 
     fun setupIsSurfaceClickable(isSurfaceClickable: Boolean) {
-        this.setIsSurfaceClickable(isSurfaceClickable)
+        surfaceClickAbility = isSurfaceClickable
+        this.setIsSurfaceClickable(isSurfaceClickable, roundedCornerMode)
     }
 
     fun setupCornerRoundedMode(mode: RoundedCornerMode) {
-        this.setupRoundedCellCornersMode(mode.value)
+        roundedCornerMode = mode.value
+        this.setupRoundedCellCornersMode(mode.value, surfaceClickAbility)
     }
 
     fun setIcon(@DrawableRes drawableResId: Int) {

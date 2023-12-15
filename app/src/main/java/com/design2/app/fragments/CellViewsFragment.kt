@@ -11,6 +11,7 @@ import com.design2.app.MainActivity
 import com.design2.app.adapter.EditableCellViewsAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
+import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 
@@ -23,6 +24,10 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         vb.actionCell.setIsChevronVisible(false)
         vb.btnP1.setOnClickListener {
             vb.progress.setProgressPercent(100)
+        }
+        vb.firstCell.apply {
+            setupIsSurfaceClickable(false)
+            setRoundedMode(RoundedCornerMode.TOP)
         }
         vb.btnP2.setOnClickListener {
             vb.progress.setProgressPercent(0)
