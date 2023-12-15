@@ -21,6 +21,7 @@ import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -137,16 +138,17 @@ fun ImageView.setImageByUrl(url: String?) {
 }
 
 fun ImageView.setImageByUrlWithListener(imageUrl: String?, onSuccess: ((Drawable) -> (Unit))? = null,
-                                    onError: ((GlideException?) -> (Unit))? = null, requestOptions: RequestOptions? = null) {
+                                    onError: ((GlideException?) -> (Unit))? = null, requestOptions: RequestOptions? = null) : RequestBuilder<Drawable>? {
     if (imageUrl == null) {
         onError?.invoke(null)
-        return
+        return null
     }
     val builder = Glide.with(this.context)
         .load(imageUrl)
         .listener(getGlideOnLoadListener(onSuccess, onError))
     if (requestOptions != null) builder.apply(requestOptions)
     builder.into(this)
+    return builder
 }
 
 private fun getGlideOnLoadListener(onSuccess: ((Drawable) -> Unit)?, onError: ((GlideException?) -> Unit)?): RequestListener<Drawable>? {
