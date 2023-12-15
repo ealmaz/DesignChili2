@@ -57,7 +57,7 @@ data class NonShadowGroupItems(val items: List<GroupingItem>,
         return this.itemsStateMode
     }
 
-    override fun getItems(): List<GroupingItem> {
+    override fun getChildItems(): List<GroupingItem> {
         return items
     }
 }
