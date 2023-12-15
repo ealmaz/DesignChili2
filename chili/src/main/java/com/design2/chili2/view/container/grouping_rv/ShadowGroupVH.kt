@@ -53,4 +53,8 @@ data class ShadowGroupItems(val items: List<GroupingItem>,
     override fun getItemStateMode(): ItemsStateMode {
         return this.itemsStateMode
     }
+
+    override fun getItems(): List<GroupingItem> {
+        return items
+    }
 }
