@@ -159,7 +159,7 @@ data class PoleItem(
         return (newItem as? PoleItem)?.equals(this) == true
     }
 
-    override fun getItems(): List<GroupingItem> {
+    override fun getChildItems(): List<GroupingItem> {
         return emptyList()
     }
 }
