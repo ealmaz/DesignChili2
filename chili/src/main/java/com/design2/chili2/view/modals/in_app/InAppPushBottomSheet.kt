@@ -1,10 +1,12 @@
 package com.design2.chili2.view.modals.in_app
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import com.bumptech.glide.RequestBuilder
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewInAppPushBinding
 import com.design2.chili2.extensions.*
@@ -26,6 +28,8 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
     private var title: String? = null
     private var description: String? = null
     private var btnMoreInfo: Pair<String, InAppPushBottomSheet.() -> Unit>? = null
+
+    private var imageListener : RequestBuilder<Drawable>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,7 +90,7 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
 
     private fun setupBanner() {
         vb.ivBanner.let { bannerView ->
-            bannerView.setImageByUrlWithListener(
+            imageListener = bannerView.setImageByUrlWithListener(
                 imageUrl = bannerUrl,
                 onSuccess = { resource ->
                     bannerView.visible()
@@ -145,5 +149,10 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
                 isHideable = this@Builder.isHideable
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        imageListener?.listener(null)
     }
 }
