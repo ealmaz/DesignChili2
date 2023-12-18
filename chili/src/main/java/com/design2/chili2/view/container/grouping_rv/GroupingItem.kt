@@ -10,7 +10,7 @@ interface GroupingItem {
     fun setItemStateMode(itemsStateMode: ItemsStateMode) {}
     fun getItemStateMode(): ItemsStateMode = ItemsStateMode.DEFAULT
 
-    fun getChildItems() : List<GroupingItem>
+    fun getChildItems() : List<GroupingItem> = emptyList()
 }
 
 enum class ItemsStateMode {
