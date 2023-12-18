@@ -56,8 +56,7 @@
         android:id="@+id/fl_action_bg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/padding_16dp"
-        android:layout_marginTop="@dimen/padding_6dp"
+
         android:visibility="gone"
         tools:visibility="visible"
         app:layout_constraintTop_toBottomOf="@id/til_input_container"
@@ -73,6 +72,10 @@
             android:layout_gravity="end"
             android:gravity="end"
             android:ellipsize="end"
+            android:paddingEnd="@dimen/padding_16dp"
+            android:paddingStart="@dimen/padding_16dp"
+            android:paddingTop="@dimen/padding_6dp"
+            android:paddingBottom="@dimen/padding_6dp"
             style="@style/Chili.ButtonStyle.Component"
             tools:text="Action"/>
 

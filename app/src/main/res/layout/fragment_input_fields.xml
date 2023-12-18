@@ -18,6 +18,7 @@
         <com.design2.chili2.view.input.MaskedInputView
             android:id="@+id/field_123"
             app:message="Simple"
+            app:actionButtonText="Сканер"
             style="@style/Chili.InputViewStyle.Masked.PhoneMask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
