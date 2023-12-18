@@ -13,14 +13,13 @@ import com.design2.chili2.view.container.HighlighterContainer
 
 class HighlightsAdapter(private val listener: OnHighlightClickListener)
     : RecyclerView.Adapter<HighlightsAdapter.HighlightsVH>() {
-    private val stories = ArrayList<Story>()
+    private var stories = mutableListOf<Story>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HighlightsVH {
         val inflater = LayoutInflater.from(parent.context)
         val layout = when (viewType) {
             ALL_STORIES -> R.layout.chili_item_highlight_all_stories
-            ALGA -> R.layout.chili_item_story_highlight_alga
-            FOR_YOU -> R.layout.chili_item_story_highlight_for_you
+            MARKETING_CENTER -> R.layout.chili_item_story_highlight_for_you
             else -> R.layout.chili_item_story_highlight
         }
         val view: View = inflater.inflate(layout, parent, false)
@@ -28,12 +27,9 @@ class HighlightsAdapter(private val listener: OnHighlightClickListener)
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when(stories[position].type) {
-            StoryType.ALL_STORIES -> ALL_STORIES
-            StoryType.ALGA -> ALGA
-            StoryType.FOR_YOU -> FOR_YOU
-            else -> GENERAL
-        }
+        if (position == 7) return ALL_STORIES
+        if (stories[position].isMarketingCenter) return MARKETING_CENTER
+        return GENERAL
     }
 
     override fun onBindViewHolder(holder: HighlightsVH, position: Int) {
@@ -45,8 +41,8 @@ class HighlightsAdapter(private val listener: OnHighlightClickListener)
     }
 
     fun addItems(items: List<Story>) {
-        this.stories.addAll(items)
-        this.stories.add(Story(8, "Все события", true, StoryType.ALL_STORIES, null))
+        stories.addAll(items.sortedBy { it.orderNumber })
+        stories.add(Story(-1, -1, "Все события", false))
         notifyDataSetChanged()
     }
 
@@ -64,9 +60,10 @@ class HighlightsAdapter(private val listener: OnHighlightClickListener)
 
         private fun setupStory(item: Story) {
             setupClickListener()
-            loadImage(item.imageUrl)
+            loadImage(item.image)
             textView.text = item.title
-            if (item.isRead == true) borderContainer.setHighlighterState(HighlighterState.GONE)
+            if (item.isRead()) borderContainer.setHighlighterState(HighlighterState.GONE)
+            else borderContainer.setHighlighterGradientColors(item.borderColors)
         }
 
         private fun setupClickListener() {
@@ -87,10 +84,9 @@ class HighlightsAdapter(private val listener: OnHighlightClickListener)
     }
 
     companion object {
-        const val ALL_STORIES = 1
-        const val ALGA = 2
-        const val FOR_YOU = 3
-        const val GENERAL = 0
+        const val ALL_STORIES = -1
+        const val GENERAL = 1
+        const val MARKETING_CENTER = 2
     }
 }
 

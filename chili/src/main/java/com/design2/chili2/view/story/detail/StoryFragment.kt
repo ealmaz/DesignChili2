@@ -1,25 +1,26 @@
 package com.design2.chili2.view.story.detail
 
 import android.app.Activity
+import android.graphics.Color
 import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoryBinding
+import com.design2.chili2.extensions.dp
 import com.design2.chili2.view.common.GesturesListener
+import com.design2.chili2.view.story.ButtonModel
 import com.design2.chili2.view.story.DetailedStory
 import com.design2.chili2.view.story.ProgressBarListener
 import com.design2.chili2.view.story.Story
 import com.design2.chili2.view.story.StoryCallbackListener
-import com.design2.chili2.view.story.StoryType
 
 class StoryFragment : Fragment(), ProgressBarListener, GesturesListener {
     private var story: Story? = null
@@ -40,14 +41,16 @@ class StoryFragment : Fragment(), ProgressBarListener, GesturesListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        story?.stories?.let { detailedStories = it }
+        story?.stories?.let { stories ->
+            detailedStories = stories.sortedBy { it.orderNumber }
+        }
         setupViews()
     }
 
     private fun setupViews() {
         vb.progressBar.initProgressBar(detailedStories.size)
         setupViewByStory()
-        setViewsByDetailedStory(0)
+        setViewsByDetailedStory(getStoryIndexToShow())
         setupListeners()
     }
 
@@ -55,42 +58,55 @@ class StoryFragment : Fragment(), ProgressBarListener, GesturesListener {
         gesturesView.setGestureListener(this@StoryFragment)
         progressBar.setProgressBarListener(this@StoryFragment)
         btnClose.setOnClickListener { listener?.closeStory() }
-        btnDetails.setOnClickListener { listener?.openDeeplink() }
+    }
+
+    private fun getStoryIndexToShow(): Int {
+        detailedStories.forEachIndexed { index, story ->
+            if (!story.isViewed)
+                return index
+        }
+        return 0
     }
 
     private fun setViewsByDetailedStory(index: Int) {
         detailedStories[index].let { story ->
             vb.title.text = story.title
-            showSubtitle(index)
-            loadImage(story.imageUrl)
+            vb.subtitle.text = story.description
+            showSubtitle()
+            setupButton(story.button)
+            vb.description.text = story.description
+            loadImage(story.image)
         }
     }
 
-    private fun showSubtitle(index: Int) = with(vb) {
+    private fun showSubtitle() = with(vb) {
         isSubtitleVisible = true
-        subtitle.text = detailedStories[index].subtitle
+        subtitle.isVisible = true
+        description.isVisible = false
         setTextGradient()
         context?.let { overlayLayout.foreground = ContextCompat.getDrawable(it, R.drawable.chili_bg_shading) }
         progressBar.resumeAnimation()
     }
 
     private fun setTextGradient() {
-        vb.subtitle.viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener {
-            override fun onPreDraw(): Boolean {
-                vb.subtitle.viewTreeObserver.removeOnPreDrawListener(this)
-                val totalHeight = vb.subtitle.lineHeight * (vb.subtitle.lineCount + 1).toFloat()
-                val gradient = context?.let {
-                    LinearGradient(
-                        0f, 0f, 0f, totalHeight,
-                        it.getColor(R.color.white_1),
-                        it.getColor(R.color.white_alpha_0),
-                        Shader.TileMode.CLAMP
-                    )
-                }
-                vb.subtitle.paint.shader = gradient
-                return true
-            }
-        })
+        val gradient = context?.let {
+            LinearGradient(
+                0f, 0f, 0f, 68.dp.toFloat(),
+                it.getColor(R.color.white_1),
+                it.getColor(R.color.white_alpha_0),
+                Shader.TileMode.CLAMP
+            )
+        }
+        vb.subtitle.paint.shader = gradient
+    }
+
+    private fun setupButton(button: ButtonModel?) {
+        vb.btnDetails.apply {
+            button?.title?.let { text = it }
+            button?.titleColor?.let { setTextColor(Color.parseColor(it)) }
+            button?.backgroundColor?.let { setBackgroundColor(Color.parseColor(it)) }
+            button?.deepLink?.let { setOnClickListener { listener?.openDeeplink(button.deepLink) } }
+        }
     }
 
     private fun loadImage(imageUrl: String?) {
@@ -103,11 +119,10 @@ class StoryFragment : Fragment(), ProgressBarListener, GesturesListener {
     }
 
     private fun setupViewByStory() {
-        if (story?.type == StoryType.FOR_YOU) {
+        if (story?.isMarketingCenter == true) {
             vb.badge.isVisible = true
             vb.borderView.setBackgroundResource(R.drawable.chili_story_border)
         }
-        story?.duration?.let { vb.progressBar.setAnimationDuration(it.toLong() * 1000) }
     }
 
     override fun onAnimationFinishedAt(index: Int) {
@@ -151,7 +166,7 @@ class StoryFragment : Fragment(), ProgressBarListener, GesturesListener {
 
     override fun onSwipeDown() {
         if (isSubtitleVisible) listener?.closeStory()
-        else showSubtitle(vb.progressBar.currentIndex)
+        else showSubtitle()
     }
 
     private fun showNextStory() {
@@ -168,8 +183,8 @@ class StoryFragment : Fragment(), ProgressBarListener, GesturesListener {
 
     private fun showDescription() = with(vb) {
         isSubtitleVisible = false
-        subtitle.text = detailedStories[progressBar.currentIndex].description
-        subtitle.paint.shader = null
+        description.isVisible = true
+        subtitle.isVisible = false
         context?.let { overlayLayout.foreground = ContextCompat.getDrawable(it, R.drawable.chili_bg_semi_transparent) }
         vb.progressBar.pauseAnimation()
     }
