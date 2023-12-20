@@ -15,7 +15,7 @@
         android:layout_gravity="top|right"
         android:layout_marginTop="@dimen/padding_10dp"
         android:layout_marginEnd="@dimen/padding_10dp"
-        android:background="@drawable/chili_ic_clear"
+        android:background="@drawable/chili_ic_clear_24"
         android:visibility="gone" />
 
     <LinearLayout
