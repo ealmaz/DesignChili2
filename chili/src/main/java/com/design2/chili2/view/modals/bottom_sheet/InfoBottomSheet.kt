@@ -3,9 +3,12 @@ package com.design2.chili2.view.modals.bottom_sheet
 import android.content.DialogInterface
 import android.os.Bundle
 import android.text.Spanned
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.design2.chili2.R
@@ -25,6 +28,8 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
 
     private var iconRes: Int? = null
     private var iconUri: String? = null
+
+    private var iconSizeDimenRes: Int? = null
 
     private var primaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
     private var secondaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
@@ -58,6 +63,16 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         text?.let { setMessage(it) }
         textSpanned?.let { setMessage(it) }
         textResId?.let { setMessage(it)}
+
+        iconSizeDimenRes?.let {
+            vb.ivIcon.apply {
+                val size = context.resources.getDimensionPixelSize(it)
+                layoutParams = LinearLayout.LayoutParams(size, size).apply {
+                    gravity = Gravity.CENTER
+                }
+                requestLayout()
+            }
+        }
 
         iconRes?.let { setIcon(it) }
         iconUri?.let { setIcon(it) }
@@ -151,6 +166,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         private var iconRes: Int? = null
         private var iconUri: String? = null
         private var hasCloseIcon: Boolean = true
+        private var iconSizeDimenRes: Int? = null
 
         private var primaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
         private var secondaryButton: Pair<String, (InfoBottomSheet.() -> Unit)>? = null
@@ -221,6 +237,11 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
             return this
         }
 
+        fun setIconSizeDimenRes(@DimenRes iconSizeDimenRes: Int): Builder {
+            this.iconSizeDimenRes = iconSizeDimenRes
+            return this
+        }
+
         fun build(): InfoBottomSheet {
             return InfoBottomSheet().apply {
                 this.text = this@Builder.text
@@ -228,6 +249,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
                 this.textResId = this@Builder.textResId
                 this.iconRes = this@Builder.iconRes
                 this.iconUri = this@Builder.iconUri
+                this.iconSizeDimenRes = this@Builder.iconSizeDimenRes
                 this.primaryButton = this@Builder.primaryButton
                 this.secondaryButton = this@Builder.secondaryButton
                 this.primaryButtonRes = this@Builder.primaryButtonRes
