@@ -110,6 +110,8 @@
         <item name="ChiliToolbarIconsTint">@color/black_1</item>
         <item name="ChiliToolbarBackground">@color/white_1</item>
 
+        <item name="ChiliStartIconToolbarBackground">@color/white_1</item>
+
         <!-- NavigationBar -->
 
         <item name="ChiliNavigationBarBackground">@color/gray_3_alpha_98</item>

@@ -146,6 +146,8 @@
     <attr name="ChiliToolbarIconsTint" format="color"/>
     <attr name="ChiliToolbarBackground" format="color|reference"/>
 
+    <attr name="ChiliStartIconToolbarBackground" format="color|reference"/>
+
     <!-- NavigationBar -->
     <attr name="ChiliNavigationBarBackground" format="color|reference"/>
     <attr name="ChiliNavigationBarBackgroundCornerRadius" format="color"/>
