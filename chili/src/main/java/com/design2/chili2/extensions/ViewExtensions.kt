@@ -7,6 +7,7 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.URLSpan
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
@@ -271,4 +272,14 @@ fun Context.recolorDrawable(@DrawableRes drawableId: Int, @ColorRes colorId: Int
 
 fun Drawable.copy(): Drawable {
     return this.mutate().constantState?.newDrawable()?.mutate() ?: this
+}
+
+fun View.setOnDragDropListener(action: () -> Unit) {
+    setOnTouchListener { v, event ->
+        when (event.actionMasked) {
+            MotionEvent.ACTION_DOWN -> action()
+            MotionEvent.ACTION_UP -> v.performClick()
+        }
+        return@setOnTouchListener true
+    }
 }
