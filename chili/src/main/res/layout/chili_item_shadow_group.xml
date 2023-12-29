@@ -12,11 +12,12 @@
     <com.design2.chili2.view.container.shadow_layout.ShadowLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:background_color="@android:color/transparent"
         style="@style/ShadowLayoutStyle">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_items"
-            android:background="?ChiliSurfaceBackground"
+            android:background="@android:color/transparent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
