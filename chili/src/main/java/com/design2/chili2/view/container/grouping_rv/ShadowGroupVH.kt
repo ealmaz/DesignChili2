@@ -25,7 +25,11 @@ class ShadowGroupVH(val view: View) : BaseGroupingVH(view) {
             val view = LayoutInflater.from(parent.context).inflate(R.layout.chili_item_shadow_group, parent, false)
             return ShadowGroupVH(view).apply {
                 this.adapter = adapter
-                view.findViewById<RecyclerView>(R.id.rv_items).adapter = adapter as? RecyclerView.Adapter<*>
+                val rv = view.findViewById<RecyclerView>(R.id.rv_items)
+                rv?.let {
+                    it.adapter = adapter as? RecyclerView.Adapter<*>
+                    adapter.getItemTouchHelper()?.attachToRecyclerView(it)
+                }
             }
         }
     }
