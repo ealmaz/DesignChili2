@@ -39,6 +39,7 @@
     <color name="folly_1">#FF0051</color>
     <color name="folly_2">#E00047</color>
     <color name="folly_3">#FF99B9</color>
+    <color name="folly_4">#FF0066</color>
 
     <!-- Green -->
     <color name="green_1">#82B752</color>
@@ -54,6 +55,7 @@
     <color name="blue_4">#52B1B7</color>
     <color name="blue_5">#4A90E2</color>
     <color name="custom_blue_1">#2680ADF5</color>
+    <color name="custom_blue_2">#1C67F8</color>
 
     <!-- Red -->
     <color name="red_1">#FF3B30</color>
@@ -85,5 +87,7 @@
     <color name="blue_1_alpha_50">#80007AFF</color>
     <color name="magenta_1_alpha_40">#66F0047F</color>
     <color name="black_alpha_0_08">#14000000</color>
+    <color name="black_alpha_40">#66000000</color>
+    <color name="white_alpha_0">#00FFFFFF</color>
 
 </resources>

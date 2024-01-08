@@ -11,26 +11,41 @@ import android.view.animation.LinearInterpolator
 import androidx.annotation.ColorInt
 import com.design2.chili2.R
 
-class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : View(context, attrs) {
+interface ProgressListener {
+    fun onLineProgressFull()
+}
 
-    private val paint = Paint()
+class AnimatedProgressLine : View {
 
-    @ColorInt private var progressBackgroundColor: Int = Color.GRAY
-    @ColorInt private var progressColor: Int = Color.GREEN
+    constructor(context: Context) : super(context) {
+        setupViews()
+    }
 
-    private var progressPercent: Int = 0
-    private var isProgressAnimated: Boolean = false
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
+        setupViews()
+        obtainAttributes(attrs)
+    }
 
-    init {
+    private fun setupViews() {
         paint.apply {
             isAntiAlias = true
             style = Paint.Style.STROKE
             strokeCap = Paint.Cap.ROUND
         }
-        initViews()
     }
 
-    private fun initViews() {
+    private val paint = Paint()
+    private var animator: ValueAnimator? = null
+    private var progressListener: ProgressListener? = null
+
+    @ColorInt private var progressBackgroundColor: Int = Color.GRAY
+    @ColorInt private var progressColor: Int = Color.GREEN
+
+    private var progressPercent: Int = 0
+    private var animationDuration: Long = 1000
+    private var isProgressAnimated: Boolean = false
+
+    private fun obtainAttributes(attrs: AttributeSet) {
         context?.obtainStyledAttributes(attrs, R.styleable.AnimatedProgressLine)?.run {
             getBoolean(R.styleable.AnimatedProgressLine_animateProgress, false).let {
                 setIsProgressAnimated(it)
@@ -43,6 +58,9 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
             }
             getInteger(R.styleable.AnimatedProgressLine_progressPercent, 50).let {
                 setProgress(it)
+            }
+            getInteger(R.styleable.AnimatedProgressLine_animationDuration, 1000).let {
+                setAnimationDuration(it.toLong())
             }
             recycle()
         }
@@ -59,8 +77,9 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
         invalidate()
     }
 
-    private fun setProgressPercent(percent: Int) {
+    fun setProgressPercent(percent: Int) {
         this.progressPercent = percent
+        if (percent == 100) progressListener?.onLineProgressFull()
         invalidate()
     }
 
@@ -93,8 +112,9 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
     }
 
     private fun animateProgress(progress: Int) {
-        ValueAnimator.ofInt(0, progress).apply {
-            duration = 1000
+        animator?.cancel()
+        animator = ValueAnimator.ofInt(0, progress).apply {
+            duration = animationDuration
             interpolator = LinearInterpolator()
             addUpdateListener { setProgressPercent(it.animatedValue as Int) }
             start()
@@ -102,8 +122,9 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
     }
 
     private fun reverseAnimateProgress() {
-        ValueAnimator.ofInt(progressPercent, 0).apply {
-            duration = 1000
+        animator?.cancel()
+        animator = ValueAnimator.ofInt(progressPercent, 0).apply {
+            duration = animationDuration
             interpolator = LinearInterpolator()
             addUpdateListener { setProgressPercent(it.animatedValue as Int) }
             start()
@@ -112,6 +133,9 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
 
     fun setIsProgressAnimated(isAnimated: Boolean) {
         this.isProgressAnimated = isAnimated
+        if (!isAnimated) {
+            animator?.cancel()
+        }
     }
 
     fun setProgress(progress: Int) {
@@ -123,5 +147,26 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
               reverseAnimateProgress()
         }
         animateProgress(progress)
+    }
+
+    fun setAnimationDuration(duration: Long) {
+        animationDuration = duration
+        invalidate()
+    }
+
+    fun pauseAnimation() {
+        animator?.pause()
+    }
+
+    fun resumeAnimation() {
+        animator?.resume()
+    }
+
+    fun cancelAnimation() {
+        animator?.cancel()
+    }
+
+    fun setAnimationListener(listener: ProgressListener) {
+        this.progressListener = listener
     }
 }
