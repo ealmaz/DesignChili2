@@ -77,12 +77,24 @@
                 android:textAppearance="@style/Chili.H4.Primary.Bold"
                 android:layout_margin="@dimen/padding_16dp"/>
 
+<!--           TODO - размер рассчитать! -->
+
             <TextView
                 android:id="@+id/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:textColor="@color/white_1"
+                android:textAppearance="@style/Chili.H7"
+                android:layout_marginBottom="36dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"/>
+
+            <TextView
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white_1"
                 android:textAppearance="@style/Chili.H7"
+                android:visibility="gone"
                 android:layout_marginBottom="36dp"
                 android:layout_marginHorizontal="@dimen/padding_16dp"/>
 
