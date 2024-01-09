@@ -2,6 +2,8 @@ package com.design2.chili2.view.camera_overlays
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Rect
+import android.graphics.RectF
 import android.graphics.Typeface
 import android.util.AttributeSet
 import com.design2.chili2.R
@@ -13,6 +15,8 @@ class PassportCardOverlay @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.passportCardCameraOverlay,
     defStyleRes: Int = R.style.Chili_CameraOverlayPassportCard
 ) : BaseCameraOverlay(context, attrs, defStyleAttr, defStyleRes) {
+
+    private var passportMaskRect: RectF? = null
 
     private var headerText: String? = null
     private var title: String? = null
@@ -68,6 +72,10 @@ class PassportCardOverlay @JvmOverloads constructor(
         invalidate()
     }
 
+    fun getPassportMaskRectF(): RectF? {
+        return passportMaskRect
+    }
+
 
     override fun drawShapes(canvas: Canvas) {
         drawColor(canvas, R.color.black_1, overlayAlpha)
@@ -100,6 +108,8 @@ class PassportCardOverlay @JvmOverloads constructor(
         var top = startYWithMargin
         val right = left + rectWidth
         val bottom = top + rectHeight
+
+        passportMaskRect = RectF(left, top, right, bottom)
 
         return cutRectangleFromCanvas(
             canvas,
