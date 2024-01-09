@@ -13,10 +13,12 @@ import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCardsBinding
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.view.container.ExpandableContainer
+import com.design2.chili2.view.image.CarouselImageAdapter
+import com.design2.chili2.view.modals.ShowcaseHelper
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 
-class CardsFragment : BaseFragment<FragmentCardsBinding>() {
+class CardsFragment : BaseFragment<FragmentCardsBinding>(), CarouselImageAdapter.Listener {
     private lateinit var simpleAdapter: SimpleTextRecyclerViewAdapter
     private lateinit var discountCardAdapter: SimpleDiscountCardRecyclerViewAdapter
 //    private var simpleList = listOf("Test 1", "Test 2", "Test 3")
@@ -55,6 +57,21 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
         vb.btnExpand.setOnClickListener {
             setExpandedState(!isExpanded)
         }
+        val adapter = CarouselImageAdapter(listOf("https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg", "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg", "https://images.unsplash.com/photo-1509043759401-136742328bb3?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D"),
+            this)
+        vb.bannerView1.apply {
+            this.adapter = adapter
+            startAutoScroll()
+        }
+
+        ShowcaseHelper(requireActivity()).showShowcase(vb.accent, ShowcaseHelper.ShowcaseData(
+            title = "Title",
+            message = "Message",
+            gravity = ShowcaseHelper.ShowcasePosition.BOTTOM,
+            indicatorsCount = 3,
+            currentIndicatorPosition = 0,
+            buttonText = "Ponyatno"
+        ), {}, {})
     }
 
     private fun setExpandedState(isExpanded: Boolean) {
@@ -142,6 +159,10 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>() {
     override fun stopShimmering() {
         super.stopShimmering()
         vb.root.stopGroupShimmering()
+    }
+
+    override fun onBannerClicked(position: Int) {
+
     }
 
 
