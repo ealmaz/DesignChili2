@@ -6,6 +6,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.design2.app.MainActivity
 import com.design2.app.R
 import com.design2.app.adapter.SimpleDiscountCardRecyclerViewAdapter
@@ -14,12 +15,12 @@ import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCardsBinding
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.view.container.ExpandableContainer
-import com.design2.chili2.view.image.CarouselImageAdapter
+import com.design2.chili2.view.image.AutoScrollCarouselImageAdapter
 import com.design2.chili2.view.modals.ShowcaseHelper
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 
-class CardsFragment : BaseFragment<FragmentCardsBinding>(), CarouselImageAdapter.Listener {
+class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselImageAdapter.Listener {
     private lateinit var simpleAdapter: SimpleTextRecyclerViewAdapter
     private lateinit var discountCardAdapter: SimpleDiscountCardRecyclerViewAdapter
 //    private var simpleList = listOf("Test 1", "Test 2", "Test 3")
@@ -58,19 +59,21 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), CarouselImageAdapter
         vb.btnExpand.setOnClickListener {
             setExpandedState(!isExpanded)
         }
-        val adapter = CarouselImageAdapter(
+        val adapter = AutoScrollCarouselImageAdapter(
             listOf(
-                "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-                "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg",
-                "https://images.unsplash.com/photo-1509043759401-136742328bb3?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D",
-                "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
-                "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg",
-                "https://images.unsplash.com/photo-1509043759401-136742328bb3?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D"
+                "https://minio.o.kg/media-service/Bonus/ru/82446e5c-267d-4782-a777-dd9da2950256.png",
+                "https://minio.o.kg/media-service/Bonus/ru/9274b232-02d0-4924-a28b-2e774f2ae1cb.jpg",
+                "https://minio.o.kg/media-service/Bonus/ru/75369902-3870-40ad-8cb6-891fe404084e.jpg",
+                "https://minio.o.kg/media-service/Bonus/ru/4a54862d-eaa0-4fac-83ff-0794f7ff32a2.jpg",
+                "https://minio.o.kg/media-service/Bonus/ru/b9007171-27a6-41fe-ab1c-d0efae20855c.jpg",
+                "https://minio.o.kg/media-service/Bonus/ru/68b4602e-d17c-429e-8132-afebef54d105.jpg"
                 ),
             this)
-        vb.bannerView1.apply {
+
+        vb.bannerView1.run {
+            PagerSnapHelper().attachToRecyclerView(this)
             this.adapter = adapter
-            startAutoScroll()
+            resumeAutoScroll()
         }
 
         ShowcaseHelper(requireActivity()).showShowcase(vb.accent, ShowcaseHelper.ShowcaseData(
