@@ -517,4 +517,8 @@
         <attr name="cardCornerRadius"/>
     </declare-styleable>
 
+    <declare-styleable name="AutoScrollImageCarouselView">
+        <attr name="delay" format="integer" />
+    </declare-styleable>
+
 </resources>

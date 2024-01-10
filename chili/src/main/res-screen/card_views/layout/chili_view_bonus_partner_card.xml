@@ -4,9 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:layout_height="match_parent"
-    android:paddingEnd="@dimen/padding_8dp"
     android:paddingBottom="?ChiliCategoryCardViewLabelBottomMargin"
     android:orientation="vertical">
 
@@ -42,7 +41,8 @@
 
     <TextView
         android:id="@+id/tv_label"
-        android:layout_width="wrap_content"
+        android:maxLines="2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Chili.H9.Primary"
         android:layout_marginTop="@dimen/padding_12dp"
@@ -74,10 +74,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/Chili.H9.Primary.Bold"
-        android:layout_marginTop="?ChiliCategoryCardViewLabelTopMargin"
         android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
         android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
-        android:visibility="gone"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_label"

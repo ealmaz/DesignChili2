@@ -213,6 +213,12 @@ fun View.setLeftMargin(margin: Int) {
     layoutParams = params
 }
 
+fun View.setRightMargin(margin: Int) {
+    val params = layoutParams as ViewGroup.MarginLayoutParams
+    params.setMargins(params.leftMargin, params.topMargin, margin, params.bottomMargin)
+    layoutParams = params
+}
+
 fun View.setHorizontalMargin(margin: Int) {
     val params = layoutParams as ViewGroup.MarginLayoutParams
     params.setMargins(margin, params.topMargin, margin, params.bottomMargin)
