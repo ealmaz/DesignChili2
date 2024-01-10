@@ -134,7 +134,7 @@ class PassportCardOverlay @JvmOverloads constructor(
 
     private fun drawDescription(canvas: Canvas, startY: Float): Float {
         if (description == null) return startY
-        val startYWithMargin = startY + 8.dp.toFloat()
+        val startYWithMargin = startY + 24.dp.toFloat()
         return drawText(
             canvas,
             description ?: "",
