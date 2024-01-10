@@ -14,7 +14,7 @@ class CarouselImageAdapter(private val images: List<String>, private val listene
 
         binding.bannerImage.setImageByUrl(images[position])
 
-        binding.root.setOnClickListener { listener.onBannerClicked(position) }
+        binding.bannerImage.setOnClickListener { listener.onBannerClicked(position) }
 
         container.addView(binding.root)
         return binding.root
