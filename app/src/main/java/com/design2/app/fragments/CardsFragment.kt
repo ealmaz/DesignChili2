@@ -1,6 +1,7 @@
 package com.design2.app.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
@@ -57,7 +58,15 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), CarouselImageAdapter
         vb.btnExpand.setOnClickListener {
             setExpandedState(!isExpanded)
         }
-        val adapter = CarouselImageAdapter(listOf("https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg", "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg", "https://images.unsplash.com/photo-1509043759401-136742328bb3?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D"),
+        val adapter = CarouselImageAdapter(
+            listOf(
+                "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+                "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg",
+                "https://images.unsplash.com/photo-1509043759401-136742328bb3?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D",
+                "https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg",
+                "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg",
+                "https://images.unsplash.com/photo-1509043759401-136742328bb3?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D"
+                ),
             this)
         vb.bannerView1.apply {
             this.adapter = adapter
@@ -164,6 +173,4 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), CarouselImageAdapter
     override fun onBannerClicked(position: Int) {
 
     }
-
-
 }

@@ -12,7 +12,7 @@ class CarouselImageView @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : ViewPager(context, attrs) {
     private val handler = Handler()
-    private val autoScrollDelay: Long = 3000
+    private var autoScrollDelay: Long = 3000
     private var currentPage = 0
 
     private val pageSwitcher = object : Runnable {
@@ -26,7 +26,7 @@ class CarouselImageView @JvmOverloads constructor(
     }
 
     init {
-        offscreenPageLimit = 3
+        offscreenPageLimit = 1
 
         val pageMarginPx = resources.getDimensionPixelSize(R.dimen.padding_16dp)
         val viewPagerPadding = resources.getDimensionPixelSize(R.dimen.padding_32dp)
@@ -66,8 +66,9 @@ class CarouselImageView @JvmOverloads constructor(
         })
     }
 
-    fun startAutoScroll() {
-        handler.postDelayed(pageSwitcher, autoScrollDelay)
+    fun startAutoScroll(autoScrollDelay: Long = 3000) {
+        this.autoScrollDelay = autoScrollDelay
+        handler.postDelayed(pageSwitcher, this.autoScrollDelay)
     }
 
     fun stopAutoScroll() {
