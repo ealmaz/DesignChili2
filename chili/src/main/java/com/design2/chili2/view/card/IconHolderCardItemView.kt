@@ -80,6 +80,20 @@ class IconHolderCardItemView @JvmOverloads constructor(
         vb.tvLabel.setText(resId)
     }
 
+    fun setSubtitle(charSequence: CharSequence?) {
+        with(vb.tvSubtitle) {
+            visible()
+            text = charSequence
+        }
+    }
+
+    fun setSubtitle(resId: Int) {
+        with(vb.tvSubtitle) {
+            visible()
+            setText(resId)
+        }
+    }
+
     fun setTitleTextAppearance(resId: Int) {
         vb.tvLabel.setTextAppearance(resId)
     }
