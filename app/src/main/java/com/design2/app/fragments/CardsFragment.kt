@@ -84,6 +84,17 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             currentIndicatorPosition = 0,
             buttonText = "Ponyatno"
         ), {}, {})
+
+        vb.bonusPartnerCard.apply {
+            setTitle("Bonus Partner la la la")
+            setIcon("https://minio.o.kg/media-service/Bonus/ru/68b4602e-d17c-429e-8132-afebef54d105.jpg")
+            setSubtitle("до 2%")
+        }
+        vb.bonusPartnerCard2.apply {
+            setTitle("Bonus Partner la la la")
+            setIcon("https://minio.o.kg/media-service/Bonus/ru/68b4602e-d17c-429e-8132-afebef54d105.jpg")
+            setSubtitle("до 2%")
+        }
     }
 
     private fun setExpandedState(isExpanded: Boolean) {
