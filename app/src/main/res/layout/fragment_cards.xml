@@ -785,6 +785,39 @@
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
+        <LinearLayout
+            android:clipChildren="false"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                style="@style/ShadowLayoutStyle"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_8dp"
+                android:layout_height="wrap_content">
+
+                <com.design2.chili2.view.card.BonusPartnerCardItemView
+                    android:id="@+id/bonus_partner_card"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp" />
+            </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+            <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                style="@style/ShadowLayoutStyle"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_marginHorizontal="@dimen/padding_8dp"
+                android:layout_height="wrap_content">
+
+                <com.design2.chili2.view.card.BonusPartnerCardItemView
+                    android:id="@+id/bonus_partner_card2"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp" />
+            </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>
