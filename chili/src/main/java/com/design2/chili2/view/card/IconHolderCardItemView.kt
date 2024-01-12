@@ -12,7 +12,6 @@ import androidx.annotation.DrawableRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewDiscountCardBinding
 import com.design2.chili2.extensions.color
-import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.recolorDrawable
 import com.design2.chili2.extensions.setImageByUrl
@@ -73,8 +72,8 @@ class IconHolderCardItemView @JvmOverloads constructor(
         }
     }
 
-    fun setPlaceHolderIcon(@DrawableRes resId: Int) {
-        vb.placeHolder.background = context.drawable(resId)
+    fun setPlaceHolder(@DrawableRes resId: Int) {
+        vb.placeHolder.setBackgroundResource(resId)
         vb.ivEmojiHolder.invisible()
     }
 
