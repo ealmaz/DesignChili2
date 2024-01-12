@@ -72,6 +72,11 @@ class IconHolderCardItemView @JvmOverloads constructor(
         }
     }
 
+    fun setPlaceHolder(@DrawableRes resId: Int) {
+        vb.placeHolder.setBackgroundResource(resId)
+        vb.ivEmojiHolder.invisible()
+    }
+
     fun setTitle(charSequence: CharSequence?) {
         vb.tvLabel.text = charSequence
     }
