@@ -73,8 +73,8 @@ class IconHolderCardItemView @JvmOverloads constructor(
         }
     }
 
-    fun setEllipsizeEnd(ellipsize: Boolean) {
-        vb.tvLabel.ellipsize = if (ellipsize) TextUtils.TruncateAt.END else null
+    fun setIsEllipsizeEnd(isEnabled: Boolean) {
+        vb.tvLabel.ellipsize = if (isEnabled) TextUtils.TruncateAt.END else null
     }
 
     fun setPlaceHolder(@DrawableRes resId: Int) {
