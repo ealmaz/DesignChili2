@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:layout_height="match_parent"
-    android:paddingEnd="@dimen/padding_8dp"
     android:paddingBottom="?ChiliCategoryCardViewLabelBottomMargin"
     android:orientation="vertical">
 
@@ -76,17 +75,18 @@
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
-        android:lines="2"
         android:id="@+id/tv_label"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Chili.H7.Primary"
+        android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
         android:layout_marginTop="?ChiliCategoryCardViewLabelTopMargin"
         android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
-        android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
-        app:layout_constraintTop_toBottomOf="@id/place_holder"
+        android:lines="2"
+        android:textAppearance="@style/Chili.H9.Primary"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Переводы"/>
+        app:layout_constraintTop_toBottomOf="@id/place_holder"
+        tools:text="Переводы" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_label_shimmer"
