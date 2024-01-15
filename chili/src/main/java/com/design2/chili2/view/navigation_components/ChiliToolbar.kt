@@ -89,6 +89,16 @@ class ChiliToolbar : LinearLayout {
         }
     }
 
+    fun setupBasic(activity: FragmentActivity, title: String = "") {
+        initToolbar(
+            Configuration(
+                hostActivity = activity,
+                title = title,
+                navigationIconRes = R.drawable.chili_ic_back_arrow_rounded,
+                isNavigateUpButtonEnabled = true
+            ))
+    }
+
     fun setNavigationIcon(@DrawableRes drawableRes: Int) {
         vb.toolbarView.setNavigationIcon(drawableRes)
     }
