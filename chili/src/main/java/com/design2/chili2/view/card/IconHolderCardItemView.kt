@@ -77,9 +77,10 @@ class IconHolderCardItemView @JvmOverloads constructor(
         vb.tvLabel.ellipsize = if (isEnabled) TextUtils.TruncateAt.END else null
     }
 
-    fun setPlaceHolder(@DrawableRes resId: Int) {
-        vb.placeHolder.setBackgroundResource(resId)
-        vb.ivEmojiHolder.invisible()
+    fun setPlaceHolder(@DrawableRes resId: Int) = with(vb) {
+        placeHolder.setBackgroundResource(resId)
+        ivEmojiHolder.invisible()
+        ivIcon.invisible()
     }
 
     fun setTitle(charSequence: CharSequence?) {
@@ -110,8 +111,8 @@ class IconHolderCardItemView @JvmOverloads constructor(
     fun setIcon(url: String) = with(vb) {
         tvEmoji.invisible()
         ivEmojiHolder.invisible()
-        tvEmoji.invisible()
         ivIcon.visible()
+        ivIcon.background = null
         ivIcon.setImageByUrl(url)
     }
 
