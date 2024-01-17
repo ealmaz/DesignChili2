@@ -54,7 +54,7 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
     val customBS2: BottomSheetDialogFragment by lazy {
         requireContext().buildBottomSheet(BottomSheetConfig()) {
             block(Gravity.CENTER, LinearLayout.VERTICAL) {
-                image(R.drawable.ic_cat, com.design2.chili2.R.dimen.view_64dp, margins = Margins(top = 10.dp, bottom = 16.dp))
+                image(com.design2.chili2.R.drawable.chili_ic_done, com.design2.chili2.R.dimen.view_64dp, margins = Margins(top = 10.dp, bottom = 16.dp), imageUrl = "https://minio.o.kg/media-service/Akcha_bulak/ios_dark_rus.png")
                 customView(list)
             }
             block(Gravity.CENTER, LinearLayout.HORIZONTAL) {

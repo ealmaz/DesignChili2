@@ -131,9 +131,10 @@ fun SquircleView.setImageByUrl(url: String?) {
         .into(this)
 }
 
-fun ImageView.setImageByUrl(url: String?) {
+fun ImageView.setImageByUrl(url: String?, placeHolderDrawable: Drawable? = null) {
     Glide.with(this)
         .load(url)
+        .placeholder(placeHolderDrawable)
         .dontTransform()
         .into(this)
 }

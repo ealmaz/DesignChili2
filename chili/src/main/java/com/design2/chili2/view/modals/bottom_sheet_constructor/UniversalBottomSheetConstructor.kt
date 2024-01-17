@@ -14,6 +14,7 @@ import androidx.annotation.GravityInt
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -55,13 +56,14 @@ class Block(val context: Context, @GravityInt val gravity: Int, val orientation:
     }
 
 
-    fun image(@DrawableRes src: Int? = null, @DimenRes size: Int? = null, drawable: Drawable? = null, margins: Margins? = null) {
+    fun image(@DrawableRes src: Int? = null, @DimenRes size: Int? = null, drawable: Drawable? = null, margins: Margins? = null, imageUrl: String? = null, placeholder: Drawable? = null) {
         val actualSize = getSizeInPxOrWrapContent(size)
         ImageView(context).apply {
             layoutParams = LinearLayout.LayoutParams(actualSize, actualSize).apply {
                 margins?.let { setMargins(it.left, it.top, it.right, it.bottom) }
             }
             src?.let { setImageResource(src) }
+            imageUrl?.let { setImageByUrl(it, placeholder) }
             drawable?.let { setImageDrawable(drawable) }
             result.addView(this)
         }
