@@ -53,11 +53,11 @@ class IconHolderCardItemView @JvmOverloads constructor(
         shimmeringPairs[vb.tvLabel] = vb.viewLabelShimmer
     }
 
-    fun setEmoji(emoji: String) {
-        vb.tvEmoji.visible()
-        vb.ivEmojiHolder.visible()
-        vb.ivIcon.invisible()
-        vb.tvEmoji.text = emoji
+    fun setEmoji(emoji: String) = with(vb) {
+        tvEmoji.visible()
+        ivEmojiHolder.invisible()
+        ivIcon.visible()
+        tvEmoji.text = emoji
     }
 
     fun setColor(@ColorRes colorRes: Int?) {
@@ -100,10 +100,19 @@ class IconHolderCardItemView @JvmOverloads constructor(
         vb.ivIcon.setImageResource(resId)
     }
 
-    fun setIcon(url: String) {
+    fun setEmojiPlaceholderIcon(@DrawableRes resId: Int) {
         vb.tvEmoji.invisible()
+        vb.ivIcon.visible()
         vb.ivEmojiHolder.visible()
-        vb.ivIcon.setImageByUrl(url)
+        vb.ivEmojiHolder.setImageResource(resId)
+    }
+
+    fun setIcon(url: String) = with(vb) {
+        tvEmoji.invisible()
+        ivEmojiHolder.invisible()
+        tvEmoji.invisible()
+        ivIcon.visible()
+        ivIcon.setImageByUrl(url)
     }
 
     fun setIcon(drawable: Drawable) {

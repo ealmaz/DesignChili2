@@ -23,7 +23,7 @@
         app:layout_constraintBottom_toTopOf="@id/tv_label">
 
         <ImageView
-            android:id="@+id/iv_emoji_holder"
+            android:id="@+id/iv_icon"
             android:layout_width="@dimen/view_24dp"
             android:layout_height="@dimen/view_24dp"
             android:layout_gravity="center"
@@ -36,7 +36,7 @@
 
 
         <ImageView
-            android:id="@+id/iv_icon"
+            android:id="@+id/iv_emoji_holder"
             android:layout_width="@dimen/view_18dp"
             android:layout_height="@dimen/view_18dp"
             app:layout_constraintBottom_toBottomOf="parent"
