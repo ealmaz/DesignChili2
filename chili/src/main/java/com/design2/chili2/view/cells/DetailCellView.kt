@@ -192,6 +192,7 @@ class DetailCellView @JvmOverloads constructor(
         Glide.with(vb.svIcon)
             .load(url)
             .dontTransform()
+            .error(R.drawable.chili_ic_stub)
             .into(vb.svIcon)
     }
 
