@@ -20,6 +20,10 @@ class PaymentCardView @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewCardPaymentBinding
 
+    private var onCardClickListener: OnClickListener? = null
+    private val alphaEnabled = 1.0f
+    private val alphaDisabled = 0.3f
+
     override val styleableAttrRes: IntArray = R.styleable.PaymentCardView
 
     override val rootContainer: View
@@ -68,5 +72,35 @@ class PaymentCardView @JvmOverloads constructor(
 
     fun setGravity(gravity: Int) {
         vb.root.gravity = gravity
+    }
+
+    fun setIsCardEnabled(isEnabled: Boolean) {
+        when (isEnabled) {
+            true -> enableCard()
+            else -> disableCard()
+        }
+    }
+
+    override fun setOnClickListener(listener: OnClickListener?) {
+        this.onCardClickListener = listener
+        vb.root.setOnClickListener(onCardClickListener)
+    }
+
+    private fun disableCard() {
+        with(vb) {
+            root.setOnClickListener(null)
+            root.isEnabled = false
+            tvLabel.alpha = alphaDisabled
+            ivIcon.alpha = alphaDisabled
+        }
+    }
+
+    private fun enableCard() {
+        with(vb) {
+            root.setOnClickListener(onCardClickListener)
+            root.isEnabled = true
+            tvLabel.alpha = alphaEnabled
+            ivIcon.alpha = alphaEnabled
+        }
     }
 }

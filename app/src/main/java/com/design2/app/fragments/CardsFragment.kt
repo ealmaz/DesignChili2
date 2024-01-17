@@ -31,6 +31,21 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        vb.pcv1.setOnClickListener {
+            vb.pcv2.setIsCardEnabled(false)
+            vb.pcv3.setIsCardEnabled(true)
+        }
+
+        vb.pcv2.setOnClickListener {
+            vb.pcv3.setIsCardEnabled(false)
+        }
+
+        vb.pcv3.setOnClickListener {
+            vb.pcv2.setIsCardEnabled(true)
+        }
+
         (activity as MainActivity).setUpHomeEnabled(true)
         vb.bal2.isChevronVisible(false)
         vb.bal4.apply {
