@@ -15,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellDetailBinding
+import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
@@ -192,7 +193,7 @@ class DetailCellView @JvmOverloads constructor(
         Glide.with(vb.svIcon)
             .load(url)
             .dontTransform()
-            .error(R.drawable.chili_ic_stub)
+            .error(context.drawable(R.drawable.chili_ic_stub))
             .into(vb.svIcon)
     }
 
