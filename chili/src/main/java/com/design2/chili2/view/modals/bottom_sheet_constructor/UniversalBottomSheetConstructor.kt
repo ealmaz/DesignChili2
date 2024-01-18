@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.View.TEXT_ALIGNMENT_CENTER
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -13,6 +14,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.GravityInt
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setOnSingleClickListener
@@ -23,10 +26,18 @@ class UniversalBottomSheetConstructor(config: BottomSheetConfig, val context: Co
 
     val resultBS = ConfigurableBottomSheetFragment(config)
 
-    fun block(@GravityInt gravity: Int, orientation: Int, action: Block.() -> Unit) {
+    fun block(@GravityInt gravity: Int, orientation: Int, isPinnedBlock: Boolean = false, action: Block.() -> Unit) {
         Block(context, gravity, orientation, resultBS).apply {
             action.invoke(this)
-            resultBS.addViewBlock(this.build())
+            val containerType = if (isPinnedBlock) ContainerType.PINNED else ContainerType.NORMAL
+            resultBS.addViewBlock(this.build(), containerType)
+        }
+    }
+
+    fun fragmentContent(fragment: Fragment, fragmentManager: FragmentManager) {
+        FragmentContainer(context).apply {
+            setContentFragment(fragment)
+            resultBS.addViewBlock(this)
         }
     }
 
@@ -106,6 +117,27 @@ class Block(val context: Context, @GravityInt val gravity: Int, val orientation:
         return when (size == null) {
             true -> LinearLayout.LayoutParams.WRAP_CONTENT
             else -> context.resources.getDimensionPixelSize(size)
+        }
+    }
+}
+
+class FragmentContainer(val context: Context)  {
+
+    private var fragment: Fragment? = null
+
+    val result = FrameLayout(context).apply {
+        id = R.id.ll_container
+    }
+
+    fun setContentFragment(fragment: Fragment) {
+        this.fragment = fragment
+    }
+
+    fun inflateContainer(fragmentManager: FragmentManager) {
+        fragment?.let {
+            fragmentManager.beginTransaction()
+                .replace(R.id.ll_container, it)
+                .commit()
         }
     }
 }

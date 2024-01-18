@@ -24,7 +24,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class ConfigurableBottomSheetFragment(val config: BottomSheetConfig) : BottomSheetDialogFragment() {
 
-    val pendingBlock = mutableListOf<ViewGroup>()
+    val pendingBlock = mutableListOf<Pair<ContainerType, Any>>()
 
     private lateinit var vb: ChiliViewBottomSheetUniversalConstructorBinding
 
@@ -60,7 +60,21 @@ class ConfigurableBottomSheetFragment(val config: BottomSheetConfig) : BottomShe
         setupBottomSheetHideable()
         setupTopDrawableVisibility()
         pendingBlock.forEach {
-            vb.bottomSheetContainer.addView(it)
+            when (val block = it.second) {
+                is ViewGroup -> addViewToContainer(block, it.first)
+                is FragmentContainer -> {
+                    addViewToContainer(block.result, it.first)
+                    block.inflateContainer(childFragmentManager)
+                }
+            }
+
+        }
+    }
+
+    private fun addViewToContainer(view: View, containerType: ContainerType = ContainerType.NORMAL) {
+        when (containerType) {
+            ContainerType.NORMAL -> vb.bottomSheetView.addView(view)
+            ContainerType.PINNED -> vb.bottomSheetPinnedView.addView(view)
         }
     }
 
@@ -125,8 +139,8 @@ class ConfigurableBottomSheetFragment(val config: BottomSheetConfig) : BottomShe
         return displayMetrics.heightPixels
     }
 
-    fun addViewBlock(block: ViewGroup) {
-        pendingBlock.add(block)
+    fun addViewBlock(block: Any, containerType: ContainerType = ContainerType.NORMAL) {
+        pendingBlock.add(containerType to block)
     }
 
     fun show(fragmentManager: FragmentManager) {
@@ -140,6 +154,11 @@ class ConfigurableBottomSheetFragment(val config: BottomSheetConfig) : BottomShe
 
     override fun onDestroyView() {
         super.onDestroyView()
-        vb.bottomSheetContainer.removeAllViews()
+        vb.bottomSheetView.removeAllViews()
+        vb.bottomSheetPinnedView.removeAllViews()
     }
+}
+
+enum class ContainerType {
+    NORMAL, PINNED
 }

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/transparent"
     android:orientation="vertical"
     android:id="@+id/ll_root"
@@ -19,7 +20,7 @@
         android:backgroundTint="?attr/ChiliBottomSheetTopDrawableColor"
         android:visibility="visible"/>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ll_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,14 +39,30 @@
             android:layout_marginEnd="@dimen/padding_8dp"
             android:layout_marginBottom="@dimen/padding_8dp"
             android:background="@drawable/chili_ic_clear_24"
-            android:visibility="visible" />
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <LinearLayout
-            android:id="@+id/bottom_sheet_container"
+            android:id="@+id/bottom_sheet_view"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/bottom_sheet_pinned_view"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?ChiliBottomSheetBackgroundColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
