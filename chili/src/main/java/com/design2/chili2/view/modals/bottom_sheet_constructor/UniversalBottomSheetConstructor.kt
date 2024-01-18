@@ -34,7 +34,7 @@ class UniversalBottomSheetConstructor(config: BottomSheetConfig, val context: Co
         }
     }
 
-    fun fragmentContent(fragment: Fragment, fragmentManager: FragmentManager) {
+    fun fragmentContent(fragment: Fragment) {
         FragmentContainer(context).apply {
             setContentFragment(fragment)
             resultBS.addViewBlock(this)
