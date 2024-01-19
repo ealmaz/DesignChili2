@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -16,6 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellBaseBinding
+import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageByUrl
@@ -352,4 +354,11 @@ open class BaseCellView @JvmOverloads constructor(
             setImageResource(drawableRes)
         }
     }
+
+    fun setViewBackgroundColor(@ColorRes colorRes: Int?) {
+        colorRes?.let {
+            vb.rootView.setBackgroundColor(context.color(colorRes))
+        }
+    }
+
 }
