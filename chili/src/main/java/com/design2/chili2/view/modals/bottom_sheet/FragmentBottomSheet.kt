@@ -42,6 +42,9 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
         private var state: Int = BottomSheetBehavior.STATE_HALF_EXPANDED
         @DrawableRes private var backgroundDrawable: Int = R.drawable.chili_bg_rounded_bottom_sheet
 
+        private var onCloseIconClick: (() -> Boolean)? = null
+
+
         fun setContentFragment(contentFragment: Fragment): Builder {
             this.contentFragment = contentFragment
             return this
@@ -87,6 +90,11 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
             return this
         }
 
+        fun setOnCloseIconClickListener(onCloseIconClick: () -> Boolean): Builder {
+            this.onCloseIconClick = onCloseIconClick
+            return this
+        }
+
         fun build(): FragmentBottomSheet {
             return FragmentBottomSheet().apply {
                 contentFragment = this@Builder.contentFragment
@@ -98,6 +106,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
                 horizontalMargin = this@Builder.horizontalMargin
                 bottomMargin = this@Builder.bottomMargin
                 state = this@Builder.state
+                onCloseIconClick = this@Builder.onCloseIconClick
             }
         }
 

@@ -27,6 +27,8 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     protected open var isBackButtonEnabled: Boolean = true
     protected open var state: Int = BottomSheetBehavior.STATE_EXPANDED
 
+    protected open var onCloseIconClick: (() -> Boolean)? = null
+
     protected var bottomSheetView: View? = null
 
     abstract var topDrawableView: View?
@@ -69,7 +71,10 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
             when (hasCloseIcon) {
                 true -> {
                     visible()
-                    setOnSingleClickListener { dismiss() }
+                    setOnSingleClickListener {
+                        val handled = onCloseIconClick?.invoke() ?: false
+                        if (!handled) dismiss()
+                    }
                 }
                 else -> gone()
             }
