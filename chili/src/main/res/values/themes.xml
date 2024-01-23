@@ -217,6 +217,8 @@
 
         <!-- PaymentCardView -->
         <item name="ChiliPaymentCardViewLabelTopMargin">@dimen/padding_8dp</item>
+        <item name="ChiliPaymentCardViewTopMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPaymentCardViewBottomMargin">@dimen/padding_12dp</item>
 
         <!-- BankCardView -->
         <item name="ChiliBankCardViewCornerRadius">@dimen/radius_12dp</item>

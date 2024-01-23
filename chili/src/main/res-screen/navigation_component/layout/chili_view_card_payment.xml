@@ -10,7 +10,8 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
-    android:paddingBottom="?ChiliCategoryCardViewLabelBottomMargin"
+    android:paddingBottom="?ChiliPaymentCardViewBottomMargin"
+    android:paddingTop="?ChiliPaymentCardViewTopMargin"
     android:orientation="vertical">
 
     <ImageView
