@@ -65,6 +65,8 @@
 
     <!-- PaymentCardView -->
     <attr name="ChiliPaymentCardViewLabelTopMargin" format="dimension"/>
+    <attr name="ChiliPaymentCardViewBottomMargin" format="dimension"/>
+    <attr name="ChiliPaymentCardViewTopMargin" format="dimension"/>
 
     <!-- BankCardView -->
     <attr name="ChiliBankCardViewCornerRadius" format="dimension"/>
