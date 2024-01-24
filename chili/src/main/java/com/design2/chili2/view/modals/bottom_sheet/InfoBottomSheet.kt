@@ -15,6 +15,7 @@ import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBottomSheetInfoBinding
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setOnSingleClickListener
+import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.view.modals.base.BaseViewBottomSheetDialogFragment
 
@@ -25,6 +26,11 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     private var text: String? = null
     private var textSpanned: Spanned? = null
     private var textResId: Int? = null
+
+    private var headerText: String? = null
+    private var headerTextSpanned: Spanned? = null
+
+    private var textMaxLines: Int = 4
 
     private var iconRes: Int? = null
     private var iconUri: String? = null
@@ -60,10 +66,12 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
     }
 
     private fun setupViews() {
+        vb.tvText.maxLines = textMaxLines
         text?.let { setMessage(it) }
         textSpanned?.let { setMessage(it) }
         textResId?.let { setMessage(it)}
-
+        headerText?.let { setHeaderText(it) }
+        headerTextSpanned?.let { setHeaderText(it) }
         iconSizeDimenRes?.let {
             vb.ivIcon.apply {
                 val size = context.resources.getDimensionPixelSize(it)
@@ -95,6 +103,14 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
             setImageByUrl(uri)
             visible()
         }
+    }
+
+    private fun setHeaderText(text: String?) {
+        vb.tvHeader.setTextOrHide(text)
+    }
+
+    private fun setHeaderText(spanned: Spanned?) {
+        vb.tvHeader.setTextOrHide(spanned)
     }
 
     private fun setMessage(@StringRes resId: Int) {
@@ -162,6 +178,11 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
         private var text: String? = null
         private var textSpanned: Spanned? = null
         private var textResId: Int? = null
+        private var textMaxLines: Int? = null
+
+        private var headerText: String? = null
+        private var headerTextSpanned: Spanned? = null
+
 
         private var iconRes: Int? = null
         private var iconUri: String? = null
@@ -242,6 +263,21 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
             return this
         }
 
+        fun setTextMaxLines(maxLines: Int): Builder {
+            this.textMaxLines = maxLines
+            return this
+        }
+
+        fun setHeaderText(headerText: String): Builder {
+            this.headerText = headerText
+            return this
+        }
+
+        fun setHeaderText(spanned: Spanned): Builder {
+            this.headerTextSpanned = spanned
+            return this
+        }
+
         fun build(): InfoBottomSheet {
             return InfoBottomSheet().apply {
                 this.text = this@Builder.text
@@ -257,6 +293,9 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
                 this.isHideable = this@Builder.isHideable
                 this.dismissEvent = this@Builder.dismissEvent
                 this.hasCloseIcon = this@Builder.hasCloseIcon
+                this.headerText = this@Builder.headerText
+                this.headerTextSpanned = this@Builder.headerTextSpanned
+                this@Builder.textMaxLines?.let { this.textMaxLines = it }
             }
         }
     }
