@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewDiscountCardBinding
 import com.design2.chili2.extensions.color
+import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.recolorDrawable
 import com.design2.chili2.extensions.setImageByUrl
@@ -127,7 +128,7 @@ class IconHolderCardItemView @JvmOverloads constructor(
 
     fun setBackgroundVisibility(isVisible: Boolean) {
         vb.ivIcon.background = if (isVisible)
-            ContextCompat.getDrawable(context, R.drawable.chili_bg_circular) else null
+            context.drawable(R.drawable.chili_bg_circular) else null
     }
 
     fun setIcon(drawable: Drawable) {
