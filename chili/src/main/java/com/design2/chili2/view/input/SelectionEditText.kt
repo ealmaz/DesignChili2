@@ -34,9 +34,11 @@ class SelectionEditText(context: Context, attributeSet: AttributeSet) : androidx
     }
 
     private fun setupViews() {
-        ViewCompat.setOnReceiveContentListener(this, arrayOf("text/plain")) { _, payload, ->
+        ViewCompat.setOnReceiveContentListener(this, arrayOf("text/plain")) { _, payload ->
             if (pasteListener == null) return@setOnReceiveContentListener payload
-            val pasteText = payload.clip.getItemAt(0).text.toString()
+            val item = payload.clip.getItemAt(0)
+            val pasteText = item.text?.toString()
+                ?: return@setOnReceiveContentListener payload
             val resultText = pasteListener?.onPasteText(text?.toString() ?: "", pasteText, selectionStart)
                 ?: return@setOnReceiveContentListener payload
             setText(resultText)
