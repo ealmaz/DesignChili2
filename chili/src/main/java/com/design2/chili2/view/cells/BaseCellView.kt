@@ -355,6 +355,10 @@ open class BaseCellView @JvmOverloads constructor(
         }
     }
 
+    fun getChevronView(): ImageView {
+        return vb.ivChevron
+    }
+
     fun setViewBackgroundColor(@ColorRes colorRes: Int?) {
         colorRes?.let {
             vb.rootView.setBackgroundColor(context.color(colorRes))
