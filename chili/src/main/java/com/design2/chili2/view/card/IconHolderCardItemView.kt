@@ -13,6 +13,7 @@ import androidx.annotation.DrawableRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewDiscountCardBinding
 import com.design2.chili2.extensions.color
+import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.recolorDrawable
 import com.design2.chili2.extensions.setImageByUrl
@@ -53,11 +54,12 @@ class IconHolderCardItemView @JvmOverloads constructor(
         shimmeringPairs[vb.tvLabel] = vb.viewLabelShimmer
     }
 
-    fun setEmoji(emoji: String) = with(vb) {
+    fun setEmoji(emoji: String, isBackgroundVisible: Boolean = true) = with(vb) {
         tvEmoji.visible()
         ivEmojiHolder.invisible()
         ivIcon.visible()
         tvEmoji.text = emoji
+        setBackgroundVisibility(isBackgroundVisible)
     }
 
     fun setColor(@ColorRes colorRes: Int?) {
@@ -95,25 +97,37 @@ class IconHolderCardItemView @JvmOverloads constructor(
         vb.tvLabel.setTextAppearance(resId)
     }
 
-    fun setIcon(@DrawableRes resId: Int) {
-        vb.tvEmoji.invisible()
-        vb.ivEmojiHolder.invisible()
-        vb.ivIcon.setImageResource(resId)
+    fun setIcon(@DrawableRes resId: Int, isBackgroundVisible: Boolean = true) {
+        with(vb){
+            tvEmoji.invisible()
+            ivEmojiHolder.invisible()
+            ivIcon.setImageResource(resId)
+            setBackgroundVisibility(isBackgroundVisible)
+        }
     }
 
     fun setEmojiPlaceholderIcon(@DrawableRes resId: Int) {
-        vb.tvEmoji.invisible()
-        vb.ivIcon.visible()
-        vb.ivEmojiHolder.visible()
-        vb.ivEmojiHolder.setImageResource(resId)
+        with(vb) {
+            tvEmoji.invisible()
+            ivIcon.visible()
+            ivEmojiHolder.visible()
+            ivEmojiHolder.setImageResource(resId)
+        }
     }
 
-    fun setIcon(url: String) = with(vb) {
+    fun setIcon(url: String, isBackgroundVisible: Boolean = false) = with(vb) {
         tvEmoji.invisible()
         ivEmojiHolder.invisible()
-        ivIcon.visible()
-        ivIcon.background = null
-        ivIcon.setImageByUrl(url)
+        ivIcon.apply {
+            visible()
+            setImageByUrl(url)
+            setBackgroundVisibility(isBackgroundVisible)
+        }
+    }
+
+    fun setBackgroundVisibility(isVisible: Boolean) {
+        vb.ivIcon.background = if (isVisible)
+            context.drawable(R.drawable.chili_bg_circular) else null
     }
 
     fun setIcon(drawable: Drawable) {

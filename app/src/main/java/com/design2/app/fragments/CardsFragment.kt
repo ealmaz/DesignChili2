@@ -119,9 +119,14 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
 
     private fun initDiscountCard(){
         discountCardAdapter = SimpleDiscountCardRecyclerViewAdapter(requireContext())
-        vb.ecvDiscountRv.layoutManager = LinearLayoutManager(requireContext())
+        vb.ecvDiscountRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         vb.ecvDiscountRv.adapter = discountCardAdapter
-        discountCardAdapter.updateListWithIcons(listOf("https://minio.o.kg/pams-receiver-documents/33944000008719-kvxZCbF1Gpb7iDGSyGXhgEcsRbvoKTOx3cYWIlK89mPgSI3L4F.png"))
+        val icon = "https://minio.o.kg/pams-receiver-documents/33944000008719-kvxZCbF1Gpb7iDGSyGXhgEcsRbvoKTOx3cYWIlK89mPgSI3L4F.png"
+        val collection = mutableListOf<String>()
+        for (i in 0..10){
+            collection.add(icon)
+        }
+        discountCardAdapter.updateListWithIcons(collection)
     }
 
     private fun initRV(){
