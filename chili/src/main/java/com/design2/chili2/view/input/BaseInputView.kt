@@ -134,6 +134,12 @@ open class BaseInputView @JvmOverloads constructor(
                 .takeIf { it != -1 }?.let {
                     setMaxLength(it)
                 }
+            getDimension(R.styleable.BaseInputView_vertical_text_input_padding, -1f)
+                .takeIf { it != -1f }?.let {
+                    val leftPadding = vb.etInput.paddingLeft
+                    val rightPadding = vb.etInput.paddingRight
+                    setTextInputPaddings(leftPadding, it.toInt(), rightPadding, it.toInt())
+                }
             recycle()
         }
     }
@@ -595,6 +601,10 @@ open class BaseInputView @JvmOverloads constructor(
         }, {
             vb.clickableMask.visible()
         })
+    }
+
+    fun setTextInputPaddings(left: Int, top: Int, right: Int, bottom: Int) {
+        vb.etInput.setPadding(left, top, right, bottom)
     }
 
 

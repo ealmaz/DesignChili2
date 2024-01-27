@@ -15,6 +15,35 @@
         android:paddingBottom="400dp"
         tools:context=".MainActivity">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_input_with_logo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_48dp"
+            android:layout_marginStart="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:src="@drawable/ic_cat"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.design2.chili2.view.input.BaseInputView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:gravity="start"
+                app:vertical_text_input_padding="@dimen/padding_14dp"
+                android:textAppearance="@style/Chili.H7.Primary.Bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <com.design2.chili2.view.input.MaskedInputView
             android:id="@+id/field_123"
             app:message="Simple"
