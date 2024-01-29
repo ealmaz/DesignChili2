@@ -37,11 +37,11 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
                 android:gravity="start"
-                app:vertical_text_input_padding="@dimen/padding_14dp"
                 android:textAppearance="@style/Chili.H7.Primary.Bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/iv_icon"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:verticalInputPadding="@dimen/padding_14dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.design2.chili2.view.input.MaskedInputView

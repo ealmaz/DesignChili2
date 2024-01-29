@@ -78,7 +78,7 @@
         <attr name="endIconTint"/>
         <attr name="endIconMode"/>
         <attr name="endIconDrawable"/>
-        <attr name="vertical_text_input_padding" format="dimension"/>
+        <attr name="verticalInputPadding" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="MaskedInputView">

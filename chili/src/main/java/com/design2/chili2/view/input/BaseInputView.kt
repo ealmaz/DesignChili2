@@ -134,7 +134,7 @@ open class BaseInputView @JvmOverloads constructor(
                 .takeIf { it != -1 }?.let {
                     setMaxLength(it)
                 }
-            getDimension(R.styleable.BaseInputView_vertical_text_input_padding, -1f)
+            getDimension(R.styleable.BaseInputView_verticalInputPadding, -1f)
                 .takeIf { it != -1f }?.let {
                     val leftPadding = vb.etInput.paddingLeft
                     val rightPadding = vb.etInput.paddingRight
