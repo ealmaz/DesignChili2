@@ -52,6 +52,10 @@ class PromoBannerCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { vb.tvTitle.setTextColor(context.color(it)) }
         getResourceId(R.styleable.PromoBannerCardView_subtitleTextColor, R.color.white_1)
             .takeIf { it != -1 }?.let { vb.tvSubTitle.setTextColor(context.color(it)) }
+        setupRightImageSize(
+            width = getDimensionPixelSize(R.styleable.PromoBannerCardView_rightImageWidth, -1).takeIf { it != -1 },
+            height = getDimensionPixelSize(R.styleable.PromoBannerCardView_rightImageHeight, -1).takeIf { it != -1 }
+        )
         radius = getDimension(R.styleable.PromoBannerCardView_cardCornerRadius, 12f)
     }
 
@@ -127,5 +131,12 @@ class PromoBannerCardView @JvmOverloads constructor(
 
     override fun setOnClickListener(l: OnClickListener?) {
         vb.root.setOnClickListener(l)
+    }
+
+    fun setupRightImageSize(width: Int?, height: Int?) {
+        vb.ivRightImage.apply {
+            width?.let { layoutParams.width = it }
+            height?.let { layoutParams.height = it }
+        }
     }
 }

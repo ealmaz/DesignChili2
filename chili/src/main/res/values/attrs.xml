@@ -511,6 +511,8 @@
         <attr name="hide_chevron" format="boolean" />
         <attr name="android:icon" />
         <attr name="right_image" format="reference" />
+        <attr name="rightImageWidth" format="dimension"/>
+        <attr name="rightImageHeight" format="dimension"/>
         <attr name="titleTextAppearance" />
         <attr name="subtitleTextAppearance" />
         <attr name="titleTextColor" />
