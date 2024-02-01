@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewTitledDividerBinding
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
 
@@ -69,6 +70,10 @@ class TitledDividerView @JvmOverloads constructor(
 
     fun setActionTextTextAppearance(resId: Int) {
         vb.tvAction.setTextAppearance(resId)
+    }
+
+    fun setOnActionTextClickListener(onClick: () -> Unit) {
+        vb.tvAction.setOnSingleClickListener(onClick)
     }
 
     fun setIcon(resId: Int) {
