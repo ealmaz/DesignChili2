@@ -5,6 +5,7 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.core.view.isVisible
@@ -139,4 +140,18 @@ class PromoBannerCardView @JvmOverloads constructor(
             height?.let { layoutParams.height = it }
         }
     }
+
+    fun setIconSize(@DimenRes widthDimenRes: Int, @DimenRes heightDimenRes: Int) {
+        val widthPx = resources.getDimensionPixelSize(widthDimenRes)
+        val heightPx = resources.getDimensionPixelSize(heightDimenRes)
+        setupIconSize(widthPx, heightPx)
+    }
+
+    private fun setupIconSize(widthPx: Int, heightPx: Int) {
+        val params = vb.ivIcon.layoutParams
+        params.height = heightPx
+        params.width = widthPx
+        vb.ivIcon.layoutParams = params
+    }
+
 }
