@@ -13,6 +13,7 @@ import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.shimmer.startGroupShimmering
+import com.design2.chili2.view.shimmer.startShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 
 
@@ -49,6 +50,8 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         }
 
         vb.progress.removeBackground()
+
+        vb.progress4.startShimmering()
 
         val icon =
             "https://tal7aouy.gallerycdn.vsassets.io/extensions/tal7aouy/icons/3.6.3/1679578385939/Microsoft.VisualStudio.Services.Icons.Default"

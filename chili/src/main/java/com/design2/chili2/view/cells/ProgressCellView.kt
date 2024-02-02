@@ -4,24 +4,27 @@ import android.content.Context
 import android.text.Spanned
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellProgressBinding
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.util.RoundedCornerMode
-import com.design2.chili2.view.common.AnimatedProgressLine
+import com.design2.chili2.view.shimmer.ShimmeringView
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class ProgressCellView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.progressCellViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CellViewStyle_ProgressCellView
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
     private lateinit var vb: ChiliViewCellProgressBinding
+
+    private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
 
     init {
         initView(context)
@@ -30,6 +33,11 @@ class ProgressCellView @JvmOverloads constructor(
 
     private fun initView(context: Context) {
         vb = ChiliViewCellProgressBinding.inflate(LayoutInflater.from(context), this, true)
+        setupShimmeringViews()
+    }
+
+    private fun setupShimmeringViews() {
+        shimmeringPairs[vb.llContent] = vb.viewShimmerContent
     }
 
 
@@ -99,4 +107,6 @@ class ProgressCellView @JvmOverloads constructor(
     fun setProgressColor(@ColorInt colorInt: Int) {
         vb.aplProgress.setProgressColor(colorInt)
     }
+
+    override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
 }

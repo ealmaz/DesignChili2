@@ -104,4 +104,12 @@ class PaymentCardView @JvmOverloads constructor(
             ivIcon.alpha = alphaEnabled
         }
     }
+
+    override fun onStartShimmer() {
+        disableCard()
+    }
+
+    override fun onStopShimmer() {
+        enableCard()
+    }
 }
