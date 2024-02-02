@@ -1,36 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_height="match_parent"
-    android:gravity="center"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
-    android:paddingBottom="?ChiliPaymentCardViewBottomMargin"
     android:paddingTop="?ChiliPaymentCardViewTopMargin"
-    android:orientation="vertical">
+    android:paddingBottom="?ChiliPaymentCardViewBottomMargin"
+    tools:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_icon"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_label"
-        tools:src="@drawable/chili_ic_info"/>
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tv_label"
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tv_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/chili_ic_info" />
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?ChiliPaymentCardViewLabelTopMargin"
+            android:textAppearance="@style/Chili.H8.Secondary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_icon"
+            tools:text="Переводы" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Chili.H8.Secondary"
-        android:layout_marginTop="?ChiliPaymentCardViewLabelTopMargin"
-        app:layout_constraintTop_toBottomOf="@id/iv_icon"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Переводы"/>
+        app:layout_constraintTop_toTopOf="parent">
 
-</LinearLayout>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/view_icon_shimmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="@dimen/view_32dp"
+                android:layout_height="@dimen/view_32dp"
+                android:background="@drawable/chili_bg_shimmer" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/view_label_shimmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_12dp"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="@dimen/view_72dp"
+                android:layout_height="@dimen/view_8dp"
+                android:background="@drawable/chili_bg_shimmer" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

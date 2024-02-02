@@ -379,7 +379,6 @@
         <attr name="title"/>
         <attr name="icon"/>
         <attr name="titleTextAppearance"/>
-        <attr name="android:gravity"/>
     </declare-styleable>
 
     <declare-styleable name="SimpleCardView">

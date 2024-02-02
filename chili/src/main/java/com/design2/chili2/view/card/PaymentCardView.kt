@@ -16,7 +16,7 @@ class PaymentCardView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.paymentCardViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CardViewStyle_PaymentCardView
-): BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
+) : BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
     private lateinit var vb: ChiliViewCardPaymentBinding
 
@@ -33,7 +33,9 @@ class PaymentCardView @JvmOverloads constructor(
         vb = ChiliViewCardPaymentBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    init { initView(context, attrs, defStyleAttr, defStyleRes) }
+    init {
+        initView(context, attrs, defStyleAttr, defStyleRes)
+    }
 
     override fun TypedArray.obtainAttributes() {
         setTitle(getText(R.styleable.PaymentCardView_title))
@@ -41,9 +43,11 @@ class PaymentCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setTitleTextAppearance(it) }
         getResourceId(R.styleable.PaymentCardView_icon, -1)
             .takeIf { it != -1 }?.let { setIcon(it) }
-        getInteger(R.styleable.PaymentCardView_android_gravity, Gravity.CENTER).let { gravity ->
-            setGravity(gravity)
-        }
+    }
+
+    override fun setupShimmeringViews() = with(vb) {
+        shimmeringPairs[ivIcon] = viewIconShimmer
+        shimmeringPairs[tvLabel] = viewLabelShimmer
     }
 
     fun setTitle(charSequence: CharSequence?) {
@@ -70,9 +74,6 @@ class PaymentCardView @JvmOverloads constructor(
         vb.ivIcon.setImageDrawable(drawable)
     }
 
-    fun setGravity(gravity: Int) {
-        vb.root.gravity = gravity
-    }
 
     fun setIsCardEnabled(isEnabled: Boolean) {
         when (isEnabled) {
