@@ -5,8 +5,17 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.StringRes
+import androidx.constraintlayout.widget.ConstraintSet.END
+import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
+import androidx.constraintlayout.widget.ConstraintSet.TOP
+import androidx.constraintlayout.widget.ConstraintSet.START
+import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
+import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setOnSingleClickListener
+import com.design2.chili2.extensions.setupConstraint
+import com.design2.chili2.extensions.createShimmerLayout
+import com.design2.chili2.extensions.createShimmerView
 
 class ActionCellView @JvmOverloads constructor(
     context: Context,
@@ -39,12 +48,31 @@ class ActionCellView @JvmOverloads constructor(
             }
     }
 
-    private fun inflateAction() {
+    private fun inflateAction() = with(vb) {
+        val shimmerLayout = context.createShimmerLayout {
+            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+        }
+
+        shimmerLayout.addView(context.createShimmerView(R.dimen.view_46dp))
+        rootView.addView(shimmerLayout)
+
+        rootView.setupConstraint {
+            connect(shimmerLayout.id, BOTTOM, PARENT_ID, BOTTOM, 0)
+            connect(shimmerLayout.id, END, R.id.iv_chevron, START, 0)
+            connect(shimmerLayout.id, TOP, PARENT_ID, TOP, 0)
+        }
+
         tvAction = TextView(context, null, R.attr.componentButtonDefaultStyle, R.style.Chili_ButtonStyle_Component).apply {
             setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
-            shimmeringPairs[this] = null
+            shimmeringPairs[this] = shimmerLayout
         }
-        vb.flEndPlaceHolder.addView(tvAction)
+        flEndPlaceHolder.addView(tvAction)
+    }
+
+    override fun onStartShimmer() {
+        tvAction?.let {
+            if (vb.ivChevron.isVisible) shimmeringPairs[it] = null
+        }
     }
 
     fun setActionText(text: String?) {
