@@ -59,6 +59,7 @@ fun Context.getPixelSizeFromAttr(@AttrRes resId: Int): Int {
 
 fun Context.createShimmerLayout(block: ShimmerFrameLayout.() -> Unit? = {}): ShimmerFrameLayout {
     return ShimmerFrameLayout(this).apply {
+        id = View.generateViewId()
         block()
         layoutParams = ConstraintLayout.LayoutParams(0, ConstraintLayout.LayoutParams.WRAP_CONTENT)
         visibility = View.GONE
