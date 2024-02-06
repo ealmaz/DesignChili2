@@ -1,6 +1,8 @@
 package com.design2.app.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.Gravity
 import android.view.View
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.design2.app.MainActivity
 import com.design2.app.R
+import com.design2.app.adapter.ShimmerAdapter
 import com.design2.app.adapter.SimpleDiscountCardRecyclerViewAdapter
 import com.design2.app.adapter.SimpleTextRecyclerViewAdapter
 import com.design2.app.base.BaseFragment
@@ -32,6 +35,12 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val shimmerAdapter = ShimmerAdapter(requireContext())
+        vb.rvLoadingShimmers.adapter = shimmerAdapter
+
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            shimmerAdapter.setItems(listOf("Shimmer", "Blablabla", "OLOLOLO", "SIUUUUUUU"))
+//        }, 4000)
 
         vb.pcv1.setOnClickListener {
             vb.pcv2.setIsCardEnabled(false)
