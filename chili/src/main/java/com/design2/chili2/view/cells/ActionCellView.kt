@@ -10,7 +10,6 @@ import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
 import androidx.constraintlayout.widget.ConstraintSet.TOP
 import androidx.constraintlayout.widget.ConstraintSet.START
 import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
-import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setupConstraint
@@ -67,12 +66,6 @@ class ActionCellView @JvmOverloads constructor(
             shimmeringPairs[this] = shimmerLayout
         }
         flEndPlaceHolder.addView(tvAction)
-    }
-
-    override fun onStartShimmer() {
-        tvAction?.let {
-            if (vb.ivChevron.isVisible) shimmeringPairs[it] = null
-        }
     }
 
     fun setActionText(text: String?) {
