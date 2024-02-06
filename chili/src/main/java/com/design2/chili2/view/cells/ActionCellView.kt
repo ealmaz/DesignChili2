@@ -60,10 +60,8 @@ class ActionCellView @JvmOverloads constructor(
         val shimmerLayout = context.createShimmerLayout {
             setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
         }
-
         shimmerLayout.addView(context.createShimmerView(R.dimen.view_46dp))
         rootView.addView(shimmerLayout)
-
         rootView.setupConstraint {
             connect(shimmerLayout.id, BOTTOM, PARENT_ID, BOTTOM, 0)
             connect(shimmerLayout.id, END, R.id.iv_chevron, START, 0)
