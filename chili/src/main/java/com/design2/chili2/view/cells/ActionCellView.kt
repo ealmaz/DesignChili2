@@ -15,6 +15,7 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setupConstraint
 import com.design2.chili2.extensions.createShimmerLayout
 import com.design2.chili2.extensions.createShimmerView
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class ActionCellView @JvmOverloads constructor(
     context: Context,
@@ -47,7 +48,15 @@ class ActionCellView @JvmOverloads constructor(
             }
     }
 
-    private fun inflateAction() = with(vb) {
+    private fun inflateAction() {
+        tvAction = TextView(context, null, R.attr.componentButtonDefaultStyle, R.style.Chili_ButtonStyle_Component).apply {
+            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+            shimmeringPairs[this] = createShimmerForAction()
+        }
+        vb.flEndPlaceHolder.addView(tvAction)
+    }
+
+    private fun createShimmerForAction(): ShimmerFrameLayout = with(vb) {
         val shimmerLayout = context.createShimmerLayout {
             setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
         }
@@ -60,12 +69,7 @@ class ActionCellView @JvmOverloads constructor(
             connect(shimmerLayout.id, END, R.id.iv_chevron, START, 0)
             connect(shimmerLayout.id, TOP, PARENT_ID, TOP, 0)
         }
-
-        tvAction = TextView(context, null, R.attr.componentButtonDefaultStyle, R.style.Chili_ButtonStyle_Component).apply {
-            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
-            shimmeringPairs[this] = shimmerLayout
-        }
-        flEndPlaceHolder.addView(tvAction)
+        return shimmerLayout
     }
 
     fun setActionText(text: String?) {
