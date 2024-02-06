@@ -9,9 +9,10 @@ import com.design2.app.databinding.ItemSimpleTextBinding
 import com.design2.chili2.extensions.setBottomMargin
 import com.design2.chili2.extensions.setHorizontalMargin
 import com.design2.chili2.view.adapter.BaseAdapter
+import com.design2.chili2.view.adapter.BaseViewHolder
 
 class ShimmerAdapter(private val context: Context): BaseAdapter<String>(context, loadingItemCount = 5) {
-    override fun createItemViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
+    override fun createItemViewHolder(parent: ViewGroup): BaseViewHolder<String?> {
         val view = ItemSimpleTextBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.item_simple_text, parent, false))
         return ItemViewHolder(view)
     }
@@ -20,8 +21,8 @@ class ShimmerAdapter(private val context: Context): BaseAdapter<String>(context,
         if (holder is ItemViewHolder) holder.onBind(item)
     }
 
-    class ItemViewHolder(private val binding: ItemSimpleTextBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(item: String?) {
+    class ItemViewHolder(private val binding: ItemSimpleTextBinding) : BaseViewHolder<String?>(binding.root) {
+        override fun onBind(item: String?, isLast: Boolean) {
             binding.tvItem.text = item
             binding.root.apply {
                 layoutParams = ViewGroup.MarginLayoutParams(
