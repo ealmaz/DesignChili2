@@ -18,6 +18,12 @@
         android:clipChildren="false"
         tools:context=".MainActivity">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_loading_shimmers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
         <Button
             android:layout_marginHorizontal="@dimen/padding_16dp"
             style="@style/Chili.ButtonStyle.Primary"
@@ -816,6 +822,7 @@
                     android:layout_width="120dp"
                     android:layout_height="120dp" />
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
         </LinearLayout>
 
     </LinearLayout>
