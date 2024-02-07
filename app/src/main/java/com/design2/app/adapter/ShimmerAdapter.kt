@@ -11,8 +11,8 @@ import com.design2.chili2.extensions.setHorizontalMargin
 import com.design2.chili2.view.adapter.BaseAdapter
 import com.design2.chili2.view.adapter.BaseViewHolder
 
-class ShimmerAdapter(private val context: Context): BaseAdapter<String>(context, loadingItemCount = 5) {
-    override fun createItemViewHolder(parent: ViewGroup): BaseViewHolder<String?> {
+class ShimmerAdapter(private val context: Context): BaseAdapter<String>(context, loadingItemCount = 5, withShimmer = false) {
+    override fun createItemViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<String?> {
         val view = ItemSimpleTextBinding.bind(LayoutInflater.from(parent.context).inflate(R.layout.item_simple_text, parent, false))
         return ItemViewHolder(view)
     }
