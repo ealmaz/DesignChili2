@@ -62,7 +62,9 @@
             android:layout_marginTop="@dimen/padding_16dp"
             app:toolbarEndIcon="@drawable/ic_cat"
             app:toolbarEndIconSize="54dp"
-            app:title="End icon size 54dp" />
+            app:titleCentered="true"
+            app:navigationIcon="@null"
+            app:title="+996 700 123 456" />
 
         <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar3"
