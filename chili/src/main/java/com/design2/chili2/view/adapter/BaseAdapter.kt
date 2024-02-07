@@ -11,9 +11,16 @@ import com.design2.chili2.extensions.setHorizontalMargin
 import com.design2.chili2.view.cells.BaseCellView
 import com.design2.chili2.view.shimmer.startShimmering
 
-abstract class BaseAdapter<T>(private val context: Context, private val loadingViewResId: Int? = null, private val loadingItemCount: Int = 3): RecyclerView.Adapter<BaseViewHolder<T?>>() {
+abstract class BaseAdapter<T>(
+    private val context: Context,
+    private val withShimmer: Boolean = true,
+    private val loadingViewResId: Int? = null,
+    private val loadingItemCount: Int = 3
+) : RecyclerView.Adapter<BaseViewHolder<T?>>() {
 
-    protected val items: MutableList<Pair<Int, T?>?> = MutableList(loadingItemCount) { VIEW_TYPE_LOADING to null }
+    protected val items: MutableList<Pair<Int, T?>?> =
+        if (withShimmer) MutableList(loadingItemCount) { VIEW_TYPE_LOADING to null }
+        else mutableListOf()
 
     open fun setItems(newItems: List<T>) {
         items.clear()
@@ -25,10 +32,11 @@ abstract class BaseAdapter<T>(private val context: Context, private val loadingV
 
     override fun getItemViewType(position: Int): Int = items[position]?.first ?: VIEW_TYPE_LOADING
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<T?> = when(viewType) {
-        VIEW_TYPE_LOADING -> createLoadingViewHolder(parent, loadingViewResId)
-        else -> createItemViewHolder(parent)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<T?> =
+        when (viewType) {
+            VIEW_TYPE_LOADING -> createLoadingViewHolder(parent, loadingViewResId)
+            else -> createItemViewHolder(parent, viewType)
+        }
 
     override fun getItemCount(): Int = items.size
 
@@ -40,18 +48,21 @@ abstract class BaseAdapter<T>(private val context: Context, private val loadingV
         }
     }
 
-    abstract fun createItemViewHolder(parent: ViewGroup): BaseViewHolder<T?>
+    abstract fun createItemViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<T?>
 
     abstract fun bindItemViewHolder(holder: RecyclerView.ViewHolder, position: Int, item: T?)
 
-    protected fun createLoadingViewHolder(parent: ViewGroup, loadingViewResId: Int?): BaseViewHolder<T?> {
+    protected fun createLoadingViewHolder(
+        parent: ViewGroup,
+        loadingViewResId: Int?
+    ): BaseViewHolder<T?> {
         val view = if (loadingViewResId != null) LayoutInflater.from(parent.context).inflate(
             loadingViewResId, parent, false
         ) else BaseCellView(context)
         return LoadingViewHolder(view)
     }
 
-    class LoadingViewHolder<T>(private val view: View): BaseViewHolder<T?>(view) {
+    class LoadingViewHolder<T>(private val view: View) : BaseViewHolder<T?>(view) {
         override fun onBind(item: T?, isLast: Boolean) {
             view.apply {
                 layoutParams = ViewGroup.MarginLayoutParams(
