@@ -55,7 +55,7 @@
         app:layout_constraintBottom_toBottomOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="@id/tv_title">
         <View
-            android:layout_width="@dimen/view_200dp"
+            android:layout_width="@dimen/view_140dp"
             android:layout_height="@dimen/view_8dp"
             android:background="@drawable/chili_bg_shimmer"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
@@ -72,6 +72,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="-140c"
         tools:visibility="visible"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_value_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/tv_value"
+        app:layout_constraintBottom_toBottomOf="@id/tv_value"
+        app:layout_constraintEnd_toEndOf="@id/tv_value">
+        <View
+            android:layout_width="@dimen/view_80dp"
+            android:layout_height="@dimen/view_8dp"
+            android:background="@drawable/chili_bg_shimmer"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
 
     <TextView
         android:id="@+id/tv_subtitle"
@@ -98,7 +113,7 @@
         app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
         app:layout_constraintStart_toStartOf="@id/tv_subtitle">
         <View
-            android:layout_width="@dimen/view_200dp"
+            android:layout_width="@dimen/view_110dp"
             android:layout_height="@dimen/view_8dp"
             android:background="@drawable/chili_bg_shimmer"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
