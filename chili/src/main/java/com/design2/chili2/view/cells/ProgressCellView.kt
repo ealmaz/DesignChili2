@@ -10,6 +10,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellProgressBinding
+import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.shimmer.ShimmeringView
@@ -92,16 +93,16 @@ class ProgressCellView @JvmOverloads constructor(
         vb.tvTitle.text = spanned
     }
 
-    fun setDescriptionText(description: String) {
-        vb.tvDescription.text = description
+    fun setDescriptionText(description: String?) {
+        vb.tvDescription.setTextOrHide(description)
     }
 
-    fun setDescriptionText(@StringRes descriptionResId: Int) {
-        vb.tvDescription.setText(descriptionResId)
+    fun setDescriptionText(@StringRes descriptionResId: Int?) {
+        vb.tvDescription.setTextOrHide(descriptionResId)
     }
 
-    fun setDescriptionText(spanned: Spanned) {
-        vb.tvDescription.text = spanned
+    fun setDescriptionText(spanned: Spanned?) {
+        vb.tvDescription.setTextOrHide(spanned)
     }
 
     fun setProgressColor(@ColorInt colorInt: Int) {
