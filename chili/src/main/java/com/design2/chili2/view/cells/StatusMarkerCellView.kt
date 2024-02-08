@@ -72,6 +72,7 @@ class StatusMarkerCellView @JvmOverloads constructor(
             connect(shimmerLayout.id, BOTTOM, PARENT_ID, BOTTOM, 0)
             connect(shimmerLayout.id, END, R.id.iv_chevron, START, 0)
             connect(shimmerLayout.id, TOP, PARENT_ID, TOP, 0)
+            connect(R.id.view_title_shimmer, END, shimmerLayout.id, START, 0)
         }
         return shimmerLayout
     }

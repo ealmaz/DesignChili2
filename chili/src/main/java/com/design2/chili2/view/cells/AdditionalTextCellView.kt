@@ -60,7 +60,7 @@ class AdditionalTextCellView @JvmOverloads constructor(
 
     private fun createShimmerForAdditionalText(): ShimmerFrameLayout = with(vb) {
         val shimmerLayout = context.createShimmerLayout {
-            setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
         }
         shimmerLayout.addView(context.createShimmerView(R.dimen.view_46dp))
         rootView.addView(shimmerLayout)
@@ -68,6 +68,7 @@ class AdditionalTextCellView @JvmOverloads constructor(
             connect(shimmerLayout.id, BOTTOM, PARENT_ID, BOTTOM, 0)
             connect(shimmerLayout.id, END, R.id.iv_chevron, START, 0)
             connect(shimmerLayout.id, TOP, PARENT_ID, TOP, 0)
+            connect(R.id.view_title_shimmer, END, shimmerLayout.id, START, 0)
         }
         return shimmerLayout
     }
