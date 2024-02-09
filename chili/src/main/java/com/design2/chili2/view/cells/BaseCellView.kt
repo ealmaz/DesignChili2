@@ -14,7 +14,6 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.get
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellBaseBinding
@@ -227,11 +226,8 @@ open class BaseCellView @JvmOverloads constructor(
         }
     }
 
-    private fun setupIconShimmer() {
+    protected open fun setupIconShimmer() {
         shimmeringPairs[vb.ivIcon] = vb.viewIconShimmer
-        vb.viewTitleShimmer[0].layoutParams = vb.viewTitleShimmer[0].layoutParams.apply {
-            width = (150 * resources.displayMetrics.density).toInt()
-        }
     }
 
     fun getIconView(): ImageView {

@@ -5,19 +5,14 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.ColorInt
-import androidx.constraintlayout.widget.ConstraintSet.BOTTOM
-import androidx.constraintlayout.widget.ConstraintSet.END
-import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
-import androidx.constraintlayout.widget.ConstraintSet.START
-import androidx.constraintlayout.widget.ConstraintSet.TOP
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellStatusMarkerMarkerBgBinding
 import com.design2.chili2.extensions.createShimmerLayout
 import com.design2.chili2.extensions.createShimmerView
 import com.design2.chili2.extensions.gone
-import com.design2.chili2.extensions.setupConstraint
 import com.design2.chili2.extensions.visible
 import com.facebook.shimmer.ShimmerFrameLayout
+import kotlin.collections.set
 
 class StatusMarkerCellView @JvmOverloads constructor(
     context: Context,
@@ -62,18 +57,12 @@ class StatusMarkerCellView @JvmOverloads constructor(
         flEndPlaceHolder.addView(statusView)
     }
 
-    private fun createShimmerForStatusMarker(): ShimmerFrameLayout = with(vb) {
+    private fun createShimmerForStatusMarker(): ShimmerFrameLayout {
         val shimmerLayout = context.createShimmerLayout {
             setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
         }
         shimmerLayout.addView(context.createShimmerView(R.dimen.view_40dp))
-        rootView.addView(shimmerLayout)
-        rootView.setupConstraint {
-            connect(shimmerLayout.id, BOTTOM, PARENT_ID, BOTTOM, 0)
-            connect(shimmerLayout.id, END, R.id.iv_chevron, START, 0)
-            connect(shimmerLayout.id, TOP, PARENT_ID, TOP, 0)
-            connect(R.id.view_title_shimmer, END, shimmerLayout.id, START, 0)
-        }
+        vb.flEndPlaceHolder.addView(shimmerLayout)
         return shimmerLayout
     }
 
