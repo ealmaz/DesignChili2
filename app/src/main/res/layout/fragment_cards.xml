@@ -807,7 +807,7 @@
                 <com.design2.chili2.view.card.BonusPartnerCardItemView
                     android:id="@+id/bonus_partner_card"
                     android:layout_width="120dp"
-                    android:layout_height="120dp" />
+                    android:layout_height="96dp" />
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
             <com.design2.chili2.view.container.shadow_layout.ShadowLayout
@@ -820,7 +820,7 @@
                 <com.design2.chili2.view.card.BonusPartnerCardItemView
                     android:id="@+id/bonus_partner_card2"
                     android:layout_width="120dp"
-                    android:layout_height="120dp" />
+                    android:layout_height="96dp" />
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
         </LinearLayout>
