@@ -60,20 +60,20 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:text="Переводы"/>
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/view_label_shimmer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintWidth_percent="0.65"
-        app:layout_constraintTop_toTopOf="@id/tv_label"
-        app:layout_constraintBottom_toBottomOf="@id/tv_label"
-        app:layout_constraintStart_toStartOf="@id/tv_label">
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/view_8dp"
-            android:background="@drawable/chili_bg_shimmer"/>
-    </com.facebook.shimmer.ShimmerFrameLayout>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/view_label_shimmer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintWidth_percent="0.65"
+            app:layout_constraintTop_toTopOf="@id/tv_label"
+            app:layout_constraintBottom_toBottomOf="@id/tv_label"
+            app:layout_constraintStart_toStartOf="@id/tv_label">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_8dp"
+                android:background="@drawable/chili_bg_shimmer"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <TextView
             android:id="@+id/tv_subtitle"
@@ -92,10 +92,10 @@
             android:id="@+id/view_subtitle_shimmer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp"
             android:visibility="gone"
             app:layout_constraintWidth_percent="0.367"
-            app:layout_constraintTop_toTopOf="@id/tv_subtitle"
-            app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
+            app:layout_constraintTop_toBottomOf="@id/view_label_shimmer"
             app:layout_constraintStart_toStartOf="@id/tv_subtitle">
             <View
                 android:layout_width="match_parent"
