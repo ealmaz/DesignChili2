@@ -45,6 +45,7 @@ class BonusPartnerCardItemView @JvmOverloads constructor(
         super.setupShimmeringViews()
         shimmeringPairs[vb.ivIcon] = vb.viewIconShimmer
         shimmeringPairs[vb.tvLabel] = vb.viewLabelShimmer
+        shimmeringPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
     }
 
     fun setTitle(charSequence: CharSequence?) {

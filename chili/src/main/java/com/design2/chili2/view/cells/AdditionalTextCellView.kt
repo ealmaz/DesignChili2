@@ -7,7 +7,12 @@ import android.util.AttributeSet
 import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
+import androidx.core.view.get
 import com.design2.chili2.R
+import com.design2.chili2.extensions.createShimmerLayout
+import com.design2.chili2.extensions.createShimmerView
+import com.design2.chili2.extensions.dp
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class AdditionalTextCellView @JvmOverloads constructor(
     context: Context,
@@ -41,12 +46,28 @@ class AdditionalTextCellView @JvmOverloads constructor(
         this.additionalText = TextView(context).apply {
             setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
             textAlignment = TEXT_ALIGNMENT_TEXT_END
-            shimmeringPairs[this] = null
+            shimmeringPairs[this] = createShimmerForAdditionalText()
             maxEms = 8
             maxLines = 2
             ellipsize = TextUtils.TruncateAt.END
         }
         vb.flEndPlaceHolder.addView(additionalText)
+    }
+
+    private fun createShimmerForAdditionalText(): ShimmerFrameLayout {
+        val shimmerLayout = context.createShimmerLayout {
+            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+        }
+        shimmerLayout.addView(context.createShimmerView(R.dimen.view_46dp))
+        vb.flEndPlaceHolder.addView(shimmerLayout)
+        return shimmerLayout
+    }
+
+    override fun setupIconShimmer() {
+        super.setupIconShimmer()
+        vb.viewTitleShimmer[0].layoutParams = vb.viewTitleShimmer[0].layoutParams.apply {
+            width = 150.dp
+        }
     }
 
     fun setAdditionalText(text: String?) {

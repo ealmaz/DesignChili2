@@ -226,7 +226,7 @@ open class BaseCellView @JvmOverloads constructor(
         }
     }
 
-    private fun setupIconShimmer() {
+    protected open fun setupIconShimmer() {
         shimmeringPairs[vb.ivIcon] = vb.viewIconShimmer
     }
 

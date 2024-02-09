@@ -130,13 +130,13 @@ class DetailCellView @JvmOverloads constructor(
 
     fun setValue(@StringRes textResId: Int) {
         vb.tvValue.setTextOrHide(textResId)
-        shimmerViewPairs[vb.tvValue] = null
+        shimmerViewPairs[vb.tvValue] = vb.viewValueShimmer
     }
 
     fun setValue(text: CharSequence?) {
         vb.tvValue.setTextOrHide(text)
         if (text == null) shimmerViewPairs.remove(vb.tvValue)
-        else shimmerViewPairs[vb.tvValue] = null
+        else shimmerViewPairs[vb.tvValue] = vb.viewValueShimmer
     }
 
     fun getValueTextView(): TextView {

@@ -7,13 +7,18 @@ import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.Gravity
+import android.view.View
 import android.view.Window
+import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.design2.chili2.R
+import com.facebook.shimmer.ShimmerFrameLayout
 
 internal fun Context.getColorFromAttr(
     @AttrRes attrColor: Int,
@@ -51,4 +56,31 @@ fun Context.getPixelSizeFromAttr(@AttrRes resId: Int): Int {
     val typedValue = TypedValue()
     theme.resolveAttribute(resId, typedValue, true)
     return resources.getDimensionPixelSize(typedValue.resourceId)
+}
+
+fun Context.createShimmerLayout(
+    gravity: Int = Gravity.CENTER or Gravity.RIGHT,
+    block: ShimmerFrameLayout.() -> Unit? = {}
+): ShimmerFrameLayout {
+    return ShimmerFrameLayout(this).apply {
+        id = View.generateViewId()
+        layoutParams = FrameLayout.LayoutParams(
+            FrameLayout.LayoutParams.WRAP_CONTENT,
+            FrameLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            this.gravity = gravity
+        }
+        visibility = View.GONE
+        block()
+    }
+}
+
+fun Context.createShimmerView(@DimenRes width: Int): View {
+    return View(this).apply {
+        layoutParams = FrameLayout.LayoutParams(
+            resources.getDimensionPixelSize(width),
+            resources.getDimensionPixelSize(R.dimen.view_8dp)
+        )
+        background = ContextCompat.getDrawable(context, R.drawable.chili_bg_shimmer)
+    }
 }

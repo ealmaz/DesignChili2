@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import androidx.annotation.ColorInt
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellStatusMarkerMarkerBgBinding
+import com.design2.chili2.extensions.createShimmerLayout
+import com.design2.chili2.extensions.createShimmerView
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.visible
+import com.facebook.shimmer.ShimmerFrameLayout
+import kotlin.collections.set
 
 class StatusMarkerCellView @JvmOverloads constructor(
     context: Context,
@@ -21,10 +25,7 @@ class StatusMarkerCellView @JvmOverloads constructor(
 
     override fun inflateView(context: Context) {
         super.inflateView(context)
-        val statusView = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_status_marker_marker_bg, vb.flEndPlaceHolder, false)
-        statusVb = ChiliViewCellStatusMarkerMarkerBgBinding.bind(statusView)
-        statusView.rootView.gone()
-        vb.flEndPlaceHolder.addView(statusView)
+        inflateStatusMarker()
     }
 
     override fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttrParent: Int, defStyleResParet: Int) {
@@ -45,6 +46,24 @@ class StatusMarkerCellView @JvmOverloads constructor(
             }
             recycle()
         }
+    }
+
+    private fun inflateStatusMarker() = with(vb) {
+        val statusView = LayoutInflater.from(context).inflate(R.layout.chili_view_cell_status_marker_marker_bg, flEndPlaceHolder, false)
+        statusVb = ChiliViewCellStatusMarkerMarkerBgBinding.bind(statusView).apply {
+            shimmeringPairs[root] = createShimmerForStatusMarker()
+        }
+        statusView.rootView.gone()
+        flEndPlaceHolder.addView(statusView)
+    }
+
+    private fun createShimmerForStatusMarker(): ShimmerFrameLayout {
+        val shimmerLayout = context.createShimmerLayout {
+            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+        }
+        shimmerLayout.addView(context.createShimmerView(R.dimen.view_40dp))
+        vb.flEndPlaceHolder.addView(shimmerLayout)
+        return shimmerLayout
     }
 
     fun setupStatus(
