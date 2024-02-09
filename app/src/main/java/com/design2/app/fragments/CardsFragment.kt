@@ -101,7 +101,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
 
         ShowcaseHelper(requireActivity()).showShowcase(vb.accent, ShowcaseHelper.ShowcaseData(
             title = "Title",
-            message = "Message",
+            message = "Message dfdjgkjsdkgjdslkg  dkjngkjdsgkjdskjghsdk jdkfskjdfjskjfl jdslkfjlsdkjf skdjfklsdjflk kjd foldknf dlkfjlskdfl ldkfjslkdjflk",
             gravity = ShowcaseHelper.ShowcasePosition.BOTTOM,
             indicatorsCount = 3,
             currentIndicatorPosition = 0,
@@ -109,13 +109,13 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
         ), {}, {})
 
         vb.bonusPartnerCard.apply {
-            setTitle("Bonus Partner la la la")
-            setIcon("https://minio.o.kg/media-service/Bonus/ru/68b4602e-d17c-429e-8132-afebef54d105.jpg")
+            setTitle("Bonus Partner")
+            setIcon("https://minio.o.kg/catalog/icons/light/taxes.png")
             setSubtitle("до 2%")
         }
         vb.bonusPartnerCard2.apply {
             setTitle("Bonus Partner la la la")
-            setIcon("https://minio.o.kg/media-service/Bonus/ru/68b4602e-d17c-429e-8132-afebef54d105.jpg")
+            setIcon("https://minio.o.kg/catalog/icons/light/taxes.png")
             setSubtitle("до 2%")
         }
     }

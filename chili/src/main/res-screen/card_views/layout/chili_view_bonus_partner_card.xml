@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:layout_height="match_parent"
     android:background="?ChiliCellViewBackground"
-    android:paddingBottom="?ChiliCategoryCardViewLabelBottomMargin"
     android:orientation="vertical">
 
     <ImageView
@@ -15,14 +14,12 @@
         android:layout_width="@dimen/view_32dp"
         android:layout_height="@dimen/view_32dp"
         android:layout_marginTop="?ChiliCategoryCardViewIconTopMargin"
-        android:layout_marginBottom="?ChiliCategoryCardViewIconBottomMargin"
         android:layout_marginStart="?ChiliCategoryCardViewIconStartMargin"
         android:layout_marginEnd="?ChiliCategoryCardViewIconEndMargin"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_label"
         tools:src="@drawable/chili_ic_info"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -40,47 +37,59 @@
             android:background="@drawable/chili_bg_shimmer"/>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <TextView
-        android:id="@+id/tv_label"
-        android:maxLines="2"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Chili.H9.Primary"
-        android:layout_marginTop="@dimen/padding_12dp"
-        android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
-        android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_icon"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Переводы"/>
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/view_label_shimmer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintWidth_percent="0.6"
-        app:layout_constraintTop_toTopOf="@id/tv_label"
-        app:layout_constraintBottom_toBottomOf="@id/tv_label"
-        app:layout_constraintStart_toStartOf="@id/tv_label">
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/view_8dp"
-            android:background="@drawable/chili_bg_shimmer"/>
-    </com.facebook.shimmer.ShimmerFrameLayout>
+        <TextView
+            android:id="@+id/tv_label"
+            android:maxLines="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Chili.H9.Primary"
+            android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
+            android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Переводы"/>
 
-    <TextView
-        android:id="@+id/tv_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/Chili.H9.Primary.Bold"
-        android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
-        android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_label"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Переводы"/>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/view_label_shimmer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintWidth_percent="0.6"
+            app:layout_constraintTop_toTopOf="@id/tv_label"
+            app:layout_constraintBottom_toBottomOf="@id/tv_label"
+            app:layout_constraintStart_toStartOf="@id/tv_label">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_8dp"
+                android:background="@drawable/chili_bg_shimmer"/>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Chili.H9.Primary.Bold"
+            android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
+            android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Переводы"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
