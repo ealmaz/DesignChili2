@@ -115,6 +115,8 @@
     <declare-styleable name="AnimatedProgressLine">
         <attr name="progressBackgroundColor" format="color"/>
         <attr name="progressColor" format="color"/>
+        <attr name="progressGradientStartColor" format="color"/>
+        <attr name="progressGradientEndColor" format="color"/>
         <attr name="progressPercent" format="integer"/>
         <attr name="animateProgress" format="boolean"/>
     </declare-styleable>
@@ -251,6 +253,8 @@
         <attr name="description"/>
         <attr name="progressBackgroundColor" />
         <attr name="progressColor"/>
+        <attr name="progressGradientStartColor"/>
+        <attr name="progressGradientEndColor"/>
         <attr name="progressPercent"/>
         <attr name="animateProgress"/>
         <attr name="isBackgroundTransparent" format="boolean"/>
