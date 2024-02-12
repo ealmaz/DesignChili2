@@ -789,7 +789,9 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/view_80dp"
             android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:clipToPadding="false"
+            android:clipChildren="false"/>
 
         <LinearLayout
             android:clipChildren="false"
