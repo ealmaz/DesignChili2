@@ -1,17 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="@dimen/radius_12dp"
-    android:elevation="@dimen/elevation_0dp">
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/bannerImage"
+    <com.design2.chili2.view.container.shadow_layout.ShadowLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:scaleType="centerCrop" />
-</androidx.cardview.widget.CardView>
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        style="@style/ShadowLayoutStyle"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/radius_12dp"
+            app:cardElevation="@dimen/elevation_0dp">
+
+            <ImageView
+                android:id="@+id/bannerImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:scaleType="centerCrop" />
+
+        </androidx.cardview.widget.CardView>
+    </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
