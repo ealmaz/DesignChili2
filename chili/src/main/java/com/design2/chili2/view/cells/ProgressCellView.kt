@@ -50,6 +50,10 @@ class ProgressCellView @JvmOverloads constructor(
             getColor(R.styleable.ProgressCellView_progressColor, -1).takeIf { it != -1 }?.let {
                 setProgressColor(it)
             }
+            getColor(R.styleable.ProgressCellView_progressGradientStartColor, -1)
+                .takeIf { it != -1 }?.let { vb.aplProgress.setProgressGradientStartColor(it) }
+            getColor(R.styleable.ProgressCellView_progressGradientEndColor, -1)
+                .takeIf { it != -1 }?.let { vb.aplProgress.setProgressGradientEndColor(it) }
             getColor(R.styleable.ProgressCellView_progressBackgroundColor, -1).takeIf { it != -1 }?.let {
                 vb.aplProgress.setProgressBackgroundColor(it)
             }
@@ -107,6 +111,11 @@ class ProgressCellView @JvmOverloads constructor(
 
     fun setProgressColor(@ColorInt colorInt: Int) {
         vb.aplProgress.setProgressColor(colorInt)
+    }
+
+    fun setProgressGradientColors(@ColorInt startColor: Int, @ColorInt endColor: Int) {
+        vb.aplProgress.setProgressGradientColors(startColor, endColor)
+        invalidate()
     }
 
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
