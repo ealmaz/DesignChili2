@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 
 class GroupingPagingAdapter(
-    private val adapterCreator: (Int) -> GroupableAdapter,
+    private val adapterCreator: (Int) -> GroupablePagingAdapter,
     private val emptyVHCreator: (ViewGroup) -> BaseGroupingVH
 ) : PagingDataAdapter<GroupingItem, BaseGroupingVH>(GroupingPagerAdapterDiffUtil) {
 

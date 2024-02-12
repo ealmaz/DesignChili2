@@ -1,6 +1,7 @@
 package com.design2.chili2.view.container.grouping_rv
 
 import androidx.annotation.StringRes
+import androidx.paging.PagingData
 import androidx.recyclerview.widget.ItemTouchHelper
 
 interface GroupableAdapter {
@@ -9,6 +10,10 @@ interface GroupableAdapter {
     fun clearItems()
 
     fun getItemTouchHelper(): ItemTouchHelper? = null
+}
+
+interface GroupablePagingAdapter: GroupableAdapter {
+    fun setItems(items: PagingData<GroupingItem>)
 }
 
 data class GroupHeader(@StringRes val title: Int) : GroupingItem {
