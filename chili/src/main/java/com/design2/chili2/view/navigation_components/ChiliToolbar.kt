@@ -52,6 +52,14 @@ class ChiliToolbar : LinearLayout {
             getDimensionPixelSize(R.styleable.ChiliToolbar_toolbarEndIconSize, -1).takeIf { it != -1 }?.let {
                 setEndIconSize(it, it)
             }
+
+            getResourceId(R.styleable.ChiliToolbar_toolbarStartIcon, -1).takeIf { it != -1 }?.let {
+                setStartIcon(it)
+            }
+            getDimensionPixelSize(R.styleable.ChiliToolbar_toolbarStartIconSize, -1).takeIf { it != -1 }?.let {
+                setStartIconSize(it, it)
+            }
+
             getResourceId(R.styleable.ChiliToolbar_toolbarTextAppearance, -1).takeIf { it != -1 }?.let {
                 setTitleTextAppearance(it)
             }
@@ -154,6 +162,35 @@ class ChiliToolbar : LinearLayout {
             height = heightPx
         } ?: LayoutParams(widthPx, heightPx)
         vb.ivEndIcon.layoutParams = layoutParams
+    }
+
+    fun setStartIcon(@DrawableRes drawableId: Int) {
+        setStartIconVisibility(true)
+        vb.ivStartIcon.setImageResource(drawableId)
+    }
+
+    fun setStartIcon(drawable: Drawable?) {
+        setStartIconVisibility(true)
+        vb.ivStartIcon.setImageDrawable(drawable)
+    }
+
+    fun setStartIconVisibility(isVisible: Boolean) {
+        vb.ivStartIcon.visibility = when(isVisible) {
+            true -> View.VISIBLE
+            else -> View.GONE
+        }
+    }
+
+    fun setStartIconClickListener(action: () -> Unit) {
+        vb.ivStartIcon.setOnSingleClickListener { action.invoke() }
+    }
+
+    fun setStartIconSize(widthPx: Int, heightPx: Int) {
+        val layoutParams = vb.ivStartIcon.layoutParams?.apply {
+            width = widthPx
+            height = heightPx
+        } ?: LayoutParams(widthPx, heightPx)
+        vb.ivStartIcon.layoutParams = layoutParams
     }
 
     fun setToolbarBackgroundColor(@ColorInt colorInt: Int) {

@@ -13,6 +13,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <ImageView
+            android:id="@+id/iv_start_icon"
+            android:layout_width="@dimen/view_24dp"
+            android:layout_height="@dimen/view_24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/padding_16dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/toolbar_view"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar_view"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@tools:sample/avatars"/>
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_view"
             android:layout_width="0dp"
