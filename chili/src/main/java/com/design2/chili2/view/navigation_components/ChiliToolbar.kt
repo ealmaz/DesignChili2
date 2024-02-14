@@ -53,10 +53,10 @@ class ChiliToolbar : LinearLayout {
                 setEndIconSize(it, it)
             }
 
-            getResourceId(R.styleable.ChiliToolbar_toolbarStartIcon, -1).takeIf { it != -1 }?.let {
+            getResourceId(R.styleable.ChiliToolbar_toolbarLeftIcon, -1).takeIf { it != -1 }?.let {
                 setStartIcon(it)
             }
-            getDimensionPixelSize(R.styleable.ChiliToolbar_toolbarStartIconSize, -1).takeIf { it != -1 }?.let {
+            getDimensionPixelSize(R.styleable.ChiliToolbar_toolbarLeftIconSize, -1).takeIf { it != -1 }?.let {
                 setStartIconSize(it, it)
             }
 
