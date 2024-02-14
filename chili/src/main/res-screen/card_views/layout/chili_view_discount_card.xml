@@ -82,6 +82,7 @@
         android:layout_marginTop="?ChiliCategoryCardViewLabelTopMargin"
         android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
         android:lines="2"
+        android:ellipsize="end"
         android:textAppearance="@style/Chili.H9.Primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
