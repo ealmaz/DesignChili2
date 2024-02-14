@@ -214,6 +214,7 @@
         <item name="ChiliCategoryCardViewIconBottomMargin">@dimen/padding_0dp</item>
         <item name="ChiliCategoryCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliCategoryCardViewIconEndMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewIconSize">@dimen/padding_32dp</item>
 
         <!-- PaymentCardView -->
         <item name="ChiliPaymentCardViewLabelTopMargin">@dimen/padding_8dp</item>
