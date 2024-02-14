@@ -60,7 +60,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         vb.multiiconedCellView.apply {
             setIsActionButtonVisible(true)
             setActionBtnText("Весь список")
-            setIcons(arrayListOf(icon, icon, icon), IconSize.LARGE)
+            setIcons(arrayListOf(icon, icon, icon))
             setIconsTopMargin(12)
             setOnItemClicked {
                 Toast.makeText(this.context, "Cell Clicked", Toast.LENGTH_SHORT).show()

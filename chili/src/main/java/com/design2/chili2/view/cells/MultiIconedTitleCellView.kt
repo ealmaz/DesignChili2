@@ -15,7 +15,6 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTopMargin
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.extensions.visible
-import com.design2.chili2.util.IconSize
 import com.design2.chili2.util.ItemDecorator
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.cells.adapter.MultiIconedAdapter
@@ -36,6 +35,8 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
     lateinit var adapter: MultiIconedAdapter
     lateinit var shimmerAdapter: MultiIconedShimmerAdapter
 
+    private var iconsSize = 24
+
     init {
         initView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
@@ -44,7 +45,6 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
     private fun initView(context: Context) {
         vb = ChiliViewMultiIconedCellBinding.inflate(LayoutInflater.from(context), this, true)
         setupRecyclerView()
-        setupShimmer()
         setupShimmerPairs()
     }
 
@@ -74,7 +74,7 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
             )
         )
         vb.rvIconsShimmer.adapter = shimmerAdapter
-        shimmerAdapter.addIcons(arrayListOf(R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,))
+        shimmerAdapter.addIcons(arrayListOf(R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon), iconsSize)
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -84,8 +84,12 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
             getInteger(R.styleable.InfoCellView_roundedCornerMode, -1).takeIf { it != -1 }?.let {
                 vb.rootView.setupRoundedCellCornersMode(it)
             }
+            getInteger(R.styleable.InfoCellView_iconsSize, 24).takeIf { it > 0 }?.let {
+                iconsSize = it
+            }
             recycle()
         }
+        setupShimmer()
     }
 
     fun setTitle(@StringRes resId: Int) {
@@ -154,8 +158,8 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
         adapter.listener = clickListener
     }
 
-    fun setIcons(icons: ArrayList<String>, mode: IconSize = IconSize.MEDIUM) {
-        adapter.addIcons(icons, mode)
+    fun setIcons(icons: ArrayList<String>) {
+        adapter.addIcons(icons, iconsSize)
     }
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = mutableShimmeringViewMap
 }

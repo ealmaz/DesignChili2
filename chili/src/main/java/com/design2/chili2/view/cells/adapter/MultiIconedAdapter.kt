@@ -8,13 +8,12 @@ import com.design2.chili2.R
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setOnSingleClickListener
-import com.design2.chili2.util.IconSize
 import com.design2.chili2.view.image.SquircleView
 
 class MultiIconedAdapter(var listener: (() -> Unit)? = null) :
     RecyclerView.Adapter<MultiIconedAdapter.IconVH>() {
 
-    private val icons = ArrayList<Pair<Int, String>>()
+    private val icons = ArrayList<Pair<String, Int>>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IconVH {
         return IconVH(
@@ -24,15 +23,15 @@ class MultiIconedAdapter(var listener: (() -> Unit)? = null) :
     }
 
     override fun onBindViewHolder(holder: IconVH, position: Int) {
-        holder.bind(icons[position].second, icons[position].first)
+        holder.bind(icons[position].first, icons[position].second)
     }
 
     override fun getItemCount(): Int = icons.size
 
-    fun addIcons(icons: ArrayList<String>, mode: IconSize = IconSize.MEDIUM) {
+    fun addIcons(icons: ArrayList<String>, size: Int = 24) {
         this.icons.clear()
         icons.forEach {
-            this.icons.add(mode.value to it)
+            this.icons.add(it to size)
         }
         notifyDataSetChanged()
     }
@@ -44,17 +43,9 @@ class MultiIconedAdapter(var listener: (() -> Unit)? = null) :
                 setImageByUrl(item)
                 setOnSingleClickListener { listener?.invoke() }
                 layoutParams.apply {
-                    height = calculateSize(iconSize)
-                    width = calculateSize(iconSize)
+                    height = iconSize.dp
+                    width = iconSize.dp
                 }
-            }
-        }
-
-        private fun calculateSize(iconSize: Int): Int {
-            return when (iconSize) {
-                IconSize.MEDIUM.value -> 24.dp
-                IconSize.LARGE.value -> 30.dp
-                else -> 24.dp
             }
         }
     }

@@ -1506,6 +1506,7 @@
             style="@style/ShadowLayoutStyle">
 
             <com.design2.chili2.view.cells.MultiIconedTitleCellView
+                app:iconsSize="30"
                 app:title="Multiiconed Cell View for MyQr"
                 android:id="@+id/multiiconed_cell_view"
                 android:layout_width="match_parent"
