@@ -10,9 +10,12 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewMultiIconedCellBinding
+import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.setOnSingleClickListener
+import com.design2.chili2.extensions.setTopMargin
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.extensions.visible
+import com.design2.chili2.util.IconSize
 import com.design2.chili2.util.ItemDecorator
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.cells.adapter.MultiIconedAdapter
@@ -128,12 +131,31 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
         }
     }
 
+    fun setIsActionButtonVisible(isVisible: Boolean) {
+        vb.tvAction.isVisible = isVisible
+    }
+
+    fun setActionButtonClickListener(onClick: () -> Unit) {
+        vb.tvAction.setOnSingleClickListener {
+            onClick.invoke()
+        }
+    }
+
+    fun setActionBtnText(text: String){
+        vb.tvAction.text = text
+    }
+
+    fun setIconsTopMargin(margin: Int){
+        vb.rvIcons.setTopMargin(margin.dp)
+        vb.rvIconsShimmer.setTopMargin(margin.dp)
+    }
+
     fun setOnItemClicked(clickListener : () -> Unit){
         adapter.listener = clickListener
     }
 
-    fun setIcons(icons: ArrayList<String>) {
-        adapter.addIcons(icons)
+    fun setIcons(icons: ArrayList<String>, mode: IconSize = IconSize.MEDIUM) {
+        adapter.addIcons(icons, mode)
     }
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = mutableShimmeringViewMap
 }
