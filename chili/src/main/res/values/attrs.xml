@@ -238,6 +238,7 @@
         <attr name="roundedCornerMode"/>
         <attr name="isDividerVisible" format="boolean"/>
         <attr name="isSurfaceClickable" format="boolean"/>
+        <attr name="iconsSize" format="dimension" />
         <attr name="title"/>
         <attr name="subtitle"/>
         <attr name="titleTextAppearance"/>

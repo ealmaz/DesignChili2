@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import androidx.annotation.DimenRes
 import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
@@ -11,12 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewMultiIconedCellBinding
 import com.design2.chili2.extensions.setOnSingleClickListener
+import com.design2.chili2.extensions.setTopMargin
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.util.ItemDecorator
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.cells.adapter.MultiIconedAdapter
-import com.design2.chili2.view.cells.adapter.MultiIconedShimmerAdapter
 import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
 
@@ -31,7 +32,9 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewMultiIconedCellBinding
     lateinit var adapter: MultiIconedAdapter
-    lateinit var shimmerAdapter: MultiIconedShimmerAdapter
+    lateinit var shimmerAdapter: MultiIconedAdapter
+
+    private var iconsPixelSize = 0
 
     init {
         initView(context)
@@ -41,7 +44,6 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
     private fun initView(context: Context) {
         vb = ChiliViewMultiIconedCellBinding.inflate(LayoutInflater.from(context), this, true)
         setupRecyclerView()
-        setupShimmer()
         setupShimmerPairs()
     }
 
@@ -61,8 +63,8 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
         vb.rvIcons.adapter = adapter
     }
 
-    private fun setupShimmer(){
-        shimmerAdapter = MultiIconedShimmerAdapter()
+    private fun setupShimmer() {
+        shimmerAdapter = MultiIconedAdapter()
         vb.rvIconsShimmer.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         vb.rvIconsShimmer.addItemDecoration(
@@ -71,7 +73,16 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
             )
         )
         vb.rvIconsShimmer.adapter = shimmerAdapter
-        shimmerAdapter.addIcons(arrayListOf(R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,R.drawable.chili_multi_icon,))
+        shimmerAdapter.addShimmerIcons(
+            arrayListOf(
+                R.drawable.chili_multi_icon,
+                R.drawable.chili_multi_icon,
+                R.drawable.chili_multi_icon,
+                R.drawable.chili_multi_icon,
+                R.drawable.chili_multi_icon,
+                R.drawable.chili_multi_icon
+            ), iconsPixelSize
+        )
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -81,8 +92,12 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
             getInteger(R.styleable.InfoCellView_roundedCornerMode, -1).takeIf { it != -1 }?.let {
                 vb.rootView.setupRoundedCellCornersMode(it)
             }
+            getDimensionPixelSize(R.styleable.InfoCellView_iconsSize, resources.getDimensionPixelSize(R.dimen.view_24dp)).let {
+                iconsPixelSize = it
+            }
             recycle()
         }
+        setupShimmer()
     }
 
     fun setTitle(@StringRes resId: Int) {
@@ -128,12 +143,36 @@ class MultiIconedTitleCellView @JvmOverloads constructor(
         }
     }
 
-    fun setOnItemClicked(clickListener : () -> Unit){
+    fun setIsActionButtonVisible(isVisible: Boolean) {
+        vb.tvAction.isVisible = isVisible
+    }
+
+    fun setActionButtonClickListener(onClick: () -> Unit) {
+        vb.tvAction.setOnSingleClickListener {
+            onClick.invoke()
+        }
+    }
+
+    fun setActionBtnText(text: String) {
+        vb.tvAction.text = text
+    }
+
+    fun setActionBtnText(@StringRes textRes: Int) {
+        vb.tvAction.setText(textRes)
+    }
+
+    fun setIconsTopMargin(@DimenRes marginRes: Int) {
+        val margin = resources.getDimensionPixelSize(marginRes)
+        vb.rvIcons.setTopMargin(margin)
+        vb.rvIconsShimmer.setTopMargin(margin)
+    }
+
+    fun setOnItemClicked(clickListener: () -> Unit) {
         adapter.listener = clickListener
     }
 
     fun setIcons(icons: ArrayList<String>) {
-        adapter.addIcons(icons)
+        adapter.addIcons(icons, iconsPixelSize)
     }
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = mutableShimmeringViewMap
 }

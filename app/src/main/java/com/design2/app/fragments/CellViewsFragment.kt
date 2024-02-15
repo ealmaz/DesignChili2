@@ -55,11 +55,20 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
 
         val icon =
             "https://tal7aouy.gallerycdn.vsassets.io/extensions/tal7aouy/icons/3.6.3/1679578385939/Microsoft.VisualStudio.Services.Icons.Default"
-        vb.multiiconedCellView.setIcons(arrayListOf(icon, icon, icon))
-        vb.multiiconedCellView.setOnItemClicked {
-            Toast.makeText(this.context, "Cell Clicked", Toast.LENGTH_SHORT).show()
-        }
 
+        vb.multiiconedCellView.apply {
+            setIsActionButtonVisible(true)
+            setActionBtnText("Весь список")
+            setIcons(arrayListOf(icon, icon, icon))
+            setIconsTopMargin(com.design2.chili2.R.dimen.view_12dp)
+            setOnItemClicked {
+                Toast.makeText(this.context, "Cell Clicked", Toast.LENGTH_SHORT).show()
+            }
+        }
+        vb.multiiconedCellView2.apply {
+            setIsInfoButtonVisible(true)
+            setIcons(arrayListOf(icon, icon, icon))
+        }
         val adapter = EditableCellViewsAdapter(null)
         val touchHelper = getItemTouchHelper(adapter)
         adapter.dragStart = {
