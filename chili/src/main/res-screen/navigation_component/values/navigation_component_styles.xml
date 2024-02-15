@@ -6,6 +6,7 @@
         <item name="toolbarTextAppearance">@style/Chili.H5.Marked.Bold</item>
         <item name="additionalTextTextAppearance">@style/Chili.H8.Secondary</item>
         <item name="toolbarEndIconSize">@dimen/view_24dp</item>
+        <item name="toolbarLeftIconSize">@dimen/view_24dp</item>
         <item name="isDividerVisible">true</item>
         <item name="background">@color/white_1</item>
         <item name="navigationIcon">@drawable/chili_ic_back_arrow</item>
