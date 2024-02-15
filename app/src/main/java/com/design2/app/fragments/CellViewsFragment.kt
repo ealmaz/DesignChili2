@@ -11,7 +11,6 @@ import com.design2.app.MainActivity
 import com.design2.app.adapter.EditableCellViewsAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
-import com.design2.chili2.util.IconSize
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.startShimmering
@@ -61,7 +60,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             setIsActionButtonVisible(true)
             setActionBtnText("Весь список")
             setIcons(arrayListOf(icon, icon, icon))
-            setIconsTopMargin(12)
+            setIconsTopMargin(com.design2.chili2.R.dimen.view_12dp)
             setOnItemClicked {
                 Toast.makeText(this.context, "Cell Clicked", Toast.LENGTH_SHORT).show()
             }
