@@ -5,6 +5,7 @@
     android:layout_height="@dimen/view_24dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/marker_root_view"
+    app:cardBackgroundColor="?ChiliCellViewBackground"
     app:cardElevation="@dimen/elevation_0dp"
     app:cardCornerRadius="?ChiliMarkerStatusCellViewStatusCornerRadius">
 
