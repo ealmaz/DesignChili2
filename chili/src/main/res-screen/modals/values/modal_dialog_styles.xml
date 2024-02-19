@@ -16,6 +16,12 @@
         <item name="android:calendarViewShown">false</item>
     </style>
 
+    <style name="Chili.NumberPickerStyle">
+        <item name="colorControlNormal">?attr/ChiliDividerColor</item>
+        <item name="android:textSize">?attr/ChiliTextSizeH7</item>
+    </style>
+
+
     <style name="Chili.DatePickerSpinnerTheme" parent="@android:style/Widget.Material.DatePicker">
         <item name="colorControlNormal">?attr/ChiliPickerDialogControlColor</item>
         <item name="android:textSize">?attr/ChiliTextSizeH7</item>

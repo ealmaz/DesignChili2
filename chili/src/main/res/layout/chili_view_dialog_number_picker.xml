@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_16dp"
+        android:orientation="vertical"
+        android:background="@drawable/chili_bg_picker_dialog">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Chili.H7.Primary"
+            android:layout_margin="@dimen/padding_16dp"
+            tools:text="Title" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker"
+            android:theme="@style/Chili.NumberPickerStyle"
+            android:layout_marginTop="@dimen/padding_17dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/view_120dp"
+            android:layout_height="@dimen/view_150dp"
+            android:descendantFocusability="blocksDescendants"/>
+
+        <Button
+            android:id="@+id/btn_done"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_20dp"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginBottom="@dimen/padding_16dp"
+            style="@style/Chili.ButtonStyle.Primary"
+            tools:text="Готово"/>
+
+
+    </LinearLayout>
+</FrameLayout>

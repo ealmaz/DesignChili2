@@ -8,6 +8,7 @@ import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentDatePickerBinding
 import com.design2.chili2.view.modals.picker.DatePickerDialog
+import com.design2.chili2.view.modals.picker.NumberPickerDialog
 import com.design2.chili2.view.modals.picker.RangeDatePickerDialog
 import com.design2.chili2.view.modals.picker.RangePickerListener
 import com.design2.chili2.view.modals.picker.TimePickerDialog
@@ -24,6 +25,7 @@ class DatePickerFargment : BaseFragment<FragmentDatePickerBinding>(), FragmentRe
         childFragmentManager.setFragmentResultListener(DatePickerDialog.PICKER_DIALOG_RESULT, this, this)
         childFragmentManager.setFragmentResultListener(RangeDatePickerDialog.RANGE_PICKER_DIALOG_RESULT, this, this)
         childFragmentManager.setFragmentResultListener(TimePickerDialog.TIME_PICKER_DIALOG_RESULT, this, this)
+        childFragmentManager.setFragmentResultListener(NumberPickerDialog.NUMBER_PICKER_RESULT, this, this)
 
         vb.date.setOnClickListener { DatePickerDialog.create("Готово", "Дата").show(childFragmentManager, "") }
         vb.range.setOnClickListener { RangeDatePickerDialog.create("Готово", "Дата", "Date").show(childFragmentManager, "") }
@@ -74,6 +76,11 @@ class DatePickerFargment : BaseFragment<FragmentDatePickerBinding>(), FragmentRe
             currentTime = calendar)
                 .show(childFragmentManager, "")
         }
+
+        vb.numberPicker.setOnClickListener {
+            NumberPickerDialog.create("Готово", "Число месяца:", 1, 31)
+                .show(childFragmentManager, NumberPickerDialog::class.java.canonicalName)
+        }
     }
 
     override fun inflateViewBinging(): FragmentDatePickerBinding {
@@ -99,6 +106,11 @@ class DatePickerFargment : BaseFragment<FragmentDatePickerBinding>(), FragmentRe
                 val formatter = SimpleDateFormat("HH:mm")
                 val time = formatter.format(calendar.time)
                 Toast.makeText(requireContext(), time, Toast.LENGTH_SHORT).show()
+            }
+
+            NumberPickerDialog.NUMBER_PICKER_RESULT -> {
+                val number = result.getInt(NumberPickerDialog.ARG_SELECTED_NUMBER)
+                Toast.makeText(requireContext(), "Selected number: $number", Toast.LENGTH_SHORT).show()
             }
         }
     }

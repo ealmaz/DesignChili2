@@ -80,9 +80,11 @@
     <dimen name="view_80dp">80dp</dimen>
     <dimen name="view_82dp">82dp</dimen>
     <dimen name="view_74dp">74dp</dimen>
+    <dimen name="view_94dp">94dp</dimen>
     <dimen name="view_96dp">96dp</dimen>
     <dimen name="view_102dp">102dp</dimen>
     <dimen name="view_110dp">110dp</dimen>
+    <dimen name="view_120dp">120dp</dimen>
     <dimen name="view_136dp">136dp</dimen>
     <dimen name="view_140dp">140dp</dimen>
     <dimen name="view_150dp">150dp</dimen>
