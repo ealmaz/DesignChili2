@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setOnSingleClickListener
 
 class AdditionalTextWithIconCellView @JvmOverloads constructor(
     context: Context,
@@ -92,5 +93,9 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
 
     fun setAdditionalIcon(drawable: Drawable) {
         additionalImage?.setImageDrawable(drawable)
+    }
+
+    fun setAdditionalIconClickListener(action: () -> Unit = {}) {
+        additionalImage?.setOnSingleClickListener { action.invoke() }
     }
 }
