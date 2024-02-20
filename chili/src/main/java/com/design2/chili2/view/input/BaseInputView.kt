@@ -526,13 +526,18 @@ open class BaseInputView @JvmOverloads constructor(
         setupFieldAsError(resources.getString(errorTextResId))
     }
 
-    fun setupFieldAsError(errorText: String) {
-        vb.tvMessage.apply {
-            text = errorText
-            setTextColor(errorMessageTextColor)
-            isErrorShown = true
-            visible()
+    fun setupFieldAsError(errorText: String?) {
+        when(errorText.isNullOrBlank()) {
+            true -> vb.tvMessage.gone()
+            else -> {
+                vb.tvMessage.apply {
+                    text = errorText
+                    setTextColor(errorMessageTextColor)
+                    visible()
+                }
+            }
         }
+        isErrorShown = true
         vb.tilInputContainer.setBackgroundResource(fieldErrorBackground)
     }
 
