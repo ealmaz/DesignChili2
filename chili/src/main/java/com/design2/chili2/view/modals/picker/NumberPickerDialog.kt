@@ -74,6 +74,7 @@ class NumberPickerDialog : DialogFragment() {
     private fun setupPicker() = with(vb) {
         numberPicker.minValue = requireArguments().getInt(ARG_MIN_NUMBER)
         numberPicker.maxValue = requireArguments().getInt(ARG_MAX_NUMBER)
+        numberPicker.value = requireArguments().getInt(ARG_DEFAULT_NUMBER)
     }
 
     companion object {
@@ -82,6 +83,7 @@ class NumberPickerDialog : DialogFragment() {
         const val ARG_SELECTED_NUMBER = "selectedNumber"
         private const val ARG_MIN_NUMBER = "minNumber"
         private const val ARG_MAX_NUMBER = "maxNumber"
+        private const val ARG_DEFAULT_NUMBER = "defaultNumber"
         private const val ARG_TITLE = "title"
         private const val ARG_BUTTON_TEXT = "buttonText"
 
@@ -89,14 +91,16 @@ class NumberPickerDialog : DialogFragment() {
             buttonText: String,
             titleText: String,
             minNumber: Int,
-            maxNumber: Int
+            maxNumber: Int,
+            defaultNumber: Int? = null,
         ): NumberPickerDialog {
             return NumberPickerDialog().apply {
                 arguments = bundleOf(
                     ARG_TITLE to titleText,
                     ARG_BUTTON_TEXT to buttonText,
                     ARG_MIN_NUMBER to minNumber,
-                    ARG_MAX_NUMBER to maxNumber
+                    ARG_MAX_NUMBER to maxNumber,
+                    ARG_DEFAULT_NUMBER to (defaultNumber ?: minNumber)
                 )
             }
         }

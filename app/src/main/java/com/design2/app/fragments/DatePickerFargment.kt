@@ -18,6 +18,7 @@ import java.util.*
 class DatePickerFargment : BaseFragment<FragmentDatePickerBinding>(), FragmentResultListener {
 
     var selected: Calendar? = null
+    private var selectedNumber: Int? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -78,7 +79,7 @@ class DatePickerFargment : BaseFragment<FragmentDatePickerBinding>(), FragmentRe
         }
 
         vb.numberPicker.setOnClickListener {
-            NumberPickerDialog.create("Готово", "Число месяца:", 1, 31)
+            NumberPickerDialog.create("Готово", "Число месяца:", 1, 31, selectedNumber)
                 .show(childFragmentManager, NumberPickerDialog::class.java.canonicalName)
         }
     }
@@ -110,6 +111,7 @@ class DatePickerFargment : BaseFragment<FragmentDatePickerBinding>(), FragmentRe
 
             NumberPickerDialog.NUMBER_PICKER_RESULT -> {
                 val number = result.getInt(NumberPickerDialog.ARG_SELECTED_NUMBER)
+                selectedNumber = number
                 Toast.makeText(requireContext(), "Selected number: $number", Toast.LENGTH_SHORT).show()
             }
         }
