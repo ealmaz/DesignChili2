@@ -97,6 +97,9 @@ class Gradient : Effect {
 
     }
 
+    override fun updateViewSize(width: Float, height: Float) {}
+
+
     fun getGradientShader(): LinearGradient {
 
         val colors = if (gradientArray != null && gradientArray?.isNotEmpty() == true) {

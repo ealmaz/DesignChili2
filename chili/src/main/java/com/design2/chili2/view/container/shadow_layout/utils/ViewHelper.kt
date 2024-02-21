@@ -14,8 +14,6 @@ class ViewHelper(private val context: Context) {
 
     companion object {
         const val NOT_SET_COLOR = -101
-        const val STROKE_SHADOW = "stroke"
-        const val FILL_SHADOW = "fill"
     }
 
     fun updateCanvas(canvas: Canvas?) {
@@ -169,7 +167,7 @@ class ViewHelper(private val context: Context) {
             }
 
             val shadow = Shadow().apply {
-                init(isBackground, blurSize, offsetX, offsetY, color)
+                init(isBackground, blurSize, offsetX, offsetY, color, 0)
             }
 
             list.add(shadow)

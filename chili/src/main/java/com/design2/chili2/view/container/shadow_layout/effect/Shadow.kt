@@ -1,6 +1,7 @@
 package com.design2.chili2.view.container.shadow_layout.effect
 
 import android.graphics.*
+import com.design2.chili2.view.container.shadow_layout.model.ShadowType
 import com.design2.chili2.view.container.shadow_layout.utils.*
 
 class Shadow : Effect {
@@ -19,17 +20,30 @@ class Shadow : Effect {
     private val isEnable: Boolean
         get() = blurSize != 0f && shadowColor != ViewHelper.NOT_SET_COLOR
     private var blurSize = 0f
+    private var blurSizeOffset = 0f
+
     private var shadowColor = ViewHelper.NOT_SET_COLOR
     private var shadowOffsetX = 0f
     private var shadowOffsetY = 0f
-    private var shadowType = ViewHelper.FILL_SHADOW
 
-    fun init(isBackground: Boolean, blurSize: Float, shadowOffsetX: Float, shadowOffsetY: Float, shadowColor: Int) {
+    private var shadowType: ShadowType = ShadowType.SINGLE
+
+    private var viewWidth: Float = 0f
+    private var viewHeight: Float = 0f
+
+    fun init(isBackground: Boolean, blurSize: Float, shadowOffsetX: Float, shadowOffsetY: Float, shadowColor: Int, shadowTypeInt: Int) {
         this.isBackgroundShadow = isBackground
         this.blurSize = blurSize
+        this.blurSizeOffset = blurSize + blurSize
         this.shadowOffsetX = shadowOffsetX
         this.shadowOffsetY = shadowOffsetY
         this.shadowColor = shadowColor
+        this.shadowType = when(shadowTypeInt) {
+            ShadowType.TOP.value -> ShadowType.TOP
+            ShadowType.MIDDLE.value -> ShadowType.MIDDLE
+            ShadowType.BOTTOM.value -> ShadowType.BOTTOM
+            else -> ShadowType.SINGLE
+        }
 
         updatePaint()
     }
@@ -38,6 +52,19 @@ class Shadow : Effect {
 
         if (!isEnable)
             return
+
+        when (shadowType) {
+            ShadowType.TOP -> {
+                canvas?.clipRect(0f, 0f, viewWidth, viewHeight + blurSizeOffset, Region.Op.DIFFERENCE)
+            }
+            ShadowType.MIDDLE -> {
+                canvas?.clipRect(0f, 0 - blurSizeOffset, viewWidth, 0f, Region.Op.DIFFERENCE)
+                canvas?.clipRect(0f, viewHeight, viewWidth, viewHeight + blurSizeOffset, Region.Op.DIFFERENCE)
+            }
+            ShadowType.BOTTOM -> {
+                canvas?.clipRect(0f, 0 - blurSizeOffset, viewWidth, 0f, Region.Op.DIFFERENCE)
+            }
+        }
 
         canvas?.drawPath(path, paint)
     }
@@ -59,11 +86,7 @@ class Shadow : Effect {
                 alpha = Util.getIntAlpha(this@Shadow.alpha)
             }
 
-            style = if (shadowType == ViewHelper.FILL_SHADOW) {
-                Paint.Style.FILL_AND_STROKE
-            } else {
-                Paint.Style.STROKE
-            }
+            style = Paint.Style.FILL_AND_STROKE
 
             if (blurSize != 0f) {
                 maskFilter = if (isBackgroundShadow) {
@@ -99,6 +122,11 @@ class Shadow : Effect {
         updatePaint()
     }
 
+    override fun updateViewSize(width: Float, height: Float) {
+        this.viewWidth = width
+        this.viewHeight = height
+    }
+
     fun getShadowColor(): Int = shadowColor
     fun getShadowBlurSize(): Float = blurSize
     fun getShadowOffsetX(): Float = shadowOffsetX
@@ -115,10 +143,5 @@ class Shadow : Effect {
 
     fun updateShadowOffsetY(offset: Float) {
         this.shadowOffsetY = offset
-    }
-
-    fun setShadowType(type: String) {
-        this.shadowType = type
-        updatePaint()
     }
 }

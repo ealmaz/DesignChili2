@@ -9,6 +9,7 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.design2.chili2.R
 import com.design2.chili2.view.container.shadow_layout.effect.*
+import com.design2.chili2.view.container.shadow_layout.model.ShadowType
 import com.design2.chili2.view.container.shadow_layout.utils.ViewHelper
 import kotlin.math.abs
 
@@ -152,8 +153,9 @@ class ShadowLayout : LinearLayout {
                     val shadowOffsetX = a.getDimension(R.styleable.ShadowLayout_shadow_offset_x, 0f)
                     val shadowOffsetY = a.getDimension(R.styleable.ShadowLayout_shadow_offset_y, 0f)
                     val shadowBlurSize = a.getDimension(R.styleable.ShadowLayout_shadow_blur, 0f)
+                    val shadowType = a.getInteger(R.styleable.ShadowLayout_shadow_type, ShadowType.SINGLE.value)
 
-                    init(true, shadowBlurSize, shadowOffsetX, shadowOffsetY, shadowColor)
+                    init(true, shadowBlurSize, shadowOffsetX, shadowOffsetY, shadowColor, shadowType)
 
                     updateAlpha(defaultAlpha)
                 }
@@ -183,13 +185,7 @@ class ShadowLayout : LinearLayout {
                     val shadowBlurSize =
                         a.getDimension(R.styleable.ShadowLayout_inner_shadow_blur, 0f)
 
-                    init(false, shadowBlurSize, 0f, 0f, shadowColor)
-
-                    val strokeType = a.getString(R.styleable.ShadowLayout_inner_shadow_type)
-
-                    if (!strokeType.isNullOrEmpty()) {
-                        setShadowType(strokeType)
-                    }
+                    init(false, shadowBlurSize, 0f, 0f, shadowColor, 0)
                 }
 
                 add(shadow)
@@ -287,6 +283,7 @@ class ShadowLayout : LinearLayout {
 
             backgroundShadowList.forEach {
                 updateOffset(it, width, height)
+                it.updateViewSize(width.toFloat(), height.toFloat())
             }
 
             updateOffset(background, width, height)
@@ -333,7 +330,7 @@ class ShadowLayout : LinearLayout {
 
     fun addBackgroundShadow(blurSize: Float, offsetX: Float, offsetY: Float, shadowColor: Int) {
         val shadow = Shadow().apply {
-            init(true, blurSize, offsetX, offsetY, shadowColor)
+            init(true, blurSize, offsetX, offsetY, shadowColor, 0)
         }
         backgroundShadowList.add(shadow)
         invalidate()
@@ -371,7 +368,7 @@ class ShadowLayout : LinearLayout {
         offsetY: Float,
         color: Int
     ) {
-        backgroundShadowList[position].init(true, blurSize, offsetX, offsetY, color)
+        backgroundShadowList[position].init(true, blurSize, offsetX, offsetY, color, 0)
         invalidate()
     }
 
@@ -389,7 +386,7 @@ class ShadowLayout : LinearLayout {
 
     fun addForegroundShadow(blurSize: Float, shadowColor: Int) {
         val shadow = Shadow().apply {
-            init(true, blurSize, 0f, 0f, shadowColor)
+            init(true, blurSize, 0f, 0f, shadowColor, 0)
         }
         backgroundShadowList.add(shadow)
         invalidate()
@@ -424,7 +421,7 @@ class ShadowLayout : LinearLayout {
     }
 
     fun updateForegroundShadow(position: Int, blurSize: Float, color: Int) {
-        backgroundShadowList[position].init(false, blurSize, 0f, 0f, color)
+        backgroundShadowList[position].init(false, blurSize, 0f, 0f, color, 0)
         invalidate()
     }
 

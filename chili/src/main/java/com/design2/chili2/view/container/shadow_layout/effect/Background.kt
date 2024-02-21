@@ -127,6 +127,9 @@ class Background : Effect {
         updatePaint()
     }
 
+    override fun updateViewSize(width: Float, height: Float) {}
+
+
     fun setBackgroundColor(color: Int) {
         this.backgroundColor = color
         updatePaint()

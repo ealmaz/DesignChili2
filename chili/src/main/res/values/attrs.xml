@@ -486,6 +486,12 @@
         <attr name="shadow_offset_y" format="dimension" />
         <attr name="shadow_blur" format="dimension" />
         <attr name="shadow_array" format="string"/>
+        <attr name="shadow_type" format="enum">
+            <enum name="single" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="middle" value="2"/>
+            <enum name="bottom" value="3"/>
+        </attr>
 
         <attr name="inner_shadow_color" format="color" />
         <attr name="inner_shadow_blur" format="dimension" />

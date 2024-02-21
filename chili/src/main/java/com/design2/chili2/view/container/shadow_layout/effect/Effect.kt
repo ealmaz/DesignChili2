@@ -16,6 +16,7 @@ interface Effect {
 
     var alpha: Float
 
+    fun updateViewSize(width: Float, height: Float)
     fun updateOffset(left: Float, top: Float, right: Float, bottom: Float)
     fun updatePaint()
     fun updatePath(radiusInfo: Radius?)
