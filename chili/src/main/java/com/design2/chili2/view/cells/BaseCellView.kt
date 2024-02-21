@@ -65,12 +65,12 @@ open class BaseCellView @JvmOverloads constructor(
                 }
                 getString(R.styleable.BaseCellView_title)?.let { setTitle(it) }
                 getString(R.styleable.BaseCellView_subtitle)?.let { setSubtitle(it) }
+                getBoolean(R.styleable.BaseCellView_isDividerVisible, true).let {
+                    setDividerVisibility(it)
+                }
                 getInteger(R.styleable.BaseCellView_roundedCornerMode, roundedCornerMode).let {
                     roundedCornerMode = it
                     this@BaseCellView.setupRoundedCellCornersMode(it, surfaceClickAbility)
-                }
-                getBoolean(R.styleable.BaseCellView_isDividerVisible, true).let {
-                    setDividerVisibility(it)
                 }
                 getLayoutDimension(R.styleable.BaseCellView_cellIconSize, IconSize.SMALL.value).let {
                     when (it) {

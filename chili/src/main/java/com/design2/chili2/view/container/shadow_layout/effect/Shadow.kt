@@ -55,7 +55,7 @@ class Shadow : Effect {
 
         when (shadowType) {
             ShadowType.TOP -> {
-                canvas?.clipRect(0f, 0f, viewWidth, viewHeight + blurSizeOffset, Region.Op.DIFFERENCE)
+                canvas?.clipRect(0f, viewHeight, viewWidth, viewHeight + blurSizeOffset, Region.Op.DIFFERENCE)
             }
             ShadowType.MIDDLE -> {
                 canvas?.clipRect(0f, 0 - blurSizeOffset, viewWidth, 0f, Region.Op.DIFFERENCE)
