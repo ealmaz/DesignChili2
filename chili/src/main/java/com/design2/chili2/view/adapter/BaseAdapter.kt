@@ -52,7 +52,7 @@ abstract class BaseAdapter<T>(
 
     abstract fun bindItemViewHolder(holder: RecyclerView.ViewHolder, position: Int, item: T?)
 
-    protected fun createLoadingViewHolder(
+    protected open fun createLoadingViewHolder(
         parent: ViewGroup,
         loadingViewResId: Int?
     ): BaseViewHolder<T?> {
