@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             app:title="BaseCellView with icon" />
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            android:id="@+id/shadow_ex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -45,6 +46,22 @@
             <com.design2.chili2.view.cells.BaseCellView
                 android:id="@+id/cell_first"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:roundedCornerMode="top"
+                app:isDividerVisible="true"
+                app:title="Заголовок" />
+
+        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            android:id="@+id/shadow_ex2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ShadowLayoutStyle">
+
+            <com.design2.chili2.view.cells.BaseCellView
+                android:id="@+id/cell_first2"
+                android:layout_width="match_parent"
+                app:roundedCornerMode="bottom"
                 android:layout_height="wrap_content"
                 app:isDividerVisible="false"
                 app:title="Заголовок" />

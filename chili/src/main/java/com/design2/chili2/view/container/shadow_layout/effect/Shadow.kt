@@ -132,6 +132,10 @@ class Shadow : Effect {
     fun getShadowOffsetX(): Float = shadowOffsetX
     fun getShadowOffsetY(): Float = shadowOffsetY
 
+    fun updateShadowType(shadowType: ShadowType) {
+        this.shadowType = shadowType
+    }
+
     fun updateShadowColor(color: Int) {
         this.shadowColor = color
         updatePaint()

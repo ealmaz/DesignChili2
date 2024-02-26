@@ -12,6 +12,7 @@ import com.design2.app.adapter.EditableCellViewsAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
 import com.design2.chili2.util.RoundedCornerMode
+import com.design2.chili2.view.container.shadow_layout.model.ShadowType
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.startShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
@@ -65,6 +66,10 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
                 Toast.makeText(this.context, "Cell Clicked", Toast.LENGTH_SHORT).show()
             }
         }
+
+        vb.shadowEx.updateShadowType(ShadowType.TOP)
+        vb.shadowEx2.updateShadowType(ShadowType.BOTTOM)
+
         vb.multiiconedCellView2.apply {
             setIsInfoButtonVisible(true)
             setIcons(arrayListOf(icon, icon, icon))

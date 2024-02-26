@@ -504,6 +504,11 @@ class ShadowLayout : LinearLayout {
         return viewHelper.strokeInfo
     }
 
+    fun updateShadowType(shadowType: ShadowType) {
+        backgroundShadowList.forEach { it.updateShadowType(shadowType) }
+        invalidate()
+    }
+
     override fun setAlpha(alpha: Float) {
 
         if (!isInit)
