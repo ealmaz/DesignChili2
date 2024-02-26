@@ -1,5 +1,6 @@
 package com.design2.app.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -21,6 +22,7 @@ import com.design2.chili2.view.image.AutoScrollCarouselImageAdapter
 import com.design2.chili2.view.modals.ShowcaseHelper
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
+import com.design2.chili2.view.stories.StoryActivity
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselImageAdapter.Listener {
     private lateinit var simpleAdapter: SimpleTextRecyclerViewAdapter
@@ -80,6 +82,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
         }
         vb.bankCardView.setCardCvv("321")
         vb.btnExpand.setOnClickListener {
+            requireContext().startActivity(Intent(requireActivity(), StoryActivity::class.java))
             setExpandedState(!isExpanded)
         }
         val adapter = AutoScrollCarouselImageAdapter(

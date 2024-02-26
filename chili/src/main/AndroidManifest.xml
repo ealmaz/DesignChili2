@@ -2,4 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.design2.chili2">
 
+    <application>
+        <activity android:name=".view.stories.StoryActivity"/>
+    </application>
+
 </manifest>
