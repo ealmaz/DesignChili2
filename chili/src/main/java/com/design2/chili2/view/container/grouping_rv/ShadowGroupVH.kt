@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.R
 
+@Deprecated("Vertical nested Recycler views are forbidden", ReplaceWith("ShadowLayout.updateShadowType(ShadowType.Single"))
 class ShadowGroupVH(val view: View) : BaseGroupingVH(view) {
 
     private lateinit var adapter: GroupableAdapter

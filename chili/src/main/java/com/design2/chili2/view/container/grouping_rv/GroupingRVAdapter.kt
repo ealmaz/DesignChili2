@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 
+@Deprecated("Vertical nested Recycler views are forbidden", ReplaceWith("ShadowLayout.updateShadowType(ShadowType.Single"))
 class GroupingRVAdapter(
     private val adapterCreator: (Int) -> GroupableAdapter,
     private val emptyVHCreator: (ViewGroup) -> BaseGroupingVH

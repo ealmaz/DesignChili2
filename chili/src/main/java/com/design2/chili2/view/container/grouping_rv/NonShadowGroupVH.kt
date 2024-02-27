@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.databinding.ChiliItemNonShadowGroupBinding
 
+@Deprecated("Vertical nested Recycler views are forbidden", ReplaceWith("ShadowLayout.updateShadowType(ShadowType.Single"))
 class NonShadowGroupVH(val holderVb: ChiliItemNonShadowGroupBinding) : BaseGroupingVH(holderVb.root) {
 
     private lateinit var adapter: GroupableAdapter
