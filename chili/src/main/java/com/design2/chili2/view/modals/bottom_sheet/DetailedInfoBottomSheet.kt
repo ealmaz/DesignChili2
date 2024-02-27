@@ -199,6 +199,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         private var textCentered: Boolean? = null
 
         private var isHideable: Boolean = true
+        private var isDraggable: Boolean = true
 
         private var onDismissCallback: (() -> Unit)? = null
 
@@ -277,6 +278,11 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
             return this
         }
 
+        fun setIsDraggable(isDraggable: Boolean): Builder {
+            this.isDraggable = isDraggable
+            return this
+        }
+
         fun hideCloseIcon(): Builder {
             this.hasCloseIcon = false
             return this
@@ -307,6 +313,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
                 this.secondaryButton = this@Builder.secondaryButton
                 this.secondaryButtonRes = this@Builder.secondaryButtonRes
                 this.isHideable = this@Builder.isHideable
+                this.isDraggable = this@Builder.isDraggable
                 this.hasCloseIcon = this@Builder.hasCloseIcon
                 this.topDrawableVisible = this@Builder.isTopDrawableVisible
                 this.textCentered = this@Builder.textCentered
