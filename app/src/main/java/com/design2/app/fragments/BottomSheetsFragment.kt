@@ -149,6 +149,7 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .setMessage("Текстовый блок, который содержит много текста и не может уместиться в четыре строки (как в маленьком Bottom-sheet).\n\n" +
                         "Возможно имеет какую-то инструкцию или подробное описание функционал. Плюс тут есть картиночка. \n\n" +
                         "Высота зависит от контента.")
+                .setIsDraggable(false)
                 .setPrimaryButton("Понятно" to {Toast.makeText(context, "Понятно", Toast.LENGTH_SHORT).show()})
                 .build()
                 .show(childFragmentManager)
