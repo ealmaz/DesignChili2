@@ -92,7 +92,7 @@ internal fun View.gone() {
     visibility = View.GONE
 }
 
-internal fun TextView.setTextOrHide(value: String?) {
+fun TextView.setTextOrHide(value: String?) {
     text = value
     when (value) {
         null -> gone()
@@ -100,7 +100,7 @@ internal fun TextView.setTextOrHide(value: String?) {
     }
 }
 
-internal fun TextView.setTextOrHide(value: Spanned?) {
+fun TextView.setTextOrHide(value: Spanned?) {
     text = value
     when (value) {
         null -> gone()
@@ -108,7 +108,7 @@ internal fun TextView.setTextOrHide(value: Spanned?) {
     }
 }
 
-internal fun TextView.setTextOrHide(resId: Int?) {
+fun TextView.setTextOrHide(resId: Int?) {
     when (resId) {
         null -> gone()
         else -> {
@@ -118,7 +118,7 @@ internal fun TextView.setTextOrHide(resId: Int?) {
     }
 }
 
-internal fun TextView.setTextOrHide(charSequence: CharSequence?) {
+fun TextView.setTextOrHide(charSequence: CharSequence?) {
     text = charSequence
     if (charSequence == null) gone()
     else visible()
