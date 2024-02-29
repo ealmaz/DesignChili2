@@ -170,6 +170,10 @@ class DetailCellView @JvmOverloads constructor(
         vb.tvStatus.setTextAppearance(resId)
     }
 
+    fun setStatusTextColor(@ColorInt colorInt: Int) {
+        vb.tvStatus.setTextColor(colorInt)
+    }
+
     fun setupIsSurfaceClickable(isSurfaceClickable: Boolean) {
         surfaceClickAbility = isSurfaceClickable
         this.setIsSurfaceClickable(isSurfaceClickable, roundedCornerMode)
