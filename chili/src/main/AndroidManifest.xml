@@ -3,7 +3,7 @@
     package="com.design2.chili2">
 
     <application>
-        <activity android:name=".view.stories.StoryActivity"/>
+        <activity android:name=".view.stories.StoryActivity" />
     </application>
 
 </manifest>

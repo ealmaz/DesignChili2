@@ -2,7 +2,7 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/radius_4dp" />
-            <solid android:color="#66EFEFF4" />
+            <solid android:color="#4D4A4A4A" />
         </shape>
     </item>
 
@@ -10,7 +10,7 @@
         <clip>
             <shape android:shape="rectangle">
                 <corners android:radius="@dimen/radius_4dp" />
-                <solid android:color="@color/gray_4" />
+                <solid android:color="#4A4A4A" />
             </shape>
         </clip>
     </item>

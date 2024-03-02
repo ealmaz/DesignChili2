@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.design2.chili2.view.stories.StoryView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/story_view"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
 
-</com.design2.chili2.view.stories.StoryView>
+    <com.design2.chili2.view.stories.StoryView
+        android:id="@+id/story_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

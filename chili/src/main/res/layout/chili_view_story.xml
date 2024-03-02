@@ -3,32 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <ImageView
         android:id="@+id/story_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="fitCenter"
+        android:visibility="gone"/>
 
-    <VideoView
+    <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/story_video_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        app:use_controller="false"
         android:visibility="gone"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/padding_0dp"
-        android:layout_marginBottom="@dimen/padding_16dp"
-        android:background="@drawable/chili_story_gradient_layer"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/story_lottie_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/story_text_view"/>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <LinearLayout
         android:id="@+id/progress_bars_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/view_6dp"
+        android:layout_height="@dimen/view_4dp"
         android:layout_marginTop="@dimen/padding_16dp"
         android:orientation="horizontal"
         android:layout_marginHorizontal="@dimen/padding_12dp"
@@ -36,15 +42,33 @@
 
 
     <TextView
-        android:id="@+id/story_text_view"
+        android:id="@+id/story_title_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_32dp"
+        android:layout_marginTop="@dimen/padding_24dp"
         android:layout_marginHorizontal="@dimen/padding_16dp"
         tools:text="Example Text"
-        style="@style/Chili.H7.Primary.Bold"
+        style="@style/Chili.H4.Primary.Bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/close_button"/>
+
+    <TextView
+        android:id="@+id/story_subtitle_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_8dp"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        tools:text="Example Text"
+        style="@style/Chili.H7.Primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/story_title_view"/>
+
+    <View
+        android:id="@+id/touchable_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"/>
 
     <ImageButton
         android:id="@+id/close_button"
@@ -61,7 +85,8 @@
         android:id="@+id/additional_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Chili.ButtonStyle.Component"
+        style="@style/Chili.ButtonStyle.Additional"
+        android:layout_margin="@dimen/padding_16dp"
         android:text="Prodoljit'"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

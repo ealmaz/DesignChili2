@@ -102,14 +102,14 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             resumeAutoScroll()
         }
 
-        ShowcaseHelper(requireActivity()).showShowcase(vb.accent, ShowcaseHelper.ShowcaseData(
-            title = "Title",
-            message = "Message dfdjgkjsdkgjdslkg  dkjngkjdsgkjdskjghsdk jdkfskjdfjskjfl jdslkfjlsdkjf skdjfklsdjflk kjd foldknf dlkfjlskdfl ldkfjslkdjflk",
-            gravity = ShowcaseHelper.ShowcasePosition.BOTTOM,
-            indicatorsCount = 3,
-            currentIndicatorPosition = 0,
-            buttonText = "Ponyatno"
-        ), {}, {})
+//        ShowcaseHelper(requireActivity()).showShowcase(vb.accent, ShowcaseHelper.ShowcaseData(
+//            title = "Title",
+//            message = "Message dfdjgkjsdkgjdslkg  dkjngkjdsgkjdskjghsdk jdkfskjdfjskjfl jdslkfjlsdkjf skdjfklsdjflk kjd foldknf dlkfjlskdfl ldkfjslkdjflk",
+//            gravity = ShowcaseHelper.ShowcasePosition.BOTTOM,
+//            indicatorsCount = 3,
+//            currentIndicatorPosition = 0,
+//            buttonText = "Ponyatno"
+//        ), {}, {})
 
         vb.bonusPartnerCard.apply {
             setTitle("Bonus Partner")
