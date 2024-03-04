@@ -69,7 +69,7 @@ class HighlightsAdapter(private val listener: OnHighlightClickListener)
         private fun setupClickListener() {
             borderContainer.setOnClickListener {
                 if (adapterPosition == 7) listener.onAllStoriesViewClick()
-                else listener.onHighlightClick(adapterPosition)
+                else listener.onHighlightClick(itemView, adapterPosition)
             }
         }
 
@@ -91,6 +91,6 @@ class HighlightsAdapter(private val listener: OnHighlightClickListener)
 }
 
 interface OnHighlightClickListener {
-    fun onHighlightClick(index: Int)
+    fun onHighlightClick(clickedView: View, index: Int)
     fun onAllStoriesViewClick()
 }

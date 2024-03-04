@@ -37,6 +37,7 @@ class AnimatedProgressLine : View {
     private val paint = Paint()
     private var animator: ValueAnimator? = null
     private var progressListener: ProgressListener? = null
+    private var isAnimationCompleted = false
 
     @ColorInt private var progressBackgroundColor: Int = Color.GRAY
     @ColorInt private var progressColor: Int = Color.GREEN
@@ -79,7 +80,10 @@ class AnimatedProgressLine : View {
 
     fun setProgressPercent(percent: Int) {
         this.progressPercent = percent
-        if (percent == 100) progressListener?.onLineProgressFull()
+        if (percent == 100 && !isAnimationCompleted) {
+            progressListener?.onLineProgressFull()
+            isAnimationCompleted = true
+        }
         invalidate()
     }
 
@@ -112,6 +116,7 @@ class AnimatedProgressLine : View {
     }
 
     private fun animateProgress(progress: Int) {
+        isAnimationCompleted = false
         animator?.cancel()
         animator = ValueAnimator.ofInt(0, progress).apply {
             duration = animationDuration
@@ -122,6 +127,8 @@ class AnimatedProgressLine : View {
     }
 
     private fun reverseAnimateProgress() {
+        println("reverseAnimateProgress")
+
         animator?.cancel()
         animator = ValueAnimator.ofInt(progressPercent, 0).apply {
             duration = animationDuration
@@ -145,8 +152,9 @@ class AnimatedProgressLine : View {
         }
         if (progress < progressPercent) {
               reverseAnimateProgress()
+        } else {
+              animateProgress(progress)
         }
-        animateProgress(progress)
     }
 
     fun setAnimationDuration(duration: Long) {
@@ -164,6 +172,9 @@ class AnimatedProgressLine : View {
 
     fun cancelAnimation() {
         animator?.cancel()
+        progressPercent = 0
+        isAnimationCompleted = false
+        invalidate()
     }
 
     fun setAnimationListener(listener: ProgressListener) {

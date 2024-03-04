@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     android:background="@color/black_1">
 
+    <com.design2.chili2.view.common.GesturesView
+        android:id="@+id/gestures_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/view_72dp" />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,102 +23,101 @@
             android:foreground="@drawable/chili_bg_shading">
 
             <ImageView
-                android:scaleType="centerCrop"
                 android:id="@+id/storyImage"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
 
             <FrameLayout
                 android:id="@+id/border_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
             <com.design2.chili2.view.card.BadgeCardView
                 android:id="@+id/badge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
-                app:icon="@drawable/chili_ic_heart"
-                app:title="Для тебя"
+                android:layout_marginTop="28dp"
+                android:visibility="gone"
                 app:cardBackground="@color/magenta_1"
                 app:cardCornerRadius="@dimen/radius_14dp"
-                android:layout_marginTop="28dp"
-                android:visibility="gone"/>
+                app:icon="@drawable/chili_ic_heart"
+                app:title="Для тебя" />
 
             <ImageView
                 android:id="@+id/btn_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/chili_ic_close_white"
+                android:layout_gravity="end"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
                 android:layout_marginTop="34dp"
-                android:layout_gravity="end"/>
+                android:src="@drawable/chili_ic_close_white" />
 
             <com.design2.chili2.view.story.StoryProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:barsHeight="@dimen/padding_6dp"
-                app:animationDuration="10"
-                app:gapBetweenBars="@dimen/padding_8dp"
-                app:progressColor="@color/white_1"
-                app:progressBackgroundColor="@color/gray_4"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
-                android:layout_marginTop="@dimen/padding_12dp">
-            </com.design2.chili2.view.story.StoryProgressBar>
+                android:layout_marginTop="@dimen/padding_12dp"
+                app:animationDuration="10"
+                app:barsHeight="@dimen/padding_6dp"
+                app:gapBetweenBars="@dimen/padding_8dp"
+                app:progressBackgroundColor="@color/gray_4"
+                app:progressColor="@color/white_1"></com.design2.chili2.view.story.StoryProgressBar>
 
         </FrameLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:gravity="bottom"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <!--           TODO - размер рассчитать! -->
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white_1"
+                app:layout_constraintBottom_toTopOf="@id/subtitle"
+                android:layout_margin="@dimen/padding_16dp"
                 android:textAppearance="@style/Chili.H4.Primary.Bold"
-                android:layout_margin="@dimen/padding_16dp"/>
-
-<!--           TODO - размер рассчитать! -->
+                android:textColor="@color/white_1"
+                />
 
             <TextView
                 android:id="@+id/subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:textColor="@color/white_1"
-                android:textAppearance="@style/Chili.H7"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 android:layout_marginBottom="36dp"
-                android:layout_marginHorizontal="@dimen/padding_16dp"/>
+                android:textAppearance="@style/Chili.H7"
+                app:layout_constraintBottom_toTopOf="@id/description"
+                android:textColor="@color/white_1" />
 
             <TextView
                 android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white_1"
-                android:textAppearance="@style/Chili.H7"
-                android:visibility="gone"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
                 android:layout_marginBottom="36dp"
-                android:layout_marginHorizontal="@dimen/padding_16dp"/>
+                android:textAppearance="@style/Chili.H7"
+                android:textColor="@color/white_1"
+                app:layout_constraintBottom_toTopOf="@id/btn_details"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/btn_details"
+                style="@style/Chili.ButtonStyle.Accent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/Chili.ButtonStyle.Accent"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
                 android:layout_marginBottom="@dimen/padding_16dp"
-                android:text="Детали"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Детали" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <com.design2.chili2.view.common.GesturesView
-        android:id="@+id/gestures_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/view_72dp"/>
 </FrameLayout>

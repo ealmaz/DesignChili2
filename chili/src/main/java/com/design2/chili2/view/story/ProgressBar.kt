@@ -109,7 +109,7 @@ class StoryProgressBar @JvmOverloads constructor(
             addView(animatedProgressLine, layoutParams)
         }
         invalidate()
-        startAnimation()
+//        startAnimation()
     }
 
     private fun getProgressLine() =
@@ -138,6 +138,10 @@ class StoryProgressBar @JvmOverloads constructor(
 
     fun resetAnimation() {
         animatedProgressLines[currentIndex].cancelAnimation()
+        animatedProgressLines[currentIndex].setProgressPercent(0)
+    }
+    fun resetAllAnimations() {
+        animatedProgressLines.forEach { it.cancelAnimation() }
         animatedProgressLines[currentIndex].setProgressPercent(0)
     }
 

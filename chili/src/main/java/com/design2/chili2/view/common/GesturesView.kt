@@ -2,14 +2,10 @@ package com.design2.chili2.view.common
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.GestureDetector
 import android.view.MotionEvent
-import android.view.View
-import androidx.core.view.GestureDetectorCompat
+import android.widget.FrameLayout
 import kotlin.math.abs
 
 interface GesturesListener {
@@ -20,26 +16,25 @@ interface GesturesListener {
     fun onSwipeLeft()
     fun onSwipeRight()
     fun onSwipeUp()
-    fun onSwipeDown()
+    fun onSwipeDown(deltaY: Float)
+    fun onSwipeDownEnd(isEnoughDragging: Boolean)
 }
 
-class GesturesView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : View(context, attrs) {
+class GesturesView @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyle: Int = 0
+) : FrameLayout(context, attrs, defStyle), GestureDetector.OnGestureListener {
 
-    private val paint = Paint()
-    private val gestureDetector: GestureDetectorCompat
+    private val gestureDetector: GestureDetector
     private var gestureListener: GesturesListener? = null
-    private var startX = 0f
-    private var startY = 0f
-    private var isLongPressing = false
+
+    private var startY: Float = 0f
+    private var startX: Float = 0f
+    private var maxY: Float = 0f
+    private var isDragging = false
 
     init {
-        paint.color = Color.TRANSPARENT
-        gestureDetector = GestureDetectorCompat(context, GestureListener())
-    }
-
-    override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
-        canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), paint)
+        gestureDetector = GestureDetector(context, this)
+        isClickable = true
     }
 
     fun setGestureListener(listener: GesturesListener) {
@@ -49,61 +44,75 @@ class GesturesView @JvmOverloads constructor(context: Context, attrs: AttributeS
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         gestureDetector.onTouchEvent(event)
-
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                startX = event.x
+                println("ACTION_DOWN = " + event.y)
                 startY = event.y
-                isLongPressing = false
+                startX = event.x
+                isDragging = false
             }
-            MotionEvent.ACTION_UP -> {
-                if (isLongPressing) {
-                    gestureListener?.onLongPressRelease()
-                    isLongPressing = false
-                } else {
-                    checkTapAndSwipe(event)
+            MotionEvent.ACTION_MOVE -> {
+                if (maxY < event.y) maxY = event.y
+                val deltaY = event.y - startY
+                val deltaX = event.x - startX
+
+                if (abs(deltaY) > VERTICAL_SWIPE_THRESHOLD && abs(deltaY) > abs(deltaX) && !isDragging) {
+                    if (deltaY > 0) {
+                        isDragging = true
+                    } else if ((abs(deltaY) > abs(event.x - startX) && deltaY < 0 && !isDragging)){
+                        gestureListener?.onSwipeUp()
+                    }
                 }
+
+                if (isDragging) gestureListener?.onSwipeDown(deltaY)
+            }
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                val enoughSwipeDown = (maxY - startY) >= 65
+
+                if (isDragging && enoughSwipeDown) {
+                    gestureListener?.onSwipeDownEnd(true)
+                    isDragging = false
+                } else gestureListener?.onSwipeDownEnd(false)
+
             }
         }
-
         return true
     }
 
-    private fun checkTapAndSwipe(event: MotionEvent) {
-        val deltaX = event.x - startX
-        val deltaY = event.y - startY
-
-        if (abs(deltaX) < TAP_THRESHOLD && abs(deltaY) < TAP_THRESHOLD) {
-            if (event.x < width / 2) {
-                gestureListener?.onTapLeft()
-            } else {
-                gestureListener?.onTapRight()
-            }
-        } else {
-            if (abs(deltaX) > abs(deltaY)) {
-                if (deltaX > 0) {
-                    gestureListener?.onSwipeRight()
-                } else {
-                    gestureListener?.onSwipeLeft()
-                }
-            } else {
-                if (deltaY > 0) {
-                    gestureListener?.onSwipeDown()
-                } else {
-                    gestureListener?.onSwipeUp()
-                }
-            }
-        }
+    override fun onSingleTapUp(e: MotionEvent): Boolean {
+        val tapedArea = width / 2
+        if (e.x < tapedArea)
+            gestureListener?.onTapLeft()
+        else
+            gestureListener?.onTapRight()
+        return true
     }
 
-    inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
-        override fun onLongPress(e: MotionEvent?) {
-            isLongPressing = true
-            gestureListener?.onLongPressStart()
-        }
-    }
+    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean { return true }
+
+    override fun onFling(
+        e1: MotionEvent,
+        e2: MotionEvent,
+        velocityX: Float,
+        velocityY: Float
+    ): Boolean { return false }
+
+    override fun onDown(e: MotionEvent): Boolean { return true }
+
+    override fun onShowPress(e: MotionEvent) {}
+
+    override fun onScroll(
+        e1: MotionEvent?,
+        e2: MotionEvent?,
+        distanceX: Float,
+        distanceY: Float
+    ): Boolean { return false }
+
+    override fun onLongPress(p0: MotionEvent?) {}
 
     companion object {
-        private const val TAP_THRESHOLD = 10
+        const val SWIPE_THRESHOLD = 100
+        const val VERTICAL_SWIPE_THRESHOLD = 50
+
     }
 }

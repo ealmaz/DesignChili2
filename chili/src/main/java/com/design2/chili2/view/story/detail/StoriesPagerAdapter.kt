@@ -8,7 +8,7 @@ import com.design2.chili2.view.story.StoryCallbackListener
 
 class StoriesPagerAdapter(
     fragmentActivity: FragmentActivity,
-    private val storiesList: List<Story>,
+    private var storiesList: List<Story>,
     private val callbackListener: StoryCallbackListener
 ) : FragmentStateAdapter(fragmentActivity) {
 
