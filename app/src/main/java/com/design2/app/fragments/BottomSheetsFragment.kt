@@ -20,6 +20,7 @@ import com.design2.chili2.view.modals.bottom_sheet.serach_bottom_sheet.Option
 import com.design2.chili2.view.modals.bottom_sheet.serach_bottom_sheet.SearchSelectorBottomSheet
 import com.design2.chili2.view.modals.bottom_sheet_constructor.BottomSheetConfig
 import com.design2.chili2.view.modals.bottom_sheet_constructor.Margins
+import com.design2.chili2.view.modals.bottom_sheet_constructor.Size
 import com.design2.chili2.view.modals.bottom_sheet_constructor.buildBottomSheet
 import com.design2.chili2.view.modals.in_app.InAppPushBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -54,7 +55,9 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
     val customBS2: BottomSheetDialogFragment by lazy {
         requireContext().buildBottomSheet(BottomSheetConfig()) {
             block(Gravity.CENTER, LinearLayout.VERTICAL) {
-                image(com.design2.chili2.R.drawable.chili_ic_done, com.design2.chili2.R.dimen.view_64dp, margins = Margins(top = 10.dp, bottom = 16.dp), imageUrl = "https://minio.o.kg/media-service/Akcha_bulak/ios_dark_rus.png")
+                image(com.design2.chili2.R.drawable.chili_ic_done, size = Size(
+                    widthMatchParent = true, heightDimenRes = com.design2.chili2.R.dimen.view_64dp
+                ), imageUrl = "https://minio.o.kg/media-service/Akcha_bulak/ios_dark_rus.png")
                 customView(list)
             }
             block(Gravity.CENTER, LinearLayout.HORIZONTAL) {
@@ -85,7 +88,6 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
             block(Gravity.CENTER, LinearLayout.VERTICAL) {
                 image(
                     R.drawable.ic_cat,
-                    com.design2.chili2.R.dimen.view_64dp,
                     margins = Margins(top = 10.dp, bottom = 16.dp)
                 )
                 text(

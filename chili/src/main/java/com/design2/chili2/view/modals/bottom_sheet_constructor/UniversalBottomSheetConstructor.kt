@@ -7,6 +7,7 @@ import android.view.View.TEXT_ALIGNMENT_CENTER
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.ImageView.ScaleType
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DimenRes
@@ -67,14 +68,16 @@ class Block(val context: Context, @GravityInt val gravity: Int, val orientation:
     }
 
 
-    fun image(@DrawableRes src: Int? = null, @DimenRes size: Int? = null, drawable: Drawable? = null, margins: Margins? = null, imageUrl: String? = null, placeholder: Drawable? = null) {
-        val actualSize = getSizeInPxOrWrapContent(size)
+    fun image(@DrawableRes src: Int? = null, size: Size? = null, drawable: Drawable? = null, margins: Margins? = null, imageUrl: String? = null, placeholder: Drawable? = null, scaleType: ScaleType? = null) {
+        val actualWidthSize = getWidthSize(size)
+        val actualHeightSize = getHeightSize(size)
         ImageView(context).apply {
-            layoutParams = LinearLayout.LayoutParams(actualSize, actualSize).apply {
+            layoutParams = LinearLayout.LayoutParams(actualWidthSize, actualHeightSize).apply {
                 margins?.let { setMargins(it.left, it.top, it.right, it.bottom) }
             }
             src?.let { setImageResource(src) }
             imageUrl?.let { setImageByUrl(it, placeholder) }
+            scaleType?.let { this.scaleType = it }
             drawable?.let { setImageDrawable(drawable) }
             result.addView(this)
         }
@@ -113,10 +116,19 @@ class Block(val context: Context, @GravityInt val gravity: Int, val orientation:
     }
 
 
-    private fun getSizeInPxOrWrapContent(@DimenRes size: Int?): Int {
-        return when (size == null) {
-            true -> LinearLayout.LayoutParams.WRAP_CONTENT
-            else -> context.resources.getDimensionPixelSize(size)
+    private fun getWidthSize(size: Size?): Int {
+        return when {
+            size?.widthMatchParent == true -> LinearLayout.LayoutParams.MATCH_PARENT
+            size?.widthDimenRes != null -> context.resources.getDimensionPixelSize(size.widthDimenRes)
+            else -> LinearLayout.LayoutParams.WRAP_CONTENT
+        }
+    }
+
+    private fun getHeightSize(size: Size?): Int {
+        return when {
+            size?.heightMatchParent == true -> LinearLayout.LayoutParams.MATCH_PARENT
+            size?.heightDimenRes != null -> context.resources.getDimensionPixelSize(size.heightDimenRes)
+            else -> LinearLayout.LayoutParams.WRAP_CONTENT
         }
     }
 }
@@ -143,6 +155,13 @@ class FragmentContainer(val context: Context)  {
 }
 
 data class Margins(val left: Int = 0, val top: Int = 0, val right: Int = 0, val bottom: Int = 0)
+
+data class Size(
+    @DimenRes val widthDimenRes: Int? = null,
+    @DimenRes val heightDimenRes: Int? = null,
+    val widthMatchParent: Boolean? = false,
+    val heightMatchParent: Boolean? = false
+)
 
 fun Context.buildBottomSheet(config: BottomSheetConfig, action: UniversalBottomSheetConstructor.() -> Unit): BottomSheetDialogFragment {
     val constructor = UniversalBottomSheetConstructor(config, this)
