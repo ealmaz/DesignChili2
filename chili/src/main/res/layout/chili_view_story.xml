@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    >
+    android:background="@color/white_1">
 
     <ImageView
         android:id="@+id/story_image_view"
@@ -17,7 +17,8 @@
         android:id="@+id/story_video_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/transparent"
+        app:shutter_background_color="@android:color/transparent"
+        app:surface_type="texture_view"
         app:use_controller="false"
         android:visibility="gone"/>
 
@@ -64,6 +65,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/story_title_view"/>
 
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:progressDrawable="@color/magenta_1"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <View
         android:id="@+id/touchable_view"
         android:layout_width="match_parent"
@@ -78,7 +90,8 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/chili_ic_close"
         app:layout_constraintTop_toBottomOf="@id/progress_bars_container"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/black_1" />
 
 
     <Button
@@ -89,9 +102,6 @@
         android:layout_margin="@dimen/padding_16dp"
         android:text="Prodoljit'"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

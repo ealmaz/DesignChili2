@@ -3,7 +3,9 @@
     package="com.design2.chili2">
 
     <application>
-        <activity android:name=".view.stories.StoryActivity" />
+        <activity
+            android:name=".view.stories.StoryActivity"
+            android:theme="@style/Chili.Transparent" />
     </application>
 
 </manifest>
