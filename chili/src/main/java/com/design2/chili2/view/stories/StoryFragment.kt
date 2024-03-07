@@ -9,7 +9,8 @@ import androidx.fragment.app.Fragment
 import com.design2.chili2.R
 import com.design2.chili2.databinding.FragmentStoryBinding
 
-class StoryFragment: Fragment(), StoryListener {
+class StoryFragment: Fragment() {
+
     private lateinit var storyBlock: StoryBlock
 
     private lateinit var binding: FragmentStoryBinding
@@ -37,20 +38,14 @@ class StoryFragment: Fragment(), StoryListener {
         storyBlock.stories?.let {
             binding.storyView.setupStories(
                 stories = it,
-                this
+                listener
             )
         }
-    }
-
-    private fun finishWithAnimation() {
-        activity?.finish()
-        activity?.overridePendingTransition(R.anim.stay, R.anim.zoom_out)
     }
 
     override fun onPause() {
         super.onPause()
         binding.storyView.pauseTimer()
-        Log.d("govno pause", "pause")
     }
 
     override fun onResume() {
@@ -60,8 +55,9 @@ class StoryFragment: Fragment(), StoryListener {
 
     companion object {
         private const val ARG_STORY_BLOCK = "story_block"
-        private var listener: PageListener? = null
-        fun newInstance(storyBlock: StoryBlock, listener: PageListener): StoryFragment {
+        private var listener: StoryListener? = null
+
+        fun newInstance(storyBlock: StoryBlock, listener: StoryListener): StoryFragment {
             return StoryFragment().apply {
                 this@Companion.listener = listener
                 arguments = Bundle().apply {
@@ -69,17 +65,5 @@ class StoryFragment: Fragment(), StoryListener {
                 }
             }
         }
-    }
-
-    override fun onFinished() {
-        finishWithAnimation()
-    }
-
-    override fun onFinished(index: Int) {
-
-    }
-
-    override fun onAllStoriesCompleted() {
-        listener?.moveToNextPage()
     }
 }

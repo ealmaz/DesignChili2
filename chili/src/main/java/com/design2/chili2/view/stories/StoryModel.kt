@@ -10,7 +10,11 @@ data class StoryModel(
     val description: String? = null,
     val duration: Int = 10,
     val storyType: StoryType = StoryType.IMAGE,
-    val isViewed: Boolean? = false
+    val isViewed: Boolean? = false,
+    val titleTextColor: String? = null,
+    val subtitleTextColor: String? = null,
+    val buttonType: ButtonType = ButtonType.ADDITIONAL,
+    val buttonText: String? = null
 ): Serializable
 
 data class StoryBlock(
@@ -21,4 +25,8 @@ data class StoryBlock(
 
 enum class StoryType {
     IMAGE, VIDEO, LOTTIE
+}
+
+enum class ButtonType {
+    SECONDARY, ADDITIONAL
 }

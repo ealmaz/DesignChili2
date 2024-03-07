@@ -6,14 +6,15 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.design2.chili2.view.stories.PageListener
 import com.design2.chili2.view.stories.StoryBlock
 import com.design2.chili2.view.stories.StoryFragment
+import com.design2.chili2.view.stories.StoryListener
 
 class StoryPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
     private val fragments = ArrayList<Fragment>()
 
-    fun createViewPager(stories: List<StoryBlock>, pageListener: PageListener) {
+    fun createViewPager(stories: List<StoryBlock>, storyListener: StoryListener) {
         stories.forEach {
-            addFragment(StoryFragment.newInstance(it, pageListener))
+            addFragment(StoryFragment.newInstance(it, storyListener))
         }
     }
 

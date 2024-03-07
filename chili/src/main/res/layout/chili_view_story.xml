@@ -100,7 +100,17 @@
         android:layout_height="wrap_content"
         style="@style/Chili.ButtonStyle.Additional"
         android:layout_margin="@dimen/padding_16dp"
-        android:text="Prodoljit'"
+        tools:text="Prodoljit'"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/secondary_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Chili.ButtonStyle.Secondary"
+        android:layout_margin="@dimen/padding_16dp"
+        tools:text="Prodoljit'"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,6 @@ import android.util.AttributeSet
 import android.view.GestureDetector
 import android.view.LayoutInflater
 import android.view.MotionEvent
-import android.view.View
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -99,6 +98,15 @@ class StoryView : ConstraintLayout {
                 storySubtitleView.text = storyModel.description
             } else storySubtitleView.gone()
 
+            if (storyModel.buttonText != null) {
+                additionalButton.apply {
+                    visible()
+                    text = storyModel.buttonText
+
+                }
+            }
+            setupButton(storyModel)
+
             touchableView.setOnTouchListener { _, event ->
                 gestureDetector.onTouchEvent(event)
 
@@ -119,6 +127,31 @@ class StoryView : ConstraintLayout {
         }
 
         playContentByStoryType(storyModel.storyType)
+    }
+
+    private fun setupButton(storyModel: StoryModel) {
+        with(binding) {
+            when {
+                storyModel.buttonText != null && storyModel.buttonType == ButtonType.ADDITIONAL -> {
+                    additionalButton.apply {
+                        visible()
+                        text = storyModel.buttonText
+                    }
+                    secondaryButton.gone()
+                }
+                storyModel.buttonText != null && storyModel.buttonType == ButtonType.SECONDARY -> {
+                    secondaryButton.apply {
+                        visible()
+                        text = storyModel.buttonText
+                    }
+                    additionalButton.gone()
+                }
+                else -> {
+                    additionalButton.gone()
+                    secondaryButton.gone()
+                }
+            }
+        }
     }
 
     private fun playContentByStoryType(storyType: StoryType) {
@@ -163,6 +196,7 @@ class StoryView : ConstraintLayout {
 
                 override fun onAnimationRepeat(p0: Animator?) {}
             })
+
             repeatCount = LottieDrawable.INFINITE
             setAnimationFromUrl(currentStory?.mediaUrl)
             addLottieOnCompositionLoadedListener {
@@ -215,7 +249,6 @@ class StoryView : ConstraintLayout {
 
     //endregion
 
-
     fun setupStories(
         stories: ArrayList<StoryModel> = arrayListOf(),
         listener: StoryListener? = null
@@ -226,8 +259,8 @@ class StoryView : ConstraintLayout {
         with(binding) {
             progressBarsContainer.removeAllViews()
             progressBars.clear()
-            closeButton.setOnClickListener { listener?.onFinished() }
-            additionalButton.setOnClickListener { listener?.onFinished() }
+            closeButton.setOnClickListener { listener?.onClose() }
+            additionalButton.setOnClickListener { listener?.onClose() }
         }
 
         currentStoryIndex = stories.indexOfFirst { it.isViewed != true }.let {
@@ -244,8 +277,8 @@ class StoryView : ConstraintLayout {
                             .apply {
                                 setPadding(4, 0, 4, 0)
                             }
-                    max = 100
-                    progress = if (story.isViewed == true) 100 else 0
+                    max = 1000
+                    progress = if (story.isViewed == true) 1000 else 0
                     progressDrawable = context.getDrawable(R.drawable.chili_story_progress_bar)
                 }
             progressBars.add(progressBar)
@@ -255,7 +288,7 @@ class StoryView : ConstraintLayout {
         binding.progressBarsContainer.visible()
 
         if (this.stories.isNotEmpty()) {
-            listener?.onStart()
+            listener?.onStart(currentStoryIndex)
             playNext(this.stories[currentStoryIndex])
         }
     }
@@ -263,11 +296,11 @@ class StoryView : ConstraintLayout {
 
     private fun moveToNextSegment() {
         if (currentStoryIndex < this.stories.size - 1) {
-            this.progressBars[currentStoryIndex].progress = 100
+            this.progressBars[currentStoryIndex].progress = 1000
             currentStoryIndex++
             playNext(this.stories[currentStoryIndex])
         } else {
-            finishWithAnimation()
+            listener?.onAllStoriesCompleted()
         }
     }
 
@@ -284,7 +317,7 @@ class StoryView : ConstraintLayout {
             .translationY(0f)
             .setDuration(200)
             .withEndAction {
-                listener?.onFinished()
+                listener?.onClose()
             }.start()
     }
 
@@ -303,9 +336,7 @@ class StoryView : ConstraintLayout {
             } else {
                 resetTimer()
                 listener?.onAllStoriesCompleted()
-//                currentStory = this@StoryView.stories[0]
-//                currentStoryIndex = 0
-//                progressBars.forEach { it.progress = 0 }
+                currentStoryIndex--
             }
         }
 
@@ -314,7 +345,7 @@ class StoryView : ConstraintLayout {
             timeFinished = (currentStory?.duration?.times(1000.toLong()) ?: 0) - millisUntilFinished
 
             progressBars[currentStoryIndex].progress =
-                (timeFinished * 100 / (currentStory?.duration?.times(1000.toLong()) ?: 0)).toInt()
+                (timeFinished * 100 / (currentStory?.duration?.times(100.toLong()) ?: 0)).toInt()
         }
     }
 
@@ -412,7 +443,7 @@ class StoryView : ConstraintLayout {
 
 interface StoryListener {
     fun onAllStoriesCompleted()
-    fun onFinished()
+    fun onClose()
     fun onFinished(index: Int)
-    fun onStart()
+    fun onStart(index: Int)
 }
