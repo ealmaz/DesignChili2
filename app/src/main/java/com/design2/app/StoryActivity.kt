@@ -1,14 +1,13 @@
-package com.design2.chili2.view.stories
+package com.design2.app
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager2.widget.ViewPager2
-import com.design2.chili2.R
-import com.design2.chili2.databinding.ActivityStoryBinding
-import com.design2.chili2.view.stories.adapter.PageTransformer
-import com.design2.chili2.view.stories.adapter.StoryPagerAdapter
+import com.design2.app.databinding.ActivityStoryBinding
+import com.design2.chili2.view.stories.ButtonType
+import com.design2.chili2.view.stories.StoryBlock
+import com.design2.chili2.view.stories.StoryListener
+import com.design2.chili2.view.stories.StoryModel
+import com.design2.chili2.view.stories.StoryType
 
 class StoryActivity : AppCompatActivity(), StoryListener {
 
