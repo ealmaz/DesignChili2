@@ -21,9 +21,9 @@ import com.design2.chili2.databinding.ChiliViewStoryBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
-import com.google.android.exoplayer2.ExoPlayer
-import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.Player
+//import com.google.android.exoplayer2.ExoPlayer
+//import com.google.android.exoplayer2.MediaItem
+//import com.google.android.exoplayer2.Player
 import kotlin.collections.ArrayList
 import kotlin.math.max
 import kotlin.math.min
@@ -47,7 +47,7 @@ class StoryView : ConstraintLayout {
     private var listener: StoryListener? = null
 
     private var progressBars: ArrayList<ProgressBar> = arrayListOf()
-    private var exoPlayer: ExoPlayer? = null
+//    private var exoPlayer: ExoPlayer? = null
 
     constructor(context: Context) : super(context) {
         init(context)
@@ -71,7 +71,7 @@ class StoryView : ConstraintLayout {
     //region initialize
 
     private fun initializePlayer() {
-        exoPlayer = ExoPlayer.Builder(context).build()
+//        exoPlayer = ExoPlayer.Builder(context).build()
     }
 
     private fun init(context: Context?) {
@@ -159,7 +159,7 @@ class StoryView : ConstraintLayout {
     private fun playContentByStoryType(storyType: ChilliStoryType) {
         with(binding) {
             storyImageView.gone()
-            storyVideoView.gone()
+//            storyVideoView.gone()
             storyLottieView.gone()
         }
 
@@ -210,31 +210,31 @@ class StoryView : ConstraintLayout {
 
     private fun playVideo() {
         initializePlayer()
-        exoPlayer?.addListener(object : Player.Listener {
-            override fun onPlaybackStateChanged(playbackState: Int) {
-                when (playbackState) {
-                    Player.STATE_BUFFERING -> {
-                        binding.progressCircular.visible()
-                        binding.storyVideoView.gone()
-                    }
+//        exoPlayer?.addListener(object : Player.Listener {
+//            override fun onPlaybackStateChanged(playbackState: Int) {
+//                when (playbackState) {
+//                    Player.STATE_BUFFERING -> {
+//                        binding.progressCircular.visible()
+//                        binding.storyVideoView.gone()
+//                    }
+//
+//                    Player.STATE_READY -> {
+//                        startTimer()
+//                        binding.storyVideoView.visible()
+//                        binding.progressCircular.gone()
+//                    }
+//                }
+//            }
+//        })
 
-                    Player.STATE_READY -> {
-                        startTimer()
-                        binding.storyVideoView.visible()
-                        binding.progressCircular.gone()
-                    }
-                }
-            }
-        })
-
-        currentStory?.mediaUrl?.let { videoUrl ->
-            exoPlayer?.run {
-                setMediaItem(MediaItem.fromUri(videoUrl))
-                prepare()
-                playWhenReady = true
-            }
-            binding.storyVideoView.player = exoPlayer
-        }
+//        currentStory?.mediaUrl?.let { videoUrl ->
+//            exoPlayer?.run {
+//                setMediaItem(MediaItem.fromUri(videoUrl))
+//                prepare()
+//                playWhenReady = true
+//            }
+//            binding.storyVideoView.player = exoPlayer
+//        }
     }
 
     private fun pauseLottieAnimation() {
@@ -363,7 +363,7 @@ class StoryView : ConstraintLayout {
             isPaused = true
 
             when (currentStory?.storyType) {
-                ChilliStoryType.VIDEO -> exoPlayer?.playWhenReady = false
+//                ChilliStoryType.VIDEO -> exoPlayer?.playWhenReady = false
                 ChilliStoryType.LOTTIE -> pauseLottieAnimation()
                 else -> {}
             }
@@ -373,7 +373,7 @@ class StoryView : ConstraintLayout {
     fun resetTimer() {
         timer?.cancel()
         timer = null
-        if (exoPlayer?.isPlaying == true) exoPlayer?.stop()
+//        if (exoPlayer?.isPlaying == true) exoPlayer?.stop()
     }
 
     fun resumeTimer() {
@@ -383,10 +383,10 @@ class StoryView : ConstraintLayout {
                 timer = getTimer(timeRemaining).also { it.start() }
 
                 when (currentStory?.storyType) {
-                    ChilliStoryType.VIDEO -> {
-                        exoPlayer?.playWhenReady = true
-                        exoPlayer?.prepare()
-                    }
+//                    ChilliStoryType.VIDEO -> {
+//                        exoPlayer?.playWhenReady = true
+//                        exoPlayer?.prepare()
+//                    }
                     ChilliStoryType.LOTTIE -> resumeLottieAnimation()
                     else -> {}
                 }

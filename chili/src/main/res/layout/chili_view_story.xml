@@ -13,14 +13,14 @@
         android:scaleType="fitCenter"
         android:visibility="gone"/>
 
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:id="@+id/story_video_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:shutter_background_color="@android:color/transparent"
-        app:surface_type="texture_view"
-        app:use_controller="false"
-        android:visibility="gone"/>
+<!--    <com.google.android.exoplayer2.ui.PlayerView-->
+<!--        android:id="@+id/story_video_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:shutter_background_color="@android:color/transparent"-->
+<!--        app:surface_type="texture_view"-->
+<!--        app:use_controller="false"-->
+<!--        android:visibility="gone"/>-->
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/story_lottie_view"
