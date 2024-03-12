@@ -24,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.design2.app.StoryActivity"
+            android:theme="@style/Chili.Transparent" />
     </application>
 
 </manifest>
