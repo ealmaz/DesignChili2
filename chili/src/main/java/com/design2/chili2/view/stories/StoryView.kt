@@ -14,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GestureDetectorCompat
+import androidx.core.view.isVisible
 import com.airbnb.lottie.LottieDrawable
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoryBinding
@@ -37,6 +38,7 @@ class StoryView : ConstraintLayout {
     private var timeRemaining = 0L
     private var timeFinished = 0L
     private var isPaused: Boolean = false
+    private var isAllStoriesFinished: Boolean = false
 
     private var currentStory: StoryModel? = null
     private var stories: ArrayList<StoryModel> = arrayListOf()
@@ -336,7 +338,7 @@ class StoryView : ConstraintLayout {
             } else {
                 resetTimer()
                 listener?.onAllStoriesCompleted()
-                currentStoryIndex--
+                isAllStoriesFinished = true
             }
         }
 
@@ -355,31 +357,43 @@ class StoryView : ConstraintLayout {
     }
 
     fun pauseTimer() {
-        timer?.cancel()
-        timer = null
-        isPaused = true
+        if (timer != null && timeRemaining > 0) {
+            timer?.cancel()
+            timer = null
+            isPaused = true
 
-        when (currentStory?.storyType) {
-            StoryType.VIDEO -> exoPlayer?.playWhenReady = false
-            StoryType.LOTTIE -> pauseLottieAnimation()
-            else -> {}
+            when (currentStory?.storyType) {
+                StoryType.VIDEO -> exoPlayer?.playWhenReady = false
+                StoryType.LOTTIE -> pauseLottieAnimation()
+                else -> {}
+            }
         }
     }
 
     fun resetTimer() {
         timer?.cancel()
         timer = null
+        if (exoPlayer?.isPlaying == true) exoPlayer?.stop()
     }
 
     fun resumeTimer() {
-        if (isPaused) {
-            isPaused = false
-            timer = getTimer(timeRemaining).also { it.start() }
+        when {
+            isPaused -> {
+                isPaused = false
+                timer = getTimer(timeRemaining).also { it.start() }
 
-            when (currentStory?.storyType) {
-                StoryType.VIDEO -> exoPlayer?.playWhenReady = true
-                StoryType.LOTTIE -> resumeLottieAnimation()
-                else -> {}
+                when (currentStory?.storyType) {
+                    StoryType.VIDEO -> {
+                        exoPlayer?.playWhenReady = true
+                        exoPlayer?.prepare()
+                    }
+                    StoryType.LOTTIE -> resumeLottieAnimation()
+                    else -> {}
+                }
+            }
+            isAllStoriesFinished && isVisible  -> {
+                progressBars[currentStoryIndex].progress = 0
+                currentStory?.storyType?.let { playContentByStoryType(it) }
             }
         }
     }

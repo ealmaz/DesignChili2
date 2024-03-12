@@ -43,14 +43,7 @@ class StoriesView : ConstraintLayout {
     fun setupStories(list: List<StoryBlock>, fragmentActivity: FragmentActivity, listener: StoryListener) {
         viewPager = binding.viewPager.apply {
             setPageTransformer(PageTransformer())
-            viewPager?.registerOnPageChangeCallback(object: ViewPager2.OnPageChangeCallback() {
-                override fun onPageScrollStateChanged(state: Int) {
-                    super.onPageScrollStateChanged(state)
-                    if (state == ViewPager2.SCROLL_STATE_DRAGGING) {
-                        storyViewPagerAdapter?.pauseAllFragments()
-                    }
-                }
-            })
+            offscreenPageLimit = 3
         }
 
         storyViewPagerAdapter = StoryPagerAdapter(fragmentActivity)

@@ -13,6 +13,8 @@ class StoryFragment: Fragment() {
 
     private lateinit var storyBlock: StoryBlock
 
+    private var isCreated: Boolean = false
+
     private lateinit var binding: FragmentStoryBinding
 
     override fun onCreateView(
@@ -31,7 +33,10 @@ class StoryFragment: Fragment() {
             storyBlock = it.getSerializable(ARG_STORY_BLOCK) as StoryBlock
         }
 
-        setupViews(storyBlock)
+        if (isVisible) {
+            setupViews(storyBlock)
+            isCreated = true
+        }
     }
 
     private fun setupViews(storyBlock: StoryBlock) {
@@ -50,7 +55,13 @@ class StoryFragment: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.storyView.resumeTimer()
+        when {
+            isVisible && !isCreated -> {
+                setupViews(storyBlock)
+                isCreated = true
+            }
+            isVisible -> binding.storyView.resumeTimer()
+        }
     }
 
     companion object {

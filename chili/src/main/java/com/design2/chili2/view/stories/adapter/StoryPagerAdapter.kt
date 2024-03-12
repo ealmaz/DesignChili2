@@ -3,7 +3,6 @@ package com.design2.chili2.view.stories.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.design2.chili2.view.stories.PageListener
 import com.design2.chili2.view.stories.StoryBlock
 import com.design2.chili2.view.stories.StoryFragment
 import com.design2.chili2.view.stories.StoryListener
@@ -20,12 +19,6 @@ class StoryPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapt
 
     fun addFragment(fragment: Fragment) {
         fragments.add(fragment)
-    }
-
-    fun pauseAllFragments() {
-        fragments.forEach {
-            if (it.isAdded) it.onPause()
-        }
     }
 
     override fun getItemCount(): Int = fragments.size
