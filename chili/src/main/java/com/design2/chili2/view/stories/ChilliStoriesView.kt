@@ -7,10 +7,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.design2.chili2.databinding.ChiliViewStoriesBinding
-import com.design2.chili2.view.stories.adapter.PageTransformer
-import com.design2.chili2.view.stories.adapter.StoryPagerAdapter
+import com.design2.chili2.view.stories.adapter.ChiliStoryPageTransformer
+import com.design2.chili2.view.stories.adapter.ChilliStoryPagerAdapter
 
-class StoriesView : ConstraintLayout {
+class ChilliStoriesView : ConstraintLayout {
     constructor(context: Context) : super(context) {
         init(context)
     }
@@ -32,7 +32,7 @@ class StoriesView : ConstraintLayout {
 
     private lateinit var binding: ChiliViewStoriesBinding
 
-    private var storyViewPagerAdapter: StoryPagerAdapter? = null
+    private var storyViewPagerAdapter: ChilliStoryPagerAdapter? = null
 
     private var viewPager: ViewPager2? = null
 
@@ -40,13 +40,13 @@ class StoriesView : ConstraintLayout {
         binding = ChiliViewStoriesBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    fun setupStories(list: List<StoryBlock>, fragmentActivity: FragmentActivity, listener: StoryListener) {
+    fun setupStories(list: List<ChilliStoryBlock>, fragmentActivity: FragmentActivity, listener: StoryListener) {
         viewPager = binding.viewPager.apply {
-            setPageTransformer(PageTransformer())
+            setPageTransformer(ChiliStoryPageTransformer())
             offscreenPageLimit = 3
         }
 
-        storyViewPagerAdapter = StoryPagerAdapter(fragmentActivity)
+        storyViewPagerAdapter = ChilliStoryPagerAdapter(fragmentActivity)
 
         storyViewPagerAdapter?.createViewPager(stories = list, listener)
 

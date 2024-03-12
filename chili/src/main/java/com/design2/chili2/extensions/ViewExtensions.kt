@@ -162,7 +162,7 @@ private fun getGlideOnLoadListener(onSuccess: ((Drawable) -> Unit)?, onError: ((
                                   target: Target<Drawable>?,
                                   isFirstResource: Boolean): Boolean {
             onError?.invoke(e)
-            return false
+            return true
         }
 
         override fun onResourceReady(resource: Drawable,

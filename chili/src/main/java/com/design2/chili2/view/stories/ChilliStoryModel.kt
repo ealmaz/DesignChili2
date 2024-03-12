@@ -1,32 +1,31 @@
 package com.design2.chili2.view.stories
 
 import java.io.Serializable
-import java.time.Duration
 
-data class StoryModel(
+data class ChilliStoryModel(
     val id: Long? = null,
     val mediaUrl: String? = null,
     val title: String? = null,
     val description: String? = null,
     val duration: Int = 10,
-    val storyType: StoryType = StoryType.IMAGE,
+    val storyType: ChilliStoryType = ChilliStoryType.IMAGE,
     val isViewed: Boolean? = false,
     val titleTextColor: String? = null,
     val subtitleTextColor: String? = null,
-    val buttonType: ButtonType = ButtonType.ADDITIONAL,
+    val buttonType: ChilliButtonType = ChilliButtonType.ADDITIONAL,
     val buttonText: String? = null
 ): Serializable
 
-data class StoryBlock(
+data class ChilliStoryBlock(
     val id: Long? = null,
     val isViewed: Boolean? = false,
-    val stories: ArrayList<StoryModel>? = arrayListOf()
+    val stories: ArrayList<ChilliStoryModel>? = arrayListOf()
 ): Serializable
 
-enum class StoryType {
+enum class ChilliStoryType {
     IMAGE, VIDEO, LOTTIE
 }
 
-enum class ButtonType {
+enum class ChilliButtonType {
     SECONDARY, ADDITIONAL
 }
