@@ -3,50 +3,50 @@ package com.design2.app
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.design2.app.databinding.ActivityStoryBinding
-import com.design2.chili2.view.stories.ButtonType
-import com.design2.chili2.view.stories.StoryBlock
+import com.design2.chili2.view.stories.ChilliButtonType
+import com.design2.chili2.view.stories.ChilliStoryBlock
 import com.design2.chili2.view.stories.StoryListener
-import com.design2.chili2.view.stories.StoryModel
-import com.design2.chili2.view.stories.StoryType
+import com.design2.chili2.view.stories.ChilliStoryModel
+import com.design2.chili2.view.stories.ChilliStoryType
 
 class StoryActivity : AppCompatActivity(), StoryListener {
 
     private lateinit var binding: ActivityStoryBinding
 
-    private val storyBlock1 = StoryBlock(1, false, arrayListOf(
-        StoryModel(
+    private val storyBlock1 = ChilliStoryBlock(1, false, arrayListOf(
+        ChilliStoryModel(
             mediaUrl = "https://static.wikia.nocookie.net/adventures-of-chris-and-tifa/images/c/c6/71FA6EC3-137C-4A43-87A0-10130B2AC0A4.jpg/revision/latest?cb=20210830075712",
-            buttonText = "Go", buttonType = ButtonType.ADDITIONAL
+            buttonText = "Go", buttonType = ChilliButtonType.ADDITIONAL
         ),
-        StoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://badgeland.com/media/webp_image/catalog/product/cache/afb3d9b5d6719d7ac9304f40f95ae75d/t/h/this-is-fine-katte-pin.webp", ),
-        StoryModel(mediaUrl = "https://m.media-amazon.com/images/I/51U9SFk6SJL.jpg", buttonText = "Go", buttonType = ButtonType.SECONDARY),
-        StoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json", storyType = StoryType.LOTTIE),
-        StoryModel(title = "Bla bla bla bla", mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4", storyType = StoryType.VIDEO)
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://badgeland.com/media/webp_image/catalog/product/cache/afb3d9b5d6719d7ac9304f40f95ae75d/t/h/this-is-fine-katte-pin.webp", ),
+        ChilliStoryModel(mediaUrl = "https://m.media-amazon.com/images/I/51U9SFk6SJL.jpg", buttonText = "Go", buttonType = ChilliButtonType.SECONDARY),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(title = "Bla bla bla bla", mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4", storyType = ChilliStoryType.VIDEO)
     ))
 
-    private val storyBlock2 = StoryBlock(1, false, arrayListOf(
-        StoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json", storyType = StoryType.LOTTIE),
-        StoryModel(
+    private val storyBlock2 = ChilliStoryBlock(1, false, arrayListOf(
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(
             mediaUrl = "https://static.wikia.nocookie.net/adventures-of-chris-and-tifa/images/c/c6/71FA6EC3-137C-4A43-87A0-10130B2AC0A4.jpg/revision/latest?cb=20210830075712"
         ),
-        StoryModel(title = "Bla bla bla bla", mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4", storyType = StoryType.VIDEO)
+        ChilliStoryModel(title = "Bla bla bla bla", mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4", storyType = ChilliStoryType.VIDEO)
     ))
 
-    private val storyBlock3 = StoryBlock(1, false, arrayListOf(
-        StoryModel(
+    private val storyBlock3 = ChilliStoryBlock(1, false, arrayListOf(
+        ChilliStoryModel(
             mediaUrl = "https://static.wikia.nocookie.net/adventures-of-chris-and-tifa/images/c/c6/71FA6EC3-137C-4A43-87A0-10130B2AC0A4.jpg/revision/latest?cb=20210830075712", isViewed = true
         ),
-        StoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://badgeland.com/media/webp_image/catalog/product/cache/afb3d9b5d6719d7ac9304f40f95ae75d/t/h/this-is-fine-katte-pin.webp", isViewed = true ),
-        StoryModel(mediaUrl = "https://m.media-amazon.com/images/I/51U9SFk6SJL.jpg", isViewed = false),
-        StoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json", storyType = StoryType.LOTTIE),
-        StoryModel(title = "Bla bla bla bla", mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4", storyType = StoryType.VIDEO)
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://badgeland.com/media/webp_image/catalog/product/cache/afb3d9b5d6719d7ac9304f40f95ae75d/t/h/this-is-fine-katte-pin.webp", isViewed = true ),
+        ChilliStoryModel(mediaUrl = "https://m.media-amazon.com/images/I/51U9SFk6SJL.jpg", isViewed = false),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(title = "Bla bla bla bla", mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4", storyType = ChilliStoryType.VIDEO)
     ))
 
-    private val storyBlock4 = StoryBlock(1, false, arrayListOf(
-        StoryModel(
+    private val storyBlock4 = ChilliStoryBlock(1, false, arrayListOf(
+        ChilliStoryModel(
             mediaUrl = "https://static.wikia.nocookie.net/adventures-of-chris-and-tifa/images/c/c6/71FA6EC3-137C-4A43-87A0-10130B2AC0A4.jpg/revision/latest?cb=20210830075712",
         ),
-        StoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json", storyType = StoryType.LOTTIE),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json", storyType = ChilliStoryType.LOTTIE),
     ))
 
     override fun onCreate(savedInstanceState: Bundle?) {

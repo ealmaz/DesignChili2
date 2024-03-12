@@ -3,17 +3,17 @@ package com.design2.chili2.view.stories.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.design2.chili2.view.stories.StoryBlock
-import com.design2.chili2.view.stories.StoryFragment
+import com.design2.chili2.view.stories.ChilliStoryBlock
+import com.design2.chili2.view.stories.ChilliStoryFragment
 import com.design2.chili2.view.stories.StoryListener
 
-class StoryPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
+class ChilliStoryPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
     private val fragments = ArrayList<Fragment>()
 
-    fun createViewPager(stories: List<StoryBlock>, storyListener: StoryListener) {
+    fun createViewPager(stories: List<ChilliStoryBlock>, storyListener: StoryListener) {
         stories.forEach {
-            addFragment(StoryFragment.newInstance(it, storyListener))
+            addFragment(ChilliStoryFragment.newInstance(it, storyListener))
         }
     }
 

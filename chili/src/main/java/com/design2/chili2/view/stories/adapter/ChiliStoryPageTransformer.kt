@@ -2,7 +2,7 @@ package com.design2.chili2.view.stories.adapter
 
 import android.view.View
 import androidx.viewpager2.widget.ViewPager2
-class PageTransformer : ViewPager2.PageTransformer {
+class ChiliStoryPageTransformer : ViewPager2.PageTransformer {
 
     override fun transformPage(view: View, position: Float) {
         val deltaY = 0.5F

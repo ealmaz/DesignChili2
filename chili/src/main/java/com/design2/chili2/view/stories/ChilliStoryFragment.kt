@@ -1,17 +1,15 @@
 package com.design2.chili2.view.stories
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.design2.chili2.R
 import com.design2.chili2.databinding.FragmentStoryBinding
 
-class StoryFragment: Fragment() {
+class ChilliStoryFragment: Fragment() {
 
-    private lateinit var storyBlock: StoryBlock
+    private lateinit var storyBlock: ChilliStoryBlock
 
     private var isCreated: Boolean = false
 
@@ -30,7 +28,7 @@ class StoryFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            storyBlock = it.getSerializable(ARG_STORY_BLOCK) as StoryBlock
+            storyBlock = it.getSerializable(ARG_STORY_BLOCK) as ChilliStoryBlock
         }
 
         if (isVisible) {
@@ -39,7 +37,7 @@ class StoryFragment: Fragment() {
         }
     }
 
-    private fun setupViews(storyBlock: StoryBlock) {
+    private fun setupViews(storyBlock: ChilliStoryBlock) {
         storyBlock.stories?.let {
             binding.storyView.setupStories(
                 stories = it,
@@ -68,8 +66,8 @@ class StoryFragment: Fragment() {
         private const val ARG_STORY_BLOCK = "story_block"
         private var listener: StoryListener? = null
 
-        fun newInstance(storyBlock: StoryBlock, listener: StoryListener): StoryFragment {
-            return StoryFragment().apply {
+        fun newInstance(storyBlock: ChilliStoryBlock, listener: StoryListener): ChilliStoryFragment {
+            return ChilliStoryFragment().apply {
                 this@Companion.listener = listener
                 arguments = Bundle().apply {
                     putSerializable(ARG_STORY_BLOCK, storyBlock)

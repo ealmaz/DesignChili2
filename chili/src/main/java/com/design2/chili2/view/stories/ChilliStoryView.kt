@@ -40,8 +40,8 @@ class StoryView : ConstraintLayout {
     private var isPaused: Boolean = false
     private var isAllStoriesFinished: Boolean = false
 
-    private var currentStory: StoryModel? = null
-    private var stories: ArrayList<StoryModel> = arrayListOf()
+    private var currentStory: ChilliStoryModel? = null
+    private var stories: ArrayList<ChilliStoryModel> = arrayListOf()
 
     private var timer: CountDownTimer? = null
     private var listener: StoryListener? = null
@@ -84,7 +84,7 @@ class StoryView : ConstraintLayout {
 
     //region playing content
     @SuppressLint("ClickableViewAccessibility")
-    private fun playNext(storyModel: StoryModel) {
+    private fun playNext(storyModel: ChilliStoryModel) {
         resetTimer()
         timeRemaining = 0
         currentStory = storyModel
@@ -131,17 +131,17 @@ class StoryView : ConstraintLayout {
         playContentByStoryType(storyModel.storyType)
     }
 
-    private fun setupButton(storyModel: StoryModel) {
+    private fun setupButton(storyModel: ChilliStoryModel) {
         with(binding) {
             when {
-                storyModel.buttonText != null && storyModel.buttonType == ButtonType.ADDITIONAL -> {
+                storyModel.buttonText != null && storyModel.buttonType == ChilliButtonType.ADDITIONAL -> {
                     additionalButton.apply {
                         visible()
                         text = storyModel.buttonText
                     }
                     secondaryButton.gone()
                 }
-                storyModel.buttonText != null && storyModel.buttonType == ButtonType.SECONDARY -> {
+                storyModel.buttonText != null && storyModel.buttonType == ChilliButtonType.SECONDARY -> {
                     secondaryButton.apply {
                         visible()
                         text = storyModel.buttonText
@@ -156,7 +156,7 @@ class StoryView : ConstraintLayout {
         }
     }
 
-    private fun playContentByStoryType(storyType: StoryType) {
+    private fun playContentByStoryType(storyType: ChilliStoryType) {
         with(binding) {
             storyImageView.gone()
             storyVideoView.gone()
@@ -164,9 +164,9 @@ class StoryView : ConstraintLayout {
         }
 
         when (storyType) {
-            StoryType.LOTTIE -> playLottieAnimation()
-            StoryType.VIDEO -> playVideo()
-            StoryType.IMAGE -> loadImage()
+            ChilliStoryType.LOTTIE -> playLottieAnimation()
+            ChilliStoryType.VIDEO -> playVideo()
+            ChilliStoryType.IMAGE -> loadImage()
         }
     }
 
@@ -252,7 +252,7 @@ class StoryView : ConstraintLayout {
     //endregion
 
     fun setupStories(
-        stories: ArrayList<StoryModel> = arrayListOf(),
+        stories: ArrayList<ChilliStoryModel> = arrayListOf(),
         listener: StoryListener? = null
     ) {
         this.stories = stories
@@ -363,8 +363,8 @@ class StoryView : ConstraintLayout {
             isPaused = true
 
             when (currentStory?.storyType) {
-                StoryType.VIDEO -> exoPlayer?.playWhenReady = false
-                StoryType.LOTTIE -> pauseLottieAnimation()
+                ChilliStoryType.VIDEO -> exoPlayer?.playWhenReady = false
+                ChilliStoryType.LOTTIE -> pauseLottieAnimation()
                 else -> {}
             }
         }
@@ -383,11 +383,11 @@ class StoryView : ConstraintLayout {
                 timer = getTimer(timeRemaining).also { it.start() }
 
                 when (currentStory?.storyType) {
-                    StoryType.VIDEO -> {
+                    ChilliStoryType.VIDEO -> {
                         exoPlayer?.playWhenReady = true
                         exoPlayer?.prepare()
                     }
-                    StoryType.LOTTIE -> resumeLottieAnimation()
+                    ChilliStoryType.LOTTIE -> resumeLottieAnimation()
                     else -> {}
                 }
             }
