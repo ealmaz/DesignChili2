@@ -15,9 +15,9 @@ interface GesturesListener {
     fun onTapRight()
     fun onSwipeLeft()
     fun onSwipeRight()
-    fun onSwipeUp()
+    fun onSwipeUp(showDescription: Boolean)
     fun onSwipeDown(deltaY: Float)
-    fun onSwipeDownEnd(isEnoughDragging: Boolean)
+    fun onSwipeDownEnd(isEnoughDragging: Boolean, isSwipeUp: Boolean)
 }
 
 class GesturesView @JvmOverloads constructor(
@@ -29,7 +29,9 @@ class GesturesView @JvmOverloads constructor(
 
     private var startY: Float = 0f
     private var startX: Float = 0f
+    private var deltaDownY: Float = 0f
     private var maxY: Float = 0f
+
     private var isDragging = false
 
     init {
@@ -46,34 +48,36 @@ class GesturesView @JvmOverloads constructor(
         gestureDetector.onTouchEvent(event)
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                println("ACTION_DOWN = " + event.y)
                 startY = event.y
                 startX = event.x
                 isDragging = false
             }
             MotionEvent.ACTION_MOVE -> {
                 if (maxY < event.y) maxY = event.y
+
                 val deltaY = event.y - startY
                 val deltaX = event.x - startX
+                deltaDownY = deltaY
+                val isSwipeDown = deltaY > ZERO
 
-                if (abs(deltaY) > VERTICAL_SWIPE_THRESHOLD && abs(deltaY) > abs(deltaX) && !isDragging) {
-                    if (deltaY > 0) {
-                        isDragging = true
-                    } else if ((abs(deltaY) > abs(event.x - startX) && deltaY < 0 && !isDragging)){
-                        gestureListener?.onSwipeUp()
-                    }
+                if (!isDragging && abs(deltaY) > VERTICAL_SWIPE_THRESHOLD && abs(deltaY) > abs(deltaX)) {
+                    if (isSwipeDown) isDragging = true
+                    else gestureListener?.onSwipeUp(true)
                 }
-
-                if (isDragging) gestureListener?.onSwipeDown(deltaY)
+                if (isDragging) {
+                    if (!isSwipeDown) gestureListener?.onSwipeUp(false)
+                    else gestureListener?.onSwipeDown(deltaY)
+                }
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                val enoughSwipeDown = (maxY - startY) >= 65
+                val isEnoughDownDragging = (maxY - startY) >= ENOUGH_DRAGGING
+                val isSwipeUp = deltaDownY < ZERO
 
-                if (isDragging && enoughSwipeDown) {
-                    gestureListener?.onSwipeDownEnd(true)
+                if (isDragging && isEnoughDownDragging) {
+                    gestureListener?.onSwipeDownEnd(true, isSwipeUp)
                     isDragging = false
-                } else gestureListener?.onSwipeDownEnd(false)
-
+                } else
+                    gestureListener?.onSwipeDownEnd(false, isSwipeUp)
             }
         }
         return true
@@ -111,8 +115,8 @@ class GesturesView @JvmOverloads constructor(
     override fun onLongPress(p0: MotionEvent?) {}
 
     companion object {
-        const val SWIPE_THRESHOLD = 100
         const val VERTICAL_SWIPE_THRESHOLD = 50
-
+        const val ENOUGH_DRAGGING = 65
+        const val ZERO = 0
     }
 }

@@ -62,7 +62,7 @@ class StoryProgressBar @JvmOverloads constructor(
         }
     }
 
-    fun setProgressColor(@ColorInt color: Int) {
+    private fun setProgressColor(@ColorInt color: Int) {
         progressColor = color
         for (animatedProgressLine in animatedProgressLines) {
             animatedProgressLine.setProgressColor(color)
@@ -70,7 +70,7 @@ class StoryProgressBar @JvmOverloads constructor(
         invalidate()
     }
 
-    fun setProgressBackgroundColor(@ColorInt color: Int) {
+    private fun setProgressBackgroundColor(@ColorInt color: Int) {
         progressBackgroundColor = color
         for (animatedProgressLine in animatedProgressLines) {
             animatedProgressLine.setProgressBackgroundColor(color)
@@ -78,7 +78,7 @@ class StoryProgressBar @JvmOverloads constructor(
         invalidate()
     }
 
-    fun setAnimationDuration(duration: Long) {
+    private fun setAnimationDuration(duration: Long) {
         animationDuration = duration
         for (animatedProgressLine in animatedProgressLines) {
             animatedProgressLine.setAnimationDuration(duration)
@@ -109,7 +109,6 @@ class StoryProgressBar @JvmOverloads constructor(
             addView(animatedProgressLine, layoutParams)
         }
         invalidate()
-//        startAnimation()
     }
 
     private fun getProgressLine() =
@@ -140,6 +139,7 @@ class StoryProgressBar @JvmOverloads constructor(
         animatedProgressLines[currentIndex].cancelAnimation()
         animatedProgressLines[currentIndex].setProgressPercent(0)
     }
+
     fun resetAllAnimations() {
         animatedProgressLines.forEach { it.cancelAnimation() }
         animatedProgressLines[currentIndex].setProgressPercent(0)
