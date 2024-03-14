@@ -14,10 +14,12 @@ import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewDiscountCardBinding
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.recolorDrawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
+import com.design2.chili2.util.IconSize
 
 class IconHolderCardItemView @JvmOverloads constructor(
     context: Context,
@@ -128,6 +130,22 @@ class IconHolderCardItemView @JvmOverloads constructor(
     fun setBackgroundVisibility(isVisible: Boolean) {
         vb.ivIcon.background = if (isVisible)
             context.drawable(R.drawable.chili_bg_circular) else null
+    }
+
+    fun setIconSize(iconSize: IconSize) {
+        val size = when(iconSize) {
+            IconSize.LARGE -> R.dimen.view_48dp
+            IconSize.MEDIUM -> R.dimen.view_46dp
+            IconSize.SMALL -> R.dimen.view_32dp
+        }
+        setupIconSize(size, size)
+    }
+
+    private fun setupIconSize(widthPx: Int, heightPx: Int) {
+        val params = vb.ivIcon.layoutParams
+        params.height = heightPx
+        params.width = widthPx
+        vb.ivIcon.layoutParams = params
     }
 
     fun setIcon(drawable: Drawable) {

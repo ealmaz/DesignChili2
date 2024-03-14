@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.design2.app.R
 import com.design2.app.databinding.ItemDiscountCardBinding
+import com.design2.chili2.util.IconSize
 import com.design2.chili2.view.card.IconHolderCardItemView
 
 class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
@@ -29,9 +29,14 @@ class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
         if (!item.isNullOrEmpty()){
             holder.discountCard.apply {
                 setTitle("Test Discount card $position")
-                if (position % 2 == 0) setIcon(item)
-                else setIcon(item, true)
-                setColor(com.design2.chili2.R.color.green_1)
+                if (position % 2 == 0) {
+                    setIcon(item)
+                    setIconSize(IconSize.SMALL)
+                } else {
+                    setIcon(item, true)
+                    setIconSize(IconSize.SMALL)
+                    setColor(com.design2.chili2.R.color.green_1)
+                }
             }
         }
 
