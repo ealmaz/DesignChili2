@@ -28,11 +28,12 @@ class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
         val item = data[position]
         if (!item.isNullOrEmpty()){
             holder.discountCard.apply {
-                setTitle("Test Discount card $position")
                 if (position % 2 == 0) {
+                    setTitle("Card Provider $position")
                     setIcon(item)
                     setIconSize(IconSize.SMALL)
                 } else {
+                    setTitle("Card Custom $position")
                     setIcon(item, true)
                     setColor(com.design2.chili2.R.color.green_1)
                 }
