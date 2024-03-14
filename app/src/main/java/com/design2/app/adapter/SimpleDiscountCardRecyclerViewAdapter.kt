@@ -32,7 +32,6 @@ class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
                 if (position % 2 == 0) {
                     setIcon(item)
                     setIconSize(IconSize.SMALL)
-                    setColor(com.design2.chili2.R.color.magenta_1)
                 } else {
                     setIcon(item, true)
                     setColor(com.design2.chili2.R.color.green_1)

@@ -140,7 +140,6 @@ class IconHolderCardItemView @JvmOverloads constructor(
         }
         setupIconSize(size, size)
     }
-
     private fun setupIconSize(widthPx: Int, heightPx: Int) {
         val params = vb.ivIcon.layoutParams
         params.height = heightPx
