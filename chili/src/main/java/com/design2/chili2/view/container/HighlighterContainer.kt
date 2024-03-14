@@ -14,6 +14,7 @@ import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.core.graphics.applyCanvas
+import androidx.core.graphics.toColorInt
 import com.design2.chili2.R
 import com.design2.chili2.util.HighlighterState
 import com.design2.chili2.util.toHighlighterStateEnum
@@ -118,6 +119,16 @@ class HighlighterContainer @JvmOverloads constructor(
     fun setHighlighterGradientColors(@ColorInt startColor: Int, @ColorInt endColor: Int) {
         highlighterGradientStartColor = startColor
         highlighterGradientEndColor = endColor
+        invalidate()
+    }
+
+    fun setHighlighterGradientColors(colors: List<String>?) {
+        colors?.get(0)?.let { highlighterGradientStartColor = it.toColorInt() }
+        highlighterGradientEndColor = when (colors?.size) {
+            2 -> colors[1].toColorInt()
+            1 -> colors[0].toColorInt()
+            else -> null
+        }
         invalidate()
     }
 
