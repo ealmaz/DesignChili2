@@ -216,6 +216,8 @@
     <attr name="ChiliComponentButtonHorizontalPadding" format="dimension"/>
     <attr name="ChiliComponentButtonVerticalPadding" format="dimension"/>
 
+    <attr name="ChiliAccentButtonBackgroundActive" format="color"/>
+    <attr name="ChiliAccentButtonBackgroundDisabled" format="color"/>
 
     <!-- InputView   -->
     <attr name="ChiliInputViewEndIconTint" format="color"/>

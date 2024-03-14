@@ -53,4 +53,9 @@
         <item name="android:textSize">?attr/ChiliAdditionalButtonTextSize</item>
     </style>
 
+    <style name="Chili.ButtonStyle.Accent">
+        <item name="android:textAppearance">@style/Chili.PrimaryButtonText</item>
+        <item name="android:background">@drawable/chili_bg_button_accent</item>
+    </style>
+
 </resources>
