@@ -59,6 +59,7 @@ class IconHolderCardItemView @JvmOverloads constructor(
     fun setEmoji(emoji: String, isBackgroundVisible: Boolean = true) = with(vb) {
         tvEmoji.visible()
         ivEmojiHolder.invisible()
+        ivUrlIcon.invisible()
         ivIcon.visible()
         tvEmoji.text = emoji
         setBackgroundVisibility(isBackgroundVisible)
@@ -103,6 +104,8 @@ class IconHolderCardItemView @JvmOverloads constructor(
         with(vb){
             tvEmoji.invisible()
             ivEmojiHolder.invisible()
+            ivUrlIcon.invisible()
+            ivIcon.visible()
             ivIcon.setImageResource(resId)
             setBackgroundVisibility(isBackgroundVisible)
         }
@@ -120,6 +123,7 @@ class IconHolderCardItemView @JvmOverloads constructor(
     fun setIcon(url: String, isBackgroundVisible: Boolean = false) = with(vb) {
         tvEmoji.invisible()
         ivEmojiHolder.invisible()
+        ivUrlIcon.invisible()
         ivIcon.apply {
             visible()
             setImageByUrl(url)
@@ -127,24 +131,26 @@ class IconHolderCardItemView @JvmOverloads constructor(
         }
     }
 
-    fun setBackgroundVisibility(isVisible: Boolean) {
-        vb.ivIcon.background = if (isVisible)
-            context.drawable(R.drawable.chili_bg_circular) else null
+    fun setIconWithoutPadding(url: String) = with(vb) {
+        tvEmoji.invisible()
+        ivEmojiHolder.invisible()
+        ivIcon.invisible()
+        ivUrlIcon.apply {
+            visible()
+            setImageByUrl(url)
+        }
     }
 
-    fun setIconSize(iconSize: IconSize) {
-        val size = when(iconSize) {
-            IconSize.LARGE -> R.dimen.view_48dp
-            IconSize.MEDIUM -> R.dimen.view_46dp
-            IconSize.SMALL -> R.dimen.view_32dp
-        }
-        setupIconSize(size, size)
-    }
     private fun setupIconSize(widthPx: Int, heightPx: Int) {
         val params = vb.ivIcon.layoutParams
         params.height = heightPx
         params.width = widthPx
         vb.ivIcon.layoutParams = params
+    }
+
+    fun setBackgroundVisibility(isVisible: Boolean) {
+        vb.ivIcon.background = if (isVisible)
+            context.drawable(R.drawable.chili_bg_circular) else null
     }
 
     fun setIcon(drawable: Drawable) {
