@@ -129,7 +129,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
         discountCardAdapter = SimpleDiscountCardRecyclerViewAdapter(requireContext())
         vb.ecvDiscountRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         vb.ecvDiscountRv.adapter = discountCardAdapter
-        val icon = "https://minio.o.kg/pams-receiver-documents/33944000008719-kvxZCbF1Gpb7iDGSyGXhgEcsRbvoKTOx3cYWIlK89mPgSI3L4F.png"
+        val icon = "https://devminio.o.kg/media-service/DiscountCard/narodny.png"
         val collection = mutableListOf<String>()
         for (i in 0..10){
             collection.add(icon)

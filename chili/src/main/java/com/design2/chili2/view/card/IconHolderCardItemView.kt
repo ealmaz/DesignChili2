@@ -14,10 +14,12 @@ import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewDiscountCardBinding
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.recolorDrawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
+import com.design2.chili2.util.IconSize
 
 class IconHolderCardItemView @JvmOverloads constructor(
     context: Context,
@@ -57,6 +59,7 @@ class IconHolderCardItemView @JvmOverloads constructor(
     fun setEmoji(emoji: String, isBackgroundVisible: Boolean = true) = with(vb) {
         tvEmoji.visible()
         ivEmojiHolder.invisible()
+        ivUrlIcon.invisible()
         ivIcon.visible()
         tvEmoji.text = emoji
         setBackgroundVisibility(isBackgroundVisible)
@@ -101,6 +104,8 @@ class IconHolderCardItemView @JvmOverloads constructor(
         with(vb){
             tvEmoji.invisible()
             ivEmojiHolder.invisible()
+            ivUrlIcon.invisible()
+            ivIcon.visible()
             ivIcon.setImageResource(resId)
             setBackgroundVisibility(isBackgroundVisible)
         }
@@ -118,10 +123,21 @@ class IconHolderCardItemView @JvmOverloads constructor(
     fun setIcon(url: String, isBackgroundVisible: Boolean = false) = with(vb) {
         tvEmoji.invisible()
         ivEmojiHolder.invisible()
+        ivUrlIcon.invisible()
         ivIcon.apply {
             visible()
             setImageByUrl(url)
             setBackgroundVisibility(isBackgroundVisible)
+        }
+    }
+
+    fun setIconWithoutPadding(url: String) = with(vb) {
+        tvEmoji.invisible()
+        ivEmojiHolder.invisible()
+        ivIcon.invisible()
+        ivUrlIcon.apply {
+            visible()
+            setImageByUrl(url)
         }
     }
 

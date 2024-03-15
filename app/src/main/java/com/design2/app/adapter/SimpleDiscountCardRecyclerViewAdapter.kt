@@ -26,15 +26,27 @@ class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
+        val url = "https://devminio.o.kg/media-service/DiscountCard/narodny.png"
         if (!item.isNullOrEmpty()){
             holder.discountCard.apply {
-                setTitle("Test Discount card $position")
-                if (position % 2 == 0) setIcon(item)
-                else setIcon(item, true)
-                setColor(com.design2.chili2.R.color.green_1)
+                when(position % 3){
+                    0 -> {
+                        setTitle("Card Provider $position")
+                        setIconWithoutPadding(url)
+                    }
+                    1 -> {
+                        setTitle("Card Custom $position")
+                        setIcon(R.drawable.ic_bonus_card_32dp, true)
+                        setColor(com.design2.chili2.R.color.green_1)
+                    }
+                    2 -> {
+                        setTitle("Card Custom $position")
+                        setEmoji(String(Character.toChars(128515)))
+                        setColor(com.design2.chili2.R.color.red_1)
+                    }
+                }
             }
         }
-
     }
 
     override fun getItemCount(): Int {
