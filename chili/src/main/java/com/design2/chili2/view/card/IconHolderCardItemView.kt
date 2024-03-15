@@ -19,7 +19,6 @@ import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.recolorDrawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
-import com.design2.chili2.util.IconSize
 
 class IconHolderCardItemView @JvmOverloads constructor(
     context: Context,
@@ -86,6 +85,7 @@ class IconHolderCardItemView @JvmOverloads constructor(
         placeHolder.setBackgroundResource(resId)
         ivEmojiHolder.invisible()
         ivIcon.invisible()
+        ivUrlIcon.invisible()
     }
 
     fun setTitle(charSequence: CharSequence?) {
@@ -114,6 +114,7 @@ class IconHolderCardItemView @JvmOverloads constructor(
     fun setEmojiPlaceholderIcon(@DrawableRes resId: Int) {
         with(vb) {
             tvEmoji.invisible()
+            ivUrlIcon.invisible()
             ivIcon.visible()
             ivEmojiHolder.visible()
             ivEmojiHolder.setImageResource(resId)
