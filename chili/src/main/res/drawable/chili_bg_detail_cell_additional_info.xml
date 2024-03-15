@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <solid
+        android:color="?attr/ChiliDetailCellViewAdditionalInfoTextBackgroundColor"
+        tools:color="@color/gray_5" />
+    <corners
+        android:radius="?attr/ChiliDetailCellViewAdditionalInfoTextBackgroundRadius"
+        tools:radius="8dp" />
+</shape>
