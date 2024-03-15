@@ -141,13 +141,6 @@ class IconHolderCardItemView @JvmOverloads constructor(
         }
     }
 
-    private fun setupIconSize(widthPx: Int, heightPx: Int) {
-        val params = vb.ivIcon.layoutParams
-        params.height = heightPx
-        params.width = widthPx
-        vb.ivIcon.layoutParams = params
-    }
-
     fun setBackgroundVisibility(isVisible: Boolean) {
         vb.ivIcon.background = if (isVisible)
             context.drawable(R.drawable.chili_bg_circular) else null
