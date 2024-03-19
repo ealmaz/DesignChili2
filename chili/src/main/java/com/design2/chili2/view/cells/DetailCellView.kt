@@ -78,10 +78,6 @@ class DetailCellView @JvmOverloads constructor(
             getInteger(R.styleable.DetailCellView_subtitleMaxLines, -1).takeIf { it != -1 }?.let {
                 setSubtitleMaxLines(it)
             }
-            getString(R.styleable.DetailCellView_additionalInfoText).let { setAdditionalInfoText(it) }
-            getResourceId(R.styleable.DetailCellView_additionalInfoTextAppearance, -1).takeIf { it != -1 }?.let {
-                setAdditionalInfoTextAppearance(it)
-            }
             recycle()
         }
     }
@@ -200,20 +196,6 @@ class DetailCellView @JvmOverloads constructor(
             .error(context.drawable(R.drawable.chili_ic_stub))
             .into(vb.svIcon)
     }
-
-    fun setAdditionalInfoText(text: CharSequence?) {
-        vb.tvAdditionalInfo.setTextOrHide(text)
-    }
-
-    fun setAdditionalInfoText(@StringRes textResId: Int) {
-        vb.tvAdditionalInfo.setTextOrHide(textResId)
-    }
-
-    fun setAdditionalInfoTextAppearance(@StyleRes resId: Int) {
-        vb.tvAdditionalInfo.setTextAppearance(resId)
-    }
-
-
 
     override fun getShimmeringViewsPair() = shimmerViewPairs
 }

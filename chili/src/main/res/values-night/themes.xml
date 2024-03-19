@@ -89,9 +89,6 @@
         <item name="ChiliCellViewBackground">@color/black_3</item>
         <item name="ChiliCellSquircleIconBackground">@color/black_2</item>
 
-        <!-- DetailCellView -->
-        <item name="ChiliDetailCellViewAdditionalInfoTextBackgroundColor">@color/black_4</item>
-
 
         <!-- Shimmer attributes -->
         <item name="ChiliShimmerBoneColor">@color/black_5</item>
