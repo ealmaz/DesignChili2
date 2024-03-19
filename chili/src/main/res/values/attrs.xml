@@ -295,6 +295,8 @@
         <attr name="subtitleMaxLines" format="integer"/>
         <attr name="valueTextAppearance"/>
         <attr name="statusTextAppearance" format="reference"/>
+        <attr name="additionalInfoText" format="string"/>
+        <attr name="additionalInfoTextAppearance" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="LoaderButton">
