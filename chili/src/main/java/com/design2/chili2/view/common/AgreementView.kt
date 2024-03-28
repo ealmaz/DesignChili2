@@ -59,6 +59,11 @@ class AgreementView @JvmOverloads constructor(
         }
     }
 
+    fun hideCheckbox() {
+        vb.cbAgreement.gone()
+        vb.ivChecked.gone()
+    }
+
     private fun editableMode() {
         vb.ivChecked.gone()
         vb.cbAgreement.visible()

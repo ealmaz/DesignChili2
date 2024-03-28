@@ -40,6 +40,7 @@ class CommonViewsFragment : BaseFragment<FragmentCommonBinding>() {
         }
 
         vb.av1.onUrlClick { Toast.makeText(context, "Вы нажали на ссылку $it", Toast.LENGTH_SHORT).show() }
+        vb.av3.hideCheckbox()
     }
 }
 
