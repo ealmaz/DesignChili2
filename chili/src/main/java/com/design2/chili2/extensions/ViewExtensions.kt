@@ -290,3 +290,18 @@ fun View.setOnDragDropListener(action: () -> Unit) {
         return@setOnTouchListener true
     }
 }
+
+fun View.setScrollListener(startScrollAction: () -> Unit, stopScrollAction:() -> Unit ) {
+    setOnTouchListener { v, event ->
+        when (event.action) {
+            MotionEvent.ACTION_MOVE -> {
+                startScrollAction()
+            }
+            MotionEvent.ACTION_UP -> {
+                stopScrollAction()
+                v.performClick()
+            }
+        }
+        return@setOnTouchListener false
+    }
+}

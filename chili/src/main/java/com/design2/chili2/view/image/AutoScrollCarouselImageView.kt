@@ -54,7 +54,7 @@ class AutoScrollCarouselImageView @JvmOverloads constructor(
         return super.dispatchTouchEvent(e)
     }
 
-    private fun pauseAutoScroll() {
+    fun pauseAutoScroll() {
         scrollHandler.removeMessages(WHAT_SCROLL)
     }
 
