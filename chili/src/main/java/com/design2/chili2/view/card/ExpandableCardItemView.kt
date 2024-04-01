@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCardExpandableItemBinding
+import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setTextOrHide
 
 class ExpandableCardItemView @JvmOverloads constructor(
@@ -23,6 +24,8 @@ class ExpandableCardItemView @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewCardExpandableItemBinding
 
+    var isHidden: Boolean = false
+
     init { initView(context, attrs, defStyleAttr, defStyleRes) }
 
     override fun inflateView(context: Context) {
@@ -34,6 +37,7 @@ class ExpandableCardItemView @JvmOverloads constructor(
         getString(R.styleable.ExpandableCardItemView_subtitle).run { setSubtitle(this) }
         getString(R.styleable.ExpandableCardItemView_titleValue).run { setTitleValue(this) }
         getString(R.styleable.ExpandableCardItemView_subtitleValue).run { setSubtitleValue(this) }
+        getBoolean(R.styleable.ExpandableCardItemView_isHidden, false).run { isHidden = this }
     }
 
     override fun setupView() {
@@ -82,5 +86,10 @@ class ExpandableCardItemView @JvmOverloads constructor(
     fun setSubtitleValue(resId: Int) {
         vb.tvSubtitleValue.setText(resId)
         shimmeringPairs[vb.tvSubtitleValue] = vb.viewSubtitleValueShimmer
+    }
+
+    fun setItemIsHidden(isHidden: Boolean) {
+        this.isHidden = isHidden
+        if (isHidden) this.gone()
     }
 }

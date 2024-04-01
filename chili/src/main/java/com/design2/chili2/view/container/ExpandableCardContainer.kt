@@ -124,7 +124,10 @@ class ExpandableCardContainer @JvmOverloads constructor(
         if (this.isExpanded) {
             rotateChevron(180f)
             children.forEach {
-                if (it is ExpandableCardItemView) it.visible()
+                if (it is ExpandableCardItemView) {
+                    if (it.isHidden) it.gone()
+                    else it.visible()
+                }
             }
         } else {
             rotateChevron(0f)

@@ -324,6 +324,7 @@
         <attr name="subtitle"/>
         <attr name="titleValue" format="string"/>
         <attr name="subtitleValue" format="string"/>
+        <attr name="isHidden" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="ExpandableContainer">
