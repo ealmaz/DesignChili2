@@ -135,10 +135,11 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
         vb.info.setOnClickListener {
             InfoBottomSheet.Builder()
                 .setIcon(R.drawable.ic_cat)
-                .setMessage("Текстовый блок, который содержит 120 символов, и этого количества, должно хватить для информации в четыре строки.d dqwdqwdiwqdjiqwd qwjdiqwdjiqwjdiq qwidqiwdjiqwdj qwndiqwndqiw iqwdiqwndiqwndi qwndiqwdniqwdn qwndiqwndiqw")
+                .setMessage("LALALLAТекстовый блок, который содержит 120 символов, и этого количества, должно хватить для информации в четыре строки.d dqwdqwdiwqdjiqwd qwjdiqwdjiqwjdiq qwidqiwdjiqwdj qwndiqwndqiw iqwdiqwndiqwndi qwndiqwdniqwdn qwndiqwndiqw")
                 .setPrimaryButton("Понятно" to {Toast.makeText(context, "Понятно", Toast.LENGTH_SHORT).show()})
                 .setSecondaryButton("Ясно" to {Toast.makeText(context, "Ясно", Toast.LENGTH_SHORT).show()})
                 .setTextMaxLines(7)
+                .setMessageTextAppearance(com.design2.chili2.R.style.Chili_H4_Error)
                 .setHeaderText("Pfgybnt lfyyst")
 //                .setDismissEvent { Toast.makeText(context, "Dismissed", Toast.LENGTH_SHORT).show() }
                 .setIsHideable(false)
