@@ -20,6 +20,7 @@ import com.design2.chili2.view.image.AutoScrollCarouselImageAdapter
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 import com.design2.app.StoryActivity
+import com.design2.chili2.extensions.setScrollListener
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselImageAdapter.Listener {
     private lateinit var simpleAdapter: SimpleTextRecyclerViewAdapter
@@ -98,6 +99,10 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             this.adapter = adapter
             resumeAutoScroll()
         }
+
+        vb.cardCv.setScrollListener({ vb.bannerView1.resumeAutoScroll() },
+            { vb.bannerView1.pauseAutoScroll() })
+
 
 //        ShowcaseHelper(requireActivity()).showShowcase(vb.accent, ShowcaseHelper.ShowcaseData(
 //            title = "Title",
