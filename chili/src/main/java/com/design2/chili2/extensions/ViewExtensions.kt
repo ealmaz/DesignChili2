@@ -295,10 +295,10 @@ fun View.setScrollListener(startScrollAction: () -> Unit, stopScrollAction:() ->
     setOnTouchListener { v, event ->
         when (event.action) {
             MotionEvent.ACTION_MOVE -> {
-                stopScrollAction()
+                startScrollAction()
             }
             MotionEvent.ACTION_UP -> {
-                startScrollAction()
+                stopScrollAction()
                 v.performClick()
             }
         }

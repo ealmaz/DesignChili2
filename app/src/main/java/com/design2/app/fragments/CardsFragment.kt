@@ -100,8 +100,8 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             resumeAutoScroll()
         }
 
-        vb.cardCv.setScrollListener({ vb.bannerView1.resumeAutoScroll() },
-            { vb.bannerView1.pauseAutoScroll() })
+        vb.cardCv.setScrollListener({ vb.bannerView1.pauseAutoScroll() },
+            {  vb.bannerView1.resumeAutoScroll()})
 
 
 //        ShowcaseHelper(requireActivity()).showShowcase(vb.accent, ShowcaseHelper.ShowcaseData(
