@@ -139,6 +139,14 @@ fun ImageView.setImageByUrl(url: String?, placeHolderDrawable: Drawable? = null)
         .into(this)
 }
 
+fun ImageView.setImageByUrl(url: String?, width: Int, height: Int, placeHolderDrawable: Drawable? = null) {
+    Glide.with(this)
+        .load(url)
+        .placeholder(placeHolderDrawable)
+        .override(width,height)
+        .into(this)
+}
+
 fun ImageView.setImageByUrlWithListener(imageUrl: String?, onSuccess: ((Drawable) -> (Unit))? = null,
                                     onError: ((GlideException?) -> (Unit))? = null, requestOptions: RequestOptions? = null) : RequestBuilder<Drawable>? {
     if (imageUrl == null) {
