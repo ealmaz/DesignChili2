@@ -5,11 +5,13 @@ import android.text.Spanned
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellInfoBinding
+import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.util.RoundedCornerMode
@@ -41,24 +43,41 @@ class InfoCellView @JvmOverloads constructor(
         vb = ChiliViewCellInfoBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        context.obtainStyledAttributes(attrs, R.styleable.InfoCellView, defStyleAttr, defStyleRes).run {
-            getString(R.styleable.InfoCellView_title)?.let { setTitle(it) }
-            getString(R.styleable.InfoCellView_subtitle)?.let { setSubtitle(it) }
-            getBoolean(R.styleable.InfoCellView_isDividerVisible, false).let { setDividerVisibility(it) }
-            getBoolean(R.styleable.InfoCellView_isSurfaceClickable, true).let { setupIsSurfaceClickable(it) }
-            getInteger(R.styleable.InfoCellView_roundedCornerMode, -1).takeIf { it != -1 }?.let {
-                roundedCornerMode = it
-                vb.rootView.setupRoundedCellCornersMode(it, surfaceClickAbility)
+    private fun obtainAttributes(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) {
+        context.obtainStyledAttributes(attrs, R.styleable.InfoCellView, defStyleAttr, defStyleRes)
+            .run {
+                getString(R.styleable.InfoCellView_title)?.let { setTitle(it) }
+                getString(R.styleable.InfoCellView_subtitle)?.let { setSubtitle(it) }
+                getBoolean(
+                    R.styleable.InfoCellView_isDividerVisible,
+                    false
+                ).let { setDividerVisibility(it) }
+                getBoolean(
+                    R.styleable.InfoCellView_isSurfaceClickable,
+                    true
+                ).let { setupIsSurfaceClickable(it) }
+                getInteger(R.styleable.InfoCellView_roundedCornerMode, -1).takeIf { it != -1 }
+                    ?.let {
+                        roundedCornerMode = it
+                        vb.rootView.setupRoundedCellCornersMode(it, surfaceClickAbility)
+                    }
+                getResourceId(R.styleable.InfoCellView_titleTextAppearance, -1).takeIf { it != -1 }
+                    ?.let {
+                        setTitleTextAppearance(it)
+                    }
+                getResourceId(
+                    R.styleable.InfoCellView_subtitleTextAppearance,
+                    -1
+                ).takeIf { it != -1 }?.let {
+                    setSubtitleTextAppearance(it)
+                }
+                recycle()
             }
-            getResourceId(R.styleable.InfoCellView_titleTextAppearance, -1).takeIf { it != -1 }?.let {
-                setTitleTextAppearance(it)
-            }
-            getResourceId(R.styleable.InfoCellView_subtitleTextAppearance, -1).takeIf { it != -1 }?.let {
-                setSubtitleTextAppearance(it)
-            }
-            recycle()
-        }
     }
 
     private fun setupShimmering() {
@@ -100,6 +119,16 @@ class InfoCellView @JvmOverloads constructor(
         vb.divider.visibility = when (isVisible) {
             true -> View.VISIBLE
             else -> View.GONE
+        }
+    }
+
+    // Note: divider xml layout already have margin_start:8dp
+    fun setDividerHorizontalMargin(start: Int? = null, end: Int? = null) {
+        vb.divider.apply {
+            val params = layoutParams as ViewGroup.MarginLayoutParams
+            params.marginStart = start?.dp ?: params.marginStart
+            params.marginEnd = end?.dp ?: params.marginEnd
+            layoutParams = params
         }
     }
 
