@@ -48,6 +48,8 @@ class AgreementView @JvmOverloads constructor(
         vb.cbAgreement.isChecked = isChecked
     }
 
+    fun isCheckboxChecked(): Boolean = vb.cbAgreement.isChecked
+
     fun setOnCheckChangeListener(listener: (CompoundButton, Boolean) -> Unit) {
         vb.cbAgreement.setOnCheckedChangeListener(listener)
     }
