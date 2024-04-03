@@ -163,6 +163,10 @@ class ExpandableContainer @JvmOverloads constructor(
         vb.tvAdditionalText.setTextAppearance(resId)
     }
 
+    fun setIsActionVisible(isVisible: Boolean) {
+        vb.tvAction.isVisible = isVisible
+    }
+
 
     fun setEndIcon(resId: Int) {
         vb.ivEndIcon.apply {
