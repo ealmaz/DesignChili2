@@ -27,6 +27,7 @@ import com.design2.chili2.extensions.*
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.util.CompositeOnFocusChangeListener
+import com.design2.chili2.util.ChiliKeyboardKeyEventListener
 import com.design2.chili2.util.cyrillicRegex
 import com.design2.chili2.view.input.text_watchers.ClearTextIconTextWatcher
 import com.design2.chili2.view.input.text_watchers.SimpleTextWatcher
@@ -612,6 +613,9 @@ open class BaseInputView @JvmOverloads constructor(
         vb.etInput.setPadding(left, top, right, bottom)
     }
 
+    fun setKeyboardKeyEventListener(keyboard: ChiliKeyboardKeyEventListener) {
+        keyboard.setKeyEventListener(vb.etInput)
+    }
 
     companion object {
         const val SUPER_STATE = "superState"
