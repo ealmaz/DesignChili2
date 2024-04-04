@@ -24,7 +24,7 @@ class ExpandableCardContainer @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.expandableCardContainerDefaultStyle,
     defStyleRes: Int = R.style.Chili_Container_ExpandableCardContainer,
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView, CardStateListener {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
     private val mutableShimmeringViewMap = mutableMapOf<View, ShimmerFrameLayout?>()
 
@@ -33,6 +33,8 @@ class ExpandableCardContainer @JvmOverloads constructor(
     private var isExpandable: Boolean = false
 
     private var isExpanded: Boolean = false
+
+    private var stateListener: CardStateListener? = null
 
     init {
         inflateView(context)
@@ -68,6 +70,9 @@ class ExpandableCardContainer @JvmOverloads constructor(
         mutableShimmeringViewMap[vb.tvTitle] = vb.viewTitleShimmer
     }
 
+    fun setStateChangeListener(stateListener: CardStateListener) {
+        this.stateListener = stateListener
+    }
 
     fun setTitle(charSequence: CharSequence?) {
         vb.tvTitle.text = charSequence
@@ -121,7 +126,7 @@ class ExpandableCardContainer @JvmOverloads constructor(
 
     fun setIsExpanded(isExpanded: Boolean?) {
         this.isExpanded = isExpanded ?: false
-        onStateChanged(isExpanded = this.isExpanded)
+        stateListener?.onStateChanged(isExpanded = this.isExpanded)
         if (this.isExpanded) {
             rotateChevron(180f)
             children.forEach {
