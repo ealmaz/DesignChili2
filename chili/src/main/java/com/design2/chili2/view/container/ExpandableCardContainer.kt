@@ -150,6 +150,12 @@ class ExpandableCardContainer @JvmOverloads constructor(
         return ExpandableCardItemView(context)
     }
 
+    fun removeAllItemViews() {
+        while (children.any { it is ExpandableCardItemView }) {
+            removeView(children.find { it is ExpandableCardItemView })
+        }
+    }
+
     private fun setupExpandableRow(item: ExpandableItemData, itemView: ExpandableCardItemView) {
         itemView.apply {
             setTitle(item.title)
