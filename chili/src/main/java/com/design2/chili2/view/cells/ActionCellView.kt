@@ -46,7 +46,7 @@ class ActionCellView @JvmOverloads constructor(
 
     private fun inflateAction() {
         tvAction = TextView(context, null, R.attr.componentButtonDefaultStyle, R.style.Chili_ButtonStyle_Component).apply {
-            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_16dp), 0)
             shimmeringPairs[this] = createShimmerForAction()
         }
         vb.flEndPlaceHolder.addView(tvAction)
@@ -54,7 +54,7 @@ class ActionCellView @JvmOverloads constructor(
 
     private fun createShimmerForAction(): ShimmerFrameLayout {
         val shimmerLayout = context.createShimmerLayout {
-            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_16dp), 0)
         }
         shimmerLayout.addView(context.createShimmerView(R.dimen.view_46dp))
         vb.flEndPlaceHolder.addView(shimmerLayout)
@@ -79,7 +79,7 @@ class ActionCellView @JvmOverloads constructor(
     override fun setIsChevronVisible(isVisible: Boolean) {
         super.setIsChevronVisible(isVisible)
         if (isVisible) tvAction?.setPadding(0, 0,0, 0)
-        else tvAction?.setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+        else tvAction?.setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_16dp), 0)
     }
 
     fun setActionClickListener(action: () -> Unit) {
