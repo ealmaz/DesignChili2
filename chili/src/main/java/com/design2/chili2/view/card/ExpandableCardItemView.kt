@@ -2,12 +2,15 @@ package com.design2.chili2.view.card
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import androidx.annotation.DrawableRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCardExpandableItemBinding
 import com.design2.chili2.extensions.gone
+import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setTextOrHide
 
 class ExpandableCardItemView @JvmOverloads constructor(
@@ -38,13 +41,13 @@ class ExpandableCardItemView @JvmOverloads constructor(
         getString(R.styleable.ExpandableCardItemView_titleValue).run { setTitleValue(this) }
         getString(R.styleable.ExpandableCardItemView_subtitleValue).run { setSubtitleValue(this) }
         getBoolean(R.styleable.ExpandableCardItemView_isHidden, false).run { isHidden = this }
+        getDrawable(R.styleable.ExpandableCardItemView_subtitleEndIcon).run { setSubtitleEndIcon(this) }
     }
 
-    override fun setupView() {
-        super.setupView()
+    override fun setupShimmeringViews() {
+        super.setupShimmeringViews()
         shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
     }
-
 
     fun setTitle(charSequence: CharSequence?) {
         vb.tvTitle.text = charSequence
@@ -91,5 +94,24 @@ class ExpandableCardItemView @JvmOverloads constructor(
     fun setItemIsHidden(isHidden: Boolean) {
         this.isHidden = isHidden
         if (isHidden) this.gone()
+    }
+
+    fun setSubtitleEndIcon(drawable: Drawable?) {
+        vb.ivSubtitleEnd.setImageOrHide(drawable)
+        if (drawable != null) shimmeringPairs[vb.ivSubtitleEnd] = null
+    }
+
+    fun setSubtitleEndIcon(@DrawableRes drawableRes: Int?) {
+        vb.ivSubtitleEnd.setImageOrHide(drawableRes)
+        if (drawableRes != null) shimmeringPairs[vb.ivSubtitleEnd] = null
+    }
+
+    fun setSubtitleEndIconListener(onClickListener: OnClickListener) {
+        vb.ivSubtitleEnd.setOnClickListener(onClickListener)
+    }
+
+    fun setupSubtitleEndIcon(@DrawableRes drawableRes: Int, onClickListener: OnClickListener) {
+        setSubtitleEndIcon(drawableRes)
+        setSubtitleEndIconListener(onClickListener)
     }
 }

@@ -124,6 +124,26 @@ fun TextView.setTextOrHide(charSequence: CharSequence?) {
     else visible()
 }
 
+fun ImageView.setImageOrHide(drawable: Drawable?) {
+    when (drawable) {
+        null -> gone()
+        else -> {
+            setImageDrawable(drawable)
+            visible()
+        }
+    }
+}
+
+fun ImageView.setImageOrHide(@DrawableRes resId: Int?) {
+    when (resId) {
+        null -> gone()
+        else -> {
+            setImageResource(resId)
+            visible()
+        }
+    }
+}
+
 fun SquircleView.setImageByUrl(url: String?) {
     Glide.with(this)
         .load(url)

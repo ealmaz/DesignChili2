@@ -41,7 +41,7 @@
         android:layout_marginStart="@dimen/padding_12dp"
         android:layout_marginEnd="@dimen/padding_4dp"
         android:layout_marginBottom="@dimen/padding_8dp"
-        android:textAppearance="@style/Chili.H8.Secondary"
+        android:textAppearance="@style/Chili.H8.Value"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_subtitle_value"
@@ -93,12 +93,25 @@
         android:id="@+id/tv_subtitle_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Chili.H8.Secondary"
+        android:textAppearance="@style/Chili.H8.Value"
         android:visibility="gone"
         tools:text="8 200,00"
+        app:layout_constraintStart_toEndOf="@id/tv_subtitle"
         app:layout_constraintTop_toTopOf="@id/tv_subtitle"
         app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toStartOf="@id/iv_subtitle_end" />
+
+    <ImageView
+        android:id="@+id/iv_subtitle_end"
+        android:layout_width="@dimen/view_16dp"
+        android:layout_height="@dimen/view_16dp"
+        android:layout_marginStart="@dimen/padding_4dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/tv_subtitle_value"
+        app:layout_constraintTop_toTopOf="@id/tv_subtitle_value"
+        app:layout_constraintBottom_toBottomOf="@id/tv_subtitle_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:src="@drawable/chili_ic_info_grey_16dp" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_subtitle_value_shimmer"
@@ -106,7 +119,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="@id/tv_subtitle_value"
-        app:layout_constraintEnd_toEndOf="@id/tv_subtitle_value">
+        app:layout_constraintEnd_toEndOf="parent">
         <View
             android:layout_width="@dimen/view_30dp"
             android:layout_height="@dimen/view_8dp"
