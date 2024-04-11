@@ -96,16 +96,18 @@
         android:textAppearance="@style/Chili.H8.Value"
         android:visibility="gone"
         tools:text="8 200,00"
+        app:layout_constraintStart_toEndOf="@id/tv_subtitle"
         app:layout_constraintTop_toTopOf="@id/tv_subtitle"
         app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
         app:layout_constraintEnd_toStartOf="@id/iv_subtitle_end" />
 
     <ImageView
         android:id="@+id/iv_subtitle_end"
-        android:layout_width="@dimen/view_20dp"
+        android:layout_width="@dimen/view_16dp"
         android:layout_height="@dimen/view_16dp"
-        android:paddingStart="@dimen/padding_4dp"
+        android:layout_marginStart="@dimen/padding_4dp"
         android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@id/tv_subtitle_value"
         app:layout_constraintTop_toTopOf="@id/tv_subtitle_value"
         app:layout_constraintBottom_toBottomOf="@id/tv_subtitle_value"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +119,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:layout_constraintTop_toTopOf="@id/tv_subtitle_value"
-        app:layout_constraintEnd_toEndOf="@id/tv_subtitle_value">
+        app:layout_constraintEnd_toEndOf="parent">
         <View
             android:layout_width="@dimen/view_30dp"
             android:layout_height="@dimen/view_8dp"

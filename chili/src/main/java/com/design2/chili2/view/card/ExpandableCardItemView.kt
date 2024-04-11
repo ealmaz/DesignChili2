@@ -44,11 +44,10 @@ class ExpandableCardItemView @JvmOverloads constructor(
         getDrawable(R.styleable.ExpandableCardItemView_subtitleEndIcon).run { setSubtitleEndIcon(this) }
     }
 
-    override fun setupView() {
-        super.setupView()
+    override fun setupShimmeringViews() {
+        super.setupShimmeringViews()
         shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
     }
-
 
     fun setTitle(charSequence: CharSequence?) {
         vb.tvTitle.text = charSequence
@@ -99,15 +98,20 @@ class ExpandableCardItemView @JvmOverloads constructor(
 
     fun setSubtitleEndIcon(drawable: Drawable?) {
         vb.ivSubtitleEnd.setImageOrHide(drawable)
+        if (drawable != null) shimmeringPairs[vb.ivSubtitleEnd] = null
     }
 
-    fun setSubtitleEndIcon(@DrawableRes drawableRes: Int) {
+    fun setSubtitleEndIcon(@DrawableRes drawableRes: Int?) {
         vb.ivSubtitleEnd.setImageOrHide(drawableRes)
+        if (drawableRes != null) shimmeringPairs[vb.ivSubtitleEnd] = null
     }
 
-    fun setupSubtitleEndIcon(@DrawableRes drawableRes: Int, onClickListener: OnClickListener) =
-        with(vb.ivSubtitleEnd) {
-            setSubtitleEndIcon(drawableRes)
-            setOnClickListener(onClickListener)
-        }
+    fun setSubtitleEndIconListener(onClickListener: OnClickListener) {
+        vb.ivSubtitleEnd.setOnClickListener(onClickListener)
+    }
+
+    fun setupSubtitleEndIcon(@DrawableRes drawableRes: Int, onClickListener: OnClickListener) {
+        setSubtitleEndIcon(drawableRes)
+        setSubtitleEndIconListener(onClickListener)
+    }
 }
