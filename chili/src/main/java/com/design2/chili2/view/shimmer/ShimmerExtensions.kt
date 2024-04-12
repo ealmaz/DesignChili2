@@ -18,8 +18,8 @@ fun ViewGroup.stopGroupShimmering() {
 }
 
 fun ShimmeringView.startShimmering() {
-    onStartShimmer()
     (this as? ViewGroup)?.setIsSurfaceClickable(false)
+    onStartShimmer()
     getShimmeringViewsPair().forEach {
         it.key.invisible()
         it.value?.apply {
@@ -30,8 +30,8 @@ fun ShimmeringView.startShimmering() {
 }
 
 fun ShimmeringView.stopShimmering() {
-    onStopShimmer()
     (this as? ViewGroup)?.setIsSurfaceClickable(true)
+    onStopShimmer()
     getShimmeringViewsPair().forEach {
         it.key.visible()
         it.value?.apply {

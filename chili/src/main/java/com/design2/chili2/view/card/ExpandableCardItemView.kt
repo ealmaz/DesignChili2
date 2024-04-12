@@ -11,6 +11,7 @@ import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCardExpandableItemBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageOrHide
+import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setTextOrHide
 
 class ExpandableCardItemView @JvmOverloads constructor(
@@ -113,5 +114,10 @@ class ExpandableCardItemView @JvmOverloads constructor(
     fun setupSubtitleEndIcon(@DrawableRes drawableRes: Int, onClickListener: OnClickListener) {
         setSubtitleEndIcon(drawableRes)
         setSubtitleEndIconListener(onClickListener)
+    }
+
+    override fun onStopShimmer() {
+        super.onStopShimmer()
+        this.setIsSurfaceClickable(false)
     }
 }

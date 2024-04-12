@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewContainerExpandableCardBinding
 import com.design2.chili2.extensions.gone
+import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.view.card.ExpandableCardItemView
@@ -176,6 +177,7 @@ class ExpandableCardContainer @JvmOverloads constructor(
     }
 
     override fun onStopShimmer() {
+        this.setIsSurfaceClickable(false)
         children.forEach { (it as? ShimmeringView)?.stopShimmering() }
     }
 
