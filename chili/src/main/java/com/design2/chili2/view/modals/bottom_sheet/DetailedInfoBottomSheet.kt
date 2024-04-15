@@ -13,6 +13,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBottomSheetDetailedInfoBinding
+import com.design2.chili2.extensions.isVisible
+import com.design2.chili2.extensions.setBottomMargin
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.view.modals.base.BaseViewBottomSheetDialogFragment
@@ -106,6 +108,8 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
         secondaryButton?.let { setSecondaryButton(it.first, it.second) }
         secondaryButtonRes?.let { setSecondaryButton(it.first, it.second) }
+
+        updateMessageMargin()
     }
 
     private fun setIcon(@DrawableRes resId: Int) {
@@ -133,6 +137,12 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         vb.tvText.apply {
             text = spanned
             visible()
+        }
+    }
+
+    private fun updateMessageMargin() = with(vb) {
+        if(!btnPrimary.isVisible() && !btnSecondary.isVisible()) {
+            tvText.setBottomMargin(0)
         }
     }
 
