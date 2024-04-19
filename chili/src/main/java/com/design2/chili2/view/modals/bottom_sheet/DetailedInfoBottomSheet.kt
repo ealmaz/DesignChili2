@@ -63,6 +63,15 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         setupViews()
     }
 
+    override fun onStop() {
+        if (!getParentFragmentManager().isStateSaved) {
+            dismiss()
+        } else {
+            dismissAllowingStateLoss()
+        }
+        super.onStop()
+    }
+
     private fun setupViews() {
         title?.let {
             vb.tvTitle.visible()
