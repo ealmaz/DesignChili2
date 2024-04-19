@@ -302,7 +302,7 @@ open class BaseCellView @JvmOverloads constructor(
         vb.ivIcon.layoutParams = params
     }
 
-    fun setupRoundedModeByPosition(isFirst: Boolean, isLast: Boolean) {
+    fun setupRoundedModeByPosition(isFirst: Boolean, isLast: Boolean): RoundedCornerMode {
         val roundedMode = when {
             isFirst && isLast -> RoundedCornerMode.SINGLE
             isFirst -> RoundedCornerMode.TOP
@@ -311,6 +311,7 @@ open class BaseCellView @JvmOverloads constructor(
         }
         setupCornerRoundedMode(roundedMode)
         setDividerVisibility(!isLast)
+        return roundedMode
     }
 
     fun setRoundedMode(mode: RoundedCornerMode) {
