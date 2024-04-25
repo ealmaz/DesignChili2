@@ -21,7 +21,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoryBinding
 import com.design2.chili2.extensions.gone
-import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setImageByUrlWithListener
 import com.design2.chili2.extensions.visible
 import com.google.android.exoplayer2.ExoPlayer
@@ -47,7 +46,8 @@ class StoryView : ConstraintLayout {
     private var stories: ArrayList<ChilliStoryModel> = arrayListOf()
 
     private var timer: CountDownTimer? = null
-    private var listener: StoryListener? = null
+    private var onMoveListener: StoryMoveListener? = null
+    private var onFinishListener: StoryOnFinishListener? = null
 
     private var progressBars: ArrayList<ProgressBar> = arrayListOf()
     private var exoPlayer: ExoPlayer? = null
@@ -88,7 +88,7 @@ class StoryView : ConstraintLayout {
     //region playing content
     @SuppressLint("ClickableViewAccessibility")
     private fun playNext(storyModel: ChilliStoryModel) {
-        listener?.onStart(currentStoryIndex)
+        onMoveListener?.onStart(currentStoryIndex)
         resetTimer()
         timeRemaining = 0
         currentStory = storyModel
@@ -271,16 +271,24 @@ class StoryView : ConstraintLayout {
 
     fun setupStories(
         stories: ArrayList<ChilliStoryModel> = arrayListOf(),
-        listener: StoryListener? = null
+        moveListener: StoryMoveListener? = null,
+        finishListener: StoryOnFinishListener? = null
     ) {
         this.stories = stories
-        this.listener = listener
+        this.onMoveListener = moveListener
+        this.onFinishListener = finishListener
 
         with(binding) {
             progressBarsContainer.removeAllViews()
             progressBars.clear()
-            closeButton.setOnClickListener { listener?.onClose() }
-            additionalButton.setOnClickListener { listener?.onClose() }
+            closeButton.setOnClickListener {
+                moveListener?.onClose()
+                onFinishListener?.onStoryClose()
+            }
+            additionalButton.setOnClickListener {
+                moveListener?.onClose()
+                onFinishListener?.onStoryClose()
+            }
         }
 
         currentStoryIndex = stories.indexOfFirst { it.isViewed != true }.let {
@@ -308,7 +316,7 @@ class StoryView : ConstraintLayout {
         binding.progressBarsContainer.visible()
 
         if (this.stories.isNotEmpty()) {
-            listener?.onStart(currentStoryIndex)
+            onMoveListener?.onStart(currentStoryIndex)
             playNext(this.stories[currentStoryIndex])
         }
     }
@@ -316,12 +324,13 @@ class StoryView : ConstraintLayout {
 
     private fun moveToNextSegment() {
         if (currentStoryIndex < this.stories.size - 1) {
-            listener?.onFinished(currentStoryIndex)
+            onMoveListener?.onFinished(currentStoryIndex)
             this.progressBars[currentStoryIndex].progress = 1000
             currentStoryIndex++
             playNext(this.stories[currentStoryIndex])
         } else {
-            listener?.onAllStoriesCompleted()
+            onMoveListener?.onAllStoriesCompleted()
+            onFinishListener?.onAllStoriesFinished()
         }
     }
 
@@ -338,7 +347,8 @@ class StoryView : ConstraintLayout {
             .translationY(0f)
             .setDuration(200)
             .withEndAction {
-                listener?.onClose()
+                onMoveListener?.onClose()
+                onFinishListener?.onStoryClose()
             }.start()
     }
 
@@ -351,12 +361,13 @@ class StoryView : ConstraintLayout {
         ) {
         override fun onFinish() {
             if (currentStoryIndex < stories.size - 1) {
-                listener?.onFinished(currentStoryIndex)
+                onMoveListener?.onFinished(currentStoryIndex)
                 currentStoryIndex++
                 playNext(stories[currentStoryIndex])
             } else {
                 resetTimer()
-                listener?.onAllStoriesCompleted()
+                onMoveListener?.onAllStoriesCompleted()
+                onFinishListener?.onAllStoriesFinished()
                 isAllStoriesFinished = true
             }
         }
@@ -474,9 +485,14 @@ class StoryView : ConstraintLayout {
     }
 }
 
-interface StoryListener {
+interface StoryMoveListener {
     fun onAllStoriesCompleted()
     fun onClose()
     fun onFinished(index: Int)
     fun onStart(index: Int)
+}
+
+interface StoryOnFinishListener {
+    fun onAllStoriesFinished()
+    fun onStoryClose()
 }

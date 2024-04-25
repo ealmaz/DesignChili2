@@ -1,15 +1,17 @@
 package com.design2.app
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.design2.app.databinding.ActivityStoryBinding
 import com.design2.chili2.view.stories.ChilliButtonType
 import com.design2.chili2.view.stories.ChilliStoryBlock
-import com.design2.chili2.view.stories.StoryListener
 import com.design2.chili2.view.stories.ChilliStoryModel
 import com.design2.chili2.view.stories.ChilliStoryType
+import com.design2.chili2.view.stories.StoryMoveListener
+import com.design2.chili2.view.stories.StoryOnFinishListener
 
-class StoryActivity : AppCompatActivity(), StoryListener {
+class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListener {
 
     private lateinit var binding: ActivityStoryBinding
 
@@ -59,7 +61,7 @@ class StoryActivity : AppCompatActivity(), StoryListener {
     }
 
     private fun setupViews() {
-        binding.storiesView.setupStories(listOf(storyBlock1, storyBlock2, storyBlock3, storyBlock4), this, this)
+        binding.storiesView.setupStories(listOf(storyBlock1, storyBlock2, storyBlock3, storyBlock4), this, this, this)
     }
 
     private fun finishWithAnimation() {
@@ -69,17 +71,29 @@ class StoryActivity : AppCompatActivity(), StoryListener {
 
     override fun onAllStoriesCompleted() {
         binding.storiesView.moveToNextPage { finishWithAnimation() }
+        Log.d("ChilliStories", "AllStoriesCompleted")
     }
 
     override fun onClose() {
         finishWithAnimation()
+        Log.d("ChilliStories", "AllStoriesClose")
     }
 
     override fun onFinished(index: Int) {
+        Log.d("ChilliStories", "onFinish $index")
         // Remember lastFinished story
     }
 
     override fun onStart(index: Int) {
+        Log.d("ChilliStories", "onStart $index")
         // Remember lastStarted story
+    }
+
+    override fun onAllStoriesFinished() {
+        Log.d("ChilliStories", "AllStoriesFinished")
+    }
+
+    override fun onStoryClose() {
+        Log.d("ChilliStories", "onStoryClose")
     }
 }
