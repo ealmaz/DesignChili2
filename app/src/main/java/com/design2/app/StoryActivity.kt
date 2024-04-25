@@ -71,29 +71,23 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
 
     override fun onAllStoriesCompleted() {
         binding.storiesView.moveToNextPage { finishWithAnimation() }
-        Log.d("ChilliStories", "AllStoriesCompleted")
     }
 
     override fun onClose() {
         finishWithAnimation()
-        Log.d("ChilliStories", "AllStoriesClose")
     }
 
     override fun onFinished(index: Int) {
-        Log.d("ChilliStories", "onFinish $index")
         // Remember lastFinished story
     }
 
     override fun onStart(index: Int) {
-        Log.d("ChilliStories", "onStart $index")
         // Remember lastStarted story
     }
 
     override fun onAllStoriesFinished() {
-        Log.d("ChilliStories", "AllStoriesFinished")
     }
 
     override fun onStoryClose() {
-        Log.d("ChilliStories", "onStoryClose")
     }
 }
