@@ -40,7 +40,7 @@ class ChilliStoriesView : ConstraintLayout {
         binding = ChiliViewStoriesBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    fun setupStories(list: List<ChilliStoryBlock>, fragmentActivity: FragmentActivity, listener: StoryListener) {
+    fun setupStories(list: List<ChilliStoryBlock>, fragmentActivity: FragmentActivity, onMoveListener: StoryMoveListener, onFinishListener: StoryOnFinishListener) {
         viewPager = binding.viewPager.apply {
             setPageTransformer(ChiliStoryPageTransformer())
             offscreenPageLimit = 3
@@ -48,7 +48,7 @@ class ChilliStoriesView : ConstraintLayout {
 
         storyViewPagerAdapter = ChilliStoryPagerAdapter(fragmentActivity)
 
-        storyViewPagerAdapter?.createViewPager(stories = list, listener)
+        storyViewPagerAdapter?.createViewPager(stories = list, onMoveListener, onFinishListener)
 
         viewPager?.adapter = storyViewPagerAdapter
     }
