@@ -5,6 +5,7 @@ import android.animation.Animator
 import android.animation.Animator.AnimatorListener
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.os.CountDownTimer
 import android.util.AttributeSet
 import android.view.GestureDetector
@@ -16,10 +17,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.isVisible
 import com.airbnb.lottie.LottieDrawable
+import com.bumptech.glide.request.RequestOptions
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoryBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setImageByUrlWithListener
 import com.design2.chili2.extensions.visible
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
@@ -91,22 +94,27 @@ class StoryView : ConstraintLayout {
 
         with(binding) {
             if (storyModel.title != null) {
-                storyTitleView.visible()
-                storyTitleView.text = storyModel.title
+                storyTitleView.apply {
+                    visible()
+                    text = storyModel.title
+                    storyModel.titleTextColor?.let {
+                        val titleColor = Color.parseColor(it)
+                        setTextColor(titleColor)
+                    }
+                }
             } else storyTitleView.gone()
 
             if (storyModel.description != null) {
-                storySubtitleView.visible()
-                storySubtitleView.text = storyModel.description
+                storySubtitleView.apply {
+                    visible()
+                    text = storyModel.description
+                    storyModel.subtitleTextColor?.let {
+                        val subTitleColor = Color.parseColor(it)
+                        setTextColor(subTitleColor)
+                    }
+                }
             } else storySubtitleView.gone()
 
-            if (storyModel.buttonText != null) {
-                additionalButton.apply {
-                    visible()
-                    text = storyModel.buttonText
-
-                }
-            }
             setupButton(storyModel)
 
             touchableView.setOnTouchListener { _, event ->
@@ -171,10 +179,19 @@ class StoryView : ConstraintLayout {
     }
 
     private fun loadImage() {
-        binding.storyImageView.apply {
-            visible()
-            setImageByUrl(currentStory?.mediaUrl)
+        with(binding) {
+            progressCircular.visible()
+            storyImageView.apply {
+                visible()
+                setImageByUrlWithListener(
+                    currentStory?.mediaUrl,
+                    { progressCircular.gone() },
+                    { progressCircular.gone() },
+                    RequestOptions()
+                )
+            }
         }
+
         startTimer()
     }
 
