@@ -88,6 +88,7 @@ class StoryView : ConstraintLayout {
     //region playing content
     @SuppressLint("ClickableViewAccessibility")
     private fun playNext(storyModel: ChilliStoryModel) {
+        listener?.onStart(currentStoryIndex)
         resetTimer()
         timeRemaining = 0
         currentStory = storyModel
@@ -315,6 +316,7 @@ class StoryView : ConstraintLayout {
 
     private fun moveToNextSegment() {
         if (currentStoryIndex < this.stories.size - 1) {
+            listener?.onFinished(currentStoryIndex)
             this.progressBars[currentStoryIndex].progress = 1000
             currentStoryIndex++
             playNext(this.stories[currentStoryIndex])
