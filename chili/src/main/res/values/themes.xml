@@ -104,7 +104,7 @@
 
         <!-- Toolbar -->
         <item name="ChiliToolbarAdditionalTextTextAppearance">@style/Chili.H8.Secondary</item>
-        <item name="ChiliToolbarTextAppearance">@style/Chili.H5.Marked.Bold</item>
+        <item name="ChiliToolbarTextAppearance">@style/Chili.H7.Marked.Bold</item>
         <item name="ChiliToolbarDividerColor">@color/gray_8</item>
         <item name="ChiliToolbarDividerSize">@dimen/view_1dp</item>
         <item name="ChiliToolbarIconsTint">@color/black_1</item>
