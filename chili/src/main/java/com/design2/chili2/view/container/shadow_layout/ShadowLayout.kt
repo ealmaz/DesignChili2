@@ -509,6 +509,16 @@ class ShadowLayout : LinearLayout {
         invalidate()
     }
 
+    fun updateShadowType(isFirst: Boolean, isLast: Boolean) {
+        val shadowType = when {
+            isFirst && isLast -> ShadowType.SINGLE
+            isFirst -> ShadowType.TOP
+            isLast -> ShadowType.BOTTOM
+            else -> ShadowType.MIDDLE
+        }
+        updateShadowType(shadowType)
+    }
+
     override fun setAlpha(alpha: Float) {
 
         if (!isInit)
