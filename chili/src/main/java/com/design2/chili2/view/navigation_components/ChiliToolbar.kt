@@ -7,10 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewToolbarBinding
@@ -75,8 +77,15 @@ class ChiliToolbar : LinearLayout {
             getBoolean(R.styleable.ChiliToolbar_titleCentered, false).let {
                 setIsTitleCentered(it)
             }
+            getColor(R.styleable.ChiliToolbar_titleColor, -1).takeIf { it != -1}?.let {
+                setTitleColor(it)
+            }
             recycle()
         }
+    }
+
+    fun setTitleColor(@ColorInt colorRes:Int) {
+        vb.toolbarView.setTitleTextColor(colorRes)
     }
 
     fun initToolbar(config: Configuration) {
