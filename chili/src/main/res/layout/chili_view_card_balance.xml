@@ -61,8 +61,6 @@
         android:layout_width="@dimen/view_32dp"
         android:layout_height="@dimen/view_32dp"
         android:src="@drawable/chili_ic_chevron"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/tv_title"
         app:layout_constraintStart_toEndOf="@id/tv_title"
         app:layout_constraintTop_toTopOf="@id/tv_title" />
