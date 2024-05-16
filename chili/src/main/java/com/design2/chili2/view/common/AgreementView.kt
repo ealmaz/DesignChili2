@@ -61,6 +61,10 @@ class AgreementView @JvmOverloads constructor(
         }
     }
 
+    fun setIsEnabled(isEnabled: Boolean) {
+        vb.cbAgreement.isEnabled = isEnabled
+    }
+
     fun hideCheckbox() {
         vb.cbAgreement.gone()
         vb.ivChecked.gone()
