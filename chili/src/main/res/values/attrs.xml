@@ -546,7 +546,7 @@
         <attr name="src" format="string" />
         <attr name="type" format="enum">
             <enum name="image_url" value="0"/>
-            <enum name="lottie_json" value="1"/>
+            <enum name="lottie_url" value="1"/>
         </attr>
         <attr name="android:scaleType"/>
         <attr name="cornerRadius" format="dimension" />

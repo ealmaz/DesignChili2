@@ -11,6 +11,7 @@ import android.widget.ImageView.ScaleType
 import com.airbnb.lottie.LottieAnimationView
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewMediaBinding
+import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.util.AnimationData
 import com.design2.chili2.util.MediaType
@@ -29,7 +30,7 @@ class MediaView @JvmOverloads constructor(
     val styleableAttrRes: IntArray = R.styleable.MediaView
     private var image: ImageView? = null
 
-    private var cornerRadius: Float = 12f
+    private var cornerRadius: Float = 12.dpF
     private val path = Path()
 
     init {
