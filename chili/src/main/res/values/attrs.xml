@@ -543,7 +543,7 @@
     </declare-styleable>
 
     <declare-styleable name="MediaView">
-        <attr name="src" format="string" />
+        <attr name="mediaSrc" format="string" />
         <attr name="type" format="enum">
             <enum name="image_url" value="0"/>
             <enum name="lottie_url" value="1"/>

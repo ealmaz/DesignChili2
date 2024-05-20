@@ -49,7 +49,7 @@ class MediaView @JvmOverloads constructor(
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         context.obtainStyledAttributes(attrs, R.styleable.MediaView, defStyleAttr, defStyleRes).run {
             getInteger(R.styleable.MediaView_type, -1).takeIf { it != -1 }?.let {
-                setMedia(getString(R.styleable.MediaView_src), it)
+                setMedia(getString(R.styleable.MediaView_mediaSrc), it)
             }
             getInteger(R.styleable.MediaView_android_scaleType, ScaleType.FIT_CENTER.ordinal).let {
                 setScaleType(it)
