@@ -84,7 +84,7 @@ class MediaView @JvmOverloads constructor(
     fun setMedia(src: String?, type: Int) {
         image = when (type) {
             MediaType.IMAGE_URL.value -> createImageView(src)
-            MediaType.LOTTIE_JSON.value -> createLottieView(src)
+            MediaType.LOTTIE_URL.value -> createLottieView(src)
             else -> null
         }
     }

@@ -1,10 +1,8 @@
 package com.design2.chili2.util
 
 import android.animation.Animator
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Handler
-import android.os.HandlerThread
 import android.os.Looper
 import androidx.annotation.RawRes
 import com.airbnb.lottie.LottieAnimationView
@@ -70,7 +68,6 @@ class LottieAnimationHandler(private val animationView: LottieAnimationView) {
         }
     }
 
-    @SuppressLint("RestrictedApi")
     private fun setUrlLottieAnimation(lottieString: String, mRepeatCount: Int) {
         val weakContext: WeakReference<Context> = WeakReference(animationView.context)
         Thread {
