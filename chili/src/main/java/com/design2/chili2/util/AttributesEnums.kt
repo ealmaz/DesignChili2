@@ -28,3 +28,7 @@ fun Int.toHighlighterStateEnum(): HighlighterState? {
         else -> null
     }
 }
+
+enum class MediaType(val value: Int) {
+    IMAGE_URL(0), LOTTIE_URL(1)
+}

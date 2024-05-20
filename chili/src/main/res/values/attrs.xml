@@ -48,6 +48,7 @@
         <attr name="bankCardViewDefaultStyle" format="reference"/>
         <attr name="singleSelectedCardViewDefaultStyle" format="reference" />
         <attr name="promoBannerCardViewDefaultStyle" format="reference"/>
+        <attr name="chiliImageViewDefaultStyle" format="reference"/>
 
 
         <!-- PassportCardCameraOverlay -->
@@ -539,6 +540,16 @@
 
     <declare-styleable name="AutoScrollImageCarouselView">
         <attr name="delay" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MediaView">
+        <attr name="src" format="string" />
+        <attr name="type" format="enum">
+            <enum name="image_url" value="0"/>
+            <enum name="lottie_url" value="1"/>
+        </attr>
+        <attr name="android:scaleType"/>
+        <attr name="cornerRadius" format="dimension" />
     </declare-styleable>
 
 </resources>
