@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Path
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
@@ -98,7 +99,7 @@ class MediaView @JvmOverloads constructor(
         ImageView(context).apply {
             layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
             setImageByUrl(src)
-        }.also(vb.root::addView)
+        }.also(::addMediaView)
 
     private fun createLottieView(src: String?) =
         LottieAnimationView(context).apply {
@@ -106,11 +107,16 @@ class MediaView @JvmOverloads constructor(
             setCacheComposition(true)
             enableMergePathsForKitKatAndAbove(true)
         }
-            .also(vb.root::addView)
+            .also(::addMediaView)
             .also { createLottieHandler(it, src) }
 
-    private fun setScaleType(scaleType: Int) {
+    fun setScaleType(scaleType: Int) {
         image?.scaleType = ImageView.ScaleType.values()[scaleType]
+    }
+
+    private fun addMediaView(view: View) = with(vb.root) {
+        removeAllViews()
+        addView(view)
     }
 
     override fun onDetachedFromWindow() {
