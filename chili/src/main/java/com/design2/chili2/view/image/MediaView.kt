@@ -55,6 +55,9 @@ class MediaView @JvmOverloads constructor(
             getInteger(R.styleable.MediaView_android_scaleType, ScaleType.FIT_CENTER.ordinal).let {
                 setScaleType(it)
             }
+            getBoolean(R.styleable.MediaView_android_adjustViewBounds, false).let {
+                setAdjustViewBounds(it)
+            }
             getDimension(R.styleable.MediaView_cornerRadius, cornerRadius).let {
                 setCornerRadius(it)
             }
@@ -110,13 +113,21 @@ class MediaView @JvmOverloads constructor(
             .also(::addMediaView)
             .also { createLottieHandler(it, src) }
 
+    private fun addMediaView(view: View) = with(vb.root) {
+        removeAllViews()
+        addView(view)
+    }
+
     fun setScaleType(scaleType: Int) {
         image?.scaleType = ImageView.ScaleType.values()[scaleType]
     }
 
-    private fun addMediaView(view: View) = with(vb.root) {
-        removeAllViews()
-        addView(view)
+    fun setAdjustViewBounds(isAdjusted: Boolean) {
+        image?.adjustViewBounds = isAdjusted
+    }
+
+    override fun setOnClickListener(listener: OnClickListener?) {
+        vb.root.setOnClickListener(listener)
     }
 
     override fun onDetachedFromWindow() {

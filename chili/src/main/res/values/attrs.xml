@@ -549,6 +549,7 @@
             <enum name="lottie_url" value="1"/>
         </attr>
         <attr name="android:scaleType"/>
+        <attr name="android:adjustViewBounds"/>
         <attr name="cornerRadius" format="dimension" />
     </declare-styleable>
 
