@@ -3,9 +3,9 @@ package com.design2.chili2.view.common
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.Button
 import android.widget.LinearLayout
 import androidx.annotation.StringRes
+import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewAdditionalDoubleButtonsBinding
 
@@ -63,5 +63,14 @@ class AdditionalDoubleButtonsView @JvmOverloads constructor(
         vb.btnFirst.isEnabled = isEnabled
         vb.btnSecond.isEnabled = isEnabled
     }
+
+    fun setIsFirstButtonVisible(isVisible: Boolean) {
+        vb.btnFirst.isVisible = isVisible
+    }
+
+    fun setIsSecondButtonVisible(isVisible: Boolean) {
+        vb.btnSecond.isVisible = isVisible
+    }
+
 
 }
