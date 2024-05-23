@@ -289,6 +289,10 @@ class StoryView : ConstraintLayout {
                 moveListener?.onClose()
                 onFinishListener?.onStoryClose()
             }
+            secondaryButton.setOnClickListener {
+                moveListener?.onClose()
+                onFinishListener?.onStoryClose()
+            }
         }
 
         currentStoryIndex = stories.indexOfFirst { it.isViewed != true }.let {
