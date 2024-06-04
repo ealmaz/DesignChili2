@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'maven-publish'
-    id 'org.jetbrains.dokka'
 }
 
 android {
@@ -74,10 +73,6 @@ task sourcesJar(type: Jar) {
     archiveClassifier.set('sources')
 }
 
-task javadocJar(type: Jar) {
-    from tasks.dokkaHtml // Dokka generates Javadocs for Kotlin
-    archiveClassifier.set('javadoc')
-}
 
 publishing {
     publications {
@@ -87,7 +82,6 @@ publishing {
             version = "2.0.0"
 
             artifact(sourcesJar)
-            artifact(javadocJar)
 
             afterEvaluate {
                 from components.release
