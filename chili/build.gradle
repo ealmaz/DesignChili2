@@ -40,15 +40,6 @@ android {
             }
         }
     }
-
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
-
 }
 
 dependencies {
@@ -68,21 +59,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
 
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    archiveClassifier.set('sources')
-}
-
-
-publishing {
-    publications {
-        release(MavenPublication) {
-            groupId = "com.design"
-            artifactId = "chili"
-            version = "2.0.0"
-
-            afterEvaluate {
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
                 from components.release
+                groupId = "com.design"
+                artifactId = "chili"
+                version = "2.0.0"
             }
         }
     }
