@@ -1,6 +1,7 @@
 package com.design2.chili2.view.modals.bottom_sheet_constructor
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -157,6 +158,12 @@ class ConfigurableBottomSheetFragment(val config: BottomSheetConfig) : BottomShe
         vb.bottomSheetView.removeAllViews()
         vb.bottomSheetPinnedView.removeAllViews()
     }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        config.onDismissCallback?.invoke()
+    }
+
 }
 
 enum class ContainerType {
