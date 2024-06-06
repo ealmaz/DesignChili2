@@ -93,7 +93,10 @@ class ConfigurableBottomSheetFragment(val config: BottomSheetConfig) : BottomShe
             when (config.implementCloseIcon) {
                 true -> {
                     visible()
-                    setOnSingleClickListener { dismiss() }
+                    setOnSingleClickListener {
+                        config.onCloseBtnClick?.invoke()
+                        dismiss()
+                    }
                 }
                 else -> gone()
             }

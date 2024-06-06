@@ -53,6 +53,7 @@ data class BottomSheetConfig(
     val isTopDrawableVisible: Boolean = false,
     val implementCloseIcon: Boolean = true,
     val onDismissCallback: (() -> Unit)? = null,
+    val onCloseBtnClick: (() -> Unit)? = null,
     var state: Int = BottomSheetBehavior.STATE_EXPANDED
 )
 
