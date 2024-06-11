@@ -21,16 +21,15 @@ import com.design2.chili2.util.LottieAnimationHandler
 class MediaView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.chiliImageViewDefaultStyle,
+    defStyleAttr: Int = R.attr.chiliMediaViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_MediaViewStyle
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     private lateinit var vb: ChiliViewMediaBinding
 
-    var lottieAnimationHandler: LottieAnimationHandler? = null
-    val styleableAttrRes: IntArray = R.styleable.MediaView
+    private var lottieAnimationHandler: LottieAnimationHandler? = null
     private var image: ImageView? = null
-
+    private var imageSize: Pair<Int, Int> = Pair(0, 0)
     private var cornerRadius: Float = 12.dpF
     private val path = Path()
 
@@ -49,6 +48,12 @@ class MediaView @JvmOverloads constructor(
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         context.obtainStyledAttributes(attrs, R.styleable.MediaView, defStyleAttr, defStyleRes).run {
+            getLayoutDimension(R.styleable.MediaView_android_layout_width, 0).let {
+                imageSize = it to imageSize.second
+            }
+            getLayoutDimension(R.styleable.MediaView_android_layout_height, 0).let {
+                imageSize = imageSize.first to it
+            }
             getInteger(R.styleable.MediaView_type, -1).takeIf { it != -1 }?.let {
                 setMedia(getString(R.styleable.MediaView_mediaSrc), it)
             }
@@ -101,7 +106,7 @@ class MediaView @JvmOverloads constructor(
     private fun createImageView(src: String?) =
         ImageView(context).apply {
             layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-            setImageByUrl(src)
+            setImageByUrl(src, imageSize.first, imageSize.second)
         }.also(::addMediaView)
 
     private fun createLottieView(src: String?) =
