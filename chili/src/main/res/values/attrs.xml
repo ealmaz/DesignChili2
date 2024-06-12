@@ -48,7 +48,7 @@
         <attr name="bankCardViewDefaultStyle" format="reference"/>
         <attr name="singleSelectedCardViewDefaultStyle" format="reference" />
         <attr name="promoBannerCardViewDefaultStyle" format="reference"/>
-        <attr name="chiliMediaViewDefaultStyle" format="reference"/>
+        <attr name="mediaViewDefaultStyle" format="reference"/>
 
 
         <!-- PassportCardCameraOverlay -->

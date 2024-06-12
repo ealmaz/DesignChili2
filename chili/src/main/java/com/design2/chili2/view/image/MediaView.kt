@@ -21,7 +21,7 @@ import com.design2.chili2.util.LottieAnimationHandler
 class MediaView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.chiliMediaViewDefaultStyle,
+    defStyleAttr: Int = R.attr.mediaViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_MediaViewStyle
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
