@@ -48,7 +48,7 @@
         <attr name="bankCardViewDefaultStyle" format="reference"/>
         <attr name="singleSelectedCardViewDefaultStyle" format="reference" />
         <attr name="promoBannerCardViewDefaultStyle" format="reference"/>
-        <attr name="chiliImageViewDefaultStyle" format="reference"/>
+        <attr name="mediaViewDefaultStyle" format="reference"/>
 
 
         <!-- PassportCardCameraOverlay -->
@@ -550,6 +550,8 @@
         </attr>
         <attr name="android:scaleType"/>
         <attr name="android:adjustViewBounds"/>
+        <attr name="android:layout_width"/>
+        <attr name="android:layout_height"/>
         <attr name="cornerRadius" format="dimension" />
     </declare-styleable>
 
