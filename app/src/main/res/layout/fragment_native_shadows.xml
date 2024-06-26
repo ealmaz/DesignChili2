@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?ChiliSurfaceBackground">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:background="@color/gray_2"
+        android:scaleType="fitXY"
+        android:src="@drawable/top_background" />
+
+    <LinearLayout
+        android:id="@+id/main_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <com.design2.chili2.view.navigation_components.ChiliToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:background="@android:color/transparent"
+            app:isDividerVisible="false"
+            app:navigationIcon="@null"
+            app:title="+996 000 000 000"
+            app:titleCentered="true" />
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <HorizontalScrollView
+                        android:id="@+id/hsv_balances"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:scrollbars="none"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:orientation="horizontal"
+                            android:paddingVertical="@dimen/padding_16dp"
+                            android:paddingStart="@dimen/padding_16dp"
+                            android:paddingEnd="@dimen/padding_16dp">
+
+                            <com.design2.chili2.view.card.BalanceCardView
+                                android:id="@+id/bcv_balance"
+                                android:layout_width="142dp"
+                                android:layout_height="@dimen/view_72dp"
+                                android:layout_marginEnd="@dimen/padding_8dp"
+                                app:title="Баланс номера"
+                                app:value="0,00 c" />
+
+                            <com.design2.chili2.view.card.BalanceCardView
+                                android:id="@+id/bcv_wallet"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/view_72dp"
+                                android:layout_marginEnd="@dimen/padding_8dp"
+                                app:title="Кошелек"
+                                app:value="0,00 c" />
+
+                            <com.design2.chili2.view.card.BalanceCardView
+                                android:id="@+id/bcv_elcart"
+                                android:layout_width="142dp"
+                                android:layout_height="@dimen/view_72dp"
+                                android:layout_marginEnd="@dimen/padding_8dp"
+                                app:title="ЭЛКАП"
+                                app:titleIcon="@drawable/ic_elcart_title_logo"
+                                app:value="0,00 c" />
+
+                            <com.design2.chili2.view.card.BalanceCardView
+                                android:id="@+id/bcv_cards"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/view_72dp"
+                                android:layout_marginEnd="@dimen/padding_8dp"
+                                app:icon="@drawable/chili_ic_bank_cards"
+                                app:title="Карты" />
+
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?ChiliSurfaceBackground"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/padding_16dp">
+
+                        <com.design2.chili2.view.cells.StatusMarkerCellView
+                            android:id="@+id/credit_repayment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:icon="@drawable/ic_wallet_credit"
+                            app:isDividerVisible="false"
+                            app:roundedCornerMode="single"
+                            android:layout_marginHorizontal="@dimen/padding_16dp"
+                            android:layout_marginBottom="@dimen/padding_16dp"
+                            app:subtitle="Быстрые кредиты"
+                            app:title="Акча Булак" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/padding_16dp"
+                            app:cardCornerRadius="@dimen/padding_12dp"
+                            app:cardElevation="@dimen/elevation_4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <com.design2.chili2.view.cells.AdditionalTextCellView
+                                    android:id="@+id/bonuses"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:icon="@drawable/ic_bonus_rounded"
+                                    app:cellIconSize="32dp"
+                                    android:elevation="@dimen/elevation_0dp"
+                                    app:roundedCornerMode="top"
+                                    app:title="Бонусы" />
+
+                                <com.design2.chili2.view.cells.EndIconCellView
+                                    android:id="@+id/my_services"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:icon="@drawable/ic_my_services_32_dp"
+                                    app:isChevronVisible="true"
+                                    android:elevation="@dimen/elevation_0dp"
+                                    app:isDividerVisible="true"
+                                    app:roundedCornerMode="middle"
+                                    app:title="Мои сервисы" />
+
+                                <com.design2.chili2.view.cells.EndIconCellView
+                                    android:id="@+id/alga_travel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:icon="@drawable/ic_alga_travel"
+                                    android:elevation="@dimen/elevation_0dp"
+                                    app:isChevronVisible="true"
+                                    app:isDividerVisible="false"
+                                    app:roundedCornerMode="bottom"
+                                    app:title="ALGA Travel" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/padding_16dp"
+                            android:layout_marginTop="@dimen/padding_16dp"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <com.design2.chili2.view.card.CategoryCardView
+                                android:id="@+id/my_qr"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/padding_16dp"
+                                android:layout_weight="1.2"
+                                android:foreground="?attr/selectableItemBackground"
+                                app:icon="@drawable/ic_my_qr"
+                                app:title="Мой QR" />
+
+                            <com.design2.chili2.view.card.CategoryCardView
+                                android:id="@+id/scanner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.8"
+                                android:foreground="?attr/selectableItemBackground"
+                                app:icon="@drawable/ic_my_qr"
+                                app:title="Сканнер" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_navigator"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/btn_search"
+                                style="@style/Chili.H7.Secondary"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/padding_16dp"
+                                android:layout_marginTop="@dimen/padding_16dp"
+                                android:background="@drawable/card_view_border_gray_5_black_3"
+                                android:drawablePadding="@dimen/padding_8dp"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/padding_12dp"
+                                android:text="Поиск по каталогу"
+                                android:textAllCaps="false"
+                                android:textColor="@color/gray_1"
+                                app:drawableStartCompat="@drawable/chili_ic_search" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="@dimen/padding_16dp"
+                                android:layout_marginTop="@dimen/padding_16dp"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <com.design2.chili2.view.card.CategoryCardView
+                                    android:id="@+id/transfers_catalog"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="@dimen/padding_16dp"
+                                    android:layout_weight="1.8"
+                                    android:foreground="?attr/selectableItemBackground"
+                                    app:icon="@drawable/ic_transfers"
+                                    app:title="Переводы" />
+
+                                <com.design2.chili2.view.card.CategoryCardView
+                                    android:id="@+id/payment_catalog"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1.2"
+                                    android:foreground="?attr/selectableItemBackground"
+                                    app:icon="@drawable/ic_payment"
+                                    app:title="Оплата" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <com.design2.chili2.view.container.ExpandableContainer
+                            android:id="@+id/history_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_16dp"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            app:actionText="История"
+                            app:isNeedToSaveExpandedState="true"
+                            app:title="Последние платежи"/>
+
+                            <LinearLayout
+                                android:id="@+id/rv_history"
+                                android:paddingTop="3dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <com.design2.chili2.view.cells.DetailCellView
+                                    android:id="@+id/shimmer_1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/view_80dp"
+                                    android:elevation="@dimen/elevation_4dp"
+                                    android:layout_marginHorizontal="@dimen/padding_16dp"
+                                    android:layout_marginTop="@dimen/padding_12dp"
+                                    android:layout_marginBottom="@dimen/padding_16dp" />
+
+                                <com.design2.chili2.view.cells.DetailCellView
+                                    android:id="@+id/shimmer_2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/view_80dp"
+                                    android:elevation="@dimen/elevation_4dp"
+                                    android:layout_marginHorizontal="@dimen/padding_16dp"
+                                    android:layout_marginTop="@dimen/padding_12dp"
+                                    android:layout_marginBottom="@dimen/padding_16dp" />
+
+                                <com.design2.chili2.view.cells.DetailCellView
+                                    android:id="@+id/shimmer_3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/view_80dp"
+                                    android:elevation="@dimen/elevation_4dp"
+                                    android:layout_marginHorizontal="@dimen/padding_16dp"
+                                    android:layout_marginTop="@dimen/padding_12dp"
+                                    android:layout_marginBottom="@dimen/padding_16dp" />
+
+                            </LinearLayout>
+
+                        <com.design2.chili2.view.container.ExpandableContainer
+                            android:id="@+id/bonus_cards_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_16dp"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            app:endIcon="@drawable/chili_ic_magenta_plus"
+                            app:subtitle=""
+                            app:title="Бонусные карты"
+                            app:isNeedToSaveExpandedState="true"
+                            tools:actionText="Все"/>
+
+                            <LinearLayout
+                                android:id="@+id/bonus_cards_rv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="@dimen/padding_16dp"
+                                android:paddingVertical="@dimen/padding_10dp"
+                                android:paddingHorizontal="@dimen/padding_8dp">
+
+                                <com.design2.chili2.view.card.IconHolderCardItemView
+                                    android:id="@+id/shimmer_11"
+                                    android:layout_width="124dp"
+                                    android:layout_height="@dimen/view_96dp"
+                                    android:layout_marginStart="@dimen/padding_16dp"
+                                    android:layout_marginTop="@dimen/padding_8dp"
+                                    android:layout_marginBottom="@dimen/padding_16dp" />
+
+                                <com.design2.chili2.view.card.IconHolderCardItemView
+                                    android:id="@+id/shimmer_12"
+                                    android:layout_width="124dp"
+                                    android:layout_height="@dimen/view_96dp"
+                                    android:layout_marginStart="@dimen/padding_16dp"
+                                    android:layout_marginTop="@dimen/padding_8dp"
+                                    android:layout_marginBottom="@dimen/padding_16dp" />
+
+                                <com.design2.chili2.view.card.IconHolderCardItemView
+                                    android:id="@+id/shimmer_13"
+                                    android:layout_width="124dp"
+                                    android:layout_height="@dimen/view_96dp"
+                                    android:layout_marginStart="@dimen/padding_16dp"
+                                    android:layout_marginTop="@dimen/padding_8dp"
+                                    android:layout_marginBottom="@dimen/padding_16dp" />
+
+                            </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</FrameLayout>

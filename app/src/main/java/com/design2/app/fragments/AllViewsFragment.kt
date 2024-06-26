@@ -12,6 +12,10 @@ class AllViewsFragment : BaseFragment<FragmentAllViewsBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        vb.mainShadow.setOnClickListener {
+            openFragment(NativeShadowsFragment())
+        }
         vb.text.setOnClickListener {
             openFragment(TextAppearancesFragment())
         }
