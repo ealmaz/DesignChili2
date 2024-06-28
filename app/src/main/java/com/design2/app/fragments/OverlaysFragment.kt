@@ -30,7 +30,9 @@ class OverlaysFragment : BaseFragment<FragmentOverlaysBinding>() {
         vb.btnRectngle.setOnClickListener {
             (requireContext() as MainActivity).openFragment(
                 OverlayFragment(
-                    RectangleOverlay(requireContext())
+                    RectangleOverlay(requireContext()).apply {
+                        setDescription("Поместите лицо и паспорт в рамку и сделайте фоeeто")
+                    }
                 ))
         }
     }

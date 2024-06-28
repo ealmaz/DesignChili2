@@ -19,11 +19,19 @@ class RectangleOverlay @JvmOverloads constructor(
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
     }
 
+    private var description: String? = null
+
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         context.obtainStyledAttributes(attrs, R.styleable.RectangleOverlay, defStyleAttr, defStyleRes).run {
             overlayAlpha = getInteger(R.styleable.RectangleOverlay_overlayAlpha, 77)
+            description = getString(R.styleable.PassportCardOverlay_description)
             recycle()
         }
+    }
+
+    fun setDescription(text: String) {
+        description = text
+        invalidate()
     }
 
     fun setOverlayAlpha(alpha: Int) {
@@ -33,12 +41,25 @@ class RectangleOverlay @JvmOverloads constructor(
 
     override fun drawShapes(canvas: Canvas) {
         drawColor(canvas, R.color.black_1, overlayAlpha)
-        cutPassportCardShape(canvas)
+        val y = cutPassportCardShape(canvas)
+        drawDescription(canvas, y)
+    }
+
+    private fun drawDescription(canvas: Canvas, startY: Float): Float {
+        if (description == null) return startY
+        val startYWithMargin = startY + 24.dp.toFloat()
+        return drawText(
+            canvas,
+            description ?: "",
+            (width / 2).toFloat(),
+            startYWithMargin,
+            TextConfig(16.dp.toFloat())
+        )
     }
 
     private fun cutPassportCardShape(canvas: Canvas): Float {
         val startYWithMargin = 72.dp.toFloat()
-        val bottomMargin = 120.dp.toFloat()
+        val bottomMargin = if (description == null) 120.dp.toFloat() else 178.dp.toFloat()
         val marginPx = 16.dp
 
         val rectWidth = canvas.width - (2 * marginPx)
