@@ -48,7 +48,7 @@ class Shadow : Effect {
         updatePaint()
     }
 
-    override fun drawEffect(canvas: Canvas?) {
+    override fun drawEffect(canvas: Canvas) {
 
         if (!isEnable)
             return

@@ -202,19 +202,19 @@ class StoryView : ConstraintLayout {
             visible()
             timer = getTimer()
             addAnimatorListener(object : AnimatorListener {
-                override fun onAnimationStart(p0: Animator?) {
+                override fun onAnimationStart(p0: Animator) {
                     timer?.start()
                 }
 
-                override fun onAnimationEnd(p0: Animator?) {
+                override fun onAnimationEnd(p0: Animator) {
                     timer?.cancel()
                 }
 
-                override fun onAnimationCancel(p0: Animator?) {
+                override fun onAnimationCancel(p0: Animator) {
                     timer?.cancel()
                 }
 
-                override fun onAnimationRepeat(p0: Animator?) {}
+                override fun onAnimationRepeat(p0: Animator) {}
             })
 
             repeatCount = LottieDrawable.INFINITE
@@ -444,8 +444,8 @@ class StoryView : ConstraintLayout {
             return true
         }
 
-        override fun onSingleTapUp(e: MotionEvent?): Boolean {
-            e?.let {
+        override fun onSingleTapUp(e: MotionEvent): Boolean {
+            e.let {
                 if (it.x < binding.touchableView.width / 2) {
                     moveToPreviousSegment()
                 } else {
@@ -456,7 +456,7 @@ class StoryView : ConstraintLayout {
         }
 
         override fun onScroll(
-            e1: MotionEvent,
+            e1: MotionEvent?,
             e2: MotionEvent,
             distanceX: Float,
             distanceY: Float
@@ -473,7 +473,7 @@ class StoryView : ConstraintLayout {
             return false
         }
 
-        override fun onLongPress(e: MotionEvent?) {
+        override fun onLongPress(e: MotionEvent) {
             super.onLongPress(e)
             pauseTimer()
         }

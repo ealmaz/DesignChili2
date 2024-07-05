@@ -20,7 +20,7 @@ interface Effect {
     fun updateOffset(left: Float, top: Float, right: Float, bottom: Float)
     fun updatePaint()
     fun updatePath(radiusInfo: Radius?)
-    fun drawEffect(canvas: Canvas?)
+    fun drawEffect(canvas: Canvas)
 
     fun updateAlpha(alpha: Float)
 }

@@ -88,14 +88,14 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
         invalidate()
     }
 
-    override fun dispatchDraw(canvas: Canvas?) {
+    override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
         drawBackground(canvas)
         drawProgress(canvas)
 
     }
 
-    private fun drawBackground(canvas: Canvas?) {
+    private fun drawBackground(canvas: Canvas) {
         if (canvas == null) return
         paint.apply {
             color = progressBackgroundColor
@@ -105,7 +105,7 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
         canvas.drawLine(roundOffset, roundOffset, (width - roundOffset), roundOffset, paint)
     }
 
-    private fun drawProgress(canvas: Canvas?) {
+    private fun drawProgress(canvas: Canvas) {
         if (canvas == null || progressPercent <= 0) return
         paint.apply {
             color = progressColor

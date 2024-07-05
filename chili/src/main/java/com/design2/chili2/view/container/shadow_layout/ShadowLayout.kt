@@ -241,7 +241,7 @@ class ShadowLayout : LinearLayout {
         }
     }
 
-    override fun dispatchDraw(canvas: Canvas?) {
+    override fun dispatchDraw(canvas: Canvas) {
 
         if (canvas == null)
             return
@@ -279,7 +279,7 @@ class ShadowLayout : LinearLayout {
 
         with(viewHelper) {
 
-            updateCanvas(canvas)
+            canvas?.let { updateCanvas(it) }
 
             backgroundShadowList.forEach {
                 updateOffset(it, width, height)

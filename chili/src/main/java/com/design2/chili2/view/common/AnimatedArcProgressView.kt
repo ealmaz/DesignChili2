@@ -78,13 +78,13 @@ class AnimatedArcProgressView(context: Context, private val attrs: AttributeSet)
             arcWidthPx = (height.coerceAtMost(width) - arcBaseStrokeWidthPx - arcMarginPx - arcMarginPx)
     }
 
-    override fun dispatchDraw(canvas: Canvas?) {
+    override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
         drawGreyArc(canvas)
         drawArc(canvas)
     }
 
-    private fun drawGreyArc(canvas: Canvas?) {
+    private fun drawGreyArc(canvas: Canvas) {
         if (canvas == null) return
         paint.strokeWidth = arcBaseStrokeWidthPx.toFloat()
         paint.strokeCap = Paint.Cap.ROUND
@@ -95,7 +95,7 @@ class AnimatedArcProgressView(context: Context, private val attrs: AttributeSet)
         canvas.drawArc(left.toFloat(), arcProgressStrokeWidthPx.toFloat(), right.toFloat(), bottom.toFloat(), arcStartAngle, arcSweepAngle, false, paint)
     }
 
-    private fun drawArc(canvas: Canvas?) {
+    private fun drawArc(canvas: Canvas) {
         if (canvas == null) return
         paint.strokeWidth = arcProgressStrokeWidthPx.toFloat()
         paint.strokeCap = Paint.Cap.ROUND

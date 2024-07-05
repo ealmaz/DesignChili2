@@ -26,7 +26,7 @@ abstract class BaseCameraOverlay @JvmOverloads constructor(
     private lateinit var auxCanvas: Canvas
     private lateinit var auxBitmap: Bitmap
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (canvas == null) return
         auxBitmap = Bitmap.createBitmap(canvas.width, canvas.height, Bitmap.Config.ARGB_8888)

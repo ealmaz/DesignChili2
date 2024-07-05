@@ -16,7 +16,7 @@ class ViewHelper(private val context: Context) {
         const val NOT_SET_COLOR = -101
     }
 
-    fun updateCanvas(canvas: Canvas?) {
+    fun updateCanvas(canvas: Canvas) {
         this.canvas = canvas
     }
 
@@ -27,7 +27,7 @@ class ViewHelper(private val context: Context) {
         }
 
         effect.updatePath(radiusInfo)
-        effect.drawEffect(canvas)
+        canvas?.let { effect.drawEffect(it) }
     }
 
     fun updateOffset(effect: Effect, width: Int, height: Int) {

@@ -113,7 +113,7 @@ class Background : Effect {
         }
     }
 
-    override fun drawEffect(canvas: Canvas?) {
+    override fun drawEffect(canvas: Canvas) {
 
         if (strokeInfo?.isEnable == true) {
             canvas?.drawPath(strokePath, strokePaint)

@@ -137,7 +137,7 @@ class HighlighterContainer @JvmOverloads constructor(
         invalidate()
     }
 
-    override fun dispatchDraw(canvas: Canvas?) {
+    override fun dispatchDraw(canvas: Canvas) {
         super.dispatchDraw(canvas)
         when (highlighterState) {
             HighlighterState.VISIBLE -> drawFrame(canvas)
@@ -149,7 +149,7 @@ class HighlighterContainer @JvmOverloads constructor(
         }
     }
 
-    private fun drawFrame(canvas: Canvas?) {
+    private fun drawFrame(canvas: Canvas) {
         framePaint.color = highlighterColor
         prepareGradientPaintIfNeed()
         canvas?.drawRoundRect(
@@ -176,7 +176,7 @@ class HighlighterContainer @JvmOverloads constructor(
         )
     }
 
-    private fun drawIconBackground(canvas: Canvas?) {
+    private fun drawIconBackground(canvas: Canvas) {
         val dest = createBitmap(Color.GREEN) {
             drawRoundRect(
                 frameStrokeWith,

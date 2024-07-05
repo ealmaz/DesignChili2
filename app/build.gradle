@@ -4,12 +4,11 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.design.chili2"
-        minSdk 23
-        targetSdk 31
+        minSdk 24
         versionCode 1
         versionName "1.0"
 

@@ -85,7 +85,7 @@ class Gradient : Effect {
         }
     }
 
-    override fun drawEffect(canvas: Canvas?) {
+    override fun drawEffect(canvas: Canvas) {
 
         if (!isEnable)
             return
