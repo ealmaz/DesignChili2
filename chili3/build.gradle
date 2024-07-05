@@ -49,8 +49,8 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = "com.design"
-                artifactId = "chili3"
-                version = "3.0.0"
+                artifactId = "chili"
+                version = "2.0.0"
             }
         }
     }
