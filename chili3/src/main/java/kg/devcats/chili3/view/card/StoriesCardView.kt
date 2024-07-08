@@ -74,6 +74,11 @@ class StoriesCardView @JvmOverloads constructor(
         }
     }
 
+    override fun setupShimmeringViews() {
+        shimmeringPairs[vb.viewStatus] = vb.viewStatusShimmer
+        shimmeringPairs[vb.cvStories] = null
+    }
+
     private fun updateStatusBorder(status: StoriesStatus, newDrawable: Drawable) {
         val index = storiesStatus.indexOfFirst { it.first == status }
         if (index != -1) {
@@ -86,7 +91,7 @@ class StoriesCardView @JvmOverloads constructor(
     }
 
     fun setStatus(status: Int) {
-        vb.flContainer.background = storiesStatus[status].second
+        vb.viewStatus.background = storiesStatus[status].second
     }
 
     fun setScaleType(scaleType: Int) {
