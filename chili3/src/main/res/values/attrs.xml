@@ -133,4 +133,16 @@
         <attr name="icon"/>
         <attr name="background"/>
     </declare-styleable>
+
+    <declare-styleable name="CardCellView">
+        <attr name="title" format="string" />
+        <attr name="subtitle" format="string" />
+        <attr name="value" format="string" />
+        <attr name="icon" format="reference" />
+        <attr name="isMain" format="boolean" />
+        <attr name="isBlocked" format="boolean" />
+        <attr name="isUniqueStatused" format="boolean" />
+        <attr name="isChevronVisible" format="boolean" />
+    </declare-styleable>
+
 </resources>
