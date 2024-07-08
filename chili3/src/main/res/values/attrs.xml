@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="DefaultStyleTheme">
+
+    <!-- CardView -->
+    <attr name="storiesCardViewDefaultStyle" format="reference"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="StoriesCardView">
+        <attr name="storiesSrc" format="string"/>
+        <attr name="isViewed" format="boolean"/>
+        <attr name="android:scaleType"/>
+        <attr name="android:adjustViewBounds"/>
+        <attr name="android:layout_width"/>
+        <attr name="android:layout_height"/>
+        <attr name="cardIconSize" format="dimension">
+            <enum name="small" value="-1"/>
+            <enum name="medium" value="-2"/>
+            <enum name="large" value="-3"/>
+        </attr>
+        <attr name="viewedBorder" format="reference"/>
+        <attr name="unviewedBorder" format="reference"/>
+        <attr name="storiesStatus" format="dimension">
+            <enum name="viewed" value="0"/>
+            <enum name="unviewed" value="1"/>
+        </attr>
+    </declare-styleable>
+
+</resources>
