@@ -27,7 +27,7 @@ class StoriesCardView @JvmOverloads constructor(
 
     private var imageSize: Pair<Int, Int> = Pair(0, 0)
 
-    var storiesStatus = mutableListOf(
+    private var storiesStatus = mutableListOf(
         StoriesStatus.VIEWED to context.drawable(R.drawable.chili_bg_viewed_stories),
         StoriesStatus.UNVIEWED to context.drawable(R.drawable.chili_bg_unviewed_stories),
     )

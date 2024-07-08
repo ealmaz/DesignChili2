@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="ChiliPromoCardViewStatusTopMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewStatusEndMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewLabelTopMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewLabelBottomMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewLabelStartMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewLabelEndMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewIconTopMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewIconBottomMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewIconStartMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewIconEndMargin" format="dimension"/>
+
+</resources>
