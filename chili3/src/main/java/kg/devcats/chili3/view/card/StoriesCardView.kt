@@ -130,8 +130,4 @@ class StoriesCardView @JvmOverloads constructor(
         setCustomViewSize(width, height)
     }
 
-    override fun setOnClickListener(listener: OnClickListener?) {
-        vb.root.setOnClickListener(listener)
-    }
-
 }
