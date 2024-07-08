@@ -12,137 +12,193 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/padding_16dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:orientation="vertical"
         android:paddingBottom="160dp"
-        android:clipToPadding="false"
-        android:clipChildren="false"
         tools:context=".MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_loading_shimmers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <Button
-            android:layout_marginHorizontal="@dimen/padding_16dp"
-            style="@style/Chili.ButtonStyle.Primary"
             android:id="@+id/btn_expand"
+            style="@style/Chili.ButtonStyle.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Expand/hide all"/>
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:text="Expand/hide all" />
 
 
         <com.design2.chili2.view.container.ExpandableContainer
-            app:title="ExpandableDiscountCardView"
             android:id="@+id/ecv_discount_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
             android:clipChildren="false"
             android:clipToPadding="false"
             app:isNeedToSaveExpandedState="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_16dp">
+            app:title="ExpandableDiscountCardView">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ecv_discount_rv"
-                android:layout_marginTop="@dimen/padding_8dp"
-                tools:itemCount="3"
-                android:orientation="horizontal"
-                android:clipToPadding="false"
-                android:clipChildren="false"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_discount_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingEnd="@dimen/padding_8dp" />
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingEnd="@dimen/padding_8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_discount_card" />
 
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
             android:id="@+id/ec_accent"
-            app:isNeedToSaveExpandedState="true"
-            app:title="AccentCardView"
-            app:endIcon="@drawable/ic_visa_banner_logo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            app:endIcon="@drawable/ic_visa_banner_logo"
+            app:isNeedToSaveExpandedState="true"
+            app:title="AccentCardView">
 
             <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                style="@style/ShadowLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_12dp"
-                style="@style/ShadowLayoutStyle"
-                android:layout_marginHorizontal="@dimen/padding_16dp">
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginTop="@dimen/padding_12dp">
 
                 <com.design2.chili2.view.card.AccentCardView
                     android:id="@+id/accent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:theme="@style/ThemeOverlay.ChiliCardFucsia1"
-                    app:title="Сканер штрихкодов и QR"
-                    app:subtitle="Для удобной оплаты \nбез ввода реквизитов"
+                    app:cardBackground="@color/folly_1"
                     app:endIcon="@drawable/pay"
-                    app:cardBackground="@color/folly_1" />
+                    app:subtitle="Для удобной оплаты \nбез ввода реквизитов"
+                    app:title="Сканер штрихкодов и QR" />
 
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
             <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                style="@style/ShadowLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_12dp"
-                style="@style/ShadowLayoutStyle"
-                android:layout_marginHorizontal="@dimen/padding_16dp">
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:layout_marginTop="@dimen/padding_12dp">
 
                 <com.design2.chili2.view.card.AccentCardView
                     android:id="@+id/accent2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:theme="@style/ThemeOverlay.ChiliCardFucsia1"
-                    app:title="Цифровая карта"
+                    app:cardBackground="@color/black_4"
                     app:subtitle="Для бесконтактных платежей"
-                    app:titleStartIcon="@drawable/icon_k"
-                    app:cardBackground="@color/black_4" />
+                    app:title="Цифровая карта"
+                    app:titleStartIcon="@drawable/icon_k" />
 
 
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
             <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                style="@style/ShadowLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/padding_12dp"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
-                style="@style/ShadowLayoutStyle">
+                android:layout_marginVertical="@dimen/padding_12dp">
 
                 <com.design2.chili2.view.card.AccentCardView
                     android:id="@+id/accent3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:endIcon="@drawable/ic_scaner_48"
-                    app:title="Цифровая карта"
-                    app:subtitle="Для бесконтактных платежей" />
+                    app:subtitle="Для бесконтактных платежей"
+                    app:title="Цифровая карта" />
 
 
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+            <com.design2.chili2.view.container.ExpandableContainer
+                android:id="@+id/ec_stories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:isNeedToSaveExpandedState="true"
+                app:title="StoriesCardView">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <kg.devcats.chili3.view.card.StoriesCardView
+                            android:id="@+id/scv_stories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp"
+                            android:scaleType="fitXY"
+                            app:cardIconSize="medium"
+                            app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/125ac05b-0cbb-4bde-9da0-1f090d1fac2e"
+                            app:viewedBorder="@drawable/chili_bg_viewed_stories" />
+
+                        <kg.devcats.chili3.view.card.StoriesCardView
+                            android:id="@+id/scv_stories_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp"
+                            android:scaleType="fitXY"
+                            app:cardIconSize="medium"
+                            app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/de574e23-7478-43af-b3df-b572093b818c" />
+
+                        <kg.devcats.chili3.view.card.StoriesCardView
+                            android:id="@+id/scv_stories_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_8dp"
+                            android:scaleType="fitXY"
+                            app:cardIconSize="medium"
+                            app:unviewedBorder="@drawable/personal_stories"
+                            app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/de574e23-7478-43af-b3df-b572093b818c" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </com.design2.chili2.view.container.ExpandableContainer>
 
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
             android:id="@+id/ec_item"
-            app:isNeedToSaveExpandedState="true"
-            app:title="ExpandableCardContainer"
-            app:endIcon="@drawable/chili_ic_magenta_plus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipChildren="false"
             android:clipToPadding="false"
-            android:clipChildren="false">
+            app:endIcon="@drawable/chili_ic_magenta_plus"
+            app:isNeedToSaveExpandedState="true"
+            app:title="ExpandableCardContainer">
 
             <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                style="@style/ShadowLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
-                android:layout_marginTop="@dimen/padding_12dp"
-                style="@style/ShadowLayoutStyle">
+                android:layout_marginTop="@dimen/padding_12dp">
 
                 <com.design2.chili2.view.container.ExpandableCardContainer
                     android:id="@+id/expandable"
@@ -180,9 +236,9 @@
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
             <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                style="@style/ShadowLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ShadowLayoutStyle"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
                 android:layout_marginTop="@dimen/padding_12dp">
 
@@ -223,9 +279,9 @@
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
             <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                style="@style/ShadowLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/ShadowLayoutStyle"
                 android:layout_marginHorizontal="@dimen/padding_16dp"
                 android:layout_marginTop="@dimen/padding_12dp"
                 android:layout_marginBottom="@dimen/padding_16dp">
@@ -263,53 +319,53 @@
 
         <com.design2.chili2.view.container.ExpandableContainer
             android:id="@+id/ec_category"
-            app:title="CategoryCardView"
-            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            app:isNeedToSaveExpandedState="true"
+            app:title="CategoryCardView">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:clipChildren="false"
-                android:clipToPadding="false">
+                android:clipToPadding="false"
+                android:orientation="horizontal">
 
                 <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    style="@style/ShadowLayoutStyle"
                     android:layout_width="0dp"
-                    android:layout_weight="2"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/padding_16dp"
-                    style="@style/ShadowLayoutStyle"
-                    android:layout_marginStart="@dimen/padding_16dp">
+                    android:layout_marginStart="@dimen/padding_16dp"
+                    android:layout_weight="2">
 
                     <com.design2.chili2.view.card.CategoryCardView
                         android:id="@+id/cat_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:title="Переводы"
-                        app:icon="@drawable/ic_payment" />
+                        app:icon="@drawable/ic_payment"
+                        app:title="Переводы" />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
 
                 <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    style="@style/ShadowLayoutStyle"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/padding_16dp"
-                    style="@style/ShadowLayoutStyle"
                     android:layout_marginStart="@dimen/padding_16dp"
-                    android:layout_marginEnd="@dimen/padding_16dp">
+                    android:layout_marginEnd="@dimen/padding_16dp"
+                    android:layout_weight="1">
 
                     <com.design2.chili2.view.card.CategoryCardView
                         android:id="@+id/cat_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:title="Centered"
-                        app:icon="@drawable/ic_payment" />
+                        app:icon="@drawable/ic_payment"
+                        app:title="Centered" />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
@@ -319,53 +375,53 @@
 
         <com.design2.chili2.view.container.ExpandableContainer
             android:id="@+id/ec_category_2"
-            app:isNeedToSaveExpandedState="true"
-            app:title="CategoryCardView(8 dp icon offset)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            app:isNeedToSaveExpandedState="true"
+            app:title="CategoryCardView(8 dp icon offset)">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:theme="@style/ThemeOverlay.CategoryCardIcon8dpOffset"
                 android:clipChildren="false"
-                android:clipToPadding="false">
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:theme="@style/ThemeOverlay.CategoryCardIcon8dpOffset">
 
                 <com.design2.chili2.view.container.shadow_layout.ShadowLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
                     style="@style/ShadowLayoutStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/padding_16dp"
-                    android:layout_marginStart="@dimen/padding_16dp">
+                    android:layout_marginStart="@dimen/padding_16dp"
+                    android:layout_weight="1">
 
                     <com.design2.chili2.view.card.CategoryCardView
                         android:id="@+id/cat_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:title="Народный\nБонусная"
-                        app:icon="@drawable/ic_payment"/>
+                        app:icon="@drawable/ic_payment"
+                        app:title="Народный\nБонусная" />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                 <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    style="@style/ShadowLayoutStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    style="@style/ShadowLayoutStyle"
-                    android:layout_weight="1"
                     android:layout_marginVertical="@dimen/padding_16dp"
                     android:layout_marginStart="@dimen/padding_16dp"
-                    android:layout_marginEnd="74dp">
+                    android:layout_marginEnd="74dp"
+                    android:layout_weight="1">
 
                     <com.design2.chili2.view.card.CategoryCardView
                         android:id="@+id/cat_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:title="Кофейня.\nБонусная."
-                        app:icon="@drawable/ic_payment"/>
+                        app:icon="@drawable/ic_payment"
+                        app:title="Кофейня.\nБонусная." />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
@@ -374,66 +430,66 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
-            app:title="PaymentCardView"
             android:id="@+id/ec_paymrne"
-            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            app:isNeedToSaveExpandedState="true"
+            app:title="PaymentCardView">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:clipChildren="false"
-                android:clipToPadding="false">
+                android:clipToPadding="false"
+                android:orientation="horizontal">
 
                 <com.design2.chili2.view.container.shadow_layout.ShadowLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
                     style="@style/ShadowLayoutStyle"
-                    android:layout_marginStart="@dimen/padding_16dp">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_16dp"
+                    android:layout_weight="1">
 
                     <com.design2.chili2.view.card.PaymentCardView
                         android:id="@+id/pcv_1"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/view_80dp"
-                        app:title="Вывести"
-                        app:icon="@drawable/ic_arrow_right" />
+                        app:icon="@drawable/ic_arrow_right"
+                        app:title="Вывести" />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
-                
+
                 <com.design2.chili2.view.container.shadow_layout.ShadowLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
                     style="@style/ShadowLayoutStyle"
-                    android:layout_marginHorizontal="@dimen/padding_16dp">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/padding_16dp"
+                    android:layout_weight="1">
 
                     <com.design2.chili2.view.card.PaymentCardView
                         android:id="@+id/pcv_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:title="Пополнить"
-                        app:icon="@drawable/ic_plus" />
+                        app:icon="@drawable/ic_plus"
+                        app:title="Пополнить" />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                 <com.design2.chili2.view.container.shadow_layout.ShadowLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
                     style="@style/ShadowLayoutStyle"
-                    android:layout_marginEnd="@dimen/padding_16dp">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/padding_16dp"
+                    android:layout_weight="1">
 
                     <com.design2.chili2.view.card.PaymentCardView
                         android:id="@+id/pcv_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:title="QR-код"
-                        app:icon="@drawable/ic_qr_code" />
+                        app:icon="@drawable/ic_qr_code"
+                        app:title="QR-код" />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
@@ -442,31 +498,31 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
-            app:title="SimpleCardView"
             android:id="@+id/ec_simplemCard"
-            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
-            android:clipToPadding="false">
+            android:clipToPadding="false"
+            app:isNeedToSaveExpandedState="true"
+            app:title="SimpleCardView">
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:clipChildren="false">
+                android:clipChildren="false"
+                android:clipToPadding="false">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:clipChildren="false"
-                    android:clipToPadding="false">
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
 
                     <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        style="@style/ShadowLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/ShadowLayoutStyle"
                         android:layout_marginVertical="@dimen/padding_16dp"
                         android:layout_marginStart="@dimen/padding_8dp">
 
@@ -476,15 +532,15 @@
                             android:layout_height="wrap_content"
                             app:cardBackground="@drawable/simple_gray_bg"
                             app:cardElevation="0dp"
-                            app:title="4215585318631234"
-                            app:icon="@drawable/ic_scaner_48" />
+                            app:icon="@drawable/ic_scaner_48"
+                            app:title="4215585318631234" />
 
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                     <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        style="@style/ShadowLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/ShadowLayoutStyle"
                         android:layout_marginVertical="@dimen/padding_16dp"
                         android:layout_marginStart="@dimen/padding_8dp">
 
@@ -494,17 +550,17 @@
                             android:layout_height="wrap_content"
                             app:cardBackground="@drawable/simple_gray_bg"
                             app:cardElevation="0dp"
-                            app:title="4215585318631234"
-                            app:icon="@drawable/ic_scaner_48" />
+                            app:icon="@drawable/ic_scaner_48"
+                            app:title="4215585318631234" />
 
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                     <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        style="@style/ShadowLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/ShadowLayoutStyle"
-                        android:layout_marginVertical="@dimen/padding_16dp"
-                        android:layout_marginHorizontal="@dimen/padding_8dp">
+                        android:layout_marginHorizontal="@dimen/padding_8dp"
+                        android:layout_marginVertical="@dimen/padding_16dp">
 
                         <com.design2.chili2.view.card.SimpleCardView
                             android:id="@+id/simple3"
@@ -512,8 +568,8 @@
                             android:layout_height="wrap_content"
                             app:cardBackground="@drawable/simple_gray_bg"
                             app:cardElevation="0dp"
-                            app:title="4215585318631234"
-                            app:icon="@drawable/ic_scaner_48" />
+                            app:icon="@drawable/ic_scaner_48"
+                            app:title="4215585318631234" />
 
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
@@ -524,32 +580,32 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
-            app:title="ExpandableRecyclerCardView"
             android:id="@+id/ecv_rv_container"
             android:layout_width="match_parent"
-            android:background="@color/white"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             app:endIcon="@drawable/chili_ic_magenta_plus"
             app:subtitle="Some subtitle"
+            app:title="ExpandableRecyclerCardView"
             tools:actionText="@string/view">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ecv_rv"
-                android:paddingTop="@dimen/padding_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_8dp"
                 android:paddingEnd="@dimen/padding_8dp" />
 
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
-            app:title="BalanceCardView"
             android:id="@+id/balanceContainer"
-            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipChildren="false"
             android:clipToPadding="false"
-            android:clipChildren="false">
+            app:isNeedToSaveExpandedState="true"
+            app:title="BalanceCardView">
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -560,84 +616,84 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:clipChildren="false"
-                    android:clipToPadding="false">
+                    android:clipToPadding="false"
+                    android:orientation="horizontal">
 
                     <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        style="@style/ShadowLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/ShadowLayoutStyle"
-                        android:layout_marginBottom="@dimen/padding_16dp"
                         android:layout_marginStart="@dimen/padding_16dp"
-                        android:layout_marginEnd="@dimen/padding_8dp">
+                        android:layout_marginEnd="@dimen/padding_8dp"
+                        android:layout_marginBottom="@dimen/padding_16dp">
 
                         <com.design2.chili2.view.card.BalanceCardView
                             android:id="@+id/bal1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:title="Баланс"
-                            app:value="1 002 062 c"/>
+                            app:value="1 002 062 c" />
 
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                     <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        style="@style/ShadowLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/ShadowLayoutStyle"
-                        android:layout_marginBottom="@dimen/padding_16dp"
-                        android:layout_marginEnd="@dimen/padding_16dp">
+                        android:layout_marginEnd="@dimen/padding_16dp"
+                        android:layout_marginBottom="@dimen/padding_16dp">
 
                         <com.design2.chili2.view.card.BalanceCardView
                             android:id="@+id/bal2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:title="Баланс"
-                            app:icon="@drawable/chili_ic_bank_cards"
                             android:background="?selectableItemBackground"
+                            android:clickable="true"
                             android:focusable="true"
-                            android:clickable="true"/>
+                            app:icon="@drawable/chili_ic_bank_cards"
+                            app:title="Баланс" />
 
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                     <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        style="@style/ShadowLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/ShadowLayoutStyle"
-                        android:layout_marginBottom="@dimen/padding_16dp"
-                        android:layout_marginEnd="@dimen/padding_16dp">
+                        android:layout_marginEnd="@dimen/padding_16dp"
+                        android:layout_marginBottom="@dimen/padding_16dp">
 
                         <com.design2.chili2.view.card.BalanceCardView
-                            app:badgeIcon="@drawable/ic_lock"
                             android:id="@+id/bal3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:title="Баланс"
-                            app:value="1 000 c"
-                            app:titleIcon="@drawable/chili_ic_bank_cards"
-                            app:endIcon="@drawable/chili_ic_magenta_plus"
-                            app:cardBackground="@color/blue_2"
                             android:background="?selectableItemBackground"
+                            android:clickable="true"
                             android:focusable="true"
-                            android:clickable="true"/>
+                            app:badgeIcon="@drawable/ic_lock"
+                            app:cardBackground="@color/blue_2"
+                            app:endIcon="@drawable/chili_ic_magenta_plus"
+                            app:title="Баланс"
+                            app:titleIcon="@drawable/chili_ic_bank_cards"
+                            app:value="1 000 c" />
 
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                     <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                        style="@style/ShadowLayoutStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/ShadowLayoutStyle"
-                        android:layout_marginBottom="@dimen/padding_16dp"
-                        android:layout_marginEnd="@dimen/padding_16dp">
+                        android:layout_marginEnd="@dimen/padding_16dp"
+                        android:layout_marginBottom="@dimen/padding_16dp">
 
                         <com.design2.chili2.view.card.BalanceCardView
                             android:id="@+id/bal4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            app:title="Баланс"
                             android:background="?selectableItemBackground"
+                            android:clickable="true"
                             android:focusable="true"
-                            android:clickable="true"/>
+                            app:title="Баланс" />
 
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
@@ -648,57 +704,57 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
-            app:title="BankCardView"
             android:id="@+id/promoBankCardView"
-            app:isNeedToSaveExpandedState="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipChildren="false"
             android:clipToPadding="false"
-            android:clipChildren="false">
+            app:isNeedToSaveExpandedState="true"
+            app:title="BankCardView">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clipChildren="false"
                 android:clipToPadding="false"
-                android:clipChildren="false">
+                android:orientation="vertical">
 
                 <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    style="@style/ShadowLayoutStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/padding_16dp"
-                    style="@style/ShadowLayoutStyle">
+                    android:layout_margin="@dimen/padding_16dp">
 
                     <com.design2.chili2.view.card.BankCardView
                         android:id="@+id/bank_card_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:startIcon="@drawable/gpay"
                         app:cardBackground="@drawable/card_bg"
+                        app:cardHolderName="Ivanov Ivanovskii"
                         app:cardIcon="@drawable/elcard"
                         app:cardPan="9417 1243 3425 4215"
-                        app:cardHolderName="Ivanov Ivanovskii"
+                        app:cvv="436"
                         app:dueDate="12 /  25"
-                        app:cvv="436"/>
+                        app:startIcon="@drawable/gpay" />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                 <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    style="@style/ShadowLayoutStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/padding_16dp"
-                    style="@style/ShadowLayoutStyle">
+                    android:layout_margin="@dimen/padding_16dp">
 
                     <com.design2.chili2.view.card.BankCardView
                         android:id="@+id/bank_card_icon"
                         android:layout_width="match_parent"
                         android:layout_height="280dp"
                         app:cardBackground="@drawable/card_bg"
+                        app:cardHolderName="Ivanov Ivanovskii"
                         app:cardIcon="@drawable/elcard"
                         app:cardPan="9417 1243 3425 4215"
-                        app:cardHolderName="Ivanov Ivanovskii"
-                        app:dueDate="12 /  25"
-                        app:cvv="436"/>
+                        app:cvv="436"
+                        app:dueDate="12 /  25" />
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
@@ -707,55 +763,55 @@
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer
+            android:id="@+id/promoBannerCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
             android:clipToPadding="false"
-            android:id="@+id/promoBannerCard"
             app:isNeedToSaveExpandedState="true"
             app:title="PromoBannerCard">
 
             <HorizontalScrollView
                 android:id="@+id/hsv_banners"
-                android:orientation="horizontal"
                 style="@style/ShadowLayoutStyle"
-                android:scrollbars="none"
-                android:overScrollMode="never"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_16dp"
                 android:clipChildren="false"
                 android:clipToPadding="false"
-                android:layout_marginBottom="@dimen/padding_16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:orientation="horizontal"
+                android:overScrollMode="never"
+                android:scrollbars="none">
 
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/padding_16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:clipChildren="false"
                     android:clipToPadding="false"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/padding_16dp">
 
                     <com.design2.chili2.view.container.shadow_layout.ShadowLayout
                         android:id="@+id/visa_shadow"
                         style="@style/ShadowLayoutStyle"
-                        android:layout_marginEnd="@dimen/padding_16dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/padding_16dp">
 
                         <com.design2.chili2.view.card.PromoBannerCardView
                             android:id="@+id/pbcv_visa"
-                            android:icon="@drawable/ic_visa_banner_logo"
-                            app:hide_chevron="false"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/view_80dp"
                             android:background="@drawable/bg_rounded_virtual_card_gradient"
+                            android:icon="@drawable/ic_visa_banner_logo"
+                            app:hide_chevron="false"
                             app:right_image="@drawable/bg_virtual_cards_3"
+                            app:subtitle="Открой бесплатно в приложении!"
                             app:subtitleTextAppearance="@style/Chili.H9.Primary"
                             app:subtitleTextColor="?ChiliPrimaryTextColor"
                             app:title="Виртуальная карта"
                             app:titleTextAppearance="@style/Chili.H7.Primary.Bold"
-                            app:titleTextColor="?ChiliPrimaryTextColor"
-                            app:subtitle="Открой бесплатно в приложении!" />
+                            app:titleTextColor="?ChiliPrimaryTextColor" />
 
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
@@ -767,16 +823,16 @@
 
                         <com.design2.chili2.view.card.PromoBannerCardView
                             android:id="@+id/pbcv_elcap"
-                            android:icon="@drawable/ic_elcart_title_logo"
-                            app:hide_chevron="false"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/view_80dp"
                             android:background="@drawable/bg_rounded_gradient"
+                            android:icon="@drawable/ic_elcart_title_logo"
+                            app:hide_chevron="false"
                             app:right_image="@drawable/bg_virtual_cards_2"
+                            app:subtitle="Откойте карту в О!Store"
                             app:subtitleTextAppearance="@style/Chili.H9.Primary"
                             app:title="Карта ЭЛКАРТ"
-                            app:titleTextAppearance="@style/Chili.H7.Primary.700"
-                            app:subtitle="Откойте карту в О!Store" />
+                            app:titleTextAppearance="@style/Chili.H7.Primary.700" />
                     </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                 </LinearLayout>
@@ -788,23 +844,23 @@
             android:id="@+id/banner_view1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/view_80dp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:clipChildren="false"
             android:clipToPadding="false"
-            android:clipChildren="false"/>
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <LinearLayout
-            android:clipChildren="false"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:orientation="horizontal">
 
             <com.design2.chili2.view.container.shadow_layout.ShadowLayout
                 style="@style/ShadowLayoutStyle"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/padding_8dp"
-                android:layout_height="wrap_content">
+                android:layout_marginTop="@dimen/padding_16dp">
 
                 <com.design2.chili2.view.card.BonusPartnerCardItemView
                     android:id="@+id/bonus_partner_card"
@@ -815,9 +871,9 @@
             <com.design2.chili2.view.container.shadow_layout.ShadowLayout
                 style="@style/ShadowLayoutStyle"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/padding_8dp"
-                android:layout_height="wrap_content">
+                android:layout_marginTop="@dimen/padding_16dp">
 
                 <com.design2.chili2.view.card.BonusPartnerCardItemView
                     android:id="@+id/bonus_partner_card2"

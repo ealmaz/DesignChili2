@@ -29,6 +29,18 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    sourceSets {
+        main {
+            res {
+                srcDirs 'src/main/res', 'src/main/res-screen/card_views'
+            }
+        }
+    }
 }
 
 dependencies {

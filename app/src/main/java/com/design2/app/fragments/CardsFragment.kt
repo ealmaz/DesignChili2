@@ -21,6 +21,7 @@ import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 import com.design2.app.StoryActivity
 import com.design2.chili2.extensions.setScrollListener
+import kg.devcats.chili3.util.StoriesStatus
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselImageAdapter.Listener {
     private lateinit var simpleAdapter: SimpleTextRecyclerViewAdapter
@@ -122,6 +123,16 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setTitle("Bonus Partner la la la")
             setIcon("https://minio.o.kg/catalog/icons/light/taxes.png")
             setSubtitle("до 2%")
+        }
+
+        vb.scvStories.setOnClickListener {
+            vb.scvStories.setStatus(StoriesStatus.VIEWED.value)
+        }
+        vb.scvStories1.setOnClickListener {
+            vb.scvStories1.setStatus(StoriesStatus.VIEWED.value)
+        }
+        vb.scvStories2.setOnClickListener {
+            vb.scvStories2.setStatus(StoriesStatus.VIEWED.value)
         }
     }
 
