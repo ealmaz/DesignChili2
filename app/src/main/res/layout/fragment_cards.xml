@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="?ChiliSurfaceBackground">
+    android:background="?ChiliScreenBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -998,6 +998,32 @@
                     android:layout_width="120dp"
                     android:layout_height="96dp" />
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:orientation="horizontal">
+
+            <kg.devcats.chili3.view.card.IconStateCardView
+                android:id="@+id/iconStateCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:cardBackground="?ChiliCardViewBackground"
+                app:title="Услуги"
+                android:layout_marginEnd="@dimen/padding_12dp"
+                app:subtitle="Налоги, авто и комуслуги"/>
+
+            <kg.devcats.chili3.view.card.IconStateCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:title="На оплату"
+                app:subtitle="Счета и другое"/>
 
         </LinearLayout>
 

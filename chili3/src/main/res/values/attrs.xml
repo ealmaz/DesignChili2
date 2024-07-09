@@ -7,6 +7,7 @@
     <attr name="storiesCardViewDefaultStyle" format="reference"/>
     <attr name="promoCardViewDefaultStyle" format="reference"/>
     <attr name="subtitledSimpleCardViewDefaultStyle" format="reference"/>
+    <attr name="iconStateCardViewDefaultStyle" format="reference"/>
 
     </declare-styleable>
 
@@ -54,6 +55,12 @@
         <attr name="subtitle"/>
         <attr name="subtitleTextAppearance"/>
         <attr name="iconSecondary" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="IconStateCardView">
+        <attr name="title"/>
+        <attr name="subtitle"/>
+        <attr name="icon"/>
     </declare-styleable>
 
 </resources>
