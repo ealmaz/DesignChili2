@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -33,7 +33,6 @@
             android:id="@+id/iv_icon"
             android:layout_width="@dimen/padding_16dp"
             android:layout_height="@dimen/padding_16dp"
-            android:contentDescription="@string/content_description"
             app:layout_constraintBottom_toTopOf="@id/tv_label"
             tools:src="@drawable/ic_bonus_new" />
 

@@ -3,4 +3,7 @@
     <style name="BonusTagTitleStyle" parent="Chili.H9">
         <item name="android:textColor">@color/white_1</item>
     </style>
+    <style name="QuickActionButtonDisabled" parent="Chili.H8">
+        <item name="android:textColor">@color/gray_2</item>
+    </style>
 </resources>
