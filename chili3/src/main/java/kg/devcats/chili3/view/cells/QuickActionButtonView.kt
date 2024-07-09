@@ -8,6 +8,9 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.widget.FrameLayout
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
 import com.design2.chili2.extensions.setImageByUrl
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewQuickActionButtonBinding
@@ -40,11 +43,11 @@ class QuickActionButtonView @JvmOverloads constructor(
     }
 
     private fun setupView() {
-        clickHandler()
+        handleClick()
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    private fun clickHandler() {
+    private fun handleClick() {
         rootContainer.setOnTouchListener(OnTouchListener { _, event ->
             if (event?.action == MotionEvent.ACTION_DOWN){
                 rippleIconId?.let {
@@ -93,15 +96,17 @@ class QuickActionButtonView @JvmOverloads constructor(
         vb.tvLabel.text = charSequence
     }
 
-    fun setTitle(resId: Int) {
+    @SuppressLint("ResourceType")
+    fun setTitle(@StringRes resId: Int) {
         vb.tvLabel.setText(resId)
     }
 
-    fun setTitleTextAppearance(resId: Int) {
+    @SuppressLint("ResourceType")
+    fun setTitleTextAppearance(@StyleRes resId: Int) {
         vb.tvLabel.setTextAppearance(resId)
     }
-
-    fun setIcon(resId: Int) {
+    @SuppressLint("ResourceType")
+    fun setIcon(@DrawableRes resId: Int) {
         iconId = resId
         vb.ivIcon.setImageResource(resId)
     }
@@ -113,7 +118,6 @@ class QuickActionButtonView @JvmOverloads constructor(
     fun setIcon(drawable: Drawable) {
         vb.ivIcon.setImageDrawable(drawable)
     }
-
 
     fun setIsCardEnabled(isEnabled: Boolean) {
         when (isEnabled) {
@@ -129,18 +133,17 @@ class QuickActionButtonView @JvmOverloads constructor(
 
     private fun disableCard() {
         with(vb) {
-            root.setOnClickListener(null)
             root.isEnabled = false
-            tvLabel.alpha = alphaDisabled
+            setTitleTextAppearance(R.style.QuickActionButtonDisabled)
             ivIcon.alpha = alphaDisabled
         }
     }
 
+    @SuppressLint("ResourceAsColor")
     private fun enableCard() {
         with(vb) {
-            root.setOnClickListener(onClickListener)
             root.isEnabled = true
-            tvLabel.alpha = alphaEnabled
+            setTitleTextAppearance(com.design2.chili2.R.style.Chili_H8_Secondary)
             ivIcon.alpha = alphaEnabled
         }
     }

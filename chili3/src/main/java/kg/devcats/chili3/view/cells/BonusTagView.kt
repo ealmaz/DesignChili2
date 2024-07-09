@@ -1,10 +1,14 @@
 package kg.devcats.chili3.view.cells
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
 import com.design2.chili2.extensions.setImageByUrl
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewBonusTagBinding
@@ -61,15 +65,18 @@ class BonusTagView @JvmOverloads constructor(
         vb.tvLabel.text = charSequence
     }
 
-    fun setTitle(resId: Int) {
+    @SuppressLint("ResourceType")
+    fun setTitle(@StringRes resId: Int) {
         vb.tvLabel.setText(resId)
     }
 
-    fun setTitleTextAppearance(resId: Int) {
+    @SuppressLint("ResourceType")
+    fun setTitleTextAppearance(@StyleRes resId: Int) {
         vb.tvLabel.setTextAppearance(resId)
     }
 
-    fun setIcon(resId: Int) {
+    @SuppressLint("ResourceType")
+    fun setIcon(@DrawableRes resId: Int) {
         iconId = resId
         vb.ivIcon.setImageResource(resId)
     }
@@ -110,13 +117,5 @@ class BonusTagView @JvmOverloads constructor(
             tvLabel.alpha = alphaEnabled
             ivIcon.alpha = alphaEnabled
         }
-    }
-
-    private fun onStartShimmer() {
-        disableCard()
-    }
-
-    private fun onStopShimmer() {
-        enableCard()
     }
 }
