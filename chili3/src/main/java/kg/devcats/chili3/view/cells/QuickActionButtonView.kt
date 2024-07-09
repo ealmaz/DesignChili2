@@ -21,7 +21,7 @@ class QuickActionButtonView @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewQuickActionButtonBinding
 
-    private var onCardClickListener: OnClickListener? = null
+    private var onClickListener: OnClickListener? = null
     private val alphaEnabled = 1.0f
     private val alphaDisabled = 0.3f
     private var rippleIconId: Int? = null
@@ -56,6 +56,7 @@ class QuickActionButtonView @JvmOverloads constructor(
                 iconId?.let {
                     vb.ivIcon.setImageResource(it)
                 }
+                this.onClickListener?.onClick(vb.rootView)
                 return@OnTouchListener true
             }
             return@OnTouchListener false
@@ -122,8 +123,8 @@ class QuickActionButtonView @JvmOverloads constructor(
     }
 
     override fun setOnClickListener(listener: OnClickListener?) {
-        this.onCardClickListener = listener
-        vb.root.setOnClickListener(onCardClickListener)
+        this.onClickListener = listener
+        vb.root.setOnClickListener(onClickListener)
     }
 
     private fun disableCard() {
@@ -137,7 +138,7 @@ class QuickActionButtonView @JvmOverloads constructor(
 
     private fun enableCard() {
         with(vb) {
-            root.setOnClickListener(onCardClickListener)
+            root.setOnClickListener(onClickListener)
             root.isEnabled = true
             tvLabel.alpha = alphaEnabled
             ivIcon.alpha = alphaEnabled
