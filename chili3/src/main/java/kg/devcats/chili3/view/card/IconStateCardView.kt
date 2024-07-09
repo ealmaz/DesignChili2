@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import androidx.core.view.isVisible
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardStateIconBinding
@@ -25,6 +26,8 @@ class IconStateCardView @JvmOverloads constructor(
     override val styleableAttrRes: IntArray = R.styleable.IconStateCardView
     override val rootContainer: View
         get() = vb.rootView
+
+    private var standardIcon: Int? = null
 
     override fun inflateView(context: Context) {
         vb = ChiliViewCardStateIconBinding.inflate(LayoutInflater.from(context), this, true)
@@ -48,7 +51,11 @@ class IconStateCardView @JvmOverloads constructor(
 
     fun setIcon(iconRes: Int?) {
         vb.ivIcon.run {
-            iconRes?.let { setImageResource(it); visible() }
+            iconRes?.let {
+                setImageResource(it)
+                visible()
+                standardIcon = it
+            } ?: gone()
         }
     }
 
@@ -75,17 +82,17 @@ class IconStateCardView @JvmOverloads constructor(
         vb.tvSubtitle.setText(resId)
     }
 
-    fun setIconVisibility(isVisible: Boolean) = with(vb.ivIcon) {
-        if(isVisible) visible() else gone()
+    fun setIconVisibility(isVisible: Boolean) {
+        vb.ivIcon.isVisible = isVisible
     }
 
-    fun setupAsErrorState(iconRes: Int?) {
-        setIcon(iconRes)
-        vb.rootView.setBackgroundResource(R.drawable.chili_bg_card_error_with_border)
+    fun setupAsErrorState(errorIconRes: Int? = null) = with(vb) {
+        errorIconRes?.let { ivIcon.setImageResource(it) }
+        rootView.setBackgroundResource(R.drawable.chili_bg_card_error_with_border)
     }
 
     fun clearErrorState() {
-        setIconVisibility(false)
+        setIcon(standardIcon)
         vb.rootView.setBackgroundColor(context.getColorFromAttr(com.design2.chili2.R.attr.ChiliCardViewBackground))
     }
 }
