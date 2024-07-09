@@ -81,10 +81,24 @@
         android:paddingBottom="?ChiliPromoCardViewStatusBottomPadding"
         android:layout_marginTop="?ChiliPromoCardViewStatusTopMargin"
         android:layout_marginEnd="?ChiliPromoCardViewStatusEndMargin"
-        android:textAppearance="@style/Chili.H9.Primary"
-        android:textColor="@color/white_1"
+        android:textAppearance="@style/Chili.H9.White"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Активный" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_status_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/tv_status"
+        app:layout_constraintEnd_toEndOf="@id/tv_status"
+        app:layout_constraintTop_toTopOf="@id/tv_status">
+
+        <View
+            android:layout_width="@dimen/view_75dp"
+            android:layout_height="@dimen/view_26dp"
+            android:background="@drawable/chili_bg_shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -61,6 +61,7 @@ class PromoCardView @JvmOverloads constructor(
     override fun setupShimmeringViews() {
         shimmeringPairs[vb.tvLabel] = vb.viewLabelShimmer
         shimmeringPairs[vb.ivIcon] = vb.viewIconShimmer
+        shimmeringPairs[vb.tvStatus] = vb.viewStatusShimmer
     }
 
     fun setTitle(charSequence: CharSequence?) {
