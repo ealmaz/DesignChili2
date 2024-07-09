@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Chili.H9.White" parent="Chili.H9.Primary">
+        <item name="android:textColor">@color/white_1</item>
+    </style>
+
+</resources>
