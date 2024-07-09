@@ -463,7 +463,7 @@ open class BaseInputView @JvmOverloads constructor(
             visible()
             setImageDrawable(drawable)
         }
-        vb.etInput.updatePadding(left = resources.getDimensionPixelSize(R.dimen.padding_40dp))
+        vb.etInput.updatePadding(left = resources.getDimensionPixelSize(R.dimen.padding_34dp))
     }
 
     fun setInputLeftDrawable(@DrawableRes drawableId: Int) {
