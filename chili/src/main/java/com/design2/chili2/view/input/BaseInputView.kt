@@ -102,6 +102,28 @@ open class BaseInputView @JvmOverloads constructor(
             getDrawable(R.styleable.BaseInputView_startIconDrawable)?.let {
                 setInputLeftDrawable(it)
             }
+            getDimensionPixelSize(R.styleable.BaseInputView_startIconVerticalMargin, -1).takeIf { it != -1 }?.let {
+                setInputLeftDrawableMargins(top = it, bottom = it)
+            }
+            getDimensionPixelSize(R.styleable.BaseInputView_startIconHorizontalMargin, -1).takeIf { it != -1 }?.let {
+                setInputLeftDrawableMargins(left = it, right = it)
+            }
+
+            getDimensionPixelSize(R.styleable.BaseInputView_startIconStartMargin, -1).takeIf { it != -1 }?.let {
+                setInputLeftDrawableMargins(left = it)
+            }
+
+            getDimensionPixelSize(R.styleable.BaseInputView_startIconEndMargin, -1).takeIf { it != -1 }?.let {
+                setInputLeftDrawableMargins(right = it)
+            }
+
+            getDimensionPixelSize(R.styleable.BaseInputView_startIconTopMargin, -1).takeIf { it != -1 }?.let {
+                setInputLeftDrawableMargins(top = it)
+            }
+
+            getDimensionPixelSize(R.styleable.BaseInputView_startIconBottomMargin, -1).takeIf { it != -1 }?.let {
+                setInputLeftDrawableMargins(bottom = it)
+            }
             getColor(R.styleable.BaseInputView_endIconTint, ContextCompat.getColor(context, R.color.gray_1)).let {
                 vb.ivEndIcon.setColorFilter(it)
             }

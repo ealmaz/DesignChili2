@@ -79,6 +79,12 @@
         <attr name="startIconTint"/>
         <attr name="startIconDrawable"/>
         <attr name="startIconSize" format="dimension"/>
+        <attr name="startIconVerticalMargin" format="dimension"/>
+        <attr name="startIconHorizontalMargin" format="dimension"/>
+        <attr name="startIconTopMargin" format="dimension"/>
+        <attr name="startIconBottomMargin" format="dimension"/>
+        <attr name="startIconStartMargin" format="dimension"/>
+        <attr name="startIconEndMargin" format="dimension"/>
         <attr name="endIconTint"/>
         <attr name="endIconMode"/>
         <attr name="endIconDrawable"/>
