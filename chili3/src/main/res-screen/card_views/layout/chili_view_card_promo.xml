@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingEnd="@dimen/padding_8dp"
-    android:paddingBottom="?ChiliPromoCardViewLabelBottomMargin"
-    tools:layout_height="match_parent">
+    android:paddingBottom="?ChiliPromoCardViewLabelBottomMargin">
 
     <ImageView
         android:id="@+id/iv_icon"
@@ -67,7 +65,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/view_8dp"
+            android:layout_height="@dimen/view_6dp"
             android:background="@drawable/chili_bg_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
