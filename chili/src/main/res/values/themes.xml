@@ -262,6 +262,10 @@
     </style>
 
 
+    <style name="ChiliDesignTheme" parent="BaseChiliDesignTheme"/>
+
+    <style name="ChiliDesignThemeDay" parent="BaseChiliDesignTheme"/>
+
     <style name="ThemeOverlay"/>
 
     <style name="Chili.Transparent" parent="BaseChiliDesignTheme">
