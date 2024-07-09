@@ -12,7 +12,7 @@ import com.design2.chili2.extensions.setImageByUrl
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewQuickActionButtonBinding
 
-class QuickActionButtonView @JvmOverloads constructor(
+class BonusTagView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.quickActionButtonViewStyle,
@@ -143,5 +143,13 @@ class QuickActionButtonView @JvmOverloads constructor(
             tvLabel.alpha = alphaEnabled
             ivIcon.alpha = alphaEnabled
         }
+    }
+
+    private fun onStartShimmer() {
+        disableCard()
+    }
+
+    private fun onStopShimmer() {
+        enableCard()
     }
 }
