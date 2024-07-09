@@ -16,15 +16,10 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
-import androidx.annotation.Px
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.view.marginBottom
-import androidx.core.view.marginLeft
-import androidx.core.view.marginRight
-import androidx.core.view.marginTop
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import com.design2.chili2.R
@@ -101,28 +96,6 @@ open class BaseInputView @JvmOverloads constructor(
             }
             getDrawable(R.styleable.BaseInputView_startIconDrawable)?.let {
                 setInputLeftDrawable(it)
-            }
-            getDimensionPixelSize(R.styleable.BaseInputView_startIconVerticalMargin, -1).takeIf { it != -1 }?.let {
-                setInputLeftDrawableMargins(top = it, bottom = it)
-            }
-            getDimensionPixelSize(R.styleable.BaseInputView_startIconHorizontalMargin, -1).takeIf { it != -1 }?.let {
-                setInputLeftDrawableMargins(left = it, right = it)
-            }
-
-            getDimensionPixelSize(R.styleable.BaseInputView_startIconStartMargin, -1).takeIf { it != -1 }?.let {
-                setInputLeftDrawableMargins(left = it)
-            }
-
-            getDimensionPixelSize(R.styleable.BaseInputView_startIconEndMargin, -1).takeIf { it != -1 }?.let {
-                setInputLeftDrawableMargins(right = it)
-            }
-
-            getDimensionPixelSize(R.styleable.BaseInputView_startIconTopMargin, -1).takeIf { it != -1 }?.let {
-                setInputLeftDrawableMargins(top = it)
-            }
-
-            getDimensionPixelSize(R.styleable.BaseInputView_startIconBottomMargin, -1).takeIf { it != -1 }?.let {
-                setInputLeftDrawableMargins(bottom = it)
             }
             getColor(R.styleable.BaseInputView_endIconTint, ContextCompat.getColor(context, R.color.gray_1)).let {
                 vb.ivEndIcon.setColorFilter(it)
@@ -480,22 +453,6 @@ open class BaseInputView @JvmOverloads constructor(
             updateLayoutParams<LayoutParams> {
                 width = size
                 height = size
-            }
-        }
-    }
-
-    fun setInputLeftDrawableMargins(
-        @Px left: Int = vb.ivStartIcon.marginLeft,
-        @Px top: Int = vb.ivStartIcon.marginTop,
-        @Px right: Int = vb.ivStartIcon.marginRight,
-        @Px bottom: Int = vb.ivStartIcon.marginBottom
-    ) {
-        getInputLeftImageView().apply {
-            updateLayoutParams<MarginLayoutParams> {
-                leftMargin = left
-                topMargin = top
-                rightMargin = right
-                bottomMargin = bottom
             }
         }
     }
