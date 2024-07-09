@@ -156,6 +156,9 @@
         <attr name="cardCellAdditionalTextAppearance" />
     </declare-styleable>
 
+    <attr name="quickActionButtonViewStyle" format="reference" />
+    <attr name="rippleIcon" format="reference" />
+
     <declare-styleable name="QuickActionButtonView">
         <attr name="title"/>
         <attr name="icon"/>
