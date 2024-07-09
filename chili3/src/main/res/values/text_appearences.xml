@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ChiliQuickActionButtonTextColor" parent="Chili.H8">
+        <item name="android:textColor">?attr/ChiliQuickActionButtonTextColor</item>
+    </style>
+</resources>
