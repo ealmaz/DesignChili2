@@ -5,6 +5,7 @@ import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import androidx.annotation.DrawableRes
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
@@ -55,8 +56,10 @@ class PromoCardView @JvmOverloads constructor(
         getDrawable(R.styleable.PromoCardView_promoExpiredBorder)?.let {
             updateStatusBorder(PromoStatus.EXPIRED, it)
         }
-
     }
+
+    override val rootContainer: View
+        get() = vb.flRoot
 
     override fun setupShimmeringViews() {
         shimmeringPairs[vb.tvLabel] = vb.viewLabelShimmer

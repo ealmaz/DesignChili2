@@ -289,7 +289,6 @@
                                 android:layout_height="wrap_content"
                                 app:title="Рассрочка 0-0-12"
                                 app:promoStatus="no_status"
-                                app:promoStatusText="В ожидании"
                                 app:promoIcon="@drawable/market" />
 
                         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>

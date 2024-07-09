@@ -1,101 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_container"
+    android:id="@+id/fl_root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="?ChiliPromoCardViewLabelBottomMargin">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="?ChiliPromoCardViewIconStartMargin"
-        android:layout_marginTop="?ChiliPromoCardViewIconTopMargin"
-        android:layout_marginEnd="?ChiliPromoCardViewIconEndMargin"
-        android:layout_marginBottom="?ChiliPromoCardViewIconBottomMargin"
-        app:layout_constraintBottom_toTopOf="@id/tv_label"
-        app:layout_constraintEnd_toStartOf="@id/tv_status"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/chili_ic_info" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="?ChiliPromoCardViewLabelBottomMargin">
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/view_icon_shimmer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
-        app:layout_constraintEnd_toEndOf="@id/iv_icon"
-        app:layout_constraintStart_toStartOf="@id/iv_icon"
-        app:layout_constraintTop_toTopOf="@id/iv_icon">
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?ChiliPromoCardViewIconStartMargin"
+            android:layout_marginTop="?ChiliPromoCardViewIconTopMargin"
+            android:layout_marginEnd="?ChiliPromoCardViewIconEndMargin"
+            android:layout_marginBottom="?ChiliPromoCardViewIconBottomMargin"
+            app:layout_constraintBottom_toTopOf="@id/tv_label"
+            app:layout_constraintEnd_toStartOf="@id/tv_status"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/chili_ic_info" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/chili_bg_shimmer" />
-    </com.facebook.shimmer.ShimmerFrameLayout>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/view_icon_shimmer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+            app:layout_constraintEnd_toEndOf="@id/iv_icon"
+            app:layout_constraintStart_toStartOf="@id/iv_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_icon">
 
-    <TextView
-        android:id="@+id/tv_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="?ChiliPromoCardViewLabelStartMargin"
-        android:layout_marginTop="?ChiliPromoCardViewLabelTopMargin"
-        android:layout_marginEnd="?ChiliPromoCardViewLabelEndMargin"
-        android:textAppearance="@style/Chili.H8.Primary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_icon"
-        tools:text="Переводы" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/chili_bg_shimmer" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/view_label_shimmer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/tv_label"
-        app:layout_constraintStart_toStartOf="@id/tv_label"
-        app:layout_constraintTop_toTopOf="@id/tv_label"
-        app:layout_constraintWidth_percent="0.6">
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?ChiliPromoCardViewLabelStartMargin"
+            android:layout_marginTop="?ChiliPromoCardViewLabelTopMargin"
+            android:layout_marginEnd="?ChiliPromoCardViewLabelEndMargin"
+            android:textAppearance="@style/Chili.H8.Primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_icon"
+            tools:text="Переводы" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/view_6dp"
-            android:background="@drawable/chili_bg_shimmer" />
-    </com.facebook.shimmer.ShimmerFrameLayout>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/view_label_shimmer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tv_label"
+            app:layout_constraintStart_toStartOf="@id/tv_label"
+            app:layout_constraintTop_toTopOf="@id/tv_label"
+            app:layout_constraintWidth_percent="0.6">
 
-    <TextView
-        android:id="@+id/tv_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="?ChiliPromoCardViewStatusStartPadding"
-        android:paddingTop="?ChiliPromoCardViewStatusTopPadding"
-        android:paddingEnd="?ChiliPromoCardViewStatusEndPadding"
-        android:paddingBottom="?ChiliPromoCardViewStatusBottomPadding"
-        android:layout_marginTop="?ChiliPromoCardViewStatusTopMargin"
-        android:layout_marginEnd="?ChiliPromoCardViewStatusEndMargin"
-        android:textAppearance="@style/Chili.H9.White"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Активный" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_6dp"
+                android:background="@drawable/chili_bg_shimmer" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/view_status_shimmer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/tv_status"
-        app:layout_constraintEnd_toEndOf="@id/tv_status"
-        app:layout_constraintTop_toTopOf="@id/tv_status">
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?ChiliPromoCardViewStatusTopMargin"
+            android:layout_marginEnd="?ChiliPromoCardViewStatusEndMargin"
+            android:paddingStart="?ChiliPromoCardViewStatusStartPadding"
+            android:paddingTop="?ChiliPromoCardViewStatusTopPadding"
+            android:paddingEnd="?ChiliPromoCardViewStatusEndPadding"
+            android:paddingBottom="?ChiliPromoCardViewStatusBottomPadding"
+            android:textAppearance="@style/Chili.H9.White"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Активный" />
 
-        <View
-            android:layout_width="@dimen/view_75dp"
-            android:layout_height="@dimen/view_26dp"
-            android:background="@drawable/chili_bg_shimmer" />
-    </com.facebook.shimmer.ShimmerFrameLayout>
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/view_status_shimmer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/tv_status"
+            app:layout_constraintEnd_toEndOf="@id/tv_status"
+            app:layout_constraintTop_toTopOf="@id/tv_status">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="@dimen/view_75dp"
+                android:layout_height="@dimen/view_26dp"
+                android:background="@drawable/chili_bg_shimmer" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
