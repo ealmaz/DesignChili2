@@ -23,6 +23,7 @@ class PromoCardView @JvmOverloads constructor(
     override val styleableAttrRes: IntArray = R.styleable.PromoCardView
 
     private var promoStatus = mutableListOf(
+        PromoStatus.NO_STATUS to null,
         PromoStatus.NEW to null,
         PromoStatus.ACTIVE to null,
         PromoStatus.WAIT to null,
@@ -112,14 +113,17 @@ class PromoCardView @JvmOverloads constructor(
 
     private fun setStatus(status: Int) {
         when (status) {
-            PromoStatus.NEW.value -> setStatusBackground(R.drawable.chili_bg_promo_status_new)
-            PromoStatus.ACTIVE.value -> setStatusBackground(R.drawable.chili_bg_promo_status_active)
-            PromoStatus.WAIT.value -> setStatusBackground(R.drawable.chili_bg_promo_status_wait)
+            PromoStatus.NEW.value -> setStatusBackground(R.drawable.chili_bg_promo_status_new_gradient)
+            PromoStatus.ACTIVE.value -> setStatusBackground(R.drawable.chili_bg_promo_status_active_gradient)
+            PromoStatus.WAIT.value -> setStatusBackground(R.drawable.chili_bg_promo_status_wait_gradient)
             PromoStatus.EXPIRED.value -> {
-                setStatusBackground(R.drawable.chili_bg_promo_status_expired)
+                setStatusBackground(R.drawable.chili_bg_promo_status_expired_gradient)
                 setPromoBackground(status)
             }
-            else -> {}
+            else -> {
+                setStatusBackground(null)
+                setPromoBackground(status)
+            }
         }
     }
 

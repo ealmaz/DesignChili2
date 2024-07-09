@@ -36,10 +36,11 @@
         <attr name="promoStatusText" format="string"/>
         <attr name="promoStatusTextAppearance" format="reference"/>
         <attr name="promoStatus" format="dimension">
-            <enum name="create" value="0"/>
-            <enum name="active" value="1"/>
-            <enum name="wait" value="2"/>
-            <enum name="expired" value="3"/>
+            <enum name="no_status" value="0"/>
+            <enum name="create" value="1"/>
+            <enum name="active" value="2"/>
+            <enum name="wait" value="3"/>
+            <enum name="expired" value="4"/>
         </attr>
         <attr name="statusBackground" format="reference"/>
         <attr name="promoExpiredBorder" format="reference"/>

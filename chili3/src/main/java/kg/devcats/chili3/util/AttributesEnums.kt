@@ -5,5 +5,5 @@ enum class StoriesStatus(val value: Int) {
 }
 
 enum class PromoStatus(val value: Int) {
-    NEW(0), ACTIVE(1), WAIT(2), EXPIRED(3)
+    NO_STATUS(0), NEW(1), ACTIVE(2), WAIT(3), EXPIRED(4)
 }
