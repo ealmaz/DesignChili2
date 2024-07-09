@@ -3,7 +3,7 @@
     <attr name="windowColor" format="color"/>
 
     <!-- Base application theme. -->
-    <style name="Theme" parent="ChiliDesignTheme">
+    <style name="Theme" parent="ChiliDesignTheme3">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green_1</item>
         <item name="colorPrimaryVariant">@color/green_2</item>

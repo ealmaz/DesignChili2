@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseChiliDesignTheme3" parent="BaseChiliDesignTheme">
+
+    </style>
+
+    <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3"/>
+
+    <style name="ChiliDesignThemeDay3" parent="BaseChiliDesignTheme3"/>
+
+</resources>

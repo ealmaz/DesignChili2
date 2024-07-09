@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme" parent="ChiliDesignTheme">
+    <style name="Theme" parent="ChiliDesignTheme3">
         <item name="ChiliScreenBackground">@color/black_1</item>
     </style>
 
