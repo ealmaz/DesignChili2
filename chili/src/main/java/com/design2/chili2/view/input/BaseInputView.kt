@@ -16,10 +16,16 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
+import androidx.annotation.Px
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.marginBottom
+import androidx.core.view.marginLeft
+import androidx.core.view.marginRight
+import androidx.core.view.marginTop
+import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewInputBaseBinding
@@ -87,6 +93,15 @@ open class BaseInputView @JvmOverloads constructor(
             getResourceId(R.styleable.BaseInputView_fieldBackground, ContextCompat.getColor(context, R.color.gray_5)).let {
                 setupFieldBackground(it)
             }
+            getDimensionPixelSize(R.styleable.BaseInputView_startIconSize, -1).takeIf {it != -1}?.let {
+                setInputLeftDrawableSize(it)
+            }
+            getColor(R.styleable.BaseInputView_startIconTint, ContextCompat.getColor(context, R.color.gray_1)).let {
+                vb.ivStartIcon.setColorFilter(it)
+            }
+            getDrawable(R.styleable.BaseInputView_startIconDrawable)?.let {
+                setInputLeftDrawable(it)
+            }
             getColor(R.styleable.BaseInputView_endIconTint, ContextCompat.getColor(context, R.color.gray_1)).let {
                 vb.ivEndIcon.setColorFilter(it)
             }
@@ -96,7 +111,6 @@ open class BaseInputView @JvmOverloads constructor(
             getString(R.styleable.BaseInputView_android_hint)?.let { hint ->
                 setHint(hint)
             }
-
             getBoolean(R.styleable.BaseInputView_android_enabled, true).let {enabled ->
                 setIsInputEnabled(enabled)
             }
@@ -422,6 +436,48 @@ open class BaseInputView @JvmOverloads constructor(
         )
     }
 
+    fun setInputLeftDrawable(drawable: Drawable) {
+        getInputLeftImageView().apply {
+            visible()
+            setImageDrawable(drawable)
+        }
+        vb.etInput.updatePadding(left = resources.getDimensionPixelSize(R.dimen.padding_40dp))
+    }
+
+    fun setInputLeftDrawable(@DrawableRes drawableId: Int) {
+        getInputLeftImageView().apply {
+            visible()
+            setImageResource(drawableId)
+        }
+        vb.etInput.updatePadding(left = resources.getDimensionPixelSize(R.dimen.padding_40dp))
+    }
+
+    fun setInputLeftDrawableSize(size: Int) {
+        getInputLeftImageView().apply {
+            updatePadding()
+            updateLayoutParams<LayoutParams> {
+                width = size
+                height = size
+            }
+        }
+    }
+
+    fun setInputLeftDrawableMargins(
+        @Px left: Int = vb.ivStartIcon.marginLeft,
+        @Px top: Int = vb.ivStartIcon.marginTop,
+        @Px right: Int = vb.ivStartIcon.marginRight,
+        @Px bottom: Int = vb.ivStartIcon.marginBottom
+    ) {
+        getInputLeftImageView().apply {
+            updateLayoutParams<MarginLayoutParams> {
+                leftMargin = left
+                topMargin = top
+                rightMargin = right
+                bottomMargin = bottom
+            }
+        }
+    }
+
     fun setInputRightDrawable(drawable: Drawable) {
         getInputRightImageView().apply {
             visible()
@@ -445,6 +501,10 @@ open class BaseInputView @JvmOverloads constructor(
     fun removeInputRightDrawable() {
         getInputRightImageView().gone()
         vb.etInput.updatePadding(right = resources.getDimensionPixelSize(R.dimen.padding_0dp))
+    }
+
+    fun getInputLeftImageView() : ImageView {
+        return vb.ivStartIcon
     }
 
     fun getInputRightImageView(): ImageView {
