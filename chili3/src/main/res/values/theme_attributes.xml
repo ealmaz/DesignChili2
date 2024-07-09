@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="ChiliPromoCardViewStatusTopPadding" format="dimension"/>
+    <attr name="ChiliPromoCardViewStatusBottomPadding" format="dimension"/>
+    <attr name="ChiliPromoCardViewStatusStartPadding" format="dimension"/>
+    <attr name="ChiliPromoCardViewStatusEndPadding" format="dimension"/>
     <attr name="ChiliPromoCardViewStatusTopMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewStatusCornerRadius" format="dimension"/>
     <attr name="ChiliPromoCardViewStatusEndMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewLabelTopMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewLabelBottomMargin" format="dimension"/>

@@ -170,6 +170,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="@dimen/padding_12dp"
                             android:layout_marginStart="@dimen/padding_12dp"
+                            android:layout_marginEnd="@dimen/padding_12dp"
                             android:scaleType="fitXY"
                             app:cardIconSize="medium"
                             app:unviewedBorder="@drawable/personal_stories"
@@ -199,38 +200,96 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <kg.devcats.chili3.view.card.PromoCardView
-                            android:id="@+id/pcv_promo"
-                            android:layout_width="wrap_content"
+                        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                            style="@style/ShadowLayoutStyle"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="@dimen/padding_12dp"
-                            android:layout_marginStart="@dimen/padding_12dp"
-                            app:title="Рассрочка 0-0-12"
-                            app:promoStatusText="Новое"
-                            app:promoStatus="create"
-                            app:promoIcon="@drawable/market" />
+                            android:layout_marginStart="@dimen/padding_12dp">
 
-                        <kg.devcats.chili3.view.card.PromoCardView
-                            android:id="@+id/pcv_promo1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="@dimen/padding_12dp"
-                            android:layout_marginStart="@dimen/padding_12dp"
-                            app:title="Рассрочка 0-0-12"
-                            app:promoStatusText="Новое"
-                            app:promoStatus="create"
-                            app:promoIcon="@drawable/market" />
+                            <kg.devcats.chili3.view.card.PromoCardView
+                                android:id="@+id/pcv_promo"
+                                android:layout_width="194dp"
+                                android:layout_height="wrap_content"
+                                app:title="Рассрочка 0-0-12"
+                                app:promoStatusText="Новое"
+                                app:promoStatus="create"
+                                app:promoIcon="@drawable/market" />
 
-                        <kg.devcats.chili3.view.card.PromoCardView
-                            android:id="@+id/pcv_promo2"
-                            android:layout_width="wrap_content"
+                        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                            style="@style/ShadowLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp">
+
+                            <kg.devcats.chili3.view.card.PromoCardView
+                                android:id="@+id/pcv_promo1"
+                                android:layout_width="194dp"
+                                android:layout_height="wrap_content"
+                                app:title="Рассрочка 0-0-12"
+                                app:promoStatusText="Активный"
+                                app:promoStatus="active"
+                                app:promoIcon="@drawable/market" />
+
+                        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                            style="@style/ShadowLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp">
+
+                            <kg.devcats.chili3.view.card.PromoCardView
+                                android:id="@+id/pcv_promo2"
+                                android:layout_width="194dp"
+                                android:layout_height="wrap_content"
+                                app:title="Рассрочка 0-0-12"
+                                app:promoStatusText="Просрочен"
+                                app:promoStatus="expired"
+                                app:promoIcon="@drawable/market" />
+
+                        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+
+                        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                            style="@style/ShadowLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp">
+
+                            <kg.devcats.chili3.view.card.PromoCardView
+                                android:id="@+id/pcv_promo4"
+                                android:layout_width="194dp"
+                                android:layout_height="wrap_content"
+                                app:title="Рассрочка 0-0-12"
+                                app:promoStatusText="В ожидании"
+                                app:promoStatus="wait"
+                                app:promoIcon="@drawable/market" />
+
+                        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                            style="@style/ShadowLayoutStyle"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="@dimen/padding_12dp"
                             android:layout_marginStart="@dimen/padding_12dp"
-                            app:title="Рассрочка 0-0-12"
-                            app:promoStatusText="Новое"
-                            app:promoStatus="create"
-                            app:promoIcon="@drawable/market" />
+                            android:layout_marginEnd="@dimen/padding_12dp">
+
+                            <kg.devcats.chili3.view.card.PromoCardView
+                                android:id="@+id/pcv_promo3"
+                                android:layout_width="194dp"
+                                android:layout_height="wrap_content"
+                                app:title="Рассрочка 0-0-12"
+                                app:promoStatusText="В ожидании"
+                                app:promoIcon="@drawable/market" />
+
+                        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
                     </LinearLayout>
 

@@ -4,10 +4,15 @@
     <style name="BaseChiliDesignTheme3" parent="BaseChiliDesignTheme">
 
         <!-- PromoCardView -->
+        <item name="ChiliPromoCardViewStatusTopPadding">@dimen/padding_4dp</item>
+        <item name="ChiliPromoCardViewStatusBottomPadding">@dimen/padding_6dp</item>
+        <item name="ChiliPromoCardViewStatusStartPadding">@dimen/padding_8dp</item>
+        <item name="ChiliPromoCardViewStatusEndPadding">@dimen/padding_8dp</item>
         <item name="ChiliPromoCardViewStatusTopMargin">@dimen/padding_4dp</item>
         <item name="ChiliPromoCardViewStatusEndMargin">@dimen/padding_4dp</item>
+        <item name="ChiliPromoCardViewStatusCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliPromoCardViewLabelTopMargin">@dimen/padding_8dp</item>
-        <item name="ChiliPromoCardViewLabelBottomMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPromoCardViewLabelBottomMargin">@dimen/padding_18dp</item>
         <item name="ChiliPromoCardViewLabelStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliPromoCardViewLabelEndMargin">@dimen/padding_12dp</item>
         <item name="ChiliPromoCardViewIconTopMargin">@dimen/padding_12dp</item>

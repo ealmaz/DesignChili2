@@ -45,7 +45,7 @@ class PromoCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setIcon(it) }
         setStatusText(getText(R.styleable.PromoCardView_promoStatusText))
         getResourceId(R.styleable.PromoCardView_promoStatusTextAppearance, -1)
-            .takeIf { it != -1 }?.let { setTitleTextAppearance(it) }
+            .takeIf { it != -1 }?.let { setStatusTextAppearance(it) }
         getLayoutDimension(R.styleable.PromoCardView_promoStatus, -1)
             .takeIf { it != -1 }?.let { setStatus(it) }
         getDrawable(R.styleable.PromoCardView_statusBackground)?.let {
@@ -58,7 +58,8 @@ class PromoCardView @JvmOverloads constructor(
     }
 
     override fun setupShimmeringViews() {
-
+        shimmeringPairs[vb.tvLabel] = vb.viewLabelShimmer
+        shimmeringPairs[vb.ivIcon] = vb.viewIconShimmer
     }
 
     fun setTitle(charSequence: CharSequence?) {
@@ -98,11 +99,11 @@ class PromoCardView @JvmOverloads constructor(
     }
 
     fun setStatusBackground(drawable: Drawable?) {
-        vb.cvStatus.background = drawable
+        vb.tvStatus.background = drawable
     }
 
     fun setStatusBackground(@DrawableRes drawableId: Int) {
-        vb.cvStatus.background = context.drawable(drawableId)
+        vb.tvStatus.background = context.drawable(drawableId)
     }
 
     fun setPromoBackground(status: Int) {
@@ -112,10 +113,10 @@ class PromoCardView @JvmOverloads constructor(
     private fun setStatus(status: Int) {
         when (status) {
             PromoStatus.NEW.value -> setStatusBackground(R.drawable.chili_bg_promo_status_new)
-            PromoStatus.ACTIVE.value -> setStatusBackground(R.drawable.chili_bg_promo_status_new)
-            PromoStatus.WAIT.value -> setStatusBackground(R.drawable.chili_bg_promo_status_new)
+            PromoStatus.ACTIVE.value -> setStatusBackground(R.drawable.chili_bg_promo_status_active)
+            PromoStatus.WAIT.value -> setStatusBackground(R.drawable.chili_bg_promo_status_wait)
             PromoStatus.EXPIRED.value -> {
-                setStatusBackground(R.drawable.chili_bg_promo_status_new)
+                setStatusBackground(R.drawable.chili_bg_promo_status_expired)
                 setPromoBackground(status)
             }
             else -> {}
