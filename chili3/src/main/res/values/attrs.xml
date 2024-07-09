@@ -165,5 +165,4 @@
         <attr name="icon"/>
         <attr name="titleTextAppearance"/>
     </declare-styleable>
-
 </resources>
