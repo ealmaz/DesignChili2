@@ -1,6 +1,5 @@
 package kg.devcats.chili3.view.cells
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
