@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:layout_height="match_parent"
     android:paddingEnd="@dimen/padding_8dp"
-    android:paddingBottom="?ChiliCategoryCardViewLabelBottomMargin"
     android:orientation="vertical">
 
     <ImageView

@@ -179,6 +179,17 @@
 
                 </HorizontalScrollView>
 
+            </com.design2.chili2.view.container.ExpandableContainer>
+
+            <com.design2.chili2.view.container.ExpandableContainer
+                android:id="@+id/ec_promo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:isNeedToSaveExpandedState="true"
+                app:title="PromoCardView">
+
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">

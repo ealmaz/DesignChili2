@@ -3,6 +3,18 @@
 
     <style name="BaseChiliDesignTheme3" parent="BaseChiliDesignTheme">
 
+        <!-- PromoCardView -->
+        <item name="ChiliPromoCardViewStatusTopMargin">@dimen/padding_4dp</item>
+        <item name="ChiliPromoCardViewStatusEndMargin">@dimen/padding_4dp</item>
+        <item name="ChiliPromoCardViewLabelTopMargin">@dimen/padding_8dp</item>
+        <item name="ChiliPromoCardViewLabelBottomMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPromoCardViewLabelStartMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPromoCardViewLabelEndMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPromoCardViewIconTopMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPromoCardViewIconBottomMargin">@dimen/padding_0dp</item>
+        <item name="ChiliPromoCardViewIconStartMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPromoCardViewIconEndMargin">@dimen/padding_12dp</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3"/>
