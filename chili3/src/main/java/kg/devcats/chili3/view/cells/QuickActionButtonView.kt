@@ -16,7 +16,7 @@ class QuickActionButtonView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.quickActionButtonViewStyle,
-    defStyleRes: Int = R.style.ChiliQuickActionButtonTextColor
+    defStyleRes: Int = com.design2.chili2.R.style.Chili_H8_Secondary
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private lateinit var vb: ChiliViewQuickActionButtonBinding

@@ -1,36 +1,29 @@
 package kg.devcats.chili3.view.cells
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
 import android.widget.FrameLayout
 import com.design2.chili2.extensions.setImageByUrl
 import kg.devcats.chili3.R
-import kg.devcats.chili3.databinding.ChiliViewQuickActionButtonBinding
+import kg.devcats.chili3.databinding.ChiliViewBonusTagBinding
 
 class BonusTagView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.quickActionButtonViewStyle,
-    defStyleRes: Int = R.style.ChiliQuickActionButtonTextColor
+    defStyleAttr: Int = R.attr.bonusTagViewStyle,
+    defStyleRes: Int = R.style.BonusTagTitleStyle
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
-    private lateinit var vb: ChiliViewQuickActionButtonBinding
-
+    private lateinit var vb: ChiliViewBonusTagBinding
     private var onClickListener: OnClickListener? = null
     private val alphaEnabled = 1.0f
     private val alphaDisabled = 0.3f
-    private var rippleIconId: Int? = null
     private var iconId: Int ? = null
-    private val rootContainer: View
-        get() = vb.rootView
 
     private fun inflateView(context: Context) {
-        vb = ChiliViewQuickActionButtonBinding.inflate(LayoutInflater.from(context), this, true)
+        vb = ChiliViewBonusTagBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     init {
@@ -40,27 +33,7 @@ class BonusTagView @JvmOverloads constructor(
     }
 
     private fun setupView() {
-        clickHandler()
-    }
-
-    @SuppressLint("ClickableViewAccessibility")
-    private fun clickHandler() {
-        rootContainer.setOnTouchListener(OnTouchListener { _, event ->
-            if (event?.action == MotionEvent.ACTION_DOWN){
-                rippleIconId?.let {
-                    vb.ivIcon.setImageResource(it)
-                }
-                return@OnTouchListener true
-            }
-            if (event?.action == MotionEvent.ACTION_UP) {
-                iconId?.let {
-                    vb.ivIcon.setImageResource(it)
-                }
-                this.onClickListener?.onClick(vb.rootView)
-                return@OnTouchListener true
-            }
-            return@OnTouchListener false
-        })
+        setIcon(R.drawable.ic_bonus_new)
     }
 
     private fun obtainAttributes(
@@ -71,20 +44,15 @@ class BonusTagView @JvmOverloads constructor(
     ) {
         context.obtainStyledAttributes(
             attrs,
-            R.styleable.QuickActionButtonView,
+            R.styleable.BonusTagView,
             defStyleAttr,
             defStyleRes
         ).run {
-            setTitle(getText(R.styleable.QuickActionButtonView_title))
-            getResourceId(R.styleable.QuickActionButtonView_titleTextAppearance, -1)
+            setTitle(getText(R.styleable.BonusTagView_title))
+            getResourceId(R.styleable.BonusTagView_titleTextAppearance, -1)
                 .takeIf { it != -1 }?.let { setTitleTextAppearance(it) }
-            getResourceId(R.styleable.QuickActionButtonView_icon, -1)
+            getResourceId(R.styleable.BonusTagView_icon, -1)
                 .takeIf { it != -1 }?.let { setIcon(it) }
-
-            rippleIconId = getResourceId(R.styleable.QuickActionButtonView_rippleIcon, -1)
-                .takeIf { it != -1 }
-
-            setIsCardEnabled(getBoolean(R.styleable.QuickActionButtonView_isEnable, true))
             recycle()
         }
     }
@@ -113,7 +81,6 @@ class BonusTagView @JvmOverloads constructor(
     fun setIcon(drawable: Drawable) {
         vb.ivIcon.setImageDrawable(drawable)
     }
-
 
     fun setIsCardEnabled(isEnabled: Boolean) {
         when (isEnabled) {
