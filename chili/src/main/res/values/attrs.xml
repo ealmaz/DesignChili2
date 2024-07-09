@@ -76,6 +76,9 @@
         <attr name="messageTextColor" format="color"/>
         <attr name="errorMessageTextColor" format="color"/>
         <attr name="hintTextColor"/>
+        <attr name="startIconTint"/>
+        <attr name="startIconDrawable"/>
+        <attr name="startIconSize" format="dimension"/>
         <attr name="endIconTint"/>
         <attr name="endIconMode"/>
         <attr name="endIconDrawable"/>
