@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Chili.H16.Action" parent="Chili.H16.Primary">
+    <style name="Chili.H16.Action" parent="Chili.H16">
         <item name="android:textColor">@color/blue_1</item>
     </style>
 
-    <style name="Chili.H16.Action.Bold" parent="Chili.H16.Primary.Bold">
-        <item name="android:textColor">@color/blue_1</item>
+    <style name="Chili.H16.Action.Bold" parent="Chili.H16.Action">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H9.White" parent="Chili.H9.Primary">
