@@ -139,8 +139,6 @@
         <item name="QuickActionButtonTitleColor">@color/gray_9</item>4
         <item name="QuickActionButtonDisabledTitleColor">@color/gray_1</item>
 
-        <!-- QuickActionButton-->
-        <item name="ChiliQuickActionButtonTextColor">@color/gray_2</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>

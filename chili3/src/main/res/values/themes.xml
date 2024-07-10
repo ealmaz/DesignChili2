@@ -77,8 +77,6 @@
         <item name="ChiliBottomNavigationBarViewLabelVisibilityMode">labeled</item>
         <item name="ChiliBottomNavigationViewHeight">@dimen/view_72dp</item>
 
-        <!-- QuickActionButton-->
-        <item name="ChiliQuickActionButtonTextColor">@color/black_4</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />
