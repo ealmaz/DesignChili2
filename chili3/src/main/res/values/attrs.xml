@@ -135,18 +135,17 @@
     </declare-styleable>
 
     <declare-styleable name="CardCellView">
-        <attr name="title" format="string" />
-        <attr name="subtitle" format="string" />
-        <attr name="value" format="string" />
-        <attr name="icon" format="reference" />
-        <attr name="isMain" format="boolean" />
-        <attr name="isBlocked" format="boolean" />
-        <attr name="isUniqueStatused" format="boolean" />
-        <attr name="isChevronVisible" format="boolean" />
-        <attr name="titleTextAppearance" />
-        <attr name="subtitleTextAppearance" />
-        <attr name="additionalTextAppearance" />
-
+        <attr name="cardCellTitle" format="string" />
+        <attr name="cardCellSubtitle" format="string" />
+        <attr name="cardCellValue" format="string" />
+        <attr name="cardCellIcon" format="reference" />
+        <attr name="cardCellIsMain" format="boolean" />
+        <attr name="cardCellIsBlocked" format="boolean" />
+        <attr name="cardCellIsUniqueStatused" format="boolean" />
+        <attr name="cardCellIsChevronVisible" format="boolean" />
+        <attr name="cardCellTitleTextAppearance" />
+        <attr name="cardCellSubtitleTextAppearance" />
+        <attr name="cardCellAdditionalTextAppearance" />
     </declare-styleable>
 
 </resources>

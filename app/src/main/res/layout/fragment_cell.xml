@@ -48,23 +48,23 @@
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"
-            app:value="500 000,00 с"
-            app:isMain="true"
-            app:isBlocked="false"
-            app:isUniqueStatused="false"/>
+            app:cardCellTitle="Заголовок"
+            app:cardCellSubtitle="Подзаголовок"
+            app:cardCellValue="500 000,00 с"
+            app:cardCellIsMain="true"
+            app:cardCellIsBlocked="false"
+            app:cardCellIsUniqueStatused="false"/>
 
         <kg.devcats.chili3.view.cells.CardCellView
             android:id="@+id/cardcell3"
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"
-            app:value="500 000,00 с"
-            app:isBlocked="true"
-            app:isUniqueStatused="false"/>
+            app:cardCellTitle="Заголовок"
+            app:cardCellSubtitle="Подзаголовок"
+            app:cardCellValue="500 000,00 с"
+            app:cardCellIsBlocked="true"
+            app:cardCellIsUniqueStatused="false"/>
 
         <kg.devcats.chili3.view.cells.CardCellView
             android:id="@+id/cardcell4"
@@ -76,30 +76,29 @@
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:icon="@drawable/ic_card_default"
-            app:title="Заголовок"
-            app:value="500 000,00 с"/>
+            app:cardCellIcon="@drawable/ic_card_default"
+            app:cardCellTitle="Заголовок"
+            app:cardCellValue="500 000,00 с"/>
 
         <kg.devcats.chili3.view.cells.CardCellView
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:icon="@drawable/ic_card_default"
-            app:title="Заголовок"
-            app:subtitle="Подзаголовок"
-            app:value="500 000,00 с"
-            app:isUniqueStatused="true"
-            />
+            app:cardCellIcon="@drawable/ic_card_default"
+            app:cardCellTitle="Заголовок"
+            app:cardCellSubtitle="Подзаголовок"
+            app:cardCellValue="500 000,00 с"
+            app:cardCellIsUniqueStatused="true"/>
 
         <kg.devcats.chili3.view.cells.CardCellView
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:icon="@drawable/ic_card_default"
-            app:title="Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок"
-            app:subtitle="Подзаголовок Подзаголовок Подзаголовок Подзаголовок Подзаголовок "
-            app:isUniqueStatused="true"
-            />
+            app:cardCellIcon="@drawable/ic_card_default"
+            app:cardCellTitle="Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок Заголовок"
+            app:cardCellSubtitle="Подзаголовок Подзаголовок Подзаголовок Подзаголовок Подзаголовок"
+            app:cardCellIsUniqueStatused="true"/>
+
 
         <com.design2.chili2.view.common.TitledDividerView
             android:layout_width="wrap_content"

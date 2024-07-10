@@ -45,24 +45,17 @@ class CardCellView @JvmOverloads constructor(
     ) {
         context.obtainStyledAttributes(attrs, R.styleable.CardCellView, defStyleAttr, defStyleRes)
             .run {
-                getString(R.styleable.CardCellView_title)?.let { setTitle(it) }
-                getString(R.styleable.CardCellView_subtitle)?.let { setSubtitle(it) }
-                getString(R.styleable.CardCellView_value)?.let { setAdditionalText(it) }
-                getDrawable(R.styleable.CardCellView_icon)?.let { setIcon(it) }
-                setIsMain(getBoolean(R.styleable.CardCellView_isMain, false))
-                setIsBlocked(getBoolean(R.styleable.CardCellView_isBlocked, false))
-                setIsUniqueStated(getBoolean(R.styleable.CardCellView_isUniqueStatused, false))
-                setIsChevronVisible(getBoolean(R.styleable.CardCellView_isChevronVisible, false))
-                getResourceId(R.styleable.CardCellView_titleTextAppearance, -1).takeIf { it != -1 }
-                    ?.let { setTitleTextAppearance(it) }
-                getResourceId(
-                    R.styleable.CardCellView_subtitleTextAppearance,
-                    -1
-                ).takeIf { it != -1 }?.let { setSubtitleTextAppearance(it) }
-                getResourceId(
-                    R.styleable.CardCellView_additionalTextAppearance,
-                    -1
-                ).takeIf { it != -1 }?.let { setAdditionalTextAppearance(it) }
+                getString(R.styleable.CardCellView_cardCellTitle)?.let { setTitle(it) }
+                getString(R.styleable.CardCellView_cardCellSubtitle)?.let { setSubtitle(it) }
+                getString(R.styleable.CardCellView_cardCellValue)?.let { setAdditionalText(it) }
+                getDrawable(R.styleable.CardCellView_cardCellIcon)?.let { setIcon(it) }
+                setIsMain(getBoolean(R.styleable.CardCellView_cardCellIsMain, false))
+                setIsBlocked(getBoolean(R.styleable.CardCellView_cardCellIsBlocked, false))
+                setIsUniqueStated(getBoolean(R.styleable.CardCellView_cardCellIsUniqueStatused, false))
+                setIsChevronVisible(getBoolean(R.styleable.CardCellView_cardCellIsChevronVisible, false))
+                getResourceId(R.styleable.CardCellView_cardCellTitleTextAppearance, -1).takeIf { it != -1 }?.let { setTitleTextAppearance(it) }
+                getResourceId(R.styleable.CardCellView_cardCellSubtitleTextAppearance, -1).takeIf { it != -1 }?.let { setSubtitleTextAppearance(it) }
+                getResourceId(R.styleable.CardCellView_cardCellAdditionalTextAppearance, -1).takeIf { it != -1 }?.let { setAdditionalTextAppearance(it) }
                 recycle()
             }
     }
