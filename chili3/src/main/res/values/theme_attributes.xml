@@ -28,6 +28,8 @@
     <attr name="ChiliPromoCardViewIconBottomMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconStartMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconEndMargin" format="dimension"/>
+    <attr name="QuickActionButtonTitleColor" format="color"/>
+    <attr name="QuickActionButtonDisabledTitleColor" format="color"/>
 
     <!-- QuickActionButtonView -->
     <attr name="QuickActionButtonTitleColor" format="color"/>
