@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ChiliQuickActionButtonTextColor" parent="Chili.H8">
-        <item name="android:textColor">?attr/ChiliQuickActionButtonTextColor</item>
+    <style name="BonusTagTitleStyle" parent="Chili.H9">
+        <item name="android:textColor">@color/white_1</item>
+    </style>
+    <style name="QuickActionButtonDisabled" parent="Chili.H8">
+        <item name="android:textColor">?attr/QuickActionButtonDisabledTitleColor</item>
+    </style>
+    <style name="QuickActionButtonTitleStyle" parent="Chili.H8">
+        <item name="android:textColor">?attr/QuickActionButtonTitleColor</item>
     </style>
     <style name="BonusTagTitleStyle" parent="Chili.H9">
         <item name="android:textColor">@color/white_1</item>
