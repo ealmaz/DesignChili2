@@ -99,16 +99,14 @@ class QuickActionButtonView @JvmOverloads constructor(
         vb.tvLabel.text = charSequence
     }
 
-    @SuppressLint("ResourceType")
     fun setTitle(@StringRes resId: Int) {
         vb.tvLabel.setText(resId)
     }
 
-    @SuppressLint("ResourceType")
     fun setTitleTextAppearance(@StyleRes resId: Int) {
         vb.tvLabel.setTextAppearance(resId)
     }
-    @SuppressLint("ResourceType")
+
     fun setIcon(@DrawableRes resId: Int) {
         vb.ivIcon.setImageResource(resId)
     }
@@ -143,7 +141,7 @@ class QuickActionButtonView @JvmOverloads constructor(
         }
     }
 
-    @SuppressLint("ResourceAsColor")
+
     private fun enableCard() {
         with(vb) {
             root.isEnabled = true
