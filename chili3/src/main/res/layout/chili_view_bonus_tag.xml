@@ -19,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:padding="@dimen/padding_4dp"
-        android:background="@drawable/chili_bonus_tag_gradient"
         tools:ignore="UseCompoundDrawables">
 
         <TextView
