@@ -26,4 +26,8 @@
 
     <style name="ChiliDesignThemeDay3" parent="BaseChiliDesignTheme3"/>
 
+    <!-- DividerView -->
+    <style name="Chili.DividerViewStyle"/>
+
+
 </resources>
