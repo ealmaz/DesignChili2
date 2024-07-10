@@ -99,21 +99,13 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         //CardCellView
         vb.cardcell1.startShimmering()
         vb.cardcell2.startShimmering()
-        vb.cardcell3.startShimmering()
-        vb.cardcell4.startShimmering()
-        Handler(Looper.getMainLooper()).postDelayed({
-            vb.cardcell2.stopShimmering()
-            vb.cardcell3.stopShimmering()
-            vb.cardcell4.stopShimmering()
-            vb.cardcell4.apply {
-                setTitle("Test Title")
-                setSubtitle("Test Subtitle")
-                setAdditionalText("121212 c")
-                setIcon(com.design2.app.R.drawable.ic_card_default)
-            }
-        }, 2000)
-
-
+        Handler(Looper.getMainLooper()).postDelayed({ vb.cardcell2.stopShimmering() }, 2000)
+        vb.cardcell4.apply {
+            setIcon(com.design2.app.R.drawable.ic_card_default)
+            setTitle("Test Title")
+            setSubtitle("Test Subtitle")
+            setAdditionalText("121212 c")
+        }
     }
 
     private fun getItemTouchHelper(adapter: EditableCellViewsAdapter) =
@@ -140,6 +132,11 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             override fun isItemViewSwipeEnabled() = false
 
         })
+
+    override fun onResume() {
+        super.onResume()
+
+    }
 
     override fun inflateViewBinging(): FragmentCellBinding {
         return FragmentCellBinding.inflate(layoutInflater)

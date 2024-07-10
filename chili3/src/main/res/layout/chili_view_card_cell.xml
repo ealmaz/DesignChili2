@@ -19,6 +19,7 @@
             android:layout_width="@dimen/view_60dp"
             android:layout_height="@dimen/view_40dp"
             android:scaleType="fitCenter"
+            android:src="@drawable/chili_ic_add_card_cell"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,21 +37,21 @@
             app:layout_constraintTop_toTopOf="@id/iv_icon" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/end_container"
             app:layout_constraintStart_toEndOf="@id/iv_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:id="@+id/title_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/padding_12dp"
                 android:orientation="horizontal"
-                android:layout_gravity="center_vertical"
                 app:layout_constraintEnd_toStartOf="@id/end_container"
                 app:layout_constraintStart_toEndOf="@id/iv_icon"
                 app:layout_constraintTop_toTopOf="parent">
@@ -62,7 +63,7 @@
                     android:ellipsize="end"
                     android:maxLines="3"
                     android:textAppearance="@style/Chili.H7.Primary"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     tools:text="Заголовок" />
 
                 <ImageView
@@ -76,10 +77,10 @@
             </LinearLayout>
 
             <TextView
-                android:layout_gravity="center_vertical"
                 android:id="@+id/tv_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="@dimen/padding_12dp"
                 android:layout_marginTop="@dimen/padding_4dp"
                 android:ellipsize="end"
@@ -92,7 +93,6 @@
                 tools:text="Подзаголовок" />
 
         </LinearLayout>
-
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

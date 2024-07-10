@@ -8,7 +8,6 @@ import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.extensions.setImageByUrl
@@ -50,10 +49,10 @@ class CardCellView @JvmOverloads constructor(
                 getString(R.styleable.CardCellView_subtitle)?.let { setSubtitle(it) }
                 getString(R.styleable.CardCellView_value)?.let { setAdditionalText(it) }
                 getDrawable(R.styleable.CardCellView_icon)?.let { setIcon(it) }
-                setMain(getBoolean(R.styleable.CardCellView_isMain, false))
-                setBlocked(getBoolean(R.styleable.CardCellView_isBlocked, false))
-                setUniqueStatused(getBoolean(R.styleable.CardCellView_isUniqueStatused, false))
-                setChevronVisible(getBoolean(R.styleable.CardCellView_isChevronVisible, false))
+                setIsMain(getBoolean(R.styleable.CardCellView_isMain, false))
+                setIsBlocked(getBoolean(R.styleable.CardCellView_isBlocked, false))
+                setIsUniqueStated(getBoolean(R.styleable.CardCellView_isUniqueStatused, false))
+                setIsChevronVisible(getBoolean(R.styleable.CardCellView_isChevronVisible, false))
                 getResourceId(R.styleable.CardCellView_titleTextAppearance, -1).takeIf { it != -1 }
                     ?.let { setTitleTextAppearance(it) }
                 getResourceId(
@@ -89,23 +88,31 @@ class CardCellView @JvmOverloads constructor(
     fun setSubtitle(subtitle: String?) {
         vb.tvSubtitle.apply {
             text = subtitle
-            visibility = if (subtitle.isNullOrEmpty()) View.GONE else View.VISIBLE
+            isVisible = !subtitle.isNullOrEmpty()
         }
 
     }
 
     fun setSubtitle(@StringRes resId: Int) {
-        vb.tvSubtitle.setText(resId)
-        vb.tvSubtitle.visibility = View.VISIBLE
+        vb.tvSubtitle.apply {
+            setText(resId)
+            isVisible = true
+        }
+
     }
 
     fun setAdditionalText(value: String?) {
-        vb.tvAdditionalText.text = value
-        vb.tvAdditionalText.visibility = if (value.isNullOrEmpty()) View.GONE else View.VISIBLE
+        vb.tvAdditionalText.apply {
+            text = value
+            isVisible = !value.isNullOrEmpty()
+        }
     }
 
     fun setAdditionalText(@StringRes resId: Int) {
-        vb.tvAdditionalText.setText(resId)
+        vb.tvAdditionalText.apply {
+            setText(resId)
+            isVisible = true
+        }
     }
 
     fun setIcon(icon: Drawable?) {
@@ -120,13 +127,13 @@ class CardCellView @JvmOverloads constructor(
         vb.ivIcon.setImageResource(resId)
     }
 
-    fun setMain(isMain: Boolean) {
-        vb.ivStar.visibility = if (isMain) View.VISIBLE else View.GONE
+    fun setIsMain(isMain: Boolean) {
+        vb.ivStar.isVisible = isMain
     }
 
-    fun setBlocked(isBlocked: Boolean) {
+    fun setIsBlocked(isBlocked: Boolean) {
         with(vb) {
-            val alphaValue = if (isBlocked) 0.5f else 1f
+            val alphaValue = if (isBlocked) 0.4f else 1f
 
             ivIcon.alpha = alphaValue
             tvTitle.alpha = alphaValue
@@ -135,24 +142,24 @@ class CardCellView @JvmOverloads constructor(
             ivStar.alpha = alphaValue
             ivChevron.alpha = alphaValue
 
-            ivLock.visibility = if (isBlocked) View.VISIBLE else View.GONE
+            ivLock.isVisible = isBlocked
         }
     }
 
-    fun setUniqueStatused(
-        isUniqueStatused: Boolean,
+    fun setIsUniqueStated(
+        isUniqueStated: Boolean,
         color: Int = resources.getColor(com.design2.chili2.R.color.folly_1)
     ) {
         with(vb) {
-            if (isUniqueStatused) {
+            if (isUniqueStated) {
                 tvSubtitle.setTextColor(color)
                 tvAdditionalText.setTextColor(color)
             }
         }
     }
 
-    fun setChevronVisible(isChevronVisible: Boolean) {
-        vb.ivChevron.visibility = if (isChevronVisible) View.VISIBLE else View.GONE
+    fun setIsChevronVisible(isChevronVisible: Boolean) {
+        vb.ivChevron.isVisible = isChevronVisible
     }
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {

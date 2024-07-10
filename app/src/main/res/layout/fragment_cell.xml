@@ -20,6 +20,23 @@
         android:paddingBottom="220dp"
         tools:context=".MainActivity">
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/view_icon_shimmer"
+            android:layout_width="140dp"
+            android:layout_height="8dp"
+            app:shimmer_auto_start="true">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/chili_bg_shimmer" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <com.design2.chili2.view.common.TitledDividerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:title="CardCellViews" />
+
         <kg.devcats.chili3.view.cells.CardCellView
             android:id="@+id/cardcell1"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -46,7 +63,6 @@
             app:title="Заголовок"
             app:subtitle="Подзаголовок"
             app:value="500 000,00 с"
-            app:isMain="true"
             app:isBlocked="true"
             app:isUniqueStatused="false"/>
 
@@ -72,7 +88,6 @@
             app:title="Заголовок"
             app:subtitle="Подзаголовок"
             app:value="500 000,00 с"
-            app:isChevronVisible="true"
             app:isUniqueStatused="true"
             />
 
@@ -85,18 +100,6 @@
             app:subtitle="Подзаголовок Подзаголовок Подзаголовок Подзаголовок Подзаголовок "
             app:isUniqueStatused="true"
             />
-
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/view_icon_shimmer"
-            android:layout_width="140dp"
-            android:layout_height="8dp"
-            app:shimmer_auto_start="true">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/chili_bg_shimmer" />
-        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <com.design2.chili2.view.common.TitledDividerView
             android:layout_width="wrap_content"
