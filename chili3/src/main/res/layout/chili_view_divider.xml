@@ -22,7 +22,7 @@
             android:layout_gravity="center_vertical"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textAppearance="@style/Chili.H5.Primary.Bold"
+            android:textAppearance="@style/Chili.H20.Primary.Bold"
             android:visibility="visible"
             tools:text="Заголовок" />
 
@@ -45,7 +45,7 @@
         android:layout_marginTop="@dimen/padding_4dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textAppearance="@style/Chili.H8.Primary"
+        android:textAppearance="@style/Chili.H14.Primary"
         android:visibility="visible"
         app:layout_constraintEnd_toStartOf="@id/end_container"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/padding_12dp"
             android:maxLines="1"
-            android:textAppearance="@style/Chili.H7.Action.Bold"
+            android:textAppearance="@style/Chili.H16.Action.Bold"
             android:visibility="visible"
             tools:text="Action" />
 

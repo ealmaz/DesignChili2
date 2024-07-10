@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Chili.H7.Action" parent="Chili.H7.Primary">
+    <style name="Chili.H16.Action" parent="Chili.H16.Primary">
         <item name="android:textColor">@color/blue_1</item>
     </style>
 
-    <style name="Chili.H7.Action.Bold" parent="Chili.H7.Primary.Bold">
+    <style name="Chili.H16.Action.Bold" parent="Chili.H16.Primary.Bold">
         <item name="android:textColor">@color/blue_1</item>
     </style>
 
