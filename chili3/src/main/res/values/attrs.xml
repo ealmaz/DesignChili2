@@ -151,11 +151,13 @@
     <attr name="quickActionButtonViewStyle" format="reference" />
     <attr name="bonusTagViewStyle" format="reference" />
     <attr name="rippleIcon" format="reference" />
+    <attr name="disabledIcon" format="reference" />
 
     <declare-styleable name="QuickActionButtonView">
         <attr name="title"/>
         <attr name="icon"/>
         <attr name="rippleIcon"/>
+        <attr name="disabledIcon"/>
         <attr name="titleTextAppearance"/>
         <attr name="isEnable" format="boolean"/>
     </declare-styleable>

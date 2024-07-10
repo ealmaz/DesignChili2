@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/padding_10dp"
         android:layout_marginTop="@dimen/padding_8dp"
-        android:textAppearance="@style/Chili.H8.Secondary"
+        android:textAppearance="@style/QuickActionButtonTitleStyle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_icon"
         tools:text="Переводы" />

@@ -141,6 +141,10 @@
         <!-- ChiliCellViewBackgroundColor-->
         <item name="ChiliCellViewBackgroundColor">@color/black_4</item>
 
+
+        <!-- QuickActionButtonView -->
+        <item name="QuickActionButtonTitleColor">@color/gray_9</item>
+        <item name="QuickActionButtonDisabledTitleColor">@color/gray_1</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>
