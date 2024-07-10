@@ -3,6 +3,26 @@
 
     <style name="BaseChiliDesignTheme3.Night" parent="BaseChiliDesignTheme.Night">
 
+        <!-- Text appearance theme-->
+        <item name="ChiliPrimaryTextColor">@color/c_FFFFFF</item>
+        <item name="ChiliSecondaryTextColor">@color/c_DDDDDD</item>
+        <item name="ChiliLinkTextColor">@color/c_007AFF</item>
+        <item name="ChiliErrorTextColor">@color/c_D43232</item>
+        <item name="ChiliValueTextColor">@color/c_8a8a8e</item>
+        <item name="ChiliMarkedTextColor">@color/c_FFFFFF</item>
+
+        <item name="ChiliDisabledTextColor">@color/c_535353</item>
+        <item name="ChiliInnerTextColor">@color/c_FFFFFF</item>
+        <item name="ChiliInnerDisabledTextColor">@color/c_FFFFFF_alpha_20</item>
+        <item name="ChiliAccentPrimaryTextColor">@color/c_f0047f</item>
+        <item name="ChiliAccentSecondaryTextColor">@color/c_F50A47</item>
+        <item name="ChiliSuccessTextColor">@color/c_7BB819</item>
+        <item name="ChiliWarningTextColor">@color/c_EB972F</item>
+        <item name="ChiliAlertNeutralTextColor">@color/c_2A4C84</item>
+        <item name="ChiliAlertWarningTextColor">@color/c_806330</item>
+        <item name="ChiliAlertErrorTextColor">@color/c_AE2A47</item>
+        <!-- End text appearance theme-->
+
         <!-- PromoCardView -->
         <item name="ChiliPromoCardViewStatusTopPadding">@dimen/padding_4dp</item>
         <item name="ChiliPromoCardViewStatusBottomPadding">@dimen/padding_6dp</item>

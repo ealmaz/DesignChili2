@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Text color attributes   -->
+    <attr name="ChiliDisabledTextColor" format="color"/>
+    <attr name="ChiliInnerTextColor" format="color"/>
+    <attr name="ChiliInnerDisabledTextColor" format="color"/>
+    <attr name="ChiliAccentPrimaryTextColor" format="color"/>
+    <attr name="ChiliAccentSecondaryTextColor" format="color"/>
+    <attr name="ChiliSuccessTextColor" format="color"/>
+    <attr name="ChiliWarningTextColor" format="color"/>
+    <attr name="ChiliAlertNeutralTextColor" format="color"/>
+    <attr name="ChiliAlertWarningTextColor" format="color"/>
+    <attr name="ChiliAlertErrorTextColor" format="color"/>
+
     <!-- PromoCardView -->
     <attr name="ChiliPromoCardViewStatusTopPadding" format="dimension"/>
     <attr name="ChiliPromoCardViewStatusBottomPadding" format="dimension"/>
