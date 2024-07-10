@@ -143,6 +143,10 @@
         <attr name="isBlocked" format="boolean" />
         <attr name="isUniqueStatused" format="boolean" />
         <attr name="isChevronVisible" format="boolean" />
+        <attr name="titleTextAppearance" />
+        <attr name="subtitleTextAppearance" />
+        <attr name="additionalTextAppearance" />
+
     </declare-styleable>
 
 </resources>
