@@ -99,7 +99,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         //CardCellView
         vb.cardcell1.startShimmering()
         vb.cardcell2.startShimmering()
-        Handler(Looper.getMainLooper()).postDelayed({ vb.cardcell2.stopShimmering() }, 2000)
+        Handler(Looper.getMainLooper()).postDelayed({ vb.cardcell2.stopShimmering(false) }, 2000)
         vb.cardcell4.apply {
             setIcon(com.design2.app.R.drawable.ic_card_default)
             setTitle("Test Title")
@@ -132,11 +132,6 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             override fun isItemViewSwipeEnabled() = false
 
         })
-
-    override fun onResume() {
-        super.onResume()
-
-    }
 
     override fun inflateViewBinging(): FragmentCellBinding {
         return FragmentCellBinding.inflate(layoutInflater)
