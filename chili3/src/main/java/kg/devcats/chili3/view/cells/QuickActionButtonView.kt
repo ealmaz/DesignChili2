@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -26,16 +25,16 @@ class QuickActionButtonView @JvmOverloads constructor(
     private lateinit var vb: ChiliViewQuickActionButtonBinding
 
     private var onClickListener: OnClickListener? = null
-    private var rippleIconId: Int? = null
-    private var disabledIconId: Int? = null
-    private var iconId: Int ? = null
+    @DrawableRes private var rippleIconId: Int? = null
+    @DrawableRes private var disabledIconId: Int? = null
+    @DrawableRes private var iconId: Int ? = null
     private val rootContainer: View
         get() = vb.rootView
 
     init {
         inflateView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
-        setupView()
+        setClickHandler()
     }
 
     private fun inflateView(context: Context) {
@@ -71,12 +70,8 @@ class QuickActionButtonView @JvmOverloads constructor(
         }
     }
 
-    private fun setupView() {
-        handleClick()
-    }
-
     @SuppressLint("ClickableViewAccessibility")
-    private fun handleClick() {
+    private fun setClickHandler() {
         rootContainer.setOnTouchListener(OnTouchListener { _, event ->
             if (event?.action == MotionEvent.ACTION_DOWN){
                 rippleIconId?.let { setIcon(it) }
@@ -111,7 +106,7 @@ class QuickActionButtonView @JvmOverloads constructor(
         vb.ivIcon.setImageResource(resId)
     }
 
-    fun setIcon(url: String) {
+    fun setIcon(url: String?) {
         vb.ivIcon.setImageByUrl(url)
     }
 
@@ -121,8 +116,8 @@ class QuickActionButtonView @JvmOverloads constructor(
 
     fun setIsCardEnabled(isEnabled: Boolean) {
         when (isEnabled) {
-            true -> enableCard()
-            else -> disableCard()
+            true -> enableButton()
+            else -> disableButton()
         }
     }
 
@@ -131,22 +126,18 @@ class QuickActionButtonView @JvmOverloads constructor(
         vb.root.setOnClickListener(onClickListener)
     }
 
-    private fun disableCard() {
-        with(vb) {
-            root.isEnabled = false
-            setTitleTextAppearance(R.style.QuickActionButtonDisabled)
-            disabledIconId?.let {
-                setIcon(it)
-            }
+    fun disableButton() {
+        vb.root.isEnabled = false
+        setTitleTextAppearance(R.style.QuickActionButtonDisabled)
+        disabledIconId?.let {
+            setIcon(it)
         }
     }
 
 
-    private fun enableCard() {
-        with(vb) {
-            root.isEnabled = true
-            setTitleTextAppearance(R.style.QuickActionButtonTitleStyle)
-            iconId?.let { setIcon(it) }
-        }
+    fun enableButton() {
+        vb.root.isEnabled = true
+        setTitleTextAppearance(R.style.QuickActionButtonTitleStyle)
+        iconId?.let { setIcon(it) }
     }
 }

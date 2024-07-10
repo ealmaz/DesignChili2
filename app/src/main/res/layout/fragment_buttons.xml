@@ -129,6 +129,7 @@
             android:clipToPadding="false">
 
             <LinearLayout
+                android:layout_marginTop="@dimen/padding_12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -175,11 +176,10 @@
             android:clipToPadding="false">
 
             <LinearLayout
+                android:layout_margin="@dimen/padding_8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:clipChildren="false"
-                android:clipToPadding="false">
+                android:orientation="horizontal">
 
                 <kg.devcats.chili3.view.cells.BonusTagView
                     android:id="@+id/btv"
@@ -197,8 +197,5 @@
             </LinearLayout>
 
         </com.design2.chili2.view.container.ExpandableContainer>
-
-
     </LinearLayout>
-
 </ScrollView>
