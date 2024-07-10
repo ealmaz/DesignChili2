@@ -1,10 +1,7 @@
 package kg.devcats.chili3.view.cells
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.graphics.drawable.Drawable
-import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
@@ -57,22 +54,6 @@ class BonusTagView @JvmOverloads constructor(
 
     private fun setupView() {
         setIcon(R.drawable.ic_bonus_new)
-        vb.rootView.background = gradientDrawable()
-    }
-
-    private fun gradientDrawable(): Drawable {
-        return GradientDrawable(
-            GradientDrawable.Orientation.BL_TR,
-            intArrayOf(
-                Color.parseColor("#793AE0"),
-                Color.parseColor("#E747A0"),
-                Color.parseColor("#F63155"),
-                Color.parseColor("#F1056F"),
-            )
-        ).apply {
-            cornerRadius = context.resources.getDimension(com.design2.chili2.R.dimen.view_21dp)
-            gradientType = GradientDrawable.LINEAR_GRADIENT
-        }
     }
 
     fun setTitle(charSequence: CharSequence?) {
