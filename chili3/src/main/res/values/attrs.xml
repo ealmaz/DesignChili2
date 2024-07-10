@@ -9,6 +9,9 @@
     <attr name="subtitledSimpleCardViewDefaultStyle" format="reference"/>
     <attr name="iconStateCardViewDefaultStyle" format="reference"/>
 
+    <!-- DividerView -->
+    <attr name="dividerViewDefaultStyle" format="reference"/>
+
     </declare-styleable>
 
     <declare-styleable name="StoriesCardView">
@@ -61,6 +64,17 @@
         <attr name="title"/>
         <attr name="subtitle"/>
         <attr name="icon"/>
+    </declare-styleable>
+
+    <declare-styleable name="DividerView">
+        <attr name="dividerTitle" format="string" />
+        <attr name="dividerSubtitle" format="string" />
+        <attr name="dividerActionText" format="string" />
+        <attr name="dividerEndIcon" format="reference" />
+        <attr name="dividerIsNotificationVisible" format="boolean" />
+        <attr name="dividerTitleTextAppearance" />
+        <attr name="dividerSubtitleTextAppearance" />
+        <attr name="dividerActionTextAppearance" />
     </declare-styleable>
 
 </resources>
