@@ -1,6 +1,5 @@
 package kg.devcats.chili3.view.cells
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
@@ -21,19 +20,15 @@ class BonusTagView @JvmOverloads constructor(
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private lateinit var vb: ChiliViewBonusTagBinding
-    private var onClickListener: OnClickListener? = null
-    private val alphaEnabled = 1.0f
-    private val alphaDisabled = 0.3f
-    private var iconId: Int ? = null
-
-    private fun inflateView(context: Context) {
-        vb = ChiliViewBonusTagBinding.inflate(LayoutInflater.from(context), this, true)
-    }
 
     init {
         inflateView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         setupView()
+    }
+
+    private fun inflateView(context: Context) {
+        vb = ChiliViewBonusTagBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun setupView() {
@@ -74,11 +69,10 @@ class BonusTagView @JvmOverloads constructor(
     }
 
     fun setIcon(@DrawableRes resId: Int) {
-        iconId = resId
         vb.ivIcon.setImageResource(resId)
     }
 
-    fun setIcon(url: String) {
+    fun setIcon(url: String?) {
         vb.ivIcon.setImageByUrl(url)
     }
 
@@ -86,33 +80,7 @@ class BonusTagView @JvmOverloads constructor(
         vb.ivIcon.setImageDrawable(drawable)
     }
 
-    fun setIsCardEnabled(isEnabled: Boolean) {
-        when (isEnabled) {
-            true -> enableCard()
-            else -> disableCard()
-        }
-    }
-
     override fun setOnClickListener(listener: OnClickListener?) {
-        this.onClickListener = listener
-        vb.root.setOnClickListener(onClickListener)
-    }
-
-    private fun disableCard() {
-        with(vb) {
-            root.setOnClickListener(null)
-            root.isEnabled = false
-            tvLabel.alpha = alphaDisabled
-            ivIcon.alpha = alphaDisabled
-        }
-    }
-
-    private fun enableCard() {
-        with(vb) {
-            root.setOnClickListener(onClickListener)
-            root.isEnabled = true
-            tvLabel.alpha = alphaEnabled
-            ivIcon.alpha = alphaEnabled
-        }
+        vb.root.setOnClickListener(listener)
     }
 }
