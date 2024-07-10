@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -19,15 +20,14 @@ class QuickActionButtonView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.quickActionButtonViewStyle,
-    defStyleRes: Int = com.design2.chili2.R.style.Chili_H8_Secondary
+    defStyleRes: Int = R.style.QuickActionButtonTitleStyle
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private lateinit var vb: ChiliViewQuickActionButtonBinding
 
     private var onClickListener: OnClickListener? = null
-    private val alphaEnabled = 1.0f
-    private val alphaDisabled = 0.3f
     private var rippleIconId: Int? = null
+    private var disabledIconId: Int? = null
     private var iconId: Int ? = null
     private val rootContainer: View
         get() = vb.rootView
@@ -50,15 +50,15 @@ class QuickActionButtonView @JvmOverloads constructor(
     private fun handleClick() {
         rootContainer.setOnTouchListener(OnTouchListener { _, event ->
             if (event?.action == MotionEvent.ACTION_DOWN){
-                rippleIconId?.let {
-                    vb.ivIcon.setImageResource(it)
-                }
+                rippleIconId?.let { setIcon(it) }
+                return@OnTouchListener true
+            }
+            if (event?.action == MotionEvent.ACTION_CANCEL) {
+                iconId?.let { setIcon(it) }
                 return@OnTouchListener true
             }
             if (event?.action == MotionEvent.ACTION_UP) {
-                iconId?.let {
-                    vb.ivIcon.setImageResource(it)
-                }
+                iconId?.let { setIcon(it) }
                 this.onClickListener?.onClick(vb.rootView)
                 return@OnTouchListener true
             }
@@ -82,11 +82,14 @@ class QuickActionButtonView @JvmOverloads constructor(
             getResourceId(R.styleable.QuickActionButtonView_titleTextAppearance, -1)
                 .takeIf { it != -1 }?.let { setTitleTextAppearance(it) }
             getResourceId(R.styleable.QuickActionButtonView_icon, -1)
-                .takeIf { it != -1 }?.let { setIcon(it) }
-
+                .takeIf { it != -1 }?.let {
+                    iconId = it
+                    setIcon(iconId!!)
+                }
             rippleIconId = getResourceId(R.styleable.QuickActionButtonView_rippleIcon, -1)
                 .takeIf { it != -1 }
-
+            disabledIconId = getResourceId(R.styleable.QuickActionButtonView_disabledIcon, -1)
+                .takeIf { it != -1 }
             setIsCardEnabled(getBoolean(R.styleable.QuickActionButtonView_isEnable, true))
             recycle()
         }
@@ -107,7 +110,6 @@ class QuickActionButtonView @JvmOverloads constructor(
     }
     @SuppressLint("ResourceType")
     fun setIcon(@DrawableRes resId: Int) {
-        iconId = resId
         vb.ivIcon.setImageResource(resId)
     }
 
@@ -135,7 +137,9 @@ class QuickActionButtonView @JvmOverloads constructor(
         with(vb) {
             root.isEnabled = false
             setTitleTextAppearance(R.style.QuickActionButtonDisabled)
-            ivIcon.alpha = alphaDisabled
+            disabledIconId?.let {
+                setIcon(it)
+            }
         }
     }
 
@@ -143,8 +147,8 @@ class QuickActionButtonView @JvmOverloads constructor(
     private fun enableCard() {
         with(vb) {
             root.isEnabled = true
-            setTitleTextAppearance(com.design2.chili2.R.style.Chili_H8_Secondary)
-            ivIcon.alpha = alphaEnabled
+            setTitleTextAppearance(R.style.QuickActionButtonTitleStyle)
+            iconId?.let { setIcon(it) }
         }
     }
 }
