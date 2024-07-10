@@ -65,17 +65,14 @@ class BonusTagView @JvmOverloads constructor(
         vb.tvLabel.text = charSequence
     }
 
-    @SuppressLint("ResourceType")
     fun setTitle(@StringRes resId: Int) {
         vb.tvLabel.setText(resId)
     }
 
-    @SuppressLint("ResourceType")
-    fun setTitleTextAppearance(@StyleRes resId: Int) {
+    private fun setTitleTextAppearance(@StyleRes resId: Int) {
         vb.tvLabel.setTextAppearance(resId)
     }
 
-    @SuppressLint("ResourceType")
     fun setIcon(@DrawableRes resId: Int) {
         iconId = resId
         vb.ivIcon.setImageResource(resId)
