@@ -70,6 +70,4 @@
     </attr>
     <attr name="ChiliBottomNavigationViewHeight" format="dimension"/>
 
-    <!-- ChiliQuickActionButtonText-->
-    <attr name="ChiliQuickActionButtonTextColor" format="reference"/>
 </resources>

@@ -56,14 +56,6 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             vb.pcv2.setIsCardEnabled(true)
         }
 
-        vb.qab3.setOnClickListener {
-            Toast.makeText(context," QuickActionButtonView clicked",Toast.LENGTH_SHORT).show()
-        }
-
-        vb.btv.setOnClickListener {
-            Toast.makeText(context," BonusTagView clicked",Toast.LENGTH_SHORT).show()
-        }
-
         (activity as MainActivity).setUpHomeEnabled(true)
         vb.bal2.isChevronVisible(false)
         vb.bal4.apply {
