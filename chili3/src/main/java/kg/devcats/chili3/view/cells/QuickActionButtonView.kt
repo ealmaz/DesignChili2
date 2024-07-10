@@ -32,38 +32,14 @@ class QuickActionButtonView @JvmOverloads constructor(
     private val rootContainer: View
         get() = vb.rootView
 
-    private fun inflateView(context: Context) {
-        vb = ChiliViewQuickActionButtonBinding.inflate(LayoutInflater.from(context), this, true)
-    }
-
     init {
         inflateView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         setupView()
     }
 
-    private fun setupView() {
-        handleClick()
-    }
-
-    @SuppressLint("ClickableViewAccessibility")
-    private fun handleClick() {
-        rootContainer.setOnTouchListener(OnTouchListener { _, event ->
-            if (event?.action == MotionEvent.ACTION_DOWN){
-                rippleIconId?.let { setIcon(it) }
-                return@OnTouchListener true
-            }
-            if (event?.action == MotionEvent.ACTION_CANCEL) {
-                iconId?.let { setIcon(it) }
-                return@OnTouchListener true
-            }
-            if (event?.action == MotionEvent.ACTION_UP) {
-                iconId?.let { setIcon(it) }
-                this.onClickListener?.onClick(vb.rootView)
-                return@OnTouchListener true
-            }
-            return@OnTouchListener false
-        })
+    private fun inflateView(context: Context) {
+        vb = ChiliViewQuickActionButtonBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     private fun obtainAttributes(
@@ -93,6 +69,30 @@ class QuickActionButtonView @JvmOverloads constructor(
             setIsCardEnabled(getBoolean(R.styleable.QuickActionButtonView_isEnable, true))
             recycle()
         }
+    }
+
+    private fun setupView() {
+        handleClick()
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun handleClick() {
+        rootContainer.setOnTouchListener(OnTouchListener { _, event ->
+            if (event?.action == MotionEvent.ACTION_DOWN){
+                rippleIconId?.let { setIcon(it) }
+                return@OnTouchListener true
+            }
+            if (event?.action == MotionEvent.ACTION_CANCEL) {
+                iconId?.let { setIcon(it) }
+                return@OnTouchListener true
+            }
+            if (event?.action == MotionEvent.ACTION_UP) {
+                iconId?.let { setIcon(it) }
+                this.onClickListener?.onClick(vb.rootView)
+                return@OnTouchListener true
+            }
+            return@OnTouchListener false
+        })
     }
 
     fun setTitle(charSequence: CharSequence?) {
