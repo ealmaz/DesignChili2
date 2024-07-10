@@ -1013,7 +1013,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:cardBackground="?ChiliCardViewBackground"
                 app:title="Услуги"
                 android:layout_marginEnd="@dimen/padding_12dp"
                 app:subtitle="Налоги, авто и комуслуги"/>

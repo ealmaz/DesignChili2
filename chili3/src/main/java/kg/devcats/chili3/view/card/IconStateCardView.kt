@@ -12,6 +12,7 @@ import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardStateIconBinding
 import kg.devcats.chili3.extensions.getColorFromAttr
 import kg.devcats.chili3.extensions.gone
+import kg.devcats.chili3.extensions.invisible
 import kg.devcats.chili3.extensions.visible
 
 class IconStateCardView @JvmOverloads constructor(
@@ -27,7 +28,7 @@ class IconStateCardView @JvmOverloads constructor(
     override val rootContainer: View
         get() = vb.rootView
 
-    private var standardIcon: Int? = null
+    private var icon: Int? = null
 
     override fun inflateView(context: Context) {
         vb = ChiliViewCardStateIconBinding.inflate(LayoutInflater.from(context), this, true)
@@ -44,17 +45,30 @@ class IconStateCardView @JvmOverloads constructor(
 
     override fun setupShimmeringViews() {
         super.setupShimmeringViews()
-        shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
-        shimmeringPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
-        shimmeringPairs[vb.ivIcon] = null
+        with(vb) {
+            shimmeringPairs[tvTitle] = viewTitleShimmer
+            shimmeringPairs[tvSubtitle] = viewSubtitleShimmer
+        }
+    }
+
+    override fun onStartShimmer() {
+        super.onStartShimmer()
+        if (icon != null) vb.ivIcon.invisible()
+    }
+
+    override fun onStopShimmer() {
+        super.onStopShimmer()
+        with(vb.ivIcon) {
+            if (icon != null) visible() else gone()
+        }
     }
 
     fun setIcon(iconRes: Int?) {
+        icon = iconRes
         vb.ivIcon.run {
             iconRes?.let {
                 setImageResource(it)
                 visible()
-                standardIcon = it
             } ?: gone()
         }
     }
@@ -87,12 +101,12 @@ class IconStateCardView @JvmOverloads constructor(
     }
 
     fun setupAsErrorState(errorIconRes: Int? = null) = with(vb) {
-        errorIconRes?.let { ivIcon.setImageResource(it) }
+        setIcon(errorIconRes)
         rootView.setBackgroundResource(R.drawable.chili_bg_card_error_with_border)
     }
 
     fun clearErrorState() {
-        setIcon(standardIcon)
+        setIcon(null)
         vb.rootView.setBackgroundColor(context.getColorFromAttr(com.design2.chili2.R.attr.ChiliCardViewBackground))
     }
 }

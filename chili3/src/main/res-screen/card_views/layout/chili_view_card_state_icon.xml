@@ -37,14 +37,15 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/tv_title"
-        app:layout_constraintEnd_toEndOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="@id/title_guideline"
         app:layout_constraintStart_toStartOf="@id/tv_title"
         app:layout_constraintTop_toTopOf="@id/tv_title">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/view_8dp"
+            android:layout_height="@dimen/view_6dp"
             android:background="@drawable/chili_bg_shimmer" />
+
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
@@ -53,9 +54,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_12dp"
         android:layout_marginTop="@dimen/padding_8dp"
-        android:maxLines="2"
-        android:ellipsize="end"
         android:layout_marginEnd="@dimen/padding_8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
         android:textAppearance="@style/Chili.H9.Secondary"
         app:layout_constraintEnd_toStartOf="@+id/iv_icon"
         app:layout_constraintHorizontal_bias="0.0"
@@ -69,7 +70,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
-        app:layout_constraintEnd_toEndOf="@id/tv_subtitle"
+        app:layout_constraintEnd_toEndOf="@id/subtitle_guideline"
         app:layout_constraintStart_toStartOf="@id/tv_subtitle"
         app:layout_constraintTop_toTopOf="@id/tv_subtitle">
 
@@ -80,19 +81,30 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/view_8dp"
+                android:layout_height="@dimen/view_6dp"
                 android:layout_marginBottom="@dimen/padding_8dp"
                 android:background="@drawable/chili_bg_shimmer" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/view_8dp"
+                android:layout_height="@dimen/view_6dp"
                 android:background="@drawable/chili_bg_shimmer" />
         </LinearLayout>
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/title_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
 
-
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/subtitle_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
