@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="@dimen/padding_12dp"
+    android:orientation="horizontal"
+    android:id="@+id/root_view">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/view_32dp"
+        android:layout_height="@dimen/view_32dp"
+        android:layout_marginVertical="@dimen/padding_12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ll_text_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/chili_ic_info" />
+
+    <TextView
+        android:id="@+id/tv_emoji"
+        android:layout_width="@dimen/view_32dp"
+        android:layout_height="@dimen/view_32dp"
+        android:textSize="@dimen/text_24sp"
+        android:textColor="?ChiliSecondaryTextColor"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_icon" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_icon_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_icon">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/chili_bg_shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_text_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintStart_toEndOf="@id/iv_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_icon">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="@style/Chili.H7.Primary"
+            tools:text="4215585318631234" />
+
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_4dp"
+            android:layout_weight="1"
+            android:textAppearance="@style/Chili.H9.Secondary"
+            android:visibility="gone"
+            tools:text="Автоплатеж 20.03" />
+    </LinearLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_title_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/padding_16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/ll_text_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/ll_text_container"
+        app:layout_constraintTop_toTopOf="@id/ll_text_container">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_8dp"
+            android:background="@drawable/chili_bg_shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_icon_secondary"
+        android:layout_width="@dimen/view_32dp"
+        android:layout_height="@dimen/view_32dp"
+        android:layout_marginStart="@dimen/padding_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ll_text_container"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/chili_ic_attention" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

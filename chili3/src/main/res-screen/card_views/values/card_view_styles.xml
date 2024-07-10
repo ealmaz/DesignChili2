@@ -7,4 +7,8 @@
 
     <style name="Chili.CardViewStyle.PromoCardView"/>
 
+    <style name="Chili.CardViewStyle.SubtitledSimpleCardView"/>
+
+    <style name="Chili.CardViewStyle.IconStateCardView"/>
+
 </resources>
