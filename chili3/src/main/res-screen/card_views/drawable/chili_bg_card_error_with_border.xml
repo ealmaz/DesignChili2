@@ -2,8 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <solid
-        android:color="@color/red_5"
-        tools:color="@color/red_5" />
+        android:color="@color/custom_red_1"
+        tools:color="@color/custom_red_1" />
     <corners
         android:radius="?attr/ChiliCardViewCornerRadius"
         tools:radius="12dp" />
