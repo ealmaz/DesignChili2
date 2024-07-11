@@ -99,6 +99,7 @@
     <dimen name="view_168dp">168dp</dimen>
     <dimen name="view_200dp">200dp</dimen>
     <dimen name="view_172dp">172dp</dimen>
+    <dimen name="view_210dp">210dp</dimen>
     <dimen name="view_220dp">220dp</dimen>
 
     <!-- Elevation   -->

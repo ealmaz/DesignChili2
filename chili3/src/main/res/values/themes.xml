@@ -41,7 +41,20 @@
         <item name="ChiliPromoCardViewIconEndMargin">@dimen/padding_12dp</item>
 
         <!-- ProductCardView -->
+        <item name="ChiliCardViewImageRadius">@dimen/radius_12dp</item>
+        <item name="ChiliProductCardViewImageSize">@dimen/view_210dp</item>
+        <item name="ChiliProductCardViewDiscountStartMargin">@dimen/padding_8dp</item>
+        <item name="ChiliProductCardViewDiscountBottomMargin">@dimen/padding_6dp</item>
+        <item name="ChiliProductCardViewDiscountPaddingHorizontal">@dimen/padding_6dp</item>
+        <item name="ChiliProductCardViewDiscountPaddingVertical">@dimen/padding_2dp</item>
+        <item name="ChiliProductCardViewTitleTopMargin">@dimen/padding_4dp</item>
+        <item name="ChiliProductCardViewTitleHorizontalMargin">@dimen/padding_8dp</item>
+        <item name="ChiliProductCardViewSubtitleTopMargin">@dimen/padding_2dp</item>
+        <item name="ChiliProductCardViewSubtitlePaddingHorizontal">@dimen/padding_4dp</item>
+        <item name="ChiliProductCardViewSubtitlePaddingVertical">@dimen/padding_2dp</item>
+        <item name="ChiliProductCardViewDescriptionTopMargin">@dimen/padding_2dp</item>
         <item name="ChiliProductCardViewDescriptionBottomMargin">@dimen/padding_28dp</item>
+        <item name="ChiliProductCardViewDescriptionMaxLines">2</item>
         <item name="ChiliProductCardViewSubtitleCornerRadius">@dimen/radius_6dp</item>
         <item name="ChiliProductCardViewDiscountCornerRadius">@dimen/radius_6dp</item>
 

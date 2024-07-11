@@ -30,7 +30,21 @@
     <attr name="ChiliPromoCardViewIconStartMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconEndMargin" format="dimension"/>
 
+    <!-- ProductCardView -->
+    <attr name="ChiliCardViewImageRadius" format="dimension"/>
+    <attr name="ChiliProductCardViewImageSize" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountStartMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountBottomMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountPaddingHorizontal" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountPaddingVertical" format="dimension"/>
+    <attr name="ChiliProductCardViewTitleTopMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewTitleHorizontalMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewSubtitleTopMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewSubtitlePaddingHorizontal" format="dimension"/>
+    <attr name="ChiliProductCardViewSubtitlePaddingVertical" format="dimension"/>
+    <attr name="ChiliProductCardViewDescriptionTopMargin" format="dimension"/>
     <attr name="ChiliProductCardViewDescriptionBottomMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewDescriptionMaxLines" format="integer"/>
     <attr name="ChiliProductCardViewSubtitleCornerRadius" format="dimension"/>
     <attr name="ChiliProductCardViewDiscountCornerRadius" format="dimension"/>
 

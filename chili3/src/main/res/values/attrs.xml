@@ -8,7 +8,7 @@
         <attr name="promoCardViewDefaultStyle" format="reference" />
         <attr name="subtitledSimpleCardViewDefaultStyle" format="reference" />
         <attr name="iconStateCardViewDefaultStyle" format="reference" />
-        <attr name="productCardViewDefaultStyle" format="reference"/>
+        <attr name="productCardViewDefaultStyle" format="reference" />
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -79,18 +79,20 @@
     </declare-styleable>
 
     <declare-styleable name="ProductCardView">
-        <attr name="android:layout_width"/>
-        <attr name="android:layout_height"/>
-        <attr name="productImage" format="string"/>
-        <attr name="title"/>
-        <attr name="titleTextAppearance"/>
-        <attr name="subtitle"/>
-        <attr name="subtitleBackgroundColor" format="reference"/>
-        <attr name="subtitleTextAppearance"/>
-        <attr name="description"/>
-        <attr name="descriptionTextAppearance" format="reference"/>
-        <attr name="discount" format="string"/>
-        <attr name="discountTextAppearance" format="reference"/>
-        <attr name="discountBackgroundColor" format="reference"/>
+        <attr name="android:layout_width" />
+        <attr name="android:layout_height" />
+        <attr name="productImage" format="string" />
+        <attr name="android:scaleType"/>
+        <attr name="android:adjustViewBounds"/>
+        <attr name="title" />
+        <attr name="titleTextAppearance" />
+        <attr name="subtitle" />
+        <attr name="subtitleBackgroundColor" format="reference" />
+        <attr name="subtitleTextAppearance" />
+        <attr name="description" />
+        <attr name="descriptionTextAppearance" format="reference" />
+        <attr name="discount" format="string" />
+        <attr name="discountTextAppearance" format="reference" />
+        <attr name="discountBackgroundColor" format="reference" />
     </declare-styleable>
 </resources>

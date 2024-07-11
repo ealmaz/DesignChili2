@@ -13,4 +13,9 @@
 
     <style name="Chili.CardViewStyle.ProductCardView"/>
 
+    <style name="RoundedCardImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">?ChiliCardViewImageRadius</item>
+    </style>
+
 </resources>

@@ -7,14 +7,14 @@
     android:layout_height="match_parent"
     android:paddingBottom="?ChiliProductCardViewDescriptionBottomMargin">
 
-    <ImageView
-        android:id="@+id/iv_image"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/siv_image"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
-        android:scaleType="fitXY"
+        android:layout_height="?ChiliProductCardViewImageSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundedCardImageView"
         tools:src="@drawable/chili_ic_info" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -22,10 +22,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/iv_image"
-        app:layout_constraintEnd_toEndOf="@id/iv_image"
-        app:layout_constraintStart_toStartOf="@id/iv_image"
-        app:layout_constraintTop_toTopOf="@id/iv_image">
+        app:layout_constraintBottom_toBottomOf="@id/siv_image"
+        app:layout_constraintEnd_toEndOf="@id/siv_image"
+        app:layout_constraintStart_toStartOf="@id/siv_image"
+        app:layout_constraintTop_toTopOf="@id/siv_image">
 
         <View
             android:layout_width="match_parent"
@@ -37,26 +37,25 @@
         android:id="@+id/tv_discount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding_8dp"
-        android:layout_marginBottom="@dimen/padding_6dp"
-        android:paddingHorizontal="@dimen/padding_6dp"
-        android:paddingVertical="@dimen/padding_2dp"
+        android:layout_marginStart="?ChiliProductCardViewDiscountStartMargin"
+        android:layout_marginBottom="?ChiliProductCardViewDiscountBottomMargin"
+        android:paddingHorizontal="?ChiliProductCardViewDiscountPaddingHorizontal"
+        android:paddingVertical="?ChiliProductCardViewDiscountPaddingVertical"
         android:textAppearance="@style/Chili.H9.White1"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@id/iv_image"
-        app:layout_constraintStart_toStartOf="@id/iv_image" />
+        app:layout_constraintBottom_toBottomOf="@id/siv_image"
+        app:layout_constraintStart_toStartOf="@id/siv_image" />
 
     <TextView
         android:id="@id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding_8dp"
-        android:layout_marginTop="@dimen/padding_4dp"
-        android:layout_marginEnd="@dimen/padding_8dp"
+        android:layout_marginHorizontal="?ChiliProductCardViewTitleHorizontalMargin"
+        android:layout_marginTop="?ChiliProductCardViewTitleTopMargin"
         android:textAppearance="@style/Chili.H8.Primary.Bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_image" />
+        app:layout_constraintTop_toBottomOf="@id/siv_image" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_title_shimmer"
@@ -79,9 +78,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_marginTop="@dimen/padding_2dp"
-        android:paddingHorizontal="@dimen/padding_4dp"
-        android:paddingVertical="@dimen/padding_2dp"
+        android:layout_marginTop="?ChiliProductCardViewSubtitleTopMargin"
+        android:paddingHorizontal="?ChiliProductCardViewSubtitlePaddingHorizontal"
+        android:paddingVertical="?ChiliProductCardViewSubtitlePaddingVertical"
         android:textAppearance="@style/Chili.H10.Orange1"
         app:layout_constraintStart_toStartOf="@id/tv_title"
         app:layout_constraintTop_toBottomOf="@id/tv_title" />
@@ -105,9 +104,9 @@
         android:id="@id/tv_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_2dp"
+        android:layout_marginTop="?ChiliProductCardViewDescriptionTopMargin"
         android:ellipsize="end"
-        android:maxLines="2"
+        android:maxLines="?ChiliProductCardViewDescriptionMaxLines"
         android:textAppearance="@style/Chili.H8.Primary"
         app:layout_constraintEnd_toEndOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="@id/tv_title"

@@ -167,22 +167,6 @@ fun ImageView.setImageByUrl(url: String?, width: Int, height: Int, placeHolderDr
         .into(this)
 }
 
-fun ImageView.setImageByUrl(
-    url: String?,
-    width: Int,
-    height: Int,
-    placeHolderDrawable: Drawable? = null,
-    requestOptions: RequestOptions? = null
-) : RequestBuilder<Drawable>? {
-    val builder = Glide.with(this.context)
-        .load(url)
-        .placeholder(placeHolderDrawable)
-        .override(width,height)
-    if (requestOptions != null) builder.apply(requestOptions)
-    builder.into(this)
-    return builder
-}
-
 fun ImageView.setImageByUrlWithListener(imageUrl: String?, onSuccess: ((Drawable) -> (Unit))? = null,
                                     onError: ((GlideException?) -> (Unit))? = null, requestOptions: RequestOptions? = null) : RequestBuilder<Drawable>? {
     if (imageUrl == null) {

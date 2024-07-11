@@ -5,10 +5,9 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
+import android.widget.ImageView.ScaleType
 import androidx.annotation.DrawableRes
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
-import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.view.card.BaseCardView
@@ -39,7 +38,7 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     override fun setupShimmeringViews() {
-        shimmeringPairs[vb.ivImage] = vb.viewIconShimmer
+        shimmeringPairs[vb.sivImage] = vb.viewIconShimmer
         shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
         shimmeringPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
         shimmeringPairs[vb.tvDescription] = vb.viewDescriptionShimmer
@@ -55,6 +54,12 @@ class ProductCardView @JvmOverloads constructor(
         }
         getString(R.styleable.ProductCardView_productImage)?.let {
             setProductImage(it)
+        }
+        getInteger(R.styleable.ProductCardView_android_scaleType, ScaleType.FIT_CENTER.ordinal).let {
+            setScaleType(it)
+        }
+        getBoolean(R.styleable.ProductCardView_android_adjustViewBounds, false).let {
+            setAdjustViewBounds(it)
         }
         setTitle(getText(R.styleable.ProductCardView_title))
         getResourceId(R.styleable.ProductCardView_titleTextAppearance, -1)
@@ -75,12 +80,19 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     fun setProductImage(src: String) {
-        vb.ivImage.setImageByUrl(
+        vb.sivImage.setImageByUrl(
             url = src,
             width = imageSize.first,
-            height = imageSize.second,
-            requestOptions = RequestOptions().transform(RoundedCorners(16.dp))
+            height = imageSize.second
         )
+    }
+
+    fun setScaleType(scaleType: Int) {
+        vb.sivImage.scaleType = ImageView.ScaleType.values()[scaleType]
+    }
+
+    fun setAdjustViewBounds(isAdjusted: Boolean) {
+        vb.sivImage.adjustViewBounds = isAdjusted
     }
 
     fun setTitle(text: CharSequence?) {
