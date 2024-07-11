@@ -11,4 +11,6 @@
 
     <style name="Chili.CardViewStyle.IconStateCardView"/>
 
+    <style name="Chili.CardViewStyle.ProductCardView"/>
+
 </resources>

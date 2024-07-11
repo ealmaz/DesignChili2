@@ -40,6 +40,11 @@
         <item name="ChiliPromoCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliPromoCardViewIconEndMargin">@dimen/padding_12dp</item>
 
+        <!-- ProductCardView -->
+        <item name="ChiliProductCardViewDescriptionBottomMargin">@dimen/padding_28dp</item>
+        <item name="ChiliProductCardViewSubtitleCornerRadius">@dimen/radius_6dp</item>
+        <item name="ChiliProductCardViewDiscountCornerRadius">@dimen/radius_6dp</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

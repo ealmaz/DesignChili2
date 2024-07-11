@@ -30,4 +30,8 @@
     <attr name="ChiliPromoCardViewIconStartMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconEndMargin" format="dimension"/>
 
+    <attr name="ChiliProductCardViewDescriptionBottomMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewSubtitleCornerRadius" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountCornerRadius" format="dimension"/>
+
 </resources>
