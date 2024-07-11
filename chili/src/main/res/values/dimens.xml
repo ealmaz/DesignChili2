@@ -30,6 +30,7 @@
     <dimen name="padding_18dp">18dp</dimen>
     <dimen name="padding_20dp">20dp</dimen>
     <dimen name="padding_24dp">24dp</dimen>
+    <dimen name="padding_28dp">28dp</dimen>
     <dimen name="padding_32dp">32dp</dimen>
     <dimen name="padding_34dp">34dp</dimen>
     <dimen name="padding_40dp">40dp</dimen>
@@ -87,15 +88,18 @@
     <dimen name="view_75dp">75dp</dimen>
     <dimen name="view_94dp">94dp</dimen>
     <dimen name="view_96dp">96dp</dimen>
+    <dimen name="view_100dp">100dp</dimen>
     <dimen name="view_102dp">102dp</dimen>
     <dimen name="view_110dp">110dp</dimen>
     <dimen name="view_120dp">120dp</dimen>
+    <dimen name="view_122dp">122dp</dimen>
     <dimen name="view_136dp">136dp</dimen>
     <dimen name="view_140dp">140dp</dimen>
     <dimen name="view_150dp">150dp</dimen>
     <dimen name="view_168dp">168dp</dimen>
     <dimen name="view_200dp">200dp</dimen>
     <dimen name="view_172dp">172dp</dimen>
+    <dimen name="view_210dp">210dp</dimen>
     <dimen name="view_220dp">220dp</dimen>
 
     <!-- Elevation   -->

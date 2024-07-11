@@ -299,6 +299,94 @@
 
             </com.design2.chili2.view.container.ExpandableContainer>
 
+            <com.design2.chili2.view.container.ExpandableContainer
+                android:id="@+id/ec_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                app:isNeedToSaveExpandedState="true"
+                app:title="ProductCardView">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal">
+
+                        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                            style="@style/ShadowLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp">
+
+                            <kg.devcats.chili3.view.card.ProductCardView
+                                android:id="@+id/pcv_product"
+                                android:layout_width="168dp"
+                                android:layout_height="316dp"
+                                android:scaleType="centerCrop"
+                                app:title="98 000,00 с"
+                                app:description="Помпа для воды AQUA Automatic Water Dispenser белый"
+                                app:discount="-20%"
+                                app:productImage="https://wallpapers.com/images/hd/vertical-pictures-r93cdchwdse79vvv.jpg"
+                                />
+
+                        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                            style="@style/ShadowLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_4dp">
+
+                            <kg.devcats.chili3.view.card.ProductCardView
+                                android:id="@+id/pcv_product_1"
+                                android:layout_width="168dp"
+                                android:layout_height="316dp"
+                                android:scaleType="centerCrop"
+                                app:title="10 000,00 с"
+                                app:subtitle="833,3 с x 12мес"
+                                app:description="Мышь LS Pro черный"
+                                app:productImage="https://t3.ftcdn.net/jpg/07/07/97/98/360_F_707979824_Bc71cQJfIU3HY1vJHJpqM0MuaVWUnEsz.jpg"
+                                />
+
+                        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                            style="@style/ShadowLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_4dp"
+                            android:layout_marginEnd="@dimen/padding_12dp">
+
+                            <kg.devcats.chili3.view.card.ProductCardView
+                                android:id="@+id/pcv_product_2"
+                                android:layout_width="168dp"
+                                android:layout_height="316dp"
+                                android:scaleType="fitXY"
+                                app:title="2 090,00 с"
+                                app:subtitle="174,1 с x 12мес"
+                                app:discount="-90%"
+                                app:description="Электрочайник BEREKE BR-810 серый"
+                                app:productImage="https://img.freepik.com/premium-photo/cosmetic-products-stand-orange-backdrop-providing-room-text-advertising-vertical-mobile_896558-17993.jpg"
+                                />
+
+                        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </com.design2.chili2.view.container.ExpandableContainer>
+
         </com.design2.chili2.view.container.ExpandableContainer>
 
         <com.design2.chili2.view.container.ExpandableContainer

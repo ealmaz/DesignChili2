@@ -83,7 +83,7 @@
             android:paddingTop="?ChiliPromoCardViewStatusTopPadding"
             android:paddingEnd="?ChiliPromoCardViewStatusEndPadding"
             android:paddingBottom="?ChiliPromoCardViewStatusBottomPadding"
-            android:textAppearance="@style/Chili.H9.White"
+            android:textAppearance="@style/Chili.H9.White1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Активный" />
