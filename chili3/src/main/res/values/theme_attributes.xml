@@ -72,4 +72,7 @@
     </attr>
     <attr name="ChiliBottomNavigationViewHeight" format="dimension"/>
 
+
+    <!-- TailedToolbarView -->
+    <attr name="TailedToolbarDefaultStyle" format="reference"/>
 </resources>

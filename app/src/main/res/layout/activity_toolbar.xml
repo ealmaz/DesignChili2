@@ -80,6 +80,15 @@
             android:layout_marginTop="@dimen/padding_16dp"
             app:title="Start icon toolbar \nStart icon toolbar" />
 
+        <kg.devcats.chili3.view.toolbar.ToolbarWithBonusTag
+            android:id="@+id/tailedToolbar"
+            app:background="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/chili3_ic_back"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="Tailed toolbar" />
+
     </LinearLayout>
 
 </ScrollView>
