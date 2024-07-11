@@ -49,8 +49,8 @@ class IconedButton @JvmOverloads constructor(
             getResourceId(R.styleable.IconedButton_startIcon, -1).takeIf { it != -1 }
                 ?.let(::setStartIcon)
             setupStartIconSize(
-                width = getDimensionPixelSize(R.styleable.IconedButton_startIconWidth, -1).takeIf { it != -1 },
-                height = getDimensionPixelSize(R.styleable.IconedButton_startIconHeight, -1).takeIf { it != -1 }
+                widthPx = getDimensionPixelSize(R.styleable.IconedButton_startIconWidth, -1).takeIf { it != -1 },
+                heightPx = getDimensionPixelSize(R.styleable.IconedButton_startIconHeight, -1).takeIf { it != -1 }
             )
             setStartIconVisibility(getBoolean(R.styleable.IconedButton_isStartIconVisible, false))
             setText(getString(R.styleable.IconedButton_android_text))
@@ -75,20 +75,17 @@ class IconedButton @JvmOverloads constructor(
         }
     }
 
-    fun setupStartIconSize(width: Int?, height: Int?) {
+    private fun setupStartIconSize(widthPx: Int?, heightPx: Int?) {
         vb.ivStartIcon.apply {
-            width?.let { layoutParams.width = it }
-            height?.let { layoutParams.height = it }
+            widthPx?.let { layoutParams.width = it }
+            heightPx?.let { layoutParams.height = it }
         }
     }
 
     fun setStartIconSize(@DimenRes widthDimenRes: Int, @DimenRes heightDimenRes: Int) {
         val widthPx = resources.getDimensionPixelSize(widthDimenRes)
         val heightPx = resources.getDimensionPixelSize(heightDimenRes)
-        vb.ivStartIcon.layoutParams.apply {
-            height = heightPx
-            width  = widthPx
-        }
+        setupStartIconSize(widthPx, heightPx)
     }
 
     fun setStartIconVisibility(isIconVisible: Boolean) {
