@@ -16,7 +16,7 @@ class BonusTagView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.bonusTagViewStyle,
-    defStyleRes: Int = R.style.Chili_H9_White
+    defStyleRes: Int = R.style.BonusTagViewStyle
 ) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private lateinit var vb: ChiliViewBonusTagBinding

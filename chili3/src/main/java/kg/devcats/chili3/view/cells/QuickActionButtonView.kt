@@ -28,8 +28,6 @@ class QuickActionButtonView @JvmOverloads constructor(
     @DrawableRes private var rippleIconId: Int? = null
     @DrawableRes private var disabledIconId: Int? = null
     @DrawableRes private var iconId: Int ? = null
-    private val rootContainer: View
-        get() = vb.rootView
 
     init {
         inflateView(context)
@@ -72,7 +70,7 @@ class QuickActionButtonView @JvmOverloads constructor(
 
     @SuppressLint("ClickableViewAccessibility")
     private fun setClickHandler() {
-        rootContainer.setOnTouchListener(OnTouchListener { _, event ->
+        vb.root.setOnTouchListener(OnTouchListener { _, event ->
             if (event?.action == MotionEvent.ACTION_DOWN){
                 rippleIconId?.let { setIcon(it) }
                 return@OnTouchListener true
@@ -83,7 +81,7 @@ class QuickActionButtonView @JvmOverloads constructor(
             }
             if (event?.action == MotionEvent.ACTION_UP) {
                 iconId?.let { setIcon(it) }
-                this.onClickListener?.onClick(vb.rootView)
+                this.onClickListener?.onClick(vb.root)
                 return@OnTouchListener true
             }
             return@OnTouchListener false
@@ -133,7 +131,6 @@ class QuickActionButtonView @JvmOverloads constructor(
             setIcon(it)
         }
     }
-
 
     fun enableButton() {
         vb.root.isEnabled = true

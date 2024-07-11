@@ -133,7 +133,7 @@
         <item name="ChiliNavigationBarInactiveItemTextColor">@color/c_8a8a8e</item>
 
         <!-- QuickActionButtonView -->
-        <item name="QuickActionButtonTitleColor">@color/gray_9</item>
+        <item name="QuickActionButtonTitleColor">@color/c_FFFFFF</item>
         <item name="QuickActionButtonDisabledTitleColor">@color/gray_1</item>
 
     </style>

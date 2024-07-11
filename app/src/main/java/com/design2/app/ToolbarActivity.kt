@@ -1,10 +1,13 @@
 package com.design2.app
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.design2.app.databinding.ActivityToolbarBinding
 import com.design2.chili2.view.navigation_components.ChiliToolbar
 import com.design2.chili2.view.navigation_components.StartIconChiliToolbar
+import kg.devcats.chili3.view.toolbar.TailedToolbarView
 
 class ToolbarActivity : AppCompatActivity() {
 
@@ -54,5 +57,20 @@ class ToolbarActivity : AppCompatActivity() {
             hostActivity = this,
             onNavigateUpClick = { onBackPressed() },
         ))
+
+        vb.tailedToolbar.apply {
+            initToolbar(
+                TailedToolbarView.Configuration(
+                    hostActivity = this@ToolbarActivity,
+                    isNavigateUpButtonEnabled = true,
+                    onNavigateUpClick = { onBackPressed() },
+                )
+            )
+            setupDividerVisibility(false)
+            setTagTitle("Бонусы ддддддд")
+            setOnTagClickListener {
+                Toast.makeText(context, "Clicked on tag", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
