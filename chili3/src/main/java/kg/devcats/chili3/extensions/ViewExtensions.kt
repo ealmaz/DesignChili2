@@ -3,6 +3,7 @@ package kg.devcats.chili3.extensions
 import android.annotation.SuppressLint
 import android.view.MotionEvent
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintSet.Motion
 
 internal fun View.visible() {
     visibility = View.VISIBLE
@@ -34,6 +35,10 @@ fun View.setSurfaceClick(
             MotionEvent.ACTION_UP -> {
                 onDefault()
                 v.performClick()
+                true
+            }
+            MotionEvent.ACTION_CANCEL -> {
+                onDefault()
                 true
             }
             else -> false
