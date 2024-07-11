@@ -10,7 +10,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/siv_image"
         android:layout_width="match_parent"
-        android:layout_height="?ChiliProductCardViewImageSize"
+        android:layout_height="?ChiliProductCardViewImageHeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

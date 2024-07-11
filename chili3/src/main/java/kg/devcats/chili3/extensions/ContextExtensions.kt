@@ -12,3 +12,13 @@ internal fun Context.getColorFromAttr(
     theme.resolveAttribute(attrColor, typedValue, resolveRefs)
     return typedValue.data
 }
+
+fun Context.getDimensionFromAttr(resId: Int, defaultValue: Float = 0F): Float {
+    val typedValue = TypedValue()
+    val resolved = theme.resolveAttribute(resId, typedValue, true)
+    return if (resolved) {
+        TypedValue.complexToDimension(typedValue.data, resources.displayMetrics)
+    } else {
+        defaultValue
+    }
+}

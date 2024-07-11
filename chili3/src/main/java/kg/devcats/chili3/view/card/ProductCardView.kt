@@ -8,11 +8,13 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
 import androidx.annotation.DrawableRes
+import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardProductBinding
+import kg.devcats.chili3.extensions.getDimensionFromAttr
 import kg.devcats.chili3.extensions.visible
 
 class ProductCardView @JvmOverloads constructor(
@@ -47,10 +49,7 @@ class ProductCardView @JvmOverloads constructor(
 
     override fun TypedArray.obtainAttributes() {
         getLayoutDimension(R.styleable.ProductCardView_android_layout_width, 0).let {
-            imageSize = it to imageSize.second
-        }
-        getLayoutDimension(R.styleable.ProductCardView_android_layout_height, 0).let {
-            imageSize = imageSize.first to it
+            imageSize = it to context.getDimensionFromAttr(R.attr.ChiliProductCardViewImageHeight, 210.dpF).toInt()
         }
         getString(R.styleable.ProductCardView_productImage)?.let {
             setProductImage(it)

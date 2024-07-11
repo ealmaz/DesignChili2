@@ -350,7 +350,7 @@
                                 android:id="@+id/pcv_product_1"
                                 android:layout_width="168dp"
                                 android:layout_height="316dp"
-                                android:scaleType="center"
+                                android:scaleType="centerCrop"
                                 app:title="10 000,00 с"
                                 app:subtitle="833,3 с x 12мес"
                                 app:description="Мышь LS Pro черный"
