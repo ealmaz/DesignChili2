@@ -157,6 +157,7 @@
     </declare-styleable>
 
     <attr name="quickActionButtonViewStyle" format="reference" />
+    <attr name="bonusTagViewStyle" format="reference" />
     <attr name="rippleIcon" format="reference" />
     <attr name="disabledIcon" format="reference" />
 
