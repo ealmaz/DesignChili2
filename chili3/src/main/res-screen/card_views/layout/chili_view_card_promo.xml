@@ -50,7 +50,7 @@
             android:layout_marginStart="?ChiliPromoCardViewLabelStartMargin"
             android:layout_marginTop="?ChiliPromoCardViewLabelTopMargin"
             android:layout_marginEnd="?ChiliPromoCardViewLabelEndMargin"
-            android:textAppearance="@style/Chili.H8.Primary"
+            android:textAppearance="@style/Chili.H14.Primary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,7 @@
             android:paddingTop="?ChiliPromoCardViewStatusTopPadding"
             android:paddingEnd="?ChiliPromoCardViewStatusEndPadding"
             android:paddingBottom="?ChiliPromoCardViewStatusBottomPadding"
-            android:textAppearance="@style/Chili.H9.White1"
+            android:textAppearance="@style/Chili.H12.White1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Активный" />
