@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
 import androidx.annotation.DrawableRes
+import androidx.core.view.isGone
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
@@ -15,6 +16,7 @@ import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardProductBinding
 import kg.devcats.chili3.extensions.getDimensionFromAttr
+import kg.devcats.chili3.extensions.gone
 import kg.devcats.chili3.extensions.visible
 
 class ProductCardView @JvmOverloads constructor(
@@ -110,6 +112,7 @@ class ProductCardView @JvmOverloads constructor(
         vb.tvSubtitle.apply {
             this.text = text
             if (!text.isNullOrEmpty()) visible()
+            else gone()
         }
     }
 
@@ -125,6 +128,7 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     fun setSubtitleBackground(@DrawableRes drawableId: Int) {
+        if (vb.tvSubtitle.isGone) return
         vb.tvSubtitle.background = context.drawable(drawableId)
     }
 
@@ -144,6 +148,7 @@ class ProductCardView @JvmOverloads constructor(
         vb.tvDiscount.apply {
             this.text = text
             if (!text.isNullOrEmpty()) visible()
+            else gone()
         }
     }
 
@@ -159,6 +164,7 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     fun setDiscountBackground(@DrawableRes drawableId: Int) {
+        if (vb.tvDiscount.isGone) return
         vb.tvDiscount.background = context.drawable(drawableId)
     }
 
