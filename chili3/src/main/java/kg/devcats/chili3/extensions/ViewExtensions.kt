@@ -25,14 +25,15 @@ fun View.setSurfaceClick(
     onPressed: () -> Unit,
     onDefault: () -> Unit
 ) {
-    this.setOnTouchListener { _, event ->
+    setOnTouchListener { v, event ->
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 onPressed()
                 true
             }
-            MotionEvent.ACTION_CANCEL, MotionEvent.ACTION_UP -> {
+            MotionEvent.ACTION_UP -> {
                 onDefault()
+                v.performClick()
                 true
             }
             else -> false

@@ -13,7 +13,7 @@ import com.design2.app.MainActivity
 import com.design2.app.adapter.EditableCellViewsAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
-import com.design2.chili2.R
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.container.shadow_layout.model.ShadowType
 import com.design2.chili2.view.shimmer.startGroupShimmering
@@ -105,6 +105,9 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             setTitle("Test Title")
             setSubtitle("Test Subtitle")
             setAdditionalText("121212 c")
+            setOnSingleClickListener {
+                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
