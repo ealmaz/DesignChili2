@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="BaseChiliDesignTheme3.Night" parent="BaseChiliDesignTheme.Night">
+    <style name="BaseChiliDesignTheme3.Night">
 
         <!-- Text appearance theme-->
         <item name="ChiliPrimaryTextColor">@color/c_FFFFFF</item>
@@ -23,22 +23,110 @@
         <item name="ChiliAlertErrorTextColor">@color/c_AE2A47</item>
         <!-- End text appearance theme-->
 
-        <!-- PromoCardView -->
-        <item name="ChiliPromoCardViewStatusTopPadding">@dimen/padding_4dp</item>
-        <item name="ChiliPromoCardViewStatusBottomPadding">@dimen/padding_6dp</item>
-        <item name="ChiliPromoCardViewStatusStartPadding">@dimen/padding_8dp</item>
-        <item name="ChiliPromoCardViewStatusEndPadding">@dimen/padding_8dp</item>
-        <item name="ChiliPromoCardViewStatusTopMargin">@dimen/padding_4dp</item>
-        <item name="ChiliPromoCardViewStatusEndMargin">@dimen/padding_4dp</item>
-        <item name="ChiliPromoCardViewStatusCornerRadius">@dimen/radius_12dp</item>
-        <item name="ChiliPromoCardViewLabelTopMargin">@dimen/padding_10dp</item>
-        <item name="ChiliPromoCardViewLabelBottomMargin">@dimen/padding_18dp</item>
-        <item name="ChiliPromoCardViewLabelStartMargin">@dimen/padding_12dp</item>
-        <item name="ChiliPromoCardViewLabelEndMargin">@dimen/padding_12dp</item>
-        <item name="ChiliPromoCardViewIconTopMargin">@dimen/padding_8dp</item>
-        <item name="ChiliPromoCardViewIconBottomMargin">@dimen/padding_0dp</item>
-        <item name="ChiliPromoCardViewIconStartMargin">@dimen/padding_12dp</item>
-        <item name="ChiliPromoCardViewIconEndMargin">@dimen/padding_12dp</item>
+        <!-- ScreenBackground -->
+        <item name="ChiliScreenBackground">@color/black_2</item>
+        <item name="ChiliSurfaceBackground">@color/black_1</item>
+
+        <!-- Ripple-->
+        <item name="ChiliRippleForegroundColor">@color/gray_1_alpha_50</item>
+
+        <!-- Divider -->
+        <item name="ChiliDividerColor">@color/black_4</item>
+
+        <!-- Chevron -->
+        <item name="ChiliChevronColor">@color/white_1</item>
+
+        <!-- Snackbar attributes -->
+        <item name="ChiliSnackbarBackground">@color/black_3</item>
+        <item name="ChiliSnackbarTextColor">@color/gray_3</item>
+
+        <!-- Segmented Picker   -->
+        <item name="ChiliSegmentedPickerBackgroundColor">@color/black_4</item>
+        <item name="ChiliSegmentedPickerTabIndicatorColor">@color/black_3</item>
+        <item name="ChiliSegmentedPickerTabTextColor">@color/gray_3</item>
+
+
+        <!-- CheckBox  -->
+        <item name="ChiliCheckBoxUncheckedColor">@color/gray_3</item>
+        <item name="ChiliCheckBoxDisabledColor">@color/gray_1_alpha_50</item>
+
+        <!-- RadioButton  -->
+        <item name="ChiliRadioButtonUncheckedColor">@color/gray_3</item>
+        <item name="ChiliRadioButtonDisabledColor">@color/gray_1_alpha_50</item>
+
+        <!--  Switch box -->
+        <item name="ChiliSwitchBoxUncheckedBg">@color/black_4</item>
+        <item name="ChiliSwitchBoxUncheckedToggleColor">@color/black_5</item>
+
+        <!-- Bottom sheet -->
+        <item name="ChiliBottomSheetBackgroundColor">@color/black_2</item>
+        <item name="ChiliBottomSheetTopDrawableColor">@color/black_3</item>
+        <item name="ChiliBottomSheetGrayBackgroundColor">@color/black_2</item>
+        <!-- Bottom sheet >>> ActionBottomSheet   -->
+        <item name="ChiliActionBottomSheetButtonTextColor">@color/gray_3</item>
+
+        <!-- InAppPush -->
+        <item name="ChiliInAppPushBackground">@color/black_3</item>
+
+        <!-- Picker dialog -->
+        <item name="ChiliPickerDialogControlColor">@color/gray_3</item>
+        <item name="ChiliPickerDialogBackground">@color/black_3</item>
+
+        <!-- Dialog -->
+        <item name="ChiliDialogBackground">@color/black_3</item>
+        <item name="ChiliDialogButtonTextColor">@color/white_1</item>
+
+        <!-- Toolbar -->
+        <item name="ChiliToolbarDividerColor">@color/black_4</item>
+        <item name="ChiliToolbarIconsTint">@color/white_1</item>
+        <item name="ChiliToolbarBackground">@color/black_3</item>
+
+        <item name="ChiliStartIconToolbarBackground">@color/black_1</item>
+
+        <!-- NavigationBar -->
+        <item name="ChiliNavigationBarBackground">@color/black_4</item>
+        <item name="ChiliNavigationBarInactiveItemTextColor">@color/white_1</item>
+
+
+        <!-- InputView -->
+        <item name="ChiliInputViewHintTextColor">@color/gray_1_alpha_50</item>
+        <item name="ChiliInputViewBackgroundColor">@color/black_3</item>
+        <item name="ChiliInputViewBackgroundErrorColor">@color/red_2</item>
+        <item name="ChiliInputViewMessageTextColor">@color/gray_3</item>
+
+
+        <!-- CardView  -->
+        <item name="ChiliCardViewBackground">@color/black_3</item>
+
+        <!-- CellView attributes -->
+        <item name="ChiliCellViewBackground">@color/black_3</item>
+        <item name="ChiliCellSquircleIconBackground">@color/black_2</item>
+
+        <!-- DetailCellView -->
+        <item name="ChiliDetailCellViewAdditionalInfoTextBackgroundColor">@color/black_4</item>
+
+
+        <!-- Shimmer attributes -->
+        <item name="ChiliShimmerBoneColor">@color/black_5</item>
+
+
+        <!-- Primary Button attributes -->
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_2</item>
+
+        <!-- Additional Button attributes -->
+        <item name="ChiliAdditionalButtonBackgroundActive">@color/black_5</item>
+        <item name="ChiliAdditionalButtonBackgroundDisabled">@color/black_5</item>
+        <item name="ChiliAdditionalButtonTextColorActive">@color/white_1</item>
+        <item name="ChiliAdditionalButtonTextColorPressed">@color/white_1</item>
+
+        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/black_5</item>
+        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/black_5</item>
+
+        <item name="ChiliAdditionalButtonBorderColor">@color/black_5</item>
+        <item name="ChiliAdditionalButtonDisabledBorderColor">@color/black_5</item>
+
+        <!-- OtpInputView -->
+        <item name="ChiliOtpInputViewItemActiveBorder">@color/white_1</item>
 
     </style>
 
