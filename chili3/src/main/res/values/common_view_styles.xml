@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BonusTagViewStyle"/>
+
+    <style name="Chili.TailedToolbarView"/>
+
+    <style name="Chili.DividerViewStyle"/>
+</resources>
