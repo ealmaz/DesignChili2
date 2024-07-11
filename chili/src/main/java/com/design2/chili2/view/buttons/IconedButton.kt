@@ -61,10 +61,10 @@ class IconedButton @JvmOverloads constructor(
         }
     }
 
-    fun setStartIcon(string: String) {
+    fun setStartIcon(url: String) {
         vb.ivStartIcon.apply {
             visible()
-            setImageByUrl(string)
+            setImageByUrl(url)
         }
     }
 
@@ -85,14 +85,10 @@ class IconedButton @JvmOverloads constructor(
     fun setStartIconSize(@DimenRes widthDimenRes: Int, @DimenRes heightDimenRes: Int) {
         val widthPx = resources.getDimensionPixelSize(widthDimenRes)
         val heightPx = resources.getDimensionPixelSize(heightDimenRes)
-        setupStartIconSize(widthPx, heightPx)
-    }
-
-    private fun setupStartIconSize(widthPx: Int, heightPx: Int) {
-        val params = vb.ivStartIcon.layoutParams
-        params.height = heightPx
-        params.width = widthPx
-        vb.ivStartIcon.layoutParams = params
+        vb.ivStartIcon.layoutParams.apply {
+            height = heightPx
+            width  = widthPx
+        }
     }
 
     fun setStartIconVisibility(isIconVisible: Boolean) {
