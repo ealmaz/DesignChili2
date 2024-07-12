@@ -15,6 +15,10 @@ class PinMatcherView @JvmOverloads constructor(
 
     private val vb: ChiliViewPinMatcherBinding = ChiliViewPinMatcherBinding.inflate(LayoutInflater.from(context), this, true)
 
+    init {
+        onEnter(0)
+    }
+
     fun onEnter(enteredLength: Int) = with(vb) {
         imgPin1.setImageResource(if (enteredLength > 0) R.drawable.chili_ic_pin_matcher_item_selected else R.drawable.chili_ic_pin_matcher_item_unselected)
         imgPin2.setImageResource(if (enteredLength > 1) R.drawable.chili_ic_pin_matcher_item_selected else R.drawable.chili_ic_pin_matcher_item_unselected)

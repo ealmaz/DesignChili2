@@ -27,8 +27,8 @@
 
     <View
         android:id="@+id/clickable_mask"
-        android:layout_width="@dimen/view_64dp"
-        android:layout_height="@dimen/view_64dp"
+        android:layout_width="@dimen/view_48dp"
+        android:layout_height="@dimen/view_48dp"
         android:layout_gravity="center"
         android:foreground="?selectableItemBackgroundBorderless" />
 
