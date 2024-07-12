@@ -10,6 +10,7 @@
         <attr name="iconStateCardViewDefaultStyle" format="reference" />
         <attr name="productCardViewDefaultStyle" format="reference" />
         <attr name="chiliBottomNavigationViewDefaultStyle" format="reference" />
+        <attr name="accountCardViewDefaultStyle" format="reference"/>
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -113,6 +114,23 @@
         <attr name="drawableWidth" format="dimension"/>
         <attr name="drawableHeight" format="dimension"/>
         <attr name="clickableMaskEnabled" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="AccountCardView">
+        <attr name="titleIcon" format="reference" />
+        <attr name="title" />
+        <attr name="titleTextAppearance" />
+        <attr name="titleAddition" format="string" />
+        <attr name="titleAdditionTextAppearance" format="reference" />
+        <attr name="isChevronVisible" />
+        <attr name="isToggleIconVisible" format="boolean" />
+        <attr name="isToggleIconEnabled" format="boolean"/>
+        <attr name="subtitle" />
+        <attr name="isDividerVisible"/>
+        <attr name="actionButtonIcon" format="reference" />
+        <attr name="actionButtonText" />
+        <attr name="actionButtonTextAppearance" format="reference" />
+        <attr name="subtitleTextAppearance" />
     </declare-styleable>
 
     <declare-styleable name="ProductCardView">
