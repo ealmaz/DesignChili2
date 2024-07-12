@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Chili.CommonViewStyle" parent="Chili.BaseChiliViewStyle"/>
+
+    <style name="Chili.PinpadKeyboardDefaultStyle" parent="Chili.CommonViewStyle">
+        <item name="leftActionEnabled">false</item>
+        <item name="rightActionEnabled">false</item>
+    </style>
+    <style name="Chili.PinpadButtonStyle" parent="Chili.CommonViewStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+</resources>

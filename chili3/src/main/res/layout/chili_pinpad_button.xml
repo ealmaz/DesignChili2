@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:clipChildren="false">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        tools:src="@drawable/chili_ic_info"/>
+
+    <TextView
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/Chili.H28.Primary"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:text="1"
+        tools:visibility="visible"/>
+
+    <View
+        android:id="@+id/clickable_mask"
+        android:layout_width="@dimen/view_64dp"
+        android:layout_height="@dimen/view_64dp"
+        android:layout_gravity="center"
+        android:foreground="?selectableItemBackgroundBorderless" />
+
+</FrameLayout>

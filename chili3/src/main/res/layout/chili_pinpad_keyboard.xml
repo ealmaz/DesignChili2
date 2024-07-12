@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_1"
+        style="@style/Chili.PinpadButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/btn_4"
+        app:layout_constraintEnd_toStartOf="@id/btn_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="1" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_2"
+        style="@style/Chili.PinpadButtonStyle"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_5"
+        app:layout_constraintEnd_toStartOf="@id/btn_3"
+        app:layout_constraintStart_toEndOf="@id/btn_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="2" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_3"
+        style="@style/Chili.PinpadButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/btn_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:text="3" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_4"
+        style="@style/Chili.PinpadButtonStyle"
+        android:layout_marginVertical="@dimen/padding_16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_7"
+        app:layout_constraintEnd_toStartOf="@id/btn_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_1"
+        app:text="4" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_5"
+        style="@style/Chili.PinpadButtonStyle"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        android:layout_marginVertical="@dimen/padding_16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_8"
+        app:layout_constraintEnd_toStartOf="@id/btn_6"
+        app:layout_constraintStart_toEndOf="@id/btn_4"
+        app:layout_constraintTop_toBottomOf="@id/btn_2"
+        app:text="5" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_6"
+        style="@style/Chili.PinpadButtonStyle"
+        android:layout_marginVertical="@dimen/padding_16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_5"
+        app:layout_constraintTop_toBottomOf="@id/btn_3"
+        app:text="6" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_7"
+        style="@style/Chili.PinpadButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/btn_left_action"
+        app:layout_constraintEnd_toStartOf="@id/btn_8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_4"
+        app:text="7" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_8"
+        style="@style/Chili.PinpadButtonStyle"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_0"
+        app:layout_constraintEnd_toStartOf="@id/btn_9"
+        app:layout_constraintStart_toEndOf="@id/btn_7"
+        app:layout_constraintTop_toBottomOf="@id/btn_5"
+        app:text="8" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_9"
+        style="@style/Chili.PinpadButtonStyle"
+        app:layout_constraintBottom_toTopOf="@id/btn_right_action"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_8"
+        app:layout_constraintTop_toBottomOf="@id/btn_6"
+        app:text="9" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_left_action"
+        style="@style/Chili.PinpadButtonStyle"
+        android:layout_marginTop="@dimen/padding_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_7"
+        app:text="Забыли \nкод?"
+        app:textTextAppearance="@style/Chili.H16.Primary" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_0"
+        style="@style/Chili.PinpadButtonStyle"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        android:layout_marginTop="@dimen/padding_16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_right_action"
+        app:layout_constraintStart_toEndOf="@id/btn_left_action"
+        app:layout_constraintTop_toBottomOf="@id/btn_8"
+        app:text="0" />
+
+    <kg.devcats.chili3.view.keyboard.pinpad_keyboard.PinpadButtonView
+        android:id="@+id/btn_right_action"
+        style="@style/Chili.PinpadButtonStyle"
+        android:layout_marginTop="@dimen/padding_16dp"
+        app:drawableHeight="@dimen/view_28dp"
+        app:drawable="@drawable/chili_state_ic_remove_digit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_0"
+        app:layout_constraintTop_toBottomOf="@id/btn_9" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
