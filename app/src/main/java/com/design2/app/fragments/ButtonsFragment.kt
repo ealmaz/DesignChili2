@@ -27,6 +27,9 @@ class ButtonsFragment : BaseFragment<FragmentButtonsBinding>() {
         vb.qab1.setOnSingleClickListener {
             Toast.makeText(context, "Quick Action Button 1 clicked", Toast.LENGTH_SHORT).show()
         }
+        vb.qab2.setOnSingleClickListener {
+            Toast.makeText(context, "It supposed to be not clicked", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun inflateViewBinging(): FragmentButtonsBinding {
