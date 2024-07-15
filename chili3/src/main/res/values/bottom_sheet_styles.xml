@@ -5,6 +5,6 @@
     </style>
 
     <style name="Chili3.BottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/bg_rounded_bottom_sheet</item>
+        <item name="android:background">@drawable/chili3_bg_rounded_bottom_sheet</item>
     </style>
 </resources>
