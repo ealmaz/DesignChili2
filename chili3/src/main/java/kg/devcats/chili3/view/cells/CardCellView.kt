@@ -12,6 +12,7 @@ import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setTextOrHide
 import kg.devcats.chili3.R
 import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
@@ -106,47 +107,27 @@ class CardCellView @JvmOverloads constructor(
     }
 
     fun setTitle(title: String?) {
-        vb.tvTitle.apply {
-            text = title
-            isVisible = !title.isNullOrEmpty()
-        }
+        vb.tvAdditionalText.setTextOrHide(title)
     }
 
     fun setTitle(@StringRes resId: Int) {
-        vb.tvTitle.apply {
-            setText(resId)
-            isVisible = true
-        }
+        vb.tvAdditionalText.setTextOrHide(resId)
     }
 
     fun setSubtitle(subtitle: String?) {
-        vb.tvSubtitle.apply {
-            text = subtitle
-            isVisible = !subtitle.isNullOrEmpty()
-        }
-
+        vb.tvAdditionalText.setTextOrHide(subtitle)
     }
 
     fun setSubtitle(@StringRes resId: Int) {
-        vb.tvSubtitle.apply {
-            setText(resId)
-            isVisible = true
-        }
-
+        vb.tvAdditionalText.setTextOrHide(resId)
     }
 
     fun setAdditionalText(value: String?) {
-        vb.tvAdditionalText.apply {
-            text = value
-            isVisible = !value.isNullOrEmpty()
-        }
+        vb.tvAdditionalText.setTextOrHide(value)
     }
 
     fun setAdditionalText(@StringRes resId: Int) {
-        vb.tvAdditionalText.apply {
-            setText(resId)
-            isVisible = true
-        }
+        vb.tvAdditionalText.setTextOrHide(resId)
     }
 
     fun setIcon(icon: Drawable?) {
