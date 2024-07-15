@@ -155,6 +155,15 @@
         <!-- ChiliCellViewBackgroundColor-->
         <item name="ChiliCellViewBackgroundColor">@color/black_4</item>
 
+        <!-- Chili3BottomSheetTopDrawableColor-->
+        <item name="Chili3BottomSheetTopDrawableColor">@color/black_5</item>
+
+        <!-- Chili3BottomSheetBackgroundColor-->
+        <item name="Chili3BottomSheetBackgroundColor">@color/black_3</item>
+
+        <!-- ChiliCellViewBackgroundColor-->
+        <item name="ChiliCellViewBackgroundColor">@color/black_4</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>
