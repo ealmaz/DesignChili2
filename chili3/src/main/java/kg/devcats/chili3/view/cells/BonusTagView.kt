@@ -9,6 +9,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setImageOrHide
+import com.design2.chili2.extensions.setTextOrHide
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewBonusTagBinding
 
@@ -57,14 +59,14 @@ class BonusTagView @JvmOverloads constructor(
     }
 
     fun setTitle(charSequence: CharSequence?) {
-        vb.tvLabel.text = charSequence
+        vb.tvLabel.setTextOrHide(charSequence)
     }
 
     fun setTitle(@StringRes resId: Int) {
         vb.tvLabel.setText(resId)
     }
 
-    private fun setTitleTextAppearance(@StyleRes resId: Int) {
+    fun setTitleTextAppearance(@StyleRes resId: Int) {
         vb.tvLabel.setTextAppearance(resId)
     }
 
@@ -76,8 +78,8 @@ class BonusTagView @JvmOverloads constructor(
         vb.ivIcon.setImageByUrl(url)
     }
 
-    fun setIcon(drawable: Drawable) {
-        vb.ivIcon.setImageDrawable(drawable)
+    fun setIcon(drawable: Drawable?) {
+        vb.ivIcon.setImageOrHide(drawable)
     }
 
     override fun setOnClickListener(listener: OnClickListener?) {

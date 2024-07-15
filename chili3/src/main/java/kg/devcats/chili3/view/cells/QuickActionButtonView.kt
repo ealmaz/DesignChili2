@@ -1,12 +1,9 @@
 package kg.devcats.chili3.view.cells
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -69,14 +66,18 @@ class QuickActionButtonView @JvmOverloads constructor(
     }
 
     private fun setupSurfaceClicks() {
-        vb.root.setSurfaceClick(
-            onPressedState = {
-                rippleIconId?.let { setIcon(it) }
-            },
-            onDefaultState = {
-                iconId?.let { setIcon(it) }
+        with(vb){
+            if (root.isEnabled){
+                setSurfaceClick(
+                    onPressedState = {
+                        rippleIconId?.let { setIcon(it) }
+                    },
+                    onDefaultState = {
+                        iconId?.let { setIcon(it) }
+                    }
+                )
             }
-        )
+        }
     }
 
     fun setTitle(charSequence: CharSequence?) {
