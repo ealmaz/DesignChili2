@@ -9,6 +9,7 @@
         <attr name="subtitledSimpleCardViewDefaultStyle" format="reference" />
         <attr name="iconStateCardViewDefaultStyle" format="reference" />
         <attr name="productCardViewDefaultStyle" format="reference" />
+        <attr name="chiliBottomNavigationViewDefaultStyle" format="reference" />
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -125,5 +126,11 @@
         <attr name="discount" format="string" />
         <attr name="discountTextAppearance" format="reference" />
         <attr name="discountBackgroundColor" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ChiliBottomNavigationView">
+        <attr name="menu" format="reference"/>
+        <attr name="icon"/>
+        <attr name="background"/>
     </declare-styleable>
 </resources>

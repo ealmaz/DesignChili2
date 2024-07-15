@@ -48,4 +48,24 @@
     <attr name="ChiliProductCardViewSubtitleCornerRadius" format="dimension"/>
     <attr name="ChiliProductCardViewDiscountCornerRadius" format="dimension"/>
 
+    <!-- ChiliBottomNavigationView -->
+    <attr name="ChiliBottomNavigationViewBackgroundTopMargin" format="dimension"/>
+    <attr name="ChiliBottomNavigationViewBackgroundHeight" format="dimension"/>
+    <attr name="ChiliBottomNavigationViewBackground" format="reference"/>
+    <attr name="ChiliBottomNavigationViewItemIconSize" format="dimension"/>
+    <attr name="ChiliBottomNavigationViewItemBackground" format="reference"/>
+    <attr name="ChiliBottomNavigationViewItemTextAppearanceActive" format="reference"/>
+    <attr name="ChiliBottomNavigationViewItemTextAppearanceInactive" format="reference"/>
+    <attr name="ChiliBottomNavigationViewItemTextColor" format="reference"/>
+    <attr name="ChiliBottomNavigationViewElevation" format="dimension"/>
+    <attr name="ChiliBottomNavigationBarViewLabelVisibilityMode" format="enum">
+        <enum name="auto" value="-1"/>
+        <!-- Label is shown on the selected navigation item. -->
+        <enum name="selected" value="0"/>
+        <!-- Label is shown on all navigation items. -->
+        <enum name="labeled" value="1"/>
+        <!-- Label is not shown on any navigation items. -->
+        <enum name="unlabeled" value="2"/>
+    </attr>
+    <attr name="ChiliBottomNavigationViewHeight" format="dimension"/>
 </resources>
