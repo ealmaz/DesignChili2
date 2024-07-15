@@ -14,6 +14,7 @@ import androidx.annotation.StyleRes
 import com.design2.chili2.extensions.setImageByUrl
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewQuickActionButtonBinding
+import kg.devcats.chili3.extensions.setSurfaceClick
 
 class QuickActionButtonView @JvmOverloads constructor(
     context: Context,
@@ -24,7 +25,6 @@ class QuickActionButtonView @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewQuickActionButtonBinding
 
-    private var onClickListener: OnClickListener? = null
     @DrawableRes private var rippleIconId: Int? = null
     @DrawableRes private var disabledIconId: Int? = null
     @DrawableRes private var iconId: Int ? = null
@@ -32,7 +32,7 @@ class QuickActionButtonView @JvmOverloads constructor(
     init {
         inflateView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
-        setClickHandler()
+        setupSurfaceClicks()
     }
 
     private fun inflateView(context: Context) {
@@ -68,24 +68,15 @@ class QuickActionButtonView @JvmOverloads constructor(
         }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    private fun setClickHandler() {
-        vb.root.setOnTouchListener(OnTouchListener { _, event ->
-            if (event?.action == MotionEvent.ACTION_DOWN){
+    private fun setupSurfaceClicks() {
+        vb.root.setSurfaceClick(
+            onPressedState = {
                 rippleIconId?.let { setIcon(it) }
-                return@OnTouchListener true
-            }
-            if (event?.action == MotionEvent.ACTION_CANCEL) {
+            },
+            onDefaultState = {
                 iconId?.let { setIcon(it) }
-                return@OnTouchListener true
             }
-            if (event?.action == MotionEvent.ACTION_UP) {
-                iconId?.let { setIcon(it) }
-                this.onClickListener?.onClick(vb.root)
-                return@OnTouchListener true
-            }
-            return@OnTouchListener false
-        })
+        )
     }
 
     fun setTitle(charSequence: CharSequence?) {
@@ -117,11 +108,6 @@ class QuickActionButtonView @JvmOverloads constructor(
             true -> enableButton()
             else -> disableButton()
         }
-    }
-
-    override fun setOnClickListener(listener: OnClickListener?) {
-        this.onClickListener = listener
-        vb.root.setOnClickListener(onClickListener)
     }
 
     fun disableButton() {
