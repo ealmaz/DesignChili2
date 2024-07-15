@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Text color attributes   -->
@@ -75,4 +76,13 @@
 
     <!-- TailedToolbarView -->
     <attr name="TailedToolbarDefaultStyle" format="reference"/>
+<!--    Chili3BottomSheetTopDrawableColor-->
+    <attr name="Chili3BottomSheetTopDrawableColor" format="color" />
+
+<!--    Chili3BottomSheetBackgroundColor-->
+    <attr name="Chili3BottomSheetBackgroundColor" format="color" />
+
+<!--    ChiliCellViewBackgroundColor-->
+    <attr name="ChiliCellViewBackgroundColor" format="color" />
+
 </resources>

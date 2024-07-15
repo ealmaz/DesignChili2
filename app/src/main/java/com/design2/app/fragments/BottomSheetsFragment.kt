@@ -201,7 +201,9 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .show(childFragmentManager)
         }
         vb.customWithBuilder.setOnClickListener {
-            
+
+
+
             FragmentBottomSheet.Builder()
                 .setContentFragment(CommonViewsFragment())
                 .setIsBackButtonEnabled(true)
