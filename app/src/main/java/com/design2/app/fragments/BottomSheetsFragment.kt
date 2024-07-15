@@ -25,6 +25,7 @@ import com.design2.chili2.view.modals.bottom_sheet_constructor.buildBottomSheet
 import com.design2.chili2.view.modals.in_app.InAppPushBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kg.devcats.chili3.view.modals.bottom_sheet.Chili3BottomSheetFragment
 
 class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
 
@@ -170,10 +171,26 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
         vb.custom.setOnClickListener {
             CustomFragmentBottomSheet().show(childFragmentManager)
         }
+        vb.chili3NewCells.setOnClickListener {
+            val bottomSheet = Chili3BottomSheetFragment.Builder()
+                .setContentFragment(NewCellViewsFragment())
+                .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .build()
+            bottomSheet.show(childFragmentManager)
+        }
+        vb.chili3DefaultCart.setOnClickListener {
+            val bottomSheet = Chili3BottomSheetFragment.Builder()
+                .setContentFragment(DefaultCartViewsFragment())
+                .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .setHasCloseIcon(false)
+                .setIsHideable(true)
+                .setIsBackButtonEnabled(true)
+                .build()
+            bottomSheet.setTitleValue("Выберите счёт по умолчанию")
+            bottomSheet.show(childFragmentManager)
+        }
         vb.customWithBuilder.setOnClickListener {
-
-
-
+            
             FragmentBottomSheet.Builder()
                 .setContentFragment(CommonViewsFragment())
                 .setIsBackButtonEnabled(true)

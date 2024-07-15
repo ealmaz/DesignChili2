@@ -133,4 +133,9 @@
     <color name="c_ececec_alpha_30">#4DECECEC</color>
     <color name="c_c8c8c8_alpha_50">#80C8C8C8</color>
 
+    <color name="chili3_cell_background_color">@color/white_1</color>
+    <color name="chili3_chevron_color">@color/black_3</color>
+    <color name="chili3_secondary_text_color">#3D3D3D</color>
+    <color name="radio_button_default_border_color">@color/gray_2</color>
+    <color name="radio_button_selected_border_color">#80C01B</color>
 </resources>

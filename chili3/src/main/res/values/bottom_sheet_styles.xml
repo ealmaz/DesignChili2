@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Chili3.BottomSheetStyle" parent="Chili.BottomSheetStyle">
+        <item name="bottomSheetStyle">@style/Chili3.BottomSheetModalStyle</item>
+    </style>
+
+    <style name="Chili3.BottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/chili3_bg_rounded_bottom_sheet</item>
+    </style>
+</resources>
