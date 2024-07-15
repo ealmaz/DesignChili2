@@ -77,9 +77,9 @@
         <attr name="dividerActionText" format="string" />
         <attr name="dividerEndIcon" format="reference" />
         <attr name="dividerIsNotificationVisible" format="boolean" />
-        <attr name="dividerTitleTextAppearance" />
-        <attr name="dividerSubtitleTextAppearance" />
-        <attr name="dividerActionTextAppearance" />
+        <attr name="dividerTitleTextAppearance" format="reference" />
+        <attr name="dividerSubtitleTextAppearance" format="reference" />
+        <attr name="dividerActionTextAppearance" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="PinpadKeyboardView">
