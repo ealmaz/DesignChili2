@@ -84,4 +84,8 @@ class ChiliBottomNavigationView : ConstraintLayout {
         return vb.bottomNav.selectedItemId
     }
 
+    fun getBottomNavView(): CustomBottomNavigationView {
+        return vb.bottomNav
+    }
+
 }
