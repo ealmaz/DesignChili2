@@ -73,7 +73,7 @@
         <item name="ChiliBottomNavigationViewItemTextColor">@color/chili_state_color_navigation_bar_text</item>
         <item name="ChiliBottomNavigationViewElevation">@dimen/elevation_0dp</item>
         <item name="ChiliBottomNavigationBarViewLabelVisibilityMode">labeled</item>
-        <item name="ChiliBottomNavigationViewHeight">@dimen/view_68dp</item>
+        <item name="ChiliBottomNavigationViewHeight">@dimen/view_72dp</item>
 
     </style>
 
