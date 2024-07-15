@@ -130,6 +130,7 @@
 
         <!-- NavigationBar -->
         <item name="ChiliNavigationBarActiveItemTextColor">@color/c_FFFFFF</item>
+        <item name="ChiliNavigationBarInactiveItemTextColor">@color/c_8a8a8e</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>
