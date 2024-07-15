@@ -20,6 +20,15 @@
         <item name="ChiliPromoCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliPromoCardViewIconEndMargin">@dimen/padding_12dp</item>
 
+        <!-- Chili3BottomSheetTopDrawableColor-->
+        <item name="Chili3BottomSheetTopDrawableColor">@color/gray_1</item>
+
+        <!-- Chili3BottomSheetBackgroundColor-->
+        <item name="Chili3BottomSheetBackgroundColor">@color/white_1</item>
+
+        <!-- ChiliCellViewBackgroundColor-->
+        <item name="ChiliCellViewBackgroundColor">@color/gray_6</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3"/>

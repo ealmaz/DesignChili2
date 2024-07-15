@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <kg.devcats.chili3.view.modals.base.Chili3BaseCellView
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cellBackground="@color/chili3_cell_background_color"
+        android:layout_marginStart="@dimen/padding_4dp"
+        app:isChevronVisible="true"
+        app:isDividerVisible="true"
+        />
+
+</FrameLayout>
