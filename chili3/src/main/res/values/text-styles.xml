@@ -17,4 +17,8 @@
         <item name="android:textColor">@color/c_FF9500</item>
     </style>
 
+    <style name="Chili.H14.White" parent="Chili.H14">
+        <item name="android:textColor">@color/white_1</item>
+    </style>
+
 </resources>

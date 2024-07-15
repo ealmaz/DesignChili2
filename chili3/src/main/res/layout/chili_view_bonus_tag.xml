@@ -27,7 +27,7 @@
             android:id="@+id/tv_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Chili.H9.White"
+            android:textAppearance="@style/Chili.H14.White"
             tools:text="+10,00" />
 
         <ImageView
