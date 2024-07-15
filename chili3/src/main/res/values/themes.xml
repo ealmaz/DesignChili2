@@ -106,6 +106,7 @@
         <item name="CircleStartIconChiliToolbarEndIconSecondaryHeight">@dimen/view_32dp</item>
         <item name="CircleStartIconChiliToolbarEndIconSecondaryMarginEnd">@dimen/padding_16dp</item>
         <!--endregion CircledStartIconChiliToolbar -->
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

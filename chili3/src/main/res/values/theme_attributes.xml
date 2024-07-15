@@ -102,4 +102,13 @@
     <attr name="CircleStartIconChiliToolbarEndIconSecondaryMarginEnd" format="dimension" />
     <!--endregion CircledStartIconChiliToolbar -->
 
+<!--    Chili3BottomSheetTopDrawableColor-->
+    <attr name="Chili3BottomSheetTopDrawableColor" format="color" />
+
+<!--    Chili3BottomSheetBackgroundColor-->
+    <attr name="Chili3BottomSheetBackgroundColor" format="color" />
+
+<!--    ChiliCellViewBackgroundColor-->
+    <attr name="ChiliCellViewBackgroundColor" format="color" />
+
 </resources>
