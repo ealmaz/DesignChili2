@@ -107,19 +107,19 @@ class CardCellView @JvmOverloads constructor(
     }
 
     fun setTitle(title: String?) {
-        vb.tvAdditionalText.setTextOrHide(title)
+        vb.tvTitle.setTextOrHide(title)
     }
 
     fun setTitle(@StringRes resId: Int) {
-        vb.tvAdditionalText.setTextOrHide(resId)
+        vb.tvTitle.setTextOrHide(resId)
     }
 
     fun setSubtitle(subtitle: String?) {
-        vb.tvAdditionalText.setTextOrHide(subtitle)
+        vb.tvSubtitle.setTextOrHide(subtitle)
     }
 
     fun setSubtitle(@StringRes resId: Int) {
-        vb.tvAdditionalText.setTextOrHide(resId)
+        vb.tvSubtitle.setTextOrHide(resId)
     }
 
     fun setAdditionalText(value: String?) {
