@@ -3,7 +3,6 @@ package kg.devcats.chili3.extensions
 import android.annotation.SuppressLint
 import android.view.MotionEvent
 import android.view.View
-import androidx.constraintlayout.widget.ConstraintSet.Motion
 
 internal fun View.visible() {
     visibility = View.VISIBLE
@@ -23,23 +22,23 @@ internal fun View.gone() {
 
 @SuppressLint("ClickableViewAccessibility")
 fun View.setSurfaceClick(
-    onPressed: () -> Unit,
-    onDefault: () -> Unit
+    onPressedState: () -> Unit,
+    onDefaultState: () -> Unit
 ) {
     setOnTouchListener { v, event ->
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                onPressed()
-                true
+                onPressedState()
+                false
             }
             MotionEvent.ACTION_UP -> {
-                onDefault()
+                onDefaultState()
                 v.performClick()
-                true
+                false
             }
             MotionEvent.ACTION_CANCEL -> {
-                onDefault()
-                true
+                onDefaultState()
+                false
             }
             else -> false
         }

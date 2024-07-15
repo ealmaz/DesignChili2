@@ -91,12 +91,12 @@ class CardCellView @JvmOverloads constructor(
     private fun setupSurfaceClicks(){
         with(vb) {
             setSurfaceClick(
-                onPressed = {
+                onPressedState = {
                     tvTitle.setBoldTextWeight()
                     tvSubtitle.setBoldTextWeight()
                     tvAdditionalText.setBoldTextWeight()
                 },
-                onDefault = {
+                onDefaultState = {
                     tvTitle.setNormalTextWeight()
                     tvSubtitle.setNormalTextWeight()
                     tvAdditionalText.setNormalTextWeight()
