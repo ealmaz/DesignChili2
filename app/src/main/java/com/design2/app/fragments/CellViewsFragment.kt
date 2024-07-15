@@ -109,6 +109,11 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
                 Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
             }
         }
+        vb.cardcell5.apply {
+            alpha = 0.5f
+            setAdditionalText("Сервис \nнедоступен")
+            setAdditionalTextAppearance(kg.devcats.chili3.R.style.Chili_H14_Primary)
+        }
     }
 
     private fun getItemTouchHelper(adapter: EditableCellViewsAdapter) =

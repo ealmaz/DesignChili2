@@ -73,6 +73,7 @@
             android:layout_height="wrap_content"/>
 
         <kg.devcats.chili3.view.cells.CardCellView
+            android:id="@+id/cardcell5"
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
