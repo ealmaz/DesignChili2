@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Chili.BottomNavigationViewStyle" parent="Chili.BaseChiliViewStyle">
-        <item name="android:padding">@dimen/padding_2dp</item>
-    </style>
+    <style name="Chili.BottomNavigationViewStyle" parent="Chili.BaseChiliViewStyle"/>
 
     <style name="Chili.BaseNavigationComponentsStyle.BottomNavigationView">
         <item name="itemIconSize">?ChiliBottomNavigationViewItemIconSize</item>
