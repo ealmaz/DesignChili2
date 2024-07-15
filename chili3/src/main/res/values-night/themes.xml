@@ -131,6 +131,7 @@
         <!-- NavigationBar -->
         <item name="ChiliNavigationBarActiveItemTextColor">@color/c_FFFFFF</item>
         <item name="ChiliNavigationBarInactiveItemTextColor">@color/c_8a8a8e</item>
+
         <!-- Chili3BottomSheetTopDrawableColor-->
         <item name="Chili3BottomSheetTopDrawableColor">@color/black_5</item>
 

@@ -68,6 +68,7 @@
         <enum name="unlabeled" value="2"/>
     </attr>
     <attr name="ChiliBottomNavigationViewHeight" format="dimension"/>
+
 <!--    Chili3BottomSheetTopDrawableColor-->
     <attr name="Chili3BottomSheetTopDrawableColor" format="color" />
 
