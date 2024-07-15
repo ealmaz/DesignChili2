@@ -29,16 +29,16 @@ fun View.setSurfaceClick(
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 onPressedState()
-                false
+                true
             }
             MotionEvent.ACTION_UP -> {
                 onDefaultState()
                 v.performClick()
-                false
+                true
             }
             MotionEvent.ACTION_CANCEL -> {
                 onDefaultState()
-                false
+                true
             }
             else -> false
         }
