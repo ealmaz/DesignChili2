@@ -17,7 +17,10 @@
 
     <kg.devcats.chili3.view.common.CustomBottomNavigationView
         android:id="@+id/bottom_nav"
-        style="@style/Chili.BaseNavigationComponentsStyle.BottomNavigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="?ChiliBottomNavigationViewHeight"
+        android:background="?ChiliBottomNavigationViewBackground"
+        style="@style/Chili.BaseNavigationComponentsStyle.BottomNavigationView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

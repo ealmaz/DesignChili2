@@ -3,20 +3,16 @@
 
     <style name="Chili.BottomNavigationViewStyle" parent="Chili.BaseChiliViewStyle">
         <item name="android:padding">@dimen/padding_2dp</item>
-
     </style>
 
-    <style name="Chili.BaseNavigationComponentsStyle.BottomNavigationBar">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/view_68dp</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="itemIconSize">@dimen/view_40dp</item>
-        <item name="labelVisibilityMode">labeled</item>
-        <item name="itemBackground">@android:color/transparent</item>
-        <item name="itemTextAppearanceActive">@style/Chili.H10.Primary.Bold</item>
-        <item name="itemTextAppearanceInactive">@style/Chili.H10.Primary.Bold</item>
-        <item name="itemTextColor">@color/chili_state_color_navigation_bar_text</item>
-        <item name="elevation">@dimen/elevation_0dp</item>
+    <style name="Chili.BaseNavigationComponentsStyle.BottomNavigationView">
+        <item name="itemIconSize">?ChiliBottomNavigationViewItemIconSize</item>
+        <item name="labelVisibilityMode">?ChiliBottomNavigationBarViewLabelVisibilityMode</item>
+        <item name="itemBackground">?ChiliBottomNavigationViewItemBackground</item>
+        <item name="itemTextAppearanceActive">?ChiliBottomNavigationViewItemTextAppearanceActive</item>
+        <item name="itemTextAppearanceInactive">?ChiliBottomNavigationViewItemTextAppearanceInactive</item>
+        <item name="itemTextColor">?ChiliBottomNavigationViewItemTextColor</item>
+        <item name="elevation">?ChiliBottomNavigationViewElevation</item>
     </style>
 
 </resources>
