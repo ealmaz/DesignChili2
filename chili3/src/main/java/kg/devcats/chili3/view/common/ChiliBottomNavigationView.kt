@@ -6,6 +6,8 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.setOnSingleClickListener
+import com.google.android.material.navigation.NavigationBarView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewBottomNavigationBinding
 
@@ -40,6 +42,7 @@ class ChiliBottomNavigationView : ConstraintLayout {
             getResourceId(R.styleable.ChiliBottomNavigationView_background, R.drawable.chili_rounded_nav_bar)
                 .takeIf { it != -1 }?.let { setBottomNavBackground(it) }
             vb.bottomNav.itemIconTintList = null
+            vb.bottomNav.removeBackgroundForItem(2)
             recycle()
         }
     }
@@ -50,12 +53,11 @@ class ChiliBottomNavigationView : ConstraintLayout {
     }
 
     fun setIcon(resId: Int) {
-        vb.ivCenteredIcon.setImageResource(resId)
+        vb.ivIcon.setImageResource(resId)
     }
 
     fun setIcon(drawable: Drawable) {
-        vb.ivCenteredIcon.setImageDrawable(drawable)
-        vb.bottomNav.removeBackgroundForItem(2)
+        vb.ivIcon.setImageDrawable(drawable)
     }
 
     fun setBottomNavBackground(drawableId: Int) {
@@ -68,6 +70,18 @@ class ChiliBottomNavigationView : ConstraintLayout {
 
     fun updateBadgeVisibilityState(itemId: Int, isVisible: Boolean) {
         vb.bottomNav.updateBadgeVisibilityState(itemId, isVisible)
+    }
+
+    fun setOnIconClickListener(action: () -> Unit) {
+        vb.ivIcon.setOnSingleClickListener(action)
+    }
+
+    fun setOnItemSelectedListener(listener: NavigationBarView.OnItemSelectedListener) {
+        vb.bottomNav.setOnItemSelectedListener(listener)
+    }
+
+    fun getSelectedItemId(): Int {
+        return vb.bottomNav.selectedItemId
     }
 
 }

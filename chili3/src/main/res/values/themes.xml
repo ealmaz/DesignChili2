@@ -58,6 +58,13 @@
         <item name="ChiliProductCardViewSubtitleCornerRadius">@dimen/radius_6dp</item>
         <item name="ChiliProductCardViewDiscountCornerRadius">@dimen/radius_6dp</item>
 
+        <!-- NavigationBar -->
+        <item name="ChiliNavigationBarActiveItemTextColor">@color/c_f0047f</item>
+        <item name="ChiliNavigationBarInactiveItemTextColor">@color/c_8a8a8e</item>
+
+        <!-- CustomBottomNavigationView -->
+        <item name="ChiliBottomNavigationViewBackgroundTopMargin">@dimen/padding_24dp</item>
+        <item name="ChiliBottomNavigationViewBackgroundHeight">@dimen/view_57dp</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />
