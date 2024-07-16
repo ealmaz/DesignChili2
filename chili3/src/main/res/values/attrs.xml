@@ -180,4 +180,13 @@
         <attr name="toolbarLeftIconSize" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="CircleStartIconChiliToolbar">
+        <attr name="title"/>
+        <attr name="startIcon"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="endIconPrimary" format="reference"/>
+        <attr name="endIconSecondary" format="reference" />
+        <attr name="background"/>
+    </declare-styleable>
+
 </resources>

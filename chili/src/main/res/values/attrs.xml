@@ -149,16 +149,6 @@
         <attr name="navigationIcon"/>
     </declare-styleable>
 
-    <declare-styleable name="CircleStartIconChiliToolbar">
-        <attr name="title"/>
-        <attr name="startIcon"/>
-        <attr name="titleAppearance" format="reference"/>
-        <attr name="endIconPrimary" format="reference"/>
-        <attr name="endIconSecondary" format="reference" />
-        <attr name="background"/>
-    </declare-styleable>
-
-
     <declare-styleable name="BaseCellView">
         <attr name="android:icon"/>
         <attr name="title"/>

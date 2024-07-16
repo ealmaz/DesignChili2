@@ -77,6 +77,10 @@ class ToolbarActivity : AppCompatActivity() {
         vb.toolbar9.initToolbar(
             CircleStartIconChiliToolbar.Configuration(
                 hostActivity = this,
+                title = "Title",
+                startIcon = R.drawable.cat_204_192,
+                endIconPrimary = R.drawable.ic_search_filled,
+                endIconSecondary = R.drawable.ic_notification_with_events,
                 onClick = {
                     when (it) {
                         CircleStartIconChiliToolbar.ClickableElementType.PROFILE_CONTAINER -> {}
