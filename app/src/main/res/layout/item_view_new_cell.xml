@@ -4,11 +4,11 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <kg.devcats.chili3.view.modals.base.Chili3BaseCellView
+    <com.design2.chili2.view.cells.BaseCellView
         android:id="@+id/item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cellBackground="@color/chili3_cell_background_color"
+        app:cellBackground="@color/cell_background_color"
         android:layout_marginStart="@dimen/padding_4dp"
         app:isChevronVisible="true"
         app:isDividerVisible="true"

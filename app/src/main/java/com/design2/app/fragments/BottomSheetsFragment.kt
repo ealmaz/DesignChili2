@@ -25,7 +25,6 @@ import com.design2.chili2.view.modals.bottom_sheet_constructor.buildBottomSheet
 import com.design2.chili2.view.modals.in_app.InAppPushBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kg.devcats.chili3.view.modals.bottom_sheet.Chili3BottomSheetFragment
 
 class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
 
@@ -172,22 +171,34 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
             CustomFragmentBottomSheet().show(childFragmentManager)
         }
         vb.chili3NewCells.setOnClickListener {
-            val bottomSheet = Chili3BottomSheetFragment.Builder()
+            val bottomSheet = FragmentBottomSheet.Builder()
+                .setCloseIcon(com.design2.chili2.R.drawable.chili_new_ic_close)
                 .setContentFragment(NewCellViewsFragment())
                 .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .setBackgroundDrawable(com.design2.chili2.R.drawable.chili_new_bg_rounded_bottom_sheet)
+                .setDrawableVisible(false)
+                .setNewTopDrawableVisible(true)
                 .build()
             bottomSheet.show(childFragmentManager)
         }
         vb.chili3DefaultCart.setOnClickListener {
-            val bottomSheet = Chili3BottomSheetFragment.Builder()
-                .setContentFragment(DefaultCartViewsFragment())
+            FragmentBottomSheet.Builder()
+                .setContentFragment(
+                    DefaultCartViewsFragment().apply {
+                        setTitleValue("Выберите счёт по умолчанию")
+                        setSubTitleValue("Если кто-то переведёт вам деньги по номеру телефона, они придут на счёт по умолчанию")
+                    })
                 .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .setCloseIcon(com.design2.chili2.R.drawable.chili_new_ic_close)
+                .setBackgroundDrawable(com.design2.chili2.R.drawable.chili_new_bg_rounded_bottom_sheet)
+                .setBottomSheetStyle(com.design2.chili2.R.style.Chili_NewBottomSheetStyle)
+                .setDrawableVisible(false)
+                .setNewTopDrawableVisible(true)
                 .setHasCloseIcon(false)
                 .setIsHideable(true)
                 .setIsBackButtonEnabled(true)
                 .build()
-            bottomSheet.setTitleValue("Выберите счёт по умолчанию")
-            bottomSheet.show(childFragmentManager)
+                .show(childFragmentManager)
         }
         vb.customWithBuilder.setOnClickListener {
             

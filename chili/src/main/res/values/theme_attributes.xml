@@ -126,6 +126,16 @@
     <attr name="ChiliBottomSheetGrayBackgroundColor" format="color"/>
     <attr name="ChiliBottomSheetTopCornersRadius" format="dimension"/>
     <attr name="ChiliBottomSheetTopDrawableColor" format="color"/>
+
+    <!-- ChiliNewBottomSheetTopDrawableColor-->
+    <attr name="ChiliNewBottomSheetTopDrawableColor" format="color"/>
+
+    <!--    ChiliNewBottomSheetBackgroundColor-->
+    <attr name="ChiliNewBottomSheetBackgroundColor" format="color" />
+
+    <!--    ChiliCellViewBackgroundColor-->
+    <attr name="ChiliCellViewBackgroundColor" format="color" />
+
     <!-- Bottom sheet >>> ActionBottomSheet   -->
     <attr name="ChiliActionBottomSheetButtonTextColor" format="color"/>
     <attr name="ChiliActionBottomSheetAccentButtonTextColor" format="color"/>

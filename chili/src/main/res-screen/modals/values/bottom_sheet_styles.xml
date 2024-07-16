@@ -20,4 +20,12 @@
         <item name="android:textColor">?attr/ChiliActionBottomSheetAccentButtonTextColor</item>
     </style>
 
+    <style name="Chili.NewBottomSheetStyle" parent="Chili.BottomSheetStyle">
+        <item name="bottomSheetStyle">@style/Chili.NewBottomSheetModalStyle</item>
+    </style>
+
+    <style name="Chili.NewBottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/chili_bg_rounded_bottom_sheet</item>
+    </style>
+
 </resources>

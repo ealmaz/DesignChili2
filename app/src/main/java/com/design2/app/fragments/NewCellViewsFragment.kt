@@ -62,7 +62,8 @@ class NewCellViewVH(val vb: ItemViewNewCellBinding) : RecyclerView.ViewHolder(vb
         vb.item.apply {
             setTitle(data.title)
             setIcon(data.icon)
-            setChevron(kg.devcats.chili3.R.drawable.chili3_ic_chevron_right)
+            setChevron(kg.devcats.chili3.R.drawable.ic_chevron_right)
+            setChevronColor(kg.devcats.chili3.R.color.chevron_color)
         }
     }
 }
