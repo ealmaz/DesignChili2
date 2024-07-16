@@ -75,4 +75,26 @@
 
     <!-- TailedToolbarView -->
     <attr name="TailedToolbarDefaultStyle" format="reference"/>
+
+    <!--region CircledStartIconChiliToolbar -->
+    <attr name="CircleStartIconChiliToolbarPaddingVertical" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarPaddingStart" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerWidth" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerMarginStart" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerMarginEnd" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerPaddingStart" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerPaddingEnd" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarStartIconWidth" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarStartIconHeight" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarStartIconMarginEnd" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarTitleTextAppearance" format="reference" />
+    <attr name="CircleStartIconChiliToolbarTitleMaxLines" format="integer" />
+    <attr name="CircleStartIconChiliToolbarIconsContainerMarginEnd" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconPrimaryWidth" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconPrimaryHeight" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconSecondaryWidth" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconSecondaryHeight" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconSecondaryMarginEnd" format="dimension" />
+    <!--endregion CircledStartIconChiliToolbar -->
+
 </resources>

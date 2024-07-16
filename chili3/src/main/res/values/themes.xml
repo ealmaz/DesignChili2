@@ -77,10 +77,35 @@
         <item name="ChiliBottomNavigationBarViewLabelVisibilityMode">labeled</item>
         <item name="ChiliBottomNavigationViewHeight">@dimen/view_72dp</item>
 
+        <!--region CircledStartIconChiliToolbar -->
+        <item name="CircleStartIconChiliToolbarPaddingVertical">@dimen/padding_8dp</item>
+        <item name="CircleStartIconChiliToolbarPaddingStart">@dimen/padding_4dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerWidth">@dimen/view_0dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerMarginStart">@dimen/padding_10dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerMarginEnd">@dimen/padding_2dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerPaddingStart">@dimen/padding_2dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerPaddingEnd">@dimen/padding_10dp</item>
+        <item name="CircleStartIconChiliToolbarStartIconWidth">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarStartIconHeight">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarStartIconMarginEnd">@dimen/padding_12dp</item>
+        <item name="CircleStartIconChiliToolbarTitleTextAppearance">@style/Chili.H16.Primary.Bold</item>
+        <item name="CircleStartIconChiliToolbarTitleMaxLines">1</item>
+        <item name="CircleStartIconChiliToolbarIconsContainerMarginEnd">@dimen/padding_16dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconPrimaryWidth">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconPrimaryHeight">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconSecondaryWidth">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconSecondaryHeight">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconSecondaryMarginEnd">@dimen/padding_16dp</item>
+        <!--endregion CircledStartIconChiliToolbar -->
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />
 
     <style name="ChiliDesignThemeDay3" parent="BaseChiliDesignTheme3" />
+
+    <style name="ImageCircleTheme">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 
 </resources>

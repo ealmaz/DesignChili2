@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:background="@android:color/transparent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="start"
+        app:contentInsetEnd="@dimen/padding_0dp"
+        app:contentInsetStart="@dimen/padding_0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingVertical="?CircleStartIconChiliToolbarPaddingVertical"
+            android:paddingStart="?CircleStartIconChiliToolbarPaddingStart">
+
+            <LinearLayout
+                android:id="@+id/ll_profile_container"
+                android:layout_width="?CircleStartIconChiliToolbarProfileContainerWidth"
+                android:layout_height="match_parent"
+                android:layout_marginStart="?CircleStartIconChiliToolbarProfileContainerMarginStart"
+                android:layout_marginEnd="?CircleStartIconChiliToolbarProfileContainerMarginEnd"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@drawable/chili_ripple_rounded_corner_foreground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="?CircleStartIconChiliToolbarProfileContainerPaddingStart"
+                android:paddingEnd="?CircleStartIconChiliToolbarProfileContainerPaddingEnd"
+                app:layout_constraintEnd_toStartOf="@id/ll_icons"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/start_icon"
+                    android:layout_width="?CircleStartIconChiliToolbarStartIconWidth"
+                    android:layout_height="?CircleStartIconChiliToolbarStartIconHeight"
+                    android:layout_marginEnd="?CircleStartIconChiliToolbarStartIconMarginEnd"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ImageCircleTheme" />
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="?CircleStartIconChiliToolbarTitleMaxLines"
+                    android:textAppearance="?CircleStartIconChiliToolbarTitleTextAppearance"
+                    tools:text="Title" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_icons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="?CircleStartIconChiliToolbarIconsContainerMarginEnd"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/ib_end_icon_primary"
+                    android:layout_width="?attr/CircleStartIconChiliToolbarEndIconPrimaryWidth"
+                    android:layout_height="?attr/CircleStartIconChiliToolbarEndIconPrimaryHeight"
+                    android:background="?android:selectableItemBackgroundBorderless"
+                    tools:src="@drawable/ic_info" />
+
+                <ImageButton
+                    android:id="@+id/ib_end_icon_secondary"
+                    android:layout_width="?CircleStartIconChiliToolbarEndIconSecondaryWidth"
+                    android:layout_height="?CircleStartIconChiliToolbarEndIconSecondaryHeight"
+                    android:layout_marginStart="?CircleStartIconChiliToolbarEndIconSecondaryMarginEnd"
+                    android:background="?android:selectableItemBackgroundBorderless"
+                    tools:src="@drawable/ic_info" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+</FrameLayout>
