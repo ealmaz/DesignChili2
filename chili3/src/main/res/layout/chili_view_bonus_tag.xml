@@ -28,6 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="@style/Chili.H14.White"
+            android:maxLines="1"
+            android:gravity="center_vertical"
             tools:text="+10,00" />
 
         <ImageView

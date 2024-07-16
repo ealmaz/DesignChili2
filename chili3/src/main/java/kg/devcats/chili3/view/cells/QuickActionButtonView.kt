@@ -111,6 +111,12 @@ class QuickActionButtonView @JvmOverloads constructor(
         }
     }
 
+    override fun setOnClickListener(l: OnClickListener?) {
+        if (vb.root.isEnabled) {
+            super.setOnClickListener(l)
+        }
+    }
+
     fun disableButton() {
         vb.root.isEnabled = false
         setTitleTextAppearance(R.style.QuickActionButtonDisabled)

@@ -81,8 +81,4 @@ class BonusTagView @JvmOverloads constructor(
     fun setIcon(drawable: Drawable?) {
         vb.ivIcon.setImageOrHide(drawable)
     }
-
-    override fun setOnClickListener(listener: OnClickListener?) {
-        vb.root.setOnClickListener(listener)
-    }
 }
