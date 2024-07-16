@@ -46,7 +46,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:textAppearance="@style/Chili.H14.Primary"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/end_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title_container"
