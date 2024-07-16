@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?ChiliSurfaceBackground"
     android:id="@+id/buttons_sv">
 
@@ -117,6 +118,84 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="QuickActionButtonView"
+            android:id="@+id/ec_qabutton"
+            app:isNeedToSaveExpandedState="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
 
+            <LinearLayout
+                android:layout_marginTop="@dimen/padding_12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <kg.devcats.chili3.view.cells.QuickActionButtonView
+                    android:id="@+id/qab_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:title="В избранное"
+                    app:rippleIcon="@drawable/ic_ripple_favourite"
+                    app:icon="@drawable/ic_favourite" />
+
+                <kg.devcats.chili3.view.cells.QuickActionButtonView
+                    android:id="@+id/qab_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:title="В избранное"
+                    app:isEnable="false"
+                    app:disabledIcon="@drawable/ic_favourite_disabled"
+                    app:icon="@drawable/ic_favourite" />
+
+                <kg.devcats.chili3.view.cells.QuickActionButtonView
+                    android:id="@+id/qab_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:title="В избранное"
+                    app:rippleIcon="@drawable/ic_ripple_favourite"
+                    app:icon="@drawable/ic_favourite" />
+
+            </LinearLayout>
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            app:title="BonusTagView"
+            android:id="@+id/ec_bonus_tag"
+            app:isNeedToSaveExpandedState="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:layout_margin="@dimen/padding_8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <kg.devcats.chili3.view.cells.BonusTagView
+                    android:id="@+id/btv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:title="+10,00" />
+
+                <kg.devcats.chili3.view.cells.BonusTagView
+                    android:id="@+id/btv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/padding_16dp"
+                    app:title="Бонусы: 0,00" />
+
+            </LinearLayout>
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+    </LinearLayout>
 </ScrollView>

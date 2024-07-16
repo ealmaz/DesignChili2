@@ -16,4 +16,10 @@
         <item name="android:clipToPadding">false</item>
     </style>
 
+    <style name="BonusTagViewStyle"/>
+
+    <style name="Chili.TailedToolbarView"/>
+
+    <style name="Chili.DividerViewStyle"/>
+
 </resources>

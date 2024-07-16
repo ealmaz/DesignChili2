@@ -17,6 +17,9 @@
         <!-- PinKeyboardView -->
         <attr name="pinpadKeyboardViewDefaultStyle" format="reference" />
 
+        <attr name="quickActionButtonViewStyle" format="reference" />
+        <attr name="bonusTagViewStyle" format="reference" />
+
     </declare-styleable>
 
     <declare-styleable name="StoriesCardView">
@@ -146,6 +149,35 @@
         <attr name="cardCellTitleTextAppearance" />
         <attr name="cardCellSubtitleTextAppearance" />
         <attr name="cardCellAdditionalTextAppearance" />
+    </declare-styleable>
+
+    <declare-styleable name="QuickActionButtonView">
+        <attr name="title"/>
+        <attr name="icon"/>
+        <attr name="rippleIcon"/>
+        <attr name="disabledIcon"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="isEnable" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="BonusTagView">
+        <attr name="title"/>
+        <attr name="icon"/>
+        <attr name="titleTextAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="TailedToolbarView">
+        <attr name="title"/>
+        <attr name="titleCentered"/>
+        <attr name="toolbarTextAppearance" format="reference"/>
+        <attr name="additionalText" format="string"/>
+        <attr name="additionalTextTextAppearance" format="reference"/>
+        <attr name="isDividerVisible"/>
+        <attr name="background"/>
+        <attr name="navigationIcon"/>
+        <attr name="titleColor" format="color"/>
+        <attr name="toolbarLeftIcon" format="reference"/>
+        <attr name="toolbarLeftIconSize" format="dimension"/>
     </declare-styleable>
 
 </resources>

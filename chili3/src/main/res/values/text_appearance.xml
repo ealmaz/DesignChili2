@@ -860,4 +860,12 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="QuickActionButtonDisabled" parent="Chili.H8">
+        <item name="android:textColor">?attr/QuickActionButtonDisabledTitleColor</item>
+    </style>
+
+    <style name="QuickActionButtonTitleStyle" parent="Chili.H8">
+        <item name="android:textColor">?attr/QuickActionButtonTitleColor</item>
+    </style>
+
 </resources>

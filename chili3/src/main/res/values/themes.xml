@@ -39,6 +39,8 @@
         <item name="ChiliPromoCardViewIconBottomMargin">@dimen/padding_0dp</item>
         <item name="ChiliPromoCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliPromoCardViewIconEndMargin">@dimen/padding_12dp</item>
+        <item name="QuickActionButtonTitleColor">@color/black_1</item>
+        <item name="QuickActionButtonDisabledTitleColor">@color/gray_2</item>
 
         <!-- ProductCardView -->
         <item name="ChiliCardViewImageRadius">@dimen/radius_12dp</item>
@@ -80,9 +82,5 @@
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />
 
     <style name="ChiliDesignThemeDay3" parent="BaseChiliDesignTheme3" />
-
-    <!-- DividerView -->
-    <style name="Chili.DividerViewStyle"/>
-
 
 </resources>

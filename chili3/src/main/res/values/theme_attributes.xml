@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Text color attributes   -->
@@ -29,6 +28,10 @@
     <attr name="ChiliPromoCardViewIconBottomMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconStartMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconEndMargin" format="dimension"/>
+
+    <!-- QuickActionButtonView -->
+    <attr name="QuickActionButtonTitleColor" format="color"/>
+    <attr name="QuickActionButtonDisabledTitleColor" format="color"/>
 
     <!-- ProductCardView -->
     <attr name="ChiliCardViewImageRadius" format="dimension"/>
@@ -68,4 +71,8 @@
         <enum name="unlabeled" value="2"/>
     </attr>
     <attr name="ChiliBottomNavigationViewHeight" format="dimension"/>
+
+
+    <!-- TailedToolbarView -->
+    <attr name="TailedToolbarDefaultStyle" format="reference"/>
 </resources>
