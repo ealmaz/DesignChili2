@@ -17,6 +17,7 @@
         <!-- PinKeyboardView -->
         <attr name="pinpadKeyboardViewDefaultStyle" format="reference" />
 
+        <!-- QuickActionButtonView -->
         <attr name="quickActionButtonViewStyle" format="reference" />
         <attr name="bonusTagViewStyle" format="reference" />
 
