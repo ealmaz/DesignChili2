@@ -86,12 +86,6 @@
         <item name="ChiliBottomNavigationBarViewLabelVisibilityMode">labeled</item>
         <item name="ChiliBottomNavigationViewHeight">@dimen/view_72dp</item>
 
-        <!-- Chili3BottomSheetTopDrawableColor-->
-        <item name="Chili3BottomSheetTopDrawableColor">@color/gray_1</item>
-
-        <!-- Chili3BottomSheetBackgroundColor-->
-        <item name="Chili3BottomSheetBackgroundColor">@color/white_1</item>
-
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

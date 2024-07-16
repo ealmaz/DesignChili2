@@ -20,12 +20,12 @@ class NewCellViewsFragment : BaseFragment<FragmentNewCellBinding>()  {
         vb.rv.adapter = adapter
         adapter.dataset = listOf(
             NewCellItemData("Кошелёк О!Деньги", "https://minio.o.kg/catalog/logos/odengi.png"),
-            NewCellItemData("Пополнение \nО!Деньги", "https://minio.o.kg/catalog/logos/elcart.png"),
+            NewCellItemData("Пополнение О!Деньги", "https://minio.o.kg/catalog/logos/elcart.png"),
             NewCellItemData("Перевод О!Деньги", "https://valuta.kg/uploads/b/baitushum/avat_bai_1cbf8.png"),
             NewCellItemData("Заголовок", "https://minio.o.kg/catalog/icons/light/gov_fines.png"),
             NewCellItemData("Народный.Бонусная карта", "https://minio.o.kg/catalog/logos/vostokelectro.png"),
             NewCellItemData("Перевод О!Деньги", "https://img2.freepng.ru/20180429/bzq/kisspng-advertising-publicity-marketing-computer-icons-bra-5ae5c4fa63ff38.1177983315250076104096.jpg"),
-            NewCellItemData("Пополнение \nО!Деньги", "https://minio.o.kg/catalog/logos/optimabank.png"),
+            NewCellItemData("Пополнение О!Деньги", "https://minio.o.kg/catalog/logos/optimabank.png"),
             NewCellItemData("Перевод О!Деньги", "https://minio.o.kg/catalog/logos/mbank_new.png"),
             NewCellItemData("Пополнение О!Деньги", "https://minio.o.kg/catalog/logos/odengi.png")
         )
