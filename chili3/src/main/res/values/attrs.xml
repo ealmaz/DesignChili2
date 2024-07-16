@@ -17,7 +17,10 @@
         <!-- PinKeyboardView -->
         <attr name="pinpadKeyboardViewDefaultStyle" format="reference" />
 
+        <!-- QuickActionButtonView -->
         <attr name="quickActionButtonViewStyle" format="reference" />
+
+        <!-- BonusTagView -->
         <attr name="bonusTagViewStyle" format="reference" />
 
     </declare-styleable>
@@ -154,8 +157,8 @@
     <declare-styleable name="QuickActionButtonView">
         <attr name="title"/>
         <attr name="icon"/>
-        <attr name="rippleIcon"/>
-        <attr name="disabledIcon"/>
+        <attr name="rippleIcon" format="reference"/>
+        <attr name="disabledIcon" format="reference"/>
         <attr name="titleTextAppearance"/>
         <attr name="isEnable" format="boolean"/>
     </declare-styleable>
