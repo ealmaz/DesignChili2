@@ -34,7 +34,7 @@
     </style>
 
     <style name="Chili.H12.SecondaryTextColor" parent="Chili.H12.Secondary">
-        <item name="android:textColor">@color/chili3_secondary_text_color</item>
+        <item name="android:textColor">@color/secondary_text_color</item>
     </style>
 
 </resources>
