@@ -17,6 +17,11 @@
         <!-- PinKeyboardView -->
         <attr name="pinpadKeyboardViewDefaultStyle" format="reference" />
 
+        <attr name="quickActionButtonViewStyle" format="reference" />
+        <attr name="bonusTagViewStyle" format="reference" />
+        <attr name="rippleIcon" format="reference" />
+        <attr name="disabledIcon" format="reference" />
+
     </declare-styleable>
 
     <declare-styleable name="StoriesCardView">
@@ -147,11 +152,6 @@
         <attr name="cardCellSubtitleTextAppearance" />
         <attr name="cardCellAdditionalTextAppearance" />
     </declare-styleable>
-
-    <attr name="quickActionButtonViewStyle" format="reference" />
-    <attr name="bonusTagViewStyle" format="reference" />
-    <attr name="rippleIcon" format="reference" />
-    <attr name="disabledIcon" format="reference" />
 
     <declare-styleable name="QuickActionButtonView">
         <attr name="title"/>
