@@ -149,7 +149,6 @@
         <attr name="navigationIcon"/>
     </declare-styleable>
 
-
     <declare-styleable name="BaseCellView">
         <attr name="android:icon"/>
         <attr name="title"/>

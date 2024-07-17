@@ -98,6 +98,16 @@
             android:layout_marginTop="@dimen/padding_16dp"
             app:title="ToolbarWithBonusTag" />
 
+        <kg.devcats.chili3.view.navigation_components.CircleStartIconChiliToolbar
+            android:id="@+id/toolbar9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:endIconPrimary="@drawable/ic_search_filled"
+            app:endIconSecondary="@drawable/ic_notification_with_events"
+            app:startIcon="@drawable/cat_204_192"
+            app:title="Start icon toolbar Start icon toolbar Start icon toolbar Start icon toolbar" />
+
     </LinearLayout>
 
 </ScrollView>
