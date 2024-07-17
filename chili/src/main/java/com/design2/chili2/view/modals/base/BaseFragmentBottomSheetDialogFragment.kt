@@ -58,7 +58,7 @@ abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFrag
 
     private fun initViewVariables() {
         topDrawableView = vb.ivTopDrawable
-        innerTopDrawableView = vb.ivNewTopDrawable
+        innerTopDrawableView = vb.ivNewInnerDrawable
         closeIconView = vb.ivClose
     }
 

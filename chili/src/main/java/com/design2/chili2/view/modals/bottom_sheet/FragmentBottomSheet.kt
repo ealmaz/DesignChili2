@@ -60,8 +60,8 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
             return this
         }
 
-        fun setInnerTopDrawableVisible(newTopDrawableVisible: Boolean): Builder {
-            this.newInnerDrawableVisible = newTopDrawableVisible
+        fun setInnerTopDrawableVisible(newInnerDrawableVisible: Boolean): Builder {
+            this.newInnerDrawableVisible = newInnerDrawableVisible
             return this
         }
 

@@ -30,7 +30,7 @@
         android:layout_marginBottom="@dimen/padding_16dp">
 
         <ImageView
-            android:id="@+id/iv_new_top_drawable"
+            android:id="@+id/iv_new_inner_drawable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
