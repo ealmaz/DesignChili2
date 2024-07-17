@@ -177,7 +177,7 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .setState(BottomSheetBehavior.STATE_EXPANDED)
                 .setBackgroundDrawable(kg.devcats.chili3.R.drawable.chili_new_bg_rounded_bottom_sheet)
                 .setDrawableVisible(false)
-                .setNewTopDrawableVisible(true)
+                .setInnerTopDrawableVisible(true)
                 .build()
             bottomSheet.show(childFragmentManager)
         }
@@ -193,7 +193,7 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .setBackgroundDrawable(kg.devcats.chili3.R.drawable.chili_new_bg_rounded_bottom_sheet)
                 .setBottomSheetStyle(com.design2.chili2.R.style.Chili_NewBottomSheetStyle)
                 .setDrawableVisible(false)
-                .setNewTopDrawableVisible(true)
+                .setInnerTopDrawableVisible(true)
                 .setHasCloseIcon(false)
                 .setIsHideable(true)
                 .setIsBackButtonEnabled(true)

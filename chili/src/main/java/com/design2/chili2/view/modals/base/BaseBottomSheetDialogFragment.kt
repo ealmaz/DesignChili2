@@ -22,7 +22,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     protected open var topDrawableVisible: Boolean = false
-    protected open var newTopDrawableVisible: Boolean = false
+    protected open var innerTopDrawableVisible: Boolean = false
     protected open var hasCloseIcon: Boolean = false
     protected open var isHideable: Boolean = true
     protected open var isDraggable: Boolean = true
@@ -34,7 +34,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     protected var bottomSheetView: View? = null
 
     abstract var topDrawableView: View?
-    abstract var newTopDrawableView: View?
+    abstract var innerTopDrawableView: View?
     abstract var closeIconView: View?
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +66,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
         setupBottomSheetCloseIcon()
         setupBottomSheetHideable()
         setupTopDrawableVisibility()
-        setupNewTopDrawableVisibility()
+        setupInnerTopDrawableVisibility()
     }
 
 
@@ -91,10 +91,10 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
             else -> topDrawableView?.gone()
         }
     }
-    private fun setupNewTopDrawableVisibility() {
-        when (newTopDrawableVisible) {
-            true -> newTopDrawableView?.visible()
-            else -> newTopDrawableView?.gone()
+    private fun setupInnerTopDrawableVisibility() {
+        when (innerTopDrawableVisible) {
+            true -> innerTopDrawableView?.visible()
+            else -> innerTopDrawableView?.gone()
         }
     }
 

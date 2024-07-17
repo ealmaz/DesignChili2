@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
-import androidx.annotation.StyleRes
 import androidx.fragment.app.Fragment
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBottomSheetBaseFragmentBinding
@@ -19,7 +18,7 @@ abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFrag
     private lateinit var vb: ChiliViewBottomSheetBaseFragmentBinding
 
     override var topDrawableView: View? = null
-    override var newTopDrawableView: View? = null
+    override var innerTopDrawableView: View? = null
     override var closeIconView: View? = null
 
     protected open var horizontalMargin: Int = 0
@@ -59,7 +58,7 @@ abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFrag
 
     private fun initViewVariables() {
         topDrawableView = vb.ivTopDrawable
-        newTopDrawableView = vb.ivNewTopDrawable
+        innerTopDrawableView = vb.ivNewTopDrawable
         closeIconView = vb.ivClose
     }
 

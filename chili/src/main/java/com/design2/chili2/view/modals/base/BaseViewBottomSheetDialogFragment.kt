@@ -13,7 +13,7 @@ abstract class BaseViewBottomSheetDialogFragment : BaseBottomSheetDialogFragment
     private lateinit var vb: ChiliViewBottomSheetBaseFragmentBinding
 
     override var topDrawableView: View? = null
-    override var newTopDrawableView: View? = null
+    override var innerTopDrawableView: View? = null
     override var closeIconView: View? = null
 
     @Nullable

@@ -12,7 +12,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
     private var contentFragment: Fragment? = null
 
     override var topDrawableVisible: Boolean = true
-    override var newTopDrawableVisible: Boolean = false
+    override var innerTopDrawableVisible: Boolean = false
     override var hasCloseIcon: Boolean = true
     override var isHideable: Boolean = false
     override var isBackButtonEnabled: Boolean = false
@@ -36,7 +36,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
 
         private var contentFragment: Fragment? = null
         private var topDrawableVisible: Boolean = true
-        private var newTopDrawableVisible: Boolean = false
+        private var newInnerDrawableVisible: Boolean = false
         private var hasCloseIcon: Boolean = true
         private var isHideable: Boolean = false
         private var isBackButtonEnabled: Boolean = false
@@ -60,8 +60,8 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
             return this
         }
 
-        fun setNewTopDrawableVisible(newTopDrawableVisible: Boolean): Builder {
-            this.newTopDrawableVisible = newTopDrawableVisible
+        fun setInnerTopDrawableVisible(newTopDrawableVisible: Boolean): Builder {
+            this.newInnerDrawableVisible = newTopDrawableVisible
             return this
         }
 
@@ -119,7 +119,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
             return FragmentBottomSheet().apply {
                 contentFragment = this@Builder.contentFragment
                 topDrawableVisible = this@Builder.topDrawableVisible
-                newTopDrawableVisible = this@Builder.newTopDrawableVisible
+                innerTopDrawableVisible = this@Builder.newInnerDrawableVisible
                 hasCloseIcon = this@Builder.hasCloseIcon
                 bottomSheetStyle = this@Builder.bottomSheetStyle
                 isHideable = this@Builder.isHideable
