@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.design2.chili2.extensions.setImageByUrl
-import com.design2.chili2.R as R2
 import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
@@ -42,8 +41,8 @@ class CircleStartIconChiliToolbar : LinearLayout {
         vb = ChiliCircleStartIconViewToolbarBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R2.style.Chili_BaseNavigationComponentsStyle_ChiliToolbar) {
-        context?.obtainStyledAttributes(attrs, R.styleable.CircleStartIconChiliToolbar, R2.attr.toolbarDefaultStyle, defStyle)?.run {
+    private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_CircleStartIconChiliToolbarStyle) {
+        context?.obtainStyledAttributes(attrs, R.styleable.CircleStartIconChiliToolbar, R.attr.CircleStartIconChiliToolbarDefaultStyle, defStyle)?.run {
             getColor(R.styleable.CircleStartIconChiliToolbar_background, -1).takeIf { it != -1 }?.let {
                 setToolbarBackgroundColor(it)
             }

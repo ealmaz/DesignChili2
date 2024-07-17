@@ -103,9 +103,4 @@
 
     <style name="ChiliDesignThemeDay3" parent="BaseChiliDesignTheme3" />
 
-    <style name="ImageCircleTheme">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
-
 </resources>

@@ -20,6 +20,8 @@
         <attr name="quickActionButtonViewStyle" format="reference" />
         <attr name="bonusTagViewStyle" format="reference" />
 
+        <!-- CircleStartIconChiliToolbar -->
+        <attr name="CircleStartIconChiliToolbarDefaultStyle" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="StoriesCardView">
