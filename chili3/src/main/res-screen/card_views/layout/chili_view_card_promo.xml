@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/iv_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="?ChiliPromoCardViewIconSize"
+            android:layout_height="?ChiliPromoCardViewIconSize"
             android:layout_marginStart="?ChiliPromoCardViewIconStartMargin"
             android:layout_marginTop="?ChiliPromoCardViewIconTopMargin"
             android:layout_marginEnd="?ChiliPromoCardViewIconEndMargin"

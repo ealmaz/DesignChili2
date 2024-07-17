@@ -142,6 +142,8 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
                 clearErrorState()
             }
         }
+
+        vb.pcvPromo1.setIcon("https://minio.o.kg/catalog/icons/light/taxes.png")
     }
 
     private fun setExpandedState(isExpanded: Boolean) {

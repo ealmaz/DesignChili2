@@ -25,6 +25,7 @@
     <attr name="ChiliPromoCardViewLabelBottomMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewLabelStartMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewLabelEndMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewIconSize" format="dimension"/>
     <attr name="ChiliPromoCardViewIconTopMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconBottomMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconStartMargin" format="dimension"/>

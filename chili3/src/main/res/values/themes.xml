@@ -35,6 +35,7 @@
         <item name="ChiliPromoCardViewLabelBottomMargin">@dimen/padding_18dp</item>
         <item name="ChiliPromoCardViewLabelStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliPromoCardViewLabelEndMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPromoCardViewIconSize">@dimen/view_32dp</item>
         <item name="ChiliPromoCardViewIconTopMargin">@dimen/padding_8dp</item>
         <item name="ChiliPromoCardViewIconBottomMargin">@dimen/padding_0dp</item>
         <item name="ChiliPromoCardViewIconStartMargin">@dimen/padding_12dp</item>
