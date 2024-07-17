@@ -9,6 +9,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentManager
 import com.design2.chili2.R
 import com.design2.chili2.extensions.gone
@@ -92,10 +93,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
         }
     }
     private fun setupInnerTopDrawableVisibility() {
-        when (innerTopDrawableVisible) {
-            true -> innerTopDrawableView?.visible()
-            else -> innerTopDrawableView?.gone()
-        }
+        innerTopDrawableView?.isVisible = innerTopDrawableVisible
     }
 
     private fun setupBottomSheetHideable() {
