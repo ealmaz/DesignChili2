@@ -18,6 +18,7 @@
     <!-- Padding-->
     <dimen name="padding_desc_4dp">-4dp</dimen>
     <dimen name="padding_0dp">0dp</dimen>
+    <dimen name="padding_1dp">1dp</dimen>
     <dimen name="padding_2dp">2dp</dimen>
     <dimen name="padding_4dp">4dp</dimen>
     <dimen name="padding_6dp">6dp</dimen>
@@ -46,6 +47,7 @@
     <dimen name="radius_10dp">10dp</dimen>
     <dimen name="radius_12dp">12dp</dimen>
     <dimen name="radius_14dp">14dp</dimen>
+    <dimen name="radius_21dp">21dp</dimen>
     <dimen name="radius_22dp">22dp</dimen>
     <dimen name="radius_24dp">24dp</dimen>
 

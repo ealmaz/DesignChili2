@@ -10,6 +10,7 @@
         <attr name="iconStateCardViewDefaultStyle" format="reference" />
         <attr name="productCardViewDefaultStyle" format="reference" />
         <attr name="chiliBottomNavigationViewDefaultStyle" format="reference" />
+        <attr name="accountCardViewDefaultStyle" format="reference"/>
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -17,6 +18,14 @@
         <!-- PinKeyboardView -->
         <attr name="pinpadKeyboardViewDefaultStyle" format="reference" />
 
+        <!-- QuickActionButtonView-->
+        <attr name="quickActionButtonViewStyle" format="reference" />
+
+        <!-- BonusTagView-->
+        <attr name="bonusTagViewStyle" format="reference" />
+
+        <!-- CircleStartIconChiliToolbar -->
+        <attr name="CircleStartIconChiliToolbarDefaultStyle" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="StoriesCardView">
@@ -110,6 +119,23 @@
         <attr name="clickableMaskEnabled" format="boolean"/>
     </declare-styleable>
 
+    <declare-styleable name="AccountCardView">
+        <attr name="titleIcon" format="reference" />
+        <attr name="title" />
+        <attr name="titleTextAppearance" />
+        <attr name="titleAddition" format="string" />
+        <attr name="titleAdditionTextAppearance" format="reference" />
+        <attr name="isChevronVisible" />
+        <attr name="isToggleIconVisible" format="boolean" />
+        <attr name="isToggleIconEnabled" format="boolean"/>
+        <attr name="subtitle" />
+        <attr name="isDividerVisible"/>
+        <attr name="actionButtonIcon" format="reference" />
+        <attr name="actionButtonText" />
+        <attr name="actionButtonTextAppearance" format="reference" />
+        <attr name="subtitleTextAppearance" />
+    </declare-styleable>
+
     <declare-styleable name="ProductCardView">
         <attr name="android:layout_width" />
         <attr name="android:layout_height" />
@@ -146,6 +172,44 @@
         <attr name="cardCellTitleTextAppearance" />
         <attr name="cardCellSubtitleTextAppearance" />
         <attr name="cardCellAdditionalTextAppearance" />
+    </declare-styleable>
+
+    <declare-styleable name="QuickActionButtonView">
+        <attr name="title"/>
+        <attr name="icon"/>
+        <attr name="rippleIcon" format="reference"/>
+        <attr name="disabledIcon" format="reference"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="isEnable" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="BonusTagView">
+        <attr name="title"/>
+        <attr name="icon"/>
+        <attr name="titleTextAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="TailedToolbarView">
+        <attr name="title"/>
+        <attr name="titleCentered"/>
+        <attr name="toolbarTextAppearance" format="reference"/>
+        <attr name="additionalText" format="string"/>
+        <attr name="additionalTextTextAppearance" format="reference"/>
+        <attr name="isDividerVisible"/>
+        <attr name="background"/>
+        <attr name="navigationIcon"/>
+        <attr name="titleColor" format="color"/>
+        <attr name="toolbarLeftIcon" format="reference"/>
+        <attr name="toolbarLeftIconSize" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleStartIconChiliToolbar">
+        <attr name="title"/>
+        <attr name="startIcon"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="endIconPrimary" format="reference"/>
+        <attr name="endIconSecondary" format="reference" />
+        <attr name="background"/>
     </declare-styleable>
 
 </resources>

@@ -40,6 +40,17 @@
         <item name="ChiliPromoCardViewIconBottomMargin">@dimen/padding_0dp</item>
         <item name="ChiliPromoCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliPromoCardViewIconEndMargin">@dimen/padding_12dp</item>
+        <item name="QuickActionButtonTitleColor">@color/black_1</item>
+        <item name="QuickActionButtonDisabledTitleColor">@color/gray_2</item>
+
+        <!-- ChiliNewBottomSheetTopDrawableColor-->
+        <item name="ChiliNewBottomSheetTopDrawableColor">@color/gray_1</item>
+
+        <!-- Chili3BottomSheetBackgroundColor-->
+        <item name="ChiliNewBottomSheetBackgroundColor">@color/white_1</item>
+
+        <!-- ChiliCellViewBackgroundColor-->
+        <item name="ChiliCellViewBackgroundColor">@color/gray_6</item>
 
         <!-- ProductCardView -->
         <item name="ChiliCardViewImageRadius">@dimen/radius_12dp</item>
@@ -76,14 +87,81 @@
         <item name="ChiliBottomNavigationBarViewLabelVisibilityMode">labeled</item>
         <item name="ChiliBottomNavigationViewHeight">@dimen/view_72dp</item>
 
+        <!--region CircledStartIconChiliToolbar -->
+        <item name="CircleStartIconChiliToolbarPaddingVertical">@dimen/padding_8dp</item>
+        <item name="CircleStartIconChiliToolbarPaddingStart">@dimen/padding_4dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerWidth">@dimen/view_0dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerMarginStart">@dimen/padding_10dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerMarginEnd">@dimen/padding_2dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerPaddingStart">@dimen/padding_2dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerPaddingEnd">@dimen/padding_10dp</item>
+        <item name="CircleStartIconChiliToolbarStartIconWidth">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarStartIconHeight">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarStartIconMarginEnd">@dimen/padding_12dp</item>
+        <item name="CircleStartIconChiliToolbarTitleTextAppearance">@style/Chili.H16.Primary.Bold</item>
+        <item name="CircleStartIconChiliToolbarTitleMaxLines">1</item>
+        <item name="CircleStartIconChiliToolbarIconsContainerMarginEnd">@dimen/padding_16dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconPrimaryWidth">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconPrimaryHeight">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconSecondaryWidth">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconSecondaryHeight">@dimen/view_32dp</item>
+        <item name="CircleStartIconChiliToolbarEndIconSecondaryMarginEnd">@dimen/padding_16dp</item>
+        <!--endregion CircledStartIconChiliToolbar -->
+
+        <!-- region AccountCardView -->
+        <item name="ChiliAccountCardViewClickable">false</item>
+        <item name="ChiliAccountCardViewFocusable">false</item>
+        <item name="ChiliAccountCardViewForeground">@null</item>
+        <item name="ChiliAccountCardViewBackground">@android:color/transparent</item>
+        <item name="ChiliAccountCardViewCornerRadius">@dimen/radius_0dp</item>
+
+        <item name="ChiliAccountCardViewMainContainerMarginVertical">@dimen/padding_8dp</item>
+        <item name="ChiliAccountCardViewMainContainerMarginStart">@dimen/padding_8dp</item>
+        <item name="ChiliAccountCardViewMainContainerMarginEnd">@dimen/padding_1dp</item>
+        <item name="ChiliAccountCardViewMainContainerPaddingVertical">@dimen/padding_8dp</item>
+        <item name="ChiliAccountCardViewMainContainerPaddingStart">@dimen/padding_8dp</item>
+        <item name="ChiliAccountCardViewMainContainerPaddingEnd">@dimen/padding_10dp</item>
+        <item name="ChiliAccountCardViewMainContainerForeground">@drawable/chili_ripple_rounded_corner_foreground</item>
+
+        <item name="ChiliAccountCardViewTitleIconEndMargin">@dimen/padding_8dp</item>
+        <item name="ChiliAccountCardViewTitleShimmerIcon">@drawable/chili_ic_star_20</item>
+        <item name="ChiliAccountCardViewTitleAdditionStartMargin">@dimen/padding_8dp</item>
+        <item name="ChiliAccountCardViewTitleAdditionTextAppearance">@style/Chili.H14.Value</item>
+        <item name="ChiliAccountCardViewTitleAdditionMaxLines">1</item>
+        <item name="ChiliAccountCardViewChevronWidth">@dimen/view_20dp</item>
+        <item name="ChiliAccountCardViewChevronHeight">@dimen/view_20dp</item>
+
+        <item name="ChiliAccountCardViewSubtitleContainerMarginTop">@dimen/padding_4dp</item>
+        <item name="ChiliAccountCardViewSubtitleMaxLines">1</item>
+        <item name="ChiliAccountCardViewToggleIconWidth">@dimen/view_20dp</item>
+        <item name="ChiliAccountCardViewToggleIconHeight">@dimen/view_20dp</item>
+        <item name="ChiliAccountCardViewToggleIconMarginEnd">@dimen/padding_8dp</item>
+        <item name="ChiliAccountCardViewToggleIconForeground">@drawable/chili_ripple_rounded_corner_foreground</item>
+
+        <item name="ChiliAccountCardViewActionButtonStyle">@style/Chili.ButtonStyle.Additional.AccountCard</item>
+        <item name="ChiliAccountCardViewActionButtonWidth">@dimen/view_120dp</item>
+        <item name="ChiliAccountCardViewActionButtonHeight">@dimen/view_40dp</item>
+        <item name="ChiliAccountCardViewActionButtonMarginVertical">@dimen/padding_18dp</item>
+        <item name="ChiliAccountCardViewActionButtonMarginEnd">@dimen/padding_16dp</item>
+        <item name="ChiliAccountCardViewActionButtonTheme">@style/ThemeOverlay.ChiliAdditionalButtonBackgroundActive</item>
+
+        <item name="ChiliAccountCardViewActionButtonPadding">@dimen/padding_0dp</item>
+        <item name="ChiliAccountCardViewActionButtonBackground">@drawable/chili_bg_button_additional</item>
+        <item name="ChiliAccountCardViewActionButtonTextAppearance">@style/Chili.AdditionalButtonText.AccountCardActionButton</item>
+        <item name="ChiliAccountCardViewActionButtonBackgroundActive">@color/c_FFFFFF</item>
+        <item name="ChiliAccountCardViewActionButtonBorderColor">@color/c_ececec</item>
+        <!-- endregion AccountCardView -->
+
+        <!-- Divider -->
+        <item name="ChiliDividerColor">@color/c_E0E0E5</item>
+
+        <!-- Shimmer attributes -->
+        <item name="ChiliShimmerHighlightColor">@color/c_efeff4</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />
 
     <style name="ChiliDesignThemeDay3" parent="BaseChiliDesignTheme3" />
-
-    <!-- DividerView -->
-    <style name="Chili.DividerViewStyle"/>
-
 
 </resources>

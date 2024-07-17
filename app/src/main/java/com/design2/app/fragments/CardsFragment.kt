@@ -43,6 +43,10 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
 //            shimmerAdapter.setItems(listOf("Shimmer", "Blablabla", "OLOLOLO", "SIUUUUUUU"))
 //        }, 4000)
 
+        vb.btnAccountCardsExamples.setOnClickListener {
+            openFragment(AccountCardsExamplesFragment())
+        }
+
         vb.pcv1.setOnClickListener {
             vb.pcv2.setIsCardEnabled(false)
             vb.pcv3.setIsCardEnabled(true)

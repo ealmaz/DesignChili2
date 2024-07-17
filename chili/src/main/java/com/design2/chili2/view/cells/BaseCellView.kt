@@ -14,6 +14,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellBaseBinding
@@ -224,6 +225,10 @@ open class BaseCellView @JvmOverloads constructor(
                 .into(vb.ivIcon)
             setupIconShimmer()
         }
+    }
+
+    fun setChevronColor(@ColorRes id: Int){
+        vb.ivChevron.setColorFilter(ContextCompat.getColor(context, id), android.graphics.PorterDuff.Mode.MULTIPLY)
     }
 
     protected open fun setupIconShimmer() {
