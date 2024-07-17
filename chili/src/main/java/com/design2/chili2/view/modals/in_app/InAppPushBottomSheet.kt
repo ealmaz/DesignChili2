@@ -21,6 +21,7 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
 
     var rootView: View? = null
     override var topDrawableView: View? = null
+    override var newTopDrawableView: View? = null
     override var closeIconView: View? = null
 
     private var bannerUrl: String? = null

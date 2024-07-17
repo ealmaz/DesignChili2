@@ -36,6 +36,8 @@
     <attr name="QuickActionButtonTitleColor" format="color"/>
     <attr name="QuickActionButtonDisabledTitleColor" format="color"/>
 
+
+
     <!-- ProductCardView -->
     <attr name="ChiliCardViewImageRadius" format="dimension"/>
     <attr name="ChiliProductCardViewImageHeight" format="dimension"/>

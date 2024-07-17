@@ -170,10 +170,37 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
         vb.custom.setOnClickListener {
             CustomFragmentBottomSheet().show(childFragmentManager)
         }
+        vb.chili3NewCells.setOnClickListener {
+            val bottomSheet = FragmentBottomSheet.Builder()
+                .setCloseIcon(kg.devcats.chili3.R.drawable.chili_new_ic_close)
+                .setContentFragment(NewCellViewsFragment())
+                .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .setBackgroundDrawable(kg.devcats.chili3.R.drawable.chili_new_bg_rounded_bottom_sheet)
+                .setDrawableVisible(false)
+                .setNewTopDrawableVisible(true)
+                .build()
+            bottomSheet.show(childFragmentManager)
+        }
+        vb.chili3DefaultCart.setOnClickListener {
+            FragmentBottomSheet.Builder()
+                .setContentFragment(
+                    DefaultCartViewsFragment().apply {
+                        setTitleValue("Выберите счёт по умолчанию")
+                        setSubTitleValue("Если кто-то переведёт вам деньги по номеру телефона, они придут на счёт по умолчанию")
+                    })
+                .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .setCloseIcon(kg.devcats.chili3.R.drawable.chili_new_ic_close)
+                .setBackgroundDrawable(kg.devcats.chili3.R.drawable.chili_new_bg_rounded_bottom_sheet)
+                .setBottomSheetStyle(com.design2.chili2.R.style.Chili_NewBottomSheetStyle)
+                .setDrawableVisible(false)
+                .setNewTopDrawableVisible(true)
+                .setHasCloseIcon(false)
+                .setIsHideable(true)
+                .setIsBackButtonEnabled(true)
+                .build()
+                .show(childFragmentManager)
+        }
         vb.customWithBuilder.setOnClickListener {
-
-
-
             FragmentBottomSheet.Builder()
                 .setContentFragment(CommonViewsFragment())
                 .setIsBackButtonEnabled(true)
