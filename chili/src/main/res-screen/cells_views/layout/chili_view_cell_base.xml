@@ -125,7 +125,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/chili_ic_chevron"
+        android:src="?ChiliChevronDrawable"
         app:tint="?attr/ChiliChevronColor"/>
 
     <View

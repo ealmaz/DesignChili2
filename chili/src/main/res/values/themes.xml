@@ -45,6 +45,7 @@
 
         <!-- Chevron -->
         <item name="ChiliChevronColor">@color/gray_2</item>
+        <item name="ChiliChevronDrawable">@drawable/chili_ic_chevron</item>
 
         <!-- Snackbar attributes -->
         <item name="ChiliSnackbarBackground">@color/white_1</item>

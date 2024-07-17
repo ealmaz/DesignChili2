@@ -145,7 +145,7 @@
         <item name="ChiliNewBottomSheetBackgroundColor">@color/black_3</item>
 
         <!-- ChiliCellViewBackgroundColor-->
-        <item name="ChiliCellViewBackgroundColor">@color/black_4</item>
+        <item name="ChiliCellViewBackgroundColor">@color/c_efeff4</item>
 
     </style>
 

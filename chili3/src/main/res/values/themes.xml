@@ -158,6 +158,10 @@
         <!-- Shimmer attributes -->
         <item name="ChiliShimmerHighlightColor">@color/c_efeff4</item>
 
+        <!-- Chevron       -->
+        <item name="ChiliChevronDrawable">@drawable/chili3_ic_chevron</item>
+        <item name="ChiliChevronColor">@color/c_1c1c1e</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

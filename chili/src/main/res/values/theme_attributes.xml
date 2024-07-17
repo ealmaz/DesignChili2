@@ -42,6 +42,7 @@
 
     <!-- Chevron -->
     <attr name="ChiliChevronColor" format="color"/>
+    <attr name="ChiliChevronDrawable" format="reference"/>
 
 
     <!-- CardView attributes -->
