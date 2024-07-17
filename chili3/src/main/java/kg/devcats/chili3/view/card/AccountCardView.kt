@@ -264,7 +264,6 @@ class AccountCardView @JvmOverloads constructor(
     }
 
     override fun onStartShimmer(): Unit = with(vb) {
-        ibActionBtn.setIsSurfaceClickable(false)
         shimmerTitleIcon.run {
             setShimmer(titleIconShimmer)
             visible()

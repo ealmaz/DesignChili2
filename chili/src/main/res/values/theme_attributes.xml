@@ -164,6 +164,11 @@
     <attr name="ChiliNavigationBarActiveItemTextColor" format="color"/>
     <attr name="ChiliNavigationBarInactiveItemTextColor" format="color"/>
 
+    <!-- Button attributes -->
+    <attr name="ChiliPrimaryButtonPaddingTop" format="dimension"/>
+    <attr name="ChiliPrimaryButtonPaddingBottom" format="dimension"/>
+    <attr name="ChiliPrimaryButtonPaddingStart" format="dimension"/>
+    <attr name="ChiliPrimaryButtonPaddingEnd" format="dimension"/>
 
     <!-- Primary Button attributes -->
     <attr name="ChiliPrimaryButtonBackgroundActive" format="color"/>
@@ -223,6 +228,9 @@
 
     <attr name="ChiliAccentButtonBackgroundActive" format="color"/>
     <attr name="ChiliAccentButtonBackgroundDisabled" format="color"/>
+
+    <!-- Iconed Button attributes -->
+    <attr name="ChiliIconedButtonTextMaxLines" format="integer"/>
 
     <!-- InputView   -->
     <attr name="ChiliInputViewEndIconTint" format="color"/>

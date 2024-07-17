@@ -26,13 +26,18 @@
         <item name="cardCornerRadius">?ChiliAccountCardViewCornerRadius</item>
     </style>
 
-    <style name="Chili.ButtonStyle.Additional.AccountCard" >
-        <item name="android:padding">?ChiliAccountCardViewActionButtonPadding</item>
+    <style name="Chili.ButtonStyle.AccountCard" >
+        <item name="android:foreground">?ChiliAccountCardViewActionButtonForeground</item>
         <item name="android:background">?ChiliAccountCardViewActionButtonBackground</item>
         <item name="android:textAppearance">?ChiliAccountCardViewActionButtonTextAppearance</item>
     </style>
 
-    <style name="ThemeOverlay.ChiliAdditionalButtonBackgroundActive">
+    <style name="ThemeOverlay.ChiliAdditionalButton">
+        <item name="ChiliPrimaryButtonPaddingTop">?ChiliAccountCardViewActionButtonPaddingTop</item>
+        <item name="ChiliPrimaryButtonPaddingBottom">?ChiliAccountCardViewActionButtonPaddingBottom</item>
+        <item name="ChiliPrimaryButtonPaddingStart">?ChiliAccountCardViewActionButtonPaddingStart</item>
+        <item name="ChiliPrimaryButtonPaddingEnd">?ChiliAccountCardViewActionButtonPaddingEnd</item>
+        <item name="ChiliIconedButtonTextMaxLines">?ChiliAccountCardViewActionButtonTextMaxLines</item>
         <item name="ChiliAdditionalButtonBackgroundActive">?ChiliAccountCardViewActionButtonBackgroundActive</item>
         <item name="ChiliAdditionalButtonBorderColor">?ChiliAccountCardViewActionButtonBorderColor</item>
     </style>
