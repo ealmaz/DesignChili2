@@ -255,4 +255,14 @@
     <attr name="ChiliTooltipBackground" format="color"/>
     <attr name="ChiliTooltipCornerRadius" format="dimension"/>
 
+    <!-- ChiliNewBottomSheetTopDrawableColor-->
+    <attr name="ChiliNewBottomSheetTopDrawableColor" format="color"/>
+
+    <!--    ChiliNewBottomSheetBackgroundColor-->
+    <attr name="ChiliNewBottomSheetBackgroundColor" format="color" />
+
+    <!--    ChiliCellViewBackgroundColor-->
+    <attr name="ChiliCellViewBackgroundColor" format="color" />
+
+
 </resources>

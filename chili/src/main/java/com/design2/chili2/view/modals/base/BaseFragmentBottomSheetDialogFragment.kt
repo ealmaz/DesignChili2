@@ -18,6 +18,7 @@ abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFrag
     private lateinit var vb: ChiliViewBottomSheetBaseFragmentBinding
 
     override var topDrawableView: View? = null
+    override var innerTopDrawableView: View? = null
     override var closeIconView: View? = null
 
     protected open var horizontalMargin: Int = 0
@@ -25,6 +26,10 @@ abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFrag
 
     @DrawableRes
     protected open var backgroundDrawable: Int = R.drawable.chili_bg_rounded_bottom_sheet
+
+    @DrawableRes
+    protected open var closeIconDrawable: Int = R.drawable.chili_ic_clear
+
 
     @Nullable
     override fun onCreateView(
@@ -48,10 +53,12 @@ abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFrag
 
     private fun setupViews() {
         vb.llContent.setBackgroundResource(backgroundDrawable)
+        vb.ivClose.setBackgroundResource(closeIconDrawable)
     }
 
     private fun initViewVariables() {
         topDrawableView = vb.ivTopDrawable
+        innerTopDrawableView = vb.ivNewInnerDrawable
         closeIconView = vb.ivClose
     }
 

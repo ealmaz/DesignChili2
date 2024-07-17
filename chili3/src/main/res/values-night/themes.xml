@@ -138,6 +138,15 @@
         <item name="ChiliAccountCardViewActionButtonBackgroundActive">@color/c_4a4a4a</item>
         <item name="ChiliAccountCardViewActionButtonBorderColor">@color/c_4a4a4a</item>
 
+        <!-- ChiliNewBottomSheetTopDrawableColor-->
+        <item name="ChiliNewBottomSheetTopDrawableColor">@color/black_5</item>
+
+        <!-- Chili3BottomSheetBackgroundColor-->
+        <item name="ChiliNewBottomSheetBackgroundColor">@color/black_3</item>
+
+        <!-- ChiliCellViewBackgroundColor-->
+        <item name="ChiliCellViewBackgroundColor">@color/black_4</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>

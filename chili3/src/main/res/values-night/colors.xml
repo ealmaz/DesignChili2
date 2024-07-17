@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cell_background_color">@color/black_3</color>
+    <color name="chevron_color">@color/gray_4</color>
+    <color name="secondary_text_color">#DDDDDD</color>
+    <color name="radio_button_default_border_color">@color/black_5</color>
+</resources>
