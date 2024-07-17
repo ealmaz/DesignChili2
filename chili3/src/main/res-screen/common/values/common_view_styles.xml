@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Chili.BottomNavigationViewStyle" parent="Chili.BaseChiliViewStyle"/>
+
+    <style name="Chili.BaseNavigationComponentsStyle.BottomNavigationView">
+        <item name="itemIconSize">?ChiliBottomNavigationViewItemIconSize</item>
+        <item name="labelVisibilityMode">?ChiliBottomNavigationBarViewLabelVisibilityMode</item>
+        <item name="itemBackground">?ChiliBottomNavigationViewItemBackground</item>
+        <item name="itemTextAppearanceActive">?ChiliBottomNavigationViewItemTextAppearanceActive</item>
+        <item name="itemTextAppearanceInactive">?ChiliBottomNavigationViewItemTextAppearanceInactive</item>
+        <item name="itemTextColor">?ChiliBottomNavigationViewItemTextColor</item>
+        <item name="elevation">?ChiliBottomNavigationViewElevation</item>
+    </style>
+
+</resources>

@@ -1,6 +1,8 @@
 package com.design2.app.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import android.widget.Toast
 import androidx.core.text.parseAsHtml
@@ -11,11 +13,13 @@ import com.design2.app.MainActivity
 import com.design2.app.adapter.EditableCellViewsAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.container.shadow_layout.model.ShadowType
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.startShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
+import com.design2.chili2.view.shimmer.stopShimmering
 
 
 class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
@@ -90,6 +94,25 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             setSubtitle("Тазалык 30402340234")
             setSubtitleTextAppearance(com.design2.chili2.R.style.Chili_H7_Value)
             insertEndText("4000 c")
+        }
+
+        //CardCellView
+        vb.cardcell1.startShimmering()
+        vb.cardcell2.startShimmering()
+        Handler(Looper.getMainLooper()).postDelayed({ vb.cardcell2.stopShimmering(false) }, 2000)
+        vb.cardcell4.apply {
+            setIcon(com.design2.app.R.drawable.ic_card_default)
+            setTitle("Test Title")
+            setSubtitle("Test Subtitle")
+            setAdditionalText("121212 c")
+            setOnSingleClickListener {
+                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
+            }
+        }
+        vb.cardcell5.apply {
+            alpha = 0.5f
+            setAdditionalText("Сервис \nнедоступен")
+            setAdditionalTextAppearance(kg.devcats.chili3.R.style.Chili_H14_Primary)
         }
     }
 

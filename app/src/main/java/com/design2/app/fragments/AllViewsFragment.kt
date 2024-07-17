@@ -61,6 +61,10 @@ class AllViewsFragment : BaseFragment<FragmentAllViewsBinding>() {
         vb.tooltips.setOnClickListener {
             openFragment(TooltipsFragment())
         }
+
+        vb.dividers.setOnClickListener {
+            openFragment(DividerFragment())
+        }
         
         (activity as MainActivity).setUpHomeEnabled(false)
     }

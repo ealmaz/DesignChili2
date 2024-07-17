@@ -29,8 +29,8 @@ fun ShimmeringView.startShimmering() {
     }
 }
 
-fun ShimmeringView.stopShimmering() {
-    (this as? ViewGroup)?.setIsSurfaceClickable(true)
+fun ShimmeringView.stopShimmering(isSurfaceClickable: Boolean = true) {
+    (this as? ViewGroup)?.setIsSurfaceClickable(isSurfaceClickable)
     onStopShimmer()
     getShimmeringViewsPair().forEach {
         it.key.visible()

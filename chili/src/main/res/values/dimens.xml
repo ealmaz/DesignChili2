@@ -30,6 +30,7 @@
     <dimen name="padding_18dp">18dp</dimen>
     <dimen name="padding_20dp">20dp</dimen>
     <dimen name="padding_24dp">24dp</dimen>
+    <dimen name="padding_28dp">28dp</dimen>
     <dimen name="padding_32dp">32dp</dimen>
     <dimen name="padding_34dp">34dp</dimen>
     <dimen name="padding_40dp">40dp</dimen>
@@ -45,6 +46,7 @@
     <dimen name="radius_10dp">10dp</dimen>
     <dimen name="radius_12dp">12dp</dimen>
     <dimen name="radius_14dp">14dp</dimen>
+    <dimen name="radius_21dp">21dp</dimen>
     <dimen name="radius_22dp">22dp</dimen>
     <dimen name="radius_24dp">24dp</dimen>
 
@@ -78,6 +80,8 @@
     <dimen name="view_46dp">46dp</dimen>
     <dimen name="view_48dp">48dp</dimen>
     <dimen name="view_52dp">52dp</dimen>
+    <dimen name="view_57dp">57dp</dimen>
+    <dimen name="view_60dp">60dp</dimen>
     <dimen name="view_64dp">64dp</dimen>
     <dimen name="view_68dp">68dp</dimen>
     <dimen name="view_72dp">72dp</dimen>
@@ -85,17 +89,21 @@
     <dimen name="view_82dp">82dp</dimen>
     <dimen name="view_74dp">74dp</dimen>
     <dimen name="view_75dp">75dp</dimen>
+    <dimen name="view_90dp">90dp</dimen>
     <dimen name="view_94dp">94dp</dimen>
     <dimen name="view_96dp">96dp</dimen>
+    <dimen name="view_100dp">100dp</dimen>
     <dimen name="view_102dp">102dp</dimen>
     <dimen name="view_110dp">110dp</dimen>
     <dimen name="view_120dp">120dp</dimen>
+    <dimen name="view_122dp">122dp</dimen>
     <dimen name="view_136dp">136dp</dimen>
     <dimen name="view_140dp">140dp</dimen>
     <dimen name="view_150dp">150dp</dimen>
     <dimen name="view_168dp">168dp</dimen>
     <dimen name="view_200dp">200dp</dimen>
     <dimen name="view_172dp">172dp</dimen>
+    <dimen name="view_210dp">210dp</dimen>
     <dimen name="view_220dp">220dp</dimen>
 
     <!-- Elevation   -->

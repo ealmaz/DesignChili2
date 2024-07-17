@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="Главная"
+        android:id="@+id/dark"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_home_selector"/>
+    <item
+        android:title="Платежи"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_payment_selector"
+        android:id="@+id/light1"/>
+
+    <item
+        android:id="@+id/nav_placeholder"
+        android:enabled="false"
+        android:title="" />
+
+    <item
+        android:title="История"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_history_selector"
+        android:id="@+id/light3"/>
+
+    <item
+        android:title="Еще"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_menu_selector"
+        android:id="@+id/light4"/>
+
+
+</menu>

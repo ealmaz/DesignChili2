@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    H64 -->
+    <style name="Chili.H64" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_64sp</item>
+    </style>
+
+    <style name="Chili.H64.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H64.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H64.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H64.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H64.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H64.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H64.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H64.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H64.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H64.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+
+    <!--    H32 -->
+    <style name="Chili.H32" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_32sp</item>
+    </style>
+
+    <style name="Chili.H32.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H32.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H32.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H32.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H32.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H32.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H32.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H32.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H32.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H32.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+
+    <!--    H28 -->
+    <style name="Chili.H28" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_28sp</item>
+    </style>
+
+    <style name="Chili.H28.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H28.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H28.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H28.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H28.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H28.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H28.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H28.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H28.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H28.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+
+    <!--    H24 -->
+    <style name="Chili.H24" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_24sp</item>
+    </style>
+
+    <style name="Chili.H24.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H24.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H24.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H24.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H24.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H24.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H24.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H24.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H24.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H24.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+
+    <!--    H20 -->
+    <style name="Chili.H20" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_20sp</item>
+    </style>
+
+    <style name="Chili.H20.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H20.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H20.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H20.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H20.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H20.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H20.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H20.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H20.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H20.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+
+    <!--    H18 -->
+    <style name="Chili.H18" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_18sp</item>
+    </style>
+
+    <style name="Chili.H18.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H18.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H18.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H18.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H18.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H18.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H18.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H18.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H18.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H18.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+
+    <!--    H16 -->
+    <style name="Chili.H16" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_16sp</item>
+    </style>
+
+    <style name="Chili.H16.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H16.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H16.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H16.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H16.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H16.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H16.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H16.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H16.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H16.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+
+    <!--    H14 -->
+    <style name="Chili.H14" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_14sp</item>
+    </style>
+
+    <style name="Chili.H14.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H14.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H14.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H14.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H14.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H14.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H14.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H14.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H14.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H14.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+
+    <!--    H12 -->
+    <style name="Chili.H12" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_12sp</item>
+    </style>
+
+    <style name="Chili.H12.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H12.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H12.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H12.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H12.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H12.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H12.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H12.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H12.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H12.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+
+    <!--    H10 -->
+    <style name="Chili.H10" parent="Chili.BaseTextAppearance">
+        <item name="android:textSize">@dimen/text_10sp</item>
+    </style>
+
+    <style name="Chili.H10.Primary">
+        <item name="android:textColor">?attr/ChiliPrimaryTextColor</item>
+    </style>
+
+    <style name="Chili.H10.Secondary">
+        <item name="android:textColor">?attr/ChiliSecondaryTextColor</item>
+    </style>
+
+    <style name="Chili.H10.Marked">
+        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
+    </style>
+
+    <style name="Chili.H10.Error">
+        <item name="android:textColor">?attr/ChiliErrorTextColor</item>
+    </style>
+
+    <style name="Chili.H10.Value">
+        <item name="android:textColor">?attr/ChiliValueTextColor</item>
+    </style>
+
+    <style name="Chili.H10.Primary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Primary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Primary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H10.Secondary.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Secondary.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Secondary.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H10.Marked.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Marked.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Marked.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H10.Error.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Error.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Error.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H10.Value.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Value.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Value.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="QuickActionButtonDisabled" parent="Chili.H8">
+        <item name="android:textColor">?attr/QuickActionButtonDisabledTitleColor</item>
+    </style>
+
+    <style name="QuickActionButtonTitleStyle" parent="Chili.H8">
+        <item name="android:textColor">?attr/QuickActionButtonTitleColor</item>
+    </style>
+
+</resources>

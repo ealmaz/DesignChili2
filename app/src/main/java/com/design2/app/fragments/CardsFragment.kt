@@ -20,6 +20,7 @@ import com.design2.chili2.view.image.AutoScrollCarouselImageAdapter
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 import com.design2.app.StoryActivity
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setScrollListener
 import kg.devcats.chili3.util.StoriesStatus
 
@@ -133,6 +134,13 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
         }
         vb.scvStories2.setOnClickListener {
             vb.scvStories2.setStatus(StoriesStatus.VIEWED.value)
+        }
+
+        vb.iconStateCardView.apply {
+            setupAsErrorState(com.design2.chili2.R.drawable.chili_ic_warning)
+            setOnSingleClickListener {
+                clearErrorState()
+            }
         }
     }
 

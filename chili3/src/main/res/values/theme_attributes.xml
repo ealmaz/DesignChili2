@@ -1,5 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Text color attributes   -->
+    <attr name="ChiliDisabledTextColor" format="color"/>
+    <attr name="ChiliInnerTextColor" format="color"/>
+    <attr name="ChiliInnerDisabledTextColor" format="color"/>
+    <attr name="ChiliAccentPrimaryTextColor" format="color"/>
+    <attr name="ChiliAccentSecondaryTextColor" format="color"/>
+    <attr name="ChiliSuccessTextColor" format="color"/>
+    <attr name="ChiliWarningTextColor" format="color"/>
+    <attr name="ChiliAlertNeutralTextColor" format="color"/>
+    <attr name="ChiliAlertWarningTextColor" format="color"/>
+    <attr name="ChiliAlertErrorTextColor" format="color"/>
 
     <!-- PromoCardView -->
     <attr name="ChiliPromoCardViewStatusTopPadding" format="dimension"/>
@@ -18,4 +29,50 @@
     <attr name="ChiliPromoCardViewIconStartMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconEndMargin" format="dimension"/>
 
+    <!-- QuickActionButtonView -->
+    <attr name="QuickActionButtonTitleColor" format="color"/>
+    <attr name="QuickActionButtonDisabledTitleColor" format="color"/>
+
+    <!-- ProductCardView -->
+    <attr name="ChiliCardViewImageRadius" format="dimension"/>
+    <attr name="ChiliProductCardViewImageHeight" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountStartMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountBottomMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountPaddingHorizontal" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountPaddingVertical" format="dimension"/>
+    <attr name="ChiliProductCardViewTitleTopMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewTitleHorizontalMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewSubtitleTopMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewSubtitlePaddingHorizontal" format="dimension"/>
+    <attr name="ChiliProductCardViewSubtitlePaddingVertical" format="dimension"/>
+    <attr name="ChiliProductCardViewDescriptionTopMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewDescriptionBottomMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewDescriptionMaxLines" format="integer"/>
+    <attr name="ChiliProductCardViewSubtitleCornerRadius" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountCornerRadius" format="dimension"/>
+
+    <!-- ChiliBottomNavigationView -->
+    <attr name="ChiliBottomNavigationViewBackgroundTopMargin" format="dimension"/>
+    <attr name="ChiliBottomNavigationViewBackgroundHeight" format="dimension"/>
+    <attr name="ChiliBottomNavigationViewBackground" format="reference"/>
+    <attr name="ChiliBottomNavigationViewItemIconSize" format="dimension"/>
+    <attr name="ChiliBottomNavigationViewItemBackground" format="reference"/>
+    <attr name="ChiliBottomNavigationViewItemTextAppearanceActive" format="reference"/>
+    <attr name="ChiliBottomNavigationViewItemTextAppearanceInactive" format="reference"/>
+    <attr name="ChiliBottomNavigationViewItemTextColor" format="reference"/>
+    <attr name="ChiliBottomNavigationViewElevation" format="dimension"/>
+    <attr name="ChiliBottomNavigationBarViewLabelVisibilityMode" format="enum">
+        <enum name="auto" value="-1"/>
+        <!-- Label is shown on the selected navigation item. -->
+        <enum name="selected" value="0"/>
+        <!-- Label is shown on all navigation items. -->
+        <enum name="labeled" value="1"/>
+        <!-- Label is not shown on any navigation items. -->
+        <enum name="unlabeled" value="2"/>
+    </attr>
+    <attr name="ChiliBottomNavigationViewHeight" format="dimension"/>
+
+
+    <!-- TailedToolbarView -->
+    <attr name="TailedToolbarDefaultStyle" format="reference"/>
 </resources>

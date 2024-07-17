@@ -52,6 +52,8 @@ class StoryView : ConstraintLayout {
     private var progressBars: ArrayList<ProgressBar> = arrayListOf()
     private var exoPlayer: ExoPlayer? = null
 
+    private var initialTouchY: Float = 0f
+
     constructor(context: Context) : super(context) {
         init(context)
     }
@@ -123,7 +125,7 @@ class StoryView : ConstraintLayout {
 
                 when (event.action) {
                     MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                        if (binding.root.translationY > 100) {
+                        if (binding.root.translationY > 200) {
                             finishWithAnimation()
                         } else {
                             binding.root.animate().translationY(0f).setDuration(200).withEndAction {
@@ -310,8 +312,9 @@ class StoryView : ConstraintLayout {
                                 setPadding(4, 0, 4, 0)
                             }
                     max = 1000
-                    progress = if (story.isViewed == true) 1000 else 0
-                    progressDrawable = context.getDrawable(R.drawable.chili_story_progress_bar)
+                    progress =
+                        if (!stories.all { it.isViewed == true } && story.isViewed == true) 1000 else 0
+                                progressDrawable = context.getDrawable(R.drawable.chili_story_progress_bar)
                 }
             progressBars.add(progressBar)
             binding.progressBarsContainer.addView(progressBar)
@@ -349,7 +352,7 @@ class StoryView : ConstraintLayout {
     private fun finishWithAnimation() {
         this@StoryView.animate()
             .translationY(0f)
-            .setDuration(200)
+            .setDuration(0)
             .withEndAction {
                 onMoveListener?.onClose()
                 onFinishListener?.onStoryClose()
@@ -437,7 +440,7 @@ class StoryView : ConstraintLayout {
     //region gesture listener
 
     inner class StoryGestureListener : GestureDetector.SimpleOnGestureListener() {
-        private var initialTouchY: Float = 0f
+
 
         override fun onDown(e: MotionEvent): Boolean {
             initialTouchY = e.rawY

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Chili.H9.White" parent="Chili.H9.Primary">
+    <style name="Chili.H16.Action" parent="Chili.H16">
+        <item name="android:textColor">@color/blue_1</item>
+    </style>
+
+    <style name="Chili.H16.Action.Bold" parent="Chili.H16.Action">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H12.White1" parent="Chili.H12.Primary">
+        <item name="android:textColor">@color/c_FFFFFF</item>
+    </style>
+
+    <style name="Chili.H10.Orange1" parent="Chili.H10.Primary">
+        <item name="android:textColor">@color/c_FF9500</item>
+    </style>
+
+    <style name="Chili.H14.White" parent="Chili.H14">
         <item name="android:textColor">@color/white_1</item>
     </style>
 
