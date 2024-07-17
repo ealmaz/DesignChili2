@@ -115,7 +115,7 @@ class PromoCardView @JvmOverloads constructor(
         vb.clContainer.background = promoStatus[status].second
     }
 
-    private fun setStatus(status: Int) {
+    fun setStatus(status: Int) {
         when (status) {
             PromoStatus.NEW.value -> setStatusBackground(R.drawable.chili_bg_promo_status_new_gradient)
             PromoStatus.ACTIVE.value -> setStatusBackground(R.drawable.chili_bg_promo_status_active_gradient)
