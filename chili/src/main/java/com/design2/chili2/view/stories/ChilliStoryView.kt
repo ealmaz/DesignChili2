@@ -350,13 +350,8 @@ class StoryView : ConstraintLayout {
     }
 
     private fun finishWithAnimation() {
-        this@StoryView.animate()
-            .translationY(0f)
-            .setDuration(0)
-            .withEndAction {
-                onMoveListener?.onClose()
-                onFinishListener?.onStoryClose()
-            }.start()
+        onMoveListener?.onClose()
+        onFinishListener?.onStoryClose()
     }
 
     //region timer
