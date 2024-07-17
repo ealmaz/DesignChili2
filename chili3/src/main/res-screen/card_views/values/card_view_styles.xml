@@ -18,4 +18,27 @@
         <item name="cornerSize">?ChiliCardViewImageRadius</item>
     </style>
 
+    <style name="Chili.CardViewStyle.AccountCardView">
+        <item name="android:clickable">?ChiliAccountCardViewClickable</item>
+        <item name="android:focusable">?ChiliAccountCardViewFocusable</item>
+        <item name="android:foreground">?ChiliAccountCardViewForeground</item>
+        <item name="cardBackground">?ChiliAccountCardViewBackground</item>
+        <item name="cardCornerRadius">?ChiliAccountCardViewCornerRadius</item>
+    </style>
+
+    <style name="Chili.ButtonStyle.Additional.AccountCard" >
+        <item name="android:padding">?ChiliAccountCardViewActionButtonPadding</item>
+        <item name="android:background">?ChiliAccountCardViewActionButtonBackground</item>
+        <item name="android:textAppearance">?ChiliAccountCardViewActionButtonTextAppearance</item>
+    </style>
+
+    <style name="ThemeOverlay.ChiliAdditionalButtonBackgroundActive">
+        <item name="ChiliAdditionalButtonBackgroundActive">?ChiliAccountCardViewActionButtonBackgroundActive</item>
+        <item name="ChiliAdditionalButtonBorderColor">?ChiliAccountCardViewActionButtonBorderColor</item>
+    </style>
+
+    <style name="Chili.AdditionalButtonText.AccountCardActionButton">
+        <item name="android:textAppearance">@style/Chili.H14.Primary.Bold</item>
+    </style>
+
 </resources>

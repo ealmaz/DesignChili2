@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.DimenRes
@@ -12,22 +13,32 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewButtonIconedBinding
-import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.visible
+import com.design2.chili2.view.shimmer.ShimmeringView
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class IconedButton @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyleAttr: Int = R.attr.loaderButtonDefaultStyle,
     defStyle: Int = R.style.Chili_ButtonStyle
-) : FrameLayout(context, attributeSet, defStyleAttr, defStyle) {
+) : FrameLayout(context, attributeSet, defStyleAttr, defStyle), ShimmeringView {
 
     private lateinit var vb: ChiliViewButtonIconedBinding
+    private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
+
+    override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
 
     init {
         initView(context)
         obtainAttributes(context, attributeSet, defStyleAttr, defStyle)
+        setupShimmeringViews()
+    }
+
+    private fun setupShimmeringViews() {
+        shimmeringPairs[vb.tvTitle] = null
     }
 
     private fun initView(context: Context) {
@@ -46,13 +57,13 @@ class IconedButton @JvmOverloads constructor(
             defStyleAttr,
             defStyle
         ).run {
-            getResourceId(R.styleable.IconedButton_startIcon, -1).takeIf { it != -1 }
-                ?.let(::setStartIcon)
+            setStartIcon(
+                getResourceId(R.styleable.IconedButton_startIcon, -1).takeIf { it != -1 }
+            )
             setupStartIconSize(
                 widthPx = getDimensionPixelSize(R.styleable.IconedButton_startIconWidth, -1).takeIf { it != -1 },
                 heightPx = getDimensionPixelSize(R.styleable.IconedButton_startIconHeight, -1).takeIf { it != -1 }
             )
-            setStartIconVisibility(getBoolean(R.styleable.IconedButton_isStartIconVisible, false))
             setText(getString(R.styleable.IconedButton_android_text))
             setEnabled(getBoolean(R.styleable.IconedButton_android_enabled, true))
             getResourceId(R.styleable.IconedButton_android_textAppearance, -1).takeIf { it != -1 }
@@ -68,11 +79,10 @@ class IconedButton @JvmOverloads constructor(
         }
     }
 
-    fun setStartIcon(@DrawableRes drawableRes: Int) {
-        vb.ivStartIcon.apply {
-            visible()
-            setImageResource(drawableRes)
-        }
+    fun setStartIcon(@DrawableRes drawableRes: Int?) = with(vb.ivStartIcon) {
+        if (drawableRes == null) shimmeringPairs.remove(this)
+        else shimmeringPairs[this] = null
+        setImageOrHide(drawableRes)
     }
 
     private fun setupStartIconSize(widthPx: Int?, heightPx: Int?) {
@@ -86,12 +96,6 @@ class IconedButton @JvmOverloads constructor(
         val widthPx = resources.getDimensionPixelSize(widthDimenRes)
         val heightPx = resources.getDimensionPixelSize(heightDimenRes)
         setupStartIconSize(widthPx, heightPx)
-    }
-
-    fun setStartIconVisibility(isIconVisible: Boolean) {
-        vb.ivStartIcon.run {
-            if (isIconVisible) visible() else gone()
-        }
     }
 
     fun setText(text: String?) {

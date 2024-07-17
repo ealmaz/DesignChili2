@@ -316,7 +316,6 @@
         <attr name="startIcon"/>
         <attr name="startIconWidth" format="dimension"/>
         <attr name="startIconHeight" format="dimension"/>
-        <attr name="isStartIconVisible"/>
     </declare-styleable>
 
     <declare-styleable name="ExpandableCardContainer">

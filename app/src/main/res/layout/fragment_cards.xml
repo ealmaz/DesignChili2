@@ -32,6 +32,14 @@
             android:layout_marginHorizontal="@dimen/padding_16dp"
             android:text="Expand/hide all" />
 
+        <Button
+            android:id="@+id/btn_account_cards_examples"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:text="Account card exapmles" />
 
         <com.design2.chili2.view.container.ExpandableContainer
             android:id="@+id/ecv_discount_container"
