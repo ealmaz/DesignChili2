@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="?ChiliAccountCardViewTitleIconEndMargin"
                 android:visibility="gone"
-                tools:src="@drawable/chili_ic_star" />
+                tools:src="@drawable/chili_ic_star_20" />
 
             <TextView
                 android:id="@+id/tv_title"

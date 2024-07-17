@@ -43,7 +43,7 @@ fun AccountCardView.setFavoritePaymentAmountAvailableState(
     isToggleHiddenState: Boolean = false,
     subTitle: String?
 ) {
-    setTitleIcon(R.drawable.chili_ic_star)
+    setTitleIcon(R.drawable.chili_ic_star_20)
     setTitleTextAppearance(R.style.Chili_H14_Primary_Bold)
     setTitleAdditionTextAppearance(R.style.Chili_H14_Value)
     setChevronVisibility(isChevronVisible = true)

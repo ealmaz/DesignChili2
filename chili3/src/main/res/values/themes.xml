@@ -114,7 +114,7 @@
         <item name="ChiliAccountCardViewMainContainerForeground">@drawable/chili_ripple_rounded_corner_foreground</item>
 
         <item name="ChiliAccountCardViewTitleIconEndMargin">@dimen/padding_8dp</item>
-        <item name="ChiliAccountCardViewTitleShimmerIcon">@drawable/chili_ic_star</item>
+        <item name="ChiliAccountCardViewTitleShimmerIcon">@drawable/chili_ic_star_20</item>
         <item name="ChiliAccountCardViewTitleAdditionStartMargin">@dimen/padding_8dp</item>
         <item name="ChiliAccountCardViewTitleAdditionTextAppearance">@style/Chili.H14.Value</item>
         <item name="ChiliAccountCardViewTitleAdditionMaxLines">1</item>
