@@ -46,4 +46,9 @@
         <item name="android:textAppearance">@style/Chili.H14.Primary.Bold</item>
     </style>
 
+    <style name="Chili.CardViewStyle.IconTitledCardView">
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">@dimen/elevation_0dp</item>
+    </style>
+
 </resources>
