@@ -122,6 +122,12 @@
         <item name="ChiliNavigationBarActiveItemTextColor">@color/folly_1</item>
         <item name="ChiliNavigationBarInactiveItemTextColor">@color/black_1</item>
 
+        <!-- Button attributes -->
+        <item  name="ChiliPrimaryButtonPaddingTop">@dimen/padding_14dp</item>
+        <item  name="ChiliPrimaryButtonPaddingBottom">@dimen/padding_14dp</item>
+        <item  name="ChiliPrimaryButtonPaddingStart" >@dimen/padding_24dp</item>
+        <item  name="ChiliPrimaryButtonPaddingEnd">@dimen/padding_24dp</item>
+
         <!-- Primary Button attributes -->
         <item name="ChiliPrimaryButtonBackgroundActive">@color/green_1</item>
         <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_3</item>
@@ -181,6 +187,9 @@
         <!-- Accent Button attributes -->
         <item name="ChiliAccentButtonBackgroundActive">@color/magenta_1</item>
         <item name="ChiliAccentButtonBackgroundDisabled">@color/magenta_3</item>
+
+        <!-- Iconed Button attributes -->
+        <item name="ChiliIconedButtonTextMaxLines">1000</item>
 
         <!-- InputView -->
         <item name="ChiliInputViewEndIconTint">@color/gray_1</item>
