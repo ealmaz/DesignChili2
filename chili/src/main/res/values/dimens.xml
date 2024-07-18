@@ -91,6 +91,7 @@
     <dimen name="view_82dp">82dp</dimen>
     <dimen name="view_74dp">74dp</dimen>
     <dimen name="view_75dp">75dp</dimen>
+    <dimen name="view_76dp">76dp</dimen>
     <dimen name="view_90dp">90dp</dimen>
     <dimen name="view_94dp">94dp</dimen>
     <dimen name="view_96dp">96dp</dimen>
@@ -100,6 +101,7 @@
     <dimen name="view_120dp">120dp</dimen>
     <dimen name="view_122dp">122dp</dimen>
     <dimen name="view_136dp">136dp</dimen>
+    <dimen name="view_138dp">138dp</dimen>
     <dimen name="view_140dp">140dp</dimen>
     <dimen name="view_150dp">150dp</dimen>
     <dimen name="view_168dp">168dp</dimen>

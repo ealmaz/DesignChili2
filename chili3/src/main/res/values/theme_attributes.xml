@@ -166,4 +166,15 @@
     <attr name="ChiliExpandableGridRecyclerViewClosurePaddingVertical" format="dimension"/>
     <attr name="ChiliExpandableGridRecyclerViewClosurePaddingHorizontal" format="dimension"/>
 
+    <!--region CategoryCardView -->
+    <attr name="ChiliMarketCategoryCardViewForeground" format="reference" />
+    <attr name="ChiliMarketCategoryCardViewBackgroundColor" format="reference" />
+    <attr name="ChiliMarketCategoryCardViewCornerRadius" format="dimension" />
+    <attr name="ChiliMarketCategoryCardViewContainerMarginStart" format="dimension" />
+    <attr name="ChiliMarketCategoryCardViewContainerMarginTop" format="dimension" />
+    <attr name="ChiliMarketCategoryCardViewTitleEndMargin" format="dimension" />
+    <attr name="ChiliMarketCategoryCardViewTitleTextAppearance" format="reference" />
+    <attr name="ChiliMarketCategoryCardViewTitleMaxLines" format="integer" />
+    <!--endregion CategoryCardView -->
+
 </resources>
