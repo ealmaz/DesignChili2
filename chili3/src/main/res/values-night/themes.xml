@@ -148,7 +148,7 @@
 
         <!-- ExpandableGridRecyclerView-->
         <item name="ChiliExpandableGridRecyclerViewBackground">@color/c_010101</item>
-        <item name="ChiliExpandableGridRecyclerViewIconBackground">@color/c_010101</item>
+        <item name="ChiliExpandableGridRecyclerViewIconBackground">@color/c_28282a</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>

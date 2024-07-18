@@ -217,7 +217,7 @@
 
     <declare-styleable name="ExpandableGridRecyclerView">
         <attr name="bottomIcon" format="reference"/>
-        <attr name="visibleItems" format="integer"/>
+        <attr name="visibleItemCount" format="integer"/>
         <attr name="isExpanded"/>
         <attr name="isNeedToSaveExpandedState"/>
     </declare-styleable>

@@ -175,8 +175,10 @@
 
         <!-- ExpandableGridRecyclerView-->
         <item name="ChiliExpandableGridRecyclerViewBackground">@color/c_ececec</item>
-        <item name="ChiliExpandableGridRecyclerViewIconBackground">@color/c_ececec</item>
+        <item name="ChiliExpandableGridRecyclerViewIconBackground">@color/c_FFFFFF</item>
         <item name="ChiliExpandableGridRecyclerViewClosureMarginTop">@dimen/padding_8dp</item>
+        <item name="ChiliExpandableGridRecyclerViewClosurePaddingHorizontal">@dimen/padding_36dp</item>
+        <item name="ChiliExpandableGridRecyclerViewClosurePaddingVertical">@dimen/padding_4dp</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

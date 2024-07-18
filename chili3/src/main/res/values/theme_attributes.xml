@@ -162,5 +162,7 @@
     <attr name="ChiliExpandableGridRecyclerViewBackground" format="reference"/>
     <attr name="ChiliExpandableGridRecyclerViewIconBackground" format="reference"/>
     <attr name="ChiliExpandableGridRecyclerViewClosureMarginTop" format="dimension"/>
+    <attr name="ChiliExpandableGridRecyclerViewClosurePaddingVertical" format="dimension"/>
+    <attr name="ChiliExpandableGridRecyclerViewClosurePaddingHorizontal" format="dimension"/>
 
 </resources>

@@ -15,12 +15,12 @@ class IconTitledVH(private val view: IconTitledCardView) : RecyclerView.ViewHold
 
     fun onBind(item: ExpandableGridItem) {
         this.item = item
-        checkShimmering(item.isShimmering)
+        setupShimmering(item.isShimmering)
         view.setTitle(item.title)
         view.setIcon(item.icon)
     }
 
-    private fun checkShimmering(isShimmering: Boolean) = when (isShimmering) {
+    private fun setupShimmering(isShimmering: Boolean) = when (isShimmering) {
         true -> view.startShimmering()
         else -> view.stopShimmering()
     }

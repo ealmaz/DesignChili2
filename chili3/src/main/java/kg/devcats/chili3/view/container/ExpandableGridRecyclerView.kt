@@ -34,11 +34,11 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
 
     private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
 
-    var isExpanded: Boolean = false
-    var isShimmering: Boolean = false
-    var visibleItems: Int = 0
-    var onClosureAction: ((isExpanded: Boolean) -> Unit)? = null
+    private var isExpanded: Boolean = false
+    private var isShimmering: Boolean = false
     private var isNeedToSaveState: Boolean = false
+    var visibleItemCount: Int = 0
+    var onClosureAction: ((isExpanded: Boolean) -> Unit)? = null
 
     private var items: List<ExpandableGridItem> = listOf()
     private var shimmeringItems = List(8) {
@@ -67,7 +67,7 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
         context.obtainStyledAttributes(attrs, R.styleable.ExpandableGridRecyclerView, defStyleAttr, defStyleRes).run {
             setIsNeedToSaveExpandedState(getBoolean(R.styleable.ExpandableGridRecyclerView_isNeedToSaveExpandedState, false))
             setIsExpandedOrRestoreStateFromPreferences(getBoolean(R.styleable.ExpandableGridRecyclerView_isExpanded, true))
-            setVisibileItems(getInteger(R.styleable.ExpandableGridRecyclerView_visibleItems, 0))
+            visibleItemCount = getInteger(R.styleable.ExpandableGridRecyclerView_visibleItemCount, 0)
             setupClosureButton(getDrawable(R.styleable.ExpandableGridRecyclerView_bottomIcon))
             setupRecyclerView()
             recycle()
@@ -101,12 +101,8 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
 
     private fun setupRecyclerView() = with(vb.recyclerView) {
         adapter = gridAdapter
-        layoutManager = GridLayoutManager(context, visibleItems, LinearLayoutManager.VERTICAL, false)
+        layoutManager = GridLayoutManager(context, visibleItemCount, LinearLayoutManager.VERTICAL, false)
         addItemDecoration(GridSpacesDecoration(8, 8, 12))
-    }
-
-    fun setVisibileItems(count: Int) {
-        visibleItems = count
     }
 
     private fun setIsExpandedOrRestoreStateFromPreferences(isExpanded: Boolean) {
@@ -114,9 +110,9 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
         else setIsExpanded(componentPref.getIsExpandableContainerExpanded(id.toString()))
     }
 
-    private fun setupClosureButton(drawable: Drawable?) = with(vb.ivClosureIndicator) {
-        drawable?.let { setImageDrawable(it) }
-        setOnClickListener {
+    private fun setupClosureButton(drawable: Drawable?) = with(vb) {
+        drawable?.let { ivClosureIndicator.setImageDrawable(it) }
+        fvClosureIndicator.setOnClickListener {
             setIsExpanded(!isExpanded)
             onClosureAction?.invoke(isExpanded)
         }
@@ -148,10 +144,10 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
     }
 
     private fun filterItems(items: List<ExpandableGridItem>): List<ExpandableGridItem> {
-        return if (items.size <= visibleItems) {
+        return if (items.size <= visibleItemCount) {
             items
         } else {
-            items.subList(0, visibleItems)
+            items.subList(0, visibleItemCount)
         }
     }
 
