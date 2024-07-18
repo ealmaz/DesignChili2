@@ -8,10 +8,11 @@ import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentExpandableGridRecyclerViewExamplesBinding
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
-import kg.devcats.chili3.adapter.IconTitledAdapter
 import kg.devcats.chili3.model.ExpandableGridItem
+import kg.devcats.chili3.view.container.ExpandableGridRecyclerView
 
-class ExpandableGridRecyclerViewExampleFragment : BaseFragment<FragmentExpandableGridRecyclerViewExamplesBinding>(), IconTitledAdapter.Listener {
+class ExpandableGridRecyclerViewExampleFragment : BaseFragment<FragmentExpandableGridRecyclerViewExamplesBinding>(),
+    ExpandableGridRecyclerView.Listener {
 
     private var items = List(8) {
         ExpandableGridItem(

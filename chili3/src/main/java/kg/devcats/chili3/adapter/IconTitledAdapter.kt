@@ -15,10 +15,6 @@ class IconTitledAdapter(private val onItemClick: (String?) -> Unit) :
         holder.onBind(getItem(position))
     }
 
-    interface Listener {
-        fun onItemClick(deeplink: String?)
-    }
-
 }
 
 object ServiceUtil : DiffUtil.ItemCallback<ExpandableGridItem>() {

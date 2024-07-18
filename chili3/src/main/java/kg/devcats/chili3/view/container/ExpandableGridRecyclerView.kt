@@ -45,7 +45,7 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
         ExpandableGridItem(it.toLong(), null, null, null, true)
     }
 
-    private var listener: IconTitledAdapter.Listener? = null
+    private var listener: Listener? = null
     private val gridAdapter by lazy {
         IconTitledAdapter { listener?.onItemClick(it) }
     }
@@ -155,13 +155,17 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
         vb.ivClosureIndicator.animate().rotation(rotation)
     }
 
-    fun setListener(listener: IconTitledAdapter.Listener?){
+    fun setListener(listener: Listener?){
         this.listener = listener
     }
 
     fun setItems(items: List<ExpandableGridItem>) {
         this.items = items
         submitList(isExpanded)
+    }
+
+    interface Listener {
+        fun onItemClick(deeplink: String?)
     }
 
     companion object {
