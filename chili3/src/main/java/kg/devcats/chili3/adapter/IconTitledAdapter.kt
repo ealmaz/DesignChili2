@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import kg.devcats.chili3.model.ExpandableGridItem
 
 class IconTitledAdapter(private val onItemClick: (String?) -> Unit) :
-    ListAdapter<ExpandableGridItem, IconTitledVH>(ServiceUtil) {
+    ListAdapter<ExpandableGridItem, IconTitledVH>(IconTitledDiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         IconTitledVH.create(parent, onItemClick)
@@ -17,7 +17,7 @@ class IconTitledAdapter(private val onItemClick: (String?) -> Unit) :
 
 }
 
-object ServiceUtil : DiffUtil.ItemCallback<ExpandableGridItem>() {
+object IconTitledDiffUtil : DiffUtil.ItemCallback<ExpandableGridItem>() {
     override fun areItemsTheSame(oldItem: ExpandableGridItem, newItem: ExpandableGridItem) =
         oldItem.hashCode() == newItem.hashCode()
 
