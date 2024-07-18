@@ -15,7 +15,7 @@ import kg.devcats.chili3.extensions.gone
 import kg.devcats.chili3.extensions.invisible
 import kg.devcats.chili3.extensions.visible
 
-class SimpleCardView @JvmOverloads constructor(
+class SubtitledSimpleCardView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.subtitledSimpleCardViewDefaultStyle,
