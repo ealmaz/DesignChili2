@@ -1,4 +1,4 @@
-package kg.devcats.chili3.view.container
+package kg.devcats.chili3.model
 
 data class ExpandableGridItem(
     var id: Long? = null,

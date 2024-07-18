@@ -14,7 +14,10 @@ import com.design2.chili2.storage.ComponentsPreferences
 import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
 import kg.devcats.chili3.R
+import kg.devcats.chili3.adapter.GridSpacesDecoration
+import kg.devcats.chili3.adapter.IconTitledAdapter
 import kg.devcats.chili3.databinding.ChiliExpandableGridRecyclerViewBinding
+import kg.devcats.chili3.model.ExpandableGridItem
 
 class ExpandableGridRecyclerView @JvmOverloads constructor(
     context: Context,
@@ -99,6 +102,7 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
     private fun setupRecyclerView() = with(vb.recyclerView) {
         adapter = gridAdapter
         layoutManager = GridLayoutManager(context, visibleItems, LinearLayoutManager.VERTICAL, false)
+        addItemDecoration(GridSpacesDecoration(8, 8, 12))
     }
 
     fun setVisibileItems(count: Int) {
@@ -137,13 +141,13 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
     private fun submitList(isExpanded: Boolean) {
         when {
             isShimmering && isExpanded -> gridAdapter.submitList(shimmeringItems)
-            isShimmering && !isExpanded -> gridAdapter.submitList(getItems(shimmeringItems))
+            isShimmering && !isExpanded -> gridAdapter.submitList(filterItems(shimmeringItems))
             isExpanded -> gridAdapter.submitList(items)
-            !isExpanded -> gridAdapter.submitList(getItems(items))
+            !isExpanded -> gridAdapter.submitList(filterItems(items))
         }
     }
 
-    private fun getItems(items: List<ExpandableGridItem>): List<ExpandableGridItem> {
+    private fun filterItems(items: List<ExpandableGridItem>): List<ExpandableGridItem> {
         return if (items.size <= visibleItems) {
             items
         } else {
