@@ -167,6 +167,19 @@
         <item name="ChiliChevronDrawable">@drawable/ic_chevron_right</item>
         <item name="ChiliChevronColor">@color/c_1c1c1e</item>
 
+        <!-- IconTitledCardView-->
+        <item name="ChiliIconTitledCardViewBackground">@color/c_ececec</item>
+        <item name="ChiliIconTitledCardViewIconSize">@dimen/view_40dp</item>
+        <item name="ChiliIconTitledCardViewIconMarginTop">@dimen/padding_8dp</item>
+        <item name="ChiliIconTitledCardViewTitleMarginTop">@dimen/padding_4dp</item>
+
+        <!-- ExpandableGridRecyclerView-->
+        <item name="ChiliExpandableGridRecyclerViewBackground">@color/c_ececec</item>
+        <item name="ChiliExpandableGridRecyclerViewIconBackground">@color/c_FFFFFF</item>
+        <item name="ChiliExpandableGridRecyclerViewIconRadius">@dimen/radius_12dp</item>
+        <item name="ChiliExpandableGridRecyclerViewClosureMarginTop">@dimen/padding_8dp</item>
+        <item name="ChiliExpandableGridRecyclerViewClosurePaddingHorizontal">@dimen/padding_36dp</item>
+        <item name="ChiliExpandableGridRecyclerViewClosurePaddingVertical">@dimen/padding_4dp</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

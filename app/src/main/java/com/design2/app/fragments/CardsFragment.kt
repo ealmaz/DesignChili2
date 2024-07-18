@@ -47,6 +47,10 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             openFragment(AccountCardsExamplesFragment())
         }
 
+        vb.btnExpandableGridRecyclerViewExamples.setOnClickListener {
+            openFragment(ExpandableGridRecyclerViewExampleFragment())
+        }
+
         vb.pcv1.setOnClickListener {
             vb.pcv2.setIsCardEnabled(false)
             vb.pcv3.setIsCardEnabled(true)

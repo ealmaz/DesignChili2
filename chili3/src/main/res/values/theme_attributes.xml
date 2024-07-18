@@ -152,4 +152,18 @@
     <attr name="ChiliAccountCardViewActionButtonPaddingEnd" format="dimension"/>
     <!--endregion AccountCardView -->
 
+    <!-- IconTitledCardView-->
+    <attr name="ChiliIconTitledCardViewBackground" format="dimension"/>
+    <attr name="ChiliIconTitledCardViewIconSize" format="dimension"/>
+    <attr name="ChiliIconTitledCardViewIconMarginTop" format="dimension"/>
+    <attr name="ChiliIconTitledCardViewTitleMarginTop" format="dimension"/>
+
+    <!-- ExpandableGridRecyclerView-->
+    <attr name="ChiliExpandableGridRecyclerViewBackground" format="reference"/>
+    <attr name="ChiliExpandableGridRecyclerViewIconBackground" format="reference"/>
+    <attr name="ChiliExpandableGridRecyclerViewIconRadius" format="dimension"/>
+    <attr name="ChiliExpandableGridRecyclerViewClosureMarginTop" format="dimension"/>
+    <attr name="ChiliExpandableGridRecyclerViewClosurePaddingVertical" format="dimension"/>
+    <attr name="ChiliExpandableGridRecyclerViewClosurePaddingHorizontal" format="dimension"/>
+
 </resources>

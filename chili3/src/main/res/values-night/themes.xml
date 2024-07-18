@@ -85,8 +85,8 @@
 
         <!-- NavigationBar -->
         <item name="ChiliNavigationBarBackground">@color/black_4</item>
-        <item name="ChiliNavigationBarInactiveItemTextColor">@color/white_1</item>
-
+        <item name="ChiliNavigationBarActiveItemTextColor">@color/c_FFFFFF</item>
+        <item name="ChiliNavigationBarInactiveItemTextColor">@color/c_8a8a8e</item>
 
         <!-- InputView -->
         <item name="ChiliInputViewHintTextColor">@color/gray_1_alpha_50</item>
@@ -126,10 +126,6 @@
         <!-- OtpInputView -->
         <item name="ChiliOtpInputViewItemActiveBorder">@color/white_1</item>
 
-        <!-- NavigationBar -->
-        <item name="ChiliNavigationBarActiveItemTextColor">@color/c_FFFFFF</item>
-        <item name="ChiliNavigationBarInactiveItemTextColor">@color/c_8a8a8e</item>
-
         <!-- QuickActionButtonView -->
         <item name="QuickActionButtonTitleColor">@color/c_FFFFFF</item>
         <item name="QuickActionButtonDisabledTitleColor">@color/gray_1</item>
@@ -147,6 +143,12 @@
         <!-- ChiliCellViewBackgroundColor-->
         <item name="ChiliCellViewBackgroundColor">@color/c_efeff4</item>
 
+        <!-- IconTitledCardView-->
+        <item name="ChiliIconTitledCardViewBackground">@color/c_010101</item>
+
+        <!-- ExpandableGridRecyclerView-->
+        <item name="ChiliExpandableGridRecyclerViewBackground">@color/c_010101</item>
+        <item name="ChiliExpandableGridRecyclerViewIconBackground">@color/c_28282a</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>
