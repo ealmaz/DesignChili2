@@ -14,6 +14,7 @@ import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardCategoryMarketBinding
+import kg.devcats.chili3.extensions.getColorFromAttr
 import kg.devcats.chili3.util.ViewSize
 
 class MarketCategoryCardView @JvmOverloads constructor(
@@ -35,8 +36,8 @@ class MarketCategoryCardView @JvmOverloads constructor(
     }
 
     override fun TypedArray.obtainAttributes() {
-        setCardSize(getLayoutDimension(R.styleable.MarketCategoryCardView_viewSize, 0))
-        setCardBackgroundAndIconSize(getBoolean(R.styleable.MarketCategoryCardView_isHighlighted, false))
+        setupCardSize(getLayoutDimension(R.styleable.MarketCategoryCardView_viewSize, 0))
+        setupCardBackgroundAndIconSize(getBoolean(R.styleable.MarketCategoryCardView_isHighlighted, false))
         setTitle(getText(R.styleable.MarketCategoryCardView_title))
         getResourceId(R.styleable.MarketCategoryCardView_titleTextAppearance, -1)
             .takeIf { it != -1 }?.let(::setTitleTextAppearance)
@@ -54,21 +55,21 @@ class MarketCategoryCardView @JvmOverloads constructor(
         shimmeringPairs[vb.ivIcons] = vb.viewIconShimmer
     }
 
-    fun setCardSize(viewSize: Int) {
+    fun setupCardSize(viewSize: Int) {
         when (viewSize) {
-            ViewSize.SMALL.value -> 109.dp to 76.dp
-            ViewSize.MEDIUM.value -> 138.dp to 76.dp
+            ViewSize.MEDIUM.value -> 109.dp to 76.dp
+            ViewSize.LARGE.value -> 138.dp to 76.dp
             else -> null
-        }?.also { vb.cvCategories.setCustomViewSize(it.first, it.second) }
+        }?.also { vb.clContainer.setCustomViewSize(it.first, it.second) }
     }
 
-    private fun setCardBackgroundAndIconSize(isHighlighted: Boolean) {
-        if (isHighlighted) vb.cvCategories.background =
-            context.drawable(R.drawable.chili_bg_market_category_card_highlighted)
-        setIconSize(isHighlighted)
+    private fun setupCardBackgroundAndIconSize(isHighlighted: Boolean) = with(vb.clContainer) {
+        if (isHighlighted) background = context.drawable(R.drawable.chili_bg_market_category_card_highlighted)
+        else setBackgroundColor(context.getColorFromAttr(R.attr.ChiliMarketCategoryCardViewBackgroundColor))
+        setupIconSize(isHighlighted)
     }
 
-    private fun setIconSize(isHighlighted: Boolean) {
+    private fun setupIconSize(isHighlighted: Boolean) {
         val (width, height) = when (isHighlighted) {
             true -> 104.dp to 32.dp
             else -> 74.dp to 52.dp
@@ -77,7 +78,7 @@ class MarketCategoryCardView @JvmOverloads constructor(
     }
 
     fun setHighlightingOnView(isHighlighted: Boolean = false) {
-        setCardBackgroundAndIconSize(isHighlighted)
+        setupCardBackgroundAndIconSize(isHighlighted)
     }
 
     fun setTitle(charSequence: CharSequence?) {

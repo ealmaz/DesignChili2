@@ -170,7 +170,7 @@
                             android:layout_marginStart="@dimen/padding_12dp"
                             app:iconSrc="https://cdn.devcats.kg/ads-minify/hJluCrGgnGNtwKdCJzuy97cjUwg1rGSwcbtEsOvdJ2CLWpPzrN.WEBP"
                             app:title="Бытовая химия, хозтовары"
-                            app:viewSize="small" />
+                            app:viewSize="medium" />
 
                         <kg.devcats.chili3.view.card.MarketCategoryCardView
                             android:id="@+id/ccv1"
@@ -180,7 +180,7 @@
                             android:layout_marginStart="@dimen/padding_12dp"
                             app:iconSrc="https://cdn.devcats.kg/ads-minify/hJluCrGgnGNtwKdCJzuy97cjUwg1rGSwcbtEsOvdJ2CLWpPzrN.WEBP"
                             app:title="Бытовая химия, хозтовары"
-                            app:viewSize="medium" />
+                            app:viewSize="large" />
 
                         <kg.devcats.chili3.view.card.MarketCategoryCardView
                             android:id="@+id/ccv2"
@@ -191,7 +191,7 @@
                             app:iconSrc="https://cdn.devcats.kg/ads-minify/hJluCrGgnGNtwKdCJzuy97cjUwg1rGSwcbtEsOvdJ2CLWpPzrN.WEBP"
                             app:isHighlighted="true"
                             app:title="Бытовая химия, хозтовары"
-                            app:viewSize="medium" />
+                            app:viewSize="large" />
 
                     </LinearLayout>
 
