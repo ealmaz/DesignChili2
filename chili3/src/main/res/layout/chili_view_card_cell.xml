@@ -108,6 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/padding_12dp"
                 android:maxLines="2"
+                android:textAlignment="textEnd"
                 android:textAppearance="@style/Chili.H16.Primary"
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@id/iv_chevron"
