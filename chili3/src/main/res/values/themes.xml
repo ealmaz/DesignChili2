@@ -157,6 +157,17 @@
         <item name="ChiliAccountCardViewActionButtonPaddingEnd">@dimen/padding_0dp</item>
         <!-- endregion AccountCardView -->
 
+        <!-- region CategoryCardView -->
+        <item name="ChiliMarketCategoryCardViewForeground">@drawable/chili_ripple_button_primary</item>
+        <item name="ChiliMarketCategoryCardViewBackgroundColor">@color/c_efeff4</item>
+        <item name="ChiliMarketCategoryCardViewCornerRadius">@dimen/radius_12dp</item>
+        <item name="ChiliMarketCategoryCardViewContainerMarginStart">@dimen/padding_8dp</item>
+        <item name="ChiliMarketCategoryCardViewContainerMarginTop">@dimen/padding_8dp</item>
+        <item name="ChiliMarketCategoryCardViewTitleEndMargin">@dimen/padding_8dp</item>
+        <item name="ChiliMarketCategoryCardViewTitleTextAppearance">@style/Chili.H12.Primary</item>
+        <item name="ChiliMarketCategoryCardViewTitleMaxLines">2</item>
+        <!-- endregion CategoryCardView -->
+
         <!-- Divider -->
         <item name="ChiliDividerColor">@color/c_E0E0E5</item>
 
