@@ -2,8 +2,8 @@ package kg.devcats.chili3.view.cells
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.text.Spanned
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.DrawableRes
@@ -124,6 +124,10 @@ class CardCellView @JvmOverloads constructor(
 
     fun setAdditionalText(value: String?) {
         vb.tvAdditionalText.setTextOrHide(value)
+    }
+
+    fun setAdditionalText(spanned: Spanned?) {
+        vb.tvAdditionalText.setTextOrHide(spanned)
     }
 
     fun setAdditionalText(@StringRes resId: Int) {

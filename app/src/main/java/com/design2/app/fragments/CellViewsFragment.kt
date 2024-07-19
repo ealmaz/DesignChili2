@@ -104,7 +104,8 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             setIcon(com.design2.app.R.drawable.ic_card_default)
             setTitle("Test Title")
             setSubtitle("Test Subtitle")
-            setAdditionalText("121212 c")
+            val text = "1212 <u>c</u>".parseAsHtml()
+            setAdditionalText(text)
             setOnSingleClickListener {
                 Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
             }
