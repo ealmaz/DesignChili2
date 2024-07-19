@@ -187,9 +187,9 @@
         <attr name="cardCellIsBlocked" format="boolean" />
         <attr name="cardCellIsUniqueStatused" format="boolean" />
         <attr name="cardCellIsChevronVisible" format="boolean" />
-        <attr name="cardCellTitleTextAppearance" />
-        <attr name="cardCellSubtitleTextAppearance" />
-        <attr name="cardCellAdditionalTextAppearance" />
+        <attr name="cardCellTitleTextAppearance" format="reference" />
+        <attr name="cardCellSubtitleTextAppearance" format="reference" />
+        <attr name="cardCellAdditionalTextAppearance" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="QuickActionButtonView">

@@ -73,6 +73,21 @@ class ToolbarActivity : AppCompatActivity() {
                 Toast.makeText(context, "Clicked on tag", Toast.LENGTH_SHORT).show()
             }
         }
+        vb.tailedToolbar2.apply {
+            initToolbar(
+                TailedToolbarView.Configuration(
+                    hostActivity = this@ToolbarActivity,
+                    isNavigateUpButtonEnabled = true,
+                    onNavigateUpClick = { onBackPressed() },
+                )
+            )
+            setupDividerVisibility(false)
+            setTagTitle("Бонусы")
+            setTagAlpha(0.4f)
+            setOnTagClickListener {
+                Toast.makeText(context, "Clicked on tag", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         vb.toolbar9.initToolbar(
             CircleStartIconChiliToolbar.Configuration(
