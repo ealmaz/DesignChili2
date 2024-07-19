@@ -98,6 +98,16 @@
     <attr name="ChiliSnackbarCornerRadius" format="dimension"/>
     <attr name="ChiliSnackbarElevation" format="dimension"/>
     <attr name="ChiliSnackbarTextColor" format="color"/>
+    <attr name="ChiliSnackbarMessageAppearance" format="reference"/>
+    <attr name="ChiliSnackbarMarginStart" format="dimension"/>
+    <attr name="ChiliSnackbarMarginEnd" format="dimension"/>
+    <attr name="ChiliSnackbarMarginTop" format="dimension"/>
+    <attr name="ChiliSnackbarMarginBottom" format="dimension"/>
+    <attr name="ChiliSnackbarContentPaddingHorizontal" format="dimension"/>
+    <attr name="ChiliSnackbarContentPaddingVertical" format="dimension"/>
+    <attr name="ChiliSnackbarIconWidth" format="dimension"/>
+    <attr name="ChiliSnackbarIconHeight" format="dimension"/>
+    <attr name="ChiliSnackbarTextMarginStart" format="dimension"/>
 
 
     <!-- Segmented Picker   -->

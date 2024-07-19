@@ -1,6 +1,7 @@
 package com.design2.app.fragments
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.design2.app.MainActivity
@@ -36,7 +37,15 @@ class SnackbarFragment : BaseFragment<FragmentSnackbarsBinding>() {
                 .show()
 
         }
-
+        vb.onTopGravity.setOnClickListener {
+            ChiliSnackBar.Builder(vb.root)
+                .setSnackbarIcon(R.drawable.chili_ic_orange_warning)
+                .setSnackbarMessage("Похоже пропал интернет. \nПроверьте интернет-соединение")
+                .setSnackbarDurationMills(2000)
+                .setGravity(Gravity.TOP)
+                .build()
+                .show()
+        }
     }
 
     override fun inflateViewBinging(): FragmentSnackbarsBinding {

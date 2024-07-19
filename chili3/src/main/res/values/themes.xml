@@ -179,6 +179,18 @@
         <item name="ChiliChevronDrawable">@drawable/ic_chevron_right</item>
         <item name="ChiliChevronColor">@color/c_1c1c1e</item>
 
+        <!-- Snackbar attributes -->
+        <item name="ChiliSnackbarBackground">@color/c_4a4a4a</item>
+        <item name="ChiliSnackbarElevation">@dimen/elevation_0dp</item>
+        <item name="ChiliSnackbarTextColor">@color/c_FFFFFF</item>
+        <item name="ChiliSnackbarMessageAppearance">@style/Chili.H16.Primary.Bold</item>
+        <item name="ChiliSnackbarMarginTop">@dimen/padding_8dp</item>
+        <item name="ChiliSnackbarContentPaddingHorizontal">@dimen/padding_12dp</item>
+        <item name="ChiliSnackbarContentPaddingVertical">@dimen/padding_12dp</item>
+        <item name="ChiliSnackbarIconWidth">@dimen/view_24dp</item>
+        <item name="ChiliSnackbarIconHeight">@dimen/view_24dp</item>
+        <item name="ChiliSnackbarTextMarginStart">@dimen/padding_12dp</item>
+
         <!-- IconTitledCardView-->
         <item name="ChiliIconTitledCardViewBackground">@color/c_ececec</item>
         <item name="ChiliIconTitledCardViewIconSize">@dimen/view_40dp</item>

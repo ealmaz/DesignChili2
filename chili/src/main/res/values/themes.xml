@@ -52,6 +52,16 @@
         <item name="ChiliSnackbarCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliSnackbarElevation">@dimen/elevation_4dp</item>
         <item name="ChiliSnackbarTextColor">@color/black_5</item>
+        <item name="ChiliSnackbarMessageAppearance">@style/Chili.H8.Primary</item>
+        <item name="ChiliSnackbarMarginStart">@dimen/padding_16dp</item>
+        <item name="ChiliSnackbarMarginEnd">@dimen/padding_16dp</item>
+        <item name="ChiliSnackbarMarginTop">@dimen/padding_0dp</item>
+        <item name="ChiliSnackbarMarginBottom">@dimen/padding_16dp</item>
+        <item name="ChiliSnackbarContentPaddingHorizontal">@dimen/padding_8dp</item>
+        <item name="ChiliSnackbarContentPaddingVertical">@dimen/padding_10dp</item>
+        <item name="ChiliSnackbarIconWidth">@dimen/view_32dp</item>
+        <item name="ChiliSnackbarIconHeight">@dimen/view_32dp</item>
+        <item name="ChiliSnackbarTextMarginStart">@dimen/padding_8dp</item>
 
         <!-- Segmented Picker   -->
         <item name="ChiliSegmentedPickerBackgroundColor">@color/gray_6</item>
