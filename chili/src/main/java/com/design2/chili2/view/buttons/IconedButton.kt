@@ -29,7 +29,7 @@ class IconedButton @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewButtonIconedBinding
     private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
-    private var shouldContentBeInvisibleOnShimmering = false
+    private var isContentInvisibleOnShimmering = false
     private var isShimmeringStart = false
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
 
@@ -40,7 +40,7 @@ class IconedButton @JvmOverloads constructor(
     }
 
     private fun setupShimmeringViews() {
-        if (shouldContentBeInvisibleOnShimmering) shimmeringPairs[vb.tvTitle] = null
+        if (isContentInvisibleOnShimmering) shimmeringPairs[vb.tvTitle] = null
     }
 
     private fun initView(context: Context) {
@@ -59,7 +59,7 @@ class IconedButton @JvmOverloads constructor(
             defStyleAttr,
             defStyle
         ).run {
-            shouldContentBeInvisibleOnShimmering = getBoolean(R.styleable.IconedButton_shouldContentBeInvisibleOnShimmering, false)
+            isContentInvisibleOnShimmering = getBoolean(R.styleable.IconedButton_isContentInvisibleOnShimmering, false)
             setStartIcon(
                 getResourceId(R.styleable.IconedButton_startIcon, -1).takeIf { it != -1 }
             )
@@ -83,7 +83,7 @@ class IconedButton @JvmOverloads constructor(
     }
 
     fun setStartIcon(@DrawableRes drawableRes: Int?) = with(vb.ivStartIcon) {
-        if (shouldContentBeInvisibleOnShimmering) {
+        if (isContentInvisibleOnShimmering) {
             if (drawableRes == null) shimmeringPairs.remove(this)
             else shimmeringPairs[this] = null
         }
