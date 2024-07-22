@@ -93,7 +93,6 @@ class IconTitledCardView @JvmOverloads constructor(
     }
 
     override fun setOnClickListener(l: OnClickListener?) {
-        stateListAnimator
         vb.root.setOnClickListener(l)
     }
 
