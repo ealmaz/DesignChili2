@@ -92,8 +92,4 @@ class IconTitledCardView @JvmOverloads constructor(
         vb.tvTitle.text = title
     }
 
-    override fun setOnClickListener(l: OnClickListener?) {
-        vb.root.setOnClickListener(l)
-    }
-
 }
