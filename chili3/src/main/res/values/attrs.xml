@@ -11,6 +11,7 @@
         <attr name="productCardViewDefaultStyle" format="reference" />
         <attr name="iconTitledViewDefaultStyle" format="reference" />
         <attr name="accountCardViewDefaultStyle" format="reference"/>
+        <attr name="marketCategoryCardViewDefaultStyle" format="reference"/>
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -139,6 +140,20 @@
         <attr name="subtitleTextAppearance" />
     </declare-styleable>
 
+    <declare-styleable name="MarketCategoryCardView">
+        <attr name="title" />
+        <attr name="titleTextAppearance" />
+        <attr name="isHighlighted" format="boolean" />
+        <attr name="viewSize" format="dimension">
+            <enum name="small" value="-1" />
+            <enum name="medium" value="-2" />
+            <enum name="large" value="-3" />
+        </attr>
+        <attr name="iconSrc" format="string" />
+        <attr name="android:scaleType" />
+        <attr name="android:adjustViewBounds" />
+    </declare-styleable>
+
     <declare-styleable name="ProductCardView">
         <attr name="android:layout_width" />
         <attr name="android:layout_height" />
@@ -172,9 +187,9 @@
         <attr name="cardCellIsBlocked" format="boolean" />
         <attr name="cardCellIsUniqueStatused" format="boolean" />
         <attr name="cardCellIsChevronVisible" format="boolean" />
-        <attr name="cardCellTitleTextAppearance" />
-        <attr name="cardCellSubtitleTextAppearance" />
-        <attr name="cardCellAdditionalTextAppearance" />
+        <attr name="cardCellTitleTextAppearance" format="reference" />
+        <attr name="cardCellSubtitleTextAppearance" format="reference" />
+        <attr name="cardCellAdditionalTextAppearance" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="QuickActionButtonView">

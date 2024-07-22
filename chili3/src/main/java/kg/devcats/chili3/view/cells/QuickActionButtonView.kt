@@ -60,7 +60,7 @@ class QuickActionButtonView @JvmOverloads constructor(
                 .takeIf { it != -1 }
             disabledIconId = getResourceId(R.styleable.QuickActionButtonView_disabledIcon, -1)
                 .takeIf { it != -1 }
-            setIsCardEnabled(getBoolean(R.styleable.QuickActionButtonView_isEnable, true))
+            setIsButtonEnabled(getBoolean(R.styleable.QuickActionButtonView_isEnable, true))
             recycle()
         }
     }
@@ -104,7 +104,7 @@ class QuickActionButtonView @JvmOverloads constructor(
         vb.ivIcon.setImageDrawable(drawable)
     }
 
-    fun setIsCardEnabled(isEnabled: Boolean) {
+    fun setIsButtonEnabled(isEnabled: Boolean) {
         when (isEnabled) {
             true -> enableButton()
             else -> disableButton()

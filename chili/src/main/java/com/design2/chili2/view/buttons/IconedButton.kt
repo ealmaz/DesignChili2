@@ -13,6 +13,7 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewButtonIconedBinding
+import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.visible
@@ -28,7 +29,8 @@ class IconedButton @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewButtonIconedBinding
     private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
-
+    private var isContentInvisibleOnShimmering = false
+    private var isShimmeringStart = false
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
 
     init {
@@ -38,7 +40,7 @@ class IconedButton @JvmOverloads constructor(
     }
 
     private fun setupShimmeringViews() {
-        shimmeringPairs[vb.tvTitle] = null
+        if (isContentInvisibleOnShimmering) shimmeringPairs[vb.tvTitle] = null
     }
 
     private fun initView(context: Context) {
@@ -57,6 +59,7 @@ class IconedButton @JvmOverloads constructor(
             defStyleAttr,
             defStyle
         ).run {
+            isContentInvisibleOnShimmering = getBoolean(R.styleable.IconedButton_isContentInvisibleOnShimmering, false)
             setStartIcon(
                 getResourceId(R.styleable.IconedButton_startIcon, -1).takeIf { it != -1 }
             )
@@ -80,9 +83,12 @@ class IconedButton @JvmOverloads constructor(
     }
 
     fun setStartIcon(@DrawableRes drawableRes: Int?) = with(vb.ivStartIcon) {
-        if (drawableRes == null) shimmeringPairs.remove(this)
-        else shimmeringPairs[this] = null
+        if (isContentInvisibleOnShimmering) {
+            if (drawableRes == null) shimmeringPairs.remove(this)
+            else shimmeringPairs[this] = null
+        }
         setImageOrHide(drawableRes)
+        if (isShimmeringStart && drawableRes != null) invisible()
     }
 
     private fun setupStartIconSize(widthPx: Int?, heightPx: Int?) {
@@ -130,5 +136,13 @@ class IconedButton @JvmOverloads constructor(
 
     fun setTextAppearance(@StyleRes resId: Int) {
         vb.tvTitle.setTextAppearance(resId)
+    }
+
+    override fun onStartShimmer() {
+        isShimmeringStart = true
+    }
+
+    override fun onStopShimmer() {
+        isShimmeringStart = false
     }
 }

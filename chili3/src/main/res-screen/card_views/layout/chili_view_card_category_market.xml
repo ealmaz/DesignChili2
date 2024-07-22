@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?ChiliMarketCategoryCardViewBackgroundColor"
+    android:paddingStart="?ChiliMarketCategoryCardViewContainerMarginStart"
+    android:paddingTop="?ChiliMarketCategoryCardViewContainerMarginTop">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="?ChiliMarketCategoryCardViewTitleEndMargin"
+        android:maxLines="?ChiliMarketCategoryCardViewTitleMaxLines"
+        android:textAppearance="?ChiliMarketCategoryCardViewTitleTextAppearance"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Бытовая химия, хозтовары" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_title_shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_6dp"
+            android:background="@drawable/chili_bg_shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_icons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_icon_shimmer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_12dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_title_shimmer">
+
+        <View
+            android:layout_width="@dimen/view_80dp"
+            android:layout_height="@dimen/view_6dp"
+            android:background="@drawable/chili_bg_shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -134,6 +134,9 @@
         <item name="ChiliAccountCardViewActionButtonBackgroundActive">@color/c_4a4a4a</item>
         <item name="ChiliAccountCardViewActionButtonBorderColor">@color/c_4a4a4a</item>
 
+        <!-- CategoryCardView -->
+        <item name="ChiliMarketCategoryCardViewBackgroundColor">@color/c_28282a</item>
+
         <!-- ChiliNewBottomSheetTopDrawableColor-->
         <item name="ChiliNewBottomSheetTopDrawableColor">@color/black_5</item>
 

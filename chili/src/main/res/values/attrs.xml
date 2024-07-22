@@ -314,6 +314,7 @@
         <attr name="android:enabled"/>
         <attr name="android:textAppearance"/>
         <attr name="startIcon"/>
+        <attr name="isContentInvisibleOnShimmering" format="boolean" />
         <attr name="startIconWidth" format="dimension"/>
         <attr name="startIconHeight" format="dimension"/>
     </declare-styleable>

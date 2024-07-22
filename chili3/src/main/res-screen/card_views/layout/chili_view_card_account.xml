@@ -168,6 +168,7 @@
         android:layout_marginVertical="?ChiliAccountCardViewActionButtonMarginVertical"
         android:layout_marginEnd="?ChiliAccountCardViewActionButtonMarginEnd"
         android:theme="?ChiliAccountCardViewActionButtonTheme"
+        app:isContentInvisibleOnShimmering="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

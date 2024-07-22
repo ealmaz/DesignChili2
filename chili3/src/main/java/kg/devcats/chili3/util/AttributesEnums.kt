@@ -7,3 +7,7 @@ enum class StoriesStatus(val value: Int) {
 enum class PromoStatus(val value: Int) {
     NO_STATUS(0), NEW(1), ACTIVE(2), WAIT(3), EXPIRED(4)
 }
+
+enum class ViewSize(val value: Int) {
+    SMALL(-1), MEDIUM(-2), LARGE(-3)
+}
