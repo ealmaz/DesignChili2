@@ -53,6 +53,7 @@
     <attr name="ChiliProductCardViewSubtitlePaddingVertical" format="dimension"/>
     <attr name="ChiliProductCardViewDescriptionTopMargin" format="dimension"/>
     <attr name="ChiliProductCardViewDescriptionBottomMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewDescriptionMinLines" format="integer"/>
     <attr name="ChiliProductCardViewDescriptionMaxLines" format="integer"/>
     <attr name="ChiliProductCardViewSubtitleCornerRadius" format="dimension"/>
     <attr name="ChiliProductCardViewDiscountCornerRadius" format="dimension"/>

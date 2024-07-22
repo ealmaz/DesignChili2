@@ -154,6 +154,9 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
         vb.pcvPromo1.setIcon("https://minio.o.kg/catalog/icons/light/taxes.png")
 
         vb.pcvProduct.setDiscountBackground("#10C44C")
+        vb.pcvProduct.setOnClickListener {
+            vb.pcvProduct.setDiscountBackground(arrayOf("#FF6491", "#F91155"))
+        }
     }
 
     private fun setExpandedState(isExpanded: Boolean) {
