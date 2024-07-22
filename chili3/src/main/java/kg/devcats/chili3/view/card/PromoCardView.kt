@@ -24,8 +24,9 @@ class PromoCardView @JvmOverloads constructor(
 ) : BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
     override val styleableAttrRes: IntArray = R.styleable.PromoCardView
+    private var promoStatus = PromoStatus.NO_STATUS
 
-    private var promoStatus = mutableListOf(
+    private var promoStatuses = mutableListOf(
         PromoStatus.NO_STATUS to null,
         PromoStatus.NEW to null,
         PromoStatus.ACTIVE to null,
@@ -118,7 +119,8 @@ class PromoCardView @JvmOverloads constructor(
     }
 
     fun setPromoBackground(status: Int) {
-        vb.clContainer.background = promoStatus[status].second
+        vb.clContainer.background = promoStatuses[status].second
+        promoStatus = promoStatuses[status].first
     }
 
     fun setStatus(status: Int) {
@@ -138,9 +140,19 @@ class PromoCardView @JvmOverloads constructor(
     }
 
     private fun updateStatusBorder(status: PromoStatus, newDrawable: Drawable) {
-        val index = promoStatus.indexOfFirst { it.first == status }
+        val index = promoStatuses.indexOfFirst { it.first == status }
         if (index != -1) {
-            promoStatus[index] = status to newDrawable
+            promoStatuses[index] = status to newDrawable
+        }
+    }
+
+    override fun onStartShimmer() {
+        if (promoStatus == PromoStatus.EXPIRED) vb.clContainer.background = null
+    }
+
+    override fun onStopShimmer() {
+        if (promoStatus == PromoStatus.EXPIRED) {
+            vb.clContainer.background = promoStatuses[promoStatus.value].second
         }
     }
 
