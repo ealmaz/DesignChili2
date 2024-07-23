@@ -144,6 +144,16 @@ fun ImageView.setImageOrHide(@DrawableRes resId: Int?) {
     }
 }
 
+fun ImageView.setImageOrHide(string: String?) {
+    when (string) {
+        null -> gone()
+        else -> {
+            setImageByUrl(string)
+            visible()
+        }
+    }
+}
+
 fun SquircleView.setImageByUrl(url: String?) {
     Glide.with(this)
         .load(url)
