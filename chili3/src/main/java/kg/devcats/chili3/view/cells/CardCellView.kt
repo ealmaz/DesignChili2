@@ -12,6 +12,7 @@ import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setTextOrHide
 import kg.devcats.chili3.R
 import com.design2.chili2.view.shimmer.ShimmeringView
@@ -20,6 +21,7 @@ import kg.devcats.chili3.databinding.ChiliViewCardCellBinding
 import kg.devcats.chili3.extensions.setBoldTextWeight
 import kg.devcats.chili3.extensions.setNormalTextWeight
 import kg.devcats.chili3.extensions.setSurfaceClick
+import kg.devcats.chili3.extensions.visible
 
 class CardCellView @JvmOverloads constructor(
     context: Context,
@@ -55,6 +57,9 @@ class CardCellView @JvmOverloads constructor(
                 getString(R.styleable.CardCellView_cardCellSubtitle)?.let { setSubtitle(it) }
                 getString(R.styleable.CardCellView_cardCellValue)?.let { setAdditionalText(it) }
                 getDrawable(R.styleable.CardCellView_cardCellIcon)?.let { setIcon(it) }
+                getDrawable(R.styleable.CardCellView_cardCellOverlay)?.let { setOverlay(it) }
+                setOverlayAlpha(getFloat(R.styleable.CardCellView_cardCellOverlayAlpha, 0.4f))
+                getDrawable(R.styleable.CardCellView_cardCellOverlayIcon)?.let { setOverlayIcon(it) }
                 setIsMain(getBoolean(R.styleable.CardCellView_cardCellIsMain, false))
                 setIsBlocked(getBoolean(R.styleable.CardCellView_cardCellIsBlocked, false))
                 setIsUniqueStated(
@@ -146,22 +151,73 @@ class CardCellView @JvmOverloads constructor(
         vb.ivIcon.setImageResource(resId)
     }
 
+    fun setOverlay(icon: Drawable?, alpha: Float = 0.4f) {
+        vb.ivOverlay.apply {
+            setImageOrHide(icon)
+            setAlpha(alpha)
+        }
+    }
+
+    fun setOverlay(url: String?, alpha: Float = 0.4f) {
+        vb.ivOverlay.apply {
+            setImageOrHide(url)
+            setAlpha(alpha)
+        }
+    }
+
+    fun setOverlay(@DrawableRes resId: Int?, alpha: Float = 0.4f) {
+        vb.ivOverlay.apply {
+            setImageOrHide(resId)
+            setAlpha(alpha)
+        }
+    }
+
+    fun setOverlayAlpha(alpha: Float = 0.4f) {
+        vb.ivOverlay.apply {
+            visible()
+            setAlpha(alpha)
+        }
+    }
+
+    fun setOverlayIcon(icon: Drawable?, isOverlayVisible: Boolean = true) {
+        with(vb){
+            ivOverlayIcon.setImageOrHide(icon)
+            ivOverlay.isVisible = isOverlayVisible
+        }
+    }
+
+    fun setOverlayIcon(url: String?, isOverlayVisible: Boolean = true) {
+        with(vb){
+            ivOverlayIcon.setImageOrHide(url)
+            ivOverlay.isVisible = isOverlayVisible
+        }
+    }
+
+    fun setOverlayIcon(@DrawableRes resId: Int?, isOverlayVisible: Boolean = true) {
+        with(vb){
+            ivOverlayIcon.setImageOrHide(resId)
+            ivOverlay.isVisible = isOverlayVisible
+        }
+    }
+
     fun setIsMain(isMain: Boolean) {
         vb.ivStar.isVisible = isMain
     }
 
-    fun setIsBlocked(isBlocked: Boolean) {
+    fun setIsBlocked(isBlocked: Boolean, alpha: Float = 0.4f, blockingIcon: Int = R.drawable.chili_ic_lock) {
         with(vb) {
-            val alphaValue = if (isBlocked) 0.4f else 1f
+            val alphaValue = if (isBlocked) alpha else 1f
 
-            ivIcon.alpha = alphaValue
             tvTitle.alpha = alphaValue
             tvSubtitle.alpha = alphaValue
             tvAdditionalText.alpha = alphaValue
             ivStar.alpha = alphaValue
             ivChevron.alpha = alphaValue
-
-            ivLock.isVisible = isBlocked
+            if (isBlocked) setOverlayIcon(blockingIcon)
+            ivOverlay.apply {
+                isVisible = isBlocked
+                setAlpha(alpha)
+            }
         }
     }
 

@@ -105,6 +105,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             setTitle("Test Title")
             setSubtitle("Test Subtitle")
             val text = "1212 <u>c</u>".parseAsHtml()
+            setIsBlocked(true)
             setAdditionalText(text)
             setOnSingleClickListener {
                 Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()

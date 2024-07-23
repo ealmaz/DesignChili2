@@ -183,6 +183,9 @@
         <attr name="cardCellSubtitle" format="string" />
         <attr name="cardCellValue" format="string" />
         <attr name="cardCellIcon" format="reference" />
+        <attr name="cardCellOverlay" format="reference" />
+        <attr name="cardCellOverlayAlpha" format="float" />
+        <attr name="cardCellOverlayIcon" format="reference" />
         <attr name="cardCellIsMain" format="boolean" />
         <attr name="cardCellIsBlocked" format="boolean" />
         <attr name="cardCellIsUniqueStatused" format="boolean" />
