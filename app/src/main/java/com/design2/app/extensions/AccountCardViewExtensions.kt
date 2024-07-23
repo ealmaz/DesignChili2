@@ -3,7 +3,7 @@ package com.design2.app.extensions
 import kg.devcats.chili3.R
 import kg.devcats.chili3.view.card.AccountCardView
 
-fun AccountCardView.setNonAuthorizedState(title: String?, subTitle: String?) {
+fun AccountCardView.setNonAuthorizedState(title: String?, subTitle: CharSequence?) {
     setTitleIcon(drawableRes = null)
     setTitleTextAppearance(R.style.Chili_H16_Primary_Bold)
     setTitle(title)
@@ -41,7 +41,7 @@ fun AccountCardView.setFavoritePaymentAmountAvailableState(
     title: String?,
     titleAddition: String?,
     isToggleHiddenState: Boolean = false,
-    subTitle: String?
+    subTitle: CharSequence?
 ) {
     setTitleIcon(R.drawable.chili_ic_star_20)
     setTitleTextAppearance(R.style.Chili_H14_Primary_Bold)
@@ -59,7 +59,7 @@ fun AccountCardView.setFavoritePaymentAmountAvailableState(
 fun AccountCardView.setFavoritePaymentAmountUnavailableState(
     title: String?,
     titleAddition: String?,
-    subTitle: String?
+    subTitle: CharSequence?
 ) {
     setTitleIcon(R.drawable.chili_ic_star)
     setTitleTextAppearance(R.style.Chili_H14_Primary_Bold)
@@ -73,7 +73,7 @@ fun AccountCardView.setFavoritePaymentAmountUnavailableState(
     setSubtitle(subTitle)
 }
 
-fun AccountCardView.setNoFavoritePaymentAmountState(title: String?, subTitle: String?) {
+fun AccountCardView.setNoFavoritePaymentAmountState(title: String?, subTitle: CharSequence?) {
     setTitleIcon(com.design2.app.R.drawable.chili_ic_star_outlined)
     setTitleTextAppearance(R.style.Chili_H14_Primary_Bold)
     setTitleAddition(charSequence = null)
