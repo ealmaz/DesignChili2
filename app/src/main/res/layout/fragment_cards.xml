@@ -224,6 +224,7 @@
                             android:layout_marginVertical="@dimen/padding_12dp"
                             android:layout_marginStart="@dimen/padding_12dp"
                             android:scaleType="fitXY"
+                            android:theme="@style/ThemeOverlay.StoriesCardRippleCornerRadius"
                             app:cardIconSize="medium"
                             app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/125ac05b-0cbb-4bde-9da0-1f090d1fac2e"
                             app:viewedBorder="@drawable/chili_bg_viewed_stories" />
@@ -235,6 +236,7 @@
                             android:layout_marginVertical="@dimen/padding_12dp"
                             android:layout_marginStart="@dimen/padding_12dp"
                             android:scaleType="fitXY"
+                            android:theme="@style/ThemeOverlay.StoriesCardRippleCornerRadius"
                             app:cardIconSize="medium"
                             app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/de574e23-7478-43af-b3df-b572093b818c" />
 
@@ -246,6 +248,7 @@
                             android:layout_marginStart="@dimen/padding_12dp"
                             android:layout_marginEnd="@dimen/padding_12dp"
                             android:scaleType="fitXY"
+                            android:theme="@style/ThemeOverlay.StoriesCardRippleCornerRadius"
                             app:cardIconSize="medium"
                             app:unviewedBorder="@drawable/personal_stories"
                             app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/de574e23-7478-43af-b3df-b572093b818c" />

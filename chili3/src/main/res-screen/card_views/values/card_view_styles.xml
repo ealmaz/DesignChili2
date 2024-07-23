@@ -3,6 +3,11 @@
 
     <style name="Chili.CardViewStyle.StoriesCardView">
         <item name="cardElevation">0dp</item>
+        <item name="android:foreground">@drawable/chili_ripple_rounded_corner_foreground</item>
+    </style>
+
+    <style name="ThemeOverlay.StoriesCardRippleCornerRadius">
+        <item name="ChiliCellCornerRadius">@dimen/radius_15dp</item>
     </style>
 
     <style name="Chili.CardViewStyle.PromoCardView"/>
