@@ -35,7 +35,7 @@ class AccountCardView @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewCardAccountBinding
     private var titleValue: CharSequence? = null
-    private var subtitleValue = ""
+    private var subtitleValue: CharSequence? = null
     private var isToggleHiddenState = false
     private var toggleChanged: ((Boolean) -> Unit)? = null
     private var subtitleValueByDelegate = { pan: CharSequence, isHidden: Boolean ->
@@ -114,7 +114,7 @@ class AccountCardView @JvmOverloads constructor(
 
         tvTitle.run {
             maxWidth = availableWidth
-            maxLines = if (subtitleValue.isEmpty()) 2 else 1
+            maxLines = if (subtitleValue == null) 2 else 1
             ellipsize = TextUtils.TruncateAt.END
             text = titleValue
         }
@@ -220,14 +220,14 @@ class AccountCardView @JvmOverloads constructor(
             if (!isToggleHiddenState) R.drawable.chili_ic_eye
             else R.drawable.chili_ic_eye_slash
         )
-        tvSubtitle.text = subtitleValueByDelegate(subtitleValue, isToggleHiddenState)
+        tvSubtitle.text = subtitleValue?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
         toggleChanged?.let { it(isToggleHiddenState) }
     }
 
     fun setSubtitle(charSequence: CharSequence?) {
         vb.llSubtitle.isVisible = !charSequence.isNullOrEmpty()
-        vb.tvSubtitle.text = subtitleValueByDelegate(charSequence?.toString() ?: "", isToggleHiddenState)
-        subtitleValue = charSequence?.toString() ?: ""
+        vb.tvSubtitle.text = charSequence?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
+        subtitleValue = charSequence
         updateTitle()
     }
 

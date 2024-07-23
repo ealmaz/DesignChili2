@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import androidx.core.text.parseAsHtml
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentAccountCardExamplesBinding
@@ -26,20 +27,24 @@ class AccountCardsExamplesFragment : BaseFragment<FragmentAccountCardExamplesBin
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).setUpHomeEnabled(true)
 
-        vb.acv8.onToggleChange {
-            println("toggle $it")
-        }
-        vb.acv8.onMainContentClick {
-            println("main click")
-        }
-        vb.acv8.onActionButtonClick {
-            println("action ")
+        vb.acv8.apply {
+            setToggleIconState(isHiddenState = false)
+            setSubtitle("1212 <u>c</u>".parseAsHtml())
+            onToggleChange {
+                println("toggle $it")
+            }
+            onMainContentClick {
+                println("main click")
+            }
+            onActionButtonClick {
+                println("action ")
+            }
         }
         vb.acvDynamic.setFavoritePaymentAmountAvailableState(
             "Карта Visa",
             "•••• 1234",
             isToggleHiddenState = true,
-            "3 350,00 c"
+            "1212 <u>c</u>".parseAsHtml()
         )
 
         Handler(Looper.getMainLooper()).postDelayed({
@@ -57,7 +62,7 @@ class AccountCardsExamplesFragment : BaseFragment<FragmentAccountCardExamplesBin
                 "Карта Visa",
                 "•••• 1234",
                 isToggleHiddenState = false,
-                "3 350,00 c"
+                "1212 <u>c</u>".parseAsHtml()
             )
         },9000)
 
