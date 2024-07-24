@@ -5,6 +5,7 @@ import android.text.Spanned
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.widget.TextView
+import androidx.annotation.DimenRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.core.view.get
@@ -91,4 +92,24 @@ class AdditionalTextCellView @JvmOverloads constructor(
     fun setAdditionalTextTextAppearance(@StyleRes resId: Int) {
         additionalText?.setTextAppearance(resId)
     }
+
+    fun setAdditionalTextWidth(@DimenRes dimenResId: Int){
+        additionalText?.width = resources.getDimensionPixelSize(dimenResId)
+    }
+
+    fun setAdditionalTextMaxLines(maxLines: Int){
+        additionalText?.maxLines = maxLines
+    }
+
+    fun updateAdditionalTextMargin(startMarginPx: Int? = null, topMarginPx: Int? = null, endMarginPx: Int? = null, bottomMarginPx: Int? = null) {
+        val param = additionalText?.layoutParams as? MarginLayoutParams ?: return
+        param.apply {
+            leftMargin = startMarginPx ?: leftMargin
+            topMargin = topMarginPx ?: topMargin
+            rightMargin = endMarginPx ?: rightMargin
+            bottomMargin = bottomMarginPx ?: bottomMargin
+        }
+        additionalText?.layoutParams = param
+    }
+
 }
