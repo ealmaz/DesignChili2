@@ -28,8 +28,8 @@
         android:background="@drawable/chili_bg_rounded_bottom_sheet"
         android:paddingTop="@dimen/padding_8dp"
         android:paddingBottom="@dimen/padding_8dp"
-        android:layout_marginHorizontal="@dimen/padding_16dp"
-        android:layout_marginBottom="@dimen/padding_16dp">
+        android:layout_marginHorizontal="?ChiliBottomSheetContainerHorizontalMargin"
+        android:layout_marginBottom="?ChiliBottomSheetContainerBottomMargin">
 
         <ImageView
             android:id="@+id/iv_close"

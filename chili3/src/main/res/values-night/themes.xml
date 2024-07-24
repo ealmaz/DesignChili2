@@ -133,11 +133,9 @@
         <!-- CategoryCardView -->
         <item name="ChiliMarketCategoryCardViewBackgroundColor">@color/c_28282a</item>
 
-        <!-- ChiliNewBottomSheetTopDrawableColor-->
-        <item name="ChiliNewBottomSheetTopDrawableColor">@color/black_5</item>
-
-        <!-- Chili3BottomSheetBackgroundColor-->
-        <item name="ChiliNewBottomSheetBackgroundColor">@color/black_3</item>
+        <!-- ChiliBottomSheet-->
+        <item name="ChiliBottomSheetBackgroundColor">@color/black_3</item>
+        <item name="ChiliBottomSheetTopDrawableColor">@color/black_5</item>
 
         <!-- ChiliCellViewBackgroundColor-->
         <item name="ChiliCellViewBackgroundColor">@color/c_efeff4</item>

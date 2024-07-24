@@ -136,7 +136,10 @@
     <attr name="ChiliBottomSheetBackgroundColor" format="color"/>
     <attr name="ChiliBottomSheetGrayBackgroundColor" format="color"/>
     <attr name="ChiliBottomSheetTopCornersRadius" format="dimension"/>
+    <attr name="ChiliBottomSheetBottomCornersRadius" format="dimension"/>
     <attr name="ChiliBottomSheetTopDrawableColor" format="color"/>
+    <attr name="ChiliBottomSheetContainerHorizontalMargin" format="dimension"/>
+    <attr name="ChiliBottomSheetContainerBottomMargin" format="dimension"/>
     <!-- Bottom sheet >>> ActionBottomSheet   -->
     <attr name="ChiliActionBottomSheetButtonTextColor" format="color"/>
     <attr name="ChiliActionBottomSheetAccentButtonTextColor" format="color"/>
@@ -273,12 +276,6 @@
     <!-- Tooltip attributes -->
     <attr name="ChiliTooltipBackground" format="color"/>
     <attr name="ChiliTooltipCornerRadius" format="dimension"/>
-
-    <!-- ChiliNewBottomSheetTopDrawableColor-->
-    <attr name="ChiliNewBottomSheetTopDrawableColor" format="color"/>
-
-    <!--    ChiliNewBottomSheetBackgroundColor-->
-    <attr name="ChiliNewBottomSheetBackgroundColor" format="color" />
 
     <!--    ChiliCellViewBackgroundColor-->
     <attr name="ChiliCellViewBackgroundColor" format="color" />

@@ -4,9 +4,10 @@
     android:shape="rectangle">
     <solid
         android:color="?attr/ChiliBottomSheetGrayBackgroundColor"
-        tools:color="@color/gray_4"
-        />
+        tools:color="@color/gray_4" />
     <corners
-        android:radius="?attr/ChiliBottomSheetTopCornersRadius"
-        tools:radius="@dimen/padding_12dp" />
+        android:topLeftRadius="?attr/ChiliBottomSheetTopCornersRadius"
+        android:topRightRadius="?attr/ChiliBottomSheetTopCornersRadius"
+        android:bottomLeftRadius="?attr/ChiliBottomSheetBottomCornersRadius"
+        android:bottomRightRadius="?attr/ChiliBottomSheetBottomCornersRadius" />
 </shape>

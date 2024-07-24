@@ -92,8 +92,11 @@
         <!-- Bottom sheet -->
         <item name="ChiliBottomSheetBackgroundColor">@color/white_1</item>
         <item name="ChiliBottomSheetTopCornersRadius">@dimen/radius_12dp</item>
+        <item name="ChiliBottomSheetBottomCornersRadius">@dimen/radius_12dp</item>
         <item name="ChiliBottomSheetTopDrawableColor">@color/white_1</item>
         <item name="ChiliBottomSheetGrayBackgroundColor">@color/gray_4</item>
+        <item name="ChiliBottomSheetContainerHorizontalMargin">@dimen/padding_16dp</item>
+        <item name="ChiliBottomSheetContainerBottomMargin">@dimen/padding_16dp</item>
 
         <!-- Bottom sheet >>> ActionBottomSheet   -->
         <item name="ChiliActionBottomSheetButtonTextColor">@color/black_4</item>

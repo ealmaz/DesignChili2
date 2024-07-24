@@ -25,18 +25,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingTop="@dimen/padding_8dp"
-        android:paddingBottom="@dimen/padding_8dp"
-        android:layout_marginHorizontal="@dimen/padding_16dp"
-        android:layout_marginBottom="@dimen/padding_16dp">
+        android:layout_marginHorizontal="?ChiliBottomSheetContainerHorizontalMargin"
+        android:layout_marginBottom="?ChiliBottomSheetContainerBottomMargin">
 
         <ImageView
-            android:id="@+id/iv_new_inner_drawable"
+            android:id="@+id/iv_inner_drawable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/padding_8dp"
             android:background="@drawable/ic_bottom_sheet_top_drawable"
-            android:backgroundTint="?attr/ChiliNewBottomSheetTopDrawableColor"
+            android:backgroundTint="?attr/ChiliBottomSheetTopDrawableColor"
             android:visibility="gone"/>
 
         <ImageView

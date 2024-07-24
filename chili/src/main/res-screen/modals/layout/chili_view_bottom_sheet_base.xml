@@ -24,8 +24,8 @@
         android:id="@+id/ll_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/padding_16dp"
-        android:layout_marginBottom="@dimen/padding_16dp"
+        android:layout_marginHorizontal="?ChiliBottomSheetContainerHorizontalMargin"
+        android:layout_marginBottom="?ChiliBottomSheetContainerBottomMargin"
         android:orientation="vertical"
         android:paddingTop="@dimen/padding_8dp"
         android:paddingBottom="@dimen/padding_8dp" />
