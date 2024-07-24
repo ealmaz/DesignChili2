@@ -193,6 +193,17 @@
         <attr name="cardCellTitleTextAppearance" format="reference" />
         <attr name="cardCellSubtitleTextAppearance" format="reference" />
         <attr name="cardCellAdditionalTextAppearance" format="reference" />
+        <attr name="cardCellIconWidth" format="dimension" />
+        <attr name="cardCellIconHeight" format="dimension" />
+        <attr name="cardCellAdditionalTextVerticalAlign" format="enum">
+        <enum name="top" value="0" />
+        <enum name="center" value="1" />
+        <enum name="bottom" value="2" />
+        </attr>
+        <attr name="cardCellTitleMaxLines" format="integer" />
+        <attr name="cardCellSubtitleMaxLines" format="integer" />
+        <attr name="cardCellAdditionalTextMaxLines" format="integer" />
+        <attr name="cardCellIsSurfaceClickable" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="QuickActionButtonView">
