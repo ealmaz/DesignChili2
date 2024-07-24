@@ -12,6 +12,7 @@ import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.annotation.ColorInt
 import com.design2.chili2.R
+import kotlin.math.abs
 
 class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : View(context, attrs) {
 
@@ -20,7 +21,10 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
     @ColorInt private var progressBackgroundColor: Int = Color.GRAY
     @ColorInt private var progressColor: Int = Color.GREEN
     @ColorInt private var progressGradientStartColor: Int? = null
+    @ColorInt private var progressGradientCenterColor: Int? = null
     @ColorInt private var progressGradientEndColor: Int? = null
+    private var backgroundHeight: Float = height.toFloat()
+    private var trackHeight: Float = height.toFloat()
 
     private var progressPercent: Int = 0
     private var isProgressAnimated: Boolean = false
@@ -44,6 +48,8 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
             }
             getColor(R.styleable.AnimatedProgressLine_progressGradientStartColor, -1)
                 .takeIf { it != -1 }.let { progressGradientStartColor = it }
+            getColor(R.styleable.AnimatedProgressLine_progressGradientCenterColor, -1)
+                .takeIf { it != -1 }.let { progressGradientCenterColor = it }
             getColor(R.styleable.AnimatedProgressLine_progressGradientEndColor, -1)
                 .takeIf { it != -1 }.let { progressGradientEndColor = it }
             getColor(R.styleable.AnimatedProgressLine_progressBackgroundColor, Color.GRAY).let {
@@ -51,6 +57,12 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
             }
             getInteger(R.styleable.AnimatedProgressLine_progressPercent, 50).let {
                 setProgress(it)
+            }
+            getDimension(R.styleable.AnimatedProgressLine_backgroundHeight, height.toFloat()).let {
+                backgroundHeight = it
+            }
+            getDimension(R.styleable.AnimatedProgressLine_trackHeight, height.toFloat()).let {
+                trackHeight = it
             }
             recycle()
         }
@@ -78,6 +90,13 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
         invalidate()
     }
 
+    fun setProgressGradientColors(@ColorInt startColor: Int, @ColorInt centerColor: Int, @ColorInt endColor: Int) {
+        this.progressGradientStartColor = startColor
+        this.progressGradientCenterColor = centerColor
+        this.progressGradientEndColor = endColor
+        invalidate()
+    }
+
     fun setProgressBackgroundColor(@ColorInt color: Int) {
         this.progressBackgroundColor = color
         invalidate()
@@ -99,9 +118,9 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
         if (canvas == null) return
         paint.apply {
             color = progressBackgroundColor
-            strokeWidth = height.toFloat()
+            strokeWidth = backgroundHeight
         }
-        val roundOffset = height / 2f
+        val roundOffset = (backgroundHeight / 2f) + abs(trackHeight-backgroundHeight)/2
         canvas.drawLine(roundOffset, roundOffset, (width - roundOffset), roundOffset, paint)
     }
 
@@ -109,25 +128,38 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
         if (canvas == null || progressPercent <= 0) return
         paint.apply {
             color = progressColor
-            strokeWidth = height.toFloat()
+            strokeWidth = trackHeight
         }
-        val progress = (width / 100f * progressPercent).coerceAtLeast(height.toFloat())
+        val progress = (width / 100f * progressPercent).coerceAtLeast(trackHeight)
         prepareGradientPaintIfNeed(progress)
-        val roundOffset = height / 2f
+        val roundOffset = trackHeight / 2f
         canvas.drawLine(roundOffset, roundOffset, (progress - roundOffset), roundOffset, paint)
     }
 
     private fun prepareGradientPaintIfNeed(width: Float) {
         if (progressGradientStartColor == null || progressGradientEndColor == null) return
-        paint.shader = LinearGradient(
-            0f,
-            0f,
-            width,
-            height.toFloat(),
-            progressGradientStartColor!!,
-            progressGradientEndColor!!,
-            Shader.TileMode.MIRROR
-        )
+        paint.shader = if (progressGradientCenterColor == null) {
+            LinearGradient(
+                0f,
+                0f,
+                width,
+                trackHeight,
+                progressGradientStartColor!!,
+                progressGradientEndColor!!,
+                Shader.TileMode.MIRROR
+            )
+        } else {
+            LinearGradient(
+                0f,
+                0f,
+                width,
+                trackHeight,
+                intArrayOf(progressGradientStartColor!!, progressGradientCenterColor!!, progressGradientEndColor!!),
+                null,
+                Shader.TileMode.MIRROR
+            )
+        }
+
     }
 
     private fun animateProgress(progress: Int) {

@@ -122,9 +122,12 @@
         <attr name="progressBackgroundColor" format="color"/>
         <attr name="progressColor" format="color"/>
         <attr name="progressGradientStartColor" format="color"/>
+        <attr name="progressGradientCenterColor" format="color"/>
         <attr name="progressGradientEndColor" format="color"/>
         <attr name="progressPercent" format="integer"/>
         <attr name="animateProgress" format="boolean"/>
+        <attr name="backgroundHeight" format="dimension"/>
+        <attr name="trackHeight" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="ChiliToolbar">

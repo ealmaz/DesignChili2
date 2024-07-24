@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/view_unauthorized"
+        layout="@layout/chili_view_my_connection_unauthorized"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/iv_chevron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:layout_marginEnd="@dimen/padding_12dp"
+        android:src="@drawable/ic_chevron_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fl_title_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_12dp"
+        android:layout_marginTop="@dimen/padding_12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/Chili.H7.Marked.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="Моя связь" />
+
+    </FrameLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_title_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_12dp"
+        android:layout_marginTop="@dimen/padding_18dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.25">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_6dp"
+            android:background="@drawable/chili_bg_shimmer" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_leftover_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_12dp"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding_8dp"
+        android:paddingBottom="@dimen/padding_12dp"
+        app:layout_constraintTop_toBottomOf="@id/fl_title_container">
+
+        <LinearLayout
+            android:id="@+id/ll_balance_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_balance_title"
+                style="@style/Chili.H9.Value.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                tools:text="Баланс номера" />
+
+            <TextView
+                android:id="@+id/tv_balance"
+                style="@style/Chili.H8.Marked.Bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                tools:text="200 c" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/view_1dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_6" />
+
+        <kg.devcats.chili3.view.cells.PackageLeftoverHorizontalView
+            android:id="@+id/plv_internet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_12dp"
+            android:layout_weight="1" />
+
+        <kg.devcats.chili3.view.cells.PackageLeftoverHorizontalView
+            android:id="@+id/plv_call"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_12dp"
+            android:layout_weight="1" />
+
+        <kg.devcats.chili3.view.cells.PackageLeftoverHorizontalView
+            android:id="@+id/plv_without_package"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_12dp"
+            android:layout_weight="2"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_balance_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_12dp"
+        android:layout_marginTop="@dimen/padding_8dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fl_title_container"
+        app:layout_constraintWidth_percent="0.25">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_8dp">
+
+            <View
+                android:id="@+id/view_remain_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_6dp"
+                android:layout_marginEnd="@dimen/padding_24dp"
+                android:background="@drawable/chili_bg_shimmer" />
+
+            <View
+                android:id="@+id/view_limit_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_6dp"
+                android:layout_marginTop="@dimen/padding_12dp"
+                android:background="@drawable/chili_bg_shimmer" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_leftover_packages"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/iv_tethering"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_unlimited"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_4dp"
+            android:visibility="gone"
+            tools:src="@drawable/ic_chevron_right" />
+
+        <TextView
+            android:id="@+id/tv_remain"
+            style="@style/Chili.H8.Marked.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_4dp"
+            tools:text="230 мин." />
+
+        <TextView
+            android:id="@+id/tv_remain_from"
+            style="@style/Chili.H9.Value.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_4dp"
+            tools:text="230 мин." />
+
+        <com.design2.chili2.view.common.AnimatedProgressLine
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_6dp"
+            android:layout_marginTop="@dimen/view_4dp"
+            app:backgroundHeight="@dimen/view_4dp"
+            app:progressBackgroundColor="@color/gray_3"
+            app:progressColor="@color/cyan_1"
+            app:progressPercent="80"
+            app:trackHeight="@dimen/view_6dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_tethering"
+        android:layout_width="@dimen/padding_16dp"
+        android:layout_height="@dimen/padding_16dp"
+        android:layout_marginEnd="@dimen/padding_4dp"
+        android:src="@drawable/ic_chevron_right"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/ll_leftover_packages"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ll_leftover_packages" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_shimmer_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/padding_4dp"
+            android:paddingTop="@dimen/padding_8dp">
+
+            <View
+                android:id="@+id/view_remain_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_6dp"
+                android:layout_marginEnd="@dimen/padding_24dp"
+                android:background="@drawable/chili_bg_shimmer" />
+
+            <View
+                android:id="@+id/view_limit_shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/view_6dp"
+                android:layout_marginTop="@dimen/padding_12dp"
+                android:background="@drawable/chili_bg_shimmer" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

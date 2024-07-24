@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="@dimen/view_0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/iv_unauthorized"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="@dimen/padding_12dp"
+        android:layout_marginEnd="@dimen/padding_12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_ua_title"
+            style="@style/Chili.H7.Marked.Bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/padding_4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="Станьте абонентом" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            style="@style/Chili.H9.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="Выберите номер и закажите SIM-карту" />
+
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/iv_unauthorized"
+        android:layout_width="@dimen/view_76dp"
+        android:layout_height="@dimen/view_72dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/padding_8dp"
+        android:layout_marginTop="@dimen/padding_18dp"
+        android:layout_marginEnd="@dimen/padding_34dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
