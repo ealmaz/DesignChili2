@@ -111,6 +111,19 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
                 Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
             }
         }
+        vb.cardcell6.apply {
+//            setIcon(com.design2.app.R.drawable.ic_card_default)
+            setTitle("Test Title")
+            setSubtitle("Test Subtitle")
+            val text = "1212 <u>c</u>".parseAsHtml()
+            setAdditionalText(text)
+//            setIconWidth(resources.getDimensionPixelSize(com.design2.chili2.R.dimen.view_32dp))
+//            setIconHeight(resources.getDimensionPixelSize(com.design2.chili2.R.dimen.view_32dp))
+//            setAdditionalTextVerticalAlign(1) // Center align
+            setOnSingleClickListener {
+                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
+            }
+        }
         vb.cardcell5.apply {
             alpha = 0.5f
             setAdditionalText("Сервис \nнедоступен")
