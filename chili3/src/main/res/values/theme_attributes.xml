@@ -15,6 +15,9 @@
     <!-- Shimmer attributes -->
     <attr name="ChiliShimmerHighlightColor" format="color" />
 
+    <!-- Animator attributes -->
+    <attr name="ChiliTranslucentStateListAnimator" format="reference" />
+
     <!-- PromoCardView -->
     <attr name="ChiliPromoCardViewStatusTopPadding" format="dimension"/>
     <attr name="ChiliPromoCardViewStatusBottomPadding" format="dimension"/>
@@ -118,6 +121,7 @@
     <attr name="ChiliAccountCardViewMainContainerPaddingStart" format="dimension" />
     <attr name="ChiliAccountCardViewMainContainerPaddingEnd" format="dimension" />
     <attr name="ChiliAccountCardViewMainContainerForeground" format="reference" />
+    <attr name="ChiliAccountCardViewMainContainerStateListAnimator" format="reference" />
 
     <attr name="ChiliAccountCardViewTitleIconEndMargin" format="dimension" />
     <attr name="ChiliAccountCardViewTitleShimmerIcon" format="reference" />
@@ -133,6 +137,7 @@
     <attr name="ChiliAccountCardViewToggleIconHeight" format="dimension" />
     <attr name="ChiliAccountCardViewToggleIconMarginEnd" format="dimension" />
     <attr name="ChiliAccountCardViewToggleIconForeground" format="reference" />
+    <attr name="ChiliAccountCardViewToggleIconStateListAnimator" format="reference" />
 
     <attr name="ChiliAccountCardViewActionButtonStyle" format="reference" />
     <attr name="ChiliAccountCardViewActionButtonWidth" format="dimension" />

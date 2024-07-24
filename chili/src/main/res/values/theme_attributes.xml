@@ -78,6 +78,7 @@
     <!-- TitledDividerView -->
     <attr name="ChiliTitledDividerTopMargin" format="dimension"/>
     <attr name="ChiliTitledDividerBottomMargin" format="dimension"/>
+    <attr name="ChiliTitledDividerActionButtonStyle" format="reference"/>
 
     <!-- CellView attributes -->
     <attr name="ChiliCellViewBackground" format="reference"/>

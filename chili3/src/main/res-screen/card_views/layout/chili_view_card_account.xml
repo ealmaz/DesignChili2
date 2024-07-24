@@ -16,6 +16,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?ChiliAccountCardViewMainContainerForeground"
+        android:stateListAnimator="?ChiliAccountCardViewMainContainerStateListAnimator"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:paddingVertical="?ChiliAccountCardViewMainContainerPaddingVertical"
@@ -86,6 +87,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?ChiliAccountCardViewToggleIconForeground"
+                android:stateListAnimator="?ChiliAccountCardViewToggleIconStateListAnimator"
                 android:visibility="gone"
                 tools:src="@drawable/chili_ic_eye" />
 
