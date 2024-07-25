@@ -107,15 +107,15 @@
     </style>
 
     <style name="Chili.H64.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H64.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H64.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
 
@@ -225,15 +225,15 @@
     </style>
 
     <style name="Chili.H32.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H32.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H32.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
 
@@ -343,15 +343,15 @@
     </style>
 
     <style name="Chili.H28.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H28.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H28.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
 
@@ -461,15 +461,15 @@
     </style>
 
     <style name="Chili.H24.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H24.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H24.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
 
@@ -579,15 +579,15 @@
     </style>
 
     <style name="Chili.H20.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H20.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H20.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
 
@@ -697,15 +697,15 @@
     </style>
 
     <style name="Chili.H18.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H18.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H18.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
 
@@ -815,15 +815,15 @@
     </style>
 
     <style name="Chili.H16.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H16.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H16.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
 
@@ -933,15 +933,15 @@
     </style>
 
     <style name="Chili.H14.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H14.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H14.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
 
@@ -1051,15 +1051,15 @@
     </style>
 
     <style name="Chili.H12.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H12.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H12.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
 
@@ -1169,15 +1169,15 @@
     </style>
 
     <style name="Chili.H10.AccentSecondary.Bold">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
 
     <style name="Chili.H10.AccentSecondary.Italic">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
     </style>
 
     <style name="Chili.H10.AccentSecondary.700">
-        <item name="android:fontFamily">?attr/ChiliAccentSecondaryTextColor</item>
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
     <style name="QuickActionButtonDisabled" parent="Chili.H8">

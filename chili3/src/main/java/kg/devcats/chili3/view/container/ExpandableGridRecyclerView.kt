@@ -125,9 +125,9 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
     fun setIsExpanded(isExpanded: Boolean) {
         this.isExpanded = isExpanded
         if (this.isExpanded) {
-            rotateChevron(0f)
-        } else {
             rotateChevron(-180f)
+        } else {
+            rotateChevron(0f)
         }
         vb.ivClosureIndicator.post {
             submitList(isExpanded)
