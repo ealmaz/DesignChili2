@@ -58,7 +58,7 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
     }
 
     private fun setupShimmering() {
-        shimmeringPairs[binding.llLeftoverPackages] = binding.viewShimmerContent
+        shimmeringPairs[binding.clContainer] = binding.viewShimmerContent
     }
 
     fun setWithoutPackage(tariffName: String, tariffDesc: String) = with(binding) {
