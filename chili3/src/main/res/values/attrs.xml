@@ -180,4 +180,8 @@
         <attr name="toolbarLeftIconSize" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="AdditionalIconCellView">
+        <attr name="bonus_amount_percent" format="integer" />
+    </declare-styleable>
+
 </resources>

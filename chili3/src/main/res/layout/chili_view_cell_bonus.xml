@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="@dimen/view_48dp">
+
+    <FrameLayout
+        android:id="@+id/fl_start_place_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/view_32dp"
+        android:layout_height="@dimen/view_32dp"
+        android:layout_marginStart="@dimen/padding_12dp"
+        android:layout_marginTop="@dimen/padding_8dp"
+        android:layout_marginEnd="@dimen/padding_12dp"
+        android:layout_marginBottom="@dimen/padding_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_title"
+        app:layout_constraintStart_toEndOf="@id/fl_start_place_holder"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_icon_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_icon"
+        app:layout_constraintStart_toStartOf="@id/iv_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_icon">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/chili_bg_shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_12dp"
+        android:layout_marginTop="@dimen/padding_12dp"
+        android:layout_marginEnd="@dimen/padding_4dp"
+        android:layout_marginBottom="@dimen/padding_4dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/Chili.H7.Primary"
+        app:layout_constraintBottom_toTopOf="@id/tv_subtitle"
+        app:layout_constraintEnd_toStartOf="@id/fl_end_place_holder"
+        app:layout_constraintStart_toEndOf="@id/iv_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_goneMarginBottom="@dimen/padding_12dp"
+        tools:text="Заголовок" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_title_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintTop_toTopOf="@id/tv_title">
+
+        <View
+            android:layout_width="@dimen/view_200dp"
+            android:layout_height="@dimen/view_8dp"
+            android:background="@drawable/chili_bg_shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_12dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/Chili.H8.Secondary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        tools:text="Подзаголовок" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_subtitle_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
+        app:layout_constraintStart_toStartOf="@id/tv_subtitle"
+        app:layout_constraintTop_toTopOf="@id/tv_subtitle">
+
+        <View
+            android:layout_width="@dimen/view_82dp"
+            android:layout_height="@dimen/view_8dp"
+            android:background="@drawable/chili_bg_shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_end_place_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/iv_chevron"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_chevron"
+        android:layout_width="@dimen/view_32dp"
+        android:layout_height="@dimen/view_32dp"
+        android:layout_marginEnd="@dimen/padding_8dp"
+        android:src="@drawable/chili_ic_chevron"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/ChiliChevronColor" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_bonus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="@dimen/view_46dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_chevron"
+        app:layout_constraintEnd_toStartOf="@id/iv_chevron"
+        app:layout_constraintTop_toTopOf="@id/iv_chevron">
+
+        <TextView
+            android:id="@+id/tv_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_8dp"
+            android:layout_marginTop="@dimen/padding_6dp"
+            android:layout_marginBottom="@dimen/padding_6dp"
+            android:textAppearance="@style/Chili.H9.Primary.700"
+            android:textColor="@color/white_1"
+            android:textSize="@dimen/text_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1%" />
+
+        <ImageView
+            android:id="@+id/iv_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/view_0dp"
+            android:layout_marginStart="@dimen/padding_2dp"
+            android:layout_marginTop="@dimen/padding_4dp"
+            android:layout_marginEnd="@dimen/padding_4dp"
+            android:layout_marginBottom="@dimen/padding_4dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_bonus_new"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_bonus"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="?attr/ChiliDividerHeightSize"
+        android:layout_marginStart="@dimen/padding_12dp"
+        android:background="?attr/ChiliDividerColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_icon"
+        app:layout_goneMarginStart="0dp" />
+
+    <LinearLayout
+        android:id="@+id/edit_tools_place_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
