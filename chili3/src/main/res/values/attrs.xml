@@ -264,7 +264,7 @@
         <attr name="title" />
         <attr name="subtitle" />
         <attr name="btnTitle" format="string" />
-        <attr name="btnType" format="integer">
+        <attr name="btnActionType" format="integer">
             <enum name="primary" value="0" />
             <enum name="additional" value="1" />
         </attr>

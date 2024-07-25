@@ -35,7 +35,7 @@ class InfoCardView @JvmOverloads constructor(
         setTitle(getText(R.styleable.InfoCardView_title))
         setSubtitle(getText(R.styleable.InfoCardView_subtitle))
         setButtonTitle(getText(R.styleable.InfoCardView_btnTitle))
-        getLayoutDimension(R.styleable.InfoCardView_btnType, 0).let { type ->
+        getLayoutDimension(R.styleable.InfoCardView_btnActionType, 0).let { type ->
             when (type) {
                 ButtonType.PRIMARY.value -> ButtonType.PRIMARY
                 else -> ButtonType.ADDITIONAL
