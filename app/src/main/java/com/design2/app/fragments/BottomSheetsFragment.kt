@@ -170,10 +170,33 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
         vb.custom.setOnClickListener {
             CustomFragmentBottomSheet().show(childFragmentManager)
         }
+        vb.chili3NewCells.setOnClickListener {
+            val bottomSheet = FragmentBottomSheet.Builder()
+                .setContentFragment(NewCellViewsFragment())
+                .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .setDrawableVisible(false)
+                .setInnerTopDrawableVisible(true)
+                .build()
+            bottomSheet.show(childFragmentManager)
+        }
+        vb.chili3DefaultCart.setOnClickListener {
+            FragmentBottomSheet.Builder()
+                .setContentFragment(
+                    DefaultCartViewsFragment().apply {
+                        setTitleValue("Выберите счёт по умолчанию")
+                        setSubTitleValue("Если кто-то переведёт вам деньги по номеру телефона, они придут на счёт по умолчанию")
+                    })
+                .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .setCloseIcon(kg.devcats.chili3.R.drawable.chili_new_ic_close)
+                .setDrawableVisible(false)
+                .setInnerTopDrawableVisible(true)
+                .setHasCloseIcon(false)
+                .setIsHideable(true)
+                .setIsBackButtonEnabled(true)
+                .build()
+                .show(childFragmentManager)
+        }
         vb.customWithBuilder.setOnClickListener {
-
-
-
             FragmentBottomSheet.Builder()
                 .setContentFragment(CommonViewsFragment())
                 .setIsBackButtonEnabled(true)

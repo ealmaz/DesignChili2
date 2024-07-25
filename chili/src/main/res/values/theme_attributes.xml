@@ -42,6 +42,7 @@
 
     <!-- Chevron -->
     <attr name="ChiliChevronColor" format="color"/>
+    <attr name="ChiliChevronDrawable" format="reference"/>
 
 
     <!-- CardView attributes -->
@@ -97,6 +98,16 @@
     <attr name="ChiliSnackbarCornerRadius" format="dimension"/>
     <attr name="ChiliSnackbarElevation" format="dimension"/>
     <attr name="ChiliSnackbarTextColor" format="color"/>
+    <attr name="ChiliSnackbarMessageAppearance" format="reference"/>
+    <attr name="ChiliSnackbarMarginStart" format="dimension"/>
+    <attr name="ChiliSnackbarMarginEnd" format="dimension"/>
+    <attr name="ChiliSnackbarMarginTop" format="dimension"/>
+    <attr name="ChiliSnackbarMarginBottom" format="dimension"/>
+    <attr name="ChiliSnackbarContentPaddingHorizontal" format="dimension"/>
+    <attr name="ChiliSnackbarContentPaddingVertical" format="dimension"/>
+    <attr name="ChiliSnackbarIconWidth" format="dimension"/>
+    <attr name="ChiliSnackbarIconHeight" format="dimension"/>
+    <attr name="ChiliSnackbarTextMarginStart" format="dimension"/>
 
 
     <!-- Segmented Picker   -->
@@ -125,7 +136,10 @@
     <attr name="ChiliBottomSheetBackgroundColor" format="color"/>
     <attr name="ChiliBottomSheetGrayBackgroundColor" format="color"/>
     <attr name="ChiliBottomSheetTopCornersRadius" format="dimension"/>
+    <attr name="ChiliBottomSheetBottomCornersRadius" format="dimension"/>
     <attr name="ChiliBottomSheetTopDrawableColor" format="color"/>
+    <attr name="ChiliBottomSheetContainerHorizontalMargin" format="dimension"/>
+    <attr name="ChiliBottomSheetContainerBottomMargin" format="dimension"/>
     <!-- Bottom sheet >>> ActionBottomSheet   -->
     <attr name="ChiliActionBottomSheetButtonTextColor" format="color"/>
     <attr name="ChiliActionBottomSheetAccentButtonTextColor" format="color"/>
@@ -163,6 +177,11 @@
     <attr name="ChiliNavigationBarActiveItemTextColor" format="color"/>
     <attr name="ChiliNavigationBarInactiveItemTextColor" format="color"/>
 
+    <!-- Button attributes -->
+    <attr name="ChiliPrimaryButtonPaddingTop" format="dimension"/>
+    <attr name="ChiliPrimaryButtonPaddingBottom" format="dimension"/>
+    <attr name="ChiliPrimaryButtonPaddingStart" format="dimension"/>
+    <attr name="ChiliPrimaryButtonPaddingEnd" format="dimension"/>
 
     <!-- Primary Button attributes -->
     <attr name="ChiliPrimaryButtonBackgroundActive" format="color"/>
@@ -223,6 +242,9 @@
     <attr name="ChiliAccentButtonBackgroundActive" format="color"/>
     <attr name="ChiliAccentButtonBackgroundDisabled" format="color"/>
 
+    <!-- Iconed Button attributes -->
+    <attr name="ChiliIconedButtonTextMaxLines" format="integer"/>
+
     <!-- InputView   -->
     <attr name="ChiliInputViewEndIconTint" format="color"/>
     <attr name="ChiliInputViewBackgroundCornerRadius" format="dimension"/>
@@ -254,5 +276,9 @@
     <!-- Tooltip attributes -->
     <attr name="ChiliTooltipBackground" format="color"/>
     <attr name="ChiliTooltipCornerRadius" format="dimension"/>
+
+    <!--    ChiliCellViewBackgroundColor-->
+    <attr name="ChiliCellViewBackgroundColor" format="color" />
+
 
 </resources>

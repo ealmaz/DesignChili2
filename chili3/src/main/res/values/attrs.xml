@@ -9,7 +9,11 @@
         <attr name="subtitledSimpleCardViewDefaultStyle" format="reference" />
         <attr name="iconStateCardViewDefaultStyle" format="reference" />
         <attr name="productCardViewDefaultStyle" format="reference" />
-        <attr name="chiliBottomNavigationViewDefaultStyle" format="reference" />
+        <attr name="iconTitledViewDefaultStyle" format="reference" />
+        <attr name="accountCardViewDefaultStyle" format="reference"/>
+        <attr name="marketCategoryCardViewDefaultStyle" format="reference"/>
+        <attr name="infoCardViewDefaultStyle" format="reference"/>
+        <attr name="bannerCardViewDefaultStyle" format="reference"/>
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -17,9 +21,17 @@
         <!-- PinKeyboardView -->
         <attr name="pinpadKeyboardViewDefaultStyle" format="reference" />
 
+        <!-- ChiliBottomNavigationView -->
+        <attr name="chiliBottomNavigationViewDefaultStyle" format="reference" />
+
+        <!-- QuickActionButtonView-->
         <attr name="quickActionButtonViewStyle" format="reference" />
+
+        <!-- BonusTagView-->
         <attr name="bonusTagViewStyle" format="reference" />
 
+        <!-- CircleStartIconChiliToolbar -->
+        <attr name="CircleStartIconChiliToolbarDefaultStyle" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="StoriesCardView">
@@ -113,6 +125,37 @@
         <attr name="clickableMaskEnabled" format="boolean"/>
     </declare-styleable>
 
+    <declare-styleable name="AccountCardView">
+        <attr name="titleIcon" format="reference" />
+        <attr name="title" />
+        <attr name="titleTextAppearance" />
+        <attr name="titleAddition" format="string" />
+        <attr name="titleAdditionTextAppearance" format="reference" />
+        <attr name="isChevronVisible" />
+        <attr name="isToggleIconVisible" format="boolean" />
+        <attr name="isToggleIconEnabled" format="boolean"/>
+        <attr name="subtitle" />
+        <attr name="isDividerVisible"/>
+        <attr name="actionButtonIcon" format="reference" />
+        <attr name="actionButtonText" />
+        <attr name="actionButtonTextAppearance" format="reference" />
+        <attr name="subtitleTextAppearance" />
+    </declare-styleable>
+
+    <declare-styleable name="MarketCategoryCardView">
+        <attr name="title" />
+        <attr name="titleTextAppearance" />
+        <attr name="isHighlighted" format="boolean" />
+        <attr name="viewSize" format="dimension">
+            <enum name="small" value="-1" />
+            <enum name="medium" value="-2" />
+            <enum name="large" value="-3" />
+        </attr>
+        <attr name="iconSrc" format="string" />
+        <attr name="android:scaleType" />
+        <attr name="android:adjustViewBounds" />
+    </declare-styleable>
+
     <declare-styleable name="ProductCardView">
         <attr name="android:layout_width" />
         <attr name="android:layout_height" />
@@ -142,20 +185,34 @@
         <attr name="cardCellSubtitle" format="string" />
         <attr name="cardCellValue" format="string" />
         <attr name="cardCellIcon" format="reference" />
+        <attr name="cardCellOverlay" format="reference" />
+        <attr name="cardCellOverlayAlpha" format="float" />
+        <attr name="cardCellOverlayIcon" format="reference" />
         <attr name="cardCellIsMain" format="boolean" />
         <attr name="cardCellIsBlocked" format="boolean" />
         <attr name="cardCellIsUniqueStatused" format="boolean" />
         <attr name="cardCellIsChevronVisible" format="boolean" />
-        <attr name="cardCellTitleTextAppearance" />
-        <attr name="cardCellSubtitleTextAppearance" />
-        <attr name="cardCellAdditionalTextAppearance" />
+        <attr name="cardCellTitleTextAppearance" format="reference" />
+        <attr name="cardCellSubtitleTextAppearance" format="reference" />
+        <attr name="cardCellAdditionalTextAppearance" format="reference" />
+        <attr name="cardCellIconWidth" format="dimension" />
+        <attr name="cardCellIconHeight" format="dimension" />
+        <attr name="cardCellAdditionalTextVerticalAlign" format="enum">
+        <enum name="top" value="0" />
+        <enum name="center" value="1" />
+        <enum name="bottom" value="2" />
+        </attr>
+        <attr name="cardCellTitleMaxLines" format="integer" />
+        <attr name="cardCellSubtitleMaxLines" format="integer" />
+        <attr name="cardCellAdditionalTextMaxLines" format="integer" />
+        <attr name="cardCellIsSurfaceClickable" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="QuickActionButtonView">
         <attr name="title"/>
         <attr name="icon"/>
-        <attr name="rippleIcon"/>
-        <attr name="disabledIcon"/>
+        <attr name="rippleIcon" format="reference"/>
+        <attr name="disabledIcon" format="reference"/>
         <attr name="titleTextAppearance"/>
         <attr name="isEnable" format="boolean"/>
     </declare-styleable>
@@ -180,6 +237,50 @@
         <attr name="toolbarLeftIconSize" format="dimension"/>
     </declare-styleable>
 
+    <declare-styleable name="CircleStartIconChiliToolbar">
+        <attr name="title"/>
+        <attr name="startIcon"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="endIconPrimary" format="reference"/>
+        <attr name="endIconSecondary" format="reference" />
+        <attr name="background"/>
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableGridRecyclerView">
+        <attr name="bottomIcon" format="reference"/>
+        <attr name="visibleItemCount" format="integer"/>
+        <attr name="isExpanded"/>
+        <attr name="isNeedToSaveExpandedState"/>
+    </declare-styleable>
+
+    <declare-styleable name="IconTitledCardView">
+        <attr name="icon" />
+        <attr name="title" />
+        <attr name="android:scaleType" />
+        <attr name="android:adjustViewBounds" />
+    </declare-styleable>
+
+    <declare-styleable name="InfoCardView">
+        <attr name="title" />
+        <attr name="subtitle" />
+        <attr name="btnTitle" format="string" />
+        <attr name="btnActionType" format="integer">
+            <enum name="primary" value="0" />
+            <enum name="additional" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ProductBannerCardView">
+        <attr name="productBannerCardTitle" format="string"/>
+        <attr name="productBannerCardSubtitle" format="string"/>
+        <attr name="productBannerCardIcon" format="reference"/>
+        <attr name="productBannerCardTitleTextAppearance" format="reference"/>
+        <attr name="productBannerCardSubtitleTextAppearance" format="reference"/>
+        <attr name="productBannerCardIconWidth" format="dimension"/>
+        <attr name="productBannerCardIconHeight" format="dimension"/>
+        <attr name="productBannerCardTitleMaxLines" format="integer"/>
+        <attr name="productBannerCardSubtitleMaxLines" format="integer"/>
+    </declare-styleable>
     <declare-styleable name="AdditionalIconCellView">
         <attr name="bonus_amount_percent" format="integer" />
     </declare-styleable>

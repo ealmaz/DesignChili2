@@ -4,7 +4,6 @@ import android.view.ViewGroup
 import androidx.core.view.children
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
-import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.visible
 
 fun ViewGroup.startGroupShimmering() {
@@ -18,7 +17,10 @@ fun ViewGroup.stopGroupShimmering() {
 }
 
 fun ShimmeringView.startShimmering() {
-    (this as? ViewGroup)?.setIsSurfaceClickable(false)
+    (this as? ViewGroup)?.apply {
+        isClickable = false
+        isFocusable = false
+    }
     onStartShimmer()
     getShimmeringViewsPair().forEach {
         it.key.invisible()
@@ -30,7 +32,10 @@ fun ShimmeringView.startShimmering() {
 }
 
 fun ShimmeringView.stopShimmering(isSurfaceClickable: Boolean = true) {
-    (this as? ViewGroup)?.setIsSurfaceClickable(isSurfaceClickable)
+    (this as? ViewGroup)?.apply {
+        isClickable = isSurfaceClickable
+        isFocusable = isSurfaceClickable
+    }
     onStopShimmer()
     getShimmeringViewsPair().forEach {
         it.key.visible()

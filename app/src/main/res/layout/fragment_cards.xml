@@ -32,6 +32,34 @@
             android:layout_marginHorizontal="@dimen/padding_16dp"
             android:text="Expand/hide all" />
 
+        <Button
+            android:id="@+id/btn_account_cards_examples"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:text="Account card exapmles" />
+
+        <kg.devcats.chili3.view.card.ProductBannerCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:cardBackground="@color/white_1"
+            app:cardCornerRadius="@dimen/radius_12dp"
+            app:productBannerCardIcon="@drawable/chili_ic_product_banner_default"
+            app:productBannerCardSubtitle="Подзаголовок"
+            app:productBannerCardTitle="Заголовок" />
+
+        <Button
+            android:id="@+id/btn_expandable_grid_recycler_view_examples"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:text="ExpandableGridRecyclerView example" />
 
         <com.design2.chili2.view.container.ExpandableContainer
             android:id="@+id/ecv_discount_container"
@@ -126,6 +154,63 @@
             </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
             <com.design2.chili2.view.container.ExpandableContainer
+                android:id="@+id/ec_market_cards"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?ChiliSurfaceBackground"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingHorizontal="@dimen/padding_16dp"
+                app:isNeedToSaveExpandedState="true"
+                app:title="MarketCardView">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <kg.devcats.chili3.view.card.MarketCategoryCardView
+                            android:id="@+id/ccv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp"
+                            app:iconSrc="https://cdn.devcats.kg/ads-minify/hJluCrGgnGNtwKdCJzuy97cjUwg1rGSwcbtEsOvdJ2CLWpPzrN.WEBP"
+                            app:title="Бытовая химия, хозтовары"
+                            app:viewSize="medium" />
+
+                        <kg.devcats.chili3.view.card.MarketCategoryCardView
+                            android:id="@+id/ccv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp"
+                            app:iconSrc="https://cdn.devcats.kg/ads-minify/hJluCrGgnGNtwKdCJzuy97cjUwg1rGSwcbtEsOvdJ2CLWpPzrN.WEBP"
+                            app:title="Бытовая химия, хозтовары"
+                            app:viewSize="large" />
+
+                        <kg.devcats.chili3.view.card.MarketCategoryCardView
+                            android:id="@+id/ccv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp"
+                            app:iconSrc="https://cdn.devcats.kg/ads-minify/hJluCrGgnGNtwKdCJzuy97cjUwg1rGSwcbtEsOvdJ2CLWpPzrN.WEBP"
+                            app:isHighlighted="true"
+                            app:title="Бытовая химия, хозтовары"
+                            app:viewSize="large" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </com.design2.chili2.view.container.ExpandableContainer>
+
+            <com.design2.chili2.view.container.ExpandableContainer
                 android:id="@+id/ec_stories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -150,6 +235,7 @@
                             android:layout_marginVertical="@dimen/padding_12dp"
                             android:layout_marginStart="@dimen/padding_12dp"
                             android:scaleType="fitXY"
+                            android:theme="@style/ThemeOverlay.StoriesCardRippleCornerRadius"
                             app:cardIconSize="medium"
                             app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/125ac05b-0cbb-4bde-9da0-1f090d1fac2e"
                             app:viewedBorder="@drawable/chili_bg_viewed_stories" />
@@ -161,6 +247,7 @@
                             android:layout_marginVertical="@dimen/padding_12dp"
                             android:layout_marginStart="@dimen/padding_12dp"
                             android:scaleType="fitXY"
+                            android:theme="@style/ThemeOverlay.StoriesCardRippleCornerRadius"
                             app:cardIconSize="medium"
                             app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/de574e23-7478-43af-b3df-b572093b818c" />
 
@@ -172,6 +259,7 @@
                             android:layout_marginStart="@dimen/padding_12dp"
                             android:layout_marginEnd="@dimen/padding_12dp"
                             android:scaleType="fitXY"
+                            android:theme="@style/ThemeOverlay.StoriesCardRippleCornerRadius"
                             app:cardIconSize="medium"
                             app:unviewedBorder="@drawable/personal_stories"
                             app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/de574e23-7478-43af-b3df-b572093b818c" />
@@ -329,9 +417,10 @@
                             <kg.devcats.chili3.view.card.ProductCardView
                                 android:id="@+id/pcv_product"
                                 android:layout_width="168dp"
-                                android:layout_height="316dp"
+                                android:layout_height="wrap_content"
                                 android:scaleType="centerCrop"
                                 app:title="98 000,00 с"
+                                app:subtitle="833,3 с x 12мес"
                                 app:description="Помпа для воды AQUA Automatic Water Dispenser белый"
                                 app:discount="-20%"
                                 app:productImage="https://wallpapers.com/images/hd/vertical-pictures-r93cdchwdse79vvv.jpg"
@@ -349,7 +438,7 @@
                             <kg.devcats.chili3.view.card.ProductCardView
                                 android:id="@+id/pcv_product_1"
                                 android:layout_width="168dp"
-                                android:layout_height="316dp"
+                                android:layout_height="wrap_content"
                                 android:scaleType="centerCrop"
                                 app:title="10 000,00 с"
                                 app:subtitle="833,3 с x 12мес"
@@ -370,7 +459,7 @@
                             <kg.devcats.chili3.view.card.ProductCardView
                                 android:id="@+id/pcv_product_2"
                                 android:layout_width="168dp"
-                                android:layout_height="316dp"
+                                android:layout_height="wrap_content"
                                 android:scaleType="fitXY"
                                 app:title="2 090,00 с"
                                 app:subtitle="174,1 с x 12мес"
@@ -1113,6 +1202,34 @@
                 app:subtitle="Счета и другое"/>
 
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16dp"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        android:orientation="vertical">
+
+        <kg.devcats.chili3.view.card.InfoCardView
+            android:id="@+id/aaa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="У вас новый смартфон?"
+            app:subtitle="Подтвердите личность, чтобы получить доступ ко всем услугам"
+            app:btnTitle="Подтвердить личность"
+            app:btnActionType="primary" />
+
+        <kg.devcats.chili3.view.card.InfoCardView
+            android:id="@+id/bbb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="Мы заблокировали ваш платёжный аккаунт в целях безопасности"
+            app:subtitle="Обратитесь в службу поддержки"
+            app:btnTitle="Служба поддержки"
+            app:btnActionType="additional" />
+    </LinearLayout>
 
     </LinearLayout>
 

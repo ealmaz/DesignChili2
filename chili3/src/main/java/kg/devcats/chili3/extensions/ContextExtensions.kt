@@ -22,3 +22,7 @@ fun Context.getDimensionFromAttr(resId: Int, defaultValue: Float = 0F): Float {
         defaultValue
     }
 }
+
+fun Context.pxToDp(px: Float): Float {
+    return px / resources.displayMetrics.density
+}

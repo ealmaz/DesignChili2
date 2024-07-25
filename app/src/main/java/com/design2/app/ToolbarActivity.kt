@@ -8,6 +8,7 @@ import com.design2.app.databinding.ActivityToolbarBinding
 import com.design2.chili2.view.navigation_components.ChiliToolbar
 import com.design2.chili2.view.navigation_components.StartIconChiliToolbar
 import kg.devcats.chili3.view.toolbar.TailedToolbarView
+import kg.devcats.chili3.view.navigation_components.CircleStartIconChiliToolbar
 
 class ToolbarActivity : AppCompatActivity() {
 
@@ -72,5 +73,39 @@ class ToolbarActivity : AppCompatActivity() {
                 Toast.makeText(context, "Clicked on tag", Toast.LENGTH_SHORT).show()
             }
         }
+        vb.tailedToolbar2.apply {
+            initToolbar(
+                TailedToolbarView.Configuration(
+                    hostActivity = this@ToolbarActivity,
+                    isNavigateUpButtonEnabled = true,
+                    onNavigateUpClick = { onBackPressed() },
+                )
+            )
+            setupDividerVisibility(false)
+            setTagTitle("Бонусы")
+            setTagAlpha(0.4f)
+            setOnTagClickListener {
+                Toast.makeText(context, "Clicked on tag", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        vb.toolbar9.initToolbar(
+            CircleStartIconChiliToolbar.Configuration(
+                hostActivity = this,
+                title = "Title",
+                startIcon = R.drawable.cat_204_192,
+                endIconPrimary = R.drawable.ic_search_filled,
+                endIconSecondary = R.drawable.ic_notification_with_events,
+                onClick = {
+                    when (it) {
+                        CircleStartIconChiliToolbar.ClickableElementType.PROFILE_CONTAINER -> {}
+                        CircleStartIconChiliToolbar.ClickableElementType.END_ICON -> {}
+                        CircleStartIconChiliToolbar.ClickableElementType.ADDITIONAL_END_ICON -> {}
+                    }
+                },
+            )
+        )
+
     }
+
 }

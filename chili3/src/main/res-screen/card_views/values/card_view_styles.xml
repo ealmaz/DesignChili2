@@ -3,6 +3,11 @@
 
     <style name="Chili.CardViewStyle.StoriesCardView">
         <item name="cardElevation">0dp</item>
+        <item name="android:foreground">@drawable/chili_ripple_rounded_corner_foreground</item>
+    </style>
+
+    <style name="ThemeOverlay.StoriesCardRippleCornerRadius">
+        <item name="ChiliCellCornerRadius">@dimen/radius_15dp</item>
     </style>
 
     <style name="Chili.CardViewStyle.PromoCardView"/>
@@ -13,9 +18,57 @@
 
     <style name="Chili.CardViewStyle.ProductCardView"/>
 
+    <style name="Chili.CardViewStyle.ProductBannerCardView"/>
+
     <style name="RoundedCardImageView">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">?ChiliCardViewImageRadius</item>
+    </style>
+
+    <style name="Chili.CardViewStyle.AccountCardView">
+        <item name="android:clickable">?ChiliAccountCardViewClickable</item>
+        <item name="android:focusable">?ChiliAccountCardViewFocusable</item>
+        <item name="android:foreground">?ChiliAccountCardViewForeground</item>
+        <item name="cardBackground">?ChiliAccountCardViewBackground</item>
+        <item name="cardCornerRadius">?ChiliAccountCardViewCornerRadius</item>
+    </style>
+
+    <style name="Chili.ButtonStyle.AccountCard" >
+        <item name="android:foreground">?ChiliAccountCardViewActionButtonForeground</item>
+        <item name="android:background">?ChiliAccountCardViewActionButtonBackground</item>
+        <item name="android:textAppearance">?ChiliAccountCardViewActionButtonTextAppearance</item>
+    </style>
+
+    <style name="ThemeOverlay.ChiliAdditionalButton">
+        <item name="ChiliPrimaryButtonPaddingTop">?ChiliAccountCardViewActionButtonPaddingTop</item>
+        <item name="ChiliPrimaryButtonPaddingBottom">?ChiliAccountCardViewActionButtonPaddingBottom</item>
+        <item name="ChiliPrimaryButtonPaddingStart">?ChiliAccountCardViewActionButtonPaddingStart</item>
+        <item name="ChiliPrimaryButtonPaddingEnd">?ChiliAccountCardViewActionButtonPaddingEnd</item>
+        <item name="ChiliIconedButtonTextMaxLines">?ChiliAccountCardViewActionButtonTextMaxLines</item>
+        <item name="ChiliAdditionalButtonBackgroundActive">?ChiliAccountCardViewActionButtonBackgroundActive</item>
+        <item name="ChiliAdditionalButtonBorderColor">?ChiliAccountCardViewActionButtonBorderColor</item>
+    </style>
+
+    <style name="Chili.AdditionalButtonText.AccountCardActionButton">
+        <item name="android:textAppearance">@style/Chili.H14.Primary.Bold</item>
+    </style>
+
+    <style name="Chili.CardViewStyle.IconTitledCardView">
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">@dimen/elevation_0dp</item>
+        <item name="android:foreground">@null</item>
+    </style>
+
+    <style name="Chili.CardViewStyle.MarketCategoryCardView">
+        <item name="android:foreground">?ChiliMarketCategoryCardViewForeground</item>
+        <item name="cardBackground">?ChiliMarketCategoryCardViewBackgroundColor</item>
+        <item name="cardCornerRadius">?ChiliMarketCategoryCardViewCornerRadius</item>
+    </style>
+
+    <style name="Chili.CardViewStyle.InfoCardView">
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">@dimen/elevation_0dp</item>
+        <item name="android:foreground">@null</item>
     </style>
 
 </resources>

@@ -43,6 +43,14 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
 //            shimmerAdapter.setItems(listOf("Shimmer", "Blablabla", "OLOLOLO", "SIUUUUUUU"))
 //        }, 4000)
 
+        vb.btnAccountCardsExamples.setOnClickListener {
+            openFragment(AccountCardsExamplesFragment())
+        }
+
+        vb.btnExpandableGridRecyclerViewExamples.setOnClickListener {
+            openFragment(ExpandableGridRecyclerViewExampleFragment())
+        }
+
         vb.pcv1.setOnClickListener {
             vb.pcv2.setIsCardEnabled(false)
             vb.pcv3.setIsCardEnabled(true)
@@ -141,6 +149,13 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setOnSingleClickListener {
                 clearErrorState()
             }
+        }
+
+        vb.pcvPromo1.setIcon("https://minio.o.kg/catalog/icons/light/taxes.png")
+
+        vb.pcvProduct.setDiscountBackground("#10C44C")
+        vb.pcvProduct.setOnClickListener {
+            vb.pcvProduct.setDiscountBackground(arrayOf("#FF6491", "#F91155"))
         }
     }
 

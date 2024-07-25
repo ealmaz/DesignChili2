@@ -54,6 +54,10 @@ class ToolbarWithBonusTag @JvmOverloads constructor(
         bonusTagView?.setIcon(drawable)
     }
 
+    fun setTagAlpha(alpha: Float = 1f) {
+        bonusTagView?.alpha = alpha
+    }
+
     fun setOnTagClickListener(onClick: () -> Unit) {
         bonusTagView?.setOnSingleClickListener { onClick.invoke() }
     }

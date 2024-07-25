@@ -2,6 +2,8 @@ package kg.devcats.chili3.view.card
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +15,12 @@ import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.view.card.BaseCardView
+import com.google.android.material.internal.ViewUtils.dpToPx
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardProductBinding
 import kg.devcats.chili3.extensions.getDimensionFromAttr
 import kg.devcats.chili3.extensions.gone
+import kg.devcats.chili3.extensions.pxToDp
 import kg.devcats.chili3.extensions.visible
 
 class ProductCardView @JvmOverloads constructor(
@@ -166,6 +170,36 @@ class ProductCardView @JvmOverloads constructor(
     fun setDiscountBackground(@DrawableRes drawableId: Int) {
         if (vb.tvDiscount.isGone) return
         vb.tvDiscount.background = context.drawable(drawableId)
+    }
+
+    fun setDiscountBackground(color: String?) {
+        if (vb.tvDiscount.isGone) return
+        val cornerRadiusInDp = context.pxToDp(context.getDimensionFromAttr(R.attr.ChiliProductCardViewDiscountCornerRadius, 6.dpF)).toInt()
+        val drawable = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            setColor(Color.parseColor(color))
+            cornerRadius = dpToPx(context, cornerRadiusInDp)
+        }
+        vb.tvDiscount.background = drawable
+    }
+
+    fun setDiscountBackground(colors: Array<String>) {
+        if (vb.tvDiscount.isGone) return
+        val cornerRadiusInDp = context.pxToDp(context.getDimensionFromAttr(R.attr.ChiliProductCardViewDiscountCornerRadius, 6.dpF)).toInt()
+        val cornerRadiusInPx = dpToPx(context, cornerRadiusInDp)
+        val colorInts = colors.map { Color.parseColor(it) }.toIntArray()
+        val drawable = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            if (colorInts.size > 1) {
+                this.colors = colorInts
+                gradientType = GradientDrawable.LINEAR_GRADIENT
+                orientation = GradientDrawable.Orientation.LEFT_RIGHT
+            } else {
+                setColor(colorInts.firstOrNull() ?: Color.TRANSPARENT)
+            }
+            cornerRadius = cornerRadiusInPx
+        }
+        vb.tvDiscount.background = drawable
     }
 
 }

@@ -100,6 +100,24 @@
             app:cardCellSubtitle="Подзаголовок Подзаголовок Подзаголовок Подзаголовок Подзаголовок"
             app:cardCellIsUniqueStatused="true"/>
 
+        <kg.devcats.chili3.view.cells.CardCellView
+            android:id="@+id/cardcell6"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCellIcon="@drawable/chili_ic_deposit_default"
+            app:cardCellTitle="Test Title"
+            app:cardCellSubtitle="Test Subtitle"
+            app:cardCellValue="500 000,00 с"
+            app:cardCellIconWidth="32dp"
+            app:cardCellIconHeight="32dp"
+            app:cardCellIsSurfaceClickable="false"
+            app:cardCellTitleMaxLines="1"
+            app:cardCellAdditionalTextVerticalAlign="center"
+            app:cardCellTitleTextAppearance="@style/Chili.H12.Secondary"
+            app:cardCellSubtitleTextAppearance="@style/Chili.H14.Primary"
+            />
+
 
         <com.design2.chili2.view.common.TitledDividerView
             android:layout_width="wrap_content"

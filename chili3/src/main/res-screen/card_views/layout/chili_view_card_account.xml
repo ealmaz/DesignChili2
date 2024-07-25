@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="?ChiliAccountCardViewMainContainerMarginVertical"
+        android:layout_marginStart="?ChiliAccountCardViewMainContainerMarginStart"
+        android:layout_marginEnd="?ChiliAccountCardViewMainContainerMarginEnd"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?ChiliAccountCardViewMainContainerForeground"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingVertical="?ChiliAccountCardViewMainContainerPaddingVertical"
+        android:paddingStart="?ChiliAccountCardViewMainContainerPaddingStart"
+        android:paddingEnd="?ChiliAccountCardViewMainContainerPaddingEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ib_action_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/ll_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_title_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="?ChiliAccountCardViewTitleIconEndMargin"
+                android:visibility="gone"
+                tools:src="@drawable/chili_ic_star_20" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Chili.H16.Primary.700"
+                tools:maxWidth="140dp"
+                tools:text="Оплачивайте" />
+
+            <TextView
+                android:id="@+id/tv_title_addition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="?ChiliAccountCardViewTitleAdditionStartMargin"
+                android:maxLines="?ChiliAccountCardViewTitleAdditionMaxLines"
+                android:textAlignment="center"
+                android:textAppearance="?ChiliAccountCardViewTitleAdditionTextAppearance"
+                android:visibility="gone"
+                tools:text="•••• 1234" />
+
+            <ImageView
+                android:id="@+id/iv_chevron"
+                android:layout_width="?ChiliAccountCardViewChevronWidth"
+                android:layout_height="?ChiliAccountCardViewChevronHeight"
+                android:src="@drawable/ic_chevron_right"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="?ChiliAccountCardViewSubtitleContainerMarginTop"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_toggle_icon"
+                android:layout_width="?ChiliAccountCardViewToggleIconWidth"
+                android:layout_height="?ChiliAccountCardViewToggleIconHeight"
+                android:layout_marginEnd="?ChiliAccountCardViewToggleIconMarginEnd"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?ChiliAccountCardViewToggleIconForeground"
+                android:visibility="gone"
+                tools:src="@drawable/chili_ic_eye" />
+
+            <TextView
+                android:id="@+id/tv_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="?ChiliAccountCardViewSubtitleMaxLines"
+                android:textAlignment="center"
+                android:textAppearance="@style/Chili.H14.Primary.700"
+                tools:text="Более 2000 сервисов" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_title_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/padding_16dp"
+        android:layout_marginStart="@dimen/padding_16dp"
+        android:layout_marginEnd="@dimen/padding_8dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shimmer_auto_start="false"
+        app:shimmer_colored="true"
+        app:shimmer_direction="left_to_right"
+        app:shimmer_shape="linear">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="?ChiliAccountCardViewTitleShimmerIcon" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_title_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/shimmer_title_icon"
+        app:layout_constraintStart_toEndOf="@id/shimmer_title_icon"
+        app:layout_constraintTop_toTopOf="@id/shimmer_title_icon"
+        app:layout_constraintWidth_percent="0.2">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_6dp"
+            android:background="@drawable/chili_bg_shimmer" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/view_subtitle_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:layout_marginStart="@dimen/padding_1dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/shimmer_title_icon"
+        app:layout_constraintTop_toBottomOf="@id/shimmer_title_icon"
+        app:layout_constraintWidth_percent="0.2">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/view_6dp"
+            android:background="@drawable/chili_bg_shimmer" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <com.design2.chili2.view.buttons.IconedButton
+        android:id="@+id/ib_action_btn"
+        style="?ChiliAccountCardViewActionButtonStyle"
+        android:layout_width="?ChiliAccountCardViewActionButtonWidth"
+        android:layout_height="?ChiliAccountCardViewActionButtonHeight"
+        android:layout_marginVertical="?ChiliAccountCardViewActionButtonMarginVertical"
+        android:layout_marginEnd="?ChiliAccountCardViewActionButtonMarginEnd"
+        android:theme="?ChiliAccountCardViewActionButtonTheme"
+        app:isContentInvisibleOnShimmering="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Войти" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/ChiliDividerHeightSize"
+        android:background="?attr/ChiliDividerColor"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

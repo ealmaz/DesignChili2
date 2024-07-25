@@ -1,6 +1,7 @@
 package com.design2.chili2.view.modals.bottom_sheet
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.StyleRes
 import androidx.fragment.app.Fragment
 import com.design2.chili2.R
 import com.design2.chili2.view.modals.base.BaseFragmentBottomSheetDialogFragment
@@ -11,6 +12,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
     private var contentFragment: Fragment? = null
 
     override var topDrawableVisible: Boolean = true
+    override var innerTopDrawableVisible: Boolean = false
     override var hasCloseIcon: Boolean = true
     override var isHideable: Boolean = false
     override var isBackButtonEnabled: Boolean = false
@@ -34,6 +36,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
 
         private var contentFragment: Fragment? = null
         private var topDrawableVisible: Boolean = true
+        private var newInnerDrawableVisible: Boolean = false
         private var hasCloseIcon: Boolean = true
         private var isHideable: Boolean = false
         private var isBackButtonEnabled: Boolean = false
@@ -41,6 +44,8 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
         private var bottomMargin: Int = 0
         private var state: Int = BottomSheetBehavior.STATE_HALF_EXPANDED
         @DrawableRes private var backgroundDrawable: Int = R.drawable.chili_bg_rounded_bottom_sheet
+        @DrawableRes private var closeIconDrawable: Int = R.drawable.chili_ic_clear
+        @StyleRes private var bottomSheetStyle: Int = R.style.Chili_BottomSheetStyle
 
         private var onCloseIconClick: (() -> Boolean)? = null
 
@@ -52,6 +57,21 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
 
         fun setDrawableVisible(topDrawableVisible: Boolean): Builder {
             this.topDrawableVisible = topDrawableVisible
+            return this
+        }
+
+        fun setInnerTopDrawableVisible(newInnerDrawableVisible: Boolean): Builder {
+            this.newInnerDrawableVisible = newInnerDrawableVisible
+            return this
+        }
+
+        fun setCloseIcon(@DrawableRes drawable: Int): Builder {
+            this.closeIconDrawable = drawable
+            return this
+        }
+
+        fun setBottomSheetStyle(@StyleRes style: Int): Builder {
+            this.bottomSheetStyle = style
             return this
         }
 
@@ -99,10 +119,13 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
             return FragmentBottomSheet().apply {
                 contentFragment = this@Builder.contentFragment
                 topDrawableVisible = this@Builder.topDrawableVisible
+                innerTopDrawableVisible = this@Builder.newInnerDrawableVisible
                 hasCloseIcon = this@Builder.hasCloseIcon
+                bottomSheetStyle = this@Builder.bottomSheetStyle
                 isHideable = this@Builder.isHideable
                 isBackButtonEnabled = this@Builder.isBackButtonEnabled
                 backgroundDrawable = this@Builder.backgroundDrawable
+                closeIconDrawable = this@Builder.closeIconDrawable
                 horizontalMargin = this@Builder.horizontalMargin
                 bottomMargin = this@Builder.bottomMargin
                 state = this@Builder.state

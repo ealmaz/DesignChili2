@@ -150,7 +150,6 @@
         <attr name="navigationIcon"/>
     </declare-styleable>
 
-
     <declare-styleable name="BaseCellView">
         <attr name="android:icon"/>
         <attr name="title"/>
@@ -316,9 +315,9 @@
         <attr name="android:enabled"/>
         <attr name="android:textAppearance"/>
         <attr name="startIcon"/>
+        <attr name="isContentInvisibleOnShimmering" format="boolean" />
         <attr name="startIconWidth" format="dimension"/>
         <attr name="startIconHeight" format="dimension"/>
-        <attr name="isStartIconVisible"/>
     </declare-styleable>
 
     <declare-styleable name="ExpandableCardContainer">

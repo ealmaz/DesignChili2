@@ -31,14 +31,10 @@
         <item name="ChiliRippleForegroundColor">@color/gray_1_alpha_50</item>
 
         <!-- Divider -->
-        <item name="ChiliDividerColor">@color/black_4</item>
+        <item name="ChiliDividerColor">@color/c_28282a</item>
 
         <!-- Chevron -->
         <item name="ChiliChevronColor">@color/white_1</item>
-
-        <!-- Snackbar attributes -->
-        <item name="ChiliSnackbarBackground">@color/black_3</item>
-        <item name="ChiliSnackbarTextColor">@color/gray_3</item>
 
         <!-- Segmented Picker   -->
         <item name="ChiliSegmentedPickerBackgroundColor">@color/black_4</item>
@@ -85,8 +81,8 @@
 
         <!-- NavigationBar -->
         <item name="ChiliNavigationBarBackground">@color/black_4</item>
-        <item name="ChiliNavigationBarInactiveItemTextColor">@color/white_1</item>
-
+        <item name="ChiliNavigationBarActiveItemTextColor">@color/c_FFFFFF</item>
+        <item name="ChiliNavigationBarInactiveItemTextColor">@color/c_8a8a8e</item>
 
         <!-- InputView -->
         <item name="ChiliInputViewHintTextColor">@color/gray_1_alpha_50</item>
@@ -105,10 +101,8 @@
         <!-- DetailCellView -->
         <item name="ChiliDetailCellViewAdditionalInfoTextBackgroundColor">@color/black_4</item>
 
-
         <!-- Shimmer attributes -->
-        <item name="ChiliShimmerBoneColor">@color/black_5</item>
-
+        <item name="ChiliShimmerHighlightColor">@color/c_111112</item>
 
         <!-- Primary Button attributes -->
         <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_2</item>
@@ -128,14 +122,30 @@
         <!-- OtpInputView -->
         <item name="ChiliOtpInputViewItemActiveBorder">@color/white_1</item>
 
-        <!-- NavigationBar -->
-        <item name="ChiliNavigationBarActiveItemTextColor">@color/c_FFFFFF</item>
-        <item name="ChiliNavigationBarInactiveItemTextColor">@color/c_8a8a8e</item>
-
         <!-- QuickActionButtonView -->
         <item name="QuickActionButtonTitleColor">@color/c_FFFFFF</item>
         <item name="QuickActionButtonDisabledTitleColor">@color/gray_1</item>
 
+        <!-- AccountCardView -->
+        <item name="ChiliAccountCardViewActionButtonBackgroundActive">@color/c_4a4a4a</item>
+        <item name="ChiliAccountCardViewActionButtonBorderColor">@color/c_4a4a4a</item>
+
+        <!-- CategoryCardView -->
+        <item name="ChiliMarketCategoryCardViewBackgroundColor">@color/c_28282a</item>
+
+        <!-- ChiliBottomSheet-->
+        <item name="ChiliBottomSheetBackgroundColor">@color/black_3</item>
+        <item name="ChiliBottomSheetTopDrawableColor">@color/black_5</item>
+
+        <!-- ChiliCellViewBackgroundColor-->
+        <item name="ChiliCellViewBackgroundColor">@color/c_efeff4</item>
+
+        <!-- IconTitledCardView-->
+        <item name="ChiliIconTitledCardViewBackground">@color/c_010101</item>
+
+        <!-- ExpandableGridRecyclerView-->
+        <item name="ChiliExpandableGridRecyclerViewBackground">@color/c_010101</item>
+        <item name="ChiliExpandableGridRecyclerViewIconBackground">@color/c_28282a</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>

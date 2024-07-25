@@ -12,6 +12,9 @@
     <attr name="ChiliAlertWarningTextColor" format="color"/>
     <attr name="ChiliAlertErrorTextColor" format="color"/>
 
+    <!-- Shimmer attributes -->
+    <attr name="ChiliShimmerHighlightColor" format="color" />
+
     <!-- PromoCardView -->
     <attr name="ChiliPromoCardViewStatusTopPadding" format="dimension"/>
     <attr name="ChiliPromoCardViewStatusBottomPadding" format="dimension"/>
@@ -24,6 +27,7 @@
     <attr name="ChiliPromoCardViewLabelBottomMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewLabelStartMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewLabelEndMargin" format="dimension"/>
+    <attr name="ChiliPromoCardViewIconSize" format="dimension"/>
     <attr name="ChiliPromoCardViewIconTopMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconBottomMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconStartMargin" format="dimension"/>
@@ -32,6 +36,8 @@
     <!-- QuickActionButtonView -->
     <attr name="QuickActionButtonTitleColor" format="color"/>
     <attr name="QuickActionButtonDisabledTitleColor" format="color"/>
+
+
 
     <!-- ProductCardView -->
     <attr name="ChiliCardViewImageRadius" format="dimension"/>
@@ -47,6 +53,7 @@
     <attr name="ChiliProductCardViewSubtitlePaddingVertical" format="dimension"/>
     <attr name="ChiliProductCardViewDescriptionTopMargin" format="dimension"/>
     <attr name="ChiliProductCardViewDescriptionBottomMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewDescriptionMinLines" format="integer"/>
     <attr name="ChiliProductCardViewDescriptionMaxLines" format="integer"/>
     <attr name="ChiliProductCardViewSubtitleCornerRadius" format="dimension"/>
     <attr name="ChiliProductCardViewDiscountCornerRadius" format="dimension"/>
@@ -75,4 +82,106 @@
 
     <!-- TailedToolbarView -->
     <attr name="TailedToolbarDefaultStyle" format="reference"/>
+
+    <!--region CircledStartIconChiliToolbar -->
+    <attr name="CircleStartIconChiliToolbarPaddingVertical" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarPaddingStart" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerWidth" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerMarginStart" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerMarginEnd" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerPaddingStart" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarProfileContainerPaddingEnd" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarStartIconWidth" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarStartIconHeight" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarStartIconMarginEnd" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarTitleTextAppearance" format="reference" />
+    <attr name="CircleStartIconChiliToolbarTitleMaxLines" format="integer" />
+    <attr name="CircleStartIconChiliToolbarIconsContainerMarginEnd" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconPrimaryWidth" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconPrimaryHeight" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconSecondaryWidth" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconSecondaryHeight" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarEndIconSecondaryMarginEnd" format="dimension" />
+    <!--endregion CircledStartIconChiliToolbar -->
+
+    <!--region AccountCardView -->
+    <attr name="ChiliAccountCardViewClickable" format="boolean" />
+    <attr name="ChiliAccountCardViewFocusable" format="boolean" />
+    <attr name="ChiliAccountCardViewForeground" format="reference" />
+    <attr name="ChiliAccountCardViewBackground" format="reference" />
+    <attr name="ChiliAccountCardViewCornerRadius" format="dimension" />
+
+    <attr name="ChiliAccountCardViewMainContainerMarginVertical" format="dimension" />
+    <attr name="ChiliAccountCardViewMainContainerMarginStart" format="dimension" />
+    <attr name="ChiliAccountCardViewMainContainerMarginEnd" format="dimension" />
+    <attr name="ChiliAccountCardViewMainContainerPaddingVertical" format="dimension" />
+    <attr name="ChiliAccountCardViewMainContainerPaddingStart" format="dimension" />
+    <attr name="ChiliAccountCardViewMainContainerPaddingEnd" format="dimension" />
+    <attr name="ChiliAccountCardViewMainContainerForeground" format="reference" />
+
+    <attr name="ChiliAccountCardViewTitleIconEndMargin" format="dimension" />
+    <attr name="ChiliAccountCardViewTitleShimmerIcon" format="reference" />
+    <attr name="ChiliAccountCardViewTitleAdditionStartMargin" format="dimension" />
+    <attr name="ChiliAccountCardViewTitleAdditionTextAppearance" format="reference" />
+    <attr name="ChiliAccountCardViewTitleAdditionMaxLines" format="integer" />
+    <attr name="ChiliAccountCardViewChevronWidth" format="dimension" />
+    <attr name="ChiliAccountCardViewChevronHeight" format="dimension" />
+
+    <attr name="ChiliAccountCardViewSubtitleContainerMarginTop" format="dimension" />
+    <attr name="ChiliAccountCardViewSubtitleMaxLines" format="integer" />
+    <attr name="ChiliAccountCardViewToggleIconWidth" format="dimension" />
+    <attr name="ChiliAccountCardViewToggleIconHeight" format="dimension" />
+    <attr name="ChiliAccountCardViewToggleIconMarginEnd" format="dimension" />
+    <attr name="ChiliAccountCardViewToggleIconForeground" format="reference" />
+
+    <attr name="ChiliAccountCardViewActionButtonStyle" format="reference" />
+    <attr name="ChiliAccountCardViewActionButtonWidth" format="dimension" />
+    <attr name="ChiliAccountCardViewActionButtonHeight" format="dimension" />
+    <attr name="ChiliAccountCardViewActionButtonMarginEnd" format="dimension" />
+    <attr name="ChiliAccountCardViewActionButtonMarginVertical" format="dimension" />
+    <attr name="ChiliAccountCardViewActionButtonTheme" format="reference" />
+
+    <attr name="ChiliAccountCardViewActionButtonBackground" format="reference" />
+    <attr name="ChiliAccountCardViewActionButtonTextAppearance" format="reference" />
+    <attr name="ChiliAccountCardViewActionButtonForeground" format="reference" />
+    <attr name="ChiliAccountCardViewActionButtonTextMaxLines" format="integer" />
+    <attr name="ChiliAccountCardViewActionButtonBackgroundActive" format="color" />
+    <attr name="ChiliAccountCardViewActionButtonBorderColor" format="color" />
+    <attr name="ChiliAccountCardViewActionButtonPaddingTop" format="dimension"/>
+    <attr name="ChiliAccountCardViewActionButtonPaddingBottom" format="dimension"/>
+    <attr name="ChiliAccountCardViewActionButtonPaddingStart" format="dimension"/>
+    <attr name="ChiliAccountCardViewActionButtonPaddingEnd" format="dimension"/>
+    <!--endregion AccountCardView -->
+
+    <!-- IconTitledCardView-->
+    <attr name="ChiliIconTitledCardViewBackground" format="dimension"/>
+    <attr name="ChiliIconTitledCardViewIconSize" format="dimension"/>
+    <attr name="ChiliIconTitledCardViewIconMarginTop" format="dimension"/>
+    <attr name="ChiliIconTitledCardViewTitleMarginTop" format="dimension"/>
+
+    <!-- ExpandableGridRecyclerView-->
+    <attr name="ChiliExpandableGridRecyclerViewBackground" format="reference"/>
+    <attr name="ChiliExpandableGridRecyclerViewIconBackground" format="reference"/>
+    <attr name="ChiliExpandableGridRecyclerViewIconRadius" format="dimension"/>
+    <attr name="ChiliExpandableGridRecyclerViewClosureMarginTop" format="dimension"/>
+    <attr name="ChiliExpandableGridRecyclerViewClosurePaddingVertical" format="dimension"/>
+    <attr name="ChiliExpandableGridRecyclerViewClosurePaddingHorizontal" format="dimension"/>
+
+    <!--region CategoryCardView -->
+    <attr name="ChiliMarketCategoryCardViewForeground" format="reference" />
+    <attr name="ChiliMarketCategoryCardViewBackgroundColor" format="reference" />
+    <attr name="ChiliMarketCategoryCardViewCornerRadius" format="dimension" />
+    <attr name="ChiliMarketCategoryCardViewContainerMarginStart" format="dimension" />
+    <attr name="ChiliMarketCategoryCardViewContainerMarginTop" format="dimension" />
+    <attr name="ChiliMarketCategoryCardViewTitleEndMargin" format="dimension" />
+    <attr name="ChiliMarketCategoryCardViewTitleTextAppearance" format="reference" />
+    <attr name="ChiliMarketCategoryCardViewTitleMaxLines" format="integer" />
+    <!--endregion CategoryCardView -->
+
+    <!--region InfoCardView -->
+    <attr name="ChiliInfoCardViewSubtitleHorizontalMargin" format="reference" />
+    <attr name="ChiliInfoCardViewSubtitleTopMargin" format="reference" />
+    <attr name="ChiliInfoCardViewButtonTopMargin" format="reference" />
+    <!--endregion InfoCardView -->
+
 </resources>

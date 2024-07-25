@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/buttons_sv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?ChiliScreenBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_16dp"
+        android:orientation="vertical">
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv_dynamic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:title="Пройдите \nИдентификацию"
+            app:titleIcon="@drawable/non_identified"/>
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:title="Пройдите \nИдентификацию"
+            app:titleIcon="@drawable/non_identified"
+            app:titleTextAppearance="@style/Chili.H14.AccentSecondary.700" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:title="Пройдите \nИдентификацию"
+            app:titleTextAppearance="@style/Chili.H14.AccentSecondary.700" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonText="Войти"
+            app:subtitle="Более 2000 сервисов"
+            app:subtitleTextAppearance="@style/Chili.H14.Secondary"
+            app:title="Оплачивайте"
+            app:titleTextAppearance="@style/Chili.H16.Primary.Bold" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonText="Войти"
+            app:subtitle="Для доступа к услугам"
+            app:subtitleTextAppearance="@style/Chili.H14.Secondary"
+            app:title="Пройдите авторизацию"
+            app:titleTextAppearance="@style/Chili.H16.Primary.Bold" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv31"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:isChevronVisible="true"
+            app:isToggleIconEnabled="true"
+            app:isToggleIconVisible="true"
+            app:subtitle="3 350,00 c"
+            app:subtitleTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:title="Карта Visa"
+            app:titleAddition="•••• 1234"
+            app:titleAdditionTextAppearance="@style/Chili.H14.Value"
+            app:titleTextAppearance="@style/Chili.H14.Primary" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:actionButtonTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:isChevronVisible="true"
+            app:subtitle="Временно недоступен"
+            app:subtitleTextAppearance="@style/Chili.H14.Warning.Bold"
+            app:title="ЭЛКАРТ"
+            app:titleAddition="•••• 1234"
+            app:titleAdditionTextAppearance="@style/Chili.H14.Value"
+            app:titleTextAppearance="@style/Chili.H14.Primary" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:actionButtonTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:isChevronVisible="true"
+            app:subtitle="Временно недоступен"
+            app:subtitleTextAppearance="@style/Chili.H14.Warning.Bold"
+            app:title="Избранный счет"
+            app:titleIcon="@drawable/chili_ic_star_outlined"
+            app:titleTextAppearance="@style/Chili.H14.Primary" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:actionButtonTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:cardBackground="@drawable/chili_cell_rounded_top_background"
+            app:isChevronVisible="true"
+            app:isToggleIconEnabled="true"
+            app:isToggleIconVisible="true"
+            app:subtitle="3 350,00 c"
+            app:subtitleTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:title="Карта Visa"
+            app:titleAddition="•••• 1234"
+            app:titleAdditionTextAppearance="@style/Chili.H14.Value"
+            app:titleTextAppearance="@style/Chili.H14.Primary" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:actionButtonTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:cardBackground="@drawable/chili_cell_rounded_middle_background"
+            app:isChevronVisible="true"
+            app:isToggleIconEnabled="true"
+            app:isToggleIconVisible="true"
+            app:subtitle="3 350,00 c"
+            app:subtitleTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:title="Карта Visa"
+            app:titleAddition="•••• 1234"
+            app:titleAdditionTextAppearance="@style/Chili.H14.Value"
+            app:titleTextAppearance="@style/Chili.H14.Primary" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:actionButtonTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:cardBackground="@drawable/chili_cell_rounded_bottom_background"
+            app:isChevronVisible="true"
+            app:isDividerVisible="false"
+            app:isToggleIconEnabled="true"
+            app:isToggleIconVisible="true"
+            app:subtitle="3 350,00 c"
+            app:subtitleTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:title="Карта Visa"
+            app:titleAddition="•••• 1234"
+            app:titleAdditionTextAppearance="@style/Chili.H14.Value"
+            app:titleTextAppearance="@style/Chili.H14.Primary" />
+
+        <kg.devcats.chili3.view.card.AccountCardView
+            android:id="@+id/acv8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30.dp"
+            android:layout_marginBottom="@dimen/padding_16dp"
+            app:actionButtonIcon="@drawable/chili_ic_card"
+            app:actionButtonText="Войти"
+            app:actionButtonTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:cardBackground="@drawable/chili_cell_rounded_background"
+            app:isChevronVisible="true"
+            app:isDividerVisible="false"
+            app:isToggleIconEnabled="true"
+            app:isToggleIconVisible="true"
+            app:subtitle="3 350,00 c"
+            app:subtitleTextAppearance="@style/Chili.H14.Primary.Bold"
+            app:title="Карта Visa Карта Visa Карта Visa Карта Visa Карта Visa "
+            app:titleAddition="•••• 1234"
+            app:titleAdditionTextAppearance="@style/Chili.H14.Value"
+            app:titleTextAppearance="@style/Chili.H14.Primary" />
+
+    </LinearLayout>
+
+</ScrollView>

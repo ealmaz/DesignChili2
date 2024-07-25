@@ -7,11 +7,13 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.DrawableRes
+import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardPromoBinding
+import kg.devcats.chili3.extensions.getDimensionFromAttr
 import kg.devcats.chili3.util.PromoStatus
 
 class PromoCardView @JvmOverloads constructor(
@@ -22,8 +24,9 @@ class PromoCardView @JvmOverloads constructor(
 ) : BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
     override val styleableAttrRes: IntArray = R.styleable.PromoCardView
+    private var promoStatus = PromoStatus.NO_STATUS
 
-    private var promoStatus = mutableListOf(
+    private var promoStatuses = mutableListOf(
         PromoStatus.NO_STATUS to null,
         PromoStatus.NEW to null,
         PromoStatus.ACTIVE to null,
@@ -84,7 +87,11 @@ class PromoCardView @JvmOverloads constructor(
     }
 
     fun setIcon(url: String) {
-        vb.ivIcon.setImageByUrl(url)
+        vb.ivIcon.setImageByUrl(
+            url = url,
+            width = context.getDimensionFromAttr(R.attr.ChiliPromoCardViewIconSize, 32.dpF).toInt(),
+            height = context.getDimensionFromAttr(R.attr.ChiliPromoCardViewIconSize, 32.dpF).toInt()
+        )
     }
 
     fun setIcon(drawable: Drawable) {
@@ -112,10 +119,11 @@ class PromoCardView @JvmOverloads constructor(
     }
 
     fun setPromoBackground(status: Int) {
-        vb.clContainer.background = promoStatus[status].second
+        vb.clContainer.background = promoStatuses[status].second
+        promoStatus = promoStatuses[status].first
     }
 
-    private fun setStatus(status: Int) {
+    fun setStatus(status: Int) {
         when (status) {
             PromoStatus.NEW.value -> setStatusBackground(R.drawable.chili_bg_promo_status_new_gradient)
             PromoStatus.ACTIVE.value -> setStatusBackground(R.drawable.chili_bg_promo_status_active_gradient)
@@ -132,9 +140,19 @@ class PromoCardView @JvmOverloads constructor(
     }
 
     private fun updateStatusBorder(status: PromoStatus, newDrawable: Drawable) {
-        val index = promoStatus.indexOfFirst { it.first == status }
+        val index = promoStatuses.indexOfFirst { it.first == status }
         if (index != -1) {
-            promoStatus[index] = status to newDrawable
+            promoStatuses[index] = status to newDrawable
+        }
+    }
+
+    override fun onStartShimmer() {
+        if (promoStatus == PromoStatus.EXPIRED) vb.clContainer.background = null
+    }
+
+    override fun onStopShimmer() {
+        if (promoStatus == PromoStatus.EXPIRED) {
+            vb.clContainer.background = promoStatuses[promoStatus.value].second
         }
     }
 
