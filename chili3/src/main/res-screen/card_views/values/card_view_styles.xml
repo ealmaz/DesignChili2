@@ -63,4 +63,10 @@
         <item name="cardCornerRadius">?ChiliMarketCategoryCardViewCornerRadius</item>
     </style>
 
+    <style name="Chili.CardViewStyle.InfoCardView">
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">@dimen/elevation_0dp</item>
+        <item name="android:foreground">@null</item>
+    </style>
+
 </resources>

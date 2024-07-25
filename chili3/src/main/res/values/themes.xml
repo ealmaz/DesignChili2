@@ -207,6 +207,12 @@
         <item name="ChiliExpandableGridRecyclerViewClosureMarginTop">@dimen/padding_8dp</item>
         <item name="ChiliExpandableGridRecyclerViewClosurePaddingHorizontal">@dimen/padding_36dp</item>
         <item name="ChiliExpandableGridRecyclerViewClosurePaddingVertical">@dimen/padding_4dp</item>
+
+        <!--region InfoCardView -->
+        <item name="ChiliInfoCardViewSubtitleHorizontalMargin">@dimen/padding_40dp</item>
+        <item name="ChiliInfoCardViewSubtitleTopMargin">@dimen/padding_8dp</item>
+        <item name="ChiliInfoCardViewButtonTopMargin">@dimen/padding_16dp</item>
+        <!--endregion InfoCardView -->
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

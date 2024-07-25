@@ -178,4 +178,10 @@
     <attr name="ChiliMarketCategoryCardViewTitleMaxLines" format="integer" />
     <!--endregion CategoryCardView -->
 
+    <!--region InfoCardView -->
+    <attr name="ChiliInfoCardViewSubtitleHorizontalMargin" format="reference" />
+    <attr name="ChiliInfoCardViewSubtitleTopMargin" format="reference" />
+    <attr name="ChiliInfoCardViewButtonTopMargin" format="reference" />
+    <!--endregion InfoCardView -->
+
 </resources>

@@ -12,6 +12,7 @@
         <attr name="iconTitledViewDefaultStyle" format="reference" />
         <attr name="accountCardViewDefaultStyle" format="reference"/>
         <attr name="marketCategoryCardViewDefaultStyle" format="reference"/>
+        <attr name="infoCardViewDefaultStyle" format="reference"/>
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -256,5 +257,15 @@
         <attr name="title" />
         <attr name="android:scaleType" />
         <attr name="android:adjustViewBounds" />
+    </declare-styleable>
+
+    <declare-styleable name="InfoCardView">
+        <attr name="title" />
+        <attr name="subtitle" />
+        <attr name="buttonTitle" format="string" />
+        <attr name="buttonType" format="integer">
+            <enum name="primary" value="0" />
+            <enum name="additional" value="1" />
+        </attr>
     </declare-styleable>
 </resources>

@@ -1192,6 +1192,34 @@
 
         </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16dp"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        android:orientation="vertical">
+
+        <kg.devcats.chili3.view.card.InfoCardView
+            android:id="@+id/aaa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="У вас новый смартфон?"
+            app:subtitle="Подтвердите личность, чтобы получить доступ ко всем услугам"
+            app:buttonTitle="Подтвердить личность"
+            app:buttonType="primary" />
+
+        <kg.devcats.chili3.view.card.InfoCardView
+            android:id="@+id/bbb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:title="Мы заблокировали ваш платёжный аккаунт в целях безопасности"
+            app:subtitle="Обратитесь в службу поддержки"
+            app:buttonTitle="Служба поддержки"
+            app:buttonType="additional" />
+    </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>
