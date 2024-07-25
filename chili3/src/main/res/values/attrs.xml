@@ -13,6 +13,7 @@
         <attr name="accountCardViewDefaultStyle" format="reference"/>
         <attr name="marketCategoryCardViewDefaultStyle" format="reference"/>
         <attr name="infoCardViewDefaultStyle" format="reference"/>
+        <attr name="bannerCardViewDefaultStyle" format="reference"/>
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -267,5 +268,17 @@
             <enum name="primary" value="0" />
             <enum name="additional" value="1" />
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ProductBannerCardView">
+        <attr name="productBannerCardTitle" format="string"/>
+        <attr name="productBannerCardSubtitle" format="string"/>
+        <attr name="productBannerCardIcon" format="reference"/>
+        <attr name="productBannerCardTitleTextAppearance" format="reference"/>
+        <attr name="productBannerCardSubtitleTextAppearance" format="reference"/>
+        <attr name="productBannerCardIconWidth" format="dimension"/>
+        <attr name="productBannerCardIconHeight" format="dimension"/>
+        <attr name="productBannerCardTitleMaxLines" format="integer"/>
+        <attr name="productBannerCardSubtitleMaxLines" format="integer"/>
     </declare-styleable>
 </resources>
