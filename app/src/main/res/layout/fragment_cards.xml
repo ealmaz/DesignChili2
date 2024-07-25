@@ -1217,8 +1217,8 @@
             android:layout_marginTop="@dimen/padding_16dp"
             app:title="У вас новый смартфон?"
             app:subtitle="Подтвердите личность, чтобы получить доступ ко всем услугам"
-            app:buttonTitle="Подтвердить личность"
-            app:buttonType="primary" />
+            app:btnTitle="Подтвердить личность"
+            app:btnType="primary" />
 
         <kg.devcats.chili3.view.card.InfoCardView
             android:id="@+id/bbb"
@@ -1227,8 +1227,8 @@
             android:layout_marginTop="@dimen/padding_16dp"
             app:title="Мы заблокировали ваш платёжный аккаунт в целях безопасности"
             app:subtitle="Обратитесь в службу поддержки"
-            app:buttonTitle="Служба поддержки"
-            app:buttonType="additional" />
+            app:btnTitle="Служба поддержки"
+            app:btnType="additional" />
     </LinearLayout>
 
     </LinearLayout>
