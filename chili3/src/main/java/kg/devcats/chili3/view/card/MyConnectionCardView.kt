@@ -101,6 +101,14 @@ class MyConnectionCardView @JvmOverloads constructor(
         llLeftoverInfo.isVisible = !isUnauthorized
     }
 
+    fun setUnauthorizedInfo(title: String, subtitle: String, @DrawableRes titleDrawable: Int, @DrawableRes image: Int) {
+        setIsUnauthorized(true)
+        setUnauthorizedTitle(title)
+        setSubtitle(subtitle)
+        setTitleEndDrawable(titleDrawable)
+        setUnauthorizedImage(image)
+    }
+
     fun setWithoutPackage(tariffName: String, tariffDesc: String) = with(vb) {
         plvCall.gone()
         plvInternet.gone()
@@ -118,7 +126,7 @@ class MyConnectionCardView @JvmOverloads constructor(
                         remain,
                         limit,
                         progress,
-                        context.getColor(com.design2.chili2.R.color.cyan_1)
+                        context.getColor(R.color.c_80C01B)
                     )
                 }
 
@@ -128,7 +136,7 @@ class MyConnectionCardView @JvmOverloads constructor(
                         remain,
                         limit,
                         progress,
-                        context.color(R.color.c_80C01B)
+                        context.color(com.design2.chili2.R.color.cyan_1)
                     )
                 }
             }
@@ -173,8 +181,8 @@ class MyConnectionCardView @JvmOverloads constructor(
             }
         }
 
-    fun setInternetTethering(isEnabled: Boolean, isTethering: Boolean) {
-        vb.plvInternet.setInternetTethering(isEnabled, isTethering)
+    fun setInternetTethering(icons: List<String>) {
+        vb.plvInternet.startChangePieChartIcon(icons)
     }
 
     fun setBalance(balance: String) = with(vb) {

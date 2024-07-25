@@ -38,17 +38,6 @@
             android:layout_marginHorizontal="@dimen/padding_4dp"
             tools:text="230 мин." />
 
-        <com.design2.chili2.view.common.AnimatedProgressLine
-            android:id="@+id/progressBar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/view_6dp"
-            android:layout_marginTop="@dimen/view_4dp"
-            app:backgroundHeight="@dimen/view_4dp"
-            app:progressBackgroundColor="@color/gray_3"
-            app:progressColor="@color/cyan_1"
-            app:progressPercent="80"
-            app:trackHeight="@dimen/view_6dp" />
-
     </LinearLayout>
 
     <ImageView
@@ -56,11 +45,21 @@
         android:layout_width="@dimen/padding_16dp"
         android:layout_height="@dimen/padding_16dp"
         android:layout_marginEnd="@dimen/padding_4dp"
-        android:src="@drawable/ic_chevron_right"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/ll_leftover_packages"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/ll_leftover_packages" />
+
+    <com.design2.chili2.view.common.AnimatedProgressLine
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_6dp"
+        android:layout_marginTop="@dimen/view_4dp"
+        app:backgroundHeight="@dimen/view_4dp"
+        app:progressBackgroundColor="@color/gray_3"
+        app:progressColor="@color/cyan_1"
+        app:progressPercent="80"
+        app:layout_constraintTop_toBottomOf="@id/ll_leftover_packages"
+        app:trackHeight="@dimen/view_6dp" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_shimmer_content"
