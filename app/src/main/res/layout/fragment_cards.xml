@@ -41,6 +41,17 @@
             android:layout_marginHorizontal="@dimen/padding_16dp"
             android:text="Account card exapmles" />
 
+        <kg.devcats.chili3.view.card.ProductBannerCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:cardBackground="@color/white_1"
+            app:cardCornerRadius="@dimen/radius_12dp"
+            app:productBannerCardIcon="@drawable/chili_ic_product_banner_default"
+            app:productBannerCardSubtitle="Подзаголовок"
+            app:productBannerCardTitle="Заголовок" />
+
         <Button
             android:id="@+id/btn_expandable_grid_recycler_view_examples"
             style="@style/Chili.ButtonStyle.Primary"
