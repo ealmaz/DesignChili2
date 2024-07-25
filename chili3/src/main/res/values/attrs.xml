@@ -262,8 +262,8 @@
     <declare-styleable name="InfoCardView">
         <attr name="title" />
         <attr name="subtitle" />
-        <attr name="buttonTitle" format="string" />
-        <attr name="buttonType" format="integer">
+        <attr name="btnTitle" format="string" />
+        <attr name="btnType" format="integer">
             <enum name="primary" value="0" />
             <enum name="additional" value="1" />
         </attr>

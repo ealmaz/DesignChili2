@@ -34,8 +34,8 @@ class InfoCardView @JvmOverloads constructor(
     override fun TypedArray.obtainAttributes() {
         setTitle(getText(R.styleable.InfoCardView_title))
         setSubtitle(getText(R.styleable.InfoCardView_subtitle))
-        setButtonTitle(getText(R.styleable.InfoCardView_buttonTitle))
-        getLayoutDimension(R.styleable.InfoCardView_buttonType, 0).let { type ->
+        setButtonTitle(getText(R.styleable.InfoCardView_btnTitle))
+        getLayoutDimension(R.styleable.InfoCardView_btnType, 0).let { type ->
             when (type) {
                 ButtonType.PRIMARY.value -> ButtonType.PRIMARY
                 else -> ButtonType.ADDITIONAL
