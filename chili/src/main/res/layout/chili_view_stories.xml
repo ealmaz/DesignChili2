@@ -3,9 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
+    <com.design2.chili2.view.stories.DraggableFrameLayout
+        android:id="@+id/drag_frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.design2.chili2.view.stories.DraggableFrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
