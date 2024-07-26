@@ -36,9 +36,9 @@ class ProductBannerCardView @JvmOverloads constructor(
     }
 
     override fun TypedArray.obtainAttributes() {
-        setTitle(getText(R.styleable.ProductBannerCardView_productBannerCardTitle))
-        setSubtitle(getText(R.styleable.ProductBannerCardView_productBannerCardSubtitle))
-        setIcon(getResourceId(R.styleable.ProductBannerCardView_productBannerCardIcon, -1))
+        getString(R.styleable.ProductBannerCardView_productBannerCardTitle)?.let { setTitle(it) }
+        getString(R.styleable.ProductBannerCardView_productBannerCardSubtitle)?.let { setSubtitle(it) }
+        getDrawable(R.styleable.ProductBannerCardView_productBannerCardIcon)?.let { setIcon(it) }
 
         getResourceId(R.styleable.ProductBannerCardView_productBannerCardTitleTextAppearance, -1)
             .takeIf { it != -1 }?.let { setTitleTextAppearance(it) }
