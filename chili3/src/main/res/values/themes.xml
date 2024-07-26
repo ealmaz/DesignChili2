@@ -179,7 +179,7 @@
         <item name="ChiliShimmerHighlightColor">@color/c_efeff4</item>
 
         <!-- Chevron       -->
-        <item name="ChiliChevronDrawable">@drawable/ic_chevron_right</item>
+        <item name="ChiliChevronDrawable">@drawable/chili_ic_chevron_rounded</item>
         <item name="ChiliChevronColor">@color/c_1c1c1e</item>
 
         <!-- Snackbar attributes -->

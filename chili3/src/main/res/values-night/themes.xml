@@ -34,7 +34,7 @@
         <item name="ChiliDividerColor">@color/c_28282a</item>
 
         <!-- Chevron -->
-        <item name="ChiliChevronColor">@color/white_1</item>
+        <item name="ChiliChevronColor">@color/c_efeff4</item>
 
         <!-- Segmented Picker   -->
         <item name="ChiliSegmentedPickerBackgroundColor">@color/black_4</item>

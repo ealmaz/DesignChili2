@@ -64,7 +64,7 @@
                 android:id="@+id/iv_chevron"
                 android:layout_width="?ChiliAccountCardViewChevronWidth"
                 android:layout_height="?ChiliAccountCardViewChevronHeight"
-                android:src="@drawable/ic_chevron_right"
+                android:src="@drawable/chili_ic_chevron_rounded"
                 android:visibility="gone" />
 
         </LinearLayout>
