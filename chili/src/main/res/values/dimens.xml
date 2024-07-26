@@ -88,12 +88,12 @@
     <dimen name="view_64dp">64dp</dimen>
     <dimen name="view_68dp">68dp</dimen>
     <dimen name="view_72dp">72dp</dimen>
-    <dimen name="view_80dp">80dp</dimen>
-    <dimen name="view_82dp">82dp</dimen>
-    <dimen name="view_88dp">88dp</dimen>
     <dimen name="view_74dp">74dp</dimen>
     <dimen name="view_75dp">75dp</dimen>
     <dimen name="view_76dp">76dp</dimen>
+    <dimen name="view_80dp">80dp</dimen>
+    <dimen name="view_82dp">82dp</dimen>
+    <dimen name="view_88dp">88dp</dimen>
     <dimen name="view_90dp">90dp</dimen>
     <dimen name="view_94dp">94dp</dimen>
     <dimen name="view_96dp">96dp</dimen>

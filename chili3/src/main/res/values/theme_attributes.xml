@@ -181,6 +181,7 @@
     <attr name="ChiliMarketCategoryCardViewTitleEndMargin" format="dimension" />
     <attr name="ChiliMarketCategoryCardViewTitleTextAppearance" format="reference" />
     <attr name="ChiliMarketCategoryCardViewTitleMaxLines" format="integer" />
+    <attr name="ChiliMarketCategoryCardViewTitleElevation" format="dimension" />
     <!--endregion CategoryCardView -->
 
     <!--region InfoCardView -->

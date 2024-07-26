@@ -175,6 +175,7 @@
         <item name="ChiliMarketCategoryCardViewTitleEndMargin">@dimen/padding_8dp</item>
         <item name="ChiliMarketCategoryCardViewTitleTextAppearance">@style/Chili.H12.Primary</item>
         <item name="ChiliMarketCategoryCardViewTitleMaxLines">2</item>
+        <item name="ChiliMarketCategoryCardViewTitleElevation">@dimen/elevation_4dp</item>
         <!-- endregion CategoryCardView -->
 
         <!-- Divider -->
