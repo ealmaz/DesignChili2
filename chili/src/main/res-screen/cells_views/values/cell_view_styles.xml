@@ -6,6 +6,7 @@
     </style>
 
     <style name="Chili.CellViewStyle.BaseCellViewStyle"/>
+    <style name="Chili.CellViewStyle.BaseCellViewStyle.AdditionalIcon"/>
 
     <style name="Chili.CellViewStyle.BaseCellViewStyle.Toggle">
         <item name="isChevronVisible">false</item>
