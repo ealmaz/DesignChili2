@@ -27,7 +27,6 @@
         <item name="ChiliTranslucentStateListAnimator">@animator/translucent_state_list_animator</item>
 
         <!-- PromoCardView -->
-        <item name="ChiliPromoCardViewContainerBottomPadding">@dimen/padding_10dp</item>
         <item name="ChiliPromoCardViewContainerMinHeight">@dimen/view_88dp</item>
         <item name="ChiliPromoCardViewStatusTopPadding">@dimen/padding_4dp</item>
         <item name="ChiliPromoCardViewStatusBottomPadding">@dimen/padding_6dp</item>
@@ -40,7 +39,6 @@
         <item name="ChiliPromoCardViewLabelMaxLines">2</item>
         <item name="ChiliPromoCardViewIconSize">@dimen/view_32dp</item>
         <item name="ChiliPromoCardViewIconTopMargin">@dimen/padding_8dp</item>
-        <item name="ChiliPromoCardViewIconBottomMargin">@dimen/padding_2dp</item>
         <item name="ChiliPromoCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliPromoCardViewIconEndMargin">@dimen/padding_12dp</item>
         <item name="QuickActionButtonTitleColor">@color/black_1</item>

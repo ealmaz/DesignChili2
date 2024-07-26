@@ -19,7 +19,6 @@
     <attr name="ChiliTranslucentStateListAnimator" format="reference" />
 
     <!-- PromoCardView -->
-    <attr name="ChiliPromoCardViewContainerBottomPadding" format="dimension"/>
     <attr name="ChiliPromoCardViewContainerMinHeight" format="dimension"/>
     <attr name="ChiliPromoCardViewStatusTopPadding" format="dimension"/>
     <attr name="ChiliPromoCardViewStatusBottomPadding" format="dimension"/>
@@ -32,7 +31,6 @@
     <attr name="ChiliPromoCardViewLabelMaxLines" format="integer"/>
     <attr name="ChiliPromoCardViewIconSize" format="dimension"/>
     <attr name="ChiliPromoCardViewIconTopMargin" format="dimension"/>
-    <attr name="ChiliPromoCardViewIconBottomMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconStartMargin" format="dimension"/>
     <attr name="ChiliPromoCardViewIconEndMargin" format="dimension"/>
 

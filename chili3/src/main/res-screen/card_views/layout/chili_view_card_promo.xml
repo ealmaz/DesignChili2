@@ -10,8 +10,7 @@
         android:id="@+id/cl_container"
         android:layout_width="match_parent"
         android:minHeight="?ChiliPromoCardViewContainerMinHeight"
-        android:layout_height="match_parent"
-        android:paddingBottom="?ChiliPromoCardViewContainerBottomPadding">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/iv_icon"
@@ -20,7 +19,6 @@
             android:layout_marginStart="?ChiliPromoCardViewIconStartMargin"
             android:layout_marginTop="?ChiliPromoCardViewIconTopMargin"
             android:layout_marginEnd="?ChiliPromoCardViewIconEndMargin"
-            android:layout_marginBottom="?ChiliPromoCardViewIconBottomMargin"
             app:layout_constraintEnd_toStartOf="@id/tv_status"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
