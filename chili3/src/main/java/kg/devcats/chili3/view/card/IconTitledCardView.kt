@@ -1,7 +1,5 @@
 package kg.devcats.chili3.view.card
 
-import android.animation.ObjectAnimator
-import android.animation.StateListAnimator
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
@@ -51,21 +49,6 @@ class IconTitledCardView @JvmOverloads constructor(
         getBoolean(R.styleable.IconTitledCardView_android_adjustViewBounds, false).let {
             setAdjustViewBounds(it)
         }
-        setupStateListAnimator()
-    }
-
-    private fun setupStateListAnimator() {
-        val stateListAnimator = StateListAnimator()
-
-        val pressedAnimator = ObjectAnimator.ofFloat(vb.root, "alpha", 1f, 0.5f)
-        pressedAnimator.duration = 200
-
-        val releasedAnimator = ObjectAnimator.ofFloat(vb.root, "alpha", 0.5f, 1f)
-        releasedAnimator.duration = 200
-
-        stateListAnimator.addState(intArrayOf(android.R.attr.state_pressed), pressedAnimator)
-        stateListAnimator.addState(intArrayOf(), releasedAnimator)
-        vb.root.stateListAnimator = stateListAnimator
     }
 
     fun setIcon(@DrawableRes drawableId: Int) {

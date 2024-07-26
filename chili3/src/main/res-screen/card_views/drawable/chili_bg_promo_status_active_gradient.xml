@@ -2,8 +2,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <corners android:radius="?ChiliPromoCardViewStatusCornerRadius" />
     <gradient
-        android:startColor="#F280C01B"
-        android:endColor="#D7FF98"
+        android:startColor="#79B815"
+        android:endColor="#A3D555"
         android:type="linear"
         android:angle="180"/>
 </shape>

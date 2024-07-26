@@ -17,7 +17,6 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliCircleStartIconViewToolbarBinding
-import kg.devcats.chili3.extensions.gone
 
 class CircleStartIconChiliToolbar : LinearLayout {
 
@@ -103,54 +102,61 @@ class CircleStartIconChiliToolbar : LinearLayout {
     private fun setStartIcon(icon: Any?) {
         when (icon) {
             is String -> setStartIcon(uri = icon)
-            is Int -> setStartIcon(drawableId = icon)
-            else -> setStartIcon(drawableId = null)
+            is Int -> setStartIcon(drawableRes = icon)
+            else -> setStartIcon(drawableRes = null)
         }
     }
 
-    fun setStartIcon(@DrawableRes drawableId: Int?) {
-        vb.startIcon.setImageOrHide(drawableId)
+    fun setStartIcon(@DrawableRes drawableRes: Int?) {
+        vb.startIcon.setImageOrHide(drawableRes)
     }
 
     fun setStartIcon(uri: String?) = with(vb.startIcon) {
-       uri?.let { setImageByUrl(uri) } ?: gone()
+        isVisible = !uri.isNullOrEmpty()
+        setImageByUrl(uri)
     }
 
     private fun setPrimaryEndIcon(icon: Any?) {
         when (icon) {
             is String -> setPrimaryEndIcon(uri = icon)
-            is Int -> setPrimaryEndIcon(drawableId = icon)
-            else -> setPrimaryEndIcon(drawableId = null)
+            is Int -> setPrimaryEndIcon(drawableRes = icon)
+            else -> setPrimaryEndIcon(drawableRes = null)
         }
     }
 
-    fun setPrimaryEndIcon(@DrawableRes drawableId: Int?) = with(vb) {
-        llIcons.isVisible = drawableId != null || ibEndIconSecondary.isVisible
-        ibEndIconPrimary.setImageOrHide(drawableId)
+    fun setPrimaryEndIcon(@DrawableRes drawableRes: Int?) = with(vb) {
+        llIcons.isVisible = drawableRes != null || ibEndIconSecondary.isVisible
+        ibEndIconPrimary.setImageOrHide(drawableRes)
     }
 
     fun setPrimaryEndIcon(uri: String?) = with(vb) {
         llIcons.isVisible = !uri.isNullOrEmpty() || ibEndIconSecondary.isVisible
-        uri?.let { ibEndIconPrimary.setImageByUrl(uri) } ?: gone()
+        ibEndIconPrimary.apply {
+            isVisible = !uri.isNullOrEmpty()
+            setImageByUrl(uri)
+        }
     }
 
     private fun setSecondaryEndIcon(icon: Any?) {
         when (icon) {
             is String -> setSecondaryEndIcon(uri = icon)
-            is Int -> setSecondaryEndIcon(drawableId = icon)
-            else -> setSecondaryEndIcon(drawableId = null)
+            is Int -> setSecondaryEndIcon(drawableRes = icon)
+            else -> setSecondaryEndIcon(drawableRes = null)
         }
     }
 
-    fun setSecondaryEndIcon(@DrawableRes drawableId: Int?) = with(vb) {
-        llIcons.isVisible = drawableId != null || ibEndIconPrimary.isVisible
-        ibEndIconSecondary.setImageOrHide(drawableId)
+    fun setSecondaryEndIcon(@DrawableRes drawableRes: Int?) = with(vb) {
+        llIcons.isVisible = drawableRes != null || ibEndIconPrimary.isVisible
+        ibEndIconSecondary.setImageOrHide(drawableRes)
 
     }
 
     fun setSecondaryEndIcon(uri: String?) = with(vb) {
         llIcons.isVisible = !uri.isNullOrEmpty() || ibEndIconPrimary.isVisible
-       uri?.let { ibEndIconSecondary.setImageByUrl(uri) } ?: gone()
+        ibEndIconSecondary.apply {
+            isVisible = !uri.isNullOrEmpty()
+            setImageByUrl(uri)
+        }
     }
 
     data class Configuration(

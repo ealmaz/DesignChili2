@@ -43,6 +43,7 @@ class ChiliBottomNavigationView : ConstraintLayout {
                 .takeIf { it != -1 }?.let { setBottomNavBackground(it) }
             vb.bottomNav.itemIconTintList = null
             vb.bottomNav.removeBackgroundForItem(2)
+            vb.viewBackground.setOnClickListener(null)
             recycle()
         }
     }

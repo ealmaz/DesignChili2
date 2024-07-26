@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/padding_16dp"
-        style="@style/Chili.ButtonStyle.Component"
+        style="?ChiliTitledDividerActionButtonStyle"
         android:visibility="gone"
         tools:text="Action"
         tools:visibility="visible"/>
