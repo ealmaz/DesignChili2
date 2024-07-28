@@ -32,7 +32,8 @@
                 android:layout_marginEnd="?CircleStartIconChiliToolbarProfileContainerMarginEnd"
                 android:clickable="true"
                 android:focusable="true"
-                android:foreground="@drawable/chili_ripple_rounded_corner_foreground"
+                android:foreground="@null"
+                android:stateListAnimator="?ChiliTranslucentStateListAnimator"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingStart="?CircleStartIconChiliToolbarProfileContainerPaddingStart"
@@ -77,7 +78,8 @@
                     android:id="@+id/ib_end_icon_primary"
                     android:layout_width="?attr/CircleStartIconChiliToolbarEndIconPrimaryWidth"
                     android:layout_height="?attr/CircleStartIconChiliToolbarEndIconPrimaryHeight"
-                    android:background="?android:selectableItemBackgroundBorderless"
+                    android:background="@null"
+                    android:stateListAnimator="?ChiliTranslucentStateListAnimator"
                     tools:src="@drawable/ic_info" />
 
                 <ImageButton
@@ -85,7 +87,8 @@
                     android:layout_width="?CircleStartIconChiliToolbarEndIconSecondaryWidth"
                     android:layout_height="?CircleStartIconChiliToolbarEndIconSecondaryHeight"
                     android:layout_marginStart="?CircleStartIconChiliToolbarEndIconSecondaryMarginEnd"
-                    android:background="?android:selectableItemBackgroundBorderless"
+                    android:background="@null"
+                    android:stateListAnimator="?ChiliTranslucentStateListAnimator"
                     tools:src="@drawable/ic_info" />
 
             </LinearLayout>

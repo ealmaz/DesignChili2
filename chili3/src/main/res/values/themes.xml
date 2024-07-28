@@ -23,7 +23,11 @@
         <item name="ChiliAlertErrorTextColor">@color/c_AE2A47</item>
         <!-- End text appearance theme-->
 
+        <!-- Animator attributes -->
+        <item name="ChiliTranslucentStateListAnimator">@animator/translucent_state_list_animator</item>
+
         <!-- PromoCardView -->
+        <item name="ChiliPromoCardViewContainerMinHeight">@dimen/view_88dp</item>
         <item name="ChiliPromoCardViewStatusTopPadding">@dimen/padding_4dp</item>
         <item name="ChiliPromoCardViewStatusBottomPadding">@dimen/padding_6dp</item>
         <item name="ChiliPromoCardViewStatusStartPadding">@dimen/padding_8dp</item>
@@ -31,13 +35,10 @@
         <item name="ChiliPromoCardViewStatusTopMargin">@dimen/padding_4dp</item>
         <item name="ChiliPromoCardViewStatusEndMargin">@dimen/padding_4dp</item>
         <item name="ChiliPromoCardViewStatusCornerRadius">@dimen/radius_12dp</item>
-        <item name="ChiliPromoCardViewLabelTopMargin">@dimen/padding_10dp</item>
-        <item name="ChiliPromoCardViewLabelBottomMargin">@dimen/padding_18dp</item>
-        <item name="ChiliPromoCardViewLabelStartMargin">@dimen/padding_12dp</item>
-        <item name="ChiliPromoCardViewLabelEndMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPromoCardViewLabelHorizontalMargin">@dimen/padding_12dp</item>
+        <item name="ChiliPromoCardViewLabelMaxLines">2</item>
         <item name="ChiliPromoCardViewIconSize">@dimen/view_32dp</item>
         <item name="ChiliPromoCardViewIconTopMargin">@dimen/padding_8dp</item>
-        <item name="ChiliPromoCardViewIconBottomMargin">@dimen/padding_0dp</item>
         <item name="ChiliPromoCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliPromoCardViewIconEndMargin">@dimen/padding_12dp</item>
         <item name="QuickActionButtonTitleColor">@color/black_1</item>
@@ -125,7 +126,8 @@
         <item name="ChiliAccountCardViewMainContainerPaddingVertical">@dimen/padding_8dp</item>
         <item name="ChiliAccountCardViewMainContainerPaddingStart">@dimen/padding_8dp</item>
         <item name="ChiliAccountCardViewMainContainerPaddingEnd">@dimen/padding_10dp</item>
-        <item name="ChiliAccountCardViewMainContainerForeground">@drawable/chili_ripple_rounded_corner_foreground</item>
+        <item name="ChiliAccountCardViewMainContainerForeground">@null</item>
+        <item name="ChiliAccountCardViewMainContainerStateListAnimator">?ChiliTranslucentStateListAnimator</item>
 
         <item name="ChiliAccountCardViewTitleIconEndMargin">@dimen/padding_8dp</item>
         <item name="ChiliAccountCardViewTitleShimmerIcon">@drawable/chili_ic_star_20</item>
@@ -140,7 +142,8 @@
         <item name="ChiliAccountCardViewToggleIconWidth">@dimen/view_20dp</item>
         <item name="ChiliAccountCardViewToggleIconHeight">@dimen/view_20dp</item>
         <item name="ChiliAccountCardViewToggleIconMarginEnd">@dimen/padding_8dp</item>
-        <item name="ChiliAccountCardViewToggleIconForeground">@drawable/chili_ripple_rounded_corner_foreground</item>
+        <item name="ChiliAccountCardViewToggleIconForeground">@null</item>
+        <item name="ChiliAccountCardViewToggleIconStateListAnimator">?ChiliTranslucentStateListAnimator</item>
 
         <item name="ChiliAccountCardViewActionButtonStyle">@style/Chili.ButtonStyle.AccountCard</item>
         <item name="ChiliAccountCardViewActionButtonWidth">@dimen/view_120dp</item>
@@ -170,6 +173,7 @@
         <item name="ChiliMarketCategoryCardViewTitleEndMargin">@dimen/padding_8dp</item>
         <item name="ChiliMarketCategoryCardViewTitleTextAppearance">@style/Chili.H12.Primary</item>
         <item name="ChiliMarketCategoryCardViewTitleMaxLines">2</item>
+        <item name="ChiliMarketCategoryCardViewTitleElevation">@dimen/elevation_4dp</item>
         <!-- endregion CategoryCardView -->
 
         <!-- Divider -->
@@ -179,8 +183,12 @@
         <item name="ChiliShimmerHighlightColor">@color/c_efeff4</item>
 
         <!-- Chevron       -->
-        <item name="ChiliChevronDrawable">@drawable/ic_chevron_right</item>
+        <item name="ChiliChevronDrawable">@drawable/chili_ic_chevron_rounded</item>
         <item name="ChiliChevronColor">@color/c_1c1c1e</item>
+
+        <!-- TitledDividerView -->
+        <item name="ChiliTitledDividerActionButtonStyle">@style/Chili.ButtonStyle.Component.IconTitledCardView</item>
+
 
         <!-- Snackbar attributes -->
         <item name="ChiliSnackbarBackground">@color/c_4a4a4a</item>

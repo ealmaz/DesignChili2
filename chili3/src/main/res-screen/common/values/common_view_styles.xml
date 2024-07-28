@@ -13,4 +13,10 @@
         <item name="elevation">?ChiliBottomNavigationViewElevation</item>
     </style>
 
+    <style name="Chili.ButtonStyle.Component.IconTitledCardView">
+        <item name="android:foreground">@null</item>
+        <item name="android:background">@drawable/chili_component_button_background</item>
+        <item name="android:stateListAnimator">@animator/translucent_state_list_animator</item>
+    </style>
+
 </resources>

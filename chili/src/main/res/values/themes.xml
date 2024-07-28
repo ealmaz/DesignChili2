@@ -256,6 +256,7 @@
         <!-- TitledDividerView -->
         <item name="ChiliTitledDividerTopMargin">@dimen/padding_16dp</item>
         <item name="ChiliTitledDividerBottomMargin">@dimen/padding_16dp</item>
+        <item name="ChiliTitledDividerActionButtonStyle">@style/Chili.ButtonStyle.Component</item>
 
         <!-- CellView attributes -->
         <item name="ChiliCellViewBackground">@color/white_1</item>
