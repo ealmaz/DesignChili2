@@ -68,6 +68,11 @@ class ChilliStoriesView : ConstraintLayout {
                     return if (top < 0) 0 else top
                 }
 
+                override fun onViewCaptured(capturedChild: View, activePointerId: Int) {
+                    super.onViewCaptured(capturedChild, activePointerId)
+                    binding.viewPager.isUserInputEnabled = false
+                }
+
                 override fun onViewPositionChanged(
                     changedView: View,
                     left: Int,
@@ -78,19 +83,21 @@ class ChilliStoriesView : ConstraintLayout {
                     val dragOffset = top.toFloat() / binding.dragFrameLayout.height
                     val scaleFactor = 1 - dragOffset * 0.2f
 
-//                    currentFragment?.onPause()
+                    currentFragment?.onPause()
 
                     binding.viewPager.scaleX = scaleFactor
                     binding.viewPager.scaleY = scaleFactor
                 }
 
                 override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
-                    if (releasedChild.top > binding.root.height / 3) {
+                    if (releasedChild.top > binding.root.height / 4) {
                         currentFragment?.onCloseStories()
                     }
                     else {
-//                        currentFragment?.onResume()
+                        currentFragment?.onResume()
                         resetViewPosition()
+                        binding.viewPager.isUserInputEnabled = false
+                        releasedChild.top = 0
                     }
                 }
 

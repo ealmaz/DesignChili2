@@ -27,8 +27,6 @@ import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import kotlin.collections.ArrayList
-import kotlin.math.max
-import kotlin.math.min
 
 
 class StoryView : ConstraintLayout {
@@ -123,9 +121,7 @@ class StoryView : ConstraintLayout {
 
                 when (event.action) {
                     MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                        binding.root.animate().translationY(0f).setDuration(200).withEndAction {
-                            resumeTimer()
-                        }.start()
+                        resumeTimer()
                     }
                 }
 
@@ -442,24 +438,6 @@ class StoryView : ConstraintLayout {
             }
             return super.onSingleTapUp(e)
         }
-
-//        override fun onScroll(
-//            e1: MotionEvent?,
-//            e2: MotionEvent,
-//            distanceX: Float,
-//            distanceY: Float
-//        ): Boolean {
-//            val deltaY = e2.rawY - initialTouchY
-//            if (deltaY > 0) {
-//                val scale = max(0.8f, 1 - min(1f, deltaY / 5000))
-//
-//                binding.root.scaleX = scale
-//                binding.root.scaleY = scale
-//                binding.root.translationY = deltaY
-//                return true
-//            }
-//            return false
-//        }
 
         override fun onLongPress(e: MotionEvent) {
             super.onLongPress(e)
