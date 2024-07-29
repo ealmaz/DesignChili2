@@ -10,7 +10,7 @@ import com.design2.chili2.view.stories.StoryOnFinishListener
 
 class ChilliStoryPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 
-    private val fragments = ArrayList<Fragment>()
+    private val fragments = ArrayList<ChilliStoryFragment>()
 
     fun createViewPager(stories: List<ChilliStoryBlock>, onMoveListener: StoryMoveListener, onFinishListener: StoryOnFinishListener) {
         stories.forEach {
@@ -18,11 +18,13 @@ class ChilliStoryPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStat
         }
     }
 
-    fun addFragment(fragment: Fragment) {
+    fun addFragment(fragment: ChilliStoryFragment) {
         fragments.add(fragment)
     }
 
     override fun getItemCount(): Int = fragments.size
 
     override fun createFragment(position: Int): Fragment = fragments[position]
+
+    fun getFragmentByPosition(position: Int) = fragments[position]
 }

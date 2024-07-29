@@ -47,6 +47,10 @@ class ChilliStoryFragment: Fragment() {
         }
     }
 
+    fun onCloseStories() {
+        binding.storyView.finishStories()
+    }
+
     override fun onPause() {
         super.onPause()
         binding.storyView.pauseTimer()

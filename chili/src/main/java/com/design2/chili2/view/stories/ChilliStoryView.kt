@@ -27,8 +27,6 @@ import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import kotlin.collections.ArrayList
-import kotlin.math.max
-import kotlin.math.min
 
 
 class StoryView : ConstraintLayout {
@@ -51,8 +49,6 @@ class StoryView : ConstraintLayout {
 
     private var progressBars: ArrayList<ProgressBar> = arrayListOf()
     private var exoPlayer: ExoPlayer? = null
-
-    private var initialTouchY: Float = 0f
 
     constructor(context: Context) : super(context) {
         init(context)
@@ -125,13 +121,7 @@ class StoryView : ConstraintLayout {
 
                 when (event.action) {
                     MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                        if (binding.root.translationY > 200) {
-                            finishWithAnimation()
-                        } else {
-                            binding.root.animate().translationY(0f).setDuration(200).withEndAction {
-                                resumeTimer()
-                            }.start()
-                        }
+                        resumeTimer()
                     }
                 }
 
@@ -152,6 +142,7 @@ class StoryView : ConstraintLayout {
                     }
                     secondaryButton.gone()
                 }
+
                 storyModel.buttonText != null && storyModel.buttonType == ChilliButtonType.SECONDARY -> {
                     secondaryButton.apply {
                         visible()
@@ -159,6 +150,7 @@ class StoryView : ConstraintLayout {
                     }
                     additionalButton.gone()
                 }
+
                 else -> {
                     additionalButton.gone()
                     secondaryButton.gone()
@@ -284,16 +276,13 @@ class StoryView : ConstraintLayout {
             progressBarsContainer.removeAllViews()
             progressBars.clear()
             closeButton.setOnClickListener {
-                moveListener?.onClose()
-                onFinishListener?.onStoryClose()
+                finishStories()
             }
             additionalButton.setOnClickListener {
-                moveListener?.onClose()
-                onFinishListener?.onStoryClose()
+                finishStories()
             }
             secondaryButton.setOnClickListener {
-                moveListener?.onClose()
-                onFinishListener?.onStoryClose()
+                finishStories()
             }
         }
 
@@ -314,7 +303,7 @@ class StoryView : ConstraintLayout {
                     max = 1000
                     progress =
                         if (!stories.all { it.isViewed == true } && story.isViewed == true) 1000 else 0
-                                progressDrawable = context.getDrawable(R.drawable.chili_story_progress_bar)
+                    progressDrawable = context.getDrawable(R.drawable.chili_story_progress_bar)
                 }
             progressBars.add(progressBar)
             binding.progressBarsContainer.addView(progressBar)
@@ -349,7 +338,8 @@ class StoryView : ConstraintLayout {
         }
     }
 
-    private fun finishWithAnimation() {
+    fun finishStories() {
+        resetTimer()
         onMoveListener?.onClose()
         onFinishListener?.onStoryClose()
     }
@@ -419,11 +409,13 @@ class StoryView : ConstraintLayout {
                         exoPlayer?.playWhenReady = true
                         exoPlayer?.prepare()
                     }
+
                     ChilliStoryType.LOTTIE -> resumeLottieAnimation()
                     else -> {}
                 }
             }
-            isAllStoriesFinished && isVisible  -> {
+
+            isAllStoriesFinished && isVisible -> {
                 progressBars[currentStoryIndex].progress = 0
                 currentStory?.storyType?.let { playContentByStoryType(it) }
             }
@@ -436,12 +428,6 @@ class StoryView : ConstraintLayout {
 
     inner class StoryGestureListener : GestureDetector.SimpleOnGestureListener() {
 
-
-        override fun onDown(e: MotionEvent): Boolean {
-            initialTouchY = e.rawY
-            return true
-        }
-
         override fun onSingleTapUp(e: MotionEvent): Boolean {
             e.let {
                 if (it.x < binding.touchableView.width / 2) {
@@ -451,24 +437,6 @@ class StoryView : ConstraintLayout {
                 }
             }
             return super.onSingleTapUp(e)
-        }
-
-        override fun onScroll(
-            e1: MotionEvent?,
-            e2: MotionEvent,
-            distanceX: Float,
-            distanceY: Float
-        ): Boolean {
-            val deltaY = e2.rawY - initialTouchY
-            if (deltaY > 0) {
-                val scale = max(0.8f, 1 - min(1f, deltaY / 5000))
-
-                binding.root.scaleX = scale
-                binding.root.scaleY = scale
-                binding.root.translationY = deltaY
-                return true
-            }
-            return false
         }
 
         override fun onLongPress(e: MotionEvent) {
