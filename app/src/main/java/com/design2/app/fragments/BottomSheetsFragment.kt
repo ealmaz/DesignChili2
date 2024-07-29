@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.app.MainActivity
 import com.design2.app.R
+import com.design2.app.adapter.SampleRadioItem
+import com.design2.app.adapter.SelectorAdapter
 import com.design2.app.adapter.SimpleTextRecyclerViewAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FrgmentBottomSheetsBinding
@@ -25,6 +27,7 @@ import com.design2.chili2.view.modals.bottom_sheet_constructor.buildBottomSheet
 import com.design2.chili2.view.modals.in_app.InAppPushBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import kg.devcats.chili3.view.container.BottomSheetWithRecycler
 
 class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
 
@@ -179,22 +182,27 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .build()
             bottomSheet.show(childFragmentManager)
         }
-        vb.chili3DefaultCart.setOnClickListener {
-            FragmentBottomSheet.Builder()
-                .setContentFragment(
-                    DefaultCartViewsFragment().apply {
-                        setTitleValue("Выберите счёт по умолчанию")
-                        setSubTitleValue("Если кто-то переведёт вам деньги по номеру телефона, они придут на счёт по умолчанию")
-                    })
-                .setState(BottomSheetBehavior.STATE_EXPANDED)
-                .setCloseIcon(kg.devcats.chili3.R.drawable.chili_new_ic_close)
-                .setDrawableVisible(false)
-                .setInnerTopDrawableVisible(true)
-                .setHasCloseIcon(false)
-                .setIsHideable(true)
-                .setIsBackButtonEnabled(true)
+        vb.chili3BottomSheetWRecview.setOnClickListener {
+            var bsh: BottomSheetWithRecycler? = null
+            val adapter = SelectorAdapter(listOf(
+                SampleRadioItem("Visa","···· 1234"),
+                SampleRadioItem("Visa o!Dengi","···· 12421"),
+                SampleRadioItem("Банковский счет","···· 2341"),
+                SampleRadioItem("ELCART ЭЛКАП","···· 1234"),
+                SampleRadioItem("Visa","···· 1234"),
+                SampleRadioItem("Visa o!Dengi","···· 12421"),
+                SampleRadioItem("Банковский счет","···· 2341")
+            )){ selectedData ->
+                Toast.makeText(context, "$selectedData", Toast.LENGTH_SHORT).show()
+                // bsh?.dismiss()
+            }
+            bsh = BottomSheetWithRecycler.Builder()
+                .setTitle("Это боттомщит где вы можете засетить свой адаптер к ресайклу")
+                .setSubtitle(getString(R.string.app_name))
+                .setAdapter(adapter)
                 .build()
-                .show(childFragmentManager)
+            bsh.show(childFragmentManager)
+
         }
         vb.customWithBuilder.setOnClickListener {
             FragmentBottomSheet.Builder()
