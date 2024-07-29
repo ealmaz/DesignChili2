@@ -16,6 +16,9 @@ import android.widget.ProgressBar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.isVisible
+import androidx.media3.common.MediaItem
+import androidx.media3.common.Player
+import androidx.media3.exoplayer.ExoPlayer
 import com.airbnb.lottie.LottieDrawable
 import com.bumptech.glide.request.RequestOptions
 import com.design2.chili2.R
@@ -23,9 +26,6 @@ import com.design2.chili2.databinding.ChiliViewStoryBinding
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageByUrlWithListener
 import com.design2.chili2.extensions.visible
-import com.google.android.exoplayer2.ExoPlayer
-import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.Player
 import kotlin.collections.ArrayList
 
 
