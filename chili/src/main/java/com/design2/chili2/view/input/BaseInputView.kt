@@ -185,7 +185,7 @@ open class BaseInputView @JvmOverloads constructor(
         vb.tilInputContainer.setBackgroundResource(resId)
     }
 
-    private fun setupFieldBackground(resId: Int) {
+    fun setupFieldBackground(resId: Int) {
         fieldBackground = resId
         vb.tilInputContainer.setBackgroundResource(resId)
     }
