@@ -192,6 +192,14 @@ open class BaseCellView @JvmOverloads constructor(
         vb.tvSubtitle.setTextAppearance(resId)
     }
 
+    fun setSubtitleBackground(@DrawableRes resId: Int) {
+        vb.tvSubtitle.setBackgroundResource(resId)
+    }
+
+    fun setSubtitleBackground(background: Drawable?) {
+        vb.tvSubtitle.background = background
+    }
+
     fun setSubtitleMaxLines(maxLines: Int) {
         vb.tvSubtitle.maxLines = maxLines
     }

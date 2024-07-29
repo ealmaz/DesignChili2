@@ -129,6 +129,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             setAdditionalText("Сервис \nнедоступен")
             setAdditionalTextAppearance(kg.devcats.chili3.R.style.Chili_H14_Primary)
         }
+        vb.aicvHalykNoCommission.setSubtitleBackground(kg.devcats.chili3.R.drawable.bg_subtitle_background_rounded)
     }
 
     private fun getItemTouchHelper(adapter: EditableCellViewsAdapter) =

@@ -837,22 +837,24 @@
             android:layout_height="wrap_content">
 
             <kg.devcats.chili3.view.cells.AdditionalIconCellView
+                android:id="@+id/aicv_halyk_no_commission"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_squircle_phone"
-                app:isDividerVisible="false"
+                app:isDividerVisible="true"
                 app:roundedCornerMode="top"
                 app:subtitle="Комиссии нет"
+                app:subtitleTextAppearance="@style/Chili.H8.Secondary"
                 app:tag_background="@drawable/bonus_tag_bg"
                 app:tag_icon="@drawable/ic_bonus_new"
                 app:tag_text="1%"
-                app:title="Halyk Bank по номеру телефона" />
+                app:title="Halyk Bank по номеру\nтелефона" />
 
             <kg.devcats.chili3.view.cells.AdditionalIconCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_squircle_phone"
-                app:isDividerVisible="false"
+                app:isDividerVisible="true"
                 app:roundedCornerMode="middle"
                 app:tag_background="@drawable/bonus_tag_bg"
                 app:tag_icon="@drawable/ic_bonus_new"

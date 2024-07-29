@@ -13,6 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.design2.chili2.R
 import com.design2.chili2.view.cells.BaseCellView
+import kg.devcats.chili3.extensions.visible
 
 class AdditionalIconCellView
 @JvmOverloads constructor(
@@ -71,11 +72,7 @@ class AdditionalIconCellView
             layoutParams = LayoutParams(
                 LayoutParams.WRAP_CONTENT,
                 LayoutParams.WRAP_CONTENT
-            ).apply {
-                endToStart = R.id.iv_chevron
-                bottomToBottom = R.id.iv_chevron
-                topToTop = R.id.iv_chevron
-            }
+            )
             minWidth = resources.getDimensionPixelSize(R.dimen.view_46dp)
 
             val tvPercentage = TextView(context).apply {
@@ -88,8 +85,8 @@ class AdditionalIconCellView
                     topToTop = LayoutParams.PARENT_ID
                     bottomToBottom = LayoutParams.PARENT_ID
                 }
-                setTextColor(ContextCompat.getColor(context, R.color.white_1))
                 setTextAppearance(R.style.Chili_H9_Primary_700)
+                setTextColor(ContextCompat.getColor(context, R.color.white_1))
                 gravity = Gravity.CENTER
                 setPadding(
                     resources.getDimensionPixelSize(R.dimen.padding_8dp),
@@ -125,7 +122,8 @@ class AdditionalIconCellView
             addView(icon)
         }
         tagBackground = clPercentage
-        vb.rootView.addView(clPercentage)
+        vb.flEndPlaceHolder.visible()
+        vb.flEndPlaceHolder.addView(clPercentage)
     }
 
     fun setTagText(text: String?) {
