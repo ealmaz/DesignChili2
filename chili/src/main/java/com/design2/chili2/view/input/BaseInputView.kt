@@ -103,6 +103,9 @@ open class BaseInputView @JvmOverloads constructor(
             getDrawable(R.styleable.BaseInputView_endIconDrawable)?.let {
                 setInputRightDrawable(it)
             }
+            getDimensionPixelSize(R.styleable.BaseInputView_endIconSize, -1).takeIf {it != -1}?.let {
+                setInputRightDrawableSize(it)
+            }
             getString(R.styleable.BaseInputView_android_hint)?.let { hint ->
                 setHint(hint)
             }
@@ -449,6 +452,16 @@ open class BaseInputView @JvmOverloads constructor(
 
     fun setInputLeftDrawableSize(size: Int) {
         getInputLeftImageView().apply {
+            updatePadding()
+            updateLayoutParams<LayoutParams> {
+                width = size
+                height = size
+            }
+        }
+    }
+
+    fun setInputRightDrawableSize(size: Int) {
+        getInputRightImageView().apply {
             updatePadding()
             updateLayoutParams<LayoutParams> {
                 width = size

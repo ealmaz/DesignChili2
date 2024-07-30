@@ -64,14 +64,17 @@
 
         <com.design2.chili2.view.input.BaseInputView
             android:id="@+id/field_start_icon"
-            app:message="Simple with start icon"
-            android:hint="Search Service"
-            android:gravity="start"
-            app:startIconDrawable="@drawable/chili_ic_search"
-            app:startIconSize="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_16dp"/>
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="start"
+            android:hint="Search Service"
+            android:textAppearance="@style/Chili.H16.Primary"
+            app:endIconDrawable="@drawable/chili_ic_reset"
+            app:endIconSize="@dimen/view_16dp"
+            app:message="Simple with start icon"
+            app:startIconDrawable="@drawable/chili_ic_search"
+            app:startIconSize="@dimen/view_20dp"/>
 
         <com.design2.chili2.view.input.BaseInputView
             android:id="@+id/field_1"
