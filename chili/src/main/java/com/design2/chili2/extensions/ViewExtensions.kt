@@ -218,7 +218,8 @@ private fun getGlideOnLoadListener(onSuccess: ((Drawable) -> Unit)?, onError: ((
 fun ImageView.setUrlImage(url: String?, width: Int, height: Int, placeHolderDrawable: Drawable? = null) {
     load(url) {
         placeholder(placeHolderDrawable)
-        size(width, height)
+        if (width > 0 && height > 0)
+            size(width, height)
     }
 }
 
