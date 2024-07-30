@@ -43,6 +43,7 @@
     <!-- ProductCardView -->
     <attr name="ChiliCardViewImageRadius" format="dimension"/>
     <attr name="ChiliProductCardViewImageHeight" format="dimension"/>
+    <attr name="ChiliProductCardViewImageWidth" format="dimension"/>
     <attr name="ChiliProductCardViewDiscountStartMargin" format="dimension"/>
     <attr name="ChiliProductCardViewDiscountBottomMargin" format="dimension"/>
     <attr name="ChiliProductCardViewDiscountPaddingHorizontal" format="dimension"/>

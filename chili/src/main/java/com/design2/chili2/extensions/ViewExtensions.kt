@@ -21,6 +21,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.addTextChangedListener
+import coil.load
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.DataSource
@@ -211,6 +212,13 @@ private fun getGlideOnLoadListener(onSuccess: ((Drawable) -> Unit)?, onError: ((
             onSuccess?.invoke(resource)
             return false
         }
+    }
+}
+
+fun ImageView.setUrlImage(url: String?, width: Int, height: Int, placeHolderDrawable: Drawable? = null) {
+    load(url) {
+        placeholder(placeHolderDrawable)
+        size(width, height)
     }
 }
 
