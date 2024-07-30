@@ -134,6 +134,5 @@
     <color name="c_c8c8c8_alpha_50">#80C8C8C8</color>
     <color name="c_80C01B_alpha_50">#8080C01B</color>
 
-    <color name="cell_background_color">@color/white_1</color>
     <color name="chevron_color">@color/black_3</color>
 </resources>
