@@ -59,6 +59,7 @@
         <!-- ProductCardView -->
         <item name="ChiliCardViewImageRadius">@dimen/radius_12dp</item>
         <item name="ChiliProductCardViewImageHeight">@dimen/view_210dp</item>
+        <item name="ChiliProductCardViewImageWidth">@dimen/view_168dp</item>
         <item name="ChiliProductCardViewDiscountStartMargin">@dimen/padding_8dp</item>
         <item name="ChiliProductCardViewDiscountBottomMargin">@dimen/padding_6dp</item>
         <item name="ChiliProductCardViewDiscountPaddingHorizontal">@dimen/padding_6dp</item>

@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.ImageView.ScaleType
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setUrlImage
 import com.design2.chili2.util.IconSize
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
@@ -86,8 +86,12 @@ class StoriesCardView @JvmOverloads constructor(
         }
     }
 
-    fun setStories(src: String) {
-        vb.ivStories.setImageByUrl(src, imageSize.first - 4.dp, imageSize.second - 4.dp)
+    fun setStories(src: String?) {
+        vb.ivStories.setUrlImage(
+            url = src,
+            width = imageSize.first - 4.dp,
+            height = imageSize.second - 4.dp
+        )
     }
 
     fun setStatus(status: Int) {
@@ -109,6 +113,9 @@ class StoriesCardView @JvmOverloads constructor(
         vb.flContainer.layoutParams = layoutParams
     }
 
+    /**
+     * Must be called before setStories(src: String?) method
+     */
     fun setIconSize(iconSize: IconSize) {
         val (width, height) = when (iconSize) {
             IconSize.SMALL -> {
