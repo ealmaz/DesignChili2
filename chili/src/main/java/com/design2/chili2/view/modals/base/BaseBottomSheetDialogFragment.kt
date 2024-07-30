@@ -92,6 +92,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
             else -> topDrawableView?.gone()
         }
     }
+
     private fun setupInnerTopDrawableVisibility() {
         innerTopDrawableView?.isVisible = innerTopDrawableVisible
     }

@@ -22,4 +22,8 @@
 
     <style name="Chili.DividerViewStyle"/>
 
+    <style name="Chili.CellViewStyle.BaseCellViewStyle.Radio">
+        <item name="isChevronVisible">false</item>
+    </style>
+
 </resources>
