@@ -9,11 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
+import androidx.annotation.AttrRes
 import androidx.annotation.DrawableRes
 import androidx.core.view.isGone
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setUrlImage
 import com.design2.chili2.view.card.BaseCardView
 import com.google.android.material.internal.ViewUtils.dpToPx
 import kg.devcats.chili3.R
@@ -54,9 +55,10 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     override fun TypedArray.obtainAttributes() {
-        getLayoutDimension(R.styleable.ProductCardView_android_layout_width, 0).let {
-            imageSize = it to context.getDimensionFromAttr(R.attr.ChiliProductCardViewImageHeight, 210.dpF).toInt()
-        }
+        setImageSize(
+            getImageSize(R.attr.ChiliProductCardViewImageHeight, 210.dpF),
+            getImageSize(R.attr.ChiliProductCardViewImageWidth, 168.dpF)
+        )
         getString(R.styleable.ProductCardView_productImage)?.let {
             setProductImage(it)
         }
@@ -84,8 +86,19 @@ class ProductCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setDiscountBackground(it) }
     }
 
-    fun setProductImage(src: String) {
-        vb.sivImage.setImageByUrl(
+    private fun getImageSize(@AttrRes resId: Int, defaultValue: Float = 0F): Int {
+        return context.getDimensionFromAttr(resId, defaultValue).toInt()
+    }
+
+    /**
+     * Must be called before setProductImage(src: String? method
+     */
+    fun setImageSize(width: Int, height: Int) {
+        imageSize = width to height
+    }
+
+    fun setProductImage(src: String?) {
+        vb.sivImage.setUrlImage(
             url = src,
             width = imageSize.first,
             height = imageSize.second

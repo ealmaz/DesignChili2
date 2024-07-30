@@ -10,7 +10,7 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setUrlImage
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardCategoryMarketBinding
@@ -69,6 +69,9 @@ class MarketCategoryCardView @JvmOverloads constructor(
         setupIconSize(isHighlighted)
     }
 
+    /**
+     * Must be called before setCategoryIcon(src: String?) method
+     */
     private fun setupIconSize(isHighlighted: Boolean) {
         val (width, height) = when (isHighlighted) {
             true -> 104.dp to 32.dp
@@ -93,8 +96,12 @@ class MarketCategoryCardView @JvmOverloads constructor(
         vb.tvTitle.setTextAppearance(resId)
     }
 
-    fun setCategoryIcon(src: String) {
-        vb.ivIcons.setImageByUrl(src, imageSize.first, imageSize.second)
+    fun setCategoryIcon(src: String?) {
+        vb.ivIcons.setUrlImage(
+            url = src,
+            width = imageSize.first,
+            height = imageSize.second
+        )
     }
 
     fun setScaleType(scaleType: Int) {

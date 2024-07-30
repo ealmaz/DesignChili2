@@ -64,6 +64,7 @@ class Shadow : Effect {
             ShadowType.BOTTOM -> {
                 canvas?.clipRect(0f, 0 - blurSizeOffset, viewWidth, 0f, Region.Op.DIFFERENCE)
             }
+            else -> {}
         }
 
         canvas?.drawPath(path, paint)

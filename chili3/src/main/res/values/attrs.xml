@@ -157,8 +157,6 @@
     </declare-styleable>
 
     <declare-styleable name="ProductCardView">
-        <attr name="android:layout_width" />
-        <attr name="android:layout_height" />
         <attr name="productImage" format="string" />
         <attr name="android:scaleType"/>
         <attr name="android:adjustViewBounds"/>
