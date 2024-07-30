@@ -136,5 +136,4 @@
 
     <color name="cell_background_color">@color/white_1</color>
     <color name="chevron_color">@color/black_3</color>
-    <color name="secondary_text_color">#3D3D3D</color>
 </resources>

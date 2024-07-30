@@ -30,6 +30,9 @@
         <!-- BonusTagView-->
         <attr name="bonusTagViewStyle" format="reference" />
 
+        <!-- RadioCellView-->
+        <attr name="radioCellViewStyle" format="reference" />
+
         <!-- CircleStartIconChiliToolbar -->
         <attr name="CircleStartIconChiliToolbarDefaultStyle" format="reference"/>
     </declare-styleable>
