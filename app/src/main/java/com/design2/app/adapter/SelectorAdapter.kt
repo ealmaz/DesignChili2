@@ -41,8 +41,8 @@ class DefaultCartViewVH(
         (view as RadioCellView).apply {
             setTitle(data.title)
             setSubtitle(data.subtitle)
-            setOnCheckListener {
-                onSelect.invoke(data)
+            setOnCheckListener { isChecked ->
+                if (isChecked) onSelect.invoke(data)
             }
         }
     }

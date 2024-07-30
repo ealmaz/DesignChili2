@@ -191,7 +191,16 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 SampleRadioItem("ELCART ЭЛКАП","···· 1234"),
                 SampleRadioItem("Visa","···· 1234"),
                 SampleRadioItem("Visa o!Dengi","···· 12421"),
-                SampleRadioItem("Банковский счет","···· 2341")
+                SampleRadioItem("Банковский счет","···· 2341"),
+                SampleRadioItem("Visa","···· 1234"),
+                SampleRadioItem("Visa o!Dengi","···· 12421"),
+                SampleRadioItem("Банковский счет","···· 2341"),
+                SampleRadioItem("ELCART ЭЛКАП","···· 1234"),
+                SampleRadioItem("Visa","···· 1234"),
+                SampleRadioItem("Visa o!Dengi","···· 12421"),
+                SampleRadioItem("Банковский счет","···· 2341"),
+                SampleRadioItem("Visa","···· 1234"),
+                SampleRadioItem("Visa o!Dengi","···· 12421"),
             )){ selectedData ->
                 Toast.makeText(context, "$selectedData", Toast.LENGTH_SHORT).show()
                 // bsh?.dismiss()
