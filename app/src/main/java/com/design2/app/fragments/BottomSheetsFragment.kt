@@ -198,9 +198,9 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
             }
             bsh = BottomSheetWithRecycler.Builder()
                 .setTitle("Это боттомщит где вы можете засетить свой адаптер к ресайклу")
-                .setSubtitle(getString(R.string.app_name))
+                .setSubtitle("Тут можно задать стиль тексту")
                 .setAdapter(adapter)
-                .setSubtitleAppearance(com.design2.chili2.R.style.Chili_H4_Error)
+                .setSubtitleAppearance(com.design2.chili2.R.style.Chili_H9_Error)
                 .build()
             bsh.show(childFragmentManager)
 

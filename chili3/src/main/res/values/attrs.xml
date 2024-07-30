@@ -282,6 +282,7 @@
         <attr name="productBannerCardTitleMaxLines" format="integer"/>
         <attr name="productBannerCardSubtitleMaxLines" format="integer"/>
     </declare-styleable>
+
     <declare-styleable name="AdditionalIconCellView">
         <attr name="tag_background" format="reference"/>
         <attr name="tag_text" format="string" />
