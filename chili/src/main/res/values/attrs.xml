@@ -83,6 +83,7 @@
         <attr name="endIconTint"/>
         <attr name="endIconMode"/>
         <attr name="endIconDrawable"/>
+        <attr name="endIconSize"/>
         <attr name="verticalInputPadding" format="dimension"/>
     </declare-styleable>
 
