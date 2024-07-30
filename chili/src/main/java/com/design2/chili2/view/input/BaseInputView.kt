@@ -450,22 +450,22 @@ open class BaseInputView @JvmOverloads constructor(
         vb.etInput.updatePadding(left = resources.getDimensionPixelSize(R.dimen.padding_34dp))
     }
 
-    fun setInputLeftDrawableSize(size: Int) {
+    fun setInputLeftDrawableSize(sizePx: Int) {
         getInputLeftImageView().apply {
             updatePadding()
             updateLayoutParams<LayoutParams> {
-                width = size
-                height = size
+                width = sizePx
+                height = sizePx
             }
         }
     }
 
-    fun setInputRightDrawableSize(size: Int) {
+    fun setInputRightDrawableSize(sizePx: Int) {
         getInputRightImageView().apply {
             updatePadding()
             updateLayoutParams<LayoutParams> {
-                width = size
-                height = size
+                width = sizePx
+                height = sizePx
             }
         }
     }
