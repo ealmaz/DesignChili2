@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
 import androidx.recyclerview.widget.RecyclerView
 import com.design2.chili2.view.modals.base.BaseBottomSheetDialogFragment
 import kg.devcats.chili3.databinding.ChiliBottomSheetWithRecyclerBinding
@@ -26,10 +27,15 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
     private var titleSpanned: Spanned? = null
     @DrawableRes
     private var titleResId: Int? = null
+    @StyleRes
+    private var titleTextAppearance : Int? = null
+
     private var subtitle: String? = null
     private var subtitleSpanned: Spanned? = null
     @DrawableRes
     private var subtitleResId: Int? = null
+    @StyleRes
+    private var subtitleTextAppearance : Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -56,6 +62,8 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
         subtitle?.let { setSubtitle(it) }
         subtitleSpanned?.let { setSubtitle(it) }
         subtitleResId?.let { setSubtitle(it) }
+        titleTextAppearance?.let { vb.tvTitle.setTextAppearance(it) }
+        subtitleTextAppearance?.let { vb.tvSubtitle.setTextAppearance(it) }
     }
 
     private fun setTitle(@StringRes resId: Int) {
@@ -107,11 +115,15 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
         private var titleSpanned: Spanned? = null
         @DrawableRes
         private var titleResId: Int? = null
+        @StyleRes
+        private var titleTextAppearance : Int? = null
 
         private var subtitle: String? = null
         private var subtitleSpanned: Spanned? = null
         @DrawableRes
         private var subtitleResId: Int? = null
+        @StyleRes
+        private var subtitleTextAppearance : Int? = null
 
         fun setTitle(title: String): Builder {
             this.title = title
@@ -125,6 +137,11 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
 
         fun setTitle(@DrawableRes resId: Int): Builder {
             this.titleResId = resId
+            return this
+        }
+
+        fun setTitleAppearance(@StyleRes resId: Int): Builder {
+            this.titleTextAppearance = resId
             return this
         }
 
@@ -143,6 +160,11 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
             return this
         }
 
+        fun setSubtitleAppearance(@StyleRes resId: Int): Builder {
+            this.subtitleTextAppearance = resId
+            return this
+        }
+
         fun setAdapter(adapter: RecyclerView.Adapter<*>): Builder {
             this.adapter = adapter
             return this
@@ -154,9 +176,11 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
                 this.title = this@Builder.title
                 this.titleSpanned = this@Builder.titleSpanned
                 this.titleResId = this@Builder.titleResId
+                this.titleTextAppearance = this@Builder.titleTextAppearance
                 this.subtitle = this@Builder.subtitle
                 this.subtitleSpanned = this@Builder.subtitleSpanned
                 this.subtitleResId = this@Builder.subtitleResId
+                this.subtitleTextAppearance = this@Builder.subtitleTextAppearance
                 this.adapter = this@Builder.adapter
             }
         }
