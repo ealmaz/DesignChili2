@@ -21,7 +21,7 @@ class RadioCellView @JvmOverloads constructor(
     override fun inflateView(context: Context) {
         super.inflateView(context)
         inflateRadioButton()
-        vb.flEndPlaceHolder.setRightMargin(context.resources.getDimension(com.design2.chili2.R.dimen.padding_16dp).toInt())
+        setupViews()
     }
 
     fun checkRadio(needToCheck: Boolean) {
@@ -34,9 +34,6 @@ class RadioCellView @JvmOverloads constructor(
         radioBtn?.setOnCheckedChangeListener { buttonView, isChecked ->
             onCheck.invoke(isChecked)
         }
-        vb.root.setOnSingleClickListener {
-            checkRadio(!isRadioChecked())
-        }
     }
 
     private fun inflateRadioButton() {
@@ -46,5 +43,12 @@ class RadioCellView @JvmOverloads constructor(
             setButtonDrawable(R.drawable.chili_radio_button_drawable)
         }
         vb.flEndPlaceHolder.addView(radioBtn as RadioButton)
+    }
+
+    private fun setupViews() = with(vb) {
+        flEndPlaceHolder.setRightMargin(context.resources.getDimension(com.design2.chili2.R.dimen.padding_12dp).toInt())
+        root.setOnSingleClickListener {
+            checkRadio(!isRadioChecked())
+        }
     }
 }
