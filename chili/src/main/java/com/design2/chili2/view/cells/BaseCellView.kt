@@ -15,6 +15,7 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.updateLayoutParams
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellBaseBinding
@@ -194,10 +195,18 @@ open class BaseCellView @JvmOverloads constructor(
 
     fun setSubtitleBackground(@DrawableRes resId: Int) {
         vb.tvSubtitle.setBackgroundResource(resId)
+        vb.tvSubtitle.updateLayoutParams<LayoutParams> {
+            width = LayoutParams.WRAP_CONTENT
+            endToEnd = LayoutParams.UNSET
+        }
     }
 
     fun setSubtitleBackground(background: Drawable?) {
         vb.tvSubtitle.background = background
+        vb.tvSubtitle.updateLayoutParams<LayoutParams> {
+            width = LayoutParams.WRAP_CONTENT
+            endToEnd = LayoutParams.UNSET
+        }
     }
 
     fun setSubtitleMaxLines(maxLines: Int) {
