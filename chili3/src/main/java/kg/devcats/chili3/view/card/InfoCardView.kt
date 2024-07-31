@@ -43,18 +43,32 @@ class InfoCardView @JvmOverloads constructor(
         }
     }
 
+    fun setTitle(resId: Int) {
+        vb.tvTitle.setText(resId)
+    }
+
     fun setTitle(title: CharSequence?) {
         vb.tvTitle.text = title
+    }
+
+    fun setSubtitle(resId: Int) {
+        vb.tvSubtitle.setText(resId)
     }
 
     fun setSubtitle(subtitle: CharSequence?) {
         vb.tvSubtitle.text = subtitle
     }
 
+    fun setButtonTitle(resId: Int) {
+        vb.btnPrimary.setText(resId)
+        vb.btnAdditional.setText(resId)
+    }
+
     fun setButtonTitle(title: CharSequence?) {
         vb.btnPrimary.text = title
         vb.btnAdditional.text = title
     }
+
 
     fun setButtonType(buttonType: ButtonType) {
         this.buttonType = buttonType
