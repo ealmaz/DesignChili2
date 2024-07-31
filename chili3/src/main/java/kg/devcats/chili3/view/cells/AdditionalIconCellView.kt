@@ -11,8 +11,10 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.view.cells.BaseCellView
+import kg.devcats.chili3.extensions.isVisible
 import kg.devcats.chili3.extensions.visible
 
 class AdditionalIconCellView
@@ -23,7 +25,7 @@ class AdditionalIconCellView
     defStyleRes: Int = R.style.Chili_CellViewStyle_BaseCellViewStyle_AdditionalIcon
 ) : BaseCellView(context, attrs, defStyleAttr, defStyleRes) {
 
-    private var tagBackground : ConstraintLayout? = null
+    private var tagBackground: ConstraintLayout? = null
 
     private var tagText: TextView? = null
 
@@ -142,11 +144,15 @@ class AdditionalIconCellView
         tagIcon?.setImageDrawable(drawable)
     }
 
-    fun setTagBackground(@DrawableRes background : Int) {
+    fun setTagBackground(@DrawableRes background: Int) {
         tagBackground?.setBackgroundResource(background)
     }
 
     fun setTagBackground(drawable: Drawable) {
         tagBackground?.background = drawable
+    }
+
+    fun setIsTagVisible(isVisible: Boolean) {
+        tagBackground?.isVisible = isVisible
     }
 }
