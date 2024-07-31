@@ -855,6 +855,7 @@
                 android:layout_height="wrap_content"
                 android:icon="@drawable/ic_squircle_phone"
                 app:isDividerVisible="true"
+                app:subtitle="Комиссия 10% потому что надо перенести на вторую строку"
                 app:roundedCornerMode="middle"
                 app:tag_background="@drawable/bonus_tag_bg"
                 app:tag_icon="@drawable/ic_bonus_new"
