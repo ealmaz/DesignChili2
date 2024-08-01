@@ -139,16 +139,24 @@ class CardCellView @JvmOverloads constructor(
         vb.tvTitle.setTextOrHide(title)
     }
 
-    fun setTitle(@StringRes resId: Int) {
+    fun setTitle(@StringRes resId: Int?) {
         vb.tvTitle.setTextOrHide(resId)
+    }
+
+    fun setTitle(spanned: Spanned?) {
+        vb.tvTitle.setTextOrHide(spanned)
     }
 
     fun setSubtitle(subtitle: String?) {
         vb.tvSubtitle.setTextOrHide(subtitle)
     }
 
-    fun setSubtitle(@StringRes resId: Int) {
+    fun setSubtitle(@StringRes resId: Int?) {
         vb.tvSubtitle.setTextOrHide(resId)
+    }
+
+    fun setSubtitle(spanned: Spanned?) {
+        vb.tvSubtitle.setTextOrHide(spanned)
     }
 
     fun setAdditionalText(value: String?) {
@@ -159,7 +167,7 @@ class CardCellView @JvmOverloads constructor(
         vb.tvAdditionalText.setTextOrHide(spanned)
     }
 
-    fun setAdditionalText(@StringRes resId: Int) {
+    fun setAdditionalText(@StringRes resId: Int?) {
         vb.tvAdditionalText.setTextOrHide(resId)
     }
 
