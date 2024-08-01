@@ -23,6 +23,9 @@
         <item name="ChiliAlertErrorTextColor">@color/c_AE2A47</item>
         <!-- End text appearance theme-->
 
+        <!-- ScreenBackground -->
+        <item name="ChiliContentBackground">@color/gray_5</item>
+
         <!-- Animator attributes -->
         <item name="ChiliTranslucentStateListAnimator">@animator/translucent_state_list_animator</item>
 

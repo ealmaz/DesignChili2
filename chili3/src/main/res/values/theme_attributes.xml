@@ -18,6 +18,9 @@
     <!-- Animator attributes -->
     <attr name="ChiliTranslucentStateListAnimator" format="reference" />
 
+    <!-- ScreenBackground -->
+    <attr name="ChiliContentBackground" format="reference"/>
+
     <!-- PromoCardView -->
     <attr name="ChiliPromoCardViewContainerMinHeight" format="dimension"/>
     <attr name="ChiliPromoCardViewStatusTopPadding" format="dimension"/>
