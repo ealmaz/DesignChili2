@@ -93,8 +93,6 @@
     <attr name="CircleStartIconChiliToolbarProfileContainerMarginEnd" format="dimension" />
     <attr name="CircleStartIconChiliToolbarProfileContainerPaddingStart" format="dimension" />
     <attr name="CircleStartIconChiliToolbarProfileContainerPaddingEnd" format="dimension" />
-    <attr name="CircleStartIconChiliToolbarProfileContainerClickable" format="boolean" />
-    <attr name="CircleStartIconChiliToolbarProfileContainerFocusable" format="boolean" />
     <attr name="CircleStartIconChiliToolbarProfileContainerForeground" format="reference" />
     <attr name="CircleStartIconChiliToolbarProfileContainerStateListAnimator" format="reference" />
     <attr name="CircleStartIconChiliToolbarStartIconWidth" format="dimension" />
