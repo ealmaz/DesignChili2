@@ -10,7 +10,7 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.setUrlImage
+import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardCategoryMarketBinding
@@ -97,7 +97,7 @@ class MarketCategoryCardView @JvmOverloads constructor(
     }
 
     fun setCategoryIcon(src: String?) {
-        vb.ivIcons.setUrlImage(
+        vb.ivIcons.setUrlImageByCoil(
             url = src,
             width = imageSize.first,
             height = imageSize.second

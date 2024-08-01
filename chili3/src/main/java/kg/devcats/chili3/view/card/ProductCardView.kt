@@ -14,7 +14,7 @@ import androidx.annotation.DrawableRes
 import androidx.core.view.isGone
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.setUrlImage
+import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.view.card.BaseCardView
 import com.google.android.material.internal.ViewUtils.dpToPx
 import kg.devcats.chili3.R
@@ -98,7 +98,7 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     fun setProductImage(src: String?) {
-        vb.sivImage.setUrlImage(
+        vb.sivImage.setUrlImageByCoil(
             url = src,
             width = imageSize.first,
             height = imageSize.second

@@ -245,6 +245,7 @@
         <attr name="endIconPrimary" format="reference"/>
         <attr name="endIconSecondary" format="reference" />
         <attr name="background"/>
+        <attr name="isProfileClickable" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="ExpandableGridRecyclerView">

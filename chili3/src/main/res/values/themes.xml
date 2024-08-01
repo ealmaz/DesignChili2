@@ -101,6 +101,8 @@
         <item name="CircleStartIconChiliToolbarProfileContainerMarginEnd">@dimen/padding_2dp</item>
         <item name="CircleStartIconChiliToolbarProfileContainerPaddingStart">@dimen/padding_2dp</item>
         <item name="CircleStartIconChiliToolbarProfileContainerPaddingEnd">@dimen/padding_10dp</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerForeground">@null</item>
+        <item name="CircleStartIconChiliToolbarProfileContainerStateListAnimator">?ChiliTranslucentStateListAnimator</item>
         <item name="CircleStartIconChiliToolbarStartIconWidth">@dimen/view_32dp</item>
         <item name="CircleStartIconChiliToolbarStartIconHeight">@dimen/view_32dp</item>
         <item name="CircleStartIconChiliToolbarStartIconMarginEnd">@dimen/padding_12dp</item>

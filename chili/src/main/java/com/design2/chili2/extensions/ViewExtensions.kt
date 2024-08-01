@@ -215,7 +215,7 @@ private fun getGlideOnLoadListener(onSuccess: ((Drawable) -> Unit)?, onError: ((
     }
 }
 
-fun ImageView.setUrlImage(url: String?, width: Int, height: Int, placeHolderDrawable: Drawable? = null) {
+fun ImageView.setUrlImageByCoil(url: String?, width: Int, height: Int, placeHolderDrawable: Drawable? = null) {
     load(url) {
         placeholder(placeHolderDrawable)
         if (width > 0 && height > 0)

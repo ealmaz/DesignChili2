@@ -9,7 +9,7 @@ import android.view.View
 import androidx.annotation.DrawableRes
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.setUrlImage
+import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardPromoBinding
@@ -87,7 +87,7 @@ class PromoCardView @JvmOverloads constructor(
     }
 
     fun setIcon(url: String) {
-        vb.ivIcon.setUrlImage(
+        vb.ivIcon.setUrlImageByCoil(
             url = url,
             width = context.getDimensionFromAttr(R.attr.ChiliPromoCardViewIconSize, 32.dpF).toInt(),
             height = context.getDimensionFromAttr(R.attr.ChiliPromoCardViewIconSize, 32.dpF).toInt()

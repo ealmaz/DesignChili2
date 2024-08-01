@@ -13,7 +13,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewMediaBinding
 import com.design2.chili2.extensions.dpF
-import com.design2.chili2.extensions.setUrlImage
+import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.util.AnimationData
 import com.design2.chili2.util.MediaType
 import com.design2.chili2.util.LottieAnimationHandler
@@ -106,7 +106,7 @@ class MediaView @JvmOverloads constructor(
     private fun createImageView(src: String?) =
         ImageView(context).apply {
             layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-            setUrlImage(src, imageSize.first, imageSize.second)
+            setUrlImageByCoil(src, imageSize.first, imageSize.second)
         }.also(::addMediaView)
 
     private fun createLottieView(src: String?) =
