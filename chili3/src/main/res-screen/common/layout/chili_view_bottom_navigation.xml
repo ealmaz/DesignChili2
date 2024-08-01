@@ -18,6 +18,7 @@
     <kg.devcats.chili3.view.common.CustomBottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
+        android:paddingTop="?ChiliBottomNavigationViewPaddingTop"
         android:layout_height="?ChiliBottomNavigationViewHeight"
         android:background="?ChiliBottomNavigationViewBackground"
         style="@style/Chili.BaseNavigationComponentsStyle.BottomNavigationView"
@@ -28,6 +29,7 @@
         android:id="@+id/iv_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="?ChiliBottomNavigationViewFloatingIconPaddingTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

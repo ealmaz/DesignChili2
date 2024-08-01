@@ -1,45 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/commons_sv"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        style="@style/Chili.BaseNavigationComponentsStyle.NavigationBar"
-        android:layout_marginHorizontal="@dimen/padding_8dp"
-        android:layout_marginVertical="@dimen/padding_24dp"
-        app:menu="@menu/text_nav_bar" />
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        style="@style/Chili.BaseNavigationComponentsStyle.NavigationBar"
-        android:layout_marginHorizontal="@dimen/padding_8dp"
-        android:layout_marginVertical="@dimen/padding_24dp"
-        app:menu="@menu/text_nav_bar" />
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        style="@style/Chili.BaseNavigationComponentsStyle.NavigationBar"
-        android:layout_marginHorizontal="@dimen/padding_8dp"
-        android:layout_marginVertical="@dimen/padding_24dp"
-        app:menu="@menu/text_nav_bar" />
-
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        style="@style/Chili.BaseNavigationComponentsStyle.NavigationBar"
-        android:layout_marginHorizontal="@dimen/padding_8dp"
-        android:layout_marginVertical="@dimen/padding_24dp"
-        app:menu="@menu/text_nav_bar" />
-
-    <kg.devcats.chili3.view.common.ChiliBottomNavigationView
-        android:id="@+id/cl_btn"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/padding_8dp"
-        app:icon="@drawable/ic_scaner_48"
-        app:menu="@menu/app_nav_bar" />
+        android:layout_marginBottom="@dimen/padding_32dp"
+        android:isScrollContainer="true"
+        android:orientation="vertical">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            style="@style/Chili.BaseNavigationComponentsStyle.NavigationBar"
+            android:layout_marginHorizontal="@dimen/padding_8dp"
+            android:layout_marginVertical="@dimen/padding_24dp"
+            app:menu="@menu/text_nav_bar" />
 
 
-</LinearLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            style="@style/Chili.BaseNavigationComponentsStyle.NavigationBar"
+            android:layout_marginHorizontal="@dimen/padding_8dp"
+            android:layout_marginVertical="@dimen/padding_24dp"
+            app:menu="@menu/text_nav_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:text="Switch animation on items"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_scale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginVertical="@dimen/padding_14dp"
+            android:textSize="16sp" />
+
+        <SeekBar
+            android:id="@+id/sb_scale"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_8dp"
+            android:max="30"
+            android:progress="3" />
+
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginVertical="@dimen/padding_14dp"
+            android:textSize="16sp" />
+
+        <SeekBar
+            android:id="@+id/sb_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_8dp"
+            android:max="800"
+            android:progress="68"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar_Blue" />
+
+        <kg.devcats.chili3.view.common.ChiliBottomNavigationView
+            android:id="@+id/cl_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_8dp"
+            android:layout_marginVertical="@dimen/padding_16dp"
+            app:icon="@drawable/ic_scaner_48"
+            app:menu="@menu/app_nav_bar" />
+
+    </LinearLayout>
+
+</ScrollView>

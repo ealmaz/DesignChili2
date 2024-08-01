@@ -84,7 +84,7 @@
         <item name="ChiliNavigationBarInactiveItemTextColor">@color/c_8a8a8e</item>
 
         <!-- CustomBottomNavigationView -->
-        <item name="ChiliBottomNavigationViewBackgroundTopMargin">@dimen/padding_24dp</item>
+        <item name="ChiliBottomNavigationViewBackgroundTopMargin">@dimen/padding_40dp</item>
         <item name="ChiliBottomNavigationViewBackgroundHeight">@dimen/view_57dp</item>
         <item name="ChiliBottomNavigationViewBackground">@android:color/transparent</item>
         <item name="ChiliBottomNavigationViewItemIconSize">@dimen/view_40dp</item>
@@ -94,7 +94,9 @@
         <item name="ChiliBottomNavigationViewItemTextColor">@color/chili_state_color_navigation_bar_text</item>
         <item name="ChiliBottomNavigationViewElevation">@dimen/elevation_0dp</item>
         <item name="ChiliBottomNavigationBarViewLabelVisibilityMode">labeled</item>
-        <item name="ChiliBottomNavigationViewHeight">@dimen/view_72dp</item>
+        <item name="ChiliBottomNavigationViewHeight">@dimen/view_88dp</item>
+        <item name="ChiliBottomNavigationViewPaddingTop">@dimen/padding_16dp</item>
+        <item name="ChiliBottomNavigationViewFloatingIconPaddingTop">@dimen/padding_16dp</item>
 
         <!--region CircledStartIconChiliToolbar -->
         <item name="CircleStartIconChiliToolbarPaddingVertical">@dimen/padding_8dp</item>
