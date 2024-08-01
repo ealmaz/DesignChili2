@@ -17,6 +17,7 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliCircleStartIconViewToolbarBinding
+import kg.devcats.chili3.extensions.applyStateListAnimatorFromTheme
 
 class CircleStartIconChiliToolbar : LinearLayout {
 
@@ -52,6 +53,9 @@ class CircleStartIconChiliToolbar : LinearLayout {
             getResourceId(R.styleable.CircleStartIconChiliToolbar_titleTextAppearance, -1).takeIf { it != -1 }?.let {
                 setTitleTextAppearance(it)
             }
+            setClickableOnProfile(
+                getBoolean(R.styleable.CircleStartIconChiliToolbar_isProfileClickable, false)
+            )
             setPrimaryEndIcon(
                 getResourceId(R.styleable.CircleStartIconChiliToolbar_endIconPrimary, -1).takeIf { it != -1 }
             )
@@ -116,6 +120,17 @@ class CircleStartIconChiliToolbar : LinearLayout {
         setImageByUrl(uri)
     }
 
+    private fun setClickableOnProfile(clickable: Boolean) = with(vb.llProfileContainer) {
+        isClickable = clickable
+        isFocusable = clickable
+
+        if (clickable) applyStateListAnimatorFromTheme(
+            context,
+            R.attr.CircleStartIconChiliToolbarProfileContainerStateListAnimator
+        )
+        else stateListAnimator = null
+    }
+
     private fun setPrimaryEndIcon(icon: Any?) {
         when (icon) {
             is String -> setPrimaryEndIcon(uri = icon)
@@ -148,7 +163,6 @@ class CircleStartIconChiliToolbar : LinearLayout {
     fun setSecondaryEndIcon(@DrawableRes drawableRes: Int?) = with(vb) {
         llIcons.isVisible = drawableRes != null || ibEndIconPrimary.isVisible
         ibEndIconSecondary.setImageOrHide(drawableRes)
-
     }
 
     fun setSecondaryEndIcon(uri: String?) = with(vb) {
