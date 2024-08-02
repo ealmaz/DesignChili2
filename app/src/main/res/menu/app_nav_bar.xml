@@ -24,7 +24,7 @@
         android:id="@+id/light3"/>
 
     <item
-        android:title="Еще"
+        android:title="Ещё"
         app:showAsAction="always"
         android:icon="@drawable/ic_menu_selector"
         android:id="@+id/light4"/>

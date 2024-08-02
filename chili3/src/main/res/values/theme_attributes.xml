@@ -83,6 +83,8 @@
         <enum name="unlabeled" value="2"/>
     </attr>
     <attr name="ChiliBottomNavigationViewHeight" format="dimension"/>
+    <attr name="ChiliBottomNavigationViewPaddingTop" format="dimension"/>
+    <attr name="ChiliBottomNavigationViewFloatingIconPaddingTop" format="dimension"/>
 
 
     <!-- TailedToolbarView -->

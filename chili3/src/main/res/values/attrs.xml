@@ -179,6 +179,9 @@
         <attr name="menu" format="reference"/>
         <attr name="icon"/>
         <attr name="background"/>
+        <attr name="isAnimated" format="boolean" />
+        <attr name="animationScale" format="float" />
+        <attr name="android:animationDuration" />
     </declare-styleable>
 
     <declare-styleable name="CardCellView">
