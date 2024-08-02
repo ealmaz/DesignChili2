@@ -130,19 +130,17 @@ class ChiliBottomNavigationView : ConstraintLayout {
         setupOnIconClickAnimation()
         setOnItemSelectedListener { menuItem ->
             if(!isItemAnimated) {
-                onItemSelected(menuItem)
-                return@setOnItemSelectedListener true
+                return@setOnItemSelectedListener onItemSelected(menuItem)
             }
 
             val selectedItemView = findViewById<View>(menuItem.itemId)
             selectedItemView.startAnimation()
-            onItemSelected(menuItem)
-            true
+            return@setOnItemSelectedListener onItemSelected(menuItem)
         }
     }
 
-    private fun onItemSelected(menuItem: MenuItem) {
-        onItemSelectedListener?.onNavigationItemSelected(menuItem)
+    private fun onItemSelected(menuItem: MenuItem): Boolean {
+        return onItemSelectedListener?.onNavigationItemSelected(menuItem) == true
     }
 
     private fun setupOnIconClickAnimation() = with(vb.ivIcon) {
