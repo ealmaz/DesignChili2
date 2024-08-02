@@ -16,10 +16,12 @@
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_cbconstraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:padding="@dimen/padding_4dp"
+        android:paddingVertical="@dimen/padding_4dp"
+        android:paddingStart="@dimen/padding_8dp"
+        android:paddingEnd="@dimen/padding_4dp"
         android:background="@drawable/chili_bonus_tag_gradient"
         tools:ignore="UseCompoundDrawables">
 
