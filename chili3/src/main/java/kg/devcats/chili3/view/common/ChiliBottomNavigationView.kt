@@ -135,7 +135,7 @@ class ChiliBottomNavigationView : ConstraintLayout {
             }
 
             val selectedItemView = findViewById<View>(menuItem.itemId)
-            (mapOfItemAnimations[selectedItemView] ?: applyBounceAnimation(selectedItemView)).start()
+            selectedItemView.startAnimation()
             onItemSelected(menuItem)
             true
         }
@@ -151,7 +151,7 @@ class ChiliBottomNavigationView : ConstraintLayout {
                 onIconClick?.invoke()
                 return@setOnSingleClickListener
             }
-            (mapOfItemAnimations[this] ?: applyBounceAnimation(this)).start()
+            startAnimation()
             onIconClick?.invoke()
         }
     }
@@ -173,6 +173,13 @@ class ChiliBottomNavigationView : ConstraintLayout {
         }
         mapOfItemAnimations[view] = animatorSet
         return animatorSet
+    }
+
+    private fun View.startAnimation() {
+        (mapOfItemAnimations[this] ?: applyBounceAnimation(this)).run {
+            end()
+            start()
+        }
     }
 
     companion object {
