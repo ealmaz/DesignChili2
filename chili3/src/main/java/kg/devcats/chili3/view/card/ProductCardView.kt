@@ -91,7 +91,7 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     /**
-     * Must be called before setProductImage(src: String? method
+     * Must be called before [ProductCardView.setProductImage] method
      */
     fun setImageSize(width: Int, height: Int) {
         imageSize = width to height

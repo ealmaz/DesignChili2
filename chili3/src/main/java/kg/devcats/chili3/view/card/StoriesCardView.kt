@@ -114,7 +114,7 @@ class StoriesCardView @JvmOverloads constructor(
     }
 
     /**
-     * Must be called before setStories(src: String?) method
+     * Must be called before [StoriesCardView.setStories] method
      */
     fun setIconSize(iconSize: IconSize) {
         val (width, height) = when (iconSize) {

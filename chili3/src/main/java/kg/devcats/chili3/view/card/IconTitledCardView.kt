@@ -62,10 +62,6 @@ class IconTitledCardView @JvmOverloads constructor(
         return context.getDimensionFromAttr(resId, 40.dpF).toInt()
     }
 
-    fun setIcon(@DrawableRes drawableId: Int) {
-        vb.ivIcon.setImageDrawable(context.drawable(drawableId))
-    }
-
     fun setIcon(url: String?) {
         vb.ivIcon.setUrlImageByCoil(
             url = url,
@@ -74,8 +70,12 @@ class IconTitledCardView @JvmOverloads constructor(
         )
     }
 
+    fun setIcon(@DrawableRes drawableId: Int) {
+        vb.ivIcon.setImageDrawable(context.drawable(drawableId))
+    }
+
     /**
-     * Must be called before setIcon(url: String?) method
+     * Must be called before [IconTitledCardView.setIcon] method
      */
     fun setImageSize(width: Int, height: Int) {
         imageSize = width to height

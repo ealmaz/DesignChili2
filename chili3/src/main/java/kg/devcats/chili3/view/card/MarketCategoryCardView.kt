@@ -70,7 +70,7 @@ class MarketCategoryCardView @JvmOverloads constructor(
     }
 
     /**
-     * Must be called before setCategoryIcon(src: String?) method
+     * Must be called before [MarketCategoryCardView.setCategoryIcon] method
      */
     private fun setupIconSize(isHighlighted: Boolean) {
         val (width, height) = when (isHighlighted) {
