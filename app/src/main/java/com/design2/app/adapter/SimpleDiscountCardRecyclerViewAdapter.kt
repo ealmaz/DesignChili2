@@ -26,7 +26,7 @@ class SimpleDiscountCardRecyclerViewAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
-        val url = "https://devminio.o.kg/media-service/DiscountCard/narodny.png"
+        val url = "https://minio.o.kg/media-service/DiscountCard/narodny.png"
         if (!item.isNullOrEmpty()){
             holder.discountCard.apply {
                 when(position % 3){

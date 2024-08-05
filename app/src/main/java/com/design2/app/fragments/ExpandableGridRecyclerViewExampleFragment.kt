@@ -18,7 +18,7 @@ class ExpandableGridRecyclerViewExampleFragment : BaseFragment<FragmentExpandabl
         ExpandableGridItem(
             null,
             "Бонусы ${it + 1}",
-            "https://devminio.o.kg/media-service/DiscountCard/narodny.png",
+            "https://minio.o.kg/media-service/DiscountCard/narodny.png",
             "https://somedeeplink ${it + 1}"
         )
     }
