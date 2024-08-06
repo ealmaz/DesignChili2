@@ -26,7 +26,7 @@ class IconTitledVH(private val view: IconTitledCardView) : RecyclerView.ViewHold
     }
 
     companion object {
-        fun create(parent: ViewGroup,  onItemClick: (String?) -> Unit): IconTitledVH {
+        fun create(parent: ViewGroup, onItemClick: (ExpandableGridItem) -> Unit): IconTitledVH {
             val view = IconTitledCardView(parent.context)
             view.layoutParams = ViewGroup.MarginLayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -35,7 +35,7 @@ class IconTitledVH(private val view: IconTitledCardView) : RecyclerView.ViewHold
             val holder = IconTitledVH(view)
             return holder.apply {
                 this.view.setScaleType(CENTER_CROP.ordinal)
-                this.itemView.setOnSingleClickListener { onItemClick(item.deeplink) }
+                this.itemView.setOnSingleClickListener { onItemClick(item) }
             }
         }
     }

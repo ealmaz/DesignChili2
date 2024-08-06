@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import kg.devcats.chili3.model.ExpandableGridItem
 
-class IconTitledAdapter(private val onItemClick: (String?) -> Unit) :
+class IconTitledAdapter(private val onItemClick: (ExpandableGridItem) -> Unit) :
     ListAdapter<ExpandableGridItem, IconTitledVH>(IconTitledDiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =

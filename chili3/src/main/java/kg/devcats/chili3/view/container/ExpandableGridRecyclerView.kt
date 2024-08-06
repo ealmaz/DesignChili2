@@ -42,12 +42,15 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
 
     private var items: List<ExpandableGridItem> = listOf()
     private var shimmeringItems = List(8) {
-        ExpandableGridItem(it.toLong(), null, null, null, true)
+        ExpandableGridItem(it.toLong(), isShimmering = true)
     }
 
     private var listener: Listener? = null
     private val gridAdapter by lazy {
-        IconTitledAdapter { listener?.onItemClick(it) }
+        IconTitledAdapter {
+            listener?.onItemClick(it.deeplink)
+            listener?.onExpandableGridItemClick(it)
+        }
     }
 
     init {
@@ -165,7 +168,9 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
     }
 
     interface Listener {
-        fun onItemClick(deeplink: String?)
+        @Deprecated("Use onExpandableGridItemClick() method")
+        fun onItemClick(deeplink: String?) {}
+        fun onExpandableGridItemClick(item: ExpandableGridItem) {}
     }
 
     companion object {

@@ -19,7 +19,8 @@ class ExpandableGridRecyclerViewExampleFragment : BaseFragment<FragmentExpandabl
             null,
             "Бонусы ${it + 1}",
             "https://minio.o.kg/media-service/DiscountCard/narodny.png",
-            "https://somedeeplink ${it + 1}"
+            "https://somedeeplink ${it + 1}",
+            "someTag"
         )
     }
 
@@ -44,8 +45,9 @@ class ExpandableGridRecyclerViewExampleFragment : BaseFragment<FragmentExpandabl
         vb.rvItems.setItems(items)
     }
 
-    override fun onItemClick(deeplink: String?) {
-        Toast.makeText(requireContext(), deeplink, Toast.LENGTH_SHORT).show()
+    override fun onExpandableGridItemClick(item: ExpandableGridItem) {
+        Toast.makeText(requireContext(), item.deeplink, Toast.LENGTH_SHORT).show()
+
     }
 
 }
