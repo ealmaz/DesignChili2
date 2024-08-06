@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_10dp"
         android:layout_marginEnd="@dimen/padding_12dp"
-        android:src="@drawable/ic_chevron_right"
+        android:src="@drawable/chili_ic_chevron_rounded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
