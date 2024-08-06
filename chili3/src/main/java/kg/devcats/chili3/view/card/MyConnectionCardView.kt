@@ -181,10 +181,6 @@ class MyConnectionCardView @JvmOverloads constructor(
             }
         }
 
-    fun setInternetTethering(icons: List<String>) {
-        vb.plvInternet.startChangePieChartIcon(icons)
-    }
-
     fun setBalance(balance: String) = with(vb) {
         tvBalance.text = balance
     }

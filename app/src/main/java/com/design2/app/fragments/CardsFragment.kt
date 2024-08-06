@@ -162,13 +162,6 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setBalance("200.0 c")
             setPackage("10 Гб", "из 30 Гб", 30, PackageType.INTERNET)
             setPackage("10 мин", "из 300 мин", 10, PackageType.CALL)
-            setInternetTethering(
-                listOf(
-                    "https://minio.o.kg/lkab/services/circle_icon/light/third_off.png",
-                    "https://minio.o.kg/lkab/services/circle_icon/light/second_off.png",
-                    "https://minio.o.kg/lkab/services/circle_icon/light/tetering_off.png"
-                )
-            )
         }
     }
 

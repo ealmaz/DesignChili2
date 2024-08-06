@@ -13,10 +13,9 @@
 
         <LinearLayout
             android:id="@+id/ll_leftover_packages"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintEnd_toStartOf="@id/iv_tethering"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -45,15 +44,6 @@
                 tools:text="230 мин." />
 
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/iv_tethering"
-            android:layout_width="@dimen/padding_16dp"
-            android:layout_height="@dimen/padding_16dp"
-            android:layout_marginEnd="@dimen/padding_4dp"
-            app:layout_constraintBottom_toBottomOf="@id/ll_leftover_packages"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/ll_leftover_packages" />
 
         <com.design2.chili2.view.common.AnimatedProgressLine
             android:id="@+id/progressBar"
