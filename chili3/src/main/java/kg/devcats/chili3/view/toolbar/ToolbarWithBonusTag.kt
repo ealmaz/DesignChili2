@@ -58,6 +58,10 @@ class ToolbarWithBonusTag @JvmOverloads constructor(
         bonusTagView?.alpha = alpha
     }
 
+    fun setTagState(isAvailable: Boolean) {
+        setTagAlpha(if (isAvailable) 1f else 0.4f)
+    }
+
     fun setOnTagClickListener(onClick: () -> Unit) {
         bonusTagView?.setOnSingleClickListener { onClick.invoke() }
     }

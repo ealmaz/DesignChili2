@@ -68,7 +68,7 @@ class ToolbarActivity : AppCompatActivity() {
                 )
             )
             setupDividerVisibility(false)
-            setTagTitle("Бонусы ддддддд")
+            setTagTitle("Бонусы: 500")
             setOnTagClickListener {
                 Toast.makeText(context, "Clicked on tag", Toast.LENGTH_SHORT).show()
             }
@@ -83,7 +83,7 @@ class ToolbarActivity : AppCompatActivity() {
             )
             setupDividerVisibility(false)
             setTagTitle("Бонусы")
-            setTagAlpha(0.4f)
+            setTagState(false)
             setOnTagClickListener {
                 Toast.makeText(context, "Clicked on tag", Toast.LENGTH_SHORT).show()
             }
