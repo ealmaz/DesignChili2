@@ -42,4 +42,6 @@
 
     <style name="Chili.CellViewStyle.StatusMarkerCellView"/>
 
+    <style name="Chili.CellViewStyle.PackageLeftoverHorizontalCellView"/>
+
 </resources>

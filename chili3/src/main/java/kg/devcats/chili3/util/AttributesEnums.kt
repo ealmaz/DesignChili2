@@ -12,6 +12,10 @@ enum class ViewSize(val value: Int) {
     SMALL(-1), MEDIUM(-2), LARGE(-3)
 }
 
+enum class PackageType {
+    CALL, INTERNET
+}
+
 enum class ButtonType(val value: Int) {
     PRIMARY(0), ADDITIONAL(1)
 }

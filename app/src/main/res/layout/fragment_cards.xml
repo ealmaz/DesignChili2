@@ -1231,6 +1231,24 @@
             app:btnActionType="additional" />
     </LinearLayout>
 
+        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            style="@style/ShadowLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_8dp"
+            android:layout_marginTop="@dimen/padding_16dp">
+
+            <kg.devcats.chili3.view.card.MyConnectionCardView
+                android:id="@+id/my_connection_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="Моя связь"
+                app:unauthorizedImage="@drawable/ic_cat"
+                app:unauthorizedTitle="Станьте абонентом"
+                app:unauthorizedSubtitle="Выберите номер и закажите SIM-карту"
+                app:balanceTitle="Баланс номера"/>
+        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
     </LinearLayout>
 
 </ScrollView>

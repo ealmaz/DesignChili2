@@ -18,6 +18,8 @@
 
     <style name="Chili.CardViewStyle.ProductCardView"/>
 
+    <style name="Chili.CardViewStyle.MyConnectionCardView"/>
+
     <style name="Chili.CardViewStyle.ProductBannerCardView"/>
 
     <style name="RoundedCardImageView">

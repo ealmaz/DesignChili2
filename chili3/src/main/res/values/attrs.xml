@@ -12,6 +12,7 @@
         <attr name="iconTitledViewDefaultStyle" format="reference" />
         <attr name="accountCardViewDefaultStyle" format="reference"/>
         <attr name="marketCategoryCardViewDefaultStyle" format="reference"/>
+        <attr name="myConnectionCardViewDefaultStyle" format="reference"/>
         <attr name="infoCardViewDefaultStyle" format="reference"/>
         <attr name="bannerCardViewDefaultStyle" format="reference"/>
 
@@ -32,6 +33,9 @@
 
         <!-- RadioCellView-->
         <attr name="radioCellViewStyle" format="reference" />
+
+        <!-- PackageLeftoverHorizontalView -->
+        <attr name="packageLeftoverHorizontalView" format="reference" />
 
         <!-- CircleStartIconChiliToolbar -->
         <attr name="CircleStartIconChiliToolbarDefaultStyle" format="reference"/>
@@ -87,6 +91,17 @@
         <attr name="title" />
         <attr name="subtitle" />
         <attr name="icon" />
+    </declare-styleable>
+
+    <declare-styleable name="MyConnectionCardView">
+        <attr name="title" />
+        <attr name="unauthorizedTitle" format="string"/>
+        <attr name="unauthorizedSubtitle" format="string"/>
+        <attr name="unauthorizedTitleDrawable" format="reference"/>
+        <attr name="unauthorizedImage" format="reference"/>
+        <attr name="balanceTitle" format="string"/>
+        <attr name="unlimitedDrawable" format="reference"/>
+        <attr name="isUnauthorized" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="DividerView">
