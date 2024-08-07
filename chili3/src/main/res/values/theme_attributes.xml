@@ -20,6 +20,7 @@
 
     <!-- ScreenBackground -->
     <attr name="ChiliContentBackground" format="reference"/>
+    <attr name="ChiliSecondaryContentBackgroundColor" format="color" />
 
     <!-- PromoCardView -->
     <attr name="ChiliPromoCardViewContainerMinHeight" format="dimension"/>

@@ -25,6 +25,7 @@
 
         <!-- ScreenBackground -->
         <item name="ChiliContentBackground">@color/gray_5</item>
+        <item name="ChiliSecondaryContentBackgroundColor">@color/gray_5</item>
 
         <!-- Animator attributes -->
         <item name="ChiliTranslucentStateListAnimator">@animator/translucent_state_list_animator</item>

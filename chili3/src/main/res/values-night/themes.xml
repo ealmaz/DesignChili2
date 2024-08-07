@@ -27,6 +27,7 @@
         <item name="ChiliScreenBackground">@color/black_2</item>
         <item name="ChiliSurfaceBackground">@color/black_1</item>
         <item name="ChiliContentBackground">@color/black_1</item>
+        <item name="ChiliSecondaryContentBackgroundColor">@color/black_4</item>
 
         <!-- Ripple-->
         <item name="ChiliRippleForegroundColor">@color/gray_1_alpha_50</item>

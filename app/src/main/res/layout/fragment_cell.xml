@@ -124,6 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:title="BaseCellView with icon" />
+
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
             android:id="@+id/shadow_ex"
             android:layout_width="match_parent"
