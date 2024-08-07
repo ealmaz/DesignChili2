@@ -95,6 +95,12 @@ class AccountCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let(::setActionButtonTextAppearance)
 
         setDividerVisibility(getBoolean(R.styleable.AccountCardView_isDividerVisible, true))
+
+    }
+
+    override fun setupView() {
+        super.setupView()
+        setupToggleButton()
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -204,15 +210,19 @@ class AccountCardView @JvmOverloads constructor(
 
     fun setToggleIconState(isHiddenState: Boolean) {
         isToggleHiddenState = isHiddenState
-        vb.ivToggleIcon.setOnClickListener {
-            isToggleHiddenState = !isToggleHiddenState
-            handleToggleIconState()
-        }
         handleToggleIconState()
     }
 
     fun onToggleChange(callback: (Boolean) -> Unit) {
         toggleChanged = callback
+    }
+
+    private fun setupToggleButton() {
+        vb.ivToggleIcon.setOnClickListener {
+            isToggleHiddenState = !isToggleHiddenState
+            handleToggleIconState()
+            toggleChanged?.let { it(isToggleHiddenState) }
+        }
     }
 
     private fun handleToggleIconState() = with(vb) {
@@ -221,7 +231,6 @@ class AccountCardView @JvmOverloads constructor(
             else R.drawable.chili_ic_eye_slash
         )
         tvSubtitle.text = subtitleValue?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
-        toggleChanged?.let { it(isToggleHiddenState) }
     }
 
     fun setSubtitle(charSequence: CharSequence?) {
