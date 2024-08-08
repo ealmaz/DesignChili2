@@ -8,7 +8,9 @@ import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import com.design2.chili2.extensions.color
+import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.setTopMargin
 import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
 import kg.devcats.chili3.R
@@ -52,7 +54,8 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
     fun setWithoutPackage(tariffName: String, tariffDesc: String) = with(binding) {
         tvRemain.text = tariffName
         tvRemainFrom.text = tariffDesc
-        progressBar.invisible()
+        tvRemainFrom.setTopMargin(8.dp)
+        progressBar.gone()
     }
 
     fun setPackage(
@@ -64,6 +67,7 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
         tvRemain.visible()
         ivUnlimited.gone()
         progressBar.visible()
+        tvRemainFrom.setTopMargin(0.dp)
         tvRemain.text = remain
         tvRemainFrom.text = limit
         progressBar.setProgress(progress)

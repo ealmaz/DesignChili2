@@ -67,7 +67,7 @@ class MyConnectionCardView @JvmOverloads constructor(
     }
 
     private fun setTitleEndDrawable(@DrawableRes drawableId: Int) {
-        vb.viewUnauthorized.tvUaTitle.setCompoundDrawablesWithIntrinsicBounds(drawableId, 0, 0, 0)
+        vb.viewUnauthorized.tvUaTitle.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableId, 0)
     }
 
     fun setTitle(charSequence: CharSequence?) {
@@ -181,12 +181,12 @@ class MyConnectionCardView @JvmOverloads constructor(
             }
         }
 
-    fun setBalance(balance: String) = with(vb) {
-        tvBalance.text = balance
+    fun setBalance(charSequence: CharSequence?) = with(vb) {
+        tvBalance.text = charSequence
     }
 
     fun setOnMyConnectionClickListener(action: () -> Unit) {
-        vb.root.setOnSingleClickListener(action)
+        vb.rootView.setOnSingleClickListener(action)
     }
 
     fun setOnUnauthorizedClickListener(action: () -> Unit) {
