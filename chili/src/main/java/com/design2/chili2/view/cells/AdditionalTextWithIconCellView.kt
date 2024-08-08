@@ -1,5 +1,4 @@
 package com.design2.chili2.view.cells
-
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.Spanned
@@ -11,6 +10,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setOnSingleClickListener
 
@@ -79,7 +80,7 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
 
     override fun setIsChevronVisible(isVisible: Boolean) {
         super.setIsChevronVisible(isVisible)
-        if (isVisible) additionalImage?.setPadding(0, 0,0, 0)
+        if (isVisible) additionalImage?.setPadding(0, 0, 0, 0)
         else additionalImage?.setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_12dp), 0)
     }
 
@@ -97,5 +98,20 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
 
     fun setAdditionalIconClickListener(action: () -> Unit = {}) {
         additionalImage?.setOnSingleClickListener { action.invoke() }
+    }
+
+    fun setAdditionalTextPadding(left: Int, top: Int, right: Int, bottom: Int) {
+        additionalText?.updatePadding(left, top, right, bottom)
+    }
+
+    fun setAdditionalIconPadding(left: Int, top: Int, right: Int, bottom: Int) {
+        additionalImage?.updatePadding(left, top, right, bottom)
+    }
+
+    fun setAdditionalIconSize(sizePx: Int) {
+        additionalImage?.updateLayoutParams<LayoutParams> {
+            width = sizePx
+            height = sizePx
+        }
     }
 }
