@@ -9,8 +9,10 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.DimenRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
+import androidx.core.view.updatePadding
 import com.design2.chili2.R
 import com.design2.chili2.extensions.setOnSingleClickListener
 
@@ -42,6 +44,9 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
                 getResourceId(R.styleable.AdditionalTextWithIconCellView_additionalIcon, -1).takeIf { it != -1 }?.let {
                     setAdditionalIcon(it)
                 }
+                getDimensionPixelSize(R.styleable.AdditionalTextWithIconCellView_additionalIconSize, -1).takeIf { it != -1 }?.let {
+                    setupAdditionalIconSize(it, it)
+                }
                 recycle()
             }
     }
@@ -53,16 +58,21 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
             shimmeringPairs[this] = null
         }
         this.additionalImage = ImageView(context).apply {
-            setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_12dp), 0)
             shimmeringPairs[this] = null
         }
-        vb.flEndPlaceHolder.addView(LinearLayout(context).apply {
-            layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT, FrameLayout.LayoutParams.WRAP_CONTENT)
-            gravity = Gravity.CENTER_VERTICAL
-            orientation = LinearLayout.HORIZONTAL
-            addView(this@AdditionalTextWithIconCellView.additionalText)
-            addView(this@AdditionalTextWithIconCellView.additionalImage)
-        })
+        with(vb.flEndPlaceHolder) {
+            addView(LinearLayout(context).apply {
+                layoutParams = FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.WRAP_CONTENT,
+                    FrameLayout.LayoutParams.WRAP_CONTENT
+                )
+                gravity = Gravity.CENTER_VERTICAL
+                orientation = LinearLayout.HORIZONTAL
+                addView(this@AdditionalTextWithIconCellView.additionalText)
+                addView(this@AdditionalTextWithIconCellView.additionalImage)
+            })
+            setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_12dp), 0)
+        }
     }
 
     fun setAdditionalText(text: String?) {
@@ -79,8 +89,10 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
 
     override fun setIsChevronVisible(isVisible: Boolean) {
         super.setIsChevronVisible(isVisible)
-        if (isVisible) additionalImage?.setPadding(0, 0,0, 0)
-        else additionalImage?.setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_12dp), 0)
+        with(vb.flEndPlaceHolder) {
+            if (isVisible) setPadding(0, 0, 0, 0)
+            else setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_12dp), 0)
+        }
     }
 
     fun setAdditionalTextTextAppearance(@StyleRes resId: Int) {
@@ -97,5 +109,22 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
 
     fun setAdditionalIconClickListener(action: () -> Unit = {}) {
         additionalImage?.setOnSingleClickListener { action.invoke() }
+    }
+
+    fun setAdditionalTextPadding(left: Int, top: Int, right: Int, bottom: Int) {
+        additionalText?.updatePadding(left, top, right, bottom)
+    }
+
+    fun setAdditionalIconSize(@DimenRes sizeDimenRes: Int) {
+        val widthPx = resources.getDimensionPixelSize(sizeDimenRes)
+        val heightPx = resources.getDimensionPixelSize(sizeDimenRes)
+        setupAdditionalIconSize(widthPx, heightPx)
+    }
+
+    fun setupAdditionalIconSize(widthPx: Int, heightPx: Int) {
+        val params = additionalImage?.layoutParams
+        params?.height = heightPx
+        params?.width = widthPx
+        additionalImage?.layoutParams = params
     }
 }
