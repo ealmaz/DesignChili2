@@ -69,6 +69,17 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
     }
 
 
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        if (backgroundHeight == 0f) {
+            backgroundHeight = height.toFloat()
+        }
+        if (trackHeight == 0f) {
+            trackHeight = height.toFloat()
+        }
+    }
+
+
     fun setProgressColor(@ColorInt color: Int) {
         this.progressColor = color
         invalidate()
