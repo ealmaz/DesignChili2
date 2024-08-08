@@ -36,8 +36,6 @@
 
         <com.design2.chili2.view.common.AnimatedProgressLine
             android:id="@+id/apl_progress"
-            app:trackHeight="@dimen/view_8dp"
-            app:backgroundHeight="@dimen/view_8dp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/padding_8dp"
             android:layout_margin="@dimen/padding_8dp"
