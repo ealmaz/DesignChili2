@@ -1,5 +1,6 @@
 package kg.devcats.chili3.view.card
 
+import android.animation.AnimatorInflater
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
@@ -7,6 +8,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
+import com.design2.chili2.extensions.applyForegroundFromTheme
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setUrlImageByCoil
@@ -72,6 +74,8 @@ class StoriesCardView @JvmOverloads constructor(
         getLayoutDimension(R.styleable.StoriesCardView_storiesStatus, StoriesStatus.UNVIEWED.value).let {
             setStatus(it)
         }
+        getResourceId(R.styleable.StoriesCardView_android_stateListAnimator, -1)
+            .takeIf { it != -1 }.let{ setupStateListAnimator(it) }
     }
 
     override fun setupShimmeringViews() {
@@ -135,6 +139,17 @@ class StoriesCardView @JvmOverloads constructor(
             }
         }
         setCustomViewSize(width, height)
+    }
+
+    fun setupStateListAnimator(animatorRes: Int?) {
+        stateListAnimator =
+            if (animatorRes != null) {
+                foreground = null
+                AnimatorInflater.loadStateListAnimator(context, animatorRes)
+            } else {
+                applyForegroundFromTheme(context, R.attr.ChiliStoriesCardViewForeground)
+                null
+            }
     }
 
 }

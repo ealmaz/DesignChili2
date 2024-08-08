@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" >
+        <set>
+            <objectAnimator
+                android:propertyName="scaleX"
+                android:valueFrom="1.0"
+                android:interpolator="?ChiliBouncePressedXInterpolator"
+                android:valueTo="?ChiliBouncePressedScaleX"
+                android:duration="?ChiliBouncePressedXDuration"
+                android:valueType="floatType"/>
+            <objectAnimator
+                android:propertyName="scaleY"
+                android:valueFrom="1.0"
+                android:interpolator="?ChiliBouncePressedYInterpolator"
+                android:valueTo="?ChiliBouncePressedScaleY"
+                android:duration="?ChiliBouncePressedYDuration"
+                android:valueType="floatType"/>
+        </set>
+    </item>
+
+    <item android:state_pressed="false" >
+        <set>
+            <objectAnimator
+                android:propertyName="scaleX"
+                android:valueFrom="?ChiliBouncePressReleasedScaleX"
+                android:valueTo="1.0"
+                android:duration="?ChiliBouncePressReleasedXDuration"
+                android:interpolator="?ChiliBouncePressReleasedXInterpolator"
+                android:valueType="floatType"/>
+            <objectAnimator
+                android:propertyName="scaleY"
+                android:valueFrom="?ChiliBouncePressReleasedScaleY"
+                android:valueTo="1.0"
+                android:duration="?ChiliBouncePressReleasedYDuration"
+                android:interpolator="?ChiliBouncePressReleasedYInterpolator"
+                android:valueType="floatType"/>
+        </set>
+    </item>
+</selector>

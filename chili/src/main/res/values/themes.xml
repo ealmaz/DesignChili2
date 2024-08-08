@@ -70,6 +70,7 @@
 
         <!-- Animator attributes -->
         <item name="ChiliTranslucentStateListAnimator">@animator/translucent_state_list_animator</item>
+        <item name="ChiliBounceStateListAnimator">@animator/bounce_state_list_animator</item>
 
         <!-- CheckBox  -->
         <item name="ChiliCheckBoxCheckedColor">@color/magenta_1</item>
@@ -285,6 +286,20 @@
         <!-- Tooltip attributes -->
         <item name="ChiliTooltipBackground">@color/black_3</item>
         <item name="ChiliTooltipCornerRadius">@dimen/radius_12dp</item>
+
+        <!--    ChiliBounceStateListAnimator -->
+        <item name="ChiliBouncePressedScaleX">0.95</item>
+        <item name="ChiliBouncePressedScaleY">0.95</item>
+        <item name="ChiliBouncePressReleasedScaleX">0.96</item>
+        <item name="ChiliBouncePressReleasedScaleY">0.96</item>
+        <item name="ChiliBouncePressedXDuration">200</item>
+        <item name="ChiliBouncePressedYDuration">200</item>
+        <item name="ChiliBouncePressReleasedXDuration">300</item>
+        <item name="ChiliBouncePressReleasedYDuration">300</item>
+        <item name="ChiliBouncePressedXInterpolator">@android:interpolator/linear</item>
+        <item name="ChiliBouncePressedYInterpolator">@android:interpolator/linear</item>
+        <item name="ChiliBouncePressReleasedXInterpolator">@android:interpolator/bounce</item>
+        <item name="ChiliBouncePressReleasedYInterpolator">@android:interpolator/bounce</item>
 
         <!--    ChiliTranslucentStateListAnimator -->
         <item name="ChiliTranslucentPressedAlphaValueTo">0.5</item>
