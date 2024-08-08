@@ -1,14 +1,8 @@
 package kg.devcats.chili3.extensions
 
-import android.animation.AnimatorInflater
-import android.animation.StateListAnimator
 import android.annotation.SuppressLint
-import android.content.Context
-import android.graphics.drawable.Drawable
-import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
-import androidx.appcompat.content.res.AppCompatResources
 
 internal fun View.visible() {
     visibility = View.VISIBLE
@@ -47,34 +41,6 @@ fun View.setSurfaceClick(
                 true
             }
             else -> false
-        }
-    }
-}
-
-fun View.applyStateListAnimatorFromTheme(context: Context, attrResId: Int) {
-    val typedValue = TypedValue()
-    val theme = context.theme
-
-    if (theme.resolveAttribute(attrResId, typedValue, true)) {
-        val stateListAnimatorResId = typedValue.resourceId
-        if (stateListAnimatorResId != 0) {
-            val stateListAnimator: StateListAnimator =
-                AnimatorInflater.loadStateListAnimator(context, stateListAnimatorResId)
-            this.stateListAnimator = stateListAnimator
-        }
-    }
-}
-
-fun View.applyForegroundFromTheme(context: Context, attrResId: Int) {
-    val typedValue = TypedValue()
-    val theme = context.theme
-
-    if (theme.resolveAttribute(attrResId, typedValue, true)) {
-        val foregroundDrawableResId = typedValue.resourceId
-        if (foregroundDrawableResId != 0) {
-            val foregroundDrawable: Drawable? =
-                AppCompatResources.getDrawable(context,foregroundDrawableResId)
-            foreground = foregroundDrawable
         }
     }
 }

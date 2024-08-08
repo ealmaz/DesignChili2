@@ -44,6 +44,9 @@
     <attr name="ChiliChevronColor" format="color"/>
     <attr name="ChiliChevronDrawable" format="reference"/>
 
+    <!-- Animator attributes -->
+    <attr name="ChiliTranslucentStateListAnimator" format="reference" />
+    <attr name="ChiliBounceStateListAnimator" format="reference" />
 
     <!-- CardView attributes -->
     <attr name="ChiliCardViewBackground" format="reference"/>

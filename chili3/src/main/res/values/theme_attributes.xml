@@ -15,9 +15,6 @@
     <!-- Shimmer attributes -->
     <attr name="ChiliShimmerHighlightColor" format="color" />
 
-    <!-- Animator attributes -->
-    <attr name="ChiliTranslucentStateListAnimator" format="reference" />
-
     <!-- ScreenBackground -->
     <attr name="ChiliContentBackground" format="reference"/>
     <attr name="ChiliSecondaryContentBackgroundColor" format="color" />

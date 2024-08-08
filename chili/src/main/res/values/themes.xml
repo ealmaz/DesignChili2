@@ -68,6 +68,10 @@
         <item name="ChiliSegmentedPickerTabIndicatorColor">@color/white_1</item>
         <item name="ChiliSegmentedPickerTabTextColor">@color/black_5</item>
 
+        <!-- Animator attributes -->
+        <item name="ChiliTranslucentStateListAnimator">@animator/translucent_state_list_animator</item>
+        <item name="ChiliBounceStateListAnimator">@animator/bounce_state_list_animator</item>
+
         <!-- CheckBox  -->
         <item name="ChiliCheckBoxCheckedColor">@color/magenta_1</item>
         <item name="ChiliCheckBoxUncheckedColor">@color/black_5</item>
