@@ -235,6 +235,7 @@
         <attr name="additionalIcon" format="reference"/>
         <attr name="additionalText"/>
         <attr name="additionalTextTextAppearance" />
+        <attr name="additionalIconSize" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="ActionCellView">
