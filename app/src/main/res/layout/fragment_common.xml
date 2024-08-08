@@ -19,6 +19,15 @@
             android:paddingBottom="124dp"
             tools:context=".MainActivity">
 
+            <kg.devcats.chili3.view.common.ChiliSliderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="Сумма кредита"
+                app:valueFrom="1000"
+                app:valueTo="10000"
+                app:sliderValue="5000"
+                app:step="1000" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

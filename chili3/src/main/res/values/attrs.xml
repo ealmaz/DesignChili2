@@ -15,6 +15,7 @@
         <attr name="myConnectionCardViewDefaultStyle" format="reference"/>
         <attr name="infoCardViewDefaultStyle" format="reference"/>
         <attr name="bannerCardViewDefaultStyle" format="reference"/>
+        <attr name="chiliSliderViewDefaultStyle" format="reference"/>
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -306,6 +307,16 @@
         <attr name="tag_background" format="reference"/>
         <attr name="tag_text" format="string" />
         <attr name="tag_icon" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ChiliSliderView">
+        <attr name="valueFrom" format="integer"/>
+        <attr name="valueTo" format="integer"/>
+        <attr name="sliderValue" format="integer"/>
+        <attr name="step" format="integer"/>
+        <attr name="title"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="captionsTextAppearance" format="reference"/>
     </declare-styleable>
 
 </resources>

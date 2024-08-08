@@ -26,4 +26,8 @@
         <item name="isChevronVisible">false</item>
     </style>
 
+    <style name="Chili.SliderStyle" >
+
+    </style>
+
 </resources>
