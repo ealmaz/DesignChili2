@@ -44,8 +44,8 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
                 getResourceId(R.styleable.AdditionalTextWithIconCellView_additionalIcon, -1).takeIf { it != -1 }?.let {
                     setAdditionalIcon(it)
                 }
-                getResourceId(R.styleable.AdditionalTextWithIconCellView_additionalIconSize, -1).takeIf { it != -1 }?.let {
-                    setAdditionalIconSize(it)
+                getDimensionPixelSize(R.styleable.AdditionalTextWithIconCellView_additionalIconSize, -1).takeIf { it != -1 }?.let {
+                    setupAdditionalIconSize(it, it)
                 }
                 recycle()
             }
@@ -121,7 +121,7 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
         setupAdditionalIconSize(widthPx, heightPx)
     }
 
-    private fun setupAdditionalIconSize(widthPx: Int, heightPx: Int) {
+    fun setupAdditionalIconSize(widthPx: Int, heightPx: Int) {
         val params = additionalImage?.layoutParams
         params?.height = heightPx
         params?.width = widthPx
