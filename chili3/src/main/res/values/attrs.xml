@@ -16,6 +16,7 @@
         <attr name="infoCardViewDefaultStyle" format="reference"/>
         <attr name="bannerCardViewDefaultStyle" format="reference"/>
         <attr name="chiliSliderViewDefaultStyle" format="reference"/>
+        <attr name="chiliChipGroupDefaultStyle" format="reference"/>
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -317,6 +318,15 @@
         <attr name="title"/>
         <attr name="titleTextAppearance"/>
         <attr name="captionsTextAppearance" format="reference"/>
+    </declare-styleable>
+    
+    <declare-styleable name="ChiliChipsGroup">
+        <attr name="title"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="selectionType" format="integer">
+            <enum name="SINGLE" value="0"/>
+            <enum name="MULTIPLE" value="1"/>
+        </attr>
     </declare-styleable>
 
 </resources>

@@ -19,3 +19,7 @@ enum class PackageType {
 enum class ButtonType(val value: Int) {
     PRIMARY(0), ADDITIONAL(1)
 }
+
+enum class SelectionType(val value: Int) {
+    SINGLE(0), MULTIPLE(1)
+}
