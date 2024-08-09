@@ -19,6 +19,12 @@
             android:paddingBottom="124dp"
             tools:context=".MainActivity">
 
+            <kg.devcats.chili3.view.common.chips.ChiliChipsGroup
+                android:id="@+id/chips"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="Дата первого платежа"/>
+
             <kg.devcats.chili3.view.common.ChiliSliderView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

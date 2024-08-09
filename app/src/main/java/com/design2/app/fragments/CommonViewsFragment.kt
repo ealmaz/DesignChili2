@@ -10,6 +10,7 @@ import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCommonBinding
 import com.design2.app.databinding.ItemViewCellBinding
+import kg.devcats.chili3.view.common.chips.SimpleTextChip
 
 class CommonViewsFragment : BaseFragment<FragmentCommonBinding>() {
 
@@ -41,6 +42,18 @@ class CommonViewsFragment : BaseFragment<FragmentCommonBinding>() {
 
         vb.av1.onUrlClick { Toast.makeText(context, "Вы нажали на ссылку $it", Toast.LENGTH_SHORT).show() }
         vb.av3.hideCheckbox()
+
+
+        vb.chips.setItems(listOf(
+            SimpleTextChip(1, "5 августа"),
+            SimpleTextChip(2, "10 августа"),
+            SimpleTextChip(3, "15 августа"),
+            SimpleTextChip(4, "20 августа")
+        ))
+
+        vb.chips.setCheckedChangedListener {id, isSelected ->
+            Toast.makeText(requireContext(), "$id - $isSelected", Toast.LENGTH_SHORT).show()
+        }
     }
 }
 

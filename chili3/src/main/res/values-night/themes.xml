@@ -146,6 +146,10 @@
         <!-- ExpandableGridRecyclerView-->
         <item name="ChiliExpandableGridRecyclerViewBackground">@color/c_010101</item>
         <item name="ChiliExpandableGridRecyclerViewIconBackground">@color/c_28282a</item>
+
+        <!-- ChiliSimpleTextChipView  -->
+        <item name="ChiliSimpleTextChipSelectedStateColor">@color/magenta_1</item>
+        <item name="ChiliSimpleTextChipUnselectedStateColor">@color/black_4</item>
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>

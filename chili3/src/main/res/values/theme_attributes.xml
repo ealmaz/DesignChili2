@@ -197,4 +197,9 @@
     <attr name="ChiliInfoCardViewButtonTopMargin" format="reference" />
     <!--endregion InfoCardView -->
 
+
+    <!-- ChiliSimpleTextChipView  -->
+    <attr name="ChiliSimpleTextChipSelectedStateColor" format="color"/>
+    <attr name="ChiliSimpleTextChipUnselectedStateColor" format="color"/>
+
 </resources>

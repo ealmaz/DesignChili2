@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="@style/Chili.H14.Primary.Bold"
+    android:paddingHorizontal="@dimen/padding_12dp"
+    android:paddingVertical="@dimen/padding_8dp"
+    android:background="@drawable/chili_bg_simple_text_chip"
+    tools:text="5 августа" />

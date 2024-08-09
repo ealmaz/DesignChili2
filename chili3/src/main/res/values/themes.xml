@@ -230,6 +230,12 @@
         <item name="ChiliInfoCardViewSubtitleTopMargin">@dimen/padding_8dp</item>
         <item name="ChiliInfoCardViewButtonTopMargin">@dimen/padding_16dp</item>
         <!--endregion InfoCardView -->
+
+
+        <!-- ChiliSimpleTextChipView  -->
+        <item name="ChiliSimpleTextChipSelectedStateColor">@color/magenta_1</item>
+        <item name="ChiliSimpleTextChipUnselectedStateColor">@color/gray_5</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />
