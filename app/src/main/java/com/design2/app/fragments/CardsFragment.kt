@@ -96,12 +96,10 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
         }
         val adapter = AutoScrollCarouselImageAdapter(
             listOf(
-                "https://minio.o.kg/media-service/Bonus/ru/82446e5c-267d-4782-a777-dd9da2950256.png",
-                "https://minio.o.kg/media-service/Bonus/ru/9274b232-02d0-4924-a28b-2e774f2ae1cb.jpg",
-                "https://minio.o.kg/media-service/Bonus/ru/75369902-3870-40ad-8cb6-891fe404084e.jpg",
-                "https://minio.o.kg/media-service/Bonus/ru/4a54862d-eaa0-4fac-83ff-0794f7ff32a2.jpg",
-                "https://minio.o.kg/media-service/Bonus/ru/b9007171-27a6-41fe-ab1c-d0efae20855c.jpg",
-                "https://minio.o.kg/media-service/Bonus/ru/68b4602e-d17c-429e-8132-afebef54d105.jpg"
+                "https://devminio.o.kg/media-service/Bonus/ky/9170f031-4cd7-4c7e-ad7d-04a423eef673.png",
+                "https://devminio.o.kg/media-service/Bonus/ky/0d6780b9-cbf6-41a7-8750-4da9d7688715.jpg",
+                "https://devminio.o.kg/media-service/Bonus/ky/9c7937f2-ff27-44f5-95a9-d51a0aaa7a8f.jpg",
+                "https://devminio.o.kg/media-service/Bonus/ky/c18c82e9-d3ab-4086-b4b7-8160b60c9894.png",
                 ),
             this)
 
