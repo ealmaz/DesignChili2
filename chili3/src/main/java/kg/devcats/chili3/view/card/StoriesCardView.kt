@@ -9,6 +9,10 @@ import android.widget.ImageView
 import android.widget.ImageView.ScaleType
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.prepareViewForBounceAnimation
+import com.design2.chili2.extensions.setOnClickListenerWithBounce
+import com.design2.chili2.extensions.setOnSingleClickListenerWithBounce
+import com.design2.chili2.extensions.setSafeOnClickListenerWithWarning
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.util.IconSize
 import com.design2.chili2.view.card.BaseCardView
@@ -104,6 +108,36 @@ class StoriesCardView @JvmOverloads constructor(
 
     fun setAdjustViewBounds(isAdjusted: Boolean) {
         vb.ivStories.adjustViewBounds = isAdjusted
+    }
+
+    override fun setOnClickListener(listener: OnClickListener?) {
+        setSafeOnClickListenerWithWarning { super.setOnClickListener(listener) }
+    }
+
+    fun setupOnSingleClickListenerWithBounce(
+        scale: Float = 0.95f,
+        duration: Long = 200,
+        onClick: () -> Unit = {}
+    ) {
+        setSafeOnClickListenerWithWarning {
+            this.run {
+                prepareViewForBounceAnimation(vb.root)
+                setOnSingleClickListenerWithBounce(scale, duration, onClick)
+            }
+        }
+    }
+
+    fun setupOnClickListenerWithBounce(
+        scale: Float = 0.95f,
+        duration: Long = 200,
+        onClick: () -> Unit = {}
+    ) {
+        setSafeOnClickListenerWithWarning {
+            this.run {
+                prepareViewForBounceAnimation(vb.root)
+                setOnClickListenerWithBounce(scale, duration, onClick)
+            }
+        }
     }
 
     private fun setCustomViewSize(width: Int, height: Int) {

@@ -14,6 +14,10 @@ import androidx.annotation.DrawableRes
 import androidx.core.view.isGone
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.prepareViewForBounceAnimation
+import com.design2.chili2.extensions.setOnClickListenerWithBounce
+import com.design2.chili2.extensions.setOnSingleClickListenerWithBounce
+import com.design2.chili2.extensions.setSafeOnClickListenerWithWarning
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.view.card.BaseCardView
 import com.google.android.material.internal.ViewUtils.dpToPx
@@ -213,6 +217,37 @@ class ProductCardView @JvmOverloads constructor(
             cornerRadius = cornerRadiusInPx
         }
         vb.tvDiscount.background = drawable
+    }
+
+
+    override fun setOnClickListener(listener: OnClickListener?) {
+        setSafeOnClickListenerWithWarning { super.setOnClickListener(listener) }
+    }
+
+    fun setupOnSingleClickListenerWithBounce(
+        scale: Float = 0.95f,
+        duration: Long = 200,
+        onClick: () -> Unit = {}
+    ) {
+        setSafeOnClickListenerWithWarning {
+            this.run {
+                prepareViewForBounceAnimation(vb.root)
+                setOnSingleClickListenerWithBounce(scale, duration, onClick)
+            }
+        }
+    }
+
+    fun setupOnClickListenerWithBounce(
+        scale: Float = 0.95f,
+        duration: Long = 200,
+        onClick: () -> Unit = {}
+    ) {
+        setSafeOnClickListenerWithWarning {
+            this.run {
+                prepareViewForBounceAnimation(vb.root)
+                setOnClickListenerWithBounce(scale, duration, onClick)
+            }
+        }
     }
 
 }

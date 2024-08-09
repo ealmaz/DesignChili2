@@ -13,6 +13,10 @@ import com.airbnb.lottie.LottieAnimationView
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewMediaBinding
 import com.design2.chili2.extensions.dpF
+import com.design2.chili2.extensions.prepareViewForBounceAnimation
+import com.design2.chili2.extensions.setOnClickListenerWithBounce
+import com.design2.chili2.extensions.setOnSingleClickListenerWithBounce
+import com.design2.chili2.extensions.setSafeOnClickListenerWithWarning
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.util.AnimationData
 import com.design2.chili2.util.MediaType
@@ -132,7 +136,33 @@ class MediaView @JvmOverloads constructor(
     }
 
     override fun setOnClickListener(listener: OnClickListener?) {
-        vb.root.setOnClickListener(listener)
+        setSafeOnClickListenerWithWarning { vb.root.setOnClickListener(listener) }
+    }
+
+    fun setupOnSingleClickListenerWithBounce(
+        scale: Float = 0.95f,
+        duration: Long = 200,
+        onClick: () -> Unit = {}
+    ) {
+        setSafeOnClickListenerWithWarning(1) {
+            this.run {
+                prepareViewForBounceAnimation(vb.root)
+                setOnSingleClickListenerWithBounce(scale, duration, onClick)
+            }
+        }
+    }
+
+    fun setupOnClickListenerWithBounce(
+        scale: Float = 0.95f,
+        duration: Long = 200,
+        onClick: () -> Unit = {}
+    ) {
+        setSafeOnClickListenerWithWarning(2) {
+            this.run {
+                prepareViewForBounceAnimation(vb.root)
+                setOnClickListenerWithBounce(scale, duration, onClick)
+            }
+        }
     }
 
     override fun onDetachedFromWindow() {

@@ -2,4 +2,5 @@
 <resources>
     <id name="lastItemClickTime"/>
     <id name="lastCharInputTime"/>
+    <item name="listener_count_tag" type="id"/>
 </resources>
