@@ -5,14 +5,16 @@
             <objectAnimator
                 android:propertyName="scaleX"
                 android:valueFrom="1.0"
-                android:valueTo="0.95"
-                android:duration="200"
+                android:interpolator="?ChiliBouncePressedXInterpolator"
+                android:valueTo="?ChiliBouncePressedScaleX"
+                android:duration="?ChiliBouncePressedXDuration"
                 android:valueType="floatType"/>
             <objectAnimator
                 android:propertyName="scaleY"
                 android:valueFrom="1.0"
-                android:valueTo="0.95"
-                android:duration="200"
+                android:interpolator="?ChiliBouncePressedYInterpolator"
+                android:valueTo="?ChiliBouncePressedScaleY"
+                android:duration="?ChiliBouncePressedYDuration"
                 android:valueType="floatType"/>
         </set>
     </item>
@@ -21,17 +23,17 @@
         <set>
             <objectAnimator
                 android:propertyName="scaleX"
-                android:valueFrom="0.95"
+                android:valueFrom="?ChiliBouncePressReleasedScaleX"
                 android:valueTo="1.0"
-                android:duration="300"
-                android:interpolator="@android:interpolator/overshoot"
+                android:duration="?ChiliBouncePressReleasedXDuration"
+                android:interpolator="?ChiliBouncePressReleasedXInterpolator"
                 android:valueType="floatType"/>
             <objectAnimator
                 android:propertyName="scaleY"
-                android:valueFrom="0.95"
+                android:valueFrom="?ChiliBouncePressReleasedScaleY"
                 android:valueTo="1.0"
-                android:duration="300"
-                android:interpolator="@android:interpolator/overshoot"
+                android:duration="?ChiliBouncePressReleasedYDuration"
+                android:interpolator="?ChiliBouncePressReleasedYInterpolator"
                 android:valueType="floatType"/>
         </set>
     </item>

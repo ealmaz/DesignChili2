@@ -284,5 +284,24 @@
     <!--    ChiliCellViewBackgroundColor-->
     <attr name="ChiliCellViewBackgroundColor" format="color" />
 
+    <!--    ChiliBounceStateListAnimator -->
+    <attr name="ChiliBouncePressedScaleX" format="float" />
+    <attr name="ChiliBouncePressedScaleY" format="float" />
+    <attr name="ChiliBouncePressReleasedScaleX" format="float" />
+    <attr name="ChiliBouncePressReleasedScaleY" format="float" />
+    <attr name="ChiliBouncePressedXDuration" format="integer" />
+    <attr name="ChiliBouncePressedYDuration" format="integer" />
+    <attr name="ChiliBouncePressReleasedXDuration" format="integer" />
+    <attr name="ChiliBouncePressReleasedYDuration" format="integer" />
+    <attr name="ChiliBouncePressedXInterpolator" format="reference" />
+    <attr name="ChiliBouncePressedYInterpolator" format="reference" />
+    <attr name="ChiliBouncePressReleasedXInterpolator" format="reference" />
+    <attr name="ChiliBouncePressReleasedYInterpolator" format="reference" />
+
+    <!--    ChiliTranslucentStateListAnimator -->
+    <attr name="ChiliTranslucentPressedAlphaValueTo" format="float" />
+    <attr name="ChiliTranslucentPressReleasedAlphaValueFrom" format="float" />
+    <attr name="ChiliTranslucentPressedDuration" format="integer" />
+    <attr name="ChiliTranslucentPressReleasedDuration" format="integer" />
 
 </resources>

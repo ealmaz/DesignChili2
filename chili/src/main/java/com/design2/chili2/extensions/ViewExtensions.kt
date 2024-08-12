@@ -1,10 +1,7 @@
 package com.design2.chili2.extensions
 
 import android.animation.AnimatorInflater
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
 import android.animation.StateListAnimator
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.SpannableStringBuilder
@@ -12,12 +9,10 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.URLSpan
-import android.util.Log
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.OvershootInterpolator
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
@@ -40,7 +35,6 @@ import com.bumptech.glide.request.target.Target
 import com.design2.chili2.R
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.image.SquircleView
-import java.lang.System.currentTimeMillis
 import java.util.concurrent.TimeUnit
 
 internal var View.lastItemClickTime: Long
@@ -372,6 +366,7 @@ fun View.applyStateListAnimatorFromTheme(context: Context, attrResId: Int) {
             val stateListAnimator: StateListAnimator =
                 AnimatorInflater.loadStateListAnimator(context, stateListAnimatorResId)
             this.stateListAnimator = stateListAnimator
+            foreground = null
         }
     }
 }
@@ -386,130 +381,6 @@ fun View.applyForegroundFromTheme(context: Context, attrResId: Int) {
             val foregroundDrawable: Drawable? =
                 AppCompatResources.getDrawable(context,foregroundDrawableResId)
             foreground = foregroundDrawable
-        }
-    }
-}
-
-
-internal var View.listenerCount: Int
-    get() = getTag(R.id.listener_count_tag) as? Int ?: -1
-    set(value) = setTag(R.id.listener_count_tag, value)
-
-fun View.setSafeOnClickListenerWithWarning(type: Int = 0, listener: () -> Unit) {
-    if (listenerCount != type && listenerCount != -1) {
-         Log.e("ListenerWarning", "Multiple listeners are being set on this view")
-    } else {
-        listenerCount = type
-        listener()
-    }
-}
-
-fun View.setOnSingleClickListenerWithBounce(
-    scale: Float = 0.95f,
-    animDuration: Long = 200,
-    onClick: () -> Unit = {}
-): Unit = handleOnClickListenerWithBounce(scale, animDuration, onClick, isSingleClick = true)
-
-fun View.setOnClickListenerWithBounce(
-    scale: Float = 0.95f,
-    animDuration: Long = 200,
-    onClick: () -> Unit = {}
-): Unit = handleOnClickListenerWithBounce(scale, animDuration, onClick)
-
-private fun View.handleOnClickListenerWithBounce(
-    scale: Float,
-    animDuration: Long,
-    onClick: () -> Unit,
-    isSingleClick: Boolean = false
-) {
-    val scaleXDown = ObjectAnimator.ofFloat(this, "scaleX", 1.0f, scale).apply {
-        this.duration = animDuration
-    }
-    val scaleYDown = ObjectAnimator.ofFloat(this, "scaleY", 1.0f, scale).apply {
-        this.duration = animDuration
-    }
-    val scaleDownSet = AnimatorSet().apply {
-        playTogether(scaleXDown, scaleYDown)
-    }
-
-    // Scale up animation with bounce when the view is released
-    val scaleXUp = ObjectAnimator.ofFloat(this, "scaleX", scale, 1.0f).apply {
-        this.duration = animDuration + 100
-        interpolator = OvershootInterpolator()
-    }
-    val scaleYUp = ObjectAnimator.ofFloat(this, "scaleY", scale, 1.0f).apply {
-        this.duration = animDuration + 100
-        interpolator = OvershootInterpolator()
-    }
-    val scaleUpSet = AnimatorSet().apply {
-        playTogether(scaleXUp, scaleYUp)
-    }
-
-    isClickable = true
-    isFocusable = true
-
-    handleOnTouchListener(isSingleClick, onClick) {
-        when (it.action) {
-            MotionEvent.ACTION_DOWN -> scaleDownSet.run {
-                end()
-                start()
-            }
-
-            MotionEvent.ACTION_UP -> scaleUpSet.run {
-                end()
-                start()
-            }
-
-            MotionEvent.ACTION_CANCEL -> scaleUpSet.run {
-                end()
-                start()
-            }
-        }
-    }
-}
-
-fun View.prepareViewForBounceAnimation(rootView: View) {
-    rootView.run {
-        if (isClickable) isClickable = false
-        if (isFocusable) isFocusable = false
-        if (foreground != null) foreground = null
-    }
-    if (foreground != null) foreground = null
-}
-
-@SuppressLint("ClickableViewAccessibility")
-private fun View.handleOnTouchListener(isSingleClick: Boolean, onClick: () -> Unit, motionEvent: (MotionEvent) -> Unit, ) {
-
-    setOnTouchListener { v, event ->
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                if (!this.isClickable) return@setOnTouchListener false
-                motionEvent(event)
-                true
-            }
-
-            MotionEvent.ACTION_UP -> {
-                if (!this.isClickable) return@setOnTouchListener false
-                motionEvent(event)
-                if (!isSingleClick) {
-                    onClick(); return@setOnTouchListener true
-                }
-
-                if (lastItemClickTime == 0L
-                    || TimeUnit.MILLISECONDS.toSeconds(currentTimeMillis() - lastItemClickTime) >= 1
-                ) {
-                    lastItemClickTime = currentTimeMillis(); onClick()
-                }
-                true
-            }
-
-            MotionEvent.ACTION_CANCEL -> {
-                if (!this.isClickable) return@setOnTouchListener false
-                motionEvent(event)
-                false
-            }
-
-            else -> false
         }
     }
 }
