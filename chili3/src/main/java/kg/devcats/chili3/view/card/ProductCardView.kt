@@ -1,5 +1,6 @@
 package kg.devcats.chili3.view.card
 
+import android.animation.AnimatorInflater
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.Color
@@ -12,12 +13,9 @@ import android.widget.ImageView.ScaleType
 import androidx.annotation.AttrRes
 import androidx.annotation.DrawableRes
 import androidx.core.view.isGone
+import com.design2.chili2.extensions.applyForegroundFromTheme
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.prepareViewForBounceAnimation
-import com.design2.chili2.extensions.setOnClickListenerWithBounce
-import com.design2.chili2.extensions.setOnSingleClickListenerWithBounce
-import com.design2.chili2.extensions.setSafeOnClickListenerWithWarning
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.view.card.BaseCardView
 import com.google.android.material.internal.ViewUtils.dpToPx
@@ -88,6 +86,8 @@ class ProductCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setDiscountTextAppearance(it) }
         getResourceId(R.styleable.ProductCardView_discountBackgroundColor, R.drawable.chili_bg_product_discount_gradient)
             .takeIf { it != -1 }?.let { setDiscountBackground(it) }
+        getResourceId(R.styleable.ProductCardView_android_stateListAnimator, -1)
+            .takeIf { it != -1 }.let{ setupStateListAnimator(it) }
     }
 
     private fun getImageSize(@AttrRes resId: Int, defaultValue: Float = 0F): Int {
@@ -219,35 +219,15 @@ class ProductCardView @JvmOverloads constructor(
         vb.tvDiscount.background = drawable
     }
 
-
-    override fun setOnClickListener(listener: OnClickListener?) {
-        setSafeOnClickListenerWithWarning { super.setOnClickListener(listener) }
-    }
-
-    fun setupOnSingleClickListenerWithBounce(
-        scale: Float = 0.95f,
-        duration: Long = 200,
-        onClick: () -> Unit = {}
-    ) {
-        setSafeOnClickListenerWithWarning {
-            this.run {
-                prepareViewForBounceAnimation(vb.root)
-                setOnSingleClickListenerWithBounce(scale, duration, onClick)
+    fun setupStateListAnimator(animatorRes: Int?) {
+        stateListAnimator =
+            if (animatorRes != null) {
+                foreground = null
+                AnimatorInflater.loadStateListAnimator(context, animatorRes)
+            } else {
+                applyForegroundFromTheme(context, android.R.attr.selectableItemBackground)
+                null
             }
-        }
-    }
-
-    fun setupOnClickListenerWithBounce(
-        scale: Float = 0.95f,
-        duration: Long = 200,
-        onClick: () -> Unit = {}
-    ) {
-        setSafeOnClickListenerWithWarning {
-            this.run {
-                prepareViewForBounceAnimation(vb.root)
-                setOnClickListenerWithBounce(scale, duration, onClick)
-            }
-        }
     }
 
 }

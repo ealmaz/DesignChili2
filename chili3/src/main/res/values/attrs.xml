@@ -188,6 +188,7 @@
         <attr name="discount" format="string" />
         <attr name="discountTextAppearance" format="reference" />
         <attr name="discountBackgroundColor" format="reference" />
+        <attr name="android:stateListAnimator" />
     </declare-styleable>
 
     <declare-styleable name="ChiliBottomNavigationView">
