@@ -29,7 +29,7 @@
             android:id="@+id/iv_closure_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/chili_ic_chevron_down" />
+            android:src="@drawable/chili_ic_chevron_down_big" />
 
     </FrameLayout>
 
