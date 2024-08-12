@@ -1604,6 +1604,24 @@
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
+        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp"
+            style="@style/ShadowLayoutStyle">
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="Detail cell view без bg для text"
+                app:subtitle="Пополнение электронного кошелька пользователя"
+                app:additionalInfoText="текст без bg"
+                app:additionalInfoTextBackground="@null"
+                app:additionalInfoTextPadding="0dp"
+                app:additionalInfoTextAppearance="@style/Chili.H12.Value"/>
+
+        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

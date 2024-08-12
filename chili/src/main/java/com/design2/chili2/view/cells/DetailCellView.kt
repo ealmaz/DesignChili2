@@ -12,13 +12,16 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.setPadding
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellDetailBinding
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
+import com.design2.chili2.extensions.visible
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.image.SquircleView
 import com.design2.chili2.view.shimmer.ShimmeringView
@@ -81,6 +84,12 @@ class DetailCellView @JvmOverloads constructor(
             getString(R.styleable.DetailCellView_additionalInfoText).let { setAdditionalInfoText(it) }
             getResourceId(R.styleable.DetailCellView_additionalInfoTextAppearance, -1).takeIf { it != -1 }?.let {
                 setAdditionalInfoTextAppearance(it)
+            }
+            getResourceId(R.styleable.DetailCellView_additionalInfoTextBackground, -1).takeIf { it != -1 }.let {
+                setAdditionalInfoTextBackground(it)
+            }
+            getDimensionPixelSize(R.styleable.DetailCellView_additionalInfoTextPadding, -1).takeIf { it != -1 }?.let {
+                updateAdditionalTextPadding(it)
             }
             recycle()
         }
@@ -184,12 +193,15 @@ class DetailCellView @JvmOverloads constructor(
         this.setupRoundedCellCornersMode(mode.value, surfaceClickAbility)
     }
 
-    fun setIcon(@DrawableRes drawableResId: Int) {
-        vb.svIcon.setImageResource(drawableResId)
+    fun setIcon(@DrawableRes drawableResId: Int) = with(vb.svIcon) {
+        visible()
+        setImageResource(drawableResId)
     }
 
-    fun setIcon(drawable: Drawable?) {
-        vb.svIcon.setImageDrawable(drawable)
+    fun setIcon(drawable: Drawable?) = with(vb.svIcon) {
+        if (drawable == null) gone()
+        else visible()
+        setImageDrawable(drawable)
     }
 
     fun setIconUrl(url: String?) {
@@ -211,6 +223,19 @@ class DetailCellView @JvmOverloads constructor(
 
     fun setAdditionalInfoTextAppearance(@StyleRes resId: Int) {
         vb.tvAdditionalInfo.setTextAppearance(resId)
+    }
+
+    fun setAdditionalInfoTextBackground(@DrawableRes resId: Int?) = with(vb.tvAdditionalInfo) {
+        if (resId != null) setBackgroundResource(resId)
+        else background = null
+    }
+
+    fun setAdditionalInfoTextBackground(drawable: Drawable?) {
+        vb.tvAdditionalInfo.background = drawable
+    }
+
+    fun updateAdditionalTextPadding(paddingPx: Int) {
+        vb.tvAdditionalInfo.setPadding(paddingPx)
     }
 
 

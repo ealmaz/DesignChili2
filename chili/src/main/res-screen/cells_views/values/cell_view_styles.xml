@@ -38,7 +38,9 @@
 
     <style name="Chili.CellViewStyle.ProgressCellView"/>
 
-    <style name="Chili.CellViewStyle.DetailCellView"/>
+    <style name="Chili.CellViewStyle.DetailCellView">
+        <item name="additionalInfoTextBackground">@drawable/chili_bg_detail_cell_additional_info</item>
+    </style>
 
     <style name="Chili.CellViewStyle.StatusMarkerCellView"/>
 

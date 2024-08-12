@@ -307,6 +307,8 @@
         <attr name="statusTextAppearance" format="reference"/>
         <attr name="additionalInfoText" format="string"/>
         <attr name="additionalInfoTextAppearance" format="reference"/>
+        <attr name="additionalInfoTextBackground" format="reference"/>
+        <attr name="additionalInfoTextPadding" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="LoaderButton">
