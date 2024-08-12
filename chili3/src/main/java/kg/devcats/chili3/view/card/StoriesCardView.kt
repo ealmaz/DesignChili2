@@ -1,5 +1,6 @@
 package kg.devcats.chili3.view.card
 
+import android.animation.AnimatorInflater
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
@@ -7,12 +8,9 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
+import com.design2.chili2.extensions.applyForegroundFromTheme
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.prepareViewForBounceAnimation
-import com.design2.chili2.extensions.setOnClickListenerWithBounce
-import com.design2.chili2.extensions.setOnSingleClickListenerWithBounce
-import com.design2.chili2.extensions.setSafeOnClickListenerWithWarning
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.util.IconSize
 import com.design2.chili2.view.card.BaseCardView
@@ -76,6 +74,8 @@ class StoriesCardView @JvmOverloads constructor(
         getLayoutDimension(R.styleable.StoriesCardView_storiesStatus, StoriesStatus.UNVIEWED.value).let {
             setStatus(it)
         }
+        getResourceId(R.styleable.StoriesCardView_android_stateListAnimator, -1)
+            .takeIf { it != -1 }.let{ setupStateListAnimator(it) }
     }
 
     override fun setupShimmeringViews() {
@@ -110,36 +110,6 @@ class StoriesCardView @JvmOverloads constructor(
         vb.ivStories.adjustViewBounds = isAdjusted
     }
 
-    override fun setOnClickListener(listener: OnClickListener?) {
-        setSafeOnClickListenerWithWarning { super.setOnClickListener(listener) }
-    }
-
-    fun setupOnSingleClickListenerWithBounce(
-        scale: Float = 0.95f,
-        duration: Long = 200,
-        onClick: () -> Unit = {}
-    ) {
-        setSafeOnClickListenerWithWarning {
-            this.run {
-                prepareViewForBounceAnimation(vb.root)
-                setOnSingleClickListenerWithBounce(scale, duration, onClick)
-            }
-        }
-    }
-
-    fun setupOnClickListenerWithBounce(
-        scale: Float = 0.95f,
-        duration: Long = 200,
-        onClick: () -> Unit = {}
-    ) {
-        setSafeOnClickListenerWithWarning {
-            this.run {
-                prepareViewForBounceAnimation(vb.root)
-                setOnClickListenerWithBounce(scale, duration, onClick)
-            }
-        }
-    }
-
     private fun setCustomViewSize(width: Int, height: Int) {
         val layoutParams = vb.flContainer.layoutParams
         layoutParams.width = width
@@ -169,6 +139,17 @@ class StoriesCardView @JvmOverloads constructor(
             }
         }
         setCustomViewSize(width, height)
+    }
+
+    fun setupStateListAnimator(animatorRes: Int?) {
+        stateListAnimator =
+            if (animatorRes != null) {
+                foreground = null
+                AnimatorInflater.loadStateListAnimator(context, animatorRes)
+            } else {
+                applyForegroundFromTheme(context, android.R.attr.selectableItemBackground)
+                null
+            }
     }
 
 }

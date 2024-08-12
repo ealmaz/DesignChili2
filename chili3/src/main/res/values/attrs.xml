@@ -59,6 +59,7 @@
             <enum name="viewed" value="0" />
             <enum name="unviewed" value="1" />
         </attr>
+        <attr name="android:stateListAnimator" />
     </declare-styleable>
 
     <declare-styleable name="PromoCardView">
