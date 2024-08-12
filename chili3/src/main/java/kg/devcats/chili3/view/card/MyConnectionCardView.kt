@@ -205,7 +205,7 @@ class MyConnectionCardView @JvmOverloads constructor(
         super.onStopShimmer()
         viewUnauthorized.root.isVisible = isUnauthorized
         llLeftoverInfo.isVisible = !isUnauthorized
-        plvCall.stopShimmering()
-        plvInternet.stopShimmering()
+        plvCall.stopShimmering(false)
+        plvInternet.stopShimmering(false)
     }
 }
