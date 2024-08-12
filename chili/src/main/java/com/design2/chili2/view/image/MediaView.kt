@@ -58,7 +58,8 @@ class MediaView @JvmOverloads constructor(
         getBoolean(R.styleable.MediaView_android_adjustViewBounds, false).let {
             setAdjustViewBounds(it)
         }
-        radius = getDimension(R.styleable.MediaView_cornerRadius, 0f)
+        getDimension(R.styleable.MediaView_cornerRadius, -1f)
+            .takeIf { it != -1f }?.let { radius = it }
         getResourceId(R.styleable.MediaView_android_stateListAnimator, -1)
             .takeIf { it != -1 }.let { setupStateListAnimator(it) }
     }

@@ -147,7 +147,7 @@ class StoriesCardView @JvmOverloads constructor(
                 foreground = null
                 AnimatorInflater.loadStateListAnimator(context, animatorRes)
             } else {
-                applyForegroundFromTheme(context, android.R.attr.selectableItemBackground)
+                applyForegroundFromTheme(context, R.attr.ChiliStoriesCardViewForeground)
                 null
             }
     }

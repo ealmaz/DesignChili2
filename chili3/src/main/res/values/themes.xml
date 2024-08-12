@@ -227,6 +227,11 @@
         <item name="ChiliInfoCardViewSubtitleTopMargin">@dimen/padding_8dp</item>
         <item name="ChiliInfoCardViewButtonTopMargin">@dimen/padding_16dp</item>
         <!--endregion InfoCardView -->
+
+        <!-- StoriesCardView -->
+        <item name="ChiliStoriesCardViewElevation">@dimen/elevation_0dp</item>
+        <item name="ChiliStoriesCardViewForeground">@drawable/chili_ripple_rounded_corner_foreground</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />
