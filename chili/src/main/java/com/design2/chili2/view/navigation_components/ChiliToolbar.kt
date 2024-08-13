@@ -7,12 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewToolbarBinding
@@ -42,6 +40,7 @@ class ChiliToolbar : LinearLayout {
     }
 
     private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_BaseNavigationComponentsStyle_ChiliToolbar) {
+        var navigationIconRes: Int = -1
         context?.obtainStyledAttributes(attrs, R.styleable.ChiliToolbar, R.attr.toolbarDefaultStyle, defStyle)?.run {
             setTitle(getString(R.styleable.ChiliToolbar_title))
             setAdditionalText(getString(R.styleable.ChiliToolbar_additionalText))
@@ -73,6 +72,10 @@ class ChiliToolbar : LinearLayout {
             }
             getResourceId(R.styleable.ChiliToolbar_navigationIcon, -1).takeIf { it != -1 }?.let {
                 setNavigationIcon(it)
+                navigationIconRes = it
+            }
+            getResourceId(R.styleable.ChiliToolbar_collapseIcon, navigationIconRes).takeIf { it != -1 }?.let {
+                setCollapseIcon(it)
             }
             getBoolean(R.styleable.ChiliToolbar_titleCentered, false).let {
                 setIsTitleCentered(it)
@@ -118,6 +121,10 @@ class ChiliToolbar : LinearLayout {
 
     fun setNavigationIcon(@DrawableRes drawableRes: Int) {
         vb.toolbarView.setNavigationIcon(drawableRes)
+    }
+
+    fun setCollapseIcon(@DrawableRes drawableRes: Int) {
+        vb.toolbarView.setCollapseIcon(drawableRes)
     }
 
     fun setTitle(title: String?) {
