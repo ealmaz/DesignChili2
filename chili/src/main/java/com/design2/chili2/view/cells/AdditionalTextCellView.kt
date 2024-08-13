@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Spanned
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DimenRes
 import androidx.annotation.StringRes
@@ -13,6 +14,7 @@ import com.design2.chili2.R
 import com.design2.chili2.extensions.createShimmerLayout
 import com.design2.chili2.extensions.createShimmerView
 import com.design2.chili2.extensions.dp
+import com.design2.chili2.extensions.setTextOrHide
 import com.facebook.shimmer.ShimmerFrameLayout
 
 class AdditionalTextCellView @JvmOverloads constructor(
@@ -22,7 +24,9 @@ class AdditionalTextCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_BaseCellViewStyle_AdditionalText
 ) : BaseCellView(context, attrs, defStyleAttr, defStyleRes) {
 
+    private var additionalTextContainer: LinearLayout? = null
     private var additionalText: TextView? = null
+    private var additionalSubText: TextView? = null
 
     override fun inflateView(context: Context) {
         super.inflateView(context)
@@ -39,20 +43,35 @@ class AdditionalTextCellView @JvmOverloads constructor(
                 getResourceId(R.styleable.AdditionalTextCellView_additionalTextTextAppearance, -1).takeIf { it != -1 }?.let {
                     setAdditionalTextTextAppearance(it)
                 }
+                getString(R.styleable.AdditionalTextCellView_additionalSubText).let {
+                    setAdditionalSubText(it)
+                }
+                getResourceId(R.styleable.AdditionalTextCellView_additionalSubTextTextAppearance, -1).takeIf { it != -1 }?.let {
+                    setAdditionalSubTextTextAppearance(it)
+                }
                 recycle()
             }
     }
 
     private fun inflateAdditionalText() {
-        this.additionalText = TextView(context).apply {
-            setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+        additionalText = createTextView().also { shimmeringPairs[it] = createShimmerForAdditionalText() }
+        additionalSubText = createTextView().apply { setPadding(0, 4.dp, 0,0) }
+        additionalTextContainer = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            addView(additionalText)
+            addView(additionalSubText)
+            setPadding(0, 0, 12.dp, 0)
+        }
+        vb.flEndPlaceHolder.addView(additionalTextContainer)
+    }
+
+    private fun createTextView(): TextView {
+        return TextView(context).apply {
             textAlignment = TEXT_ALIGNMENT_TEXT_END
-            shimmeringPairs[this] = createShimmerForAdditionalText()
             maxEms = 8
             maxLines = 2
             ellipsize = TextUtils.TruncateAt.END
         }
-        vb.flEndPlaceHolder.addView(additionalText)
     }
 
     private fun createShimmerForAdditionalText(): ShimmerFrameLayout {
@@ -83,10 +102,22 @@ class AdditionalTextCellView @JvmOverloads constructor(
         additionalText?.setText(textResId)
     }
 
+    fun setAdditionalSubText(text: CharSequence?) {
+        additionalSubText?.setTextOrHide(text)
+    }
+
+    fun setAdditionalSubText(text: Int?) {
+        additionalSubText?.setTextOrHide(text)
+    }
+
+    fun setAdditionalSubTextTextAppearance(resId: Int) {
+        additionalSubText?.setTextAppearance(resId)
+    }
+
     override fun setIsChevronVisible(isVisible: Boolean) {
         super.setIsChevronVisible(isVisible)
-        if (isVisible) additionalText?.setPadding(0, 0,0, 0)
-        else additionalText?.setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+        if (isVisible) additionalTextContainer?.setPadding(0, 0,0, 0)
+        else additionalTextContainer?.setPadding(0, 0, 12.dp, 0)
     }
 
     fun setAdditionalTextTextAppearance(@StyleRes resId: Int) {

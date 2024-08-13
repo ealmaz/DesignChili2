@@ -230,6 +230,8 @@
     <declare-styleable name="AdditionalTextCellView">
         <attr name="additionalText" />
         <attr name="additionalTextTextAppearance" />
+        <attr name="additionalSubText" format="string"/>
+        <attr name="additionalSubTextTextAppearance" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="AdditionalTextWithIconCellView">
