@@ -40,6 +40,7 @@ class ChiliToolbar : LinearLayout {
     }
 
     private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_BaseNavigationComponentsStyle_ChiliToolbar) {
+        var navigationIconRes: Int = -1
         context?.obtainStyledAttributes(attrs, R.styleable.ChiliToolbar, R.attr.toolbarDefaultStyle, defStyle)?.run {
             setTitle(getString(R.styleable.ChiliToolbar_title))
             setAdditionalText(getString(R.styleable.ChiliToolbar_additionalText))
@@ -71,8 +72,9 @@ class ChiliToolbar : LinearLayout {
             }
             getResourceId(R.styleable.ChiliToolbar_navigationIcon, -1).takeIf { it != -1 }?.let {
                 setNavigationIcon(it)
+                navigationIconRes = it
             }
-            getResourceId(R.styleable.ChiliToolbar_collapseIcon, -1).takeIf { it != -1 }?.let {
+            getResourceId(R.styleable.ChiliToolbar_collapseIcon, navigationIconRes).takeIf { it != -1 }?.let {
                 setCollapseIcon(it)
             }
             getBoolean(R.styleable.ChiliToolbar_titleCentered, false).let {
