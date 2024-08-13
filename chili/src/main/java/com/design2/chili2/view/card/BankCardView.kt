@@ -21,6 +21,7 @@ import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
+import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setTopMargin
 import com.design2.chili2.extensions.visible
 
@@ -333,6 +334,10 @@ class BankCardView @JvmOverloads constructor(
 
     override fun setCardBackground(resId: Int) {
         vb.ivCardBg.setImageResource(resId)
+    }
+
+    fun setCardBackground(url: String?) {
+        vb.ivCardBg.setImageByUrl(url)
     }
 }
 

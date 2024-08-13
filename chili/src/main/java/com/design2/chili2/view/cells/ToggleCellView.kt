@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.CompoundButton
+import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.SwitchCompat
 import com.design2.chili2.R
 
@@ -73,6 +74,21 @@ class ToggleCellView @JvmOverloads constructor(
         switch?.apply {
             showText = true
             textOff = text
+        }
+    }
+
+    fun setThumbDrawable(@DrawableRes drawable: Int) {
+        switch?.setThumbResource(drawable)
+    }
+
+    fun setTrackDrawable(@DrawableRes drawable: Int) {
+        switch?.setTrackResource(drawable)
+    }
+
+    fun setSwitchSize(height: Int, width: Int) {
+        switch?.apply {
+            layoutParams.height = height
+            layoutParams.width = width
         }
     }
 
