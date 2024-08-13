@@ -60,7 +60,7 @@
         app:thumbStrokeWidth="@dimen/view_1dp"
         app:tickVisible="false"
         app:trackColorActive="#F0047F"
-        app:trackColorInactive="@color/gray_8"
+        app:trackColorInactive="?ChiliSliderViewInactiveColor"
         app:trackHeight="@dimen/view_2dp" />
 
     <Button

@@ -236,6 +236,9 @@
         <item name="ChiliSimpleTextChipSelectedStateColor">@color/magenta_1</item>
         <item name="ChiliSimpleTextChipUnselectedStateColor">@color/gray_5</item>
 
+        <!-- SliderView -->
+        <item name="ChiliSliderViewInactiveColor">@color/c_ececec</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

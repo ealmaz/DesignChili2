@@ -202,4 +202,7 @@
     <attr name="ChiliSimpleTextChipSelectedStateColor" format="color"/>
     <attr name="ChiliSimpleTextChipUnselectedStateColor" format="color"/>
 
+    <!-- SliderView -->
+    <attr name="ChiliSliderViewInactiveColor" format="color"/>
+
 </resources>

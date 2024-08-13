@@ -150,6 +150,11 @@
         <!-- ChiliSimpleTextChipView  -->
         <item name="ChiliSimpleTextChipSelectedStateColor">@color/magenta_1</item>
         <item name="ChiliSimpleTextChipUnselectedStateColor">@color/black_4</item>
+
+
+        <!-- SliderView -->
+        <item name="ChiliSliderViewInactiveColor">@color/c_4a4a4a</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>

@@ -10,7 +10,7 @@
         android:id="@+id/commons_sv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/ChiliScreenBackground">
+        android:background="?attr/ChiliSurfaceBackground">
 
         <LinearLayout
             android:layout_width="match_parent"
