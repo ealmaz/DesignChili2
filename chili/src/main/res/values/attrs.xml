@@ -141,6 +141,7 @@
         <attr name="isDividerVisible"/>
         <attr name="background"/>
         <attr name="navigationIcon"/>
+        <attr name="collapseIcon"/>
         <attr name="titleColor" format="color"/>
         <attr name="toolbarLeftIcon" format="reference"/>
         <attr name="toolbarLeftIconSize" format="dimension"/>
