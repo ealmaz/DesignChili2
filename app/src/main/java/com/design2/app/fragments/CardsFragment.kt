@@ -68,6 +68,10 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             vb.pcv2.setIsCardEnabled(true)
         }
 
+        vb.btnAnimCards.setOnClickListener{
+            openFragment(AnimatedCardsFragment())
+        }
+
         (activity as MainActivity).setUpHomeEnabled(true)
         vb.bal2.isChevronVisible(false)
         vb.bal4.apply {

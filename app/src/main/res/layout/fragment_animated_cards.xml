@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/commons_sv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_32dp"
+        android:isScrollContainer="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:orientation="horizontal">
+
+            <com.design2.chili2.view.common.TitledDividerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_16dp"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:textAppearance="@style/Chili.H8.Primary"
+                app:startIcon="@drawable/ic_menu"
+                app:title="Select animated view" />
+
+            <RadioGroup
+                android:id="@+id/rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_16dp"
+                android:background="@drawable/chili_cell_rounded_background">
+
+                <RadioButton
+                    android:id="@+id/rb_stories"
+                    style="@style/Chili.RadioButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_8dp"
+                    android:text="Stories view" />
+
+                <RadioButton
+                    android:id="@+id/rb_stories_small"
+                    style="@style/Chili.RadioButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_8dp"
+                    android:text="Small stories view" />
+
+                <RadioButton
+                    android:id="@+id/rb_banners"
+                    style="@style/Chili.RadioButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_8dp"
+                    android:text="Banners" />
+
+                <RadioButton
+                    android:id="@+id/rb_market_ads"
+                    style="@style/Chili.RadioButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_8dp"
+                    android:text="Market Ads" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_scale"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginVertical="@dimen/padding_14dp"
+            android:textSize="16sp" />
+
+        <SeekBar
+            android:id="@+id/sb_scale"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:max="50"
+            android:progress="3" />
+
+        <TextView
+            android:id="@+id/tv_duration_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginVertical="@dimen/padding_14dp"
+            android:textSize="16sp" />
+
+        <SeekBar
+            android:id="@+id/sb_duration_down"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:max="800"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar_Blue" />
+
+        <TextView
+            android:id="@+id/tv_duration_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginVertical="@dimen/padding_14dp"
+            android:textSize="16sp" />
+
+        <SeekBar
+            android:id="@+id/sb_duration_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:max="800"
+            app:layout_constraintBottom_toTopOf="@+id/seekBar_Blue" />
+
+        <com.design2.chili2.view.container.ExpandableContainer
+            android:id="@+id/ec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginVertical="@dimen/padding_14dp"
+            app:isExpanded="false"
+            app:title="Interpolator: ">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </com.design2.chili2.view.container.ExpandableContainer>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <kg.devcats.chili3.view.card.StoriesCardView
+                        android:id="@+id/scv_stories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/padding_12dp"
+                        android:layout_marginStart="@dimen/padding_12dp"
+                        android:scaleType="fitXY"
+                        android:theme="@style/ThemeOverlay.StoriesCardRippleCornerRadius"
+                        app:cardIconSize="medium"
+                        app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/125ac05b-0cbb-4bde-9da0-1f090d1fac2e"
+                        app:viewedBorder="@drawable/chili_bg_viewed_stories" />
+
+                    <kg.devcats.chili3.view.card.StoriesCardView
+                        android:id="@+id/scv_stories_small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/padding_12dp"
+                        android:layout_marginStart="@dimen/padding_12dp"
+                        android:scaleType="fitXY"
+                        android:theme="@style/ThemeOverlay.StoriesCardRippleCornerRadius"
+                        app:cardIconSize="small"
+                        app:storiesSrc="https://minio.o.kg/media-service/BannerConfigurator/light/125ac05b-0cbb-4bde-9da0-1f090d1fac2e"
+                        app:viewedBorder="@drawable/chili_bg_viewed_stories" />
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.design2.chili2.view.image.MediaView
+                        android:id="@+id/mv"
+                        android:layout_width="@dimen/view_150dp"
+                        android:layout_height="90dp"
+                        android:layout_marginVertical="@dimen/padding_12dp"
+                        android:layout_marginStart="@dimen/padding_12dp"
+                        android:scaleType="centerCrop"
+                        app:mediaSrc="https://devminio.o.kg/media-service/BannerConfigurator/light/fbe72e6f-78d3-4246-a274-d4bf66edab50"
+                        app:type="image_url" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <kg.devcats.chili3.view.card.ProductCardView
+                        android:id="@+id/pcv_product"
+                        android:layout_width="168dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/padding_16dp"
+                        android:layout_marginVertical="@dimen/padding_12dp"
+                        android:scaleType="centerCrop"
+                        app:description="Помпа для воды AQUA Automatic Water Dispenser белый"
+                        app:discount="-20%"
+                        app:productImage="https://wallpapers.com/images/hd/vertical-pictures-r93cdchwdse79vvv.jpg"
+                        app:subtitle="833,3 с x 12мес"
+                        app:title="98 000,00 с" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</ScrollView>
