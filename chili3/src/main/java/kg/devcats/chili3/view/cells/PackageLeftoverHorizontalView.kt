@@ -51,14 +51,6 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
         shimmeringPairs[binding.clContainer] = binding.viewShimmerContent
     }
 
-    fun setWithoutPackage(tariffName: String, tariffDesc: String) = with(binding) {
-        tvRemain.text = tariffName
-        tvRemainFrom.text = tariffDesc
-        ivUnlimited.gone()
-        tvRemainFrom.setTopMargin(10.dp)
-        progressBar.gone()
-    }
-
     fun setPackage(
         remain: String,
         limit: String,
