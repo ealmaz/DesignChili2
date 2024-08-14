@@ -27,9 +27,6 @@
         <item name="ChiliContentBackground">@color/gray_5</item>
         <item name="ChiliSecondaryContentBackgroundColor">@color/gray_5</item>
 
-        <!-- Animator attributes -->
-        <item name="ChiliTranslucentStateListAnimator">@animator/translucent_state_list_animator</item>
-
         <!-- PromoCardView -->
         <item name="ChiliPromoCardViewContainerMinHeight">@dimen/view_88dp</item>
         <item name="ChiliPromoCardViewStatusTopPadding">@dimen/padding_4dp</item>

@@ -1,5 +1,7 @@
 package com.design2.chili2.extensions
 
+import android.animation.AnimatorInflater
+import android.animation.StateListAnimator
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.SpannableStringBuilder
@@ -7,6 +9,7 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.URLSpan
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
@@ -350,5 +353,34 @@ fun View.setScrollListener(startScrollAction: () -> Unit, stopScrollAction:() ->
             }
         }
         return@setOnTouchListener false
+    }
+}
+
+fun View.applyStateListAnimatorFromTheme(context: Context, attrResId: Int) {
+    val typedValue = TypedValue()
+    val theme = context.theme
+
+    if (theme.resolveAttribute(attrResId, typedValue, true)) {
+        val stateListAnimatorResId = typedValue.resourceId
+        if (stateListAnimatorResId != 0) {
+            val stateListAnimator: StateListAnimator =
+                AnimatorInflater.loadStateListAnimator(context, stateListAnimatorResId)
+            this.stateListAnimator = stateListAnimator
+            foreground = null
+        }
+    }
+}
+
+fun View.applyForegroundFromTheme(context: Context, attrResId: Int) {
+    val typedValue = TypedValue()
+    val theme = context.theme
+
+    if (theme.resolveAttribute(attrResId, typedValue, true)) {
+        val foregroundDrawableResId = typedValue.resourceId
+        if (foregroundDrawableResId != 0) {
+            val foregroundDrawable: Drawable? =
+                AppCompatResources.getDrawable(context,foregroundDrawableResId)
+            foreground = foregroundDrawable
+        }
     }
 }

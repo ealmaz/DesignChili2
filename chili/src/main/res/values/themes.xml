@@ -68,6 +68,9 @@
         <item name="ChiliSegmentedPickerTabIndicatorColor">@color/white_1</item>
         <item name="ChiliSegmentedPickerTabTextColor">@color/black_5</item>
 
+        <!-- Animator attributes -->
+        <item name="ChiliTranslucentStateListAnimator">@animator/translucent_state_list_animator</item>
+
         <!-- CheckBox  -->
         <item name="ChiliCheckBoxCheckedColor">@color/magenta_1</item>
         <item name="ChiliCheckBoxUncheckedColor">@color/black_5</item>
@@ -282,6 +285,12 @@
         <!-- Tooltip attributes -->
         <item name="ChiliTooltipBackground">@color/black_3</item>
         <item name="ChiliTooltipCornerRadius">@dimen/radius_12dp</item>
+
+        <!--    ChiliTranslucentStateListAnimator -->
+        <item name="ChiliTranslucentPressedAlphaValueTo">0.5</item>
+        <item name="ChiliTranslucentPressReleasedAlphaValueFrom">0.5</item>
+        <item name="ChiliTranslucentPressedDuration">200</item>
+        <item name="ChiliTranslucentPressReleasedDuration">200</item>
 
     </style>
 

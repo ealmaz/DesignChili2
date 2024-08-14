@@ -44,6 +44,8 @@
     <attr name="ChiliChevronColor" format="color"/>
     <attr name="ChiliChevronDrawable" format="reference"/>
 
+    <!-- Animator attributes -->
+    <attr name="ChiliTranslucentStateListAnimator" format="reference" />
 
     <!-- CardView attributes -->
     <attr name="ChiliCardViewBackground" format="reference"/>
@@ -281,5 +283,10 @@
     <!--    ChiliCellViewBackgroundColor-->
     <attr name="ChiliCellViewBackgroundColor" format="color" />
 
+    <!--    ChiliTranslucentStateListAnimator -->
+    <attr name="ChiliTranslucentPressedAlphaValueTo" format="float" />
+    <attr name="ChiliTranslucentPressReleasedAlphaValueFrom" format="float" />
+    <attr name="ChiliTranslucentPressedDuration" format="integer" />
+    <attr name="ChiliTranslucentPressReleasedDuration" format="integer" />
 
 </resources>
