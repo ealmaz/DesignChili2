@@ -119,14 +119,15 @@ class MyConnectionCardView @JvmOverloads constructor(
         isWithPackage = false
         plvCall.gone()
         plvInternet.gone()
-        plvWithoutPackage.visible()
-        plvWithoutPackage.setWithoutPackage(tariffName, tariffDesc)
+        llWithoutPackage.visible()
+        tvWithoutPackageTitle.text = tariffName
+        tvWithoutPackageSubtitle.text = tariffDesc
     }
 
     fun setPackage(remain: String, limit: String, progress: Int, type: PackageType) =
         with(vb) {
             isWithPackage = true
-            plvWithoutPackage.gone()
+            llWithoutPackage.gone()
             when (type) {
                 PackageType.CALL -> {
                     plvCall.visible()
@@ -153,14 +154,14 @@ class MyConnectionCardView @JvmOverloads constructor(
     fun setUnlimitedInternetPackage(description: String) = with(vb) {
         isWithPackage = true
         plvInternet.visible()
-        plvWithoutPackage.gone()
+        llWithoutPackage.gone()
         plvInternet.setUnlimitedInternetPackage(description)
     }
 
     fun setSuspendedPackage(title: String, description: String, type: PackageType) =
         with(vb) {
             isWithPackage = true
-            plvWithoutPackage.gone()
+            llWithoutPackage.gone()
             when (type) {
                 PackageType.CALL -> {
                     plvCall.setSuspendedPackage(title, description)
@@ -179,7 +180,7 @@ class MyConnectionCardView @JvmOverloads constructor(
     fun setEndedPackage(title: String, description: String, type: PackageType) =
         with(vb) {
             isWithPackage = true
-            plvWithoutPackage.gone()
+            llWithoutPackage.gone()
             when (type) {
                 PackageType.CALL -> {
                     plvCall.visible()
@@ -208,11 +209,10 @@ class MyConnectionCardView @JvmOverloads constructor(
         super.onStartShimmer()
         viewUnauthorized.root.gone()
         llLeftoverInfo.visible()
-        plvWithoutPackage.gone()
+        llWithoutPackage.gone()
         plvCall.visible()
         plvInternet.visible()
-        plvCall.startShimmering()
-        plvInternet.startShimmering()
+        tvBalanceTitle.maxLines = 1
     }
 
     override fun onStopShimmer() = with(vb) {
@@ -221,7 +221,8 @@ class MyConnectionCardView @JvmOverloads constructor(
         llLeftoverInfo.isVisible = !isUnauthorized
         plvCall.isVisible = isWithPackage
         plvInternet.isVisible = isWithPackage
-        plvWithoutPackage.isVisible = !isWithPackage
+        llWithoutPackage.isVisible = !isWithPackage
+        tvBalanceTitle.maxLines = 2
         plvCall.stopShimmering(false)
         plvInternet.stopShimmering(false)
     }

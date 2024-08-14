@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/ll_leftover_packages"
@@ -50,12 +49,14 @@
             android:id="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/view_6dp"
-            android:layout_marginTop="@dimen/view_4dp"
+            android:layout_marginTop="@dimen/padding_4dp"
             app:backgroundHeight="@dimen/view_4dp"
             app:progressBackgroundColor="@color/gray_3"
             app:progressColor="@color/cyan_1"
             app:progressPercent="80"
+            app:layout_constraintVertical_bias="1"
             app:layout_constraintTop_toBottomOf="@id/tv_remain_from"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:trackHeight="@dimen/view_6dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
