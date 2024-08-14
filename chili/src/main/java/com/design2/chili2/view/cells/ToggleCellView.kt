@@ -1,16 +1,12 @@
 package com.design2.chili2.view.cells
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.view.View
 import android.widget.CompoundButton
-import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.SwitchCompat
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
 import com.design2.chili2.R
 
 class ToggleCellView @JvmOverloads constructor(
@@ -110,7 +106,7 @@ class ToggleCellView @JvmOverloads constructor(
     fun setSwitchNewStyle() {
         setSwitchSize(
             heightRes = R.dimen.view_24dp,
-            widthRes = R.dimen.view_40dp
+            widthRes = R.dimen.view_42dp
         )
         setTrackDrawable(R.drawable.chili_switch_track)
         setThumbDrawable(R.drawable.chili_switch_thumb)
