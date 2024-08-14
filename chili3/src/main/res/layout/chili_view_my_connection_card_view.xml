@@ -93,7 +93,7 @@
                 style="@style/Chili.H8.Marked.Bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8dp"
+                android:layout_marginTop="@dimen/padding_10dp"
                 android:ellipsize="end"
                 android:maxLines="2"
                 tools:text="200 c" />

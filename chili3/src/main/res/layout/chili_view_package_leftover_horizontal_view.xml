@@ -15,34 +15,36 @@
             android:id="@+id/ll_leftover_packages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/padding_4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/iv_unlimited"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/padding_4dp"
-                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/tv_remain"
                 style="@style/Chili.H8.Marked.Bold"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/padding_4dp"
                 tools:text="230 мин." />
 
-            <TextView
-                android:id="@+id/tv_remain_from"
-                style="@style/Chili.H9.Value.Bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/padding_4dp"
-                tools:text="230 мин." />
+            <ImageView
+                android:id="@+id/iv_unlimited"
+                android:layout_width="@dimen/view_18dp"
+                android:layout_height="@dimen/view_18dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone"/>
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_remain_from"
+            style="@style/Chili.H9.Value.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_4dp"
+            app:layout_constraintTop_toBottomOf="@id/ll_leftover_packages"
+            tools:text="230 мин." />
 
         <com.design2.chili2.view.common.AnimatedProgressLine
             android:id="@+id/progressBar"
@@ -53,7 +55,7 @@
             app:progressBackgroundColor="@color/gray_3"
             app:progressColor="@color/cyan_1"
             app:progressPercent="80"
-            app:layout_constraintTop_toBottomOf="@id/ll_leftover_packages"
+            app:layout_constraintTop_toBottomOf="@id/tv_remain_from"
             app:trackHeight="@dimen/view_6dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
