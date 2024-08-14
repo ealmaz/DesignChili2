@@ -213,6 +213,8 @@ class MyConnectionCardView @JvmOverloads constructor(
         plvCall.visible()
         plvInternet.visible()
         tvBalanceTitle.maxLines = 1
+        plvInternet.startShimmering()
+        plvCall.startShimmering()
     }
 
     override fun onStopShimmer() = with(vb) {
