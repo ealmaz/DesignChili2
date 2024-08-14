@@ -176,10 +176,10 @@ class AnimatedCardsFragment : BaseFragment<FragmentAnimatedCardsBinding>() {
 
     private data class ViewConfigs(
         var viewType: ViewType? = null,
-        var viewScale: Int = 48,
-        var viewDurationDown: Int = 200,
-        var viewDurationUp: Int = 300,
-        var viewInterpolator: Pair<String, Int> = "bounce" to android.R.interpolator.bounce,
+        var viewScale: Int = 43, // 43 it's 93 (43 + 50)
+        var viewDurationDown: Int = 80,
+        var viewDurationUp: Int = 80,
+        var viewInterpolator: Pair<String, Int> = "linear" to android.R.interpolator.linear,
     )
 
     private enum class ViewType {
