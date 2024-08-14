@@ -2,6 +2,7 @@ package kg.devcats.chili3.view.card
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.text.Spanned
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -79,8 +80,12 @@ class MyConnectionCardView @JvmOverloads constructor(
         vb.viewUnauthorized.tvUaTitle.text = charSequence
     }
 
-    private fun setSubtitle(charSequence: CharSequence?) {
+    fun setSubtitle(charSequence: CharSequence?) {
         vb.viewUnauthorized.tvDescription.text = charSequence
+    }
+
+    fun setUnauthorizedTitle(spanned: Spanned) {
+        vb.viewUnauthorized.tvUaTitle.text = spanned
     }
 
     private fun setBalanceTitle(charSequence: CharSequence?) {
