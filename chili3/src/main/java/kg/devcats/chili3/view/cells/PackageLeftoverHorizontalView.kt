@@ -54,7 +54,8 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
     fun setWithoutPackage(tariffName: String, tariffDesc: String) = with(binding) {
         tvRemain.text = tariffName
         tvRemainFrom.text = tariffDesc
-        tvRemainFrom.setTopMargin(8.dp)
+        ivUnlimited.gone()
+        tvRemainFrom.setTopMargin(10.dp)
         progressBar.gone()
     }
 
@@ -75,7 +76,7 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
     }
 
     fun setUnlimitedInternetPackage(description: String) = with(binding) {
-        tvRemain.gone()
+        tvRemain.invisible()
         ivUnlimited.visible()
         progressBar.visible()
         tvRemainFrom.text = description
