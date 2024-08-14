@@ -748,6 +748,7 @@
                 android:layout_height="wrap_content"
                 android:icon="@drawable/chili_ic_success"
                 app:cellIconSize="small"
+                android:theme="@style/ThemeOverlay.ChiliNewSwitchBoxToggleTheme"
                 app:isDividerVisible="false"
                 app:roundedCornerMode="single"
                 app:title="Интернет-платежи" />

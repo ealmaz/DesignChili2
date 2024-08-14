@@ -308,4 +308,10 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="ThemeOverlay.ChiliNewSwitchBoxToggleTheme" parent="ThemeOverlay">
+        <item name="ChiliSwitchBoxCheckedToggleColor">@color/c_2CBB42</item>
+        <item name="ChiliSwitchBoxUncheckedToggleColor">@color/gray_1</item>
+    </style>
+
+
 </resources>
