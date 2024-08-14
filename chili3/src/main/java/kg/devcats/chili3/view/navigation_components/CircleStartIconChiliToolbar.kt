@@ -11,13 +11,13 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
+import com.design2.chili2.extensions.applyStateListAnimatorFromTheme
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliCircleStartIconViewToolbarBinding
-import kg.devcats.chili3.extensions.applyStateListAnimatorFromTheme
 
 class CircleStartIconChiliToolbar : LinearLayout {
 
