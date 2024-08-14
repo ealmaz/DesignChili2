@@ -144,9 +144,4 @@
 
     <color name="chevron_color">@color/black_3</color>
 
-    <color name="c_2CBB42">#2CBB42</color>
-    <color name="switch_checked_track_color">@color/c_2CBB42</color>
-    <color name="switch_not_checked_track_color">@color/c_ececec</color>
-    <color name="switch_checked_thumb_color">@color/white_1</color>
-    <color name="switch_not_checked_thumb_color">@color/c_8a8a8e</color>
 </resources>

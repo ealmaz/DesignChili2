@@ -2,13 +2,13 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="true">
         <shape android:dither="true" android:shape="rectangle" android:useLevel="false" android:visible="true">
-            <solid android:color="@color/switch_checked_track_color" />
+            <solid android:color="@color/gray_3" />
             <corners android:radius="25dp" />
         </shape>
     </item>
     <item android:state_checked="false">
         <shape android:dither="true" android:shape="rectangle" android:useLevel="false" android:visible="true">
-            <solid android:color="@color/switch_not_checked_track_color" />
+            <solid android:color="@color/gray_1" />
             <corners android:radius="25dp" />
         </shape>
     </item>
