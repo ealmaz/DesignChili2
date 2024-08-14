@@ -337,7 +337,12 @@ class BankCardView @JvmOverloads constructor(
     }
 
     fun setCardBackground(url: String?) {
-        vb.ivCardBg.setImageByUrl(url)
+        val screenWidth = context.resources.displayMetrics.widthPixels
+        val fixingWidth = context.resources.getDimension(R.dimen.view_48dp).toInt() // Суммарный размер отступов с обеих сторон
+        val newWidth = screenWidth - fixingWidth
+        val heightPx = resources.getDimension(R.dimen.view_200dp).toInt()
+
+        vb.ivCardBg.setImageByUrl(url, newWidth, heightPx)
     }
 }
 
