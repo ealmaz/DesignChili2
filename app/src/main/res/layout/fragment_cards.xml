@@ -1024,7 +1024,6 @@
                         android:id="@+id/bank_card_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:cardBackground="@drawable/card_bg"
                         app:cardHolderName="Ivanov Ivanovskii"
                         app:cardIcon="@drawable/elcard"
                         app:cardPan="9417 1243 3425 4215"
@@ -1043,7 +1042,7 @@
                     <com.design2.chili2.view.card.BankCardView
                         android:id="@+id/bank_card_icon"
                         android:layout_width="match_parent"
-                        android:layout_height="280dp"
+                        android:layout_height="wrap_content"
                         app:cardBackground="@drawable/card_bg"
                         app:cardHolderName="Ivanov Ivanovskii"
                         app:cardIcon="@drawable/elcard"
@@ -1053,6 +1052,24 @@
 
                 </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
+                <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                    style="@style/ShadowLayoutStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/padding_16dp">
+
+                    <com.design2.chili2.view.card.BankCardView
+                        android:id="@+id/bank_card_view_yellow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardHolderName="Ivanov Ivanovskii"
+                        app:cardIcon="@drawable/elcard"
+                        app:cardPan="9417 1243 3425 4215"
+                        app:cvv="436"
+                        app:dueDate="12 /  25"
+                        app:startIcon="@drawable/gpay" />
+
+                </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
             </LinearLayout>
 
         </com.design2.chili2.view.container.ExpandableContainer>

@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import androidx.core.view.isInvisible
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBankCardBinding
@@ -336,13 +337,29 @@ class BankCardView @JvmOverloads constructor(
         vb.ivCardBg.setImageResource(resId)
     }
 
-    fun setCardBackground(url: String?) {
+    fun setCardBackground(url: String?, placeholder: Drawable? = ContextCompat.getDrawable(context, R.drawable.bank_card_shimmer)) {
         val screenWidth = context.resources.displayMetrics.widthPixels
         val fixingWidth = context.resources.getDimension(R.dimen.view_48dp).toInt() // Суммарный размер отступов с обеих сторон
         val newWidth = screenWidth - fixingWidth
         val heightPx = resources.getDimension(R.dimen.view_200dp).toInt()
 
-        vb.ivCardBg.setImageByUrl(url, newWidth, heightPx)
+        vb.ivCardBg.setImageByUrl(url, newWidth, heightPx, placeholder)
+    }
+
+    fun startBgShimmer() = with(vb) {
+        cardBgShimmer.apply {
+            visible()
+            startShimmer()
+        }
+        ivCardBg.gone()
+    }
+
+    fun stopBgShimmer() = with(vb) {
+        cardBgShimmer.apply {
+            stopShimmer()
+            gone()
+        }
+        ivCardBg.visible()
     }
 }
 

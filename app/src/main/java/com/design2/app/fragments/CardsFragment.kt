@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.design2.app.MainActivity
@@ -84,15 +85,32 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
                                 vb.bankCardView.setCardPan("9417 1243 3425 4215")
             }, 1000)
         }
-        vb.bankCardView.setCardPan("9417 1243 3425 4215")
-        vb.bankCardView.setPanPinFieldYOffset(25.dp)
+        vb.bankCardView.apply {
+            setCardBackground("https://devminio.o.kg/media-service/Bonus/ky/9170f031-4cd7-4c7e-ad7d-04a423eef673.png",
+                placeholder = ContextCompat.getDrawable(context, com.design2.chili2.R.drawable.bank_card_yellow_bg))
+            setCardPan("9417 1243 3425 4215")
+            setPanPinFieldYOffset(25.dp)
+            setCardCvv("321")
+        }
         vb.bankCardView.setupCvvToggle {
             vb.root.postDelayed({
                 vb.bankCardView.setCardCvv("321")
                 vb.bankCardView.resetPanToggleState()
             }, 1000)
         }
-        vb.bankCardView.setCardCvv("321")
+        vb.bankCardViewYellow.apply {
+            startBgShimmer()
+            vb.root.postDelayed({
+                if (isVisible) {
+                    setCardBackground("https://devminio.o.kg/media-service/Bonus/ky/0d6780b9-cbf6-41a7-8750-4da9d7688715.jpg",
+                        placeholder = ContextCompat.getDrawable(context, com.design2.chili2.R.drawable.bank_card_yellow_bg))
+                    stopBgShimmer()
+                }
+            }, 10000)
+            setCardPan("9417 1243 3425 4215")
+            setPanPinFieldYOffset(25.dp)
+            setCardCvv("321")
+        }
         vb.btnExpand.setOnClickListener {
             requireContext().startActivity(Intent(requireActivity(), StoryActivity::class.java))
             setExpandedState(!isExpanded)
@@ -290,4 +308,5 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
     override fun onBannerClicked(position: Int) {
 
     }
+
 }

@@ -4,7 +4,7 @@
     tools:ignore="MissingDefaultResource">
     <solid
         android:color="?ChiliBankCardViewFieldsBackground"
-        tools:color="#2680ADF5" />
+        tools:color="#34FFFFFF" />
     <corners
         android:radius="?ChiliBankCardViewFieldsCornerRadius"
         tools:radius="8dp" />
