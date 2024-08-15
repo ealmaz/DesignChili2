@@ -194,6 +194,10 @@
     <attr name="ChiliInfoCardViewButtonTopMargin" format="reference" />
     <!--endregion InfoCardView -->
 
+    <!-- StoriesCardView -->
+    <attr name="ChiliStoriesCardViewElevation" format="dimension" />
+    <attr name="ChiliStoriesCardViewForeground" format="reference" />
+
 
     <!-- ChiliSimpleTextChipView  -->
     <attr name="ChiliSimpleTextChipSelectedStateColor" format="color"/>

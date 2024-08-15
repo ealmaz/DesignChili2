@@ -1,5 +1,6 @@
 package com.design2.app.fragments
 
+import android.animation.AnimatorInflater
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
@@ -20,8 +21,10 @@ import com.design2.chili2.view.image.AutoScrollCarouselImageAdapter
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 import com.design2.app.StoryActivity
+import com.design2.chili2.extensions.applyStateListAnimatorFromTheme
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setScrollListener
+import com.design2.chili2.R as R2
 import kg.devcats.chili3.util.PackageType
 import kg.devcats.chili3.util.StoriesStatus
 
@@ -63,6 +66,10 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
 
         vb.pcv3.setOnClickListener {
             vb.pcv2.setIsCardEnabled(true)
+        }
+
+        vb.btnAnimCards.setOnClickListener{
+            openFragment(AnimatedCardsFragment())
         }
 
         (activity as MainActivity).setUpHomeEnabled(true)
@@ -133,8 +140,15 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setSubtitle("до 2%")
         }
 
-        vb.scvStories.setOnClickListener {
-            vb.scvStories.setStatus(StoriesStatus.VIEWED.value)
+        vb.scvStories.apply {
+            val stateListAnimator = AnimatorInflater.loadStateListAnimator(
+                requireActivity(), R2.animator.bounce_state_list_animator
+            )
+            this.stateListAnimator = stateListAnimator
+            foreground = null
+            setOnClickListener {
+                vb.scvStories.setStatus(StoriesStatus.VIEWED.value)
+            }
         }
         vb.scvStories1.setOnClickListener {
             vb.scvStories1.setStatus(StoriesStatus.VIEWED.value)
@@ -152,9 +166,12 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
 
         vb.pcvPromo1.setIcon("https://minio.o.kg/catalog/icons/light/taxes.png")
 
-        vb.pcvProduct.setDiscountBackground("#10C44C")
-        vb.pcvProduct.setOnClickListener {
-            vb.pcvProduct.setDiscountBackground(arrayOf("#FF6491", "#F91155"))
+        vb.pcvProduct.apply {
+            setDiscountBackground("#10C44C")
+            setOnClickListener {
+                vb.pcvProduct.setDiscountBackground(arrayOf("#FF6491", "#F91155"))
+            }
+            applyStateListAnimatorFromTheme(requireActivity(), R2.attr.ChiliBounceStateListAnimator)
         }
         vb.myConnectionCardView.apply {
             setBalance("200.0 c")

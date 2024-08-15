@@ -61,6 +61,7 @@
             <enum name="viewed" value="0" />
             <enum name="unviewed" value="1" />
         </attr>
+        <attr name="android:stateListAnimator" />
     </declare-styleable>
 
     <declare-styleable name="PromoCardView">
@@ -190,6 +191,7 @@
         <attr name="discount" format="string" />
         <attr name="discountTextAppearance" format="reference" />
         <attr name="discountBackgroundColor" format="reference" />
+        <attr name="android:stateListAnimator" />
     </declare-styleable>
 
     <declare-styleable name="ChiliBottomNavigationView">

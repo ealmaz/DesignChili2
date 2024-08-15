@@ -1,93 +1,67 @@
 package com.design2.chili2.view.image
 
+import android.animation.AnimatorInflater
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Path
+import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
 import com.airbnb.lottie.LottieAnimationView
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewMediaBinding
-import com.design2.chili2.extensions.dpF
+import com.design2.chili2.extensions.applyForegroundFromTheme
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.util.AnimationData
 import com.design2.chili2.util.MediaType
 import com.design2.chili2.util.LottieAnimationHandler
+import com.design2.chili2.view.card.BaseCardView
 
 class MediaView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.mediaViewDefaultStyle,
-    defStyleRes: Int = R.style.Chili_MediaViewStyle
-) : FrameLayout(context, attrs, defStyleAttr) {
+    defStyleRes: Int = R.style.Chili_CardViewStyle_MediaViewStyle
+) : BaseCardView(context, attrs, defStyleAttr) {
 
     private lateinit var vb: ChiliViewMediaBinding
 
     private var lottieAnimationHandler: LottieAnimationHandler? = null
     private var image: ImageView? = null
     private var imageSize: Pair<Int, Int> = Pair(0, 0)
-    private var cornerRadius: Float = 12.dpF
-    private val path = Path()
 
-    init {
-        initView(context, attrs, defStyleAttr, defStyleRes)
-    }
+    override val styleableAttrRes: IntArray = R.styleable.MediaView
 
-    fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        inflateView(context)
-        obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
-    }
+    override val rootContainer: View
+        get() = vb.root
 
-    fun inflateView(context: Context) {
+    init { initView(context, attrs, defStyleAttr, defStyleRes) }
+
+    override fun inflateView(context: Context) {
         vb = ChiliViewMediaBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        context.obtainStyledAttributes(attrs, R.styleable.MediaView, defStyleAttr, defStyleRes).run {
-            getLayoutDimension(R.styleable.MediaView_android_layout_width, 0).let {
-                imageSize = it to imageSize.second
-            }
-            getLayoutDimension(R.styleable.MediaView_android_layout_height, 0).let {
-                imageSize = imageSize.first to it
-            }
-            getInteger(R.styleable.MediaView_type, -1).takeIf { it != -1 }?.let {
-                setMedia(getString(R.styleable.MediaView_mediaSrc), it)
-            }
-            getInteger(R.styleable.MediaView_android_scaleType, ScaleType.FIT_CENTER.ordinal).let {
-                setScaleType(it)
-            }
-            getBoolean(R.styleable.MediaView_android_adjustViewBounds, false).let {
-                setAdjustViewBounds(it)
-            }
-            getDimension(R.styleable.MediaView_cornerRadius, cornerRadius).let {
-                setCornerRadius(it)
-            }
-            recycle()
+    override fun TypedArray.obtainAttributes() {
+        getLayoutDimension(R.styleable.MediaView_android_layout_width, 0).let {
+            imageSize = it to imageSize.second
         }
-    }
-
-    override fun onSizeChanged(width: Int, height: Int, oldWidth: Int, oldHeight: Int) {
-        super.onSizeChanged(width, height, oldWidth, oldHeight)
-        path.reset()
-        path.addRoundRect(0f, 0f, width.toFloat(), height.toFloat(), cornerRadius, cornerRadius, Path.Direction.CW)
-    }
-
-    override fun dispatchDraw(canvas: Canvas) {
-        val save = canvas.save()
-        canvas.clipPath(path)
-        super.dispatchDraw(canvas)
-        canvas.restoreToCount(save)
-    }
-
-    fun setCornerRadius(radius: Float) {
-        cornerRadius = radius
-        path.reset()
-        path.addRoundRect(0f, 0f, width.toFloat(), height.toFloat(), cornerRadius, cornerRadius, Path.Direction.CW)
-        invalidate()
+        getLayoutDimension(R.styleable.MediaView_android_layout_height, 0).let {
+            imageSize = imageSize.first to it
+        }
+        getInteger(R.styleable.MediaView_type, -1).takeIf { it != -1 }?.let {
+            setMedia(getString(R.styleable.MediaView_mediaSrc), it)
+        }
+        getInteger(R.styleable.MediaView_android_scaleType, ScaleType.FIT_CENTER.ordinal).let {
+            setScaleType(it)
+        }
+        getBoolean(R.styleable.MediaView_android_adjustViewBounds, false).let {
+            setAdjustViewBounds(it)
+        }
+        getDimension(R.styleable.MediaView_cornerRadius, -1f)
+            .takeIf { it != -1f }?.let { radius = it }
+        getResourceId(R.styleable.MediaView_android_stateListAnimator, -1)
+            .takeIf { it != -1 }.let { setupStateListAnimator(it) }
     }
 
     fun setMedia(src: String?, type: Int) {
@@ -131,8 +105,15 @@ class MediaView @JvmOverloads constructor(
         image?.adjustViewBounds = isAdjusted
     }
 
-    override fun setOnClickListener(listener: OnClickListener?) {
-        vb.root.setOnClickListener(listener)
+    fun setupStateListAnimator(animatorRes: Int?) {
+        stateListAnimator =
+            if (animatorRes != null) {
+                foreground = null
+                AnimatorInflater.loadStateListAnimator(context, animatorRes)
+            } else {
+                applyForegroundFromTheme(context, android.R.attr.selectableItemBackground)
+                null
+            }
     }
 
     override fun onDetachedFromWindow() {

@@ -228,6 +228,11 @@
         <item name="ChiliInfoCardViewButtonTopMargin">@dimen/padding_16dp</item>
         <!--endregion InfoCardView -->
 
+        <!-- StoriesCardView -->
+        <item name="ChiliStoriesCardViewElevation">@dimen/elevation_0dp</item>
+        <item name="ChiliStoriesCardViewForeground">@drawable/chili_ripple_rounded_corner_foreground</item>
+
+
 
         <!-- ChiliSimpleTextChipView  -->
         <item name="ChiliSimpleTextChipSelectedStateColor">@color/magenta_1</item>
