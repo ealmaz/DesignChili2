@@ -45,10 +45,10 @@ class CommonViewsFragment : BaseFragment<FragmentCommonBinding>() {
 
 
         vb.chips.setItems(listOf(
-            SimpleTextChip(1, "5 августа"),
-            SimpleTextChip(2, "10 августа"),
-            SimpleTextChip(3, "15 августа"),
-            SimpleTextChip(4, "20 августа")
+            SimpleTextChip("5.08.2024", "5 августа"),
+            SimpleTextChip("10.08.2024", "10 августа"),
+            SimpleTextChip("15.08.2024", "15 августа"),
+            SimpleTextChip("20.08.2024", "20 августа")
         ))
 
         vb.chips.setCheckedChangedListener {id, isSelected ->

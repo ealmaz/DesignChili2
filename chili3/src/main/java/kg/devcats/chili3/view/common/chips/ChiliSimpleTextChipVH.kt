@@ -7,7 +7,7 @@ import android.view.View
 import kg.devcats.chili3.databinding.ChiliViewSimpleTextChipBinding
 import kg.devcats.chili3.extensions.getColorFromAttr
 
-class ChiliSimpleTextChipVH : ChiliChipViewHolder() {
+open class ChiliSimpleTextChipVH : ChiliChipViewHolder() {
 
     private lateinit var vb: ChiliViewSimpleTextChipBinding
 
@@ -39,6 +39,6 @@ class ChiliSimpleTextChipVH : ChiliChipViewHolder() {
 }
 
 data class SimpleTextChip(
-    override val itemId: Int,
+    override val itemId: Any,
     val text: String
 ): SelectableItemData

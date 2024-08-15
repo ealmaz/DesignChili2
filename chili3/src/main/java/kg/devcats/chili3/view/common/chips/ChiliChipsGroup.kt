@@ -27,7 +27,7 @@ class ChiliChipsGroup @JvmOverloads constructor(
         ChiliSimpleTextChipVH()
     }
 
-    private var onSelectionChanged: ((id: Int, selected: Boolean) -> Unit)? = null
+    private var onSelectionChanged: ((id: Any, selected: Boolean) -> Unit)? = null
 
     private var selectionType = SelectionType.SINGLE
 
@@ -92,9 +92,7 @@ class ChiliChipsGroup @JvmOverloads constructor(
         ).apply {
             updateMargins(0, 0, 8.dp, 0)
         }
-        val id = item.itemId
-        viewHolder.id = id
-        view.tag = id
+        view.tag = item.itemId
         view.setOnClickListener(::handleClick)
         vb.llRoot.addView(view)
         viewHolder.onBind(item)
@@ -102,7 +100,7 @@ class ChiliChipsGroup @JvmOverloads constructor(
     }
 
     private fun handleClick(view: View) {
-        val id = view.tag as? Int
+        val id = (view.tag) ?: return
         val clickedVH = chipsViewHolders.find { it.id == id } ?: return
         val isSelected = clickedVH.isSelected
         if (isSelected) {
@@ -111,10 +109,10 @@ class ChiliChipsGroup @JvmOverloads constructor(
             unselectedPrevValuesIfNeeded()
             clickedVH.setupAsSelected()
         }
-        onSelectionChanged?.invoke(id!!, !isSelected)
+        onSelectionChanged?.invoke(id, !isSelected)
     }
 
-    fun getSelectedValues(): List<Int> = chipsViewHolders.filter { it.isSelected }.map { it.id }
+    fun getSelectedIds(): List<Any> = chipsViewHolders.filter { it.isSelected }.map { it.id }
 
     fun isValueSelected(): Boolean = chipsViewHolders.any { it.isSelected }
 
@@ -123,7 +121,7 @@ class ChiliChipsGroup @JvmOverloads constructor(
         chipsViewHolders.forEach { it.setupAsUnselected() }
     }
 
-    fun setCheckedChangedListener(listener: (id: Int, selected: Boolean) -> Unit) {
+    fun setCheckedChangedListener(listener: (id: Any, selected: Boolean) -> Unit) {
         this.onSelectionChanged = listener
     }
 }

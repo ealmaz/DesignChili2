@@ -5,7 +5,7 @@ import android.view.View
 
 abstract class ChiliChipViewHolder {
 
-    open var id: Int = -1
+    open var id: Any = -1
     open var isSelected: Boolean = false
 
     abstract fun createView(context: Context): View
