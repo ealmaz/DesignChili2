@@ -1249,6 +1249,22 @@
                 app:balanceTitle="Баланс номера"/>
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:layout_marginStart="@dimen/padding_16dp"
+            android:text="CaptionsCardView"/>
+
+
+        <kg.devcats.chili3.view.card.CaptionsCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"
+            app:title="Ежемесячный платёж"
+            app:value="5000"/>
+
+
     </LinearLayout>
 
 </ScrollView>

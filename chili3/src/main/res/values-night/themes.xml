@@ -155,6 +155,9 @@
         <!-- SliderView -->
         <item name="ChiliSliderViewInactiveColor">@color/c_4a4a4a</item>
 
+        <!-- CaptionsCardView -->
+        <item name="ChiliCaptionsCardViewBackgroundColor">@color/c_28282a</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>

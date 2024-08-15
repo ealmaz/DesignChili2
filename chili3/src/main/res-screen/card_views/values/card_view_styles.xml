@@ -73,4 +73,6 @@
         <item name="android:foreground">@null</item>
     </style>
 
+    <style name="Chili.CardViewStyle.CaptionsCard"/>
+
 </resources>

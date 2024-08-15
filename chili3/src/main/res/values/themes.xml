@@ -236,6 +236,10 @@
         <!-- SliderView -->
         <item name="ChiliSliderViewInactiveColor">@color/c_ececec</item>
 
+        <!-- CaptionsCardView -->
+        <item name="ChiliCaptionsCardViewBackgroundColor">@color/c_F7F7F7</item>
+        <item name="ChiliCaptionsCardViewCornerRadius">@dimen/radius_12dp</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

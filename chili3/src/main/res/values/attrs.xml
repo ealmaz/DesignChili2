@@ -17,6 +17,7 @@
         <attr name="bannerCardViewDefaultStyle" format="reference"/>
         <attr name="chiliSliderViewDefaultStyle" format="reference"/>
         <attr name="chiliChipGroupDefaultStyle" format="reference"/>
+        <attr name="chiliCaptionsCardViewDefaultStyle" format="reference"/>
 
         <!-- DividerView -->
         <attr name="dividerViewDefaultStyle" format="reference" />
@@ -327,6 +328,13 @@
             <enum name="SINGLE" value="0"/>
             <enum name="MULTIPLE" value="1"/>
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ChiliCaptionsCardView">
+        <attr name="title"/>
+        <attr name="value"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="valueTextAppearance"/>
     </declare-styleable>
 
 </resources>

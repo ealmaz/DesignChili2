@@ -202,4 +202,8 @@
     <!-- SliderView -->
     <attr name="ChiliSliderViewInactiveColor" format="color"/>
 
+    <!-- CaptionsCardView -->
+    <attr name="ChiliCaptionsCardViewBackgroundColor" format="color"/>
+    <attr name="ChiliCaptionsCardViewCornerRadius" format="dimension"/>
+
 </resources>
