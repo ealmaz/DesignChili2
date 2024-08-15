@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
@@ -71,6 +72,7 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
         tvRemain.invisible()
         ivUnlimited.visible()
         progressBar.visible()
+        tvRemain.text = null
         tvRemainFrom.text = description
         progressBar.setProgress(100)
         progressBar.setProgressGradientColors(
