@@ -10,8 +10,9 @@
         android:id="@+id/story_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitCenter"
-        android:visibility="gone"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/stori"
+        />
 
     <androidx.media3.ui.PlayerView
         android:id="@+id/story_video_view"
@@ -26,6 +27,7 @@
         android:id="@+id/story_lottie_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
