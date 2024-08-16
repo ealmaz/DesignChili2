@@ -103,14 +103,14 @@ class ChiliSliderView @JvmOverloads constructor(
 
     private fun applySettings() = with(vb.sliderChoosePeriod) {
         if (sliderValueTo <= sliderValueFrom) {
-            valueFrom = sliderValueFrom.toFloat()
+            valueTo = sliderValueFrom.toFloat()
             isEnabled = false
         } else {
             isEnabled = true
             valueFrom = sliderValueFrom.toFloat()
             valueTo = sliderValueTo.toFloat()
+            stepSize = (sliderStep.takeIf { it > 0 } ?: 1).toFloat()
         }
-        stepSize = (sliderStep.takeIf { it > 0 } ?: 1).toFloat()
         vb.tvPlusCaption.text = displayValueFormatter.invoke(sliderValueTo)
         vb.tvMinusCaption.text = displayValueFormatter.invoke(sliderValueFrom)
     }

@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 app:title="Сумма кредита"
                 app:valueFrom="1000"
-                app:valueTo="10000"
+                app:valueTo="1000"
                 app:sliderValue="5000"
                 app:step="1000" />
 
