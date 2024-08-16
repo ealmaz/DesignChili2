@@ -10,9 +10,7 @@
         android:id="@+id/story_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/stori"
-        />
+        android:scaleType="centerCrop" />
 
     <androidx.media3.ui.PlayerView
         android:id="@+id/story_video_view"
