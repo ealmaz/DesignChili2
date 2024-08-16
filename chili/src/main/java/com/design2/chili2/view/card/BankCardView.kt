@@ -339,7 +339,7 @@ class BankCardView @JvmOverloads constructor(
 
     fun setCardBackground(url: String?, placeholder: Drawable? = ContextCompat.getDrawable(context, R.drawable.bank_card_shimmer)) {
         val screenWidth = context.resources.displayMetrics.widthPixels
-        val fixingWidth = context.resources.getDimension(R.dimen.view_48dp).toInt() // Суммарный размер отступов с обеих сторон
+        val fixingWidth = context.resources.getDimension(R.dimen.view_48dp).toInt()
         val newWidth = screenWidth - fixingWidth
         val heightPx = resources.getDimension(R.dimen.view_200dp).toInt()
 
