@@ -2,6 +2,7 @@ package com.design2.chili2.view.input.text_watchers
 
 import android.graphics.Color
 import android.text.Editable
+import android.text.InputFilter
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
@@ -15,6 +16,12 @@ class MaskedTextWatcher private constructor(
     var mask: String,
     var maskSymbols: List<Char>,
     var allowedInputSymbols: String) : TextWatcher {
+
+    private var isMaskFullyFilled = false
+
+    private val inputFilledMaskLengthFilter by lazy {
+        InputFilter.LengthFilter(mask.length)
+    }
 
     init {
         updateSelectionLimits()
@@ -48,11 +55,19 @@ class MaskedTextWatcher private constructor(
         field.text = ssb
         field.endSelectionLimit = lastMaskSym
         field.setSelection(selectionPosition)
+        isMaskFullyFilled = !field.text.toString().contains(representation)
         isEditing = false
     }
 
     override fun afterTextChanged(s: Editable?) {
         if (isEditing) return
+        val currentFilters = field.filters.toMutableSet()
+        if (isMaskFullyFilled) {
+            currentFilters.add(inputFilledMaskLengthFilter)
+        } else {
+            currentFilters.remove(inputFilledMaskLengthFilter)
+        }
+        field.filters = currentFilters.toTypedArray()
     }
 
     fun clearMaskSymbols(text: String): String {
