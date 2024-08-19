@@ -9,20 +9,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.design2.app.MainActivity
 import com.design2.app.R
+import com.design2.app.StoryActivity
 import com.design2.app.adapter.ShimmerAdapter
 import com.design2.app.adapter.SimpleDiscountCardRecyclerViewAdapter
 import com.design2.app.adapter.SimpleTextRecyclerViewAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCardsBinding
 import com.design2.chili2.extensions.dp
+import com.design2.chili2.extensions.setOnSingleClickListener
+import com.design2.chili2.extensions.setScrollListener
 import com.design2.chili2.view.container.ExpandableContainer
 import com.design2.chili2.view.image.AutoScrollCarouselImageAdapter
 import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
-import com.design2.app.StoryActivity
-import com.design2.chili2.extensions.setOnSingleClickListener
-import com.design2.chili2.extensions.setScrollListener
-import kg.devcats.chili3.util.PackageType
+import kg.devcats.chili3.model.MyConnectionProfile
+import kg.devcats.chili3.model.PackageLeftOver
+import kg.devcats.chili3.model.PackageType
 import kg.devcats.chili3.util.StoriesStatus
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselImageAdapter.Listener {
@@ -157,9 +159,13 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             vb.pcvProduct.setDiscountBackground(arrayOf("#FF6491", "#F91155"))
         }
         vb.myConnectionCardView.apply {
-            setBalance("200.0 c")
-            setPackage("10 Гб", "из 30 Гб", 30, PackageType.INTERNET)
-            setPackage("10 мин", "из 300 мин", 10, PackageType.CALL)
+            val list = listOf(
+                PackageLeftOver(PackageType.INTERNET, "10 Гб", "из 40 Гб", unlimited = "Безлимит", leftOverPercent = 20),
+                PackageLeftOver(PackageType.CALL, "10 мин", "из 40 мин", isSuspended = true, leftOverPercent = 80)
+            )
+            setProfile(
+                MyConnectionProfile("100 c", isWithPackages = true, packages = list)
+            )
         }
     }
 

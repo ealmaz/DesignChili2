@@ -1243,6 +1243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:title="Моя связь"
+                app:unlimitedDrawable="@drawable/ic_history"
                 app:unauthorizedImage="@drawable/ic_cat"
                 app:unauthorizedTitle="Станьте абонентом"
                 app:unauthorizedSubtitle="Выберите номер и закажите SIM-карту"
