@@ -160,8 +160,8 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
         }
         vb.myConnectionCardView.apply {
             val list = listOf(
-                PackageLeftOver(PackageType.INTERNET, "10 Гб", "из 40 Гб", unlimited = "Безлимит", leftOverPercent = 20),
-                PackageLeftOver(PackageType.CALL, "10 мин", "из 40 мин", isSuspended = true, leftOverPercent = 80)
+                PackageLeftOver(PackageType.INTERNET, "10 Гб", "из 40 Гб", leftOverPercent = 20),
+                PackageLeftOver(PackageType.CALL, "10 мин", "из 40 мин", leftOverPercent = 80)
             )
             setProfile(
                 MyConnectionProfile("100 c", isWithPackages = true, packages = list)

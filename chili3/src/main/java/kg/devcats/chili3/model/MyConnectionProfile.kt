@@ -12,6 +12,7 @@ data class PackageLeftOver(
     var packageType: PackageType? = null,
     var remain: String? = null,
     var limit: String? = null,
+    var isUnlimited: Boolean = false,
     var leftOverPercent: Int = 0
 )
 

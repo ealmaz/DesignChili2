@@ -68,12 +68,11 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
         colorInt?.let { progressBar.setProgressColor(colorInt) }
     }
 
-    fun setUnlimitedInternetPackage(description: String?) = with(binding) {
+    fun setUnlimitedInternetPackage() = with(binding) {
         tvRemain.invisible()
         ivUnlimited.visible()
         progressBar.visible()
         tvRemain.text = null
-        tvRemainFrom.text = description
         progressBar.setProgress(100)
         progressBar.setProgressGradientColors(
             context.color(R.color.c_5AC8FA),
