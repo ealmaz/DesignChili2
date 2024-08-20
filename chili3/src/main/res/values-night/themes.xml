@@ -158,6 +158,17 @@
         <!-- CaptionsCardView -->
         <item name="ChiliCaptionsCardViewBackgroundColor">@color/c_28282a</item>
 
+        <!-- InfoBlockCardView -->
+        <item name="ChiliInfoBlockViewBackgroundColorNeutral">@color/c_001429</item>
+        <item name="ChiliInfoBlockViewBackgroundColorWarning">@color/c_291800</item>
+        <item name="ChiliInfoBlockViewBackgroundColorError">@color/c_290200</item>
+        <item name="ChiliInfoBlockViewContentColorNeutral">@color/c_0059BB</item>
+        <item name="ChiliInfoBlockViewContentColorWarning">@color/c_D57D00</item>
+        <item name="ChiliInfoBlockViewContentColorError">@color/c_BF251D</item>
+        <item name="ChiliInfoBlockViewTextColorNeutral">@color/c_FFFFFF</item>
+        <item name="ChiliInfoBlockViewTextColorWarning">@color/c_FFFFFF</item>
+        <item name="ChiliInfoBlockViewTextColorError">@color/c_FFFFFF</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>

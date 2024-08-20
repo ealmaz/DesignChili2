@@ -26,6 +26,7 @@ import kg.devcats.chili3.model.MyConnectionProfile
 import kg.devcats.chili3.model.PackageLeftOver
 import kg.devcats.chili3.model.PackageType
 import kg.devcats.chili3.util.StoriesStatus
+import kg.devcats.chili3.view.card.InfoBlockCardView
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselImageAdapter.Listener {
     private lateinit var simpleAdapter: SimpleTextRecyclerViewAdapter
@@ -166,6 +167,30 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setProfile(
                 MyConnectionProfile("100 c", isWithPackages = true, packages = list)
             )
+        }
+
+        vb.infoBlockCardView1.run {
+            setTitle("Title")
+            setSubtitle("Subtitle")
+            setupActionButton("Action") {
+                Toast.makeText(requireContext(), "Action clicked", Toast.LENGTH_SHORT).show()
+            }
+            setCloseButtonVisibility(true)
+            setupCardState(InfoBlockCardView.CardState.ERROR)
+        }
+
+        vb.infoBlockCardView2.run {
+            setTitle("Title")
+            setupActionButton("Action") {
+                Toast.makeText(requireContext(), "Action clicked", Toast.LENGTH_SHORT).show()
+            }
+            setCloseButtonVisibility(true)
+            setupCardState(InfoBlockCardView.CardState.WARNING)
+        }
+
+        vb.infoBlockCardView3.run {
+            setSubtitle("Subtitle")
+            setupCardState(InfoBlockCardView.CardState.NEUTRAL)
         }
     }
 
