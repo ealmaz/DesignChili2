@@ -19,7 +19,9 @@ import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewMyConnectionCardViewBinding
 import kg.devcats.chili3.extensions.gone
 import kg.devcats.chili3.extensions.visible
-import kg.devcats.chili3.util.PackageType
+import kg.devcats.chili3.model.MyConnectionProfile
+import kg.devcats.chili3.model.PackageLeftOver
+import kg.devcats.chili3.model.PackageType
 
 class MyConnectionCardView @JvmOverloads constructor(
     context: Context,
@@ -48,8 +50,6 @@ class MyConnectionCardView @JvmOverloads constructor(
         setTitle(getText(R.styleable.MyConnectionCardView_title))
         setUnauthorizedTitle(getString(R.styleable.MyConnectionCardView_unauthorizedTitle))
         setSubtitle(getString(R.styleable.MyConnectionCardView_unauthorizedSubtitle))
-        getResourceId(R.styleable.MyConnectionCardView_unauthorizedTitleDrawable, -1)
-            .takeIf { it != -1 }?.let { setTitleEndDrawable(it) }
         getResourceId(R.styleable.MyConnectionCardView_unauthorizedImage, -1)
             .takeIf { it != -1 }?.let { setUnauthorizedImage(it) }
         setBalanceTitle(getString(R.styleable.MyConnectionCardView_balanceTitle))
@@ -66,10 +66,6 @@ class MyConnectionCardView @JvmOverloads constructor(
             shimmeringPairs[tvTitle] = viewTitleShimmer
             shimmeringPairs[llBalanceContainer] = viewBalanceShimmer
         }
-    }
-
-    private fun setTitleEndDrawable(@DrawableRes drawableId: Int) {
-        vb.viewUnauthorized.tvUaTitle.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableId, 0)
     }
 
     fun setTitle(charSequence: CharSequence?) {
@@ -107,15 +103,14 @@ class MyConnectionCardView @JvmOverloads constructor(
         llLeftoverInfo.isVisible = !isUnauthorized
     }
 
-    fun setUnauthorizedInfo(title: String, subtitle: String, @DrawableRes titleDrawable: Int, @DrawableRes image: Int) {
+    fun setUnauthorizedInfo(title: Spanned, subtitle: CharSequence, @DrawableRes image: Int) {
         setIsUnauthorized(true)
         setUnauthorizedTitle(title)
         setSubtitle(subtitle)
-        setTitleEndDrawable(titleDrawable)
         setUnauthorizedImage(image)
     }
 
-    fun setWithoutPackage(tariffName: String, tariffDesc: String) = with(vb) {
+    private fun setWithoutPackage(tariffName: String, tariffDesc: String) = with(vb) {
         isWithPackage = false
         plvCall.gone()
         plvInternet.gone()
@@ -124,74 +119,49 @@ class MyConnectionCardView @JvmOverloads constructor(
         tvWithoutPackageSubtitle.text = tariffDesc
     }
 
-    fun setPackage(remain: String, limit: String, progress: Int, type: PackageType) =
-        with(vb) {
-            isWithPackage = true
-            llWithoutPackage.gone()
-            when (type) {
-                PackageType.CALL -> {
-                    plvCall.visible()
-                    plvCall.setPackage(
-                        remain,
-                        limit,
-                        progress,
-                        context.getColor(R.color.c_80C01B)
-                    )
-                }
-
-                PackageType.INTERNET -> {
-                    plvInternet.visible()
-                    plvInternet.setPackage(
-                        remain,
-                        limit,
-                        progress,
-                        context.color(com.design2.chili2.R.color.cyan_1)
-                    )
-                }
-            }
-        }
-
-    fun setUnlimitedInternetPackage(description: String) = with(vb) {
-        isWithPackage = true
-        plvInternet.visible()
-        llWithoutPackage.gone()
-        plvInternet.setUnlimitedInternetPackage(description)
+    fun setProfile(profile: MyConnectionProfile) {
+        setBalance(profile.balance)
+        if (profile.isWithPackages) setLeftOverPackages(profile.packages.orEmpty())
+        else setWithoutPackage(profile.tariffName.orEmpty(), profile.withoutPackageSubTitle.orEmpty())
     }
 
-    fun setSuspendedPackage(title: String, description: String, type: PackageType) =
-        with(vb) {
-            isWithPackage = true
-            llWithoutPackage.gone()
-            when (type) {
-                PackageType.CALL -> {
-                    plvCall.setSuspendedPackage(title, description)
-                    plvCall.visible()
-                }
-                PackageType.INTERNET -> {
-                    plvInternet.visible()
-                    plvInternet.setSuspendedPackage(
-                        title,
-                        description
-                    )
-                }
-            }
-        }
+    private fun setLeftOverPackages(packages: List<PackageLeftOver>) = with(vb) {
+        isWithPackage = true
+        llWithoutPackage.gone()
+        val internet = packages.firstOrNull { it.packageType == PackageType.INTERNET }
+        val call = packages.firstOrNull { it.packageType == PackageType.CALL }
+        setUpInternetPackage(internet)
+        setUpCallPackage(call)
+    }
 
-    fun setEndedPackage(title: String, description: String, type: PackageType) =
-        with(vb) {
-            isWithPackage = true
-            llWithoutPackage.gone()
-            when (type) {
-                PackageType.CALL -> {
-                    plvCall.visible()
-                    plvCall.setPackageEnded(title, description)
-                }
-                PackageType.INTERNET -> {
-                    plvInternet.visible()
-                    plvInternet.setPackageEnded(title, description)
-                }
-            }
+    private fun setUpInternetPackage(leftOver: PackageLeftOver?) = with(vb) {
+        if (leftOver == null) return@with
+        when {
+            !leftOver.unlimited.isNullOrEmpty() -> plvInternet.setUnlimitedInternetPackage(leftOver.unlimited)
+            leftOver.isSuspended -> plvInternet.setPackage(leftOver.remain, leftOver.limit, 0)
+            leftOver.isEmpty -> plvInternet.setPackage(leftOver.remain, leftOver.limit, 0)
+            else -> plvInternet.setPackage(
+                leftOver.remain,
+                leftOver.limit,
+                leftOver.leftOverPercent,
+                context.color(com.design2.chili2.R.color.cyan_1)
+            )
         }
+    }
+
+    private fun setUpCallPackage(leftOver: PackageLeftOver?) = with(vb) {
+        if (leftOver == null) return@with
+        when {
+            leftOver.isSuspended -> plvCall.setPackage(leftOver.remain, leftOver.limit, 0)
+            leftOver.isEmpty -> plvCall.setPackage(leftOver.remain, leftOver.limit, 0)
+            else -> plvCall.setPackage(
+                leftOver.remain,
+                leftOver.limit,
+                leftOver.leftOverPercent,
+                context.getColor(R.color.c_80C01B)
+            )
+        }
+    }
 
     fun setBalance(charSequence: CharSequence?) = with(vb) {
         tvBalance.text = charSequence

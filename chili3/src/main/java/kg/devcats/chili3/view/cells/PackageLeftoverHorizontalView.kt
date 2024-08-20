@@ -53,10 +53,10 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
     }
 
     fun setPackage(
-        remain: String,
-        limit: String,
-        progress: Int,
-        @ColorInt colorInt: Int
+        remain: String?,
+        limit: String?,
+        progress: Int = 0,
+        @ColorInt colorInt: Int? = null
     ) = with(binding) {
         tvRemain.visible()
         ivUnlimited.gone()
@@ -65,10 +65,10 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
         tvRemain.text = remain
         tvRemainFrom.text = limit
         progressBar.setProgress(progress)
-        progressBar.setProgressColor(colorInt)
+        colorInt?.let { progressBar.setProgressColor(colorInt) }
     }
 
-    fun setUnlimitedInternetPackage(description: String) = with(binding) {
+    fun setUnlimitedInternetPackage(description: String?) = with(binding) {
         tvRemain.invisible()
         ivUnlimited.visible()
         progressBar.visible()
@@ -80,24 +80,6 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
             context.color(R.color.c_f0047f),
             context.color(R.color.c_FD046A)
         )
-    }
-
-    fun setSuspendedPackage(title: String, description: String) = with(binding) {
-        tvRemain.visible()
-        progressBar.visible()
-        ivUnlimited.gone()
-        tvRemain.text = title
-        tvRemainFrom.text = description
-        progressBar.setProgress(0)
-    }
-
-    fun setPackageEnded(title: String, description: String) = with(binding) {
-        tvRemain.visible()
-        progressBar.visible()
-        ivUnlimited.gone()
-        tvRemain.text = title
-        tvRemainFrom.text = description
-        progressBar.setProgress(0)
     }
 
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
