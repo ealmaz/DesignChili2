@@ -136,31 +136,23 @@ class MyConnectionCardView @JvmOverloads constructor(
 
     private fun setUpInternetPackage(leftOver: PackageLeftOver?) = with(vb) {
         if (leftOver == null) return@with
-        when {
-            !leftOver.unlimited.isNullOrEmpty() -> plvInternet.setUnlimitedInternetPackage(leftOver.unlimited)
-            leftOver.isSuspended -> plvInternet.setPackage(leftOver.remain, leftOver.limit, 0)
-            leftOver.isEmpty -> plvInternet.setPackage(leftOver.remain, leftOver.limit, 0)
-            else -> plvInternet.setPackage(
-                leftOver.remain,
-                leftOver.limit,
-                leftOver.leftOverPercent,
-                context.color(com.design2.chili2.R.color.cyan_1)
-            )
-        }
+        plvInternet.setPackage(
+            leftOver.remain,
+            leftOver.limit,
+            leftOver.leftOverPercent,
+            context.color(com.design2.chili2.R.color.cyan_1)
+        )
+        if (leftOver.isUnlimited) plvInternet.setUnlimitedInternetPackage()
     }
 
     private fun setUpCallPackage(leftOver: PackageLeftOver?) = with(vb) {
         if (leftOver == null) return@with
-        when {
-            leftOver.isSuspended -> plvCall.setPackage(leftOver.remain, leftOver.limit, 0)
-            leftOver.isEmpty -> plvCall.setPackage(leftOver.remain, leftOver.limit, 0)
-            else -> plvCall.setPackage(
-                leftOver.remain,
-                leftOver.limit,
-                leftOver.leftOverPercent,
-                context.getColor(R.color.c_80C01B)
-            )
-        }
+        plvCall.setPackage(
+            leftOver.remain,
+            leftOver.limit,
+            leftOver.leftOverPercent,
+            context.getColor(R.color.c_80C01B)
+        )
     }
 
     fun setBalance(charSequence: CharSequence?) = with(vb) {
