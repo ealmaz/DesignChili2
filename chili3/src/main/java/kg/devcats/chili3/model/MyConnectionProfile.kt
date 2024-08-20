@@ -1,7 +1,7 @@
 package kg.devcats.chili3.model
 
 data class MyConnectionProfile(
-    var balance: String? = null,
+    var balance: CharSequence? = null,
     var tariffName: String? = null,
     var withoutPackageSubTitle: String? = null,
     var isWithPackages: Boolean = false,
@@ -12,9 +12,6 @@ data class PackageLeftOver(
     var packageType: PackageType? = null,
     var remain: String? = null,
     var limit: String? = null,
-    var isSuspended: Boolean = false,
-    var unlimited: String? = null,
-    var isEmpty: Boolean = false,
     var leftOverPercent: Int = 0
 )
 
