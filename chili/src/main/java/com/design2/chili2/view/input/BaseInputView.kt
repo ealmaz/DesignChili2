@@ -125,6 +125,10 @@ open class BaseInputView @JvmOverloads constructor(
                 setupFieldAsError(error)
             }
 
+            getResourceId(R.styleable.BaseInputView_messageTextAppearance, -1).takeIf { it != -1 }?.let {
+                setMessageTextAppearance(it)
+            }
+
             getInteger(R.styleable.BaseInputView_android_gravity, Gravity.CENTER).let { gravity ->
                 setGravity(gravity)
             }
@@ -575,6 +579,10 @@ open class BaseInputView @JvmOverloads constructor(
                 }
             }
         }
+    }
+
+    fun setMessageTextAppearance(@StyleRes resId: Int) {
+        vb.tvMessage.setTextAppearance(resId)
     }
 
     fun setupFieldAsError(@StringRes errorTextResId: Int) {
