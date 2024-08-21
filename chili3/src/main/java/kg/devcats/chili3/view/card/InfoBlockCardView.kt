@@ -40,7 +40,6 @@ class InfoBlockCardView @JvmOverloads constructor(
     }
 
     override fun TypedArray.obtainAttributes() {
-        setIsSurfaceClickable(false)
         setupCardState(CardState.values()[getInt(R.styleable.ChiliInfoBlockCardView_cardState, 0)])
         setTitleTextAppearance(getResourceId(R.styleable.ChiliInfoBlockCardView_titleTextAppearance, 0))
         setSubtitleTextAppearance(getResourceId(R.styleable.ChiliInfoBlockCardView_subtitleTextAppearance, 0))
@@ -49,6 +48,11 @@ class InfoBlockCardView @JvmOverloads constructor(
         setActionButtonTitle(getText(R.styleable.ChiliInfoBlockCardView_btnTitle))
         setActionButtonVisibility(getBoolean(R.styleable.ChiliInfoBlockCardView_isButtonVisible, false))
         setCloseButtonVisibility(getBoolean(R.styleable.ChiliInfoBlockCardView_isCloseIconVisible, false))
+    }
+
+    override fun setupView() {
+        super.setupView()
+        setIsSurfaceClickable(false)
     }
 
     fun setupCardState(cardState: CardState) = with(vb) {
