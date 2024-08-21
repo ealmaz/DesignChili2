@@ -124,4 +124,10 @@ class ChiliChipsGroup @JvmOverloads constructor(
     fun setCheckedChangedListener(listener: (id: Any, selected: Boolean) -> Unit) {
         this.onSelectionChanged = listener
     }
+
+    fun setSelectedItem(id: Any) {
+        vb.llRoot.findViewWithTag<View>(id)?.let {
+            handleClick(it)
+        }
+    }
 }
