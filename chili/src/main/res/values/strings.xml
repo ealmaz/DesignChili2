@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="chili_copied_to_clipboard">Скопировано</string>
+    <string name="chili_minutes">мин.</string>
+    <string name="chili_gigabyte" translatable="false"> ГБ</string>
+    <string name="chili_leftover_from_limit" formatted="false">из %s</string>
+    <string-array name="network_units">
+        <item>Б</item>
+        <item>КБ</item>
+        <item>MБ</item>
+        <item>ГБ</item>
+        <item>ТБ</item>
+    </string-array>
 </resources>

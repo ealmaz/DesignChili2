@@ -33,6 +33,11 @@ class MyConnectionCardView @JvmOverloads constructor(
     private lateinit var vb: ChiliViewMyConnectionCardViewBinding
     private var isUnauthorized: Boolean = false
     private var isWithPackage: Boolean = true
+    private var unlimitedText: String? = null
+    private var withoutPackageTitle: String? = null
+    private var packageSuspendedText: String? = null
+    private var packageEmptyText: String? = null
+
     override val styleableAttrRes: IntArray = R.styleable.MyConnectionCardView
 
     override val rootContainer: View
@@ -49,7 +54,7 @@ class MyConnectionCardView @JvmOverloads constructor(
     override fun TypedArray.obtainAttributes() {
         setTitle(getText(R.styleable.MyConnectionCardView_title))
         setUnauthorizedTitle(getString(R.styleable.MyConnectionCardView_unauthorizedTitle))
-        setSubtitle(getString(R.styleable.MyConnectionCardView_unauthorizedSubtitle))
+        setUnauthorizedSubtitle(getString(R.styleable.MyConnectionCardView_unauthorizedSubtitle))
         getResourceId(R.styleable.MyConnectionCardView_unauthorizedImage, -1)
             .takeIf { it != -1 }?.let { setUnauthorizedImage(it) }
         setBalanceTitle(getString(R.styleable.MyConnectionCardView_balanceTitle))
@@ -58,6 +63,11 @@ class MyConnectionCardView @JvmOverloads constructor(
         setIsUnauthorized(
             getBoolean(R.styleable.MyConnectionCardView_isUnauthorized, false)
         )
+        setWithoutPackageSubtitle(getString(R.styleable.MyConnectionCardView_withoutPackageSubtitle))
+        unlimitedText = getString(R.styleable.MyConnectionCardView_unlimitedText)
+        withoutPackageTitle = getString(R.styleable.MyConnectionCardView_withoutPackageTitle)
+        packageSuspendedText = getString(R.styleable.MyConnectionCardView_packageSuspendedText)
+        packageEmptyText = getString(R.styleable.MyConnectionCardView_packageEmptyText)
     }
 
     override fun setupShimmeringViews() {
@@ -76,7 +86,7 @@ class MyConnectionCardView @JvmOverloads constructor(
         vb.viewUnauthorized.tvUaTitle.text = charSequence
     }
 
-    fun setSubtitle(charSequence: CharSequence?) {
+    fun setUnauthorizedSubtitle(charSequence: CharSequence?) {
         vb.viewUnauthorized.tvDescription.text = charSequence
     }
 
@@ -96,33 +106,37 @@ class MyConnectionCardView @JvmOverloads constructor(
         vb.viewUnauthorized.ivUnauthorized.setImageDrawable(context.drawable(drawableId))
     }
 
+    private fun setWithoutPackageSubtitle(charSequence: CharSequence?) {
+        vb.tvWithoutPackageSubtitle.text = charSequence
+    }
+
     fun setIsUnauthorized(isUnauthorized: Boolean) = with(vb) {
         this@MyConnectionCardView.isUnauthorized = isUnauthorized
         viewUnauthorized.root.isVisible = isUnauthorized
         flTitleContainer.isInvisible = isUnauthorized
         llLeftoverInfo.isVisible = !isUnauthorized
+        llWithoutPackage.isVisible = !isUnauthorized
     }
 
     fun setUnauthorizedInfo(title: Spanned, subtitle: CharSequence, @DrawableRes image: Int) {
         setIsUnauthorized(true)
         setUnauthorizedTitle(title)
-        setSubtitle(subtitle)
+        setUnauthorizedSubtitle(subtitle)
         setUnauthorizedImage(image)
     }
 
-    private fun setWithoutPackage(tariffName: String, tariffDesc: String) = with(vb) {
+    private fun setWithoutPackage(tariffName: String) = with(vb) {
         isWithPackage = false
         plvCall.gone()
         plvInternet.gone()
         llWithoutPackage.visible()
         tvWithoutPackageTitle.text = tariffName
-        tvWithoutPackageSubtitle.text = tariffDesc
     }
 
     fun setProfile(profile: MyConnectionProfile) {
         setBalance(profile.balance)
         if (profile.isWithPackages) setLeftOverPackages(profile.packages.orEmpty())
-        else setWithoutPackage(profile.tariffName.orEmpty(), profile.withoutPackageSubTitle.orEmpty())
+        else setWithoutPackage(profile.getFormattedTariffName(withoutPackageTitle))
     }
 
     private fun setLeftOverPackages(packages: List<PackageLeftOver>) = with(vb) {
@@ -137,9 +151,14 @@ class MyConnectionCardView @JvmOverloads constructor(
     private fun setUpInternetPackage(leftOver: PackageLeftOver?) = with(vb) {
         if (leftOver == null) return@with
         plvInternet.setPackage(
-            leftOver.remain,
-            leftOver.limit,
-            leftOver.leftOverPercent,
+            leftOver.getFormattedRemain(resources),
+            when {
+                leftOver.isUnlimitedNotSuspended() -> unlimitedText
+                leftOver.isSuspended -> packageSuspendedText
+                leftOver.isPackageEmpty() -> packageEmptyText
+                else -> leftOver.getFormattedLimit(resources)
+            },
+            leftOver.getLeftOverPercentage(),
             context.color(com.design2.chili2.R.color.cyan_1)
         )
         if (leftOver.isUnlimited) plvInternet.setUnlimitedInternetPackage()
@@ -148,9 +167,14 @@ class MyConnectionCardView @JvmOverloads constructor(
     private fun setUpCallPackage(leftOver: PackageLeftOver?) = with(vb) {
         if (leftOver == null) return@with
         plvCall.setPackage(
-            leftOver.remain,
-            leftOver.limit,
-            leftOver.leftOverPercent,
+            leftOver.getFormattedRemain(resources),
+            when {
+                leftOver.isUnlimitedNotSuspended() -> unlimitedText
+                leftOver.isSuspended -> packageSuspendedText
+                leftOver.isPackageEmpty() -> packageEmptyText
+                else -> leftOver.getFormattedLimit(resources)
+            },
+            leftOver.getLeftOverPercentage(),
             context.getColor(R.color.c_80C01B)
         )
     }
