@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="chili_copied_to_clipboard">Көчүрүлдү</string>
+    <string name="chili_minutes"> мүн.</string>
+    <string name="chili_leftover_from_limit" formatted="false">%s</string>
+    <string-array name="network_units">
+        <item>Б</item>
+        <item>КБ</item>
+        <item>MБ</item>
+        <item>ГБ</item>
+        <item>ТБ</item>
+    </string-array>
 </resources>

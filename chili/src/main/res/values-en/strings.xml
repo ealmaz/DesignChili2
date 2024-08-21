@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="chili_copied_to_clipboard">Copied</string>
+    <string name="chili_minutes"> min.</string>
+    <string name="chili_leftover_from_limit" formatted="false">of %s</string>
+    <string-array name="network_units">
+        <item>B</item>
+        <item>KB</item>
+        <item>MB</item>
+        <item>GB</item>
+        <item>TB</item>
+    </string-array>
 </resources>

@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
@@ -53,8 +52,8 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
     }
 
     fun setPackage(
-        remain: String?,
-        limit: String?,
+        remain: CharSequence?,
+        limit: CharSequence?,
         progress: Int = 0,
         @ColorInt colorInt: Int? = null
     ) = with(binding) {
