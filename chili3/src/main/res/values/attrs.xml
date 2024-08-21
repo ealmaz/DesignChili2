@@ -100,7 +100,6 @@
         <attr name="title" />
         <attr name="unauthorizedTitle" format="string"/>
         <attr name="unauthorizedSubtitle" format="string"/>
-        <attr name="unauthorizedTitleDrawable" format="reference"/>
         <attr name="unauthorizedImage" format="reference"/>
         <attr name="balanceTitle" format="string"/>
         <attr name="unlimitedDrawable" format="reference"/>
@@ -108,8 +107,6 @@
         <attr name="unlimitedText" format="string"/>
         <attr name="withoutPackageSubtitle" format="string"/>
         <attr name="withoutPackageTitle" format="string"/>
-        <attr name="callUnit" format="string"/>
-        <attr name="limitFrom" format="string"/>
         <attr name="packageSuspendedText" format="string"/>
         <attr name="packageEmptyText" format="string"/>
     </declare-styleable>
