@@ -40,7 +40,7 @@ class InfoBlockCardView @JvmOverloads constructor(
     }
 
     override fun TypedArray.obtainAttributes() {
-        setupCardState(CardState.values()[getInt(R.styleable.ChiliInfoBlockCardView_cardState, 0)])
+        decideCardState(getInteger(R.styleable.ChiliInfoBlockCardView_cardState, 0))
         setTitleTextAppearance(getResourceId(R.styleable.ChiliInfoBlockCardView_titleTextAppearance, 0))
         setSubtitleTextAppearance(getResourceId(R.styleable.ChiliInfoBlockCardView_subtitleTextAppearance, 0))
         setTitle(getText(R.styleable.ChiliInfoBlockCardView_title))
@@ -53,6 +53,15 @@ class InfoBlockCardView @JvmOverloads constructor(
     override fun setupView() {
         super.setupView()
         setIsSurfaceClickable(false)
+    }
+
+    private fun decideCardState(value: Int) {
+        when (value) {
+            CardState.NEUTRAL.value -> CardState.NEUTRAL
+            CardState.WARNING.value -> CardState.WARNING
+            CardState.ERROR.value -> CardState.ERROR
+            else -> CardState.NEUTRAL
+        }.also { setupCardState(it) }
     }
 
     fun setupCardState(cardState: CardState) = with(vb) {
@@ -155,7 +164,7 @@ class InfoBlockCardView @JvmOverloads constructor(
         vb.ivCloseIcon.run { visible(); setOnSingleClickListener { onClick() } }
     }
 
-    enum class CardState {
-        WARNING, ERROR, NEUTRAL
+    enum class CardState(val value: Int) {
+        NEUTRAL(0), WARNING(1), ERROR(2)
     }
 }
