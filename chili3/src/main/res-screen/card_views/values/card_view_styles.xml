@@ -75,6 +75,7 @@
 
     <style name="Chili.CardViewStyle.InfoBlockCardView">
         <item name="cardElevation">0dp</item>
+        <item name="android:foreground">@null</item>
         <item name="android:clickable">false</item>
         <item name="android:focusable">false</item>
     </style>
