@@ -1270,6 +1270,23 @@
             app:title="Ежемесячный платёж"
             app:value="5000"/>
 
+        <kg.devcats.chili3.view.card.InfoBlockCardView
+            android:id="@+id/info_block_card_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp" />
+
+        <kg.devcats.chili3.view.card.InfoBlockCardView
+            android:id="@+id/info_block_card_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp" />
+
+        <kg.devcats.chili3.view.card.InfoBlockCardView
+            android:id="@+id/info_block_card_view3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp" />
 
     </LinearLayout>
 

@@ -240,6 +240,17 @@
         <item name="ChiliCaptionsCardViewBackgroundColor">@color/c_F7F7F7</item>
         <item name="ChiliCaptionsCardViewCornerRadius">@dimen/radius_12dp</item>
 
+        <!-- InfoBlockCardView -->
+        <item name="ChiliInfoBlockViewBackgroundColorNeutral">@color/c_F5F5F8</item>
+        <item name="ChiliInfoBlockViewBackgroundColorWarning">@color/c_FEF9E7</item>
+        <item name="ChiliInfoBlockViewBackgroundColorError">@color/c_FFEEEE</item>
+        <item name="ChiliInfoBlockViewContentColorNeutral">@color/c_007AFF</item>
+        <item name="ChiliInfoBlockViewContentColorWarning">@color/c_FF9500</item>
+        <item name="ChiliInfoBlockViewContentColorError">@color/c_FF3B30</item>
+        <item name="ChiliInfoBlockViewTextColorNeutral">@color/c_2A4C84</item>
+        <item name="ChiliInfoBlockViewTextColorWarning">@color/c_806330</item>
+        <item name="ChiliInfoBlockViewTextColorError">@color/c_AE2A47</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

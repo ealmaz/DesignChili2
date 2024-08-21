@@ -206,4 +206,15 @@
     <attr name="ChiliCaptionsCardViewBackgroundColor" format="color"/>
     <attr name="ChiliCaptionsCardViewCornerRadius" format="dimension"/>
 
+    <!-- ChiliInfoBlockView -->
+    <attr name="ChiliInfoBlockViewBackgroundColorNeutral" format="color"/>
+    <attr name="ChiliInfoBlockViewBackgroundColorWarning" format="color"/>
+    <attr name="ChiliInfoBlockViewBackgroundColorError" format="color"/>
+    <attr name="ChiliInfoBlockViewTextColorNeutral" format="color"/>
+    <attr name="ChiliInfoBlockViewTextColorWarning" format="color"/>
+    <attr name="ChiliInfoBlockViewTextColorError" format="color"/>
+    <attr name="ChiliInfoBlockViewContentColorNeutral" format="color"/>
+    <attr name="ChiliInfoBlockViewContentColorWarning" format="color"/>
+    <attr name="ChiliInfoBlockViewContentColorError" format="color"/>
+
 </resources>
