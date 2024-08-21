@@ -86,8 +86,6 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             }, 1000)
         }
         vb.bankCardView.apply {
-            setCardBackground("https://devminio.o.kg/media-service/Bonus/ky/9170f031-4cd7-4c7e-ad7d-04a423eef673.png",
-                placeholder = ContextCompat.getDrawable(context, com.design2.chili2.R.drawable.bank_card_yellow_bg))
             setCardPan("9417 1243 3425 4215")
             setPanPinFieldYOffset(25.dp)
             setCardCvv("321")
@@ -98,7 +96,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
                 vb.bankCardView.resetPanToggleState()
             }, 1000)
         }
-        vb.bankCardViewYellow.apply {
+        vb.bankingCardView.apply {
             startBgShimmer()
             vb.root.postDelayed({
                 if (isVisible) {
