@@ -180,6 +180,8 @@
         android:textColor="@color/white_1"
         app:layout_constraintBottom_toBottomOf="@id/ll_cvv"
         app:layout_constraintStart_toStartOf="parent"
+        android:elevation="@dimen/elevation_8dp"
+        android:background="@android:color/transparent"
         app:layout_constraintTop_toTopOf="@id/ll_cvv"
         tools:text="12 /  25" />
 
@@ -191,6 +193,8 @@
         android:padding="@dimen/padding_12dp"
         android:textAppearance="@style/Chili.H8.Primary"
         android:textColor="@color/white_1"
+        android:elevation="@dimen/elevation_8dp"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="@id/iv_card_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/iv_card_icon"

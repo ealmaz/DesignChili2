@@ -97,14 +97,8 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             }, 1000)
         }
         vb.bankingCardView.apply {
-            startBgShimmer()
-            vb.root.postDelayed({
-                if (isVisible) {
-                    setCardBackground("https://devminio.o.kg/media-service/Bonus/ky/0d6780b9-cbf6-41a7-8750-4da9d7688715.jpg",
-                        placeholder = ContextCompat.getDrawable(context, com.design2.chili2.R.drawable.bank_card_yellow_bg))
-                    stopBgShimmer()
-                }
-            }, 10000)
+            setCardBackground("https://devminio.o.kg/media-service/Bonus/ky/0d6780b9-cbf6-41a7-8750-4da9d7688715.jpg",
+                placeholder = ContextCompat.getDrawable(context, com.design2.chili2.R.drawable.bank_card_shimmer))
             setCardPan("9417 1243 3425 4215")
             setPanPinFieldYOffset(25.dp)
             setCardCvv("321")
@@ -296,11 +290,13 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
     override fun startShimmering() {
         super.startShimmering()
         vb.root.startGroupShimmering()
+        vb.bankingCardView.startBgShimmer()
     }
 
     override fun stopShimmering() {
         super.stopShimmering()
         vb.root.stopGroupShimmering()
+        vb.bankingCardView.stopBgShimmer()
     }
 
     override fun onBannerClicked(position: Int) {

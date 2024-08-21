@@ -335,7 +335,7 @@ class BankingCardView @JvmOverloads constructor(
         vb.ivCardBg.setImageDrawable(drawable)
     }
 
-    override fun setCardBackground(resId: Int) {
+    override fun setCardBackground(@DrawableRes resId: Int) {
         vb.ivCardBg.setImageResource(resId)
     }
 
@@ -353,6 +353,8 @@ class BankingCardView @JvmOverloads constructor(
             visible()
             startShimmer()
         }
+        setPanBackgroundTint(kg.devcats.chili3.R.color.c_c4c4c4_alpha_70)
+        setCvvBackgroundTint(kg.devcats.chili3.R.color.c_c4c4c4_alpha_70)
         ivCardBg.gone()
     }
 
@@ -361,6 +363,8 @@ class BankingCardView @JvmOverloads constructor(
             stopShimmer()
             gone()
         }
+        setPanBackgroundTint(R.color.black_3_alpha_45)
+        setCvvBackgroundTint(R.color.black_3_alpha_45)
         ivCardBg.visible()
     }
 }
