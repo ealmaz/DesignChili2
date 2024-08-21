@@ -230,15 +230,15 @@ class DetailCellView @JvmOverloads constructor(
         setImageDrawable(drawable)
     }
 
-    fun setIconUrl(url: String?) {
+    fun setIconUrl(url: String?) = with(vb.svIcon){
         if (url.isNullOrEmpty()) gone()
         else {
             visible()
-            Glide.with(vb.svIcon)
+            Glide.with(this)
                 .load(url)
                 .dontTransform()
                 .error(context.drawable(R.drawable.chili_ic_stub))
-                .into(vb.svIcon)
+                .into(this)
         }
     }
 
