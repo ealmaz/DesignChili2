@@ -51,30 +51,47 @@ class DetailCellView @JvmOverloads constructor(
         vb = ChiliViewCellDetailBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    private fun obtainAttributes(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        context.obtainStyledAttributes(attributeSet, R.styleable.DetailCellView, defStyleAttr, defStyleRes).run {
+    private fun obtainAttributes(
+        context: Context,
+        attributeSet: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) {
+        context.obtainStyledAttributes(
+            attributeSet,
+            R.styleable.DetailCellView,
+            defStyleAttr,
+            defStyleRes
+        ).run {
             setTitle(getString(R.styleable.DetailCellView_title))
             setSubtitle(getString(R.styleable.DetailCellView_subtitle))
             setValue(getString(R.styleable.DetailCellView_value))
             setStatus(getString(R.styleable.DetailCellView_status))
             setIcon(getDrawable(R.styleable.DetailCellView_icon))
             setupIsSurfaceClickable(getBoolean(R.styleable.DetailCellView_isSurfaceClickable, true))
-            getInteger(R.styleable.DetailCellView_roundedCornerMode, RoundedCornerMode.SINGLE.value).let {
+            getInteger(
+                R.styleable.DetailCellView_roundedCornerMode,
+                RoundedCornerMode.SINGLE.value
+            ).let {
                 roundedCornerMode = it
                 this@DetailCellView.setupRoundedCellCornersMode(it)
             }
-            getResourceId(R.styleable.DetailCellView_titleTextAppearance, -1).takeIf { it != -1 }?.let {
-                setTitleTextAppearance(it)
-            }
-            getResourceId(R.styleable.DetailCellView_subtitleTextAppearance, -1).takeIf { it != -1 }?.let {
-                setSubtitleTextAppearance(it)
-            }
-            getResourceId(R.styleable.DetailCellView_valueTextAppearance, -1).takeIf { it != -1 }?.let {
-                setValueTextAppearance(it)
-            }
-            getResourceId(R.styleable.DetailCellView_statusTextAppearance, -1).takeIf { it != -1 }?.let {
-                setStatusTextAppearance(it)
-            }
+            getResourceId(R.styleable.DetailCellView_titleTextAppearance, -1).takeIf { it != -1 }
+                ?.let {
+                    setTitleTextAppearance(it)
+                }
+            getResourceId(R.styleable.DetailCellView_subtitleTextAppearance, -1).takeIf { it != -1 }
+                ?.let {
+                    setSubtitleTextAppearance(it)
+                }
+            getResourceId(R.styleable.DetailCellView_valueTextAppearance, -1).takeIf { it != -1 }
+                ?.let {
+                    setValueTextAppearance(it)
+                }
+            getResourceId(R.styleable.DetailCellView_statusTextAppearance, -1).takeIf { it != -1 }
+                ?.let {
+                    setStatusTextAppearance(it)
+                }
             getInteger(R.styleable.DetailCellView_titleMaxLines, -1).takeIf { it != -1 }?.let {
                 setTitleMaxLines(it)
             }
@@ -82,13 +99,22 @@ class DetailCellView @JvmOverloads constructor(
                 setSubtitleMaxLines(it)
             }
             getString(R.styleable.DetailCellView_additionalInfoText).let { setAdditionalInfoText(it) }
-            getResourceId(R.styleable.DetailCellView_additionalInfoTextAppearance, -1).takeIf { it != -1 }?.let {
+            getResourceId(
+                R.styleable.DetailCellView_additionalInfoTextAppearance,
+                -1
+            ).takeIf { it != -1 }?.let {
                 setAdditionalInfoTextAppearance(it)
             }
-            getResourceId(R.styleable.DetailCellView_additionalInfoTextBackground, -1).takeIf { it != -1 }.let {
+            getResourceId(
+                R.styleable.DetailCellView_additionalInfoTextBackground,
+                -1
+            ).takeIf { it != -1 }.let {
                 setAdditionalInfoTextBackground(it)
             }
-            getDimensionPixelSize(R.styleable.DetailCellView_additionalInfoTextPadding, -1).takeIf { it != -1 }?.let {
+            getDimensionPixelSize(
+                R.styleable.DetailCellView_additionalInfoTextPadding,
+                -1
+            ).takeIf { it != -1 }?.let {
                 updateAdditionalTextPadding(it)
             }
             recycle()
@@ -205,12 +231,15 @@ class DetailCellView @JvmOverloads constructor(
     }
 
     fun setIconUrl(url: String?) {
-        if (url == null) return
-        Glide.with(vb.svIcon)
-            .load(url)
-            .dontTransform()
-            .error(context.drawable(R.drawable.chili_ic_stub))
-            .into(vb.svIcon)
+        if (url.isNullOrEmpty()) gone()
+        else {
+            visible()
+            Glide.with(vb.svIcon)
+                .load(url)
+                .dontTransform()
+                .error(context.drawable(R.drawable.chili_ic_stub))
+                .into(vb.svIcon)
+        }
     }
 
     fun setAdditionalInfoText(text: CharSequence?) {
@@ -237,7 +266,6 @@ class DetailCellView @JvmOverloads constructor(
     fun updateAdditionalTextPadding(paddingPx: Int) {
         vb.tvAdditionalInfo.setPadding(paddingPx)
     }
-
 
 
     override fun getShimmeringViewsPair() = shimmerViewPairs
