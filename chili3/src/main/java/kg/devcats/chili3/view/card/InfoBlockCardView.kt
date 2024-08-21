@@ -17,6 +17,7 @@ import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardBlockInfoBinding
 import kg.devcats.chili3.extensions.getColorFromAttr
+import kg.devcats.chili3.extensions.gone
 import kg.devcats.chili3.extensions.visible
 
 class InfoBlockCardView @JvmOverloads constructor(
@@ -41,40 +42,20 @@ class InfoBlockCardView @JvmOverloads constructor(
     override fun TypedArray.obtainAttributes() {
         setIsSurfaceClickable(false)
         setupCardState(CardState.values()[getInt(R.styleable.ChiliInfoBlockCardView_cardState, 0)])
-        setTitleTextAppearance(
-            getResourceId(
-                R.styleable.ChiliInfoBlockCardView_titleTextAppearance,
-                0
-            )
-        )
-        setSubtitleTextAppearance(
-            getResourceId(
-                R.styleable.ChiliInfoBlockCardView_subtitleTextAppearance,
-                0
-            )
-        )
+        setTitleTextAppearance(getResourceId(R.styleable.ChiliInfoBlockCardView_titleTextAppearance, 0))
+        setSubtitleTextAppearance(getResourceId(R.styleable.ChiliInfoBlockCardView_subtitleTextAppearance, 0))
         setTitle(getText(R.styleable.ChiliInfoBlockCardView_title))
         setSubtitle(getText(R.styleable.ChiliInfoBlockCardView_subtitle))
         setActionButtonTitle(getText(R.styleable.ChiliInfoBlockCardView_btnTitle))
-        setActionButtonVisibility(
-            getBoolean(
-                R.styleable.ChiliInfoBlockCardView_isButtonVisible,
-                false
-            )
-        )
-        setCloseButtonVisibility(
-            getBoolean(
-                R.styleable.ChiliInfoBlockCardView_isCloseIconVisible,
-                false
-            )
-        )
+        setActionButtonVisibility(getBoolean(R.styleable.ChiliInfoBlockCardView_isButtonVisible, false))
+        setCloseButtonVisibility(getBoolean(R.styleable.ChiliInfoBlockCardView_isCloseIconVisible, false))
     }
 
     fun setupCardState(cardState: CardState) = with(vb) {
         when (cardState) {
             CardState.NEUTRAL -> {
                 setCardBackgroundColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewBackgroundColorNeutral))
-                btnAction.background = context.drawable(R.drawable.chili_bg_button_neutral)
+                btnAction.background = context.drawable(R.drawable.chili_bg_info_block_btn_neutral)
                 ivCloseIcon.setColorFilter(context.getColorFromAttr(R.attr.ChiliInfoBlockViewContentColorNeutral))
                 tvTitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorNeutral))
                 tvSubtitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorNeutral))
@@ -83,7 +64,7 @@ class InfoBlockCardView @JvmOverloads constructor(
 
             CardState.WARNING -> {
                 setCardBackgroundColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewBackgroundColorWarning))
-                btnAction.background = context.drawable(R.drawable.chili_bg_button_warning)
+                btnAction.background = context.drawable(R.drawable.chili_bg_info_block_btn_warning)
                 ivCloseIcon.setColorFilter(context.getColorFromAttr(R.attr.ChiliInfoBlockViewContentColorWarning))
                 tvTitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorWarning))
                 tvSubtitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorWarning))
@@ -92,7 +73,7 @@ class InfoBlockCardView @JvmOverloads constructor(
 
             CardState.ERROR -> {
                 setCardBackgroundColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewBackgroundColorError))
-                btnAction.background = context.drawable(R.drawable.chili_bg_button_error)
+                btnAction.background = context.drawable(R.drawable.chili_bg_info_block_btn_error)
                 ivCloseIcon.setColorFilter(context.getColorFromAttr(R.attr.ChiliInfoBlockViewContentColorError))
                 tvTitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorError))
                 tvSubtitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorError))
@@ -163,6 +144,7 @@ class InfoBlockCardView @JvmOverloads constructor(
 
     fun setCloseButtonVisibility(isVisible: Boolean) {
         vb.ivCloseIcon.isVisible = isVisible
+        if (isVisible) setOnCloseButtonClickListener { vb.root.gone() }
     }
 
     fun setOnCloseButtonClickListener(onClick: () -> Unit) {

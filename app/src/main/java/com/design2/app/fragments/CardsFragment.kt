@@ -183,6 +183,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setTitle("Title")
             setupActionButton("Action") {
                 Toast.makeText(requireContext(), "Action clicked", Toast.LENGTH_SHORT).show()
+                setupCardState(InfoBlockCardView.CardState.NEUTRAL)
             }
             setCloseButtonVisibility(true)
             setupCardState(InfoBlockCardView.CardState.WARNING)
