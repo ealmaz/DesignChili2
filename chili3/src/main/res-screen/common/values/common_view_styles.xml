@@ -19,4 +19,8 @@
         <item name="android:stateListAnimator">@animator/translucent_state_list_animator</item>
     </style>
 
+    <style name="ThemeOverlay.ChiliNewSwitchBoxToggleTheme" parent="ThemeOverlay">
+        <item name="ChiliSwitchBoxCheckedToggleColor">@color/c_2CBB42</item>
+        <item name="ChiliSwitchBoxUncheckedToggleColor">@color/gray_1</item>
+    </style>
 </resources>
