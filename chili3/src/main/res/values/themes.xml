@@ -57,6 +57,9 @@
         <!-- ChiliCellViewBackgroundColor-->
         <item name="ChiliCellViewBackgroundColor">@color/gray_6</item>
 
+        <!-- BankCardView -->
+        <item name="ChiliBankCardViewFieldsBackground">@color/black_3_alpha_45</item>
+
         <!-- ProductCardView -->
         <item name="ChiliCardViewImageRadius">@dimen/radius_12dp</item>
         <item name="ChiliProductCardViewImageHeight">@dimen/view_210dp</item>

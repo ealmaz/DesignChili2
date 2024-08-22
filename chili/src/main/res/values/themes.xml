@@ -294,7 +294,6 @@
 
     </style>
 
-
     <style name="ChiliDesignTheme" parent="BaseChiliDesignTheme"/>
 
     <style name="ChiliDesignThemeDay" parent="BaseChiliDesignTheme"/>
@@ -308,5 +307,11 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
+
+    <style name="ThemeOverlay.ChiliNewSwitchBoxToggleTheme" parent="ThemeOverlay">
+        <item name="ChiliSwitchBoxCheckedToggleColor">@color/c_2CBB42</item>
+        <item name="ChiliSwitchBoxUncheckedToggleColor">@color/gray_1</item>
+    </style>
+
 
 </resources>

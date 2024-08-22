@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/fl_card_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_card_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/card_bg_shimmer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/bank_card_shimmer" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_start_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_17dp"
+        android:layout_marginTop="@dimen/padding_12dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/chili_ic_done"
+        tools:visibility="visible" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_card_pan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/chili_bg_card_bank_fields_rounded"
+        android:padding="@dimen/padding_12dp"
+        android:theme="@style/ThemeOverlay_chili_back_card_field_ripple"
+        app:layout_constraintBottom_toTopOf="@id/ll_cvv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_start_icon"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_goneMarginTop="@dimen/padding_32dp">
+
+        <TextView
+            android:id="@+id/tv_card_pan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_8dp"
+            android:layout_weight="1"
+            android:textAppearance="@style/Chili.H7.Primary.Bold"
+            android:textColor="@color/white_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_pan_toggle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="9417 1243 3425 4215" />
+
+        <ImageView
+            android:id="@+id/iv_pan_toggle"
+            android:layout_width="@dimen/view_24dp"
+            android:layout_height="@dimen/view_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray_2" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/pan_shimmer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_8dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_pan_toggle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/view_200dp"
+                android:layout_height="@dimen/view_12dp"
+                android:layout_gravity="center_vertical"
+                app:cardBackgroundColor="?attr/ChiliShimmerBoneColor"
+                app:cardCornerRadius="@dimen/radius_8dp"
+                app:cardElevation="0dp" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_cvv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_16dp"
+        android:layout_marginEnd="@dimen/padding_16dp"
+        android:layout_marginBottom="@dimen/padding_24dp"
+        android:background="@drawable/chili_bg_card_bank_fields_rounded"
+        android:drawablePadding="@dimen/padding_16dp"
+        android:padding="@dimen/padding_12dp"
+        android:theme="@style/ThemeOverlay_chili_back_card_field_ripple"
+        app:layout_constraintBottom_toTopOf="@id/iv_card_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_card_pan">
+
+        <TextView
+            android:id="@+id/tv_cvv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_8dp"
+            android:layout_weight="1"
+            android:textAppearance="@style/Chili.H7.Primary.Bold"
+            android:textColor="@color/white_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_cvv_toggle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="941" />
+
+        <ImageView
+            android:id="@+id/iv_cvv_toggle"
+            android:layout_width="@dimen/view_24dp"
+            android:layout_height="@dimen/view_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/gray_2" />
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/cvv_shimmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/padding_8dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_cvv_toggle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/view_28dp"
+                android:layout_height="@dimen/view_12dp"
+                android:layout_gravity="center_vertical"
+                app:cardBackgroundColor="?attr/ChiliShimmerBoneColor"
+                app:cardCornerRadius="@dimen/radius_8dp"
+                app:cardElevation="0dp" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_due_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_16dp"
+        android:padding="@dimen/padding_12dp"
+        android:textAppearance="@style/Chili.H7.Primary.Bold"
+        android:textColor="@color/white_1"
+        app:layout_constraintBottom_toBottomOf="@id/ll_cvv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="@dimen/elevation_8dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="@id/ll_cvv"
+        tools:text="12 /  25" />
+
+    <TextView
+        android:id="@+id/tv_card_holder_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_4dp"
+        android:padding="@dimen/padding_12dp"
+        android:textAppearance="@style/Chili.H8.Primary"
+        android:textColor="@color/white_1"
+        android:elevation="@dimen/elevation_8dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@id/iv_card_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_card_icon"
+        tools:text="Ivanov Ivanovskii" />
+
+    <ImageView
+        android:id="@+id/iv_card_icon"
+        android:layout_width="@dimen/view_52dp"
+        android:layout_height="@dimen/view_35dp"
+        android:layout_marginEnd="@dimen/padding_16dp"
+        android:layout_marginBottom="@dimen/padding_10dp"
+        android:src="@drawable/chili_ic_bank_cards"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/fl_card_bg"
+        app:layout_constraintEnd_toEndOf="@id/fl_card_bg"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

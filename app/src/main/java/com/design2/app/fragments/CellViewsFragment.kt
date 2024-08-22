@@ -130,6 +130,10 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             setAdditionalTextAppearance(kg.devcats.chili3.R.style.Chili_H14_Primary)
         }
         vb.aicvHalykNoCommission.setSubtitleBackground(kg.devcats.chili3.R.drawable.bg_subtitle_background_rounded)
+
+        vb.newToggleCellView.apply {
+            setSwitchNewStyle()
+        }
     }
 
     private fun getItemTouchHelper(adapter: EditableCellViewsAdapter) =

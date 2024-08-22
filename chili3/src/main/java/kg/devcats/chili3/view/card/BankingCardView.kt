@@ -1,4 +1,4 @@
-package com.design2.chili2.view.card
+package kg.devcats.chili3.view.card
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -16,18 +16,20 @@ import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.core.view.isInvisible
 import com.design2.chili2.R
-import com.design2.chili2.databinding.ChiliViewBankCardBinding
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.gone
-import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setTopMargin
-import com.design2.chili2.extensions.visible
+import com.design2.chili2.view.card.BaseCardView
+import com.design2.chili2.view.card.CardFieldToggleState
+import kg.devcats.chili3.databinding.ChiliBankingCardViewBinding
+import kg.devcats.chili3.extensions.gone
+import kg.devcats.chili3.extensions.invisible
+import kg.devcats.chili3.extensions.visible
 
 
-class BankCardView @JvmOverloads constructor(
+class BankingCardView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.bankCardViewDefaultStyle,
@@ -61,14 +63,14 @@ class BankCardView @JvmOverloads constructor(
     override val rootContainer: View
         get() = vb.rootView
 
-    private lateinit var vb: ChiliViewBankCardBinding
+    private lateinit var vb: ChiliBankingCardViewBinding
 
     init {
         initView(context, attrs, defStyleAttr, defStyleRes)
     }
 
     override fun inflateView(context: Context) {
-        vb = ChiliViewBankCardBinding.inflate(LayoutInflater.from(context), this, true)
+        vb = ChiliBankingCardViewBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
     override fun TypedArray.obtainAttributes() {
@@ -333,7 +335,7 @@ class BankCardView @JvmOverloads constructor(
         vb.ivCardBg.setImageDrawable(drawable)
     }
 
-    override fun setCardBackground(resId: Int) {
+    override fun setCardBackground(@DrawableRes resId: Int) {
         vb.ivCardBg.setImageResource(resId)
     }
 
@@ -345,8 +347,24 @@ class BankCardView @JvmOverloads constructor(
 
         vb.ivCardBg.setImageByUrl(url, newWidth, heightPx, placeholder)
     }
-}
 
-enum class CardFieldToggleState {
-    ICON_SHOW, ICON_COPY, ICON_NONE
+    fun startBgShimmer() = with(vb) {
+        cardBgShimmer.apply {
+            visible()
+            startShimmer()
+        }
+        setPanBackgroundTint(kg.devcats.chili3.R.color.c_c4c4c4_alpha_70)
+        setCvvBackgroundTint(kg.devcats.chili3.R.color.c_c4c4c4_alpha_70)
+        ivCardBg.gone()
+    }
+
+    fun stopBgShimmer() = with(vb) {
+        cardBgShimmer.apply {
+            stopShimmer()
+            gone()
+        }
+        setPanBackgroundTint(R.color.black_3_alpha_45)
+        setCvvBackgroundTint(R.color.black_3_alpha_45)
+        ivCardBg.visible()
+    }
 }

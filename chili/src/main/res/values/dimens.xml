@@ -49,6 +49,7 @@
     <dimen name="radius_12dp">12dp</dimen>
     <dimen name="radius_14dp">14dp</dimen>
     <dimen name="radius_15dp">15dp</dimen>
+    <dimen name="radius_16dp">16dp</dimen>
     <dimen name="radius_21dp">21dp</dimen>
     <dimen name="radius_22dp">22dp</dimen>
     <dimen name="radius_24dp">24dp</dimen>
@@ -79,6 +80,7 @@
     <dimen name="view_32dp">32dp</dimen>
     <dimen name="view_35dp">35dp</dimen>
     <dimen name="view_40dp">40dp</dimen>
+    <dimen name="view_42dp">42dp</dimen>
     <dimen name="view_44dp">44dp</dimen>
     <dimen name="view_46dp">46dp</dimen>
     <dimen name="view_48dp">48dp</dimen>
