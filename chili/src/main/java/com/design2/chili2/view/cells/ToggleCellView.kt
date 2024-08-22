@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.widget.CompoundButton
-import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.SwitchCompat
 import com.design2.chili2.R
@@ -86,13 +85,6 @@ class ToggleCellView @JvmOverloads constructor(
         switch?.setTrackResource(drawable)
     }
 
-    fun setSwitchSize(@DimenRes heightRes: Int, @DimenRes widthRes: Int) {
-        switch?.apply {
-            layoutParams.height = resources.getDimensionPixelSize(heightRes)
-            layoutParams.width = resources.getDimensionPixelSize(widthRes)
-        }
-    }
-
     override fun onStartShimmer() {
         super.onStartShimmer()
         switch?.isEnabled = false
@@ -103,13 +95,12 @@ class ToggleCellView @JvmOverloads constructor(
         switch?.isEnabled = true
     }
 
-    fun setSwitchNewStyle() {
-        setSwitchSize(
-            heightRes = R.dimen.view_24dp,
-            widthRes = R.dimen.view_42dp
-        )
+    fun setSwitchGreenStyle() {
         setTrackDrawable(R.drawable.chili_switch_track)
         setThumbDrawable(R.drawable.chili_switch_thumb)
-        setPadding(0, 0, resources.getDimensionPixelSize(R.dimen.padding_10dp), 0)
+    }
+
+    fun setSwitchEndPadding(paddingInDp : Int) {
+        switch?.setPadding(0, 0, paddingInDp, 0)
     }
 }

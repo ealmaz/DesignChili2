@@ -736,24 +736,18 @@
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
-        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
-            style="@style/ShadowLayoutStyle"
+        <com.design2.chili2.view.cells.ToggleCellView
+            android:id="@+id/new_toggle_cell_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_16dp">
-
-            <com.design2.chili2.view.cells.ToggleCellView
-                android:id="@+id/new_toggle_cell_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/chili_ic_success"
-                app:cellIconSize="small"
-                android:theme="@style/ThemeOverlay.ChiliNewSwitchBoxToggleTheme"
-                app:isDividerVisible="false"
-                app:roundedCornerMode="single"
-                app:title="Интернет-платежи" />
-
-        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+            android:icon="@drawable/chili_ic_success"
+            app:cellIconSize="small"
+            app:cellBackground="@drawable/background_with_radius"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:theme="@style/ThemeOverlay.ChiliNewSwitchBoxToggleTheme"
+            app:isDividerVisible="false"
+            app:roundedCornerMode="single"
+            app:title="ToggleCellView with new style" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -13,6 +13,7 @@ import com.design2.app.MainActivity
 import com.design2.app.adapter.EditableCellViewsAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentCellBinding
+import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.container.shadow_layout.model.ShadowType
@@ -132,7 +133,8 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         vb.aicvHalykNoCommission.setSubtitleBackground(kg.devcats.chili3.R.drawable.bg_subtitle_background_rounded)
 
         vb.newToggleCellView.apply {
-            setSwitchNewStyle()
+            setSwitchGreenStyle()
+            setSwitchEndPadding(10.dp)
         }
     }
 
