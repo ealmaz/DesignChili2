@@ -18,7 +18,7 @@ class ChiliSliderView @JvmOverloads constructor(
     private lateinit var vb: ChiliViewSliderBinding
 
     private var sliderValueFrom: Int = 0
-    private var sliderValueTo: Int = Int.MAX_VALUE
+    private var sliderValueTo: Int = 0
     private var sliderStep: Int = 1
 
     private var displayValueFormatter: ((Int) -> CharSequence) = { it.toString() }
@@ -103,7 +103,7 @@ class ChiliSliderView @JvmOverloads constructor(
 
     private fun applySettings() = with(vb.sliderChoosePeriod) {
         if (sliderValueTo <= sliderValueFrom) {
-            valueTo = sliderValueFrom.toFloat()
+            if (sliderValueFrom > 0) valueTo = sliderValueFrom.toFloat()
             isEnabled = false
         } else {
             isEnabled = true

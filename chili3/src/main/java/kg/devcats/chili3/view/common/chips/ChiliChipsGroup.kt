@@ -126,6 +126,9 @@ class ChiliChipsGroup @JvmOverloads constructor(
     }
 
     fun setSelectedItem(id: Any) {
+        val selectedVH = chipsViewHolders.find { it.id == id } ?: return
+        val isSelected = selectedVH.isSelected
+        if (isSelected) return
         vb.llRoot.findViewWithTag<View>(id)?.let {
             handleClick(it)
         }
