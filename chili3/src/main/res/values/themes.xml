@@ -251,6 +251,9 @@
         <item name="ChiliInfoBlockViewTextColorWarning">@color/c_806330</item>
         <item name="ChiliInfoBlockViewTextColorError">@color/c_AE2A47</item>
 
+        <!-- StoriesCardView -->
+        <item name="ChiliStrokeColorBgViewedStories">@color/c_c8c8c8</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3" />

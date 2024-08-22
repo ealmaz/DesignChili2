@@ -217,4 +217,7 @@
     <attr name="ChiliInfoBlockViewContentColorWarning" format="color"/>
     <attr name="ChiliInfoBlockViewContentColorError" format="color"/>
 
+    <!-- StoriesCardView -->
+    <attr name="ChiliStrokeColorBgViewedStories" format="color"/>
+
 </resources>
