@@ -187,8 +187,8 @@ class CardCellView @JvmOverloads constructor(
         vb.ivIcon.setImageDrawable(icon)
     }
 
-    fun setIcon(url: String) {
-        vb.ivIcon.setImageByUrl(url)
+    fun setIcon(url: String, placeHolderDrawable: Drawable? = null) {
+        vb.ivIcon.setImageByUrl(url, placeHolderDrawable)
     }
 
     fun setIcon(@DrawableRes resId: Int) {
