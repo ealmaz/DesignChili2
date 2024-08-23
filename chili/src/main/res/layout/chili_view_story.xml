@@ -20,6 +20,7 @@
         app:shutter_background_color="@android:color/transparent"
         app:surface_type="texture_view"
         app:use_controller="false"
+        app:resize_mode="zoom"
         android:visibility="gone"/>
 
     <com.airbnb.lottie.LottieAnimationView
