@@ -244,7 +244,10 @@
         <item name="ChiliCategoryCardViewIconBottomMargin">@dimen/padding_0dp</item>
         <item name="ChiliCategoryCardViewIconStartMargin">@dimen/padding_12dp</item>
         <item name="ChiliCategoryCardViewIconEndMargin">@dimen/padding_12dp</item>
+        <item name="ChiliCategoryCardViewSubtitleEndMargin">@dimen/padding_12dp</item>
         <item name="ChiliCategoryCardViewIconSize">@dimen/view_24dp</item>
+        <item name="ChiliCategoryCardViewIconHeight">@dimen/view_24dp</item>
+        <item name="ChiliCategoryCardViewIconWidth">@dimen/view_36dp</item>
 
         <!-- PaymentCardView -->
         <item name="ChiliPaymentCardViewLabelTopMargin">@dimen/padding_8dp</item>

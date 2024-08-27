@@ -7,10 +7,14 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCardCategoryBinding
+import com.design2.chili2.extensions.isVisible
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.visible
 
 class CategoryCardView @JvmOverloads constructor(
     context: Context,
@@ -37,6 +41,9 @@ class CategoryCardView @JvmOverloads constructor(
         setTitle(getText(R.styleable.CategoryCardView_title))
         getResourceId(R.styleable.CategoryCardView_titleTextAppearance, -1)
             .takeIf { it != -1 }?.let { setTitleTextAppearance(it) }
+        setSubtitle(getText(R.styleable.CategoryCardView_subtitle))
+        getResourceId(R.styleable.CategoryCardView_subtitleTextAppearance, -1)
+            .takeIf { it != -1 }?.let { setSubtitleTextAppearance(it) }
         getResourceId(R.styleable.CategoryCardView_icon, -1)
             .takeIf { it != -1 }?.let { setIcon(it) }
     }
@@ -59,6 +66,24 @@ class CategoryCardView @JvmOverloads constructor(
         vb.tvLabel.setTextAppearance(resId)
     }
 
+    fun setSubtitle(charSequence: CharSequence?) {
+        with(vb.tvSubtitle){
+            isVisible = !charSequence.isNullOrEmpty()
+            text = charSequence
+        }
+    }
+
+    fun setSubtitle(resId: Int) {
+        with(vb.tvSubtitle){
+            visible()
+            setText(resId)
+        }
+    }
+
+    fun setSubtitleTextAppearance(resId: Int) {
+        vb.tvSubtitle.setTextAppearance(resId)
+    }
+
     fun setIcon(resId: Int) {
         vb.ivIcon.setImageResource(resId)
     }
@@ -69,6 +94,14 @@ class CategoryCardView @JvmOverloads constructor(
 
     fun setIcon(drawable: Drawable) {
         vb.ivIcon.setImageDrawable(drawable)
+    }
+
+    fun setScaleType(scaleType: Int) {
+        vb.ivIcon.scaleType = ImageView.ScaleType.values()[scaleType]
+    }
+
+    fun setAdjustViewBounds(isAdjusted: Boolean) {
+        vb.ivIcon.adjustViewBounds = isAdjusted
     }
 
     fun setGravity(gravity: Int){

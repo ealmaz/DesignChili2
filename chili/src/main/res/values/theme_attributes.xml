@@ -66,6 +66,10 @@
     <attr name="ChiliCategoryCardViewIconStartMargin" format="dimension"/>
     <attr name="ChiliCategoryCardViewIconEndMargin" format="dimension"/>
     <attr name="ChiliCategoryCardViewIconSize" format="dimension"/>
+    <attr name="ChiliCategoryCardViewIconHeight" format="dimension"/>
+    <attr name="ChiliCategoryCardViewIconWidth" format="dimension"/>
+    <attr name="ChiliCategoryCardViewSubtitleEndMargin" format="dimension"/>
+
 
     <!-- PaymentCardView -->
     <attr name="ChiliPaymentCardViewLabelTopMargin" format="dimension"/>

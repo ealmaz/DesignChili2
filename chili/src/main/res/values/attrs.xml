@@ -402,8 +402,10 @@
 
     <declare-styleable name="CategoryCardView">
         <attr name="title"/>
+        <attr name="subtitle"/>
         <attr name="icon"/>
         <attr name="titleTextAppearance"/>
+        <attr name="subtitleTextAppearance"/>
     </declare-styleable>
 
     <declare-styleable name="PaymentCardView">
