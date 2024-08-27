@@ -107,6 +107,14 @@ class InfoCellView @JvmOverloads constructor(
         vb.tvTitle.text = text
     }
 
+    fun setTitle(charSequence: CharSequence) {
+        vb.tvTitle.text = charSequence
+    }
+
+    fun setSubtitle(charSequence: CharSequence) {
+        vb.tvSubtitle.text = charSequence
+    }
+
     fun setSubtitle(text: String) {
         vb.tvSubtitle.text = text
     }
