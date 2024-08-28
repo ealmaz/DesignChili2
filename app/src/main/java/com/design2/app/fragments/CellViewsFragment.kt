@@ -103,8 +103,8 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         Handler(Looper.getMainLooper()).postDelayed({ vb.cardcell2.stopShimmering(false) }, 2000)
         vb.cardcell4.apply {
             setIcon(com.design2.app.R.drawable.ic_card_default)
-            setTitle("Test Title")
-            setSubtitle("Test Subtitle")
+            setTitle("Банковский счет")
+            setSubtitle("В блоке")
             val text = "1212 <u>c</u>".parseAsHtml()
             setIsBlocked(true)
             setAdditionalText(text)

@@ -19,6 +19,7 @@ import kg.devcats.chili3.R
 import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
 import kg.devcats.chili3.databinding.ChiliViewCardCellBinding
+import kg.devcats.chili3.extensions.getColorFromAttr
 import kg.devcats.chili3.extensions.setBoldTextWeight
 import kg.devcats.chili3.extensions.setNormalTextWeight
 import kg.devcats.chili3.extensions.setSurfaceClick
@@ -271,13 +272,14 @@ class CardCellView @JvmOverloads constructor(
     }
 
     fun setIsBlocked(
-        isBlocked: Boolean, alpha: Float = 0.4f, blockingIcon: Int = R.drawable.chili_ic_lock
+        isBlocked: Boolean, alpha: Float = 0.4f, blockingIcon: Int = R.drawable.chili_ic_lock,
+        errorTextColor: Int = context.getColorFromAttr(com.design2.chili2.R.attr.ChiliErrorTextColor)
     ) {
         with(vb) {
             val alphaValue = if (isBlocked) alpha else 1f
 
             tvTitle.alpha = alphaValue
-            tvSubtitle.alpha = alphaValue
+            tvSubtitle.setTextColor(errorTextColor)
             tvAdditionalText.alpha = alphaValue
             ivStar.alpha = alphaValue
             ivChevron.alpha = alphaValue
@@ -290,7 +292,7 @@ class CardCellView @JvmOverloads constructor(
     }
 
     fun setIsUniqueStated(
-        isUniqueStated: Boolean, color: Int = resources.getColor(com.design2.chili2.R.color.folly_1)
+        isUniqueStated: Boolean, color: Int = context.getColorFromAttr(com.design2.chili2.R.attr.ChiliErrorTextColor)
     ) {
         with(vb) {
             if (isUniqueStated) {
