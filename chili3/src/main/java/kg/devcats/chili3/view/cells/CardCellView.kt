@@ -279,7 +279,7 @@ class CardCellView @JvmOverloads constructor(
             val alphaValue = if (isBlocked) alpha else 1f
 
             tvTitle.alpha = alphaValue
-            tvSubtitle.setTextColor(errorTextColor)
+            if (isBlocked) tvSubtitle.setTextColor(errorTextColor)
             tvAdditionalText.alpha = alphaValue
             ivStar.alpha = alphaValue
             ivChevron.alpha = alphaValue
