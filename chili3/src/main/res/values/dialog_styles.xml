@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Chili.AlertDialogWithMargin" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/chili_bg_dialog_with_margin</item>
+        <item name="android:windowTitleStyle">@style/Chili.H7.Primary.Bold</item>
+        <item name="android:textAppearance">@style/Chili.H8.Primary</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/Chili.AlertDialog.ButtonTextStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/Chili.AlertDialog.ButtonTextStyle</item>
+    </style>
+
+</resources>
