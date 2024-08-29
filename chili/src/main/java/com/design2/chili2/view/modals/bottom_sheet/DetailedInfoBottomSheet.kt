@@ -13,6 +13,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBottomSheetDetailedInfoBinding
+import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.isVisible
 import com.design2.chili2.extensions.setBottomMargin
 import com.design2.chili2.extensions.setOnSingleClickListener
@@ -144,6 +145,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         if(!btnPrimary.isVisible() && !btnSecondary.isVisible()) {
             tvText.setBottomMargin(0)
         }
+        if (!tvText.isVisible()) tvTitle.setBottomMargin(24.dp)
     }
 
     private fun setPrimaryButton(@StringRes resId: Int, action: (DetailedInfoBottomSheet.() -> Unit)? = null) {
