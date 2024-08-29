@@ -9,7 +9,7 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
-import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setOnSingleClickListener
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewDividerBinding
@@ -112,24 +112,15 @@ class DividerView @JvmOverloads constructor(
     }
 
     fun setEndIcon(icon: Drawable?) {
-        vb.ivEndIcon.apply {
-            setImageDrawable(icon)
-            isVisible = icon != null
-        }
+        vb.ivEndIcon.setImageOrHide(icon)
     }
 
     fun setEndIcon(url: String) {
-        vb.ivEndIcon.apply {
-            setImageByUrl(url)
-            isVisible = url.isNotEmpty()
-        }
+        vb.ivEndIcon.setImageOrHide(url)
     }
 
     fun setEndIcon(@DrawableRes resId: Int) {
-        vb.ivEndIcon.apply {
-            setImageResource(resId)
-            isVisible = true
-        }
+        vb.ivEndIcon.setImageOrHide(resId)
     }
 
     fun setIsNotificationVisible(isNotificationVisible: Boolean) {
