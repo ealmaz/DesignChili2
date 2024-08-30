@@ -67,7 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:scaleType="fitCenter"
-            android:visibility="visible" />
+            android:layout_marginEnd="@dimen/padding_6dp"
+            />
 
         <TextView
             android:id="@+id/tv_action"
@@ -76,7 +77,6 @@
             android:layout_gravity="center_vertical"
             android:maxLines="1"
             android:textAppearance="@style/Chili.H16.Action.Bold"
-            android:visibility="visible"
             tools:text="Action" />
 
 

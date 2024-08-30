@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setOnSingleClickListener
+import com.design2.chili2.extensions.setTextOrHide
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewDividerBinding
 
@@ -68,47 +69,27 @@ class DividerView @JvmOverloads constructor(
     }
 
     fun setTitle(title: String?) {
-        vb.tvTitle.apply {
-            text = title
-            isVisible = !title.isNullOrEmpty()
-        }
+        vb.tvTitle.setTextOrHide(title)
     }
 
     fun setTitle(@StringRes resId: Int) {
-        vb.tvTitle.apply {
-            setText(resId)
-            isVisible = true
-        }
+        vb.tvTitle.setTextOrHide(resId)
     }
 
     fun setSubtitle(subtitle: String?) {
-        vb.tvSubtitle.apply {
-            text = subtitle
-            isVisible = !subtitle.isNullOrEmpty()
-        }
-
+        vb.tvSubtitle.setTextOrHide(subtitle)
     }
 
     fun setSubtitle(@StringRes resId: Int) {
-        vb.tvSubtitle.apply {
-            setText(resId)
-            isVisible = true
-        }
-
+        vb.tvSubtitle.setTextOrHide(resId)
     }
 
     fun setActionText(value: String?) {
-        vb.tvAction.apply {
-            text = value
-            isVisible = !value.isNullOrEmpty()
-        }
+        vb.tvAction.setTextOrHide(value)
     }
 
     fun setActionText(@StringRes resId: Int) {
-        vb.tvAction.apply {
-            setText(resId)
-            isVisible = true
-        }
+        vb.tvAction.setTextOrHide(resId)
     }
 
     fun setEndIcon(icon: Drawable?) {
