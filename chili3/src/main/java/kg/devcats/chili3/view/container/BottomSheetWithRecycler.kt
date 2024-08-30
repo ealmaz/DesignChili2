@@ -5,6 +5,7 @@ import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
@@ -36,6 +37,8 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
     private var subtitleResId: Int? = null
     @StyleRes
     private var subtitleTextAppearance : Int? = null
+    @DimenRes
+    private var bottomPadding: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,6 +67,7 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
         subtitleResId?.let { setSubtitle(it) }
         titleTextAppearance?.let { vb.tvTitle.setTextAppearance(it) }
         subtitleTextAppearance?.let { vb.tvSubtitle.setTextAppearance(it) }
+        bottomPadding?.let { setBottomPadding(it) }
     }
 
     private fun setTitle(@StringRes resId: Int) {
@@ -108,6 +112,10 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
         }
     }
 
+    private fun setBottomPadding(@DimenRes padding: Int) {
+        vb.recyclerView.setPadding(0, 0, 0, resources.getDimensionPixelSize(padding))
+    }
+
     class Builder {
 
         var adapter: RecyclerView.Adapter<*>? = null
@@ -124,6 +132,8 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
         private var subtitleResId: Int? = null
         @StyleRes
         private var subtitleTextAppearance : Int? = null
+        @DimenRes
+        private var bottomPadding: Int? = null
 
         fun setTitle(title: String): Builder {
             this.title = title
@@ -170,6 +180,11 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
             return this
         }
 
+        fun setBottomPadding(@DimenRes padding: Int): Builder {
+            this.bottomPadding = padding
+            return this
+        }
+
         fun build(): BottomSheetWithRecycler {
             return BottomSheetWithRecycler().apply {
                 this.adapter = this@Builder.adapter
@@ -182,6 +197,7 @@ class BottomSheetWithRecycler private constructor() : BaseBottomSheetDialogFragm
                 this.subtitleResId = this@Builder.subtitleResId
                 this.subtitleTextAppearance = this@Builder.subtitleTextAppearance
                 this.adapter = this@Builder.adapter
+                this.bottomPadding = this@Builder.bottomPadding
             }
         }
     }
