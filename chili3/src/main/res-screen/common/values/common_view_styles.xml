@@ -23,4 +23,8 @@
         <item name="ChiliSwitchBoxCheckedToggleColor">@color/c_2CBB42</item>
         <item name="ChiliSwitchBoxUncheckedToggleColor">@color/gray_1</item>
     </style>
+
+    <style name="ThemeOverlay.ChiliCardCellShimmerCornerRadiusTheme" parent="ThemeOverlay">
+        <item name="ChiliShimmerBoneRadius">@dimen/radius_6dp</item>
+    </style>
 </resources>

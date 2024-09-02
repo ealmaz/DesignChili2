@@ -28,8 +28,8 @@ import kg.devcats.chili3.extensions.visible
 class CardCellView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = com.design2.chili2.R.attr.cellViewDefaultStyle,
-    defStyleRes: Int = com.design2.chili2.R.style.Chili_CellViewStyle_BaseCellViewStyle
+    defStyleAttr: Int = com.design2.chili2.R.attr.cardCellViewDefaultStyle,
+    defStyleRes: Int = com.design2.chili2.R.style.Chili_CellViewStyle_CardCellView
 ) : ConstraintLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
     private lateinit var vb: ChiliViewCardCellBinding

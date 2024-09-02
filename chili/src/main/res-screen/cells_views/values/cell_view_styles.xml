@@ -46,4 +46,6 @@
 
     <style name="Chili.CellViewStyle.PackageLeftoverHorizontalCellView"/>
 
+    <style name="Chili.CellViewStyle.CardCellView"/>
+
 </resources>

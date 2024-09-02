@@ -163,6 +163,7 @@
                 android:layout_width="@dimen/view_60dp"
                 android:layout_height="@dimen/view_40dp"
                 android:background="@drawable/chili_bg_shimmer"
+                android:theme="@style/ThemeOverlay.ChiliCardCellShimmerCornerRadiusTheme"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

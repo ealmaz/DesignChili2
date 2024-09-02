@@ -24,6 +24,7 @@
         <attr name="detailCellViewDefaultStyle" format="reference"/>
         <attr name="additionalIconCellViewDefaultStyle" format="reference"/>
         <attr name="statusMarkerCellViewDefaultStyle" format="reference"/>
+        <attr name="cardCellViewDefaultStyle" format="reference"/>
 
         <!-- Common -->
         <attr name="toolbarDefaultStyle" format="reference"/>
