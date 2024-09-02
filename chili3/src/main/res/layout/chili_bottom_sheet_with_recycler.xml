@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/padding_16dp"
-        android:layout_marginTop="@dimen/padding_12dp"
+        android:layout_marginTop="@dimen/padding_25dp"
         android:visibility="gone"
         android:textAppearance="@style/Chili.H20.Primary.700"
         tools:text="Выберите счёт по умолчанию" />
