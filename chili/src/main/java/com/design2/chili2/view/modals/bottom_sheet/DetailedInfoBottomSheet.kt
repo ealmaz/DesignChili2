@@ -11,6 +11,8 @@ import android.widget.LinearLayout
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
+import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBottomSheetDetailedInfoBinding
 import com.design2.chili2.extensions.dp
@@ -50,6 +52,10 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     override var hasCloseIcon: Boolean = true
     override var closeIconView: View? = null
     override var topDrawableVisible = true
+    override var innerTopDrawableVisible = true
+
+    private var titleTextAppearance: Int? = null
+    private var messageTextAppearance: Int? = null
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
         vb = ChiliViewBottomSheetDetailedInfoBinding.inflate(inflater, container, false).apply {
@@ -66,18 +72,27 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
     private fun setupViews() {
         title?.let {
-            vb.tvTitle.visible()
-            vb.tvTitle.text = it
+            vb.tvTitle.apply {
+                visible()
+                text = it
+                titleTextAppearance?.let { setTextAppearance(it) }
+            }
         }
 
         titleSpanned?.let {
-            vb.tvTitle.visible()
-            vb.tvTitle.text = it
+            vb.tvTitle.apply {
+                visible()
+                text = it
+                titleTextAppearance?.let { setTextAppearance(it) }
+            }
         }
 
         titleResId?.let {
-            vb.tvTitle.visible()
-            vb.tvTitle.setText(it)
+            vb.tvTitle.apply {
+                visible()
+                setText(it)
+                titleTextAppearance?.let { setTextAppearance(it) }
+            }
         }
 
         titleTextCentered?.let {
@@ -110,6 +125,8 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         secondaryButton?.let { setSecondaryButton(it.first, it.second) }
         secondaryButtonRes?.let { setSecondaryButton(it.first, it.second) }
 
+        setIsInnerTopDrawableVisible(innerTopDrawableVisible)
+
         updateMessageMargin()
     }
 
@@ -124,6 +141,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         vb.tvText.apply {
             visible()
             setText(resId)
+            messageTextAppearance?.let { setTextAppearance(it) }
         }
     }
 
@@ -131,6 +149,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         vb.tvText.apply {
             visible()
             text = message
+            messageTextAppearance?.let { setTextAppearance(it) }
         }
     }
 
@@ -138,6 +157,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         vb.tvText.apply {
             text = spanned
             visible()
+            messageTextAppearance?.let { setTextAppearance(it) }
         }
     }
 
@@ -173,6 +193,11 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         }
     }
 
+
+    private fun setIsInnerTopDrawableVisible(isVisible: Boolean = false) {
+        vb.ivTopDrawable.isVisible = isVisible
+    }
+
     private fun setSecondaryButton(text: String, action: (DetailedInfoBottomSheet.() -> Unit)? = null) {
         vb.btnSecondary.apply {
             visible()
@@ -195,7 +220,8 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         private var titleSpanned: Spanned? = null
         private var titleResId: Int? = null
 
-        private var isTopDrawableVisible: Boolean = true
+        private var isTopDrawableVisible: Boolean = false
+        private var isInnerTopDrawableVisible: Boolean = true
 
         private var iconSizeDimenRes: Int? = null
         private var iconRes: Int? = null
@@ -214,6 +240,9 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         private var isDraggable: Boolean = true
 
         private var onDismissCallback: (() -> Unit)? = null
+
+        private var titleTextAppearance: Int? = null
+        private var messageTextAppearance: Int? = null
 
         fun setMessage(text: String): Builder {
             this.text = text
@@ -305,8 +334,23 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
             return this
         }
 
+        fun setIsInnerTopDrawableVisible(isVisible: Boolean): Builder {
+            this.isInnerTopDrawableVisible = isVisible
+            return this
+        }
+
         fun setOnDismissCallback(callback: () -> Unit): Builder {
             this.onDismissCallback = callback
+            return this
+        }
+
+        fun setTitleTextAppearance(@StyleRes textAppearance: Int): Builder {
+            this.titleTextAppearance = textAppearance
+            return this
+        }
+
+        fun setMessageTextAppearance(@StyleRes textAppearance: Int): Builder {
+            this.messageTextAppearance = textAppearance
             return this
         }
 
@@ -328,9 +372,12 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
                 this.isDraggable = this@Builder.isDraggable
                 this.hasCloseIcon = this@Builder.hasCloseIcon
                 this.topDrawableVisible = this@Builder.isTopDrawableVisible
+                this.innerTopDrawableVisible = this@Builder.isInnerTopDrawableVisible
                 this.textCentered = this@Builder.textCentered
                 this.titleTextCentered = this@Builder.titleTextCentered
                 this.onDismissCallback = this@Builder.onDismissCallback
+                this.titleTextAppearance = this@Builder.titleTextAppearance
+                this.messageTextAppearance = this@Builder.messageTextAppearance
             }
         }
     }
