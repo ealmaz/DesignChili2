@@ -22,8 +22,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/padding_8dp"
                 android:background="@drawable/ic_bottom_sheet_top_drawable"
-                android:backgroundTint="?attr/ChiliBottomSheetTopDrawableColor"
-                android:visibility="visible"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

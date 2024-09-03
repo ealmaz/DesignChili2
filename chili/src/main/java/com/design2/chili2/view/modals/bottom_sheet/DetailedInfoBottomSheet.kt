@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -56,6 +57,9 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
     private var titleTextAppearance: Int? = null
     private var messageTextAppearance: Int? = null
+
+    private var topDrawableBackgroundTint: Int? = null
+    private var topDrawableBackgroundRes: Int? = null
 
     override fun createContentView(inflater: LayoutInflater, container: ViewGroup?): View {
         vb = ChiliViewBottomSheetDetailedInfoBinding.inflate(inflater, container, false).apply {
@@ -126,6 +130,14 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         secondaryButtonRes?.let { setSecondaryButton(it.first, it.second) }
 
         setIsInnerTopDrawableVisible(innerTopDrawableVisible)
+
+        topDrawableBackgroundTint?.let {
+            vb.ivTopDrawable.backgroundTintList = context?.getColorStateList(it)
+        }
+
+        topDrawableBackgroundRes?.let {
+            vb.ivTopDrawable.setBackgroundResource(it)
+        }
 
         updateMessageMargin()
     }
@@ -244,6 +256,9 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         private var titleTextAppearance: Int? = null
         private var messageTextAppearance: Int? = null
 
+        private var topDrawableBackgroundTint: Int? = null
+        private var topDrawableBackgroundRes: Int? = null
+
         fun setMessage(text: String): Builder {
             this.text = text
             return this
@@ -354,6 +369,16 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
             return this
         }
 
+        fun setTopDrawableBackgroundTint(@ColorRes colorRes: Int): Builder {
+            this.topDrawableBackgroundTint = colorRes
+            return this
+        }
+
+        fun setTopDrawableBackground(@DrawableRes backgroundRes: Int): Builder {
+            this.topDrawableBackgroundRes = backgroundRes
+            return this
+        }
+
         fun build(): DetailedInfoBottomSheet {
             return DetailedInfoBottomSheet().apply {
                 this.text = this@Builder.text
@@ -378,6 +403,8 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
                 this.onDismissCallback = this@Builder.onDismissCallback
                 this.titleTextAppearance = this@Builder.titleTextAppearance
                 this.messageTextAppearance = this@Builder.messageTextAppearance
+                this.topDrawableBackgroundTint = this@Builder.topDrawableBackgroundTint
+                this.topDrawableBackgroundRes = this@Builder.topDrawableBackgroundRes
             }
         }
     }

@@ -153,6 +153,7 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
             DetailedInfoBottomSheet.Builder()
                 .setIcon(R.drawable.ic_cat)
                 .setTextCentered(true)
+                .setTopDrawableBackgroundTint(com.design2.chili2.R.color.black_1)
                 .setIconSizeDimenRes(com.design2.chili2.R.dimen.view_72dp)
                 .setMessage("Текстовый блок, который содержит много текста и не может уместиться в четыре строки (как в маленьком Bottom-sheet).\n\n" +
                         "Возможно имеет какую-то инструкцию или подробное описание функционал. Плюс тут есть картиночка. \n\n" +
