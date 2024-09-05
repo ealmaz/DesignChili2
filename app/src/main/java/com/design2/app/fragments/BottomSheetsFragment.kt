@@ -159,6 +159,7 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                         "Возможно имеет какую-то инструкцию или подробное описание функционал. Плюс тут есть картиночка. \n\n" +
                         "Высота зависит от контента.")
                 .setIsDraggable(false)
+                .setPrimaryButton("Ясно" to {Toast.makeText(context, "Ясно", Toast.LENGTH_SHORT).show()})
                 .setSecondaryButton("Понятно" to {Toast.makeText(context, "Понятно", Toast.LENGTH_SHORT).show()})
                 .build()
                 .show(childFragmentManager)
