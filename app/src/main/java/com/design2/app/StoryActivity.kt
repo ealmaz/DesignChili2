@@ -28,6 +28,7 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
         ),
         ChilliStoryModel(mediaUrl = "https://m.media-amazon.com/images/I/51U9SFk6SJL.jpg", buttonText = "Go", buttonType = ChilliButtonType.SECONDARY),
         ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/aba92fda-36fb-4396-a01e-47556d87eaef", storyType = ChilliStoryType.LOTTIE),
         ChilliStoryModel(title = "Bla bla bla bla", mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4", storyType = ChilliStoryType.VIDEO)
     ))
 
