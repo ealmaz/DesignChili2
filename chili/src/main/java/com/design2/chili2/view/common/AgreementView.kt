@@ -4,6 +4,9 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.*
+import androidx.annotation.ColorRes
+import androidx.annotation.StyleRes
+import androidx.core.content.ContextCompat
 import androidx.core.text.parseAsHtml
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewAgreementBinding
@@ -46,6 +49,13 @@ class AgreementView @JvmOverloads constructor(
 
     fun setChecked(isChecked: Boolean) {
         vb.cbAgreement.isChecked = isChecked
+    }
+
+    fun setTextAppearance(@StyleRes style:Int){
+        vb.tvTitle.setTextAppearance(style)
+    }
+    fun setTextColorLink(@ColorRes color:Int){
+        vb.tvTitle.setLinkTextColor(ContextCompat.getColor(context, color))
     }
 
     fun isCheckboxChecked(): Boolean = vb.cbAgreement.isChecked
