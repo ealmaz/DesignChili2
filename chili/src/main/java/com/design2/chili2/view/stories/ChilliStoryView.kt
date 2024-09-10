@@ -163,6 +163,7 @@ class StoryView : ConstraintLayout {
         with(binding) {
             storyImageView.gone()
             storyVideoView.gone()
+            exoPlayer?.stop()
             storyLottieView.gone()
         }
 

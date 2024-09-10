@@ -50,7 +50,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'io.coil-kt:coil:2.1.0'
     api 'com.facebook.shimmer:shimmer:0.5.0'
-    implementation 'com.airbnb.android:lottie:6.5.0'
+    implementation 'com.airbnb.android:lottie:6.4.0'
     implementation 'androidx.media3:media3-exoplayer:1.1.1'
     implementation 'androidx.media3:media3-ui:1.1.1'
     implementation 'androidx.media3:media3-extractor:1.1.1'
