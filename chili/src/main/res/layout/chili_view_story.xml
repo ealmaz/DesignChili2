@@ -10,7 +10,6 @@
         android:id="@+id/story_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:visibility="gone"/>
 
     <androidx.media3.ui.PlayerView
@@ -20,14 +19,12 @@
         app:shutter_background_color="@android:color/transparent"
         app:surface_type="texture_view"
         app:use_controller="false"
-        app:resize_mode="zoom"
         android:visibility="gone"/>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/story_lottie_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

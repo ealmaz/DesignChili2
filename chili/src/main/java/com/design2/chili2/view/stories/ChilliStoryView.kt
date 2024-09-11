@@ -23,11 +23,13 @@ import com.airbnb.lottie.LottieDrawable
 import com.bumptech.glide.request.RequestOptions
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoryBinding
+import com.design2.chili2.extensions.applyCenterCrop
+import com.design2.chili2.extensions.applyFitCenter
 import com.design2.chili2.extensions.gone
+import com.design2.chili2.extensions.horizontalFitBottom
 import com.design2.chili2.extensions.setImageByUrlWithListener
 import com.design2.chili2.extensions.visible
 import kotlin.collections.ArrayList
-
 
 class StoryView : ConstraintLayout {
     private lateinit var binding: ChiliViewStoryBinding
@@ -86,6 +88,7 @@ class StoryView : ConstraintLayout {
     //region playing content
     @SuppressLint("ClickableViewAccessibility")
     private fun playNext(storyModel: ChilliStoryModel) {
+//        setupScaleType(storyModel.scaleType)
         onMoveListener?.onStart(currentStoryIndex)
         resetTimer()
         timeRemaining = 0
@@ -309,13 +312,13 @@ class StoryView : ConstraintLayout {
             progressBars.add(progressBar)
             binding.progressBarsContainer.addView(progressBar)
         }
-        invalidate()
         binding.progressBarsContainer.visible()
 
         if (this.stories.isNotEmpty()) {
             onMoveListener?.onStart(currentStoryIndex)
             playNext(this.stories[currentStoryIndex])
         }
+        invalidate()
     }
 
 
@@ -343,6 +346,20 @@ class StoryView : ConstraintLayout {
         resetTimer()
         onMoveListener?.onClose()
         onFinishListener?.onStoryClose()
+    }
+
+    private fun setupScaleType(scaleType: StoryScaleType? = StoryScaleType.CENTER_CROP) {
+        with(binding) {
+            if (scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) {
+                storyImageView.horizontalFitBottom()
+                storyLottieView.horizontalFitBottom()
+                storyVideoView.horizontalFitBottom()
+            } else {
+                storyImageView.applyCenterCrop()
+                storyLottieView.applyCenterCrop()
+                storyVideoView.applyFitCenter()
+            }
+        }
     }
 
     //region timer
@@ -454,6 +471,11 @@ class StoryView : ConstraintLayout {
         timer?.cancel()
         timer = null
     }
+}
+
+enum class StoryScaleType {
+    BOTTOM_HORIZONTAL_CROP,
+    CENTER_CROP
 }
 
 interface StoryMoveListener {
