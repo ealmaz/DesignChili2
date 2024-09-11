@@ -8,19 +8,18 @@
     <CheckBox
         android:id="@+id/cb_agreement"
         style="@style/Chili.CheckBoxStyle"
-        android:layout_width="@dimen/view_48dp"
-        android:layout_height="@dimen/view_48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_12dp"
         android:layout_gravity="center_vertical"
         android:checked="true"
         android:minWidth="@dimen/padding_0dp"
-        android:minHeight="@dimen/padding_0dp"
-        android:scaleX="1.2"
-        android:scaleY="1.2" />
+        android:minHeight="@dimen/padding_0dp" />
 
     <ImageView
         android:id="@+id/iv_checked"
-        android:layout_width="@dimen/view_26dp"
-        android:layout_height="@dimen/view_26dp"
+        android:layout_width="@dimen/view_24dp"
+        android:layout_height="@dimen/view_24dp"
         android:layout_gravity="center_vertical"
         android:layout_marginEnd="@dimen/padding_16dp"
         android:src="@drawable/chili_ic_checkmark"
