@@ -16,6 +16,24 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
 
     private lateinit var binding: ActivityStoryBinding
 
+
+    private val storyBlock = ChilliStoryBlock(1, false, arrayListOf(
+        ChilliStoryModel(
+            mediaUrl = "https://devminio.o.kg/media-service/UserStory/221bbc7d-9c65-4d21-ab6f-de27afdca23c",
+            buttonText = "Go", buttonType = ChilliButtonType.ADDITIONAL
+        ),
+        ChilliStoryModel(
+            title = "What is Lorem Ipsum?",
+            description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            mediaUrl = "https://devminio.o.kg/media-service/UserStory/33bbbc34-50c5-4d7e-9204-e2bcae2a88bd"
+        ),
+        ChilliStoryModel(mediaUrl = "https://devminio.o.kg/media-service/UserStory/3a7279d1-6342-4f14-9496-8bd89b3afa66", buttonText = "Go", buttonType = ChilliButtonType.SECONDARY),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/af3a83a2-c869-4fdc-b729-6f705abb9c5f", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/11452c5d-9ee5-4cb9-9e52-6ec39d6acbaf", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/77c364b3-052e-4cdb-8a4b-c192544d9bf0", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(title = "Bla bla bla bla", mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4", storyType = ChilliStoryType.VIDEO)
+    ))
+
     private val storyBlock1 = ChilliStoryBlock(1, false, arrayListOf(
         ChilliStoryModel(
             mediaUrl = "https://static.wikia.nocookie.net/adventures-of-chris-and-tifa/images/c/c6/71FA6EC3-137C-4A43-87A0-10130B2AC0A4.jpg/revision/latest?cb=20210830075712",
@@ -74,7 +92,7 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
     }
 
     private fun setupViews() {
-        binding.storiesView.setupStories(listOf(storyBlock1, storyBlock2, storyBlock3, storyBlock4), this, this, this)
+        binding.storiesView.setupStories(listOf(storyBlock, storyBlock1, storyBlock2, storyBlock3, storyBlock4), this, this, this)
     }
 
     private fun finishWithAnimation() {

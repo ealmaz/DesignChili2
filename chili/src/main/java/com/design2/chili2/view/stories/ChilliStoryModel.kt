@@ -13,7 +13,8 @@ data class ChilliStoryModel(
     val titleTextColor: String? = null,
     val subtitleTextColor: String? = null,
     val buttonType: ChilliButtonType = ChilliButtonType.ADDITIONAL,
-    val buttonText: String? = null
+    val buttonText: String? = null,
+    val scaleType: StoryScaleType? = StoryScaleType.BOTTOM_HORIZONTAL_CROP
 ): Serializable
 
 data class ChilliStoryBlock(
