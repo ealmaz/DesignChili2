@@ -2,11 +2,9 @@ package com.design2.chili2.view.stories
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -15,7 +13,6 @@ import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoriesBinding
 import com.design2.chili2.view.stories.adapter.ChiliStoryPageTransformer
 import com.design2.chili2.view.stories.adapter.ChilliStoryPagerAdapter
-import kotlin.math.abs
 
 class ChilliStoriesView : ConstraintLayout {
     constructor(context: Context) : super(context) {
