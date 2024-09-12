@@ -40,7 +40,9 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.CustomViewTarget
 import com.bumptech.glide.request.target.Target
+import com.bumptech.glide.request.transition.Transition
 import com.design2.chili2.R
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.image.SquircleView
@@ -202,6 +204,37 @@ fun ImageView.setImageByUrlWithListener(imageUrl: String?, onSuccess: ((Drawable
     if (requestOptions != null) builder.apply(requestOptions)
     builder.into(this)
     return builder
+}
+
+fun ImageView.setDrawableFromUrlWithListeners(
+    imageUrl: String?,
+    requestOptions: RequestOptions? = null,
+    onSuccess: ((Drawable) -> Unit)?,
+    onError: () -> Unit
+) {
+    if (imageUrl.isNullOrEmpty()) {
+        onError.invoke()
+        return
+    }
+
+    Glide.with(this.context)
+        .load(imageUrl)
+        .apply { requestOptions?.let { apply(it) } }
+        .into(object : CustomViewTarget<ImageView, Drawable>(this) {
+            override fun onLoadFailed(errorDrawable: Drawable?) {
+                setImageDrawable(errorDrawable)
+                onError.invoke()
+            }
+
+            override fun onResourceCleared(placeholder: Drawable?) {
+                setImageDrawable(placeholder)
+            }
+
+            override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
+                onSuccess?.invoke(resource)
+                setImageDrawable(resource)
+            }
+        })
 }
 
 private fun getGlideOnLoadListener(onSuccess: ((Drawable) -> Unit)?, onError: ((GlideException?) -> Unit)?): RequestListener<Drawable>? {

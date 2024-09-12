@@ -25,9 +25,9 @@ import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoryBinding
 import com.design2.chili2.extensions.applyCenterCrop
 import com.design2.chili2.extensions.applyFitCenter
+import com.design2.chili2.extensions.setDrawableFromUrlWithListeners
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.horizontalFitBottom
-import com.design2.chili2.extensions.setImageByUrlWithListener
 import com.design2.chili2.extensions.visible
 import kotlin.collections.ArrayList
 
@@ -182,15 +182,17 @@ class StoryView : ConstraintLayout {
             progressCircular.visible()
             storyImageView.apply {
                 visible()
-                setImageByUrlWithListener(
+                setDrawableFromUrlWithListeners(
                     currentStory?.mediaUrl,
-                    {
+                    RequestOptions(),
+                    { drawable ->
                         progressCircular.gone()
-                        if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom(it)
+                        if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP)
+                            horizontalFitBottom(drawable)
                         else applyCenterCrop()
-                    },
-                    { progressCircular.gone() },
-                    RequestOptions()
+                    }, {
+                        progressCircular.gone()
+                    }
                 )
             }
         }
