@@ -31,7 +31,7 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
         ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/af3a83a2-c869-4fdc-b729-6f705abb9c5f", storyType = ChilliStoryType.LOTTIE),
         ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/11452c5d-9ee5-4cb9-9e52-6ec39d6acbaf", storyType = ChilliStoryType.LOTTIE),
         ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/77c364b3-052e-4cdb-8a4b-c192544d9bf0", storyType = ChilliStoryType.LOTTIE),
-        ChilliStoryModel(title = "Bla bla bla bla", mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4", storyType = ChilliStoryType.VIDEO)
+        ChilliStoryModel(title = "Bla bla bla bla", mediaUrl = "https://devminio.o.kg/media-service/UserStory/94bd241a-3603-4d36-956b-4f385a664d0f", storyType = ChilliStoryType.VIDEO)
     ))
 
     private val storyBlock1 = ChilliStoryBlock(1, false, arrayListOf(

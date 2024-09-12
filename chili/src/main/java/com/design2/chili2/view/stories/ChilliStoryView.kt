@@ -101,6 +101,7 @@ class StoryView : ConstraintLayout {
                     storyModel.titleTextColor?.let {
                         val titleColor = Color.parseColor(it)
                         setTextColor(titleColor)
+                        closeButton.setColorFilter(titleColor)
                     }
                 }
             } else storyTitleView.gone()
