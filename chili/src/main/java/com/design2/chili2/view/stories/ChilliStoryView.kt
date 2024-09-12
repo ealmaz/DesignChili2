@@ -180,12 +180,14 @@ class StoryView : ConstraintLayout {
         with(binding) {
             progressCircular.visible()
             storyImageView.apply {
-                if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom()
-                else applyCenterCrop()
                 visible()
                 setImageByUrlWithListener(
                     currentStory?.mediaUrl,
-                    { progressCircular.gone() },
+                    {
+                        progressCircular.gone()
+                        if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom(it)
+                        else applyCenterCrop()
+                    },
                     { progressCircular.gone() },
                     RequestOptions()
                 )
@@ -197,8 +199,6 @@ class StoryView : ConstraintLayout {
 
     private fun playLottieAnimation() {
         with(binding.storyLottieView) {
-            if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom()
-            else applyCenterCrop()
             binding.progressCircular.visible()
             visible()
             timer = getTimer()
@@ -221,6 +221,8 @@ class StoryView : ConstraintLayout {
             repeatCount = LottieDrawable.INFINITE
             setAnimationFromUrl(currentStory?.mediaUrl)
             addLottieOnCompositionLoadedListener {
+                if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom(it)
+                else applyCenterCrop()
                 binding.progressCircular.gone()
                 playAnimation()
             }
@@ -228,8 +230,6 @@ class StoryView : ConstraintLayout {
     }
 
     private fun playVideo() {
-        if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) binding.storyVideoView.horizontalFitBottom()
-        else binding.storyVideoView.applyFitCenter()
         initializePlayer()
         exoPlayer?.addListener(object : Player.Listener {
             override fun onPlaybackStateChanged(playbackState: Int) {
@@ -250,6 +250,8 @@ class StoryView : ConstraintLayout {
 
         currentStory?.mediaUrl?.let { videoUrl ->
             exoPlayer?.run {
+                if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) binding.storyVideoView.horizontalFitBottom(this)
+                else binding.storyVideoView.applyFitCenter()
                 setMediaItem(MediaItem.fromUri(videoUrl))
                 prepare()
                 playWhenReady = true

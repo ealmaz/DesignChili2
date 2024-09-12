@@ -5,7 +5,6 @@ import android.animation.StateListAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Matrix
-import android.graphics.RectF
 import android.graphics.drawable.Drawable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -14,7 +13,6 @@ import android.text.style.ClickableSpan
 import android.text.style.URLSpan
 import android.util.Log
 import android.util.TypedValue
-import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
@@ -30,11 +28,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.media3.common.Player
 import androidx.media3.ui.AspectRatioFrameLayout.RESIZE_MODE_ZOOM
-import androidx.media3.ui.AspectRatioFrameLayout.ResizeMode
 import androidx.media3.ui.PlayerView
 import coil.load
 import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieComposition
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.DataSource
@@ -395,8 +394,8 @@ fun View.applyForegroundFromTheme(context: Context, attrResId: Int) {
     }
 }
 
-fun ImageView.horizontalFitBottom() {
-    val drawable = drawable ?: return
+fun ImageView.horizontalFitBottom(imageDrawable: Drawable? = null) {
+    val drawable = imageDrawable ?: this.drawable ?: return
 
     val imageWidth = drawable.intrinsicWidth.toFloat()
     val imageHeight = drawable.intrinsicHeight.toFloat()
@@ -435,8 +434,8 @@ fun ImageView.applyCenterCrop() {
 }
 
 @SuppressLint("UnsafeOptInUsageError")
-fun PlayerView.horizontalFitBottom() {
-    val player = this.player ?: return
+fun PlayerView.horizontalFitBottom(videoPlayer: Player? = null) {
+    val player = videoPlayer ?: this.player ?: return
     val videoSize = player.videoSize ?: return
 
     val videoWidth = videoSize.width.toFloat()
@@ -468,8 +467,8 @@ fun PlayerView.applyFitCenter() {
     resizeMode = RESIZE_MODE_ZOOM
 }
 
-fun LottieAnimationView.horizontalFitBottom() {
-    val composition = composition ?: return
+fun LottieAnimationView.horizontalFitBottom(lottie: LottieComposition ?= null) {
+    val composition = lottie ?: composition ?: return
 
     val animationWidth = composition.bounds.width().toFloat()
     val animationHeight = composition.bounds.height().toFloat()
