@@ -88,7 +88,6 @@ class StoryView : ConstraintLayout {
     //region playing content
     @SuppressLint("ClickableViewAccessibility")
     private fun playNext(storyModel: ChilliStoryModel) {
-//        setupScaleType(storyModel.scaleType)
         onMoveListener?.onStart(currentStoryIndex)
         resetTimer()
         timeRemaining = 0
@@ -181,6 +180,8 @@ class StoryView : ConstraintLayout {
         with(binding) {
             progressCircular.visible()
             storyImageView.apply {
+                if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom()
+                else applyCenterCrop()
                 visible()
                 setImageByUrlWithListener(
                     currentStory?.mediaUrl,
@@ -196,6 +197,8 @@ class StoryView : ConstraintLayout {
 
     private fun playLottieAnimation() {
         with(binding.storyLottieView) {
+            if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom()
+            else applyCenterCrop()
             binding.progressCircular.visible()
             visible()
             timer = getTimer()
@@ -225,6 +228,8 @@ class StoryView : ConstraintLayout {
     }
 
     private fun playVideo() {
+        if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) binding.storyVideoView.horizontalFitBottom()
+        else binding.storyVideoView.applyFitCenter()
         initializePlayer()
         exoPlayer?.addListener(object : Player.Listener {
             override fun onPlaybackStateChanged(playbackState: Int) {

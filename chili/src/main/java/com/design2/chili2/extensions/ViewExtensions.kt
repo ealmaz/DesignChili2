@@ -12,7 +12,9 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.URLSpan
+import android.util.Log
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
@@ -394,7 +396,7 @@ fun View.applyForegroundFromTheme(context: Context, attrResId: Int) {
 }
 
 fun ImageView.horizontalFitBottom() {
-    val drawable: Drawable = drawable ?: return
+    val drawable = drawable ?: return
 
     val imageWidth = drawable.intrinsicWidth.toFloat()
     val imageHeight = drawable.intrinsicHeight.toFloat()
@@ -406,51 +408,55 @@ fun ImageView.horizontalFitBottom() {
         return
     }
 
-    val scale: Float = viewWidth / imageWidth
+    val matrix = Matrix()
 
-    val matrix = Matrix().apply {
-        setScale(scale, scale)
-    }
-    this.layoutParams = FrameLayout.LayoutParams(
-        ViewGroup.LayoutParams.MATCH_PARENT,
-        ViewGroup.LayoutParams.WRAP_CONTENT
-    )
+    val scale = viewWidth / imageWidth
+
+    val newImageHeight = imageHeight * scale
+
+    matrix.setScale(scale, scale)
+
+    val dy = viewHeight - newImageHeight
+    matrix.postTranslate(0f, dy)
+
+    Log.d("govno", "" +
+            "$imageWidth x$imageHeight \n" +
+            "$viewWidth x$viewHeight \n" +
+            "$scale \n" +
+            "$newImageHeight \n" +
+            "$dy")
+
     this.imageMatrix = matrix
+    this.scaleType = ImageView.ScaleType.MATRIX
 }
 
 fun ImageView.applyCenterCrop() {
-    this.layoutParams = FrameLayout.LayoutParams(
-        ViewGroup.LayoutParams.MATCH_PARENT,
-        ViewGroup.LayoutParams.MATCH_PARENT
-    )
     this.scaleType = ImageView.ScaleType.CENTER_CROP
 }
 
 @SuppressLint("UnsafeOptInUsageError")
 fun PlayerView.horizontalFitBottom() {
-    val videoSurfaceView = this.videoSurfaceView ?: return
-    val videoWidth = videoSurfaceView.width
-    val videoHeight = videoSurfaceView.height
+    val player = this.player ?: return
+    val videoSize = player.videoSize ?: return
 
-    val viewWidth = width.toFloat()
-    val viewHeight = height.toFloat()
+    val videoWidth = videoSize.width.toFloat()
+    val videoHeight = videoSize.height.toFloat()
+
+    val viewWidth = this.width.toFloat()
+    val viewHeight = this.height.toFloat()
 
     if (videoWidth <= 0 || videoHeight <= 0 || viewWidth <= 0 || viewHeight <= 0) {
         return
     }
 
-    val scale: Float = viewWidth / videoWidth
-    val scaledHeight = videoHeight * scale
-    val translateY = viewHeight - scaledHeight
+    val scale = viewWidth / videoWidth
 
-    this.layoutParams = FrameLayout.LayoutParams(
-        ViewGroup.LayoutParams.MATCH_PARENT,
-        ViewGroup.LayoutParams.WRAP_CONTENT
-    )
+    val newVideoHeight = videoHeight * scale
 
-    videoSurfaceView.scaleX = scale
-    videoSurfaceView.scaleY = scale
-    videoSurfaceView.translationY = translateY
+    val params = this.layoutParams as ConstraintLayout.LayoutParams
+    params.height = newVideoHeight.toInt()
+    params.width = viewWidth.toInt()
+    this.layoutParams = params
 }
 
 @SuppressLint("UnsafeOptInUsageError")
@@ -463,8 +469,10 @@ fun PlayerView.applyFitCenter() {
 }
 
 fun LottieAnimationView.horizontalFitBottom() {
-    val animationWidth = composition?.bounds?.width()?.toFloat() ?: return
-    val animationHeight = composition?.bounds?.height()?.toFloat() ?: return
+    val composition = composition ?: return
+
+    val animationWidth = composition.bounds.width().toFloat()
+    val animationHeight = composition.bounds.height().toFloat()
 
     val viewWidth = width.toFloat()
     val viewHeight = height.toFloat()
@@ -473,19 +481,19 @@ fun LottieAnimationView.horizontalFitBottom() {
         return
     }
 
-    val scale: Float = viewWidth / animationWidth
-    val scaledHeight = animationHeight * scale
-    val translateY = viewHeight - scaledHeight
+    val matrix = Matrix()
 
-    val matrix = Matrix().apply {
-        setScale(scale, scale)
-        postTranslate(0f, translateY)
-    }
-    this.layoutParams = FrameLayout.LayoutParams(
-        ViewGroup.LayoutParams.MATCH_PARENT,
-        ViewGroup.LayoutParams.WRAP_CONTENT
-    )
+    val scale = viewWidth / animationWidth
+
+    val newAnimationHeight = animationHeight * scale
+
+    matrix.setScale(scale, scale)
+
+    val dy = viewHeight - newAnimationHeight
+    matrix.postTranslate(0f, dy)
+
     this.imageMatrix = matrix
+    this.scaleType = ImageView.ScaleType.MATRIX
 }
 
 fun LottieAnimationView.applyCenterCrop() {
