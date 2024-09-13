@@ -429,6 +429,8 @@ fun View.applyForegroundFromTheme(context: Context, attrResId: Int) {
 fun ImageView.horizontalFitBottom(imageDrawable: Drawable? = null) {
     val drawable = imageDrawable ?: this.drawable ?: return
 
+    this.scaleType = ImageView.ScaleType.MATRIX
+
     val imageWidth = drawable.intrinsicWidth.toFloat()
     val imageHeight = drawable.intrinsicHeight.toFloat()
 
@@ -451,7 +453,7 @@ fun ImageView.horizontalFitBottom(imageDrawable: Drawable? = null) {
     matrix.postTranslate(0f, dy)
 
     this.imageMatrix = matrix
-    this.scaleType = ImageView.ScaleType.MATRIX
+
 }
 
 fun ImageView.applyCenterCrop() {
@@ -485,15 +487,13 @@ fun PlayerView.horizontalFitBottom(videoPlayer: Player? = null) {
 
 @SuppressLint("UnsafeOptInUsageError")
 fun PlayerView.applyFitCenter() {
-    this.layoutParams = FrameLayout.LayoutParams(
-        ViewGroup.LayoutParams.MATCH_PARENT,
-        ViewGroup.LayoutParams.MATCH_PARENT
-    )
     resizeMode = RESIZE_MODE_ZOOM
 }
 
 fun LottieAnimationView.horizontalFitBottom(lottie: LottieComposition ?= null) {
     val composition = lottie ?: composition ?: return
+
+    this.scaleType = ImageView.ScaleType.MATRIX
 
     val animationWidth = composition.bounds.width().toFloat()
     val animationHeight = composition.bounds.height().toFloat()
@@ -517,13 +517,9 @@ fun LottieAnimationView.horizontalFitBottom(lottie: LottieComposition ?= null) {
     matrix.postTranslate(0f, dy)
 
     this.imageMatrix = matrix
-    this.scaleType = ImageView.ScaleType.MATRIX
+
 }
 
 fun LottieAnimationView.applyCenterCrop() {
-    this.layoutParams = FrameLayout.LayoutParams(
-        ViewGroup.LayoutParams.MATCH_PARENT,
-        ViewGroup.LayoutParams.MATCH_PARENT
-    )
     this.scaleType = ImageView.ScaleType.CENTER_CROP
 }

@@ -28,9 +28,9 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
             mediaUrl = "https://devminio.o.kg/media-service/UserStory/33bbbc34-50c5-4d7e-9204-e2bcae2a88bd"
         ),
         ChilliStoryModel(mediaUrl = "https://devminio.o.kg/media-service/UserStory/3a7279d1-6342-4f14-9496-8bd89b3afa66", buttonText = "Go", buttonType = ChilliButtonType.SECONDARY),
-        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/af3a83a2-c869-4fdc-b729-6f705abb9c5f", storyType = ChilliStoryType.LOTTIE),
-        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/11452c5d-9ee5-4cb9-9e52-6ec39d6acbaf", storyType = ChilliStoryType.LOTTIE),
-        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/77c364b3-052e-4cdb-8a4b-c192544d9bf0", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/6e1a016d-f3dd-49a7-a482-3d2a61e7220a", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/663d691d-7fb5-4d0c-8735-4fc8705dfddb", storyType = ChilliStoryType.LOTTIE),
+        ChilliStoryModel(title = "What is Lorem Ipsum?", description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry", mediaUrl = "https://devminio.o.kg/media-service/UserStory/cdb6b7e3-98ba-41bb-b7ab-6c48f0f50a52", storyType = ChilliStoryType.LOTTIE),
         ChilliStoryModel(title = "Bla bla bla bla", mediaUrl = "https://devminio.o.kg/media-service/UserStory/94bd241a-3603-4d36-956b-4f385a664d0f", storyType = ChilliStoryType.VIDEO)
     ))
 
