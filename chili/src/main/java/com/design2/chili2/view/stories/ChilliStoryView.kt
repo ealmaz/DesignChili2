@@ -23,11 +23,13 @@ import com.airbnb.lottie.LottieDrawable
 import com.bumptech.glide.request.RequestOptions
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoryBinding
+import com.design2.chili2.extensions.applyCenterCrop
+import com.design2.chili2.extensions.applyFitCenter
+import com.design2.chili2.extensions.setDrawableFromUrlWithListeners
 import com.design2.chili2.extensions.gone
-import com.design2.chili2.extensions.setImageByUrlWithListener
+import com.design2.chili2.extensions.horizontalFitBottom
 import com.design2.chili2.extensions.visible
 import kotlin.collections.ArrayList
-
 
 class StoryView : ConstraintLayout {
     private lateinit var binding: ChiliViewStoryBinding
@@ -97,8 +99,14 @@ class StoryView : ConstraintLayout {
                     visible()
                     text = storyModel.title
                     storyModel.titleTextColor?.let {
-                        val titleColor = Color.parseColor(it)
-                        setTextColor(titleColor)
+                        try {
+                            val titleColor = Color.parseColor(it)
+                            setTextColor(titleColor)
+                            closeButton.setColorFilter(titleColor)
+                        } catch (e: IllegalArgumentException) {
+                            setTextColor(Color.BLACK)
+                            closeButton.setColorFilter(Color.BLACK)
+                        }
                     }
                 }
             } else storyTitleView.gone()
@@ -108,8 +116,12 @@ class StoryView : ConstraintLayout {
                     visible()
                     text = storyModel.description
                     storyModel.subtitleTextColor?.let {
-                        val subTitleColor = Color.parseColor(it)
-                        setTextColor(subTitleColor)
+                        try {
+                            val subTitleColor = Color.parseColor(it)
+                            setTextColor(subTitleColor)
+                        } catch (e: IllegalArgumentException) {
+                            setTextColor(Color.BLACK)
+                        }
                     }
                 }
             } else storySubtitleView.gone()
@@ -176,15 +188,26 @@ class StoryView : ConstraintLayout {
 
     private fun loadImage() {
         with(binding) {
+
             progressCircular.visible()
             storyImageView.apply {
                 visible()
-                setImageByUrlWithListener(
-                    currentStory?.mediaUrl,
-                    { progressCircular.gone() },
-                    { progressCircular.gone() },
-                    RequestOptions()
-                )
+                try {
+                    setDrawableFromUrlWithListeners(
+                        currentStory?.mediaUrl,
+                        RequestOptions(),
+                        { drawable ->
+                            progressCircular.gone()
+                            if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP)
+                                horizontalFitBottom(drawable)
+                            else applyCenterCrop()
+                        }, {
+                            progressCircular.gone()
+                        }
+                    )
+                } catch (e: Exception) {
+                    progressCircular.gone()
+                }
             }
         }
 
@@ -195,28 +218,34 @@ class StoryView : ConstraintLayout {
         with(binding.storyLottieView) {
             binding.progressCircular.visible()
             visible()
-            timer = getTimer()
-            addAnimatorListener(object : AnimatorListener {
-                override fun onAnimationStart(p0: Animator) {
-                    timer?.start()
+            try {
+                timer = getTimer()
+                addAnimatorListener(object : AnimatorListener {
+                    override fun onAnimationStart(p0: Animator) {
+                        timer?.start()
+                    }
+
+                    override fun onAnimationEnd(p0: Animator) {
+                        timer?.cancel()
+                    }
+
+                    override fun onAnimationCancel(p0: Animator) {
+                        timer?.cancel()
+                    }
+
+                    override fun onAnimationRepeat(p0: Animator) {}
+                })
+
+                repeatCount = LottieDrawable.INFINITE
+                setAnimationFromUrl(currentStory?.mediaUrl)
+                addLottieOnCompositionLoadedListener {
+                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom(it)
+                    else applyCenterCrop()
+                    binding.progressCircular.gone()
+                    playAnimation()
                 }
-
-                override fun onAnimationEnd(p0: Animator) {
-                    timer?.cancel()
-                }
-
-                override fun onAnimationCancel(p0: Animator) {
-                    timer?.cancel()
-                }
-
-                override fun onAnimationRepeat(p0: Animator) {}
-            })
-
-            repeatCount = LottieDrawable.INFINITE
-            setAnimationFromUrl(currentStory?.mediaUrl)
-            addLottieOnCompositionLoadedListener {
+            } catch (e: Exception) {
                 binding.progressCircular.gone()
-                playAnimation()
             }
         }
     }
@@ -241,12 +270,18 @@ class StoryView : ConstraintLayout {
         })
 
         currentStory?.mediaUrl?.let { videoUrl ->
-            exoPlayer?.run {
-                setMediaItem(MediaItem.fromUri(videoUrl))
-                prepare()
-                playWhenReady = true
+            try {
+                exoPlayer?.run {
+                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) binding.storyVideoView.horizontalFitBottom(this)
+                    else binding.storyVideoView.applyFitCenter()
+                    setMediaItem(MediaItem.fromUri(videoUrl))
+                    prepare()
+                    playWhenReady = true
+                }
+                binding.storyVideoView.player = exoPlayer
+            } catch (e: Exception) {
+                binding.progressCircular.gone()
             }
-            binding.storyVideoView.player = exoPlayer
         }
     }
 
@@ -309,13 +344,13 @@ class StoryView : ConstraintLayout {
             progressBars.add(progressBar)
             binding.progressBarsContainer.addView(progressBar)
         }
-        invalidate()
         binding.progressBarsContainer.visible()
 
         if (this.stories.isNotEmpty()) {
             onMoveListener?.onStart(currentStoryIndex)
             playNext(this.stories[currentStoryIndex])
         }
+        invalidate()
     }
 
 
@@ -343,6 +378,20 @@ class StoryView : ConstraintLayout {
         resetTimer()
         onMoveListener?.onClose()
         onFinishListener?.onStoryClose()
+    }
+
+    private fun setupScaleType(scaleType: StoryScaleType? = StoryScaleType.CENTER_CROP) {
+        with(binding) {
+            if (scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) {
+                storyImageView.horizontalFitBottom()
+                storyLottieView.horizontalFitBottom()
+                storyVideoView.horizontalFitBottom()
+            } else {
+                storyImageView.applyCenterCrop()
+                storyLottieView.applyCenterCrop()
+                storyVideoView.applyFitCenter()
+            }
+        }
     }
 
     //region timer
@@ -454,6 +503,11 @@ class StoryView : ConstraintLayout {
         timer?.cancel()
         timer = null
     }
+}
+
+enum class StoryScaleType {
+    BOTTOM_HORIZONTAL_CROP,
+    CENTER_CROP
 }
 
 interface StoryMoveListener {

@@ -2,7 +2,9 @@ package com.design2.chili2.extensions
 
 import android.animation.AnimatorInflater
 import android.animation.StateListAnimator
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
@@ -14,6 +16,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
@@ -24,14 +27,21 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.media3.common.Player
+import androidx.media3.ui.AspectRatioFrameLayout.RESIZE_MODE_ZOOM
+import androidx.media3.ui.PlayerView
 import coil.load
+import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieComposition
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.CustomViewTarget
 import com.bumptech.glide.request.target.Target
+import com.bumptech.glide.request.transition.Transition
 import com.design2.chili2.R
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.view.image.SquircleView
@@ -193,6 +203,37 @@ fun ImageView.setImageByUrlWithListener(imageUrl: String?, onSuccess: ((Drawable
     if (requestOptions != null) builder.apply(requestOptions)
     builder.into(this)
     return builder
+}
+
+fun ImageView.setDrawableFromUrlWithListeners(
+    imageUrl: String?,
+    requestOptions: RequestOptions? = null,
+    onSuccess: ((Drawable) -> Unit)?,
+    onError: () -> Unit
+) {
+    if (imageUrl.isNullOrEmpty()) {
+        onError.invoke()
+        return
+    }
+
+    Glide.with(this.context)
+        .load(imageUrl)
+        .apply { requestOptions?.let { apply(it) } }
+        .into(object : CustomViewTarget<ImageView, Drawable>(this) {
+            override fun onLoadFailed(errorDrawable: Drawable?) {
+                setImageDrawable(errorDrawable)
+                onError.invoke()
+            }
+
+            override fun onResourceCleared(placeholder: Drawable?) {
+                setImageDrawable(placeholder)
+            }
+
+            override fun onResourceReady(resource: Drawable, transition: Transition<in Drawable>?) {
+                onSuccess?.invoke(resource)
+                setImageDrawable(resource)
+            }
+        })
 }
 
 private fun getGlideOnLoadListener(onSuccess: ((Drawable) -> Unit)?, onError: ((GlideException?) -> Unit)?): RequestListener<Drawable>? {
@@ -383,4 +424,106 @@ fun View.applyForegroundFromTheme(context: Context, attrResId: Int) {
             foreground = foregroundDrawable
         }
     }
+}
+
+fun ImageView.horizontalFitBottom(imageDrawable: Drawable? = null) {
+    val drawable = imageDrawable ?: this.drawable ?: return
+
+    val imageWidth = drawable.intrinsicWidth.toFloat()
+    val imageHeight = drawable.intrinsicHeight.toFloat()
+
+    val viewWidth = width.toFloat()
+    val viewHeight = height.toFloat()
+
+    if (imageWidth <= 0 || imageHeight <= 0 || viewWidth <= 0 || viewHeight <= 0) {
+        return
+    }
+
+    val matrix = Matrix()
+
+    val scale = viewWidth / imageWidth
+
+    val newImageHeight = imageHeight * scale
+
+    matrix.setScale(scale, scale)
+
+    val dy = viewHeight - newImageHeight
+    matrix.postTranslate(0f, dy)
+
+    this.imageMatrix = matrix
+    this.scaleType = ImageView.ScaleType.MATRIX
+}
+
+fun ImageView.applyCenterCrop() {
+    this.scaleType = ImageView.ScaleType.CENTER_CROP
+}
+
+@SuppressLint("UnsafeOptInUsageError")
+fun PlayerView.horizontalFitBottom(videoPlayer: Player? = null) {
+    val player = videoPlayer ?: this.player ?: return
+    val videoSize = player.videoSize ?: return
+
+    val videoWidth = videoSize.width.toFloat()
+    val videoHeight = videoSize.height.toFloat()
+
+    val viewWidth = this.width.toFloat()
+    val viewHeight = this.height.toFloat()
+
+    if (videoWidth <= 0 || videoHeight <= 0 || viewWidth <= 0 || viewHeight <= 0) {
+        return
+    }
+
+    val scale = viewWidth / videoWidth
+
+    val newVideoHeight = videoHeight * scale
+
+    val params = this.layoutParams as ConstraintLayout.LayoutParams
+    params.height = newVideoHeight.toInt()
+    params.width = viewWidth.toInt()
+    this.layoutParams = params
+}
+
+@SuppressLint("UnsafeOptInUsageError")
+fun PlayerView.applyFitCenter() {
+    this.layoutParams = FrameLayout.LayoutParams(
+        ViewGroup.LayoutParams.MATCH_PARENT,
+        ViewGroup.LayoutParams.MATCH_PARENT
+    )
+    resizeMode = RESIZE_MODE_ZOOM
+}
+
+fun LottieAnimationView.horizontalFitBottom(lottie: LottieComposition ?= null) {
+    val composition = lottie ?: composition ?: return
+
+    val animationWidth = composition.bounds.width().toFloat()
+    val animationHeight = composition.bounds.height().toFloat()
+
+    val viewWidth = width.toFloat()
+    val viewHeight = height.toFloat()
+
+    if (animationWidth <= 0 || animationHeight <= 0 || viewWidth <= 0 || viewHeight <= 0) {
+        return
+    }
+
+    val matrix = Matrix()
+
+    val scale = viewWidth / animationWidth
+
+    val newAnimationHeight = animationHeight * scale
+
+    matrix.setScale(scale, scale)
+
+    val dy = viewHeight - newAnimationHeight
+    matrix.postTranslate(0f, dy)
+
+    this.imageMatrix = matrix
+    this.scaleType = ImageView.ScaleType.MATRIX
+}
+
+fun LottieAnimationView.applyCenterCrop() {
+    this.layoutParams = FrameLayout.LayoutParams(
+        ViewGroup.LayoutParams.MATCH_PARENT,
+        ViewGroup.LayoutParams.MATCH_PARENT
+    )
+    this.scaleType = ImageView.ScaleType.CENTER_CROP
 }
