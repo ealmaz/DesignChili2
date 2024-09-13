@@ -11,7 +11,6 @@ import android.text.Spanned
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.URLSpan
-import android.util.Log
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
@@ -450,13 +449,6 @@ fun ImageView.horizontalFitBottom(imageDrawable: Drawable? = null) {
 
     val dy = viewHeight - newImageHeight
     matrix.postTranslate(0f, dy)
-
-    Log.d("govno", "" +
-            "$imageWidth x$imageHeight \n" +
-            "$viewWidth x$viewHeight \n" +
-            "$scale \n" +
-            "$newImageHeight \n" +
-            "$dy")
 
     this.imageMatrix = matrix
     this.scaleType = ImageView.ScaleType.MATRIX

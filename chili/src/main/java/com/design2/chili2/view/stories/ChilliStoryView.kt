@@ -99,9 +99,14 @@ class StoryView : ConstraintLayout {
                     visible()
                     text = storyModel.title
                     storyModel.titleTextColor?.let {
-                        val titleColor = Color.parseColor(it)
-                        setTextColor(titleColor)
-                        closeButton.setColorFilter(titleColor)
+                        try {
+                            val titleColor = Color.parseColor(it)
+                            setTextColor(titleColor)
+                            closeButton.setColorFilter(titleColor)
+                        } catch (e: IllegalArgumentException) {
+                            setTextColor(Color.BLACK)
+                            closeButton.setColorFilter(Color.BLACK)
+                        }
                     }
                 }
             } else storyTitleView.gone()
@@ -111,8 +116,12 @@ class StoryView : ConstraintLayout {
                     visible()
                     text = storyModel.description
                     storyModel.subtitleTextColor?.let {
-                        val subTitleColor = Color.parseColor(it)
-                        setTextColor(subTitleColor)
+                        try {
+                            val subTitleColor = Color.parseColor(it)
+                            setTextColor(subTitleColor)
+                        } catch (e: IllegalArgumentException) {
+                            setTextColor(Color.BLACK)
+                        }
                     }
                 }
             } else storySubtitleView.gone()
@@ -179,21 +188,26 @@ class StoryView : ConstraintLayout {
 
     private fun loadImage() {
         with(binding) {
+
             progressCircular.visible()
             storyImageView.apply {
                 visible()
-                setDrawableFromUrlWithListeners(
-                    currentStory?.mediaUrl,
-                    RequestOptions(),
-                    { drawable ->
-                        progressCircular.gone()
-                        if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP)
-                            horizontalFitBottom(drawable)
-                        else applyCenterCrop()
-                    }, {
-                        progressCircular.gone()
-                    }
-                )
+                try {
+                    setDrawableFromUrlWithListeners(
+                        currentStory?.mediaUrl,
+                        RequestOptions(),
+                        { drawable ->
+                            progressCircular.gone()
+                            if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP)
+                                horizontalFitBottom(drawable)
+                            else applyCenterCrop()
+                        }, {
+                            progressCircular.gone()
+                        }
+                    )
+                } catch (e: Exception) {
+                    progressCircular.gone()
+                }
             }
         }
 
@@ -204,30 +218,34 @@ class StoryView : ConstraintLayout {
         with(binding.storyLottieView) {
             binding.progressCircular.visible()
             visible()
-            timer = getTimer()
-            addAnimatorListener(object : AnimatorListener {
-                override fun onAnimationStart(p0: Animator) {
-                    timer?.start()
+            try {
+                timer = getTimer()
+                addAnimatorListener(object : AnimatorListener {
+                    override fun onAnimationStart(p0: Animator) {
+                        timer?.start()
+                    }
+
+                    override fun onAnimationEnd(p0: Animator) {
+                        timer?.cancel()
+                    }
+
+                    override fun onAnimationCancel(p0: Animator) {
+                        timer?.cancel()
+                    }
+
+                    override fun onAnimationRepeat(p0: Animator) {}
+                })
+
+                repeatCount = LottieDrawable.INFINITE
+                setAnimationFromUrl(currentStory?.mediaUrl)
+                addLottieOnCompositionLoadedListener {
+                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom(it)
+                    else applyCenterCrop()
+                    binding.progressCircular.gone()
+                    playAnimation()
                 }
-
-                override fun onAnimationEnd(p0: Animator) {
-                    timer?.cancel()
-                }
-
-                override fun onAnimationCancel(p0: Animator) {
-                    timer?.cancel()
-                }
-
-                override fun onAnimationRepeat(p0: Animator) {}
-            })
-
-            repeatCount = LottieDrawable.INFINITE
-            setAnimationFromUrl(currentStory?.mediaUrl)
-            addLottieOnCompositionLoadedListener {
-                if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom(it)
-                else applyCenterCrop()
+            } catch (e: Exception) {
                 binding.progressCircular.gone()
-                playAnimation()
             }
         }
     }
@@ -252,14 +270,18 @@ class StoryView : ConstraintLayout {
         })
 
         currentStory?.mediaUrl?.let { videoUrl ->
-            exoPlayer?.run {
-                if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) binding.storyVideoView.horizontalFitBottom(this)
-                else binding.storyVideoView.applyFitCenter()
-                setMediaItem(MediaItem.fromUri(videoUrl))
-                prepare()
-                playWhenReady = true
+            try {
+                exoPlayer?.run {
+                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) binding.storyVideoView.horizontalFitBottom(this)
+                    else binding.storyVideoView.applyFitCenter()
+                    setMediaItem(MediaItem.fromUri(videoUrl))
+                    prepare()
+                    playWhenReady = true
+                }
+                binding.storyVideoView.player = exoPlayer
+            } catch (e: Exception) {
+                binding.progressCircular.gone()
             }
-            binding.storyVideoView.player = exoPlayer
         }
     }
 
