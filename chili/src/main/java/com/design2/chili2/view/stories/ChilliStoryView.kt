@@ -380,20 +380,6 @@ class StoryView : ConstraintLayout {
         onFinishListener?.onStoryClose()
     }
 
-    private fun setupScaleType(scaleType: StoryScaleType? = StoryScaleType.CENTER_CROP) {
-        with(binding) {
-            if (scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) {
-                storyImageView.horizontalFitBottom()
-                storyLottieView.horizontalFitBottom()
-                storyVideoView.horizontalFitBottom()
-            } else {
-                storyImageView.applyCenterCrop()
-                storyLottieView.applyCenterCrop()
-                storyVideoView.applyFitCenter()
-            }
-        }
-    }
-
     //region timer
 
     private fun getTimer(time: Long = 0) = object :
