@@ -239,8 +239,8 @@ class StoryView : ConstraintLayout {
                 repeatCount = LottieDrawable.INFINITE
                 setAnimationFromUrl(currentStory?.mediaUrl)
                 addLottieOnCompositionLoadedListener {
-                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) horizontalFitBottom(it)
-                    else applyCenterCrop()
+                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) this.post { horizontalFitBottom(it) }
+                    else this.post { applyCenterCrop() }
                     binding.progressCircular.gone()
                     playAnimation()
                 }
