@@ -1,8 +1,10 @@
 package com.design2.chili2.view.stories
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.customview.widget.ViewDragHelper
@@ -50,6 +52,7 @@ class ChilliStoriesView : ConstraintLayout {
         binding = ChiliViewStoriesBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupDragViewHelper() {
         dragHelper = ViewDragHelper.create(
             findViewById(R.id.drag_frame_layout),
@@ -63,11 +66,6 @@ class ChilliStoriesView : ConstraintLayout {
 
                 override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int {
                     return if (top < 0) 0 else top
-                }
-
-                override fun onViewCaptured(capturedChild: View, activePointerId: Int) {
-                    super.onViewCaptured(capturedChild, activePointerId)
-                    binding.viewPager.isUserInputEnabled = false
                 }
 
                 override fun onViewPositionChanged(
@@ -93,7 +91,6 @@ class ChilliStoriesView : ConstraintLayout {
                     else {
                         currentFragment?.onResume()
                         resetViewPosition()
-                        binding.viewPager.isUserInputEnabled = false
                         releasedChild.top = 0
                     }
                 }
@@ -104,6 +101,12 @@ class ChilliStoriesView : ConstraintLayout {
             })
 
         binding.dragFrameLayout.dragHelper = dragHelper
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        viewPager?.onTouchEvent(ev)
+        ev?.let { dragHelper.processTouchEvent(it) }
+        return super.dispatchTouchEvent(ev)
     }
 
     private fun resetViewPosition() {
