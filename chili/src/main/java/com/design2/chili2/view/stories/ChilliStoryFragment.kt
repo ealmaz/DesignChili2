@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import com.design2.chili2.databinding.FragmentStoryBinding
 
 class ChilliStoryFragment: Fragment() {
@@ -13,14 +14,15 @@ class ChilliStoryFragment: Fragment() {
 
     private var isCreated: Boolean = false
 
-    private lateinit var binding: FragmentStoryBinding
+    private var _binding: FragmentStoryBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentStoryBinding.inflate(layoutInflater)
+        _binding = FragmentStoryBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -31,10 +33,7 @@ class ChilliStoryFragment: Fragment() {
             storyBlock = it.getSerializable(ARG_STORY_BLOCK) as ChilliStoryBlock
         }
 
-        if (isVisible) {
-            setupViews(storyBlock)
-            isCreated = true
-        }
+        setupViewsIfVisible()
     }
 
     private fun setupViews(storyBlock: ChilliStoryBlock) {
@@ -48,23 +47,48 @@ class ChilliStoryFragment: Fragment() {
     }
 
     fun onCloseStories() {
-        binding.storyView.finishStories()
+        if (isAdded && _binding != null) {
+            binding.storyView.finishStories()
+        }
     }
 
     override fun onPause() {
         super.onPause()
-        binding.storyView.pauseTimer()
+        if (_binding != null) binding.storyView.pauseTimer()
     }
 
     override fun onResume() {
         super.onResume()
         when {
-            isVisible && !isCreated -> {
+            isFragmentVisible() && !isCreated -> {
                 setupViews(storyBlock)
                 isCreated = true
             }
+
             isVisible -> binding.storyView.resumeTimer()
         }
+    }
+
+    private fun isFragmentVisible(): Boolean {
+        return if (isResumed) viewLifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED) else false
+    }
+
+    private fun setupViewsIfVisible() {
+        if (isResumed && isVisible) {
+            setupViews(storyBlock)
+            isCreated = true
+        }
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
+        isCreated = false
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 
     companion object {
