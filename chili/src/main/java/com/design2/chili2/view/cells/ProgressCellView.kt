@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCellProgressBinding
 import com.design2.chili2.extensions.setTextOrHide
@@ -97,6 +98,10 @@ class ProgressCellView @JvmOverloads constructor(
         vb.tvTitle.text = spanned
     }
 
+    fun setTitleTextAppearance(@StyleRes resId: Int) {
+        vb.tvTitle.setTextAppearance(resId)
+    }
+
     fun setDescriptionText(description: String?) {
         vb.tvDescription.setTextOrHide(description)
     }
@@ -107,6 +112,10 @@ class ProgressCellView @JvmOverloads constructor(
 
     fun setDescriptionText(spanned: Spanned?) {
         vb.tvDescription.setTextOrHide(spanned)
+    }
+
+    fun setDescriptionTextAppearance(@StyleRes resId: Int) {
+        vb.tvDescription.setTextAppearance(resId)
     }
 
     fun setProgressColor(@ColorInt colorInt: Int) {
