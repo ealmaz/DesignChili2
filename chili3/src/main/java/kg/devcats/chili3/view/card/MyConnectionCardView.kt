@@ -154,11 +154,11 @@ class MyConnectionCardView @JvmOverloads constructor(
 
         if (leftOver.isUnlimitedAndNotSuspended()){
             plvInternet.setUnlimitedInternetPackage()
+            plvInternet.setLimitText(unlimitedText.orEmpty())
         }else {
             plvInternet.setPackage(
                 leftOver.getFormattedRemain(resources),
                 when {
-                    leftOver.isUnlimitedAndNotSuspended() -> unlimitedText
                     leftOver.isSuspended -> packageSuspendedText
                     leftOver.isPackageEmpty() -> packageEmptyText
                     else -> leftOver.getFormattedLimit(resources)

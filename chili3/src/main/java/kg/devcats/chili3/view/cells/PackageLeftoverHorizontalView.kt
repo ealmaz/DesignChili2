@@ -81,6 +81,10 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
         )
     }
 
+    fun setLimitText(text:String){
+        binding.tvRemainFrom.text = text
+    }
+
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
 
 }
