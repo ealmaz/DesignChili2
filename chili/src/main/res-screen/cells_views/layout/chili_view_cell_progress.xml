@@ -19,8 +19,8 @@
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/padding_8dp"
-            android:layout_marginTop="@dimen/padding_8dp"
+            android:layout_marginHorizontal="@dimen/padding_12dp"
+            android:layout_marginTop="@dimen/padding_12dp"
             android:textAppearance="@style/Chili.H7.Primary"
             tools:text="98 000,00 с из 100 000 с" />
 
@@ -29,7 +29,7 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/padding_8dp"
+            android:layout_marginHorizontal="@dimen/padding_12dp"
             android:layout_marginTop="@dimen/padding_4dp"
             android:textAppearance="@style/Chili.H8.Value"
             tools:text="Доступный объем кошелька" />
@@ -38,7 +38,9 @@
             android:id="@+id/apl_progress"
             android:layout_width="match_parent"
             android:layout_height="@dimen/padding_8dp"
-            android:layout_margin="@dimen/padding_8dp"
+            android:layout_marginTop="@dimen/padding_8dp"
+            android:layout_marginHorizontal="@dimen/padding_12dp"
+            android:layout_marginBottom="@dimen/padding_12dp"
             app:progressBackgroundColor="@color/gray_2"
             app:progressColor="@color/orange_1"
             app:progressPercent="80" />
@@ -57,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingHorizontal="@dimen/padding_8dp"
+            android:paddingHorizontal="@dimen/padding_12dp"
             android:paddingVertical="@dimen/padding_12dp">
 
             <View
