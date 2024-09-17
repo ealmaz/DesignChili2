@@ -13,6 +13,7 @@ class ChilliStoryPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStat
     private val fragments = ArrayList<ChilliStoryFragment>()
 
     fun createViewPager(stories: List<ChilliStoryBlock>, onMoveListener: StoryMoveListener, onFinishListener: StoryOnFinishListener) {
+        fragments.clear()
         stories.forEach {
             addFragment(ChilliStoryFragment.newInstance(it, onMoveListener, onFinishListener))
         }

@@ -14,7 +14,8 @@ import com.design2.chili2.view.stories.StoryOnFinishListener
 
 class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListener {
 
-    private lateinit var binding: ActivityStoryBinding
+    private var _binding: ActivityStoryBinding? = null
+    private val binding get() = _binding!!
 
 
     private val storyBlock = ChilliStoryBlock(1, false, arrayListOf(
@@ -78,13 +79,20 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityStoryBinding.inflate(layoutInflater)
+        _binding = ActivityStoryBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
         hideStatusBar()
 
         setupViews()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {}
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 
     private fun hideStatusBar() {
