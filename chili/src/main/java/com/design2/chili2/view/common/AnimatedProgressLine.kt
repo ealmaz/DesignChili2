@@ -147,6 +147,12 @@ class AnimatedProgressLine(context: Context, private val attrs: AttributeSet) : 
         canvas.drawLine(roundOffset, roundOffset, (progress - roundOffset), roundOffset, paint)
     }
 
+    fun clearGradientColorIfNeed(){
+        if (progressGradientStartColor != null || progressGradientEndColor != null){
+            paint.shader = null
+        }
+    }
+
     private fun prepareGradientPaintIfNeed(width: Float) {
         if (progressGradientStartColor == null || progressGradientEndColor == null) return
         paint.shader = if (progressGradientCenterColor == null) {

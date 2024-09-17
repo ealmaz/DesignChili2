@@ -64,6 +64,7 @@ class PackageLeftoverHorizontalView @JvmOverloads constructor(
         tvRemain.text = remain
         tvRemainFrom.text = limit
         progressBar.setProgress(progress)
+        progressBar.clearGradientColorIfNeed()
         colorInt?.let { progressBar.setProgressColor(colorInt) }
     }
 
