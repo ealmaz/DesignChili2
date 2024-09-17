@@ -37,7 +37,7 @@ data class PackageLeftOver(
         }
     }
 
-    fun isUnlimitedNotSuspended() = isUnlimited && !isSuspended
+    fun isUnlimitedAndNotSuspended() = isUnlimited && !isSuspended
 
     fun isPackageEmpty(): Boolean = remain <= 0L && !isSuspended
 
