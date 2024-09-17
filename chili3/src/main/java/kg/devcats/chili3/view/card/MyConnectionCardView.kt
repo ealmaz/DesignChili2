@@ -150,18 +150,23 @@ class MyConnectionCardView @JvmOverloads constructor(
 
     private fun setUpInternetPackage(leftOver: PackageLeftOver?) = with(vb) {
         if (leftOver == null) return@with
-        plvInternet.setPackage(
-            leftOver.getFormattedRemain(resources),
-            when {
-                leftOver.isUnlimitedNotSuspended() -> unlimitedText
-                leftOver.isSuspended -> packageSuspendedText
-                leftOver.isPackageEmpty() -> packageEmptyText
-                else -> leftOver.getFormattedLimit(resources)
-            },
-            leftOver.getLeftOverPercentage(),
-            context.color(com.design2.chili2.R.color.cyan_1)
-        )
-        if (leftOver.isUnlimited) plvInternet.setUnlimitedInternetPackage()
+
+
+        if (leftOver.isUnlimitedAndNotSuspended()){
+            plvInternet.setUnlimitedInternetPackage()
+        }else {
+            plvInternet.setPackage(
+                leftOver.getFormattedRemain(resources),
+                when {
+                    leftOver.isUnlimitedAndNotSuspended() -> unlimitedText
+                    leftOver.isSuspended -> packageSuspendedText
+                    leftOver.isPackageEmpty() -> packageEmptyText
+                    else -> leftOver.getFormattedLimit(resources)
+                },
+                leftOver.getLeftOverPercentage(),
+                context.color(com.design2.chili2.R.color.cyan_1)
+            )
+        }
     }
 
     private fun setUpCallPackage(leftOver: PackageLeftOver?) = with(vb) {
@@ -169,7 +174,7 @@ class MyConnectionCardView @JvmOverloads constructor(
         plvCall.setPackage(
             leftOver.getFormattedRemain(resources),
             when {
-                leftOver.isUnlimitedNotSuspended() -> unlimitedText
+                leftOver.isUnlimitedAndNotSuspended() -> unlimitedText
                 leftOver.isSuspended -> packageSuspendedText
                 leftOver.isPackageEmpty() -> packageEmptyText
                 else -> leftOver.getFormattedLimit(resources)

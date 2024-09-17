@@ -10,6 +10,7 @@ data class MyConnectionProfile(
     var tariffName: String? = null,
     var isWithPackages: Boolean = false,
     var hasData: Boolean = false,
+    val isSuspended: Boolean,
     var packages: List<PackageLeftOver>? = null
 ) {
     fun getFormattedTariffName(prefix: String?): String {
@@ -37,7 +38,7 @@ data class PackageLeftOver(
         }
     }
 
-    fun isUnlimitedNotSuspended() = isUnlimited && !isSuspended
+    fun isUnlimitedAndNotSuspended() = isUnlimited && !isSuspended
 
     fun isPackageEmpty(): Boolean = remain <= 0L && !isSuspended
 
