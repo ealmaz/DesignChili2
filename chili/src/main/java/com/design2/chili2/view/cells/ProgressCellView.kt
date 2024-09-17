@@ -56,7 +56,7 @@ class ProgressCellView @JvmOverloads constructor(
             getColor(R.styleable.ProgressCellView_progressGradientEndColor, -1)
                 .takeIf { it != -1 }?.let { vb.aplProgress.setProgressGradientEndColor(it) }
             getColor(R.styleable.ProgressCellView_progressBackgroundColor, -1).takeIf { it != -1 }?.let {
-                vb.aplProgress.setProgressBackgroundColor(it)
+                setProgressBackgroundColor(it)
             }
             getInteger(R.styleable.ProgressCellView_progressPercent, 50).let {
                 setProgressPercent(it)
@@ -120,6 +120,10 @@ class ProgressCellView @JvmOverloads constructor(
 
     fun setProgressColor(@ColorInt colorInt: Int) {
         vb.aplProgress.setProgressColor(colorInt)
+    }
+
+    fun setProgressBackgroundColor(@ColorInt colorInt: Int) {
+        vb.aplProgress.setProgressBackgroundColor(colorInt)
     }
 
     fun setProgressGradientColors(@ColorInt startColor: Int, @ColorInt endColor: Int) {
