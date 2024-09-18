@@ -36,7 +36,8 @@ class MyConnectionCardView @JvmOverloads constructor(
     private var unlimitedText: String? = null
     private var withoutPackageTitle: String? = null
     private var packageSuspendedText: String? = null
-    private var packageEmptyText: String? = null
+    private var callingPackageEmptyText: String? = null
+    private var internetPackageEmptyText: String? = null
 
     override val styleableAttrRes: IntArray = R.styleable.MyConnectionCardView
 
@@ -67,7 +68,8 @@ class MyConnectionCardView @JvmOverloads constructor(
         unlimitedText = getString(R.styleable.MyConnectionCardView_unlimitedText)
         withoutPackageTitle = getString(R.styleable.MyConnectionCardView_withoutPackageTitle)
         packageSuspendedText = getString(R.styleable.MyConnectionCardView_packageSuspendedText)
-        packageEmptyText = getString(R.styleable.MyConnectionCardView_packageEmptyText)
+        callingPackageEmptyText = getString(R.styleable.MyConnectionCardView_packageEmptyText)
+        internetPackageEmptyText = getString(R.styleable.MyConnectionCardView_internetPackageEmptyText)
     }
 
     override fun setupShimmeringViews() {
@@ -160,7 +162,7 @@ class MyConnectionCardView @JvmOverloads constructor(
                 leftOver.getFormattedRemain(resources),
                 when {
                     leftOver.isSuspended -> packageSuspendedText
-                    leftOver.isPackageEmpty() -> packageEmptyText
+                    leftOver.isPackageEmpty() -> internetPackageEmptyText
                     else -> leftOver.getFormattedLimit(resources)
                 },
                 leftOver.getLeftOverPercentage(),
@@ -176,7 +178,7 @@ class MyConnectionCardView @JvmOverloads constructor(
             when {
                 leftOver.isUnlimitedAndNotSuspended() -> unlimitedText
                 leftOver.isSuspended -> packageSuspendedText
-                leftOver.isPackageEmpty() -> packageEmptyText
+                leftOver.isPackageEmpty() -> callingPackageEmptyText
                 else -> leftOver.getFormattedLimit(resources)
             },
             leftOver.getLeftOverPercentage(),

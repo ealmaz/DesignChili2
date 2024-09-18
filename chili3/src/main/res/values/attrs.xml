@@ -110,6 +110,7 @@
         <attr name="withoutPackageTitle" format="string"/>
         <attr name="packageSuspendedText" format="string"/>
         <attr name="packageEmptyText" format="string"/>
+        <attr name="internetPackageEmptyText" format="string"/>
     </declare-styleable>
 
     <declare-styleable name="DividerView">
