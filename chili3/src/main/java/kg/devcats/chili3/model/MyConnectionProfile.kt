@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.text.Spanned
 import androidx.core.text.parseAsHtml
 import com.design2.chili2.util.PackageLeftOverUtils
+import com.design2.chili2.R as Chili2R
 
 data class MyConnectionProfile(
     var balance: CharSequence? = null,
@@ -50,29 +51,33 @@ data class PackageLeftOver(
     }
 
     fun getFormattedRemain(resources: Resources): CharSequence {
-        return when(packageType) {
+        return when (packageType) {
             PackageType.INTERNET -> {
-                if (isSuspended || isPackageEmpty()) resources.getString(com.design2.chili2.R.string.chili_gigabyte)
+                if (isSuspended || isPackageEmpty()) resources.getString(Chili2R.string.my_connection_card_internet_package_title)
                 else PackageLeftOverUtils.readableFileSize(remain, resources).trim()
             }
+
             PackageType.CALL -> {
-                if (isSuspended || isPackageEmpty()) resources.getString(com.design2.chili2.R.string.chili_minutes)
+                if (isSuspended || isPackageEmpty()) resources.getString(Chili2R.string.my_connection_card_calling_package_title)
                 else getRemainingMinutesWithFormat(resources.getString(com.design2.chili2.R.string.chili_minutes))
             }
+
             else -> ""
         }
     }
 
     fun getFormattedLimit(resources: Resources): CharSequence {
-        return when(packageType) {
+        return when (packageType) {
             PackageType.INTERNET -> resources.getString(
                 com.design2.chili2.R.string.chili_leftover_from_limit,
                 PackageLeftOverUtils.readableFileSize(limit, resources)
             )
+
             PackageType.CALL -> resources.getString(
                 com.design2.chili2.R.string.chili_leftover_from_limit,
                 getLimitMinutesWithFormat(resources.getString(com.design2.chili2.R.string.chili_minutes))
             )
+
             else -> ""
         }
     }
