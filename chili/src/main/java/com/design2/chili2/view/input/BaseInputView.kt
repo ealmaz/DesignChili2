@@ -400,7 +400,7 @@ open class BaseInputView @JvmOverloads constructor(
 
 
     fun setInputTailedIcon(@DrawableRes drawableId: Int) {
-        vb.tilInputContainer.setOnClickListener { vb.etInput.requestFocus() }
+        setInputContainerClickListener()
         vb.etInput.run {
             setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, drawableId, 0)
             val frameLayoutParams = FrameLayout.LayoutParams(
@@ -416,7 +416,7 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setInputTailedIcon(drawable: Drawable) {
-        vb.tilInputContainer.setOnClickListener { vb.etInput.requestFocus() }
+        setInputContainerClickListener()
         vb.etInput.run {
             setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, drawable, null)
             val frameLayoutParams = FrameLayout.LayoutParams(
@@ -428,6 +428,13 @@ open class BaseInputView @JvmOverloads constructor(
             }
             this.layoutParams = frameLayoutParams
             minEms = 1
+        }
+    }
+
+    private fun setInputContainerClickListener() {
+        vb.tilInputContainer.setOnClickListener {
+            setSelectionToEnd()
+            showSystemKeyboard()
         }
     }
 
