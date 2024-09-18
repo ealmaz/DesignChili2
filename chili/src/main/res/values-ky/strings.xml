@@ -10,4 +10,8 @@
         <item>ГБ</item>
         <item>ТБ</item>
     </string-array>
+
+    <!-- MyConnectionCardView -->
+    <string name="my_connection_card_internet_package_title">Интернет</string>
+    <string name="my_connection_card_calling_package_title">Мүнөттөр</string>
 </resources>

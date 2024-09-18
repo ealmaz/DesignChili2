@@ -10,4 +10,8 @@
         <item>GB</item>
         <item>TB</item>
     </string-array>
+
+    <!-- MyConnectionCardView -->
+    <string name="my_connection_card_internet_package_title">Internet</string>
+    <string name="my_connection_card_calling_package_title">Minutes</string>
 </resources>
