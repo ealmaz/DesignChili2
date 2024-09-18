@@ -10,11 +10,11 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
+import androidx.annotation.GravityInt
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewDiscountCardBinding
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.drawable
-import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.recolorDrawable
 import com.design2.chili2.extensions.setImageByUrl
@@ -98,6 +98,10 @@ class IconHolderCardItemView @JvmOverloads constructor(
 
     fun setTitleTextAppearance(resId: Int) {
         vb.tvLabel.setTextAppearance(resId)
+    }
+
+    fun setTitleGravity(@GravityInt gravity: Int) {
+        vb.tvLabel.gravity = gravity
     }
 
     fun setIcon(@DrawableRes resId: Int, isBackgroundVisible: Boolean = true) {
