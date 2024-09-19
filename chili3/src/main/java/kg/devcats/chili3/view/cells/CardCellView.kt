@@ -161,16 +161,19 @@ class CardCellView @JvmOverloads constructor(
         vb.tvSubtitle.setTextOrHide(spanned)
     }
 
-    fun setAdditionalText(value: String?) {
+    fun setAdditionalText(value: String?, isCenteredVertical: Boolean = false) {
         vb.tvAdditionalText.setTextOrHide(value)
+        centerAdditionalText(isCenteredVertical)
     }
 
-    fun setAdditionalText(spanned: Spanned?) {
+    fun setAdditionalText(spanned: Spanned?, isCenteredVertical: Boolean = false) {
         vb.tvAdditionalText.setTextOrHide(spanned)
+        centerAdditionalText(isCenteredVertical)
     }
 
-    fun setAdditionalText(@StringRes resId: Int?) {
+    fun setAdditionalText(@StringRes resId: Int?, isCenteredVertical: Boolean = false) {
         vb.tvAdditionalText.setTextOrHide(resId)
+        centerAdditionalText(isCenteredVertical)
     }
 
     fun setTitleMaxLines(lines: Int) {
@@ -322,6 +325,10 @@ class CardCellView @JvmOverloads constructor(
 
     fun setAdditionalTextAppearance(@StyleRes resId: Int) {
         vb.tvAdditionalText.setTextAppearance(resId)
+    }
+
+    private fun centerAdditionalText(isCentered: Boolean = false) {
+        setAdditionalTextVerticalAlign(if (isCentered) Gravity.CENTER else Gravity.TOP)
     }
 
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs

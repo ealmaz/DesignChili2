@@ -131,6 +131,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             setAdditionalTextAppearance(kg.devcats.chili3.R.style.Chili_H14_Primary)
         }
         vb.cardcell7.apply {
+            setAdditionalText("Test Center Vertical", true)
             setIsUniqueStated(false)
         }
         vb.aicvHalykNoCommission.setSubtitleBackground(kg.devcats.chili3.R.drawable.bg_subtitle_background_rounded)
