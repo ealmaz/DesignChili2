@@ -23,6 +23,7 @@ import kg.devcats.chili3.model.MyConnectionProfile
 import kg.devcats.chili3.model.PackageLeftOver
 import kg.devcats.chili3.model.PackageType
 
+//TODO - move business logic to interactor, make this view absolute "dummy"
 class MyConnectionCardView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -36,6 +37,8 @@ class MyConnectionCardView @JvmOverloads constructor(
     private var unlimitedText: String? = null
     private var withoutPackageTitle: String? = null
     private var packageSuspendedText: String? = null
+    private var internetPackageSuspendedText:String? = null
+
     private var callingPackageEmptyText: String? = null
     private var internetPackageEmptyText: String? = null
 
@@ -64,10 +67,13 @@ class MyConnectionCardView @JvmOverloads constructor(
         setIsUnauthorized(
             getBoolean(R.styleable.MyConnectionCardView_isUnauthorized, false)
         )
+
+        // TODO - get text from function when data is setting, not from attribute
         setWithoutPackageSubtitle(getString(R.styleable.MyConnectionCardView_withoutPackageSubtitle))
         unlimitedText = getString(R.styleable.MyConnectionCardView_unlimitedText)
         withoutPackageTitle = getString(R.styleable.MyConnectionCardView_withoutPackageTitle)
         packageSuspendedText = getString(R.styleable.MyConnectionCardView_packageSuspendedText)
+        internetPackageSuspendedText = getString(R.styleable.MyConnectionCardView_internetPackageSuspendedText)
         callingPackageEmptyText = getString(R.styleable.MyConnectionCardView_packageEmptyText)
         internetPackageEmptyText = getString(R.styleable.MyConnectionCardView_internetPackageEmptyText)
     }
@@ -161,7 +167,7 @@ class MyConnectionCardView @JvmOverloads constructor(
             plvInternet.setPackage(
                 leftOver.getFormattedRemain(resources),
                 when {
-                    leftOver.isSuspended -> packageSuspendedText
+                    leftOver.isSuspended -> internetPackageSuspendedText
                     leftOver.isPackageEmpty() -> internetPackageEmptyText
                     else -> leftOver.getFormattedLimit(resources)
                 },
