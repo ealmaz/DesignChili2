@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.Spanned
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.DrawableRes
@@ -203,15 +204,14 @@ class CardCellView @JvmOverloads constructor(
     fun setIconHeight(height: Int) {
         vb.ivIcon.layoutParams.height = height
     }
-
-    fun setAdditionalTextVerticalAlign(align: Int) {
+    fun setAdditionalTextVerticalAlign(gravity: Int = Gravity.TOP) {
         vb.endContainer.apply {
             val params = layoutParams as? LayoutParams
             if (params != null) {
-                when (align) {
-                    0 -> params.verticalBias = 0f // top
-                    1 -> params.verticalBias = 0.5f // center
-                    2 -> params.verticalBias = 1f // bottom
+                when (gravity) {
+                    Gravity.TOP -> params.verticalBias = 0f // top
+                    Gravity.CENTER -> params.verticalBias = 0.5f // center
+                    Gravity.BOTTOM -> params.verticalBias = 1f // bottom
                 }
                 layoutParams = params
             }
