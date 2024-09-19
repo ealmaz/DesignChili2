@@ -292,12 +292,18 @@ class CardCellView @JvmOverloads constructor(
     }
 
     fun setIsUniqueStated(
-        isUniqueStated: Boolean, color: Int = context.getColorFromAttr(com.design2.chili2.R.attr.ChiliErrorTextColor)
+        isUniqueStated: Boolean,
+        uniqueColor: Int = context.getColorFromAttr(com.design2.chili2.R.attr.ChiliErrorTextColor),
+        defaultColorSubtitle: Int = context.getColorFromAttr(com.design2.chili2.R.attr.ChiliValueTextColor),
+        defaultColorAdditional: Int = context.getColorFromAttr(com.design2.chili2.R.attr.ChiliPrimaryTextColor)
     ) {
         with(vb) {
             if (isUniqueStated) {
-                tvSubtitle.setTextColor(color)
-                tvAdditionalText.setTextColor(color)
+                tvSubtitle.setTextColor(uniqueColor)
+                tvAdditionalText.setTextColor(uniqueColor)
+            } else {
+                tvSubtitle.setTextColor(defaultColorSubtitle)
+                tvAdditionalText.setTextColor(defaultColorAdditional)
             }
         }
     }
