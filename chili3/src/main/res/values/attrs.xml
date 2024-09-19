@@ -109,6 +109,7 @@
         <attr name="withoutPackageSubtitle" format="string"/>
         <attr name="withoutPackageTitle" format="string"/>
         <attr name="packageSuspendedText" format="string"/>
+        <attr name="internetPackageSuspendedText" format="string"/>
         <attr name="packageEmptyText" format="string"/>
         <attr name="internetPackageEmptyText" format="string"/>
     </declare-styleable>
