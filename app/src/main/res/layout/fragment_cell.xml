@@ -83,12 +83,12 @@
             app:cardCellValue="500 000,00 с"/>
 
         <kg.devcats.chili3.view.cells.CardCellView
+            android:id="@+id/cardcell7"
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCellIcon="@drawable/ic_card_default"
             app:cardCellTitle="Заголовок"
-            app:cardCellSubtitle="Подзаголовок"
             app:cardCellValue="500 000,00 с"
             app:cardCellIsUniqueStatused="true"/>
 
@@ -845,17 +845,17 @@
             android:layout_marginTop="@dimen/padding_8dp"
             style="@style/ShadowLayoutStyle">
 
-        <com.design2.chili2.view.cells.AdditionalTextCellView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:isDividerVisible="false"
-            android:icon="@drawable/ic_bonus_new"
-            app:subtitle="123123"
-            app:additionalSubText="Sub text 123"
-            app:additionalText="Value"
-            app:isChevronVisible="false"
-            app:roundedCornerMode="single"
-            app:title="simple" />
+            <com.design2.chili2.view.cells.AdditionalTextCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:isDividerVisible="false"
+                android:icon="@drawable/ic_bonus_new"
+                app:subtitle="123123"
+                app:additionalSubText="Sub text 123"
+                app:additionalText="Value"
+                app:isChevronVisible="false"
+                app:roundedCornerMode="single"
+                app:title="simple" />
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
