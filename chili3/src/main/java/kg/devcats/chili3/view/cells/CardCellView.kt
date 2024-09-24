@@ -121,6 +121,9 @@ class CardCellView @JvmOverloads constructor(
             if (vb.tvTitle.lineCount > 1) {
                 removeBottomConstraint(vb.ivIcon)
                 removeBottomConstraint(vb.ivOverlay)
+            } else {
+                constraintBottomToParentBottom(vb.ivIcon)
+                constraintBottomToParentBottom(vb.ivOverlay)
             }
         }
     }
@@ -151,6 +154,12 @@ class CardCellView @JvmOverloads constructor(
     private fun removeBottomConstraint(view: View) {
         view.updateLayoutParams<LayoutParams> {
             bottomToBottom = LayoutParams.UNSET
+        }
+    }
+
+    private fun constraintBottomToParentBottom(view: View) {
+        view.updateLayoutParams<LayoutParams> {
+            bottomToBottom = LayoutParams.PARENT_ID
         }
     }
 
