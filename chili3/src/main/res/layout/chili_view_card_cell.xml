@@ -34,7 +34,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <ImageView
             android:id="@+id/iv_overlay_icon"
             android:layout_width="@dimen/view_18dp"
@@ -72,6 +71,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="3"
+                    android:includeFontPadding="false"
                     android:textAppearance="@style/Chili.H16.Primary"
                     android:visibility="gone"
                     tools:text="Заголовок" />

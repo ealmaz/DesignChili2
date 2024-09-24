@@ -12,6 +12,7 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
+import androidx.core.view.updateLayoutParams
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setImageOrHide
@@ -40,6 +41,7 @@ class CardCellView @JvmOverloads constructor(
     init {
         initView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
+        setIconConstraintForLines()
     }
 
     private fun initView(context: Context) {
@@ -114,6 +116,18 @@ class CardCellView @JvmOverloads constructor(
             }
     }
 
+    private fun setIconConstraintForLines() = with(vb) {
+        tvTitle.viewTreeObserver.addOnGlobalLayoutListener {
+            if (tvTitle.lineCount > 1) {
+                ivIcon.removeBottomConstraint()
+                ivOverlay.removeBottomConstraint()
+            } else {
+                ivIcon.constraintBottomToParentBottom()
+                ivOverlay.constraintBottomToParentBottom()
+            }
+        }
+    }
+
     private fun setupShimmering() {
         shimmeringPairs[vb.clContent] = vb.viewShimmerContent
     }
@@ -134,6 +148,18 @@ class CardCellView @JvmOverloads constructor(
                     }
                 )
             }
+        }
+    }
+
+    private fun View.removeBottomConstraint() {
+        this.updateLayoutParams<LayoutParams> {
+            bottomToBottom = LayoutParams.UNSET
+        }
+    }
+
+    private fun View.constraintBottomToParentBottom() {
+        this.updateLayoutParams<LayoutParams> {
+            bottomToBottom = LayoutParams.PARENT_ID
         }
     }
 
