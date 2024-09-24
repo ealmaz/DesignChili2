@@ -118,7 +118,6 @@ class CardCellView @JvmOverloads constructor(
 
     private fun setIconConstraintForLines() {
         vb.tvTitle.viewTreeObserver.addOnGlobalLayoutListener {
-            vb.tvTitle.text
             if (vb.tvTitle.lineCount > 1) {
                 removeBottomConstraint(vb.ivIcon)
                 removeBottomConstraint(vb.ivOverlay)
