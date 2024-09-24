@@ -116,14 +116,14 @@ class CardCellView @JvmOverloads constructor(
             }
     }
 
-    private fun setIconConstraintForLines() {
-        vb.tvTitle.viewTreeObserver.addOnGlobalLayoutListener {
-            if (vb.tvTitle.lineCount > 1) {
-                removeBottomConstraint(vb.ivIcon)
-                removeBottomConstraint(vb.ivOverlay)
+    private fun setIconConstraintForLines() = with(vb) {
+        tvTitle.viewTreeObserver.addOnGlobalLayoutListener {
+            if (tvTitle.lineCount > 1) {
+                ivIcon.removeBottomConstraint()
+                ivOverlay.removeBottomConstraint()
             } else {
-                constraintBottomToParentBottom(vb.ivIcon)
-                constraintBottomToParentBottom(vb.ivOverlay)
+                ivIcon.constraintBottomToParentBottom()
+                ivOverlay.constraintBottomToParentBottom()
             }
         }
     }
@@ -151,14 +151,14 @@ class CardCellView @JvmOverloads constructor(
         }
     }
 
-    private fun removeBottomConstraint(view: View) {
-        view.updateLayoutParams<LayoutParams> {
+    private fun View.removeBottomConstraint() {
+        this.updateLayoutParams<LayoutParams> {
             bottomToBottom = LayoutParams.UNSET
         }
     }
 
-    private fun constraintBottomToParentBottom(view: View) {
-        view.updateLayoutParams<LayoutParams> {
+    private fun View.constraintBottomToParentBottom() {
+        this.updateLayoutParams<LayoutParams> {
             bottomToBottom = LayoutParams.PARENT_ID
         }
     }
