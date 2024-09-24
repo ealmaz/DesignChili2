@@ -83,12 +83,12 @@
             app:cardCellValue="500 000,00 с"/>
 
         <kg.devcats.chili3.view.cells.CardCellView
-            android:id="@+id/cardcell7"
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCellIcon="@drawable/ic_card_default"
             app:cardCellTitle="Заголовок"
+            app:cardCellSubtitle="Подзаголовок"
             app:cardCellValue="500 000,00 с"
             app:cardCellIsUniqueStatused="true"/>
 
