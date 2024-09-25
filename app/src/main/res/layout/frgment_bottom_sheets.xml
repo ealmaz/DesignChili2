@@ -61,14 +61,6 @@
             android:layout_margin="@dimen/padding_16dp"/>
 
         <Button
-            android:id="@+id/chili3_new_cells"
-            android:text="Chili3 NewCellViewsFragment sheet"
-            style="@style/Chili.ButtonStyle.Primary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/padding_16dp"/>
-
-        <Button
             android:id="@+id/chili3_bottom_sheet_w_recview"
             android:text="Chili3 BottomSheet with RecyclerView"
             style="@style/Chili.ButtonStyle.Primary"
@@ -76,6 +68,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_16dp"/>
 
+        <Button
+            android:id="@+id/chili3_bottom_sheet_w_input"
+            android:text="Chili3 Input Adjusting Keyboard BottomSheet"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
 
         <Button
             android:id="@+id/custom_with_builder"

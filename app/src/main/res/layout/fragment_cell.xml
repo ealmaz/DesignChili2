@@ -20,18 +20,6 @@
         android:paddingBottom="220dp"
         tools:context=".MainActivity">
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/view_icon_shimmer"
-            android:layout_width="140dp"
-            android:layout_height="8dp"
-            app:shimmer_auto_start="true">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/chili_bg_shimmer" />
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
         <com.design2.chili2.view.common.TitledDividerView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,26 +89,8 @@
             app:cardCellSubtitle="Подзаголовок Подзаголовок Подзаголовок Подзаголовок Подзаголовок"
             app:cardCellIsUniqueStatused="true"/>
 
-        <kg.devcats.chili3.view.cells.CardCellView
-            android:id="@+id/cardcell6"
-            android:layout_marginTop="@dimen/padding_16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCellIcon="@drawable/chili_ic_deposit_default"
-            app:cardCellTitle="Test Title"
-            app:cardCellSubtitle="Test Subtitle"
-            app:cardCellValue="500 000,00 с"
-            app:cardCellIconWidth="32dp"
-            app:cardCellIconHeight="32dp"
-            app:cardCellIsSurfaceClickable="false"
-            app:cardCellTitleMaxLines="1"
-            app:cardCellAdditionalTextVerticalAlign="center"
-            app:cardCellTitleTextAppearance="@style/Chili.H12.Secondary"
-            app:cardCellSubtitleTextAppearance="@style/Chili.H14.Primary"
-            />
-
-
         <com.design2.chili2.view.common.TitledDividerView
+            android:layout_marginTop="@dimen/padding_10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:title="BaseCellView with icon" />
@@ -129,7 +99,7 @@
             android:id="@+id/shadow_ex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_8dp"
             style="@style/ShadowLayoutStyle">
 
             <com.design2.chili2.view.cells.BaseCellView
@@ -139,8 +109,8 @@
                 app:roundedCornerMode="top"
                 app:isDividerVisible="true"
                 app:title="Заголовок" />
-
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
             android:id="@+id/shadow_ex2"
             android:layout_width="match_parent"

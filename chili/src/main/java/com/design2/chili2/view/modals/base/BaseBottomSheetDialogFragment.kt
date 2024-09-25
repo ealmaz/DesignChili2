@@ -9,6 +9,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
+import androidx.annotation.StyleRes
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentManager
 import com.design2.chili2.R
@@ -37,10 +38,11 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     abstract var topDrawableView: View?
     abstract var innerTopDrawableView: View?
     abstract var closeIconView: View?
+    @StyleRes var bottomSheetStyle : Int = R.style.Chili_BottomSheetStyle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setStyle(STYLE_NORMAL, R.style.Chili_BottomSheetStyle)
+        setStyle(STYLE_NORMAL, bottomSheetStyle)
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

@@ -20,4 +20,8 @@
         <item name="android:textColor">?attr/ChiliActionBottomSheetAccentButtonTextColor</item>
     </style>
 
+    <style name="Chili.AdjustResizeBottomSheet" parent="Chili.BottomSheetStyle">
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
 </resources>
