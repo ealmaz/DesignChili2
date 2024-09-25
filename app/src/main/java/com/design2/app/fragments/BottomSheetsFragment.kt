@@ -16,6 +16,7 @@ import com.design2.app.adapter.SimpleTextRecyclerViewAdapter
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FrgmentBottomSheetsBinding
 import com.design2.chili2.extensions.dp
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.view.modals.base.BaseFragmentBottomSheetDialogFragment
 import com.design2.chili2.view.modals.bottom_sheet.*
 import com.design2.chili2.view.modals.bottom_sheet.serach_bottom_sheet.Option
@@ -46,7 +47,6 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                     "Дата совершения перевода:\n" + "12.02.2020 / 14:13:27",
                     "Квитанция:\n" + "123681263786128"
                 )
-
                 )
             }
         }
@@ -177,15 +177,6 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
         vb.custom.setOnClickListener {
             CustomFragmentBottomSheet().show(childFragmentManager)
         }
-        vb.chili3NewCells.setOnClickListener {
-            val bottomSheet = FragmentBottomSheet.Builder()
-                .setContentFragment(NewCellViewsFragment())
-                .setState(BottomSheetBehavior.STATE_EXPANDED)
-                .setDrawableVisible(false)
-                .setInnerTopDrawableVisible(true)
-                .build()
-            bottomSheet.show(childFragmentManager)
-        }
         vb.chili3BottomSheetWRecview.setOnClickListener {
             var bsh: BottomSheetWithRecycler? = null
             val adapter = SelectorAdapter(listOf(
@@ -217,6 +208,21 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .build()
             bsh.show(childFragmentManager)
 
+        }
+        vb.chili3BottomSheetWInput.setOnSingleClickListener {
+            FragmentBottomSheet.Builder()
+                .setContentFragment(FragmentWithInput("sample text"
+                ) {
+                    Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                })
+                .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .setDrawableVisible(false)
+                .setInnerTopDrawableVisible(true)
+                .setBottomSheetStyle(com.design2.chili2.R.style.Chili_AdjustResizeBottomSheet)
+                .setIsHideable(true)
+                .setIsBackButtonEnabled(true)
+                .build()
+                .show(childFragmentManager)
         }
         vb.customWithBuilder.setOnClickListener {
             FragmentBottomSheet.Builder()
@@ -337,12 +343,5 @@ class CustomFragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
 
     override fun createFragment(): Fragment {
         return CommonViewsFragment()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-//        view.findViewById<LinearLayout>(com.design.chili.R.id.ll_content).apply {
-//            setBackgroundResource(com.design.chili.R.drawable.chili_bg_rounded_bottom_sheet_gray)
-//        }
     }
 }
