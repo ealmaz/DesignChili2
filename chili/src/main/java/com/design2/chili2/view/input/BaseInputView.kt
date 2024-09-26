@@ -434,7 +434,7 @@ open class BaseInputView @JvmOverloads constructor(
     private fun setInputContainerClickListener() {
         vb.tilInputContainer.setOnClickListener {
             setSelectionToEnd()
-            showSystemKeyboard()
+            if (vb.etInput.showSoftInputOnFocus) showSystemKeyboard()
         }
     }
 
