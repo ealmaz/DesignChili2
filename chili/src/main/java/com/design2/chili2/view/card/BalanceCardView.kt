@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.ColorInt
+import androidx.annotation.DimenRes
 import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCardBalanceBinding
@@ -185,5 +186,9 @@ class BalanceCardView @JvmOverloads constructor(
             visible()
             setImageDrawable(drawable)
         }
+    }
+
+    fun setRootEndPadding(@DimenRes padding: Int) {
+        vb.rootView.setPadding(0, 0, resources.getDimensionPixelSize(padding), 0)
     }
 }
