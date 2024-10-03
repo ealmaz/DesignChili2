@@ -115,7 +115,7 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
 
     private fun setupClosureButton(drawable: Drawable?) = with(vb) {
         drawable?.let { ivClosureIndicator.setImageDrawable(it) }
-        fvClosureIndicator.setOnClickListener {
+        llClosureContainer.setOnClickListener {
             setIsExpanded(!isExpanded)
             onClosureAction?.invoke(isExpanded)
         }

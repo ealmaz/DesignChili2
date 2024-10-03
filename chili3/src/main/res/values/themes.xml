@@ -222,6 +222,7 @@
         <item name="ChiliExpandableGridRecyclerViewIconBackground">@color/c_FFFFFF</item>
         <item name="ChiliExpandableGridRecyclerViewIconRadius">@dimen/radius_12dp</item>
         <item name="ChiliExpandableGridRecyclerViewClosureMarginTop">@dimen/padding_8dp</item>
+        <item name="ChiliExpandableGridRecyclerViewClosureMarginBottom">@dimen/padding_0dp</item>
         <item name="ChiliExpandableGridRecyclerViewClosurePaddingHorizontal">@dimen/padding_36dp</item>
         <item name="ChiliExpandableGridRecyclerViewClosurePaddingVertical">@dimen/padding_4dp</item>
 

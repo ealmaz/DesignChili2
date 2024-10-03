@@ -15,22 +15,36 @@
         android:clipToPadding="false"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 
-    <FrameLayout
-        android:id="@+id/fv_closure_indicator"
+
+    <LinearLayout
+        android:id="@+id/ll_closure_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="?ChiliExpandableGridRecyclerViewClosureMarginTop"
-        android:background="@drawable/chili_bg_expandable_grid_button"
-        android:paddingHorizontal="?ChiliExpandableGridRecyclerViewClosurePaddingHorizontal"
-        android:paddingVertical="?ChiliExpandableGridRecyclerViewClosurePaddingVertical">
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/padding_16dp"
+        android:paddingTop="?ChiliExpandableGridRecyclerViewClosureMarginTop"
+        android:paddingBottom="?ChiliExpandableGridRecyclerViewClosureMarginBottom">
 
-        <ImageView
-            android:id="@+id/iv_closure_indicator"
+        <FrameLayout
+            android:id="@+id/fv_closure_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/chili_ic_chevron_down_big" />
+            android:layout_gravity="center"
+            android:background="@drawable/chili_bg_expandable_grid_button"
+            android:paddingHorizontal="?ChiliExpandableGridRecyclerViewClosurePaddingHorizontal"
+            android:paddingVertical="?ChiliExpandableGridRecyclerViewClosurePaddingVertical">
 
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/iv_closure_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chili_ic_chevron_down_big" />
+
+        </FrameLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
