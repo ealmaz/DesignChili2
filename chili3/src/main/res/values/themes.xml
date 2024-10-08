@@ -193,7 +193,7 @@
 
         <!-- Chevron       -->
         <item name="ChiliChevronDrawable">@drawable/chili_ic_chevron_rounded</item>
-        <item name="ChiliChevronColor">@color/c_1c1c1e</item>
+        <item name="ChiliChevronColor">@color/c_3D3D3D</item>
 
         <!-- TitledDividerView -->
         <item name="ChiliTitledDividerActionButtonStyle">@style/Chili.ButtonStyle.Component.IconTitledCardView</item>
