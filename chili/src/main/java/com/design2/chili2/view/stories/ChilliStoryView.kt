@@ -523,7 +523,7 @@ interface StoryMoveListener {
     fun onClose()
     fun onFinished(index: Int)
     fun onStart(index: Int)
-    fun onPreviousClick()
+    fun onPreviousClick() {}
 }
 
 interface StoryClickListener {
