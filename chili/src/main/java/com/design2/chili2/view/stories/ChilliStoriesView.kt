@@ -118,7 +118,12 @@ class ChilliStoriesView : ConstraintLayout {
             .start()
     }
 
-    fun setupStories(list: List<ChilliStoryBlock>, fragmentActivity: FragmentActivity, onMoveListener: StoryMoveListener, onFinishListener: StoryOnFinishListener) {
+    fun setupStories(list: List<ChilliStoryBlock>,
+                     fragmentActivity: FragmentActivity,
+                     onMoveListener: StoryMoveListener,
+                     onFinishListener: StoryOnFinishListener,
+                     onStoryClickListener: StoryClickListener? = null,
+                     currentStoryBlock: String? = null) {
         viewPager = binding.viewPager.apply {
             setPageTransformer(ChiliStoryPageTransformer())
             offscreenPageLimit = 3
@@ -126,9 +131,14 @@ class ChilliStoriesView : ConstraintLayout {
 
         storyViewPagerAdapter = ChilliStoryPagerAdapter(fragmentActivity)
 
-        storyViewPagerAdapter?.createViewPager(stories = list, onMoveListener, onFinishListener)
+        storyViewPagerAdapter?.createViewPager(stories = list, onMoveListener, onFinishListener, onStoryClickListener)
 
         viewPager?.adapter = storyViewPagerAdapter
+
+        currentStoryBlock?.let { currentStoryBlockName ->
+            val currentStoryBlockIndex = list.indexOfFirst { it.blockType == currentStoryBlockName }
+            viewPager?.setCurrentItem(currentStoryBlockIndex, false)
+        }
 
         viewPager?.registerOnPageChangeCallback(object : OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -147,6 +157,17 @@ class ChilliStoriesView : ConstraintLayout {
             if (nextItem < (it.adapter?.itemCount ?: 0))
                 it.setCurrentItem(nextItem, true)
             else onFinish()
+        }
+    }
+
+    fun moveToPreviousPage() {
+        viewPager?.let {
+            val currentItem = it.currentItem
+
+            if (currentItem > 0){
+                val prevItem = currentItem - 1
+                it.setCurrentItem(prevItem, true)
+            }
         }
     }
 }

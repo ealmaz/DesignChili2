@@ -41,7 +41,8 @@ class ChilliStoryFragment: Fragment() {
             binding.storyView.setupStories(
                 stories = it,
                 onMoveListener,
-                onFinishListener
+                onFinishListener,
+                onClickListener
             )
         }
     }
@@ -95,11 +96,13 @@ class ChilliStoryFragment: Fragment() {
         private const val ARG_STORY_BLOCK = "story_block"
         private var onMoveListener: StoryMoveListener? = null
         private var onFinishListener: StoryOnFinishListener? = null
+        private var onClickListener: StoryClickListener? = null
 
-        fun newInstance(storyBlock: ChilliStoryBlock, onMoveListener: StoryMoveListener, onFinishListener: StoryOnFinishListener): ChilliStoryFragment {
+        fun newInstance(storyBlock: ChilliStoryBlock, onMoveListener: StoryMoveListener?, onFinishListener: StoryOnFinishListener?, onStoryClickListener: StoryClickListener?): ChilliStoryFragment {
             return ChilliStoryFragment().apply {
                 this@Companion.onMoveListener = onMoveListener
                 this@Companion.onFinishListener = onFinishListener
+                this@Companion.onClickListener = onStoryClickListener
                 arguments = Bundle().apply {
                     putSerializable(ARG_STORY_BLOCK, storyBlock)
                 }

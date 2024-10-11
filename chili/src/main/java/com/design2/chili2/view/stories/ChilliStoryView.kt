@@ -25,9 +25,11 @@ import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoryBinding
 import com.design2.chili2.extensions.applyCenterCrop
 import com.design2.chili2.extensions.applyFitCenter
+import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.setDrawableFromUrlWithListeners
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.horizontalFitBottom
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.visible
 import kotlin.collections.ArrayList
 
@@ -48,6 +50,7 @@ class StoryView : ConstraintLayout {
     private var timer: CountDownTimer? = null
     private var onMoveListener: StoryMoveListener? = null
     private var onFinishListener: StoryOnFinishListener? = null
+    private var onClickListener: StoryClickListener? = null
 
     private var progressBars: ArrayList<ProgressBar> = arrayListOf()
     private var exoPlayer: ExoPlayer? = null
@@ -94,6 +97,17 @@ class StoryView : ConstraintLayout {
         currentStory = storyModel
 
         with(binding) {
+            if (storyModel.backgroundColor != null) {
+                try {
+                    val backgroundColor = Color.parseColor(storyModel.backgroundColor)
+                    binding.clRoot.setBackgroundColor(backgroundColor)
+                } catch (e: Exception) {
+                    binding.clRoot.setBackgroundColor(context.color(R.color.white_1))
+                }
+            } else {
+                binding.clRoot.setBackgroundColor(context.color(R.color.white_1))
+            }
+
             if (storyModel.title != null) {
                 storyTitleView.apply {
                     visible()
@@ -151,6 +165,10 @@ class StoryView : ConstraintLayout {
                     additionalButton.apply {
                         visible()
                         text = storyModel.buttonText
+                        setOnSingleClickListener {
+                            if (storyModel.deeplink != null) onClickListener?.onDeeplinkClick(storyModel.deeplink)
+                            else finishStories()
+                        }
                     }
                     secondaryButton.gone()
                 }
@@ -159,6 +177,10 @@ class StoryView : ConstraintLayout {
                     secondaryButton.apply {
                         visible()
                         text = storyModel.buttonText
+                        setOnSingleClickListener {
+                            if (storyModel.deeplink != null) onClickListener?.onDeeplinkClick(storyModel.deeplink)
+                            else finishStories()
+                        }
                     }
                     additionalButton.gone()
                 }
@@ -302,22 +324,18 @@ class StoryView : ConstraintLayout {
     fun setupStories(
         stories: ArrayList<ChilliStoryModel> = arrayListOf(),
         moveListener: StoryMoveListener? = null,
-        finishListener: StoryOnFinishListener? = null
+        finishListener: StoryOnFinishListener? = null,
+        clickListener: StoryClickListener? = null
     ) {
         this.stories = stories
         this.onMoveListener = moveListener
         this.onFinishListener = finishListener
+        this.onClickListener = clickListener
 
         with(binding) {
             progressBarsContainer.removeAllViews()
             progressBars.clear()
             closeButton.setOnClickListener {
-                finishStories()
-            }
-            additionalButton.setOnClickListener {
-                finishStories()
-            }
-            secondaryButton.setOnClickListener {
                 finishStories()
             }
         }
@@ -371,6 +389,10 @@ class StoryView : ConstraintLayout {
             this.progressBars[currentStoryIndex].progress = 0
             currentStoryIndex--
             playNext(this.stories[currentStoryIndex])
+        } else {
+            this.progressBars[currentStoryIndex].progress = 0
+            playNext(this.stories[currentStoryIndex])
+            onMoveListener?.onPreviousClick()
         }
     }
 
@@ -501,6 +523,11 @@ interface StoryMoveListener {
     fun onClose()
     fun onFinished(index: Int)
     fun onStart(index: Int)
+    fun onPreviousClick()
+}
+
+interface StoryClickListener {
+    fun onDeeplinkClick(deeplink: String)
 }
 
 interface StoryOnFinishListener {
