@@ -21,6 +21,7 @@ import com.design2.chili2.view.shimmer.startGroupShimmering
 import com.design2.chili2.view.shimmer.startShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 import com.design2.chili2.view.shimmer.stopShimmering
+import kg.devcats.chili3.view.cells.CardCellView
 
 
 class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
@@ -101,16 +102,12 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         vb.cardcell1.startShimmering()
         vb.cardcell2.startShimmering()
         Handler(Looper.getMainLooper()).postDelayed({ vb.cardcell2.stopShimmering(false) }, 2000)
-        vb.cardcell4.apply {
-            setIcon(com.design2.app.R.drawable.ic_card_default)
-            setTitle("Банковский счет")
-            setSubtitle("В блоке")
-            val text = "1212 <u>c</u>".parseAsHtml()
-            setIsBlocked(true)
+        vb.cardcell4.setBlockedState()
+        vb.cardcell40.apply {
+            setBlockedState()
+            setTitle("Заголовок занимающий 2-3 строки")
+            val text = "10000,00 <u>c</u>".parseAsHtml()
             setAdditionalText(text)
-            setOnSingleClickListener {
-                Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
-            }
         }
         vb.cardcell5.apply {
             alpha = 0.5f
@@ -126,6 +123,18 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         vb.newToggleCellView.apply {
             setSwitchGreenStyle()
             setSwitchEndPadding(10.dp)
+        }
+    }
+
+    private fun CardCellView.setBlockedState() {
+        setIcon(com.design2.app.R.drawable.ic_card_default)
+        setTitle("Банковский счет")
+        setSubtitle("В блоке")
+        val text = "1212 <u>c</u>".parseAsHtml()
+        setIsBlocked(true)
+        setAdditionalText(text)
+        setOnSingleClickListener {
+            Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
         }
     }
 
