@@ -41,7 +41,6 @@ class CardCellView @JvmOverloads constructor(
     init {
         initView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
-        setIconConstraintForLines()
     }
 
     private fun initView(context: Context) {
@@ -114,18 +113,6 @@ class CardCellView @JvmOverloads constructor(
 
                 recycle()
             }
-    }
-
-    private fun setIconConstraintForLines() = with(vb) {
-        tvTitle.viewTreeObserver.addOnGlobalLayoutListener {
-            if (tvTitle.lineCount > 1) {
-                ivIcon.removeBottomConstraint()
-                ivOverlay.removeBottomConstraint()
-            } else {
-                ivIcon.constraintBottomToParentBottom()
-                ivOverlay.constraintBottomToParentBottom()
-            }
-        }
     }
 
     private fun setupShimmering() {
