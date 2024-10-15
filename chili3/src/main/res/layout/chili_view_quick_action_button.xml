@@ -11,9 +11,6 @@
         android:id="@+id/iv_icon"
         android:layout_width="@dimen/padding_48dp"
         android:layout_height="@dimen/padding_48dp"
-        app:layout_constraintBottom_toTopOf="@id/tv_label"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/chili_ic_info" />
 
     <TextView
@@ -22,9 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/padding_10dp"
         android:layout_marginTop="@dimen/padding_8dp"
+        android:gravity="center_horizontal"
         android:textAppearance="@style/QuickActionButtonTitleStyle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_icon"
         tools:text="Переводы" />
 
 </LinearLayout>
