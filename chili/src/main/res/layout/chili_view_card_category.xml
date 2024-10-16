@@ -5,9 +5,6 @@
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_height="match_parent"
-    android:paddingEnd="@dimen/padding_8dp"
-    android:paddingBottom="?ChiliCategoryCardViewLabelBottomMargin"
     android:orientation="vertical">
 
     <ImageView
@@ -22,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv_label"
+        app:layout_constraintVertical_chainStyle="packed"
         tools:src="@drawable/chili_ic_info"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -46,24 +44,31 @@
         android:visibility="gone"
         android:textAppearance="@style/Chili.H9.Value"
         android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
+        app:layout_constraintStart_toEndOf="@id/iv_icon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/iv_icon"
         app:layout_constraintBottom_toBottomOf="@+id/iv_icon"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintHorizontal_bias="1"
         tools:text="••••1234"/>
 
     <TextView
         android:id="@+id/tv_label"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/Chili.H7.Primary.Bold"
+        android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
         android:layout_marginTop="?ChiliCategoryCardViewLabelTopMargin"
         android:layout_marginEnd="?ChiliCategoryCardViewLabelEndMargin"
-        android:layout_marginStart="?ChiliCategoryCardViewLabelStartMargin"
-        app:layout_constraintHorizontal_bias="0"
+        android:layout_marginBottom="?ChiliCategoryCardViewLabelBottomMargin"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/Chili.H7.Primary.Bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_icon"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Переводы"/>
+        app:layout_constraintTop_toBottomOf="@id/iv_icon"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Переводы" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_label_shimmer"

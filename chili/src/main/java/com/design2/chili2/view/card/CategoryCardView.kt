@@ -12,7 +12,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewCardCategoryBinding
-import com.design2.chili2.extensions.isVisible
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.visible
 
