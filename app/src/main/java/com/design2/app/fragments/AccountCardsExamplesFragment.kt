@@ -8,6 +8,7 @@ import androidx.core.text.parseAsHtml
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentAccountCardExamplesBinding
+import com.design2.app.extensions.setBankSyncState
 import com.design2.app.extensions.setFavoritePaymentAmountAvailableState
 import com.design2.app.extensions.setFavoritePaymentAmountUnavailableState
 import com.design2.app.extensions.setIdentificationInProcessState
@@ -26,13 +27,6 @@ class AccountCardsExamplesFragment : BaseFragment<FragmentAccountCardExamplesBin
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).setUpHomeEnabled(true)
-
-        vb.acv.apply {
-            setNoFavoritePaymentAmountState(
-                "Избранный счет ",
-                "Временно недоступен \nВременно недоступен"
-            )
-        }
 
         vb.acv8.apply {
             setToggleIconState(isHiddenState = false)
@@ -93,10 +87,14 @@ class AccountCardsExamplesFragment : BaseFragment<FragmentAccountCardExamplesBin
         },18_000)
 
         Handler(Looper.getMainLooper()).postDelayed({
+            vb.acvDynamic.setBankSyncState()
+        },20_000)
+
+        Handler(Looper.getMainLooper()).postDelayed({
             vb.acvDynamic.setNonAuthorizedState(
                 "Оплачивайте",
                 "Более 2000 сервисов")
-        },20_000)
+        },22_000)
     }
 
     override fun startShimmering() {

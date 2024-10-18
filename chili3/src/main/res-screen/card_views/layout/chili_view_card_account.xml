@@ -57,6 +57,7 @@
                 android:layout_marginStart="?ChiliAccountCardViewTitleAdditionStartMargin"
                 android:maxLines="?ChiliAccountCardViewTitleAdditionMaxLines"
                 android:textAlignment="center"
+                android:maxLength="15"
                 android:textAppearance="?ChiliAccountCardViewTitleAdditionTextAppearance"
                 android:visibility="gone"
                 tools:text="•••• 1234" />
