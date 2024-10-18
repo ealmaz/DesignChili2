@@ -56,6 +56,17 @@ fun AccountCardView.setFavoritePaymentAmountAvailableState(
     setSubtitle(subTitle)
 }
 
+fun AccountCardView.setBankSyncState() {
+    setTitleIcon(com.design2.app.R.drawable.ic_dentification_in_process)
+    setTitleAddition(charSequence = null)
+    setChevronVisibility(isChevronVisible = false)
+    setTitle("Продолжить \nперенос данных")
+    setActionButtonIcon(com.design2.app.R.drawable.chili_ic_card)
+    setToggleIconVisibility(isIconVisible = false)
+    setTitleTextAppearance(R.style.Chili_H14_Primary_700)
+    setSubtitle(charSequence = null)
+}
+
 fun AccountCardView.setFavoritePaymentAmountUnavailableState(
     title: String?,
     titleAddition: String?,

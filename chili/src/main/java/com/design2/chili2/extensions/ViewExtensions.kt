@@ -25,6 +25,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import androidx.media3.common.Player
 import androidx.media3.ui.AspectRatioFrameLayout.RESIZE_MODE_ZOOM
@@ -76,6 +77,11 @@ internal fun View.visible() {
     visibility = View.VISIBLE
 }
 
+inline fun View.visible(onVisible: (Boolean) -> Unit) {
+    visibility = View.VISIBLE
+    onVisible(isVisible)
+}
+
 internal var View.lastCharInputTime: Long
     set(value) {
         setTag(R.id.lastCharInputTime, value)
@@ -105,6 +111,11 @@ internal fun View.gone() {
     visibility = View.GONE
 }
 
+inline fun View.gone(onVisible: (Boolean) -> Unit) {
+    visibility = View.GONE
+    onVisible(isVisible)
+}
+
 fun TextView.setTextOrHide(value: String?) {
     text = value
     when (value) {
@@ -131,10 +142,26 @@ fun TextView.setTextOrHide(resId: Int?) {
     }
 }
 
+inline fun TextView.setTextOrHide(resId: Int?, onVisible: (Boolean) -> Unit) {
+    when (resId) {
+        null -> gone(onVisible)
+        else -> {
+            setText(resId)
+            visible(onVisible)
+        }
+    }
+}
+
 fun TextView.setTextOrHide(charSequence: CharSequence?) {
     text = charSequence
     if (charSequence == null) gone()
     else visible()
+}
+
+inline fun TextView.setTextOrHide(charSequence: CharSequence?, onVisible: (Boolean) -> Unit) {
+    text = charSequence
+    if (charSequence == null) gone(onVisible)
+    else visible(onVisible)
 }
 
 fun ImageView.setImageOrHide(drawable: Drawable?) {
@@ -153,6 +180,16 @@ fun ImageView.setImageOrHide(@DrawableRes resId: Int?) {
         else -> {
             setImageResource(resId)
             visible()
+        }
+    }
+}
+
+inline fun ImageView.setImageOrHide(@DrawableRes resId: Int?, onVisible: (Boolean) -> Unit) {
+    when (resId) {
+        null -> gone(onVisible)
+        else -> {
+            setImageResource(resId)
+            visible(onVisible)
         }
     }
 }

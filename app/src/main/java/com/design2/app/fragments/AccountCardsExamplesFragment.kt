@@ -8,6 +8,7 @@ import androidx.core.text.parseAsHtml
 import com.design2.app.MainActivity
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentAccountCardExamplesBinding
+import com.design2.app.extensions.setBankSyncState
 import com.design2.app.extensions.setFavoritePaymentAmountAvailableState
 import com.design2.app.extensions.setFavoritePaymentAmountUnavailableState
 import com.design2.app.extensions.setIdentificationInProcessState
@@ -32,12 +33,25 @@ class AccountCardsExamplesFragment : BaseFragment<FragmentAccountCardExamplesBin
             setSubtitle("1212 <u>c</u>".parseAsHtml())
             onToggleChange {
                 println("toggle $it")
+                setFavoritePaymentAmountAvailableState(
+                    "Карта Visa",
+                    "996770386774",
+                    isToggleHiddenState = true,
+                    "6 479,59 <u>c</u>".parseAsHtml()
+
+                )
             }
             onMainContentClick {
                 println("main click")
+                setFavoritePaymentAmountUnavailableState(
+                    "Карта Карта Visa Карта Visa \nКарта Visa Карта Visa",
+                    "996770386774",
+                    "Временно недоступен",
+                )
             }
             onActionButtonClick {
                 println("action ")
+                setBankSyncState()
             }
         }
         vb.acvDynamic.setFavoritePaymentAmountAvailableState(
@@ -83,6 +97,10 @@ class AccountCardsExamplesFragment : BaseFragment<FragmentAccountCardExamplesBin
 
         Handler(Looper.getMainLooper()).postDelayed({
             vb.acvDynamic.setIdentificationInProcessState("Ваша заявка \nв обработке")
+        },18_000)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            vb.acvDynamic.setBankSyncState()
         },18_000)
 
     }

@@ -2,6 +2,7 @@ package kg.devcats.chili3.view.card
 
 import android.content.Context
 import android.content.res.TypedArray
+import android.graphics.Rect
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
+import androidx.core.view.doOnLayout
 import androidx.core.view.isVisible
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.setImageByUrl
@@ -105,7 +107,10 @@ class AccountCardView @JvmOverloads constructor(
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
-        if (changed) updateTitle()
+        if (changed) post {
+            vb.tvTitle.text = null
+            updateTitle()
+        }
     }
 
     private fun updateTitle() = with(vb) {
@@ -127,7 +132,22 @@ class AccountCardView @JvmOverloads constructor(
     }
 
     private fun View.getViewWidth(): Int {
-        return if (isVisible) measuredWidth else 0
+        if (!isVisible) return 0
+        
+        if (isOutOfRootContainer()) post {
+            vb.tvTitle.text = null
+            updateTitle()
+        }
+        return measuredWidth
+    }
+
+    private fun View.isOutOfRootContainer(): Boolean {
+        val viewRect = Rect()
+        this.getGlobalVisibleRect(viewRect)
+
+        val rootRect = Rect()
+        vb.llTitle.getGlobalVisibleRect(rootRect)
+        return !rootRect.contains(viewRect)
     }
 
     fun setTitleIcon(url: String?) {
@@ -135,16 +155,19 @@ class AccountCardView @JvmOverloads constructor(
         vb.ivTitleIcon.apply {
             visible()
             setImageByUrl(url)
+            callUpdateTitle()
         }
-        updateTitle()
     }
 
     fun setTitleIcon(@DrawableRes drawableRes: Int?) = with(vb.ivTitleIcon) {
         vb.tvTitle.text = null
         if (drawableRes == null) shimmeringPairs.remove(this)
         else shimmeringPairs[this] = null
-        vb.ivTitleIcon.setImageOrHide(drawableRes)
-        updateTitle()
+        vb.ivTitleIcon.apply {
+            setImageOrHide(drawableRes) {
+                callUpdateTitle()
+            }
+        }
     }
 
     private fun setupTitleIconSize(widthPx: Int?, heightPx: Int?) {
@@ -152,8 +175,8 @@ class AccountCardView @JvmOverloads constructor(
         vb.ivTitleIcon.apply {
             widthPx?.let { layoutParams.width = it }
             heightPx?.let { layoutParams.height = it }
+            callUpdateTitle()
         }
-        updateTitle()
     }
 
     fun setTitleIconSize(@DimenRes widthDimenRes: Int, @DimenRes heightDimenRes: Int) {
@@ -172,15 +195,20 @@ class AccountCardView @JvmOverloads constructor(
     }
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {
-        vb.tvTitle.text = null
-        vb.tvTitle.setTextAppearance(resId)
-        updateTitle()
+        vb.tvTitle.run {
+            text = null
+            setTextAppearance(resId)
+            callUpdateTitle()
+        }
     }
 
     fun setTitleAddition(charSequence: CharSequence?) {
         vb.tvTitle.text = null
-        vb.tvTitleAddition.setTextOrHide(charSequence)
-        updateTitle()
+        vb.tvTitleAddition.run {
+            setTextOrHide(charSequence) {
+                callUpdateTitle()
+            }
+        }
     }
 
     fun setTitleAddition(@StringRes resId: Int) {
@@ -189,14 +217,18 @@ class AccountCardView @JvmOverloads constructor(
 
     fun setTitleAdditionTextAppearance(@StyleRes resId: Int) {
         vb.tvTitle.text = null
-        vb.tvTitleAddition.setTextAppearance(resId)
-        updateTitle()
+        vb.tvTitleAddition.run {
+            setTextAppearance(resId)
+            callUpdateTitle()
+        }
     }
 
     fun setChevronVisibility(isChevronVisible: Boolean) {
         vb.tvTitle.text = null
-        vb.ivChevron.isVisible = isChevronVisible
-        updateTitle()
+        vb.ivChevron.run {
+            isVisible = isChevronVisible
+            callUpdateTitle()
+        }
     }
 
     fun onMainContentClick(onClick: () -> Unit) {
@@ -235,13 +267,25 @@ class AccountCardView @JvmOverloads constructor(
 
     fun setSubtitle(charSequence: CharSequence?) {
         vb.llSubtitle.isVisible = !charSequence.isNullOrEmpty()
-        vb.tvSubtitle.text = charSequence?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
-        subtitleValue = charSequence
-        updateTitle()
+        vb.tvSubtitle.run {
+            text = charSequence?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
+            subtitleValue = charSequence
+            callUpdateTitle()
+        }
     }
 
     fun setSubtitle(@StringRes resId: Int) {
         setSubtitle(this.context.getText(resId))
+    }
+
+    private fun View.callUpdateTitle() {
+        if (!isVisible) {
+            updateTitle()
+            return
+        }
+        this.doOnLayout {
+            post { updateTitle() }
+        }
     }
 
     fun setSubtitleTextAppearance(@StyleRes resId: Int) {
