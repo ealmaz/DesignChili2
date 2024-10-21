@@ -206,6 +206,10 @@
 
         <!-- Iconed Button attributes -->
         <item name="ChiliIconedButtonTextMaxLines">1000</item>
+        <item name="ChiliIconedButtonStartIconTopMargin">@dimen/padding_0dp</item>
+        <item name="ChiliIconedButtonStartIconStartMargin">@dimen/padding_0dp</item>
+        <item name="ChiliIconedButtonStartIconEndMargin">@dimen/padding_6dp</item>
+        <item name="ChiliIconedButtonEndIconStartMargin">@dimen/padding_4dp</item>
 
         <!-- InputView -->
         <item name="ChiliInputViewEndIconTint">@color/gray_1</item>

@@ -47,8 +47,12 @@
         <item name="ChiliPrimaryButtonPaddingStart">?ChiliAccountCardViewActionButtonPaddingStart</item>
         <item name="ChiliPrimaryButtonPaddingEnd">?ChiliAccountCardViewActionButtonPaddingEnd</item>
         <item name="ChiliIconedButtonTextMaxLines">?ChiliAccountCardViewActionButtonTextMaxLines</item>
-        <item name="ChiliAdditionalButtonBackgroundActive">?ChiliAccountCardViewActionButtonBackgroundActive</item>
-        <item name="ChiliAdditionalButtonBorderColor">?ChiliAccountCardViewActionButtonBorderColor</item>
+        <item name="ChiliIconedButtonStartIconTopMargin">?ChiliAccountCardViewActionButtonStartIconTopMargin</item>
+        <item name="ChiliIconedButtonStartIconStartMargin">?ChiliAccountCardViewActionButtonStartIconStartMargin</item>
+        <item name="ChiliIconedButtonStartIconEndMargin">?ChiliAccountCardViewActionButtonStartIconEndMargin</item>
+        <item name="ChiliIconedButtonEndIconStartMargin">?ChiliAccountCardViewActionButtonEndIconStartMargin</item>
+        <item name="ChiliPrimaryButtonBackgroundActive">?ChiliAccountCardViewActionButtonBackgroundActive</item>
+        <item name="ChiliPrimaryButtonRippleColor">?ChiliRippleForegroundColor</item>
     </style>
 
     <style name="Chili.AdditionalButtonText.AccountCardActionButton">

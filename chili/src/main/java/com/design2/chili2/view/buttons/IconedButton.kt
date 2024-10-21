@@ -119,11 +119,13 @@ class IconedButton @JvmOverloads constructor(
         }
     }
 
-    fun setIcon(@DrawableRes drawableRes: Int) {
-        vb.ivIcon.apply {
-            visible()
-            setImageResource(drawableRes)
+    fun setIcon(@DrawableRes drawableRes: Int?) = with(vb.ivIcon) {
+        if (isContentInvisibleOnShimmering) {
+            if (drawableRes == null) shimmeringPairs.remove(this)
+            else shimmeringPairs[this] = null
         }
+        setImageOrHide(drawableRes)
+        if (isShimmeringStart && drawableRes != null) invisible()
     }
 
     fun setTextColor(@ColorInt color: Int) {

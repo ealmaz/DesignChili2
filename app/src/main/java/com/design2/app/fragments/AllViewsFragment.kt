@@ -12,6 +12,7 @@ class AllViewsFragment : BaseFragment<FragmentAllViewsBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         vb.text.setOnClickListener {
             openFragment(TextAppearancesFragment())
         }

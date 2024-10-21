@@ -154,8 +154,11 @@
     <attr name="ChiliAccountCardViewActionButtonTextAppearance" format="reference" />
     <attr name="ChiliAccountCardViewActionButtonForeground" format="reference" />
     <attr name="ChiliAccountCardViewActionButtonTextMaxLines" format="integer" />
+    <attr name="ChiliAccountCardViewActionButtonStartIconTopMargin" format="dimension" />
+    <attr name="ChiliAccountCardViewActionButtonStartIconStartMargin" format="dimension" />
+    <attr name="ChiliAccountCardViewActionButtonStartIconEndMargin" format="dimension" />
+    <attr name="ChiliAccountCardViewActionButtonEndIconStartMargin" format="dimension" />
     <attr name="ChiliAccountCardViewActionButtonBackgroundActive" format="color" />
-    <attr name="ChiliAccountCardViewActionButtonBorderColor" format="color" />
     <attr name="ChiliAccountCardViewActionButtonPaddingTop" format="dimension"/>
     <attr name="ChiliAccountCardViewActionButtonPaddingBottom" format="dimension"/>
     <attr name="ChiliAccountCardViewActionButtonPaddingStart" format="dimension"/>
