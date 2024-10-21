@@ -445,6 +445,10 @@ open class BaseInputView @JvmOverloads constructor(
         )
     }
 
+    fun setEndIconClickListener(action: () -> Unit){
+        vb.ivEndIcon.setOnSingleClickListener(action)
+    }
+
     fun setInputLeftDrawable(drawable: Drawable) {
         getInputLeftImageView().apply {
             visible()
