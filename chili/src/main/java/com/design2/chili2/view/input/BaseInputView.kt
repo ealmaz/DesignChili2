@@ -445,7 +445,7 @@ open class BaseInputView @JvmOverloads constructor(
         )
     }
 
-    fun setEndIconClickListener(action: () -> Unit){
+    fun setEndIconSingleClickListener(action: () -> Unit){
         vb.ivEndIcon.setOnSingleClickListener(action)
     }
 
