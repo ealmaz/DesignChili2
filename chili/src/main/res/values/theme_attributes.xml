@@ -251,6 +251,10 @@
 
     <!-- Iconed Button attributes -->
     <attr name="ChiliIconedButtonTextMaxLines" format="integer"/>
+    <attr name="ChiliIconedButtonStartIconTopMargin" format="dimension"/>
+    <attr name="ChiliIconedButtonStartIconStartMargin" format="dimension"/>
+    <attr name="ChiliIconedButtonStartIconEndMargin" format="dimension"/>
+    <attr name="ChiliIconedButtonEndIconStartMargin" format="dimension"/>
 
     <!-- InputView   -->
     <attr name="ChiliInputViewEndIconTint" format="color"/>

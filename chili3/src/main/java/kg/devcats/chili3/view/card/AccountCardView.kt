@@ -252,6 +252,10 @@ class AccountCardView @JvmOverloads constructor(
         vb.ibActionBtn.setStartIcon(drawableRes)
     }
 
+    fun setActionButtonEndIcon(@DrawableRes drawableRes: Int?) {
+        vb.ibActionBtn.setIcon(drawableRes)
+    }
+
     fun setActionButtonText(text: String?) {
         vb.ibActionBtn.setText(text)
     }

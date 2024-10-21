@@ -127,8 +127,7 @@
         <item name="QuickActionButtonDisabledTitleColor">@color/gray_1</item>
 
         <!-- AccountCardView -->
-        <item name="ChiliAccountCardViewActionButtonBackgroundActive">@color/c_4a4a4a</item>
-        <item name="ChiliAccountCardViewActionButtonBorderColor">@color/c_4a4a4a</item>
+        <item name="ChiliAccountCardViewActionButtonBackgroundActive">@color/c_1c1c1e</item>
 
         <!-- CategoryCardView -->
         <item name="ChiliMarketCategoryCardViewBackgroundColor">@color/c_28282a</item>

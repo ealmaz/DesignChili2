@@ -27,6 +27,13 @@ class AccountCardsExamplesFragment : BaseFragment<FragmentAccountCardExamplesBin
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).setUpHomeEnabled(true)
 
+        vb.acv.apply {
+            setNoFavoritePaymentAmountState(
+                "Избранный счет ",
+                "Временно недоступен \nВременно недоступен"
+            )
+        }
+
         vb.acv8.apply {
             setToggleIconState(isHiddenState = false)
             setSubtitle("1212 <u>c</u>".parseAsHtml())
@@ -85,6 +92,11 @@ class AccountCardsExamplesFragment : BaseFragment<FragmentAccountCardExamplesBin
             vb.acvDynamic.setIdentificationInProcessState("Ваша заявка \nв обработке")
         },18_000)
 
+        Handler(Looper.getMainLooper()).postDelayed({
+            vb.acvDynamic.setNonAuthorizedState(
+                "Оплачивайте",
+                "Более 2000 сервисов")
+        },20_000)
     }
 
     override fun startShimmering() {
