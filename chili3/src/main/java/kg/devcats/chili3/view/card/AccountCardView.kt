@@ -2,8 +2,6 @@ package kg.devcats.chili3.view.card
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.graphics.Rect
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +37,7 @@ class AccountCardView @JvmOverloads constructor(
     private var subtitleValue: CharSequence? = null
     private var isToggleHiddenState = false
     private var toggleChanged: ((Boolean) -> Unit)? = null
+    private val titleContainerWidth by lazy { vb.llTitle.getViewWidth() }
     private var subtitleValueByDelegate = { pan: CharSequence, isHidden: Boolean ->
         if (isHidden) "••••••••"
         else pan
@@ -104,62 +103,29 @@ class AccountCardView @JvmOverloads constructor(
         setupToggleButton()
     }
 
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
-        super.onLayout(changed, left, top, right, bottom)
-        if (changed) post {
-            vb.tvTitle.text = null
-            updateTitle()
-        }
-    }
-
     private fun updateTitle(): Unit = with(vb) {
-        val containerWidth = llTitle.getViewWidth() ?: 0
-        val startIconWidth = ivTitleIcon.getViewWidth() ?: 0
-        val titleAdditionWidth = tvTitleAddition.getViewWidth(true) ?: return
-        val chevronWidth = ivChevron.getViewWidth(true) ?: return
-        val marginsWidth =
-            ((if (startIconWidth > 0) 8 else 0) + (if (titleAdditionWidth > 0) 8 else 0)).dp
-        val availableWidth =
-            containerWidth - startIconWidth - titleAdditionWidth - chevronWidth - marginsWidth
+        tvTitle.post {
+            val startIconWidth = ivTitleIcon.getViewWidth()
+            val titleAdditionWidth = tvTitleAddition.getViewWidth()
+            val chevronWidth = ivChevron.getViewWidth()
+            val marginsWidth =
+                ((if (startIconWidth > 0) 8 else 0) + (if (titleAdditionWidth > 0) 8 else 0)).dp
+            val availableWidth =
+                titleContainerWidth - startIconWidth - titleAdditionWidth - chevronWidth - marginsWidth
 
-        tvTitle.apply {
-            maxWidth = availableWidth
-            maxLines = if (subtitleValue == null) 2 else 1
-            ellipsize = TextUtils.TruncateAt.END
-            text = titleValue
+            tvTitle.maxWidth = availableWidth.takeIf { it >= 0 } ?: 0
         }
     }
 
-    private fun View.getViewWidth(checkPosition: Boolean = false): Int? {
-        if (!isVisible) return 0
-
-        if (checkPosition && isWholeViewInRootContainer()) {
-            post {
-                vb.tvTitle.text = null
-                updateTitle()
-            }
-            return null
+    private fun View.getViewWidth(): Int {
+        return when {
+            !isVisible -> 0
+            this is TextView -> paint.measureText(text.toString()).toInt()
+            else -> measuredWidth
         }
-
-        return measuredWidth
-    }
-
-    private fun View.isWholeViewInRootContainer(): Boolean {
-        val viewRect = Rect()
-        this.getGlobalVisibleRect(viewRect)
-
-        val rootRect = Rect()
-        vb.llTitle.getGlobalVisibleRect(rootRect)
-
-        (this as? TextView)?.run {
-            viewRect.right = (viewRect.left + paint.measureText(text.toString())).toInt()
-        }
-
-        return !rootRect.contains(viewRect)
     }
 
     fun setTitleIcon(url: String?) {
-        vb.tvTitle.text = null
         vb.ivTitleIcon.apply {
             visible()
             setImageByUrl(url)
@@ -168,7 +134,6 @@ class AccountCardView @JvmOverloads constructor(
     }
 
     fun setTitleIcon(@DrawableRes drawableRes: Int?) = with(vb.ivTitleIcon) {
-        vb.tvTitle.text = null
         if (drawableRes == null) shimmeringPairs.remove(this)
         else shimmeringPairs[this] = null
         vb.ivTitleIcon.apply {
@@ -178,7 +143,6 @@ class AccountCardView @JvmOverloads constructor(
     }
 
     private fun setupTitleIconSize(widthPx: Int?, heightPx: Int?) {
-        vb.tvTitle.text = null
         vb.ivTitleIcon.apply {
             widthPx?.let { layoutParams.width = it }
             heightPx?.let { layoutParams.height = it }
@@ -203,14 +167,12 @@ class AccountCardView @JvmOverloads constructor(
 
     fun setTitleTextAppearance(@StyleRes resId: Int) {
         vb.tvTitle.run {
-            text = null
             setTextAppearance(resId)
             preUpdateTitle()
         }
     }
 
     fun setTitleAddition(charSequence: CharSequence?) {
-        vb.tvTitle.text = null
         vb.tvTitleAddition.run {
             text = charSequence
             isVisible = charSequence != null
@@ -223,7 +185,6 @@ class AccountCardView @JvmOverloads constructor(
     }
 
     fun setTitleAdditionTextAppearance(@StyleRes resId: Int) {
-        vb.tvTitle.text = null
         vb.tvTitleAddition.run {
             setTextAppearance(resId)
             preUpdateTitle()
@@ -231,7 +192,6 @@ class AccountCardView @JvmOverloads constructor(
     }
 
     fun setChevronVisibility(isChevronVisible: Boolean) {
-        vb.tvTitle.text = null
         vb.ivChevron.run {
             isVisible = isChevronVisible
             preUpdateTitle()
@@ -272,9 +232,10 @@ class AccountCardView @JvmOverloads constructor(
         tvSubtitle.text = subtitleValue?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
     }
 
-    fun setSubtitle(charSequence: CharSequence?) {
-        vb.llSubtitle.isVisible = !charSequence.isNullOrEmpty()
-        vb.tvSubtitle.run {
+    fun setSubtitle(charSequence: CharSequence?) = with(vb){
+        llSubtitle.isVisible = !charSequence.isNullOrEmpty()
+        tvTitle.maxLines = if (charSequence != null) 1 else 2
+        tvSubtitle.run {
             text = charSequence?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
             subtitleValue = charSequence
             preUpdateTitle()

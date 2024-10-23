@@ -47,6 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/Chili.H16.Primary.700"
+                android:ellipsize="end"
                 tools:maxWidth="140dp"
                 tools:text="Оплачивайте" />
 
@@ -57,7 +58,7 @@
                 android:layout_marginStart="?ChiliAccountCardViewTitleAdditionStartMargin"
                 android:maxLines="?ChiliAccountCardViewTitleAdditionMaxLines"
                 android:textAlignment="center"
-                android:maxLength="15"
+                android:maxLength="14"
                 android:textAppearance="?ChiliAccountCardViewTitleAdditionTextAppearance"
                 android:visibility="gone"
                 tools:text="•••• 1234" />
