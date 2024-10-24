@@ -37,7 +37,6 @@ class AccountCardView @JvmOverloads constructor(
     private var subtitleValue: CharSequence? = null
     private var isToggleHiddenState = false
     private var toggleChanged: ((Boolean) -> Unit)? = null
-    private val titleContainerWidth by lazy { vb.llTitle.getViewWidth() }
     private var subtitleValueByDelegate = { pan: CharSequence, isHidden: Boolean ->
         if (isHidden) "••••••••"
         else pan
@@ -105,6 +104,7 @@ class AccountCardView @JvmOverloads constructor(
 
     private fun updateTitle(): Unit = with(vb) {
         tvTitle.post {
+            val titleContainerWidth = llTitle.getViewWidth()
             val startIconWidth = ivTitleIcon.getViewWidth()
             val titleAdditionWidth = tvTitleAddition.getViewWidth()
             val chevronWidth = ivChevron.getViewWidth()
