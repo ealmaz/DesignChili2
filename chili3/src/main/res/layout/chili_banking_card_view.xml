@@ -113,7 +113,7 @@
         android:id="@+id/ll_cvv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_16dp"
+        android:layout_marginTop="@dimen/padding_12dp"
         android:layout_marginEnd="@dimen/padding_16dp"
         android:layout_marginBottom="@dimen/padding_24dp"
         android:background="@drawable/chili_bg_card_bank_fields_rounded"
