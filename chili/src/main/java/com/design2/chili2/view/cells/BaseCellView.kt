@@ -388,4 +388,9 @@ open class BaseCellView @JvmOverloads constructor(
         }
     }
 
+    fun setViewBackgroundResource(@DrawableRes drawableRes: Int?) {
+        drawableRes?.let {
+            vb.rootView.background = context.drawable(drawableRes)
+        }
+    }
 }
