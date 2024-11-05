@@ -35,12 +35,16 @@ class InfoCardView @JvmOverloads constructor(
         setTitle(getText(R.styleable.InfoCardView_title))
         setSubtitle(getText(R.styleable.InfoCardView_subtitle))
         setButtonTitle(getText(R.styleable.InfoCardView_btnTitle))
-        getLayoutDimension(R.styleable.InfoCardView_btnActionType, 0).let { type ->
+        getLayoutDimension(R.styleable.InfoCardView_btnActionType, -1).takeIf { it != -1 }?.let { type ->
             when (type) {
                 ButtonType.PRIMARY.value -> ButtonType.PRIMARY
                 else -> ButtonType.ADDITIONAL
             }.also { setButtonType(it) }
         }
+        getString(R.styleable.InfoCardView_horizontalPrimaryBtnText)
+            ?.let { setHorizontalPrimaryButtonText(it) }
+        getString(R.styleable.InfoCardView_horizontalAdditionalBtnText)
+            ?.let { setHorizontalAdditionalButtonText(it) }
     }
 
     fun setTitle(resId: Int) {
@@ -92,4 +96,25 @@ class InfoCardView @JvmOverloads constructor(
         vb.btnAdditional.setOnSingleClickListener(action)
     }
 
+    fun setHorizontalPrimaryButtonText(title: String) {
+        vb.btnHorizontalPrimary.apply {
+            visible()
+            text = title
+        }
+    }
+
+    fun setHorizontalAdditionalButtonText(title: String) {
+        vb.btnHorizontalAdditional.apply {
+            visible()
+            text = title
+        }
+    }
+
+    fun setHorizontalPrimaryButtonListener(onClick: () -> Unit) {
+        vb.btnHorizontalPrimary.setOnSingleClickListener(onClick)
+    }
+
+    fun setHorizontalAdditionalButtonListener(onClick: () -> Unit) {
+        vb.btnHorizontalAdditional.setOnSingleClickListener(onClick)
+    }
 }

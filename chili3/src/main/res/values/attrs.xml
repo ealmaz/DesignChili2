@@ -298,6 +298,8 @@
             <enum name="primary" value="0" />
             <enum name="additional" value="1" />
         </attr>
+        <attr name="horizontalPrimaryBtnText" format="string"/>
+        <attr name="horizontalAdditionalBtnText" format="string"/>
     </declare-styleable>
 
     <declare-styleable name="ProductBannerCardView">

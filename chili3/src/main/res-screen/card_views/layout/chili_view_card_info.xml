@@ -40,4 +40,32 @@
         tools:text="Подтвердить личность"
         tools:visibility="visible" />
 
+    <LinearLayout
+        android:id="@+id/ll_horizontal_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="?ChiliInfoCardViewButtonTopMargin">
+
+        <Button
+            android:id="@+id/btn_horizontal_additional"
+            android:width="0dp"
+            android:layout_weight="1"
+            style="@style/Chili.ButtonStyle.Additional"
+            android:visibility="gone"
+            android:layout_marginEnd="@dimen/padding_12dp"
+            tools:text="Это не я"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/btn_horizontal_primary"
+            android:width="0dp"
+            android:layout_weight="1"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:visibility="gone"
+            tools:text="Подтвердить личность"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
 </LinearLayout>

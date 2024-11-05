@@ -1235,6 +1235,16 @@
                 app:title="У вас новый смартфон?" />
 
             <kg.devcats.chili3.view.card.InfoCardView
+                android:id="@+id/aaa12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_16dp"
+                app:horizontalPrimaryBtnText="Подтвердить"
+                app:horizontalAdditionalBtnText="Это не я"
+                app:subtitle="Подтвердите личность, чтобы получить доступ ко всем услугам"
+                app:title="У вас новый смартфон?" />
+
+            <kg.devcats.chili3.view.card.InfoCardView
                 android:id="@+id/bbb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
