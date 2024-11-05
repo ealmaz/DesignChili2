@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -202,6 +203,12 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
         vb.infoBlockCardView3.run {
             setSubtitle("Subtitle")
             setupCardState(InfoBlockCardView.CardState.NEUTRAL)
+        }
+
+        vb.pcvProduct.apply {
+            setScaleType(ImageView.ScaleType.FIT_XY.ordinal)
+            setProductImage("https://cdn.omarket.kg/ads-minify/XBxctjZWlSKjq9pgazTZoEOPh45SXToHMckuX1Ce7Rnb3egueT.WEBP",
+                context.getColor(com.design2.chili2.R.color.white_1))
         }
     }
 

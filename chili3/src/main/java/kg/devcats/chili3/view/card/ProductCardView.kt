@@ -97,12 +97,15 @@ class ProductCardView @JvmOverloads constructor(
         imageSize = width to height
     }
 
-    fun setProductImage(src: String?) {
-        vb.sivImage.setUrlImageByCoil(
-            url = src,
-            width = imageSize.first,
-            height = imageSize.second
-        )
+    fun setProductImage(src: String?, backgroundColor: Int? = null) {
+        vb.sivImage.apply {
+            backgroundColor?.let { setBackgroundColor(it) }
+            setUrlImageByCoil(
+                url = src,
+                width = imageSize.first,
+                height = imageSize.second
+            )
+        }
     }
 
     fun setScaleType(scaleType: Int) {
