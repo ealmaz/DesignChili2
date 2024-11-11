@@ -151,6 +151,10 @@ class ChilliStoriesView : ConstraintLayout {
         setupDragViewHelper()
     }
 
+    fun getCurrentStoryBlockIndex(): Int {
+        return viewPager?.currentItem ?: 0
+    }
+
     fun moveToNextPage(onFinish: () -> Unit) {
         viewPager?.let {
             val currentItem = it.currentItem
