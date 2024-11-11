@@ -138,6 +138,7 @@ class ChilliStoriesView : ConstraintLayout {
         currentStoryBlock?.let { currentStoryBlockName ->
             val currentStoryBlockIndex = list.indexOfFirst { it.blockType == currentStoryBlockName }
             viewPager?.setCurrentItem(currentStoryBlockIndex, false)
+            currentFragment = storyViewPagerAdapter?.getFragmentByPosition(currentStoryBlockIndex)
         }
 
         viewPager?.registerOnPageChangeCallback(object : OnPageChangeCallback() {
@@ -148,6 +149,10 @@ class ChilliStoriesView : ConstraintLayout {
         })
 
         setupDragViewHelper()
+    }
+
+    fun getCurrentStoryBlockIndex(): Int {
+        return viewPager?.currentItem ?: 0
     }
 
     fun moveToNextPage(onFinish: () -> Unit) {
