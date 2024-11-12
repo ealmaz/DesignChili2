@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MotionEvent
+import android.view.VelocityTracker
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.customview.widget.ViewDragHelper
@@ -15,6 +16,7 @@ import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewStoriesBinding
 import com.design2.chili2.view.stories.adapter.ChiliStoryPageTransformer
 import com.design2.chili2.view.stories.adapter.ChilliStoryPagerAdapter
+import kotlin.math.abs
 
 class ChilliStoriesView : ConstraintLayout {
     constructor(context: Context) : super(context) {
@@ -47,6 +49,11 @@ class ChilliStoriesView : ConstraintLayout {
     private lateinit var dragHelper: ViewDragHelper
 
     private var initialPosition: Int = 0
+
+    private var isDragging: Boolean = false
+    private var isPaging: Boolean = false
+
+    private var velocityTracker: VelocityTracker? = null
 
     private fun init(context: Context) {
         binding = ChiliViewStoriesBinding.inflate(LayoutInflater.from(context), this, true)
@@ -87,8 +94,7 @@ class ChilliStoriesView : ConstraintLayout {
                 override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
                     if (releasedChild.top > binding.root.height / 4) {
                         currentFragment?.onCloseStories()
-                    }
-                    else {
+                    } else {
                         currentFragment?.onResume()
                         resetViewPosition()
                         releasedChild.top = 0
@@ -104,9 +110,45 @@ class ChilliStoriesView : ConstraintLayout {
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        when (ev?.action) {
+            MotionEvent.ACTION_MOVE -> {
+                velocityTracker = VelocityTracker.obtain()
+                velocityTracker?.addMovement(ev)
+                velocityTracker?.computeCurrentVelocity(1000)
+                val velocityX = velocityTracker?.xVelocity ?: 0f
+                val velocityY = velocityTracker?.yVelocity ?: 0f
+                if (abs(velocityY) < 10) return true
+
+                if (abs(velocityY) > abs(velocityX))
+                    setDraggingState(!isPaging)
+                else
+                    setDraggingState(isDragging)
+            }
+
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> resetDraggingState()
+        }
         viewPager?.onTouchEvent(ev)
         ev?.let { dragHelper.processTouchEvent(it) }
         return super.dispatchTouchEvent(ev)
+    }
+
+    private fun resetDraggingState() {
+        isDragging = false
+        isPaging = false
+        binding.viewPager.isUserInputEnabled = true
+        velocityTracker?.recycle()
+        velocityTracker = null
+    }
+
+    private fun setDraggingState(isDragging: Boolean) {
+        if (isDragging) {
+            this.isDragging = true
+            binding.viewPager.isUserInputEnabled = false
+        } else {
+            isPaging = true
+            binding.viewPager.isUserInputEnabled = true
+            dragHelper.cancel()
+        }
     }
 
     private fun resetViewPosition() {
@@ -118,12 +160,14 @@ class ChilliStoriesView : ConstraintLayout {
             .start()
     }
 
-    fun setupStories(list: List<ChilliStoryBlock>,
-                     fragmentActivity: FragmentActivity,
-                     onMoveListener: StoryMoveListener,
-                     onFinishListener: StoryOnFinishListener,
-                     onStoryClickListener: StoryClickListener? = null,
-                     currentStoryBlock: String? = null) {
+    fun setupStories(
+        list: List<ChilliStoryBlock>,
+        fragmentActivity: FragmentActivity,
+        onMoveListener: StoryMoveListener,
+        onFinishListener: StoryOnFinishListener,
+        onStoryClickListener: StoryClickListener? = null,
+        currentStoryBlock: String? = null
+    ) {
         viewPager = binding.viewPager.apply {
             setPageTransformer(ChiliStoryPageTransformer())
             offscreenPageLimit = 3
@@ -131,7 +175,12 @@ class ChilliStoriesView : ConstraintLayout {
 
         storyViewPagerAdapter = ChilliStoryPagerAdapter(fragmentActivity)
 
-        storyViewPagerAdapter?.createViewPager(stories = list, onMoveListener, onFinishListener, onStoryClickListener)
+        storyViewPagerAdapter?.createViewPager(
+            stories = list,
+            onMoveListener,
+            onFinishListener,
+            onStoryClickListener
+        )
 
         viewPager?.adapter = storyViewPagerAdapter
 
@@ -169,7 +218,7 @@ class ChilliStoriesView : ConstraintLayout {
         viewPager?.let {
             val currentItem = it.currentItem
 
-            if (currentItem > 0){
+            if (currentItem > 0) {
                 val prevItem = currentItem - 1
                 it.setCurrentItem(prevItem, true)
             }
