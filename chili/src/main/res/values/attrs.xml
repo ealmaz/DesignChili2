@@ -51,6 +51,7 @@
         <attr name="singleSelectedCardViewDefaultStyle" format="reference" />
         <attr name="promoBannerCardViewDefaultStyle" format="reference"/>
         <attr name="mediaViewDefaultStyle" format="reference"/>
+        <attr name="simplePromoBannerCardViewDefaultStyle" format="reference"/>
 
 
         <!-- PassportCardCameraOverlay -->
@@ -399,6 +400,15 @@
         <attr name="subtitleTextAppearance"/>
         <attr name="titleStartIcon" format="reference"/>
         <attr name="endIcon"/>
+    </declare-styleable>
+
+    <declare-styleable name="SimplePromoBannerCardView">
+        <attr name="title"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="subtitle"/>
+        <attr name="subtitleTextAppearance"/>
+        <attr name="titleTextColor" />
+        <attr name="subtitleTextColor" />
     </declare-styleable>
 
     <declare-styleable name="CategoryCardView">

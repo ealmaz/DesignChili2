@@ -210,6 +210,12 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setProductImage("https://cdn.omarket.kg/ads-minify/XBxctjZWlSKjq9pgazTZoEOPh45SXToHMckuX1Ce7Rnb3egueT.WEBP",
                 context.getColor(com.design2.chili2.R.color.white_1))
         }
+
+        vb.simplePromoBanner.apply {
+            setCardBackgroundByUrl("https://minio.o.kg/lkab/lottery/RU.png")
+            setTitle("Лотерея")
+            setSubtitle("Накоплено билетов: 15")
+        }
     }
 
     private fun setExpandedState(isExpanded: Boolean) {
