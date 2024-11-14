@@ -1312,6 +1312,17 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_16dp" />
 
+        <com.design2.chili2.view.card.SimplePromoBannerCardView
+            android:id="@+id/simplePromoBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:layout_margin="@dimen/padding_16dp"
+            app:titleTextColor="@color/white_1"
+            app:subtitleTextColor="@color/white_1"
+            app:subtitleTextAppearance="@style/Chili.H9.Secondary"
+            app:titleTextAppearance="@style/Chili.H7.Primary" />
+
     </LinearLayout>
 
 </ScrollView>
