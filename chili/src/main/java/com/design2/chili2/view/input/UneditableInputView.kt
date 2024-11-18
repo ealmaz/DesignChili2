@@ -68,7 +68,7 @@ class UneditableInputView @JvmOverloads constructor(
         setHint(tag.toString())
     }
 
-    private fun setupFieldBackground(resId: Int) {
+    fun setupFieldBackground(resId: Int) {
         vb.tvInput.setBackgroundResource(resId)
     }
 }
