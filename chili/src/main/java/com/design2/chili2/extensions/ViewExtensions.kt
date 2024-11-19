@@ -3,12 +3,16 @@ package com.design2.chili2.extensions
 import android.animation.AnimatorInflater
 import android.animation.StateListAnimator
 import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
+import android.text.method.PasswordTransformationMethod
 import android.text.style.ClickableSpan
 import android.text.style.URLSpan
 import android.util.TypedValue
@@ -26,6 +30,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewTreeLifecycleOwner
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.media3.common.Player
 import androidx.media3.ui.AspectRatioFrameLayout.RESIZE_MODE_ZOOM
 import androidx.media3.ui.PlayerView
@@ -43,7 +51,9 @@ import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import com.design2.chili2.R
 import com.design2.chili2.util.RoundedCornerMode
+import com.design2.chili2.util.secured.MoneySecureTransformMethod
 import com.design2.chili2.view.image.SquircleView
+import com.example.myapplication.secure_view_component.contracts.OnApplicationSecureGestureListener
 import java.util.concurrent.TimeUnit
 
 internal var View.lastItemClickTime: Long
@@ -521,4 +531,32 @@ fun LottieAnimationView.horizontalFitBottom(lottie: LottieComposition ?= null) {
 
 fun LottieAnimationView.applyCenterCrop() {
     this.scaleType = ImageView.ScaleType.CENTER_CROP
+}
+
+fun TextView.setupAsSecure() {
+    fun updateViewState() {
+        val isSecuredNow = (context?.applicationContext as? OnApplicationSecureGestureListener)
+            ?.isSecuredNow() ?: false
+        transformationMethod = if (isSecuredNow) MoneySecureTransformMethod.getInstance() else null
+        requestLayout()
+    }
+
+    fun setupReceiver() {
+        val manager = LocalBroadcastManager.getInstance(context.applicationContext)
+        val receiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                updateViewState()
+            }
+        }
+        manager.registerReceiver(receiver, IntentFilter("UPDATE_SECURE_STATE"))
+        ViewTreeLifecycleOwner.get(this)?.lifecycle?.addObserver(object : DefaultLifecycleObserver {
+            override fun onDestroy(owner: LifecycleOwner) {
+                manager.unregisterReceiver(receiver)
+                super.onDestroy(owner)
+            }
+        })
+    }
+
+    updateViewState()
+    setupReceiver()
 }

@@ -101,6 +101,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         //CardCellView
         vb.cardcell1.startShimmering()
         vb.cardcell2.startShimmering()
+        vb.cardcell3.setupAdditionalAsSecure()
         Handler(Looper.getMainLooper()).postDelayed({ vb.cardcell2.stopShimmering(false) }, 2000)
         vb.cardcell4.setBlockedState()
         vb.cardcell40.apply {

@@ -17,6 +17,7 @@ import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setTextOrHide
+import com.design2.chili2.extensions.setupAsSecure
 import kg.devcats.chili3.R
 import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
@@ -345,4 +346,8 @@ class CardCellView @JvmOverloads constructor(
     }
 
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
+
+    fun setupAdditionalAsSecure() {
+        vb.tvAdditionalText.setupAsSecure()
+    }
 }

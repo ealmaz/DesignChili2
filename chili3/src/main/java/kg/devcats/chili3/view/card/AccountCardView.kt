@@ -16,6 +16,7 @@ import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setOnSingleClickListener
+import com.design2.chili2.extensions.setupAsSecure
 import com.design2.chili2.view.card.BaseCardView
 import com.facebook.shimmer.Shimmer
 import kg.devcats.chili3.R
@@ -286,6 +287,10 @@ class AccountCardView @JvmOverloads constructor(
 
     fun onActionButtonClick(onClick: () -> Unit) {
         vb.ibActionBtn.setOnSingleClickListener(onClick)
+    }
+
+    fun setupSubtitleAsSecure() {
+        vb.tvSubtitle.setupAsSecure()
     }
 
     override fun onStartShimmer(): Unit = with(vb) {
