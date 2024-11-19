@@ -96,8 +96,8 @@
     <attr name="ChiliMarkerStatusCellViewStatusCornerRadius" format="dimension"/>
 
     <!-- Detail CellView -->
-    <attr name="ChiliDetailCellViewAdditionalInfoContentBackgroundColor" format="reference"/>
-    <attr name="ChiliDetailCellViewAdditionalInfoContentBackgroundRadius" format="dimension"/>
+    <attr name="ChiliDetailCellViewAdditionalInfoTextBackgroundColor" format="reference"/>
+    <attr name="ChiliDetailCellViewAdditionalInfoTextBackgroundRadius" format="dimension"/>
 
 
     <!-- Snackbar attributes -->

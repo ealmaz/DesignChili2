@@ -278,8 +278,8 @@
         <item name="ChiliMarkerStatusCellViewStatusCornerRadius">@dimen/radius_14dp</item>
 
         <!-- DetailCellView -->
-        <item name="ChiliDetailCellViewAdditionalInfoContentBackgroundColor">@color/gray_5</item>
-        <item name="ChiliDetailCellViewAdditionalInfoContentBackgroundRadius">@dimen/radius_8dp</item>
+        <item name="ChiliDetailCellViewAdditionalInfoTextBackgroundColor">@color/gray_5</item>
+        <item name="ChiliDetailCellViewAdditionalInfoTextBackgroundRadius">@dimen/radius_8dp</item>
 
         <!-- Shimmer attributes -->
         <item name="ChiliShimmerBoneColor">@color/gray_6</item>
