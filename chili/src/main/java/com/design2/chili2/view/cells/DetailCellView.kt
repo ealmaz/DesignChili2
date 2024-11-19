@@ -118,7 +118,7 @@ class DetailCellView @JvmOverloads constructor(
                 R.styleable.DetailCellView_additionalInfoTextPadding,
                 -1
             ).takeIf { it != -1 }?.let {
-                updateAdditionalInfoTextPadding(it)
+                updateAdditionalTextPadding(it)
             }
             getLayoutDimension(
                 R.styleable.DetailCellView_additionalIconSize,
@@ -274,7 +274,7 @@ class DetailCellView @JvmOverloads constructor(
         vb.llAdditionalInfo.background = drawable
     }
 
-    fun updateAdditionalInfoTextPadding(paddingPx: Int) {
+    fun updateAdditionalTextPadding(paddingPx: Int) {
         vb.llAdditionalInfo.setPadding(paddingPx)
     }
 
