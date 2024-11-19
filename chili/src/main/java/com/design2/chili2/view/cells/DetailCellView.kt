@@ -109,16 +109,16 @@ class DetailCellView @JvmOverloads constructor(
                 setAdditionalInfoTextAppearance(it)
             }
             getResourceId(
-                R.styleable.DetailCellView_additionalInfoContentBackground,
+                R.styleable.DetailCellView_additionalInfoTextBackground,
                 -1
             ).takeIf { it != -1 }.let {
-                setAdditionalInfoContentBackground(it)
+                setAdditionalInfoTextBackground(it)
             }
             getDimensionPixelSize(
-                R.styleable.DetailCellView_additionalInfoContentPadding,
+                R.styleable.DetailCellView_additionalInfoTextPadding,
                 -1
             ).takeIf { it != -1 }?.let {
-                updateAdditionalInfoContentPadding(it)
+                updateAdditionalInfoTextPadding(it)
             }
             getLayoutDimension(
                 R.styleable.DetailCellView_additionalIconSize,
@@ -265,16 +265,16 @@ class DetailCellView @JvmOverloads constructor(
         vb.tvAdditionalInfo.setTextAppearance(resId)
     }
 
-    fun setAdditionalInfoContentBackground(@DrawableRes resId: Int?) = with(vb.llAdditionalInfo) {
+    fun setAdditionalInfoTextBackground(@DrawableRes resId: Int?) = with(vb.llAdditionalInfo) {
         if (resId != null) setBackgroundResource(resId)
         else background = null
     }
 
-    fun setAdditionalInfoContentBackground(drawable: Drawable?) {
+    fun setAdditionalInfoTextBackground(drawable: Drawable?) {
         vb.llAdditionalInfo.background = drawable
     }
 
-    fun updateAdditionalInfoContentPadding(paddingPx: Int) {
+    fun updateAdditionalInfoTextPadding(paddingPx: Int) {
         vb.llAdditionalInfo.setPadding(paddingPx)
     }
 
@@ -313,7 +313,7 @@ class DetailCellView @JvmOverloads constructor(
         updateAdditionalInfoVisibility()
     }
 
-    private fun updateAdditionalInfoVisibility() {
+    fun updateAdditionalInfoVisibility() {
         vb.llAdditionalInfo.isVisible =
             vb.tvAdditionalInfo.isVisible || vb.ivAdditionalInfo.isVisible
     }
@@ -334,7 +334,7 @@ class DetailCellView @JvmOverloads constructor(
         vb.tvAdditionalInfo.layoutParams = param
     }
 
-    private fun setupAdditionalIconSize(widthPx: Int, heightPx: Int) = with(vb.ivAdditionalInfo) {
+    fun setupAdditionalIconSize(widthPx: Int, heightPx: Int) = with(vb.ivAdditionalInfo) {
         val params = layoutParams
         params?.height = heightPx
         params?.width = widthPx

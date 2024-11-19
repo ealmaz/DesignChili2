@@ -1622,10 +1622,10 @@
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:additionalInfoContentPadding="0dp"
+                app:additionalInfoTextPadding="0dp"
                 app:additionalInfoText="текст без bg"
                 app:additionalInfoTextAppearance="@style/Chili.H12.Value"
-                app:additionalInfoContentBackground="@null"
+                app:additionalInfoTextBackground="@null"
                 app:subtitle="Пополнение электронного кошелька пользователя"
                 app:title="Detail cell view без bg для text" />
 
@@ -1641,7 +1641,7 @@
                 app:additionalInfoIcon="@drawable/chili_ic_success"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:additionalInfoContentPadding="@dimen/padding_4dp"
+                app:additionalInfoTextPadding="@dimen/padding_4dp"
                 app:additionalInfoText="Additional"
                 app:isDividerVisible="true"
                 app:roundedCornerMode="top"
@@ -1651,7 +1651,7 @@
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:additionalInfoContentPadding="@dimen/padding_4dp"
+                app:additionalInfoTextPadding="@dimen/padding_4dp"
                 app:roundedCornerMode="bottom"
                 app:title="Title Text"
                 app:value="Value Text" />
