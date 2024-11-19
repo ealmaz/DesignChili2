@@ -1519,30 +1519,30 @@
             android:text="DetailCellView" />
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            style="@style/ShadowLayoutStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/ShadowLayoutStyle">
+            android:layout_height="wrap_content">
 
             <com.design2.chili2.view.cells.DetailCellView
                 android:id="@+id/dcv_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:additionalInfoText="Корректировка: - 1.00 c"
                 app:icon="@drawable/chili_ic_success"
                 app:status="В обработке"
-                app:titleMaxLines="2"
-                app:subtitleMaxLines="2"
-                app:additionalInfoText="Корректировка: - 1.00 c"
                 app:subtitle="+ 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430 + 996 700 500 430"
+                app:subtitleMaxLines="2"
                 app:title="Заголовок Заголовок ЗаголовокЗаголовокЗаголовок Заголовок Заголовок"
+                app:titleMaxLines="2"
                 app:value="- 140" />
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            style="@style/ShadowLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_8dp"
-            style="@style/ShadowLayoutStyle">
+            android:layout_marginTop="@dimen/padding_8dp">
 
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
@@ -1554,10 +1554,10 @@
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            style="@style/ShadowLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_8dp"
-            style="@style/ShadowLayoutStyle">
+            android:layout_marginTop="@dimen/padding_8dp">
 
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
@@ -1569,10 +1569,10 @@
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            style="@style/ShadowLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_8dp"
-            style="@style/ShadowLayoutStyle">
+            android:layout_marginTop="@dimen/padding_8dp">
 
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
@@ -1583,51 +1583,78 @@
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            style="@style/ShadowLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_8dp"
-            style="@style/ShadowLayoutStyle">
+            android:layout_marginTop="@dimen/padding_8dp">
 
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/chili_ic_success"
-                app:value="500"
                 app:status="status"
-                app:title="Only status" />
+                app:title="Only status"
+                app:value="500" />
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            style="@style/ShadowLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_8dp"
-            style="@style/ShadowLayoutStyle">
+            android:layout_marginTop="@dimen/padding_8dp">
 
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/chili_ic_success"
-                app:title="Заголовок"
-                app:subtitle="Пополнение электронного кошелька пользователя"/>
+                app:subtitle="Пополнение электронного кошелька пользователя"
+                app:title="Заголовок" />
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 
         <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            style="@style/ShadowLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_8dp"
-            style="@style/ShadowLayoutStyle">
+            android:layout_marginTop="@dimen/padding_8dp">
 
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:title="Detail cell view без bg для text"
-                app:subtitle="Пополнение электронного кошелька пользователя"
+                app:additionalInfoContentPadding="0dp"
                 app:additionalInfoText="текст без bg"
-                app:additionalInfoTextBackground="@null"
-                app:additionalInfoTextPadding="0dp"
-                app:additionalInfoTextAppearance="@style/Chili.H12.Value"/>
+                app:additionalInfoTextAppearance="@style/Chili.H12.Value"
+                app:additionalInfoContentBackground="@null"
+                app:subtitle="Пополнение электронного кошелька пользователя"
+                app:title="Detail cell view без bg для text" />
+
+        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            style="@style/ShadowLayoutStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp">
+
+            <com.design2.chili2.view.cells.DetailCellView
+                app:additionalInfoIcon="@drawable/chili_ic_success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:additionalInfoContentPadding="@dimen/padding_4dp"
+                app:additionalInfoText="Additional"
+                app:isDividerVisible="true"
+                app:roundedCornerMode="top"
+                app:title="Title Text"
+                app:value="Value Text" />
+
+            <com.design2.chili2.view.cells.DetailCellView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:additionalInfoContentPadding="@dimen/padding_4dp"
+                app:roundedCornerMode="bottom"
+                app:title="Title Text"
+                app:value="Value Text" />
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
 

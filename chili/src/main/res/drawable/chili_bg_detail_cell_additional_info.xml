@@ -2,9 +2,9 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <solid
-        android:color="?attr/ChiliDetailCellViewAdditionalInfoTextBackgroundColor"
+        android:color="?attr/ChiliDetailCellViewAdditionalInfoContentBackgroundColor"
         tools:color="@color/gray_5" />
     <corners
-        android:radius="?attr/ChiliDetailCellViewAdditionalInfoTextBackgroundRadius"
+        android:radius="?attr/ChiliDetailCellViewAdditionalInfoContentBackgroundRadius"
         tools:radius="8dp" />
 </shape>
