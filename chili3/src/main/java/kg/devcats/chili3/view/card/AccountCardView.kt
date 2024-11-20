@@ -31,16 +31,16 @@ class AccountCardView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.accountCardViewDefaultStyle,
     defStyleRes: Int = R.style.Chili_CardViewStyle_AccountCardView
-): BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
+) : BaseCardView(context, attrs, defStyleAttr, defStyleRes) {
 
     private lateinit var vb: ChiliViewCardAccountBinding
     private var titleValue: CharSequence? = null
     private var subtitleValue: CharSequence? = null
     private var isToggleHiddenState = false
     private var toggleChanged: ((Boolean) -> Unit)? = null
+    private var isUseSecureSubtitle = false
     private var subtitleValueByDelegate = { pan: CharSequence, isHidden: Boolean ->
-        if (isHidden) "••••••••"
-        else pan
+        if (isHidden && !isUseSecureSubtitle) "••••••••" else pan
     }
     private val titleIconShimmer by lazy {
         Shimmer.ColorHighlightBuilder()
@@ -65,7 +65,9 @@ class AccountCardView @JvmOverloads constructor(
         shimmeringPairs[vb.llContainer] = vb.viewSubtitleShimmer
     }
 
-    init { initView(context, attrs, defStyleAttr, defStyleRes) }
+    init {
+        initView(context, attrs, defStyleAttr, defStyleRes)
+    }
 
     override fun TypedArray.obtainAttributes() {
         setTitleIcon(
@@ -233,7 +235,7 @@ class AccountCardView @JvmOverloads constructor(
         tvSubtitle.text = subtitleValue?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
     }
 
-    fun setSubtitle(charSequence: CharSequence?) = with(vb){
+    fun setSubtitle(charSequence: CharSequence?) = with(vb) {
         llSubtitle.isVisible = !charSequence.isNullOrEmpty()
         tvTitle.maxLines = if (charSequence != null) 1 else 2
         tvSubtitle.run {
@@ -290,6 +292,7 @@ class AccountCardView @JvmOverloads constructor(
     }
 
     fun setupSubtitleAsSecure() {
+        isUseSecureSubtitle = true
         vb.tvSubtitle.setupAsSecure()
     }
 
