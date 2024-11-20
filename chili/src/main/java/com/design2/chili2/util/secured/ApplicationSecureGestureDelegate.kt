@@ -81,6 +81,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
         _isSecuredNow = !_isSecuredNow
         _prefs.edit { putBoolean(BROADCAST_TAG, _isSecuredNow) }
         LocalBroadcastManager.getInstance(_context).sendBroadcast(Intent(BROADCAST_TAG))
+        pushVibration()
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
@@ -93,10 +94,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
             } else if (zAxis > 8.0 && _isScreenDown) {
                 val upTime = System.currentTimeMillis()
                 val timeDiff = upTime - _screenDownTriggerTime
-                if (timeDiff <= GESTURE_THRESHOLD) {
-                    switchSecuredState()
-                    pushVibration()
-                }
+                if (timeDiff <= GESTURE_THRESHOLD) switchSecuredState()
                 _isScreenDown = false
             }
         }
@@ -107,8 +105,8 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
         when {
             !_isHasVibratePermission -> return
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
-                val vibrationEffect =
-                    VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE)
+                val heartbeatPattern = longArrayOf(0, 50, 100, 60, 100, 70)
+                val vibrationEffect = VibrationEffect.createWaveform(heartbeatPattern, -1)
                 _vibrator.vibrate(vibrationEffect)
             }
 
