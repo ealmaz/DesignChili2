@@ -105,7 +105,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
         when {
             !_isHasVibratePermission -> return
             Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
-                val heartbeatPattern = longArrayOf(0, 50, 100, 60, 100, 70)
+                val heartbeatPattern = longArrayOf(0, 50, 100, 60)
                 val vibrationEffect = VibrationEffect.createWaveform(heartbeatPattern, -1)
                 _vibrator.vibrate(vibrationEffect)
             }
