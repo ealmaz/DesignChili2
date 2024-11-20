@@ -65,4 +65,8 @@ class ToolbarWithBonusTag @JvmOverloads constructor(
     fun setOnTagClickListener(onClick: () -> Unit) {
         bonusTagView?.setOnSingleClickListener { onClick.invoke() }
     }
+
+    fun setupAsSecureTag() {
+        bonusTagView?.setupAsSecureTag()
+    }
 }

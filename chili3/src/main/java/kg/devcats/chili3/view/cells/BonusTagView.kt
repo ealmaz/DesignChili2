@@ -11,6 +11,7 @@ import androidx.annotation.StyleRes
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setTextOrHide
+import com.design2.chili2.extensions.setupAsSecure
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewBonusTagBinding
 
@@ -80,5 +81,9 @@ class BonusTagView @JvmOverloads constructor(
 
     fun setIcon(drawable: Drawable?) {
         vb.ivIcon.setImageOrHide(drawable)
+    }
+
+    fun setupAsSecureTag() {
+        vb.tvLabel.setupAsSecure()
     }
 }
