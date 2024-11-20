@@ -15,6 +15,7 @@ import com.design2.chili2.extensions.createShimmerLayout
 import com.design2.chili2.extensions.createShimmerView
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.setTextOrHide
+import com.design2.chili2.extensions.setupAsSecure
 import com.facebook.shimmer.ShimmerFrameLayout
 
 class AdditionalTextCellView @JvmOverloads constructor(
@@ -48,6 +49,9 @@ class AdditionalTextCellView @JvmOverloads constructor(
                 }
                 getResourceId(R.styleable.AdditionalTextCellView_additionalSubTextTextAppearance, -1).takeIf { it != -1 }?.let {
                     setAdditionalSubTextTextAppearance(it)
+                }
+                getBoolean(R.styleable.AdditionalTextCellView_additionalTextAsSecure, false).takeIf { it }?.let {
+                    setupAdditionalTextAsSecure()
                 }
                 recycle()
             }
@@ -145,6 +149,10 @@ class AdditionalTextCellView @JvmOverloads constructor(
             bottomMargin = bottomMarginPx ?: bottomMargin
         }
         additionalText?.layoutParams = param
+    }
+
+    fun setupAdditionalTextAsSecure() {
+        additionalText?.setupAsSecure()
     }
 
 }

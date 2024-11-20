@@ -163,6 +163,9 @@ open class BaseCellView @JvmOverloads constructor(
                 getInteger(R.styleable.BaseCellView_subtitleMaxLines, -1).takeIf { it != -1 }?.let {
                     setSubtitleMaxLines(it)
                 }
+                getBoolean(R.styleable.BaseCellView_subtitleAsSecure, false).takeIf { it }?.let {
+                    setupSubtitleAsSecure()
+                }
                 recycle()
             }
     }

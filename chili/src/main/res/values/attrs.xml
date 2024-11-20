@@ -190,6 +190,7 @@
         <attr name="android:maxLines"/>
         <attr name="titleMaxLines"/>
         <attr name="subtitleMaxLines"/>
+        <attr name="subtitleAsSecure" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="ToggleCellView">
@@ -235,6 +236,7 @@
         <attr name="additionalTextTextAppearance" />
         <attr name="additionalSubText" format="string"/>
         <attr name="additionalSubTextTextAppearance" format="reference" />
+        <attr name="additionalTextAsSecure" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="AdditionalTextWithIconCellView">
