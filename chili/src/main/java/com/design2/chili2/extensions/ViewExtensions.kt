@@ -533,11 +533,12 @@ fun LottieAnimationView.applyCenterCrop() {
     this.scaleType = ImageView.ScaleType.CENTER_CROP
 }
 
-fun TextView.setupAsSecure() {
+fun TextView.setupAsSecure(additionalAction: ((isSecured: Boolean) -> Unit)? = null) {
     fun updateViewState() {
         val isSecuredNow = (context?.applicationContext as? OnApplicationSecureGestureListener)
             ?.isSecuredNow() ?: false
         transformationMethod = if (isSecuredNow) MoneySecureTransformMethod.getInstance() else null
+        additionalAction?.invoke(isSecuredNow)
         requestLayout()
     }
 

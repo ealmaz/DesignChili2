@@ -228,11 +228,15 @@ class AccountCardView @JvmOverloads constructor(
     }
 
     private fun handleToggleIconState() = with(vb) {
-        ivToggleIcon.setImageResource(
+        updateToggleIcon()
+        tvSubtitle.text = subtitleValue?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
+    }
+
+    private fun updateToggleIcon() {
+        vb.ivToggleIcon.setImageResource(
             if (!isToggleHiddenState) R.drawable.chili_ic_eye
             else R.drawable.chili_ic_eye_slash
         )
-        tvSubtitle.text = subtitleValue?.let { subtitleValueByDelegate(it, isToggleHiddenState) }
     }
 
     fun setSubtitle(charSequence: CharSequence?) = with(vb) {
@@ -293,7 +297,10 @@ class AccountCardView @JvmOverloads constructor(
 
     fun setupSubtitleAsSecure() {
         isUseSecureSubtitle = true
-        vb.tvSubtitle.setupAsSecure()
+        vb.tvSubtitle.setupAsSecure {
+            isToggleHiddenState = it
+            updateToggleIcon()
+        }
     }
 
     override fun onStartShimmer(): Unit = with(vb) {
