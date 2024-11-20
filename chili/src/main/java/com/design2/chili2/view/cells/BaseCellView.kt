@@ -25,6 +25,7 @@ import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setIsSurfaceClickable
 import com.design2.chili2.extensions.setTextOrHide
+import com.design2.chili2.extensions.setupAsSecure
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.util.IconSize
@@ -56,12 +57,18 @@ open class BaseCellView @JvmOverloads constructor(
         vb = ChiliViewCellBaseBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
-    protected open fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+    protected open fun obtainAttributes(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) {
         context.obtainStyledAttributes(attrs, R.styleable.BaseCellView, defStyleAttr, defStyleRes)
             .run {
-                getResourceId(R.styleable.BaseCellView_cellBackground, -1).takeIf { it != -1 }?.let {
-                    vb.rootView.setBackgroundResource(it)
-                }
+                getResourceId(R.styleable.BaseCellView_cellBackground, -1).takeIf { it != -1 }
+                    ?.let {
+                        vb.rootView.setBackgroundResource(it)
+                    }
                 getResourceId(R.styleable.BaseCellView_android_icon, -1).takeIf { it != -1 }?.let {
                     setIcon(it)
                 }
@@ -74,49 +81,77 @@ open class BaseCellView @JvmOverloads constructor(
                     roundedCornerMode = it
                     this@BaseCellView.setupRoundedCellCornersMode(it, surfaceClickAbility)
                 }
-                getLayoutDimension(R.styleable.BaseCellView_cellIconSize, IconSize.SMALL.value).let {
+                getLayoutDimension(
+                    R.styleable.BaseCellView_cellIconSize,
+                    IconSize.SMALL.value
+                ).let {
                     when (it) {
                         IconSize.SMALL.value -> setIconSize(IconSize.SMALL)
                         IconSize.MEDIUM.value -> setIconSize(IconSize.MEDIUM)
                         IconSize.LARGE.value -> setIconSize(IconSize.LARGE)
-                        else -> setupIconSize(it,it)
+                        else -> setupIconSize(it, it)
                     }
                 }
                 getBoolean(R.styleable.BaseCellView_isSurfaceClickable, true).let {
                     setupIsSurfaceClickable(it)
                 }
-                getDimensionPixelSize(R.styleable.BaseCellView_cellIconVerticalMargin, -1).takeIf { it != -1 }?.let {
+                getDimensionPixelSize(
+                    R.styleable.BaseCellView_cellIconVerticalMargin,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     updateIconMargin(topMarginPx = it, bottomMarginPx = it)
                 }
-                getDimensionPixelSize(R.styleable.BaseCellView_cellIconHorizontalMargin, -1).takeIf { it != -1 }?.let {
+                getDimensionPixelSize(
+                    R.styleable.BaseCellView_cellIconHorizontalMargin,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     updateIconMargin(startMarginPx = it, endMarginPx = it)
                 }
 
-                getDimensionPixelSize(R.styleable.BaseCellView_cellIconStartMargin, -1).takeIf { it != -1 }?.let {
+                getDimensionPixelSize(
+                    R.styleable.BaseCellView_cellIconStartMargin,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     updateIconMargin(startMarginPx = it)
                 }
 
-                getDimensionPixelSize(R.styleable.BaseCellView_cellIconEndMargin, -1).takeIf { it != -1 }?.let {
+                getDimensionPixelSize(
+                    R.styleable.BaseCellView_cellIconEndMargin,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     updateIconMargin(endMarginPx = it)
                 }
 
-                getDimensionPixelSize(R.styleable.BaseCellView_cellIconTopMargin, -1).takeIf { it != -1 }?.let {
+                getDimensionPixelSize(
+                    R.styleable.BaseCellView_cellIconTopMargin,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     updateIconMargin(topMarginPx = it)
                 }
 
-                getDimensionPixelSize(R.styleable.BaseCellView_cellIconBottomMargin, -1).takeIf { it != -1 }?.let {
+                getDimensionPixelSize(
+                    R.styleable.BaseCellView_cellIconBottomMargin,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     updateIconMargin(bottomMarginPx = it)
                 }
                 getBoolean(R.styleable.BaseCellView_isChevronVisible, true).let {
                     setIsChevronVisible(it)
                 }
-                getResourceId(R.styleable.BaseCellView_titleTextAppearance, -1).takeIf { it != -1 }?.let {
-                    setTitleTextAppearance(it)
-                }
-                getResourceId(R.styleable.BaseCellView_subtitleTextAppearance, -1).takeIf { it != -1 }?.let {
+                getResourceId(R.styleable.BaseCellView_titleTextAppearance, -1).takeIf { it != -1 }
+                    ?.let {
+                        setTitleTextAppearance(it)
+                    }
+                getResourceId(
+                    R.styleable.BaseCellView_subtitleTextAppearance,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     setSubtitleTextAppearance(it)
                 }
-                getDimensionPixelSize(R.styleable.BaseCellView_android_minHeight, -1).takeIf { it != -1 }?.let {
+                getDimensionPixelSize(
+                    R.styleable.BaseCellView_android_minHeight,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     updateRootViewMinHeight(it)
                 }
                 getInteger(R.styleable.BaseCellView_android_maxLines, -1).takeIf { it != -1 }?.let {
@@ -162,7 +197,12 @@ open class BaseCellView @JvmOverloads constructor(
         vb.tvTitle.maxLines = maxLines
     }
 
-    fun updateTitleMargin(startMarginPx: Int? = null, topMarginPx: Int? = null, endMarginPx: Int? = null, bottomMarginPx: Int? = null) {
+    fun updateTitleMargin(
+        startMarginPx: Int? = null,
+        topMarginPx: Int? = null,
+        endMarginPx: Int? = null,
+        bottomMarginPx: Int? = null
+    ) {
         val param = vb.tvTitle.layoutParams as? MarginLayoutParams ?: return
         param.apply {
             leftMargin = startMarginPx ?: leftMargin
@@ -237,15 +277,18 @@ open class BaseCellView @JvmOverloads constructor(
             updateTitleMargin(startMarginPx = 0)
             Glide.with(this)
                 .load(url)
-                .placeholder(context.drawable(placeHolderResId?:R.drawable.chili_ic_stub))
+                .placeholder(context.drawable(placeHolderResId ?: R.drawable.chili_ic_stub))
                 .dontTransform()
                 .into(vb.ivIcon)
             setupIconShimmer()
         }
     }
 
-    fun setChevronColor(@ColorRes id: Int){
-        vb.ivChevron.setColorFilter(ContextCompat.getColor(context, id), android.graphics.PorterDuff.Mode.MULTIPLY)
+    fun setChevronColor(@ColorRes id: Int) {
+        vb.ivChevron.setColorFilter(
+            ContextCompat.getColor(context, id),
+            android.graphics.PorterDuff.Mode.MULTIPLY
+        )
     }
 
     protected open fun setupIconShimmer() {
@@ -258,7 +301,7 @@ open class BaseCellView @JvmOverloads constructor(
 
     fun setDividerVisibility(isVisible: Boolean) {
         vb.divider.apply {
-            when(isVisible) {
+            when (isVisible) {
                 true -> visible()
                 else -> gone()
             }
@@ -279,7 +322,12 @@ open class BaseCellView @JvmOverloads constructor(
         }
     }
 
-    fun updateIconMargin(startMarginPx: Int? = null, topMarginPx: Int? = null, endMarginPx: Int? = null, bottomMarginPx: Int? = null) {
+    fun updateIconMargin(
+        startMarginPx: Int? = null,
+        topMarginPx: Int? = null,
+        endMarginPx: Int? = null,
+        bottomMarginPx: Int? = null
+    ) {
         val param = vb.ivIcon.layoutParams as? MarginLayoutParams ?: return
         param.apply {
             leftMargin = startMarginPx ?: leftMargin
@@ -293,15 +341,17 @@ open class BaseCellView @JvmOverloads constructor(
     fun setIconSize(iconSize: IconSize) {
         val margin14px = resources.getDimensionPixelSize(R.dimen.padding_14dp)
         val margin8px = resources.getDimensionPixelSize(R.dimen.padding_8dp)
-        val size = when(iconSize) {
+        val size = when (iconSize) {
             IconSize.LARGE -> {
                 updateIconMargin(topMarginPx = margin14px, bottomMarginPx = margin14px)
                 R.dimen.view_48dp
             }
+
             IconSize.MEDIUM -> {
                 updateIconMargin(topMarginPx = margin14px, bottomMarginPx = margin14px)
                 R.dimen.view_46dp
             }
+
             IconSize.SMALL -> {
                 updateIconMargin(topMarginPx = margin8px, bottomMarginPx = margin8px)
                 R.dimen.view_32dp
@@ -392,5 +442,9 @@ open class BaseCellView @JvmOverloads constructor(
         drawableRes?.let {
             vb.rootView.background = context.drawable(drawableRes)
         }
+    }
+
+    fun setupSubtitleAsSecure() {
+        vb.tvSubtitle.setupAsSecure()
     }
 }
