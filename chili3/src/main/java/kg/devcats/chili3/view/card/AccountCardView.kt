@@ -234,8 +234,8 @@ class AccountCardView @JvmOverloads constructor(
 
     private fun updateToggleIcon() {
         vb.ivToggleIcon.setImageResource(
-            if (isToggleHiddenState) R.drawable.chili_ic_eye
-            else R.drawable.chili_ic_eye_slash
+            if (isToggleHiddenState) R.drawable.chili_ic_eye_slash
+            else R.drawable.chili_ic_eye
         )
     }
 
