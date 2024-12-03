@@ -166,12 +166,21 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
     private val storyBlock4 = ChilliStoryBlock(
         1, false, arrayListOf(
             ChilliStoryModel(
-                mediaUrl = "https://static.wikia.nocookie.net/adventures-of-chris-and-tifa/images/c/c6/71FA6EC3-137C-4A43-87A0-10130B2AC0A4.jpg/revision/latest?cb=20210830075712",
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/51616889-6945-4fc8-b275-83d832aab2f7",
+                storyType = ChilliStoryType.LOTTIE
             ),
             ChilliStoryModel(
                 title = "What is Lorem Ipsum?",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/fb76372a-c453-45b9-9bdb-9c11bafea748",
+                storyType = ChilliStoryType.LOTTIE
+            ),
+            ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/aa6553e8-9c54-49f9-8a4d-a73668217670",
                 storyType = ChilliStoryType.LOTTIE
             ),
         ),
@@ -203,12 +212,8 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
     private fun setupViews() {
         binding.storiesView.setupStories(
             listOf(
-                storyBlock,
-                storyBlock1,
-                storyBlock2,
-                storyBlock3,
                 storyBlock4
-            ), this, this, this, this, "block3"
+            ), this, this, this, this
         )
     }
 
