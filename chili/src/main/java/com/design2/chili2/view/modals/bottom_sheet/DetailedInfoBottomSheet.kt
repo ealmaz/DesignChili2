@@ -18,6 +18,7 @@ import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewBottomSheetDetailedInfoBinding
 import com.design2.chili2.extensions.dp
 import com.design2.chili2.extensions.isVisible
+import com.design2.chili2.extensions.loadImage
 import com.design2.chili2.extensions.setBottomMargin
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.visible
@@ -40,6 +41,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
     private var iconSizeDimenRes: Int? = null
     private var iconRes: Int? = null
+    private var iconUrl: String? = null
 
     private var primaryButton: Pair<String, (DetailedInfoBottomSheet.() -> Unit)>? = null
     private var primaryButtonRes: Pair<Int, (DetailedInfoBottomSheet.() -> Unit)>? = null
@@ -113,6 +115,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
 
         iconRes?.let { setIcon(it) }
+        iconUrl?.let { setIconUrl(it) }
         iconSizeDimenRes?.let {
             vb.ivIcon.apply {
                 val size = context.resources.getDimensionPixelSize(it)
@@ -145,6 +148,13 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     private fun setIcon(@DrawableRes resId: Int) {
         vb.ivIcon.apply {
             setImageResource(resId)
+            visible()
+        }
+    }
+
+    private fun setIconUrl(url: String) {
+        vb.ivIcon.apply {
+            loadImage(url)
             visible()
         }
     }
@@ -237,6 +247,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
         private var iconSizeDimenRes: Int? = null
         private var iconRes: Int? = null
+        private var iconUrl: String? = null
         private var hasCloseIcon: Boolean = true
 
         private var primaryButton: Pair<String, (DetailedInfoBottomSheet.() -> Unit)>? = null
@@ -303,6 +314,12 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
             this.iconRes = iconRes
             return this
         }
+
+        fun setIconUrl(url: String): Builder {
+            this.iconUrl = url
+            return this
+        }
+
 
         fun setPrimaryButton(primaryButton: Pair<String, (DetailedInfoBottomSheet.() -> Unit)>): Builder {
             this.primaryButton = primaryButton
@@ -389,6 +406,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
                 this.titleResId = this@Builder.titleResId
                 this.iconSizeDimenRes = this@Builder.iconSizeDimenRes
                 this.iconRes = this@Builder.iconRes
+                this.iconUrl = this@Builder.iconUrl
                 this.primaryButton = this@Builder.primaryButton
                 this.primaryButtonRes = this@Builder.primaryButtonRes
                 this.secondaryButton = this@Builder.secondaryButton
