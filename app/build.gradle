@@ -4,7 +4,6 @@ plugins {
 }
 
 android {
-    namespace 'com.design2.app'
     compileSdk 34
 
     defaultConfig {
