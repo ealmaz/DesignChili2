@@ -24,7 +24,7 @@
         <!-- End text appearance theme-->
 
         <!-- ScreenBackground -->
-        <item name="ChiliContentBackground">@color/gray_5</item>
+        <item name="ChiliContentBackground">@color/c_F5F5F5</item>
         <item name="ChiliSecondaryContentBackgroundColor">@color/gray_5</item>
 
         <!-- PromoCardView -->
