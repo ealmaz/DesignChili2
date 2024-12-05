@@ -368,6 +368,24 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="@dimen/padding_12dp"
+                            android:layout_marginStart="@dimen/padding_12dp">
+
+                            <kg.devcats.chili3.view.card.PromoCardView
+                                android:id="@+id/pcv_promo143"
+                                android:layout_width="194dp"
+                                android:layout_height="wrap_content"
+                                app:promoIcon="@drawable/market"
+                                app:promoStatus="freezed"
+                                app:promoStatusText="Freezed"
+                                app:title="Рассрочка 0-0-12" />
+
+                        </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+                        <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                            style="@style/ShadowLayoutStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="@dimen/padding_12dp"
                             android:layout_marginStart="@dimen/padding_12dp"
                             android:layout_marginEnd="@dimen/padding_12dp">
 

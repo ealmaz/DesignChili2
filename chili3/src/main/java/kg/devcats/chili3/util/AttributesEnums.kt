@@ -5,7 +5,7 @@ enum class StoriesStatus(val value: Int) {
 }
 
 enum class PromoStatus(val value: Int) {
-    NO_STATUS(0), NEW(1), ACTIVE(2), WAIT(3), EXPIRED(4)
+    NO_STATUS(0), NEW(1), ACTIVE(2), WAIT(3), EXPIRED(4), FREEZED(5)
 }
 
 enum class ViewSize(val value: Int) {
