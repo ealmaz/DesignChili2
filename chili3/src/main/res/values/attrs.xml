@@ -78,6 +78,7 @@
             <enum name="wait" value="3" />
             <enum name="expired" value="4" />
             <enum name="freezed" value="5" />
+            <enum name="approved" value="6"/>
         </attr>
         <attr name="statusBackground" format="reference" />
         <attr name="promoExpiredBorder" format="reference" />

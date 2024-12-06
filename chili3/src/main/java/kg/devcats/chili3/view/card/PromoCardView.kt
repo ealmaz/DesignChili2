@@ -32,6 +32,7 @@ class PromoCardView @JvmOverloads constructor(
         PromoStatus.ACTIVE to null,
         PromoStatus.WAIT to null,
         PromoStatus.FREEZED to null,
+        PromoStatus.APPROVED to null,
         PromoStatus.EXPIRED to context.drawable(R.drawable.chili_bg_expired_promo),
     )
 
@@ -130,6 +131,7 @@ class PromoCardView @JvmOverloads constructor(
             PromoStatus.ACTIVE.value -> setStatusBackground(R.drawable.chili_bg_promo_status_active_gradient)
             PromoStatus.WAIT.value -> setStatusBackground(R.drawable.chili_bg_promo_status_wait_gradient)
             PromoStatus.FREEZED.value -> setStatusBackground(R.drawable.chili_bg_promo_status_freezed_gradient)
+            PromoStatus.APPROVED.value -> setStatusBackground(R.drawable.chili_bg_promo_status_aprroved_gradient)
             PromoStatus.EXPIRED.value -> {
                 setStatusBackground(R.drawable.chili_bg_promo_status_expired_gradient)
                 setPromoBackground(status)
