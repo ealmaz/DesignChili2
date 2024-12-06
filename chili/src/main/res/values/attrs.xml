@@ -317,6 +317,9 @@
         <attr name="additionalInfoTextAppearance" format="reference"/>
         <attr name="additionalInfoTextBackground" format="reference"/>
         <attr name="additionalInfoTextPadding" format="dimension"/>
+        <attr name="isDividerVisible" />
+        <attr name="additionalInfoIcon" />
+        <attr name="additionalIconSize" />
     </declare-styleable>
 
     <declare-styleable name="LoaderButton">

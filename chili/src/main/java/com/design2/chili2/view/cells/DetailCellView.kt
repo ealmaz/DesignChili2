@@ -12,6 +12,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.core.view.setPadding
 import com.bumptech.glide.Glide
 import com.design2.chili2.R
@@ -23,9 +24,9 @@ import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.util.RoundedCornerMode
-import com.design2.chili2.view.image.SquircleView
 import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
+import kotlin.collections.set
 
 class DetailCellView @JvmOverloads constructor(
     context: Context,
@@ -69,12 +70,14 @@ class DetailCellView @JvmOverloads constructor(
             setStatus(getString(R.styleable.DetailCellView_status))
             setIcon(getDrawable(R.styleable.DetailCellView_icon))
             setupIsSurfaceClickable(getBoolean(R.styleable.DetailCellView_isSurfaceClickable, true))
+            setDividerVisibility(getBoolean(R.styleable.DetailCellView_isDividerVisible, false))
+            setAdditionalIcon(getDrawable(R.styleable.DetailCellView_additionalInfoIcon))
             getInteger(
                 R.styleable.DetailCellView_roundedCornerMode,
                 RoundedCornerMode.SINGLE.value
             ).let {
                 roundedCornerMode = it
-                this@DetailCellView.setupRoundedCellCornersMode(it)
+                this@DetailCellView.setupRoundedCellCornersMode(it, surfaceClickAbility)
             }
             getResourceId(R.styleable.DetailCellView_titleTextAppearance, -1).takeIf { it != -1 }
                 ?.let {
@@ -116,6 +119,12 @@ class DetailCellView @JvmOverloads constructor(
                 -1
             ).takeIf { it != -1 }?.let {
                 updateAdditionalTextPadding(it)
+            }
+            getLayoutDimension(
+                R.styleable.DetailCellView_additionalIconSize,
+                -1
+            ).takeIf { it != -1 }?.let {
+                setupAdditionalIconSize(it, it)
             }
             recycle()
         }
@@ -230,7 +239,7 @@ class DetailCellView @JvmOverloads constructor(
         setImageDrawable(drawable)
     }
 
-    fun setIconUrl(url: String?) = with(vb.svIcon){
+    fun setIconUrl(url: String?) = with(vb.svIcon) {
         if (url.isNullOrEmpty()) gone()
         else {
             visible()
@@ -244,29 +253,93 @@ class DetailCellView @JvmOverloads constructor(
 
     fun setAdditionalInfoText(text: CharSequence?) {
         vb.tvAdditionalInfo.setTextOrHide(text)
+        updateAdditionalInfoVisibility()
     }
 
     fun setAdditionalInfoText(@StringRes textResId: Int) {
         vb.tvAdditionalInfo.setTextOrHide(textResId)
+        updateAdditionalInfoVisibility()
     }
 
     fun setAdditionalInfoTextAppearance(@StyleRes resId: Int) {
         vb.tvAdditionalInfo.setTextAppearance(resId)
     }
 
-    fun setAdditionalInfoTextBackground(@DrawableRes resId: Int?) = with(vb.tvAdditionalInfo) {
+    fun setAdditionalInfoTextBackground(@DrawableRes resId: Int?) = with(vb.llAdditionalInfo) {
         if (resId != null) setBackgroundResource(resId)
         else background = null
     }
 
     fun setAdditionalInfoTextBackground(drawable: Drawable?) {
-        vb.tvAdditionalInfo.background = drawable
+        vb.llAdditionalInfo.background = drawable
     }
 
     fun updateAdditionalTextPadding(paddingPx: Int) {
-        vb.tvAdditionalInfo.setPadding(paddingPx)
+        vb.llAdditionalInfo.setPadding(paddingPx)
     }
 
+    fun setDividerVisibility(dividerVisible: Boolean) {
+        vb.divider.isVisible = dividerVisible
+    }
+
+    fun setAdditionalIcon(drawable: Drawable?) = with(vb.ivAdditionalInfo) {
+        if (drawable == null) gone()
+        else {
+            updateAdditionalTextMargin(startMarginPx = 4)
+            visible()
+        }
+        setImageDrawable(drawable)
+        updateAdditionalInfoVisibility()
+    }
+
+    fun setAdditionalIcon(@DrawableRes drawableResId: Int) = with(vb.ivAdditionalInfo) {
+        visible()
+        updateAdditionalTextMargin(startMarginPx = 4)
+        setImageResource(drawableResId)
+        updateAdditionalInfoVisibility()
+    }
+
+    fun setAdditionalIconUrl(url: String?) = with(vb.ivAdditionalInfo) {
+        if (url.isNullOrEmpty()) gone()
+        else {
+            visible()
+            updateAdditionalTextMargin(startMarginPx = 4)
+            Glide.with(this)
+                .load(url)
+                .dontTransform()
+                .error(context.drawable(R.drawable.chili_ic_stub))
+                .into(this)
+        }
+        updateAdditionalInfoVisibility()
+    }
+
+    fun updateAdditionalInfoVisibility() {
+        vb.llAdditionalInfo.isVisible =
+            vb.tvAdditionalInfo.isVisible || vb.ivAdditionalInfo.isVisible
+    }
+
+    fun updateAdditionalTextMargin(
+        startMarginPx: Int? = null,
+        topMarginPx: Int? = null,
+        endMarginPx: Int? = null,
+        bottomMarginPx: Int? = null
+    ) {
+        val param = vb.tvAdditionalInfo.layoutParams as? MarginLayoutParams ?: return
+        param.apply {
+            leftMargin = startMarginPx ?: leftMargin
+            topMargin = topMarginPx ?: topMargin
+            rightMargin = endMarginPx ?: rightMargin
+            bottomMargin = bottomMarginPx ?: bottomMargin
+        }
+        vb.tvAdditionalInfo.layoutParams = param
+    }
+
+    fun setupAdditionalIconSize(widthPx: Int, heightPx: Int) = with(vb.ivAdditionalInfo) {
+        val params = layoutParams
+        params?.height = heightPx
+        params?.width = widthPx
+        layoutParams = params
+    }
 
     override fun getShimmeringViewsPair() = shimmerViewPairs
 }
