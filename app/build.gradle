@@ -5,6 +5,7 @@ plugins {
 
 android {
     compileSdk 34
+    namespace 'com.design2.app'
 
     defaultConfig {
         applicationId "com.design.chili2"
