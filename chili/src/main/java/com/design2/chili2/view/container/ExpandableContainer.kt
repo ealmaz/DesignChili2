@@ -21,7 +21,7 @@ import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.visible
-import com.design2.chili2.storage.ComponentsPreferences
+import com.design2.chili2.storage.ChiliComponentsPreferences
 import com.design2.chili2.util.IconSize
 
 class ExpandableContainer @JvmOverloads constructor(
@@ -33,8 +33,8 @@ class ExpandableContainer @JvmOverloads constructor(
 
     private lateinit var vb: ChiliViewContainerExpandableBinding
 
-    private val componentPref: ComponentsPreferences by lazy {
-        ComponentsPreferences.getInstance(context)
+    private val componentPref: ChiliComponentsPreferences by lazy {
+        ChiliComponentsPreferences.getInstance(context)
     }
 
     var isExpanded: Boolean = false
