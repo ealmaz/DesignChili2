@@ -12,7 +12,6 @@ import android.graphics.drawable.Drawable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
-import android.text.method.PasswordTransformationMethod
 import android.text.style.ClickableSpan
 import android.text.style.URLSpan
 import android.util.TypedValue
@@ -53,7 +52,7 @@ import com.design2.chili2.R
 import com.design2.chili2.util.RoundedCornerMode
 import com.design2.chili2.util.secured.MoneySecureTransformMethod
 import com.design2.chili2.view.image.SquircleView
-import com.example.myapplication.secure_view_component.contracts.OnApplicationSecureGestureListener
+import com.design2.chili2.util.secured.OnApplicationSecureGestureListener
 import java.util.concurrent.TimeUnit
 
 internal var View.lastItemClickTime: Long

@@ -4,10 +4,17 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
 
-class ComponentsPreferences(context: Context) {
+class ChiliComponentsPreferences(context: Context) {
 
     private val pref: SharedPreferences = context.getSharedPreferences(STORAGE_NAME, Context.MODE_PRIVATE)
 
+    var isTextViewsSecuredNow: Boolean
+        get() = pref.getBoolean(Keys.IS_TEXT_VIEWS_SECURED_NOW, false)
+        set(value) = pref.edit { putBoolean(Keys.IS_TEXT_VIEWS_SECURED_NOW, value) }
+
+    var isSecureGestureWorking: Boolean
+        get() = pref.getBoolean(Keys.IS_SECURE_GESTURE_WORKING, false)
+        set(value) = pref.edit { putBoolean(Keys.IS_SECURE_GESTURE_WORKING, value) }
 
     fun saveIsExpandableContainerExpanded(containerId: String, isExpanded: Boolean) {
         pref.edit { putBoolean(containerId, isExpanded) }
@@ -21,18 +28,23 @@ class ComponentsPreferences(context: Context) {
         pref.edit(commit = true) { clear() }
     }
 
+    private object Keys {
+        const val IS_TEXT_VIEWS_SECURED_NOW = "isTextViewsSecuredNow"
+        const val IS_SECURE_GESTURE_WORKING = "isSecureGestureWorking"
+    }
+
     companion object {
 
         const val STORAGE_NAME = "com.design2.chili2.storage.ComponentsPreferences"
 
         @Volatile
-        private var instance: ComponentsPreferences? = null
+        private var instance: ChiliComponentsPreferences? = null
 
-        fun getInstance(context: Context): ComponentsPreferences {
+        fun getInstance(context: Context): ChiliComponentsPreferences {
             if (instance == null) {
                 synchronized(this) {
                     if (instance == null) {
-                        instance = ComponentsPreferences(context)
+                        instance = ChiliComponentsPreferences(context)
                     }
                 }
             }

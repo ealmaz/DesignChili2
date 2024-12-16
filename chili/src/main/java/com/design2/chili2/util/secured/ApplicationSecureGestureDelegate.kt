@@ -12,18 +12,20 @@ import android.hardware.SensorManager
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
-import androidx.core.content.edit
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.example.myapplication.secure_view_component.contracts.OnApplicationSecureGestureListener
+import com.design2.chili2.storage.ChiliComponentsPreferences
 
 class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, SensorEventListener {
 
-    private lateinit var _prefs: SharedPreferences
     private lateinit var _context: Context
     private var _isHasVibratePermission: Boolean = false
+
+    private val _prefs: ChiliComponentsPreferences by lazy {
+        ChiliComponentsPreferences.getInstance(_context)
+    }
 
     private lateinit var _sensorManager: SensorManager
     private lateinit var _vibrator: Vibrator
@@ -32,12 +34,13 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
     private var _isScreenDown = false
     private var _screenDownTriggerTime: Long = 0
     private var _isSecuredNow = false
+    private var isSecureGestureWorking = false
     private var _isAppActiveNow = false
 
-    override fun onApplicationCreated(context: Context, sharedPreferences: SharedPreferences) {
+    override fun onApplicationCreated(context: Context) {
         _context = context.applicationContext
-        _prefs = sharedPreferences
-        _isSecuredNow = _prefs.getBoolean(BROADCAST_TAG, false)
+        _isSecuredNow = _prefs.isTextViewsSecuredNow
+        isSecureGestureWorking = _prefs.isSecureGestureWorking
         _isHasVibratePermission = _context.packageManager.checkPermission(
             android.Manifest.permission.VIBRATE,
             _context.packageName
@@ -78,10 +81,17 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
     override fun isSecuredNow(): Boolean = _isSecuredNow
 
     override fun switchSecuredState() {
+        if (!isSecureGestureWorking) return
         _isSecuredNow = !_isSecuredNow
-        _prefs.edit { putBoolean(BROADCAST_TAG, _isSecuredNow) }
+        _prefs.isTextViewsSecuredNow = _isSecuredNow
+        _prefs.isSecureGestureWorking
         LocalBroadcastManager.getInstance(_context).sendBroadcast(Intent(BROADCAST_TAG))
         pushVibration()
+    }
+
+    override fun updateSecureGestureState(isWorking: Boolean) {
+        isSecureGestureWorking = isWorking
+        _prefs.isSecureGestureWorking = isSecureGestureWorking
     }
 
     override fun onSensorChanged(event: SensorEvent?) {

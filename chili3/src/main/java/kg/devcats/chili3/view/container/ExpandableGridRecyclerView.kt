@@ -10,7 +10,7 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.design2.chili2.storage.ComponentsPreferences
+import com.design2.chili2.storage.ChiliComponentsPreferences
 import com.design2.chili2.view.shimmer.ShimmeringView
 import com.facebook.shimmer.ShimmerFrameLayout
 import kg.devcats.chili3.R
@@ -28,8 +28,8 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
 
     private lateinit var vb: ChiliExpandableGridRecyclerViewBinding
 
-    private val componentPref: ComponentsPreferences by lazy {
-        ComponentsPreferences.getInstance(context)
+    private val componentPref: ChiliComponentsPreferences by lazy {
+        ChiliComponentsPreferences.getInstance(context)
     }
 
     private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
