@@ -75,13 +75,12 @@ class ChilliStoryFragment: Fragment() {
     }
 
     private fun setupViewsIfVisible() {
-        if (isResumed && isVisible) {
-            setupViews(storyBlock)
-            isCreated = true
-        }
+        setupViews(storyBlock)
+        isCreated = true
     }
 
     override fun onDestroyView() {
+        binding.storyView.finishStories()
         _binding = null
         super.onDestroyView()
         isCreated = false

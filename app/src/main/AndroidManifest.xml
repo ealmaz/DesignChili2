@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name="com.design2.app.StoryActivity"
-            android:theme="@style/Chili.Transparent" />
+             />
     </application>
 
 </manifest>

@@ -212,7 +212,10 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
     private fun setupViews() {
         binding.storiesView.setupStories(
             listOf(
-                storyBlock4
+                storyBlock4,
+                storyBlock3,
+                storyBlock1,
+                storyBlock2
             ), this, this, this, this
         )
     }
