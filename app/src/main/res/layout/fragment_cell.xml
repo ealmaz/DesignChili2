@@ -223,7 +223,7 @@
                 android:layout_width="match_parent"
                 android:id="@+id/cellView"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/chili_ic_success"
+                android:icon="@drawable/chili3_ic_success"
                 app:cellIconSize="small"
                 app:isDividerVisible="false"
                 app:title="Заголовок" />
@@ -558,7 +558,7 @@
             <com.design2.chili2.view.cells.BaseCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/chili_ic_success"
+                android:icon="@drawable/chili3_ic_success"
                 app:cellIconSize="@dimen/view_72dp"
                 app:isDividerVisible="false"
                 app:subtitle="Подзаголовок"
@@ -694,7 +694,7 @@
             <com.design2.chili2.view.cells.ToggleCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/chili_ic_success"
+                android:icon="@drawable/chili3_ic_success"
                 app:cellIconSize="small"
                 app:roundedCornerMode="top"
                 app:subtitle="Подзаголовок"
@@ -703,7 +703,7 @@
             <com.design2.chili2.view.cells.ToggleCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/chili_ic_success"
+                android:icon="@drawable/chili3_ic_success"
                 app:cellIconSize="large"
                 app:isDividerVisible="false"
                 app:roundedCornerMode="bottom"
@@ -716,7 +716,7 @@
             android:id="@+id/new_toggle_cell_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:icon="@drawable/chili_ic_success"
+            android:icon="@drawable/chili3_ic_success"
             app:cellIconSize="small"
             app:cellBackground="@drawable/background_with_radius"
             android:layout_marginTop="@dimen/padding_16dp"
@@ -938,7 +938,7 @@
             <com.design2.chili2.view.cells.EndIconCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIcon="@drawable/chili_ic_success"
+                app:endIcon="@drawable/chili3_ic_success"
                 app:isDividerVisible="false"
                 app:roundedCornerMode="single"
                 app:title="Заголовок" />
@@ -954,7 +954,7 @@
             <com.design2.chili2.view.cells.EndIconCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIcon="@drawable/chili_ic_success"
+                app:endIcon="@drawable/chili3_ic_success"
                 app:isDividerVisible="false"
                 app:roundedCornerMode="single"
                 app:subtitle="Подзаголовок"
@@ -971,7 +971,7 @@
             <com.design2.chili2.view.cells.EndIconCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIcon="@drawable/chili_ic_success"
+                app:endIcon="@drawable/chili3_ic_success"
                 app:endIconSize="small"
                 app:isDividerVisible="false"
                 app:roundedCornerMode="single"
@@ -988,7 +988,7 @@
             <com.design2.chili2.view.cells.EndIconCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIcon="@drawable/chili_ic_success"
+                app:endIcon="@drawable/chili3_ic_success"
                 app:endIconSize="large"
                 app:isDividerVisible="false"
                 app:roundedCornerMode="single"
@@ -1005,8 +1005,8 @@
             <com.design2.chili2.view.cells.EndIconCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/chili_ic_success"
-                app:endIcon="@drawable/chili_ic_success"
+                android:icon="@drawable/chili3_ic_success"
+                app:endIcon="@drawable/chili3_ic_success"
                 app:isDividerVisible="false"
                 app:roundedCornerMode="single"
                 app:title="Заголовок" />
@@ -1030,7 +1030,7 @@
             <com.design2.chili2.view.cells.EndIconCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:endIcon="@drawable/chili_ic_success"
+                app:endIcon="@drawable/chili3_ic_success"
                 app:endIconEndMargin="@dimen/view_1dp"
                 app:isChevronVisible="true"
                 app:isDividerVisible="false"
@@ -1101,7 +1101,7 @@
             <com.design2.chili2.view.cells.CheckBoxCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/chili_ic_success"
+                android:icon="@drawable/chili3_ic_success"
                 app:cellIconSize="small"
                 app:roundedCornerMode="top"
                 app:subtitle="Подзаголовок"
@@ -1527,7 +1527,7 @@
                 android:id="@+id/dcv_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/chili_ic_success"
+                app:icon="@drawable/chili3_ic_success"
                 app:status="В обработке"
                 app:titleMaxLines="2"
                 app:subtitleMaxLines="2"
@@ -1547,7 +1547,7 @@
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/chili_ic_success"
+                app:icon="@drawable/chili3_ic_success"
                 app:subtitle="+ 996 700 500 430"
                 app:title="Заголовок" />
 
@@ -1562,7 +1562,7 @@
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/chili_ic_success"
+                app:icon="@drawable/chili3_ic_success"
                 app:status="В обработке"
                 app:title="Заголовок" />
 
@@ -1577,7 +1577,7 @@
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/chili_ic_success"
+                app:icon="@drawable/chili3_ic_success"
                 app:title="Заголовок" />
 
         </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
@@ -1591,7 +1591,7 @@
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/chili_ic_success"
+                app:icon="@drawable/chili3_ic_success"
                 app:value="500"
                 app:status="status"
                 app:title="Only status" />
@@ -1607,7 +1607,7 @@
             <com.design2.chili2.view.cells.DetailCellView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:icon="@drawable/chili_ic_success"
+                app:icon="@drawable/chili3_ic_success"
                 app:title="Заголовок"
                 app:subtitle="Пополнение электронного кошелька пользователя"/>
 
