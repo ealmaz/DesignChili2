@@ -60,6 +60,7 @@ class InfoBlockCardView @JvmOverloads constructor(
             CardState.NEUTRAL.value -> CardState.NEUTRAL
             CardState.WARNING.value -> CardState.WARNING
             CardState.ERROR.value -> CardState.ERROR
+            CardState.SUCCESS.value -> CardState.SUCCESS
             else -> CardState.NEUTRAL
         }.also { setupCardState(it) }
     }
@@ -67,7 +68,7 @@ class InfoBlockCardView @JvmOverloads constructor(
     fun setupCardState(cardState: CardState) = with(vb) {
         when (cardState) {
             CardState.NEUTRAL -> {
-                setCardBackgroundColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewBackgroundColorNeutral))
+                llRoot.background = context.drawable(R.drawable.chili_info_block_view_bg_neutral)
                 btnAction.background = context.drawable(R.drawable.chili_bg_info_block_btn_neutral)
                 ivCloseIcon.setColorFilter(context.getColorFromAttr(R.attr.ChiliInfoBlockViewContentColorNeutral))
                 tvTitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorNeutral))
@@ -76,7 +77,7 @@ class InfoBlockCardView @JvmOverloads constructor(
             }
 
             CardState.WARNING -> {
-                setCardBackgroundColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewBackgroundColorWarning))
+                llRoot.background = context.drawable(R.drawable.chili_info_block_view_bg_warning)
                 btnAction.background = context.drawable(R.drawable.chili_bg_info_block_btn_warning)
                 ivCloseIcon.setColorFilter(context.getColorFromAttr(R.attr.ChiliInfoBlockViewContentColorWarning))
                 tvTitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorWarning))
@@ -85,12 +86,21 @@ class InfoBlockCardView @JvmOverloads constructor(
             }
 
             CardState.ERROR -> {
-                setCardBackgroundColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewBackgroundColorError))
+                llRoot.background = context.drawable(R.drawable.chili_info_block_view_bg_error)
                 btnAction.background = context.drawable(R.drawable.chili_bg_info_block_btn_error)
                 ivCloseIcon.setColorFilter(context.getColorFromAttr(R.attr.ChiliInfoBlockViewContentColorError))
                 tvTitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorError))
                 tvSubtitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorError))
                 ivIcon.setImageResource(R.drawable.chili_ic_error)
+            }
+
+            CardState.SUCCESS -> {
+                llRoot.background = context.drawable(R.drawable.chili_info_block_view_bg_success)
+                btnAction.background = context.drawable(R.drawable.chili_bg_info_block_btn_success)
+                ivCloseIcon.setColorFilter(context.getColorFromAttr(R.attr.ChiliInfoBlockViewContentColorSuccess))
+                tvTitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorSuccess))
+                tvSubtitle.setTextColor(context.getColorFromAttr(R.attr.ChiliInfoBlockViewTextColorSuccess))
+                ivIcon.setImageResource(R.drawable.chili_ic_success)
             }
         }
     }
@@ -165,6 +175,6 @@ class InfoBlockCardView @JvmOverloads constructor(
     }
 
     enum class CardState(val value: Int) {
-        NEUTRAL(0), WARNING(1), ERROR(2)
+        NEUTRAL(0), WARNING(1), ERROR(2), SUCCESS(3)
     }
 }

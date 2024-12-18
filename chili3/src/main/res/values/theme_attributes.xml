@@ -214,12 +214,19 @@
     <attr name="ChiliInfoBlockViewBackgroundColorNeutral" format="color"/>
     <attr name="ChiliInfoBlockViewBackgroundColorWarning" format="color"/>
     <attr name="ChiliInfoBlockViewBackgroundColorError" format="color"/>
+    <attr name="ChiliInfoBlockViewBackgroundColorSuccess" format="color"/>
     <attr name="ChiliInfoBlockViewTextColorNeutral" format="color"/>
     <attr name="ChiliInfoBlockViewTextColorWarning" format="color"/>
     <attr name="ChiliInfoBlockViewTextColorError" format="color"/>
+    <attr name="ChiliInfoBlockViewTextColorSuccess" format="color"/>
     <attr name="ChiliInfoBlockViewContentColorNeutral" format="color"/>
     <attr name="ChiliInfoBlockViewContentColorWarning" format="color"/>
     <attr name="ChiliInfoBlockViewContentColorError" format="color"/>
+    <attr name="ChiliInfoBlockViewContentColorSuccess" format="color"/>
+    <attr name="ChiliInfoBlockBorderColorNeutral" format="color"/>
+    <attr name="ChiliInfoBlockBorderColorWarning" format="color"/>
+    <attr name="ChiliInfoBlockBorderColorError" format="color"/>
+    <attr name="ChiliInfoBlockBorderColorSuccess" format="color"/>
 
     <!-- StoriesCardView -->
     <attr name="ChiliStrokeColorBgViewedStories" format="color"/>

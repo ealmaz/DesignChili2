@@ -205,6 +205,26 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setupCardState(InfoBlockCardView.CardState.NEUTRAL)
         }
 
+        vb.infoBlockCardView4.run {
+            setTitle("Title")
+            setupActionButton("Action") {
+                Toast.makeText(requireContext(), "Action clicked", Toast.LENGTH_SHORT).show()
+                setupCardState(InfoBlockCardView.CardState.SUCCESS)
+            }
+            setCloseButtonVisibility(true)
+            setupCardState(InfoBlockCardView.CardState.SUCCESS)
+        }
+
+        vb.infoBlockCardView5.run {
+            setTitle("Title")
+            setupActionButton("Action") {
+                Toast.makeText(requireContext(), "Action clicked", Toast.LENGTH_SHORT).show()
+                setupCardState(InfoBlockCardView.CardState.NEUTRAL)
+            }
+            setCloseButtonVisibility(true)
+            setupCardState(InfoBlockCardView.CardState.NEUTRAL)
+        }
+
         vb.pcvProduct.apply {
             setScaleType(ImageView.ScaleType.FIT_XY.ordinal)
             setProductImage("https://cdn.omarket.kg/ads-minify/XBxctjZWlSKjq9pgazTZoEOPh45SXToHMckuX1Ce7Rnb3egueT.WEBP",

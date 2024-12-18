@@ -161,12 +161,19 @@
         <item name="ChiliInfoBlockViewBackgroundColorNeutral">@color/c_001429</item>
         <item name="ChiliInfoBlockViewBackgroundColorWarning">@color/c_291800</item>
         <item name="ChiliInfoBlockViewBackgroundColorError">@color/c_290200</item>
+        <item name="ChiliInfoBlockViewBackgroundColorSuccess">@color/c_081B00</item>
         <item name="ChiliInfoBlockViewContentColorNeutral">@color/c_0059BB</item>
         <item name="ChiliInfoBlockViewContentColorWarning">@color/c_D57D00</item>
         <item name="ChiliInfoBlockViewContentColorError">@color/c_BF251D</item>
+        <item name="ChiliInfoBlockViewContentColorSuccess">@color/c_49821E</item>
         <item name="ChiliInfoBlockViewTextColorNeutral">@color/c_FFFFFF</item>
         <item name="ChiliInfoBlockViewTextColorWarning">@color/c_FFFFFF</item>
         <item name="ChiliInfoBlockViewTextColorError">@color/c_FFFFFF</item>
+        <item name="ChiliInfoBlockViewTextColorSuccess">@color/c_DDDDDD</item>
+        <item name="ChiliInfoBlockBorderColorNeutral">@color/c_001227</item>
+        <item name="ChiliInfoBlockBorderColorWarning">@color/c_271600</item>
+        <item name="ChiliInfoBlockBorderColorError">@color/c_290200</item>
+        <item name="ChiliInfoBlockBorderColorSuccess">@color/c_081B00</item>
 
         <!-- StoriesCardView -->
         <item name="ChiliStrokeColorBgViewedStories">@color/c_4a4a4a</item>
