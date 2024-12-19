@@ -166,7 +166,9 @@ class StoryView : ConstraintLayout {
                         visible()
                         text = storyModel.buttonText
                         setOnSingleClickListener {
-                            if (storyModel.deeplink != null) onClickListener?.onDeeplinkClick(storyModel.deeplink)
+                            if (storyModel.deeplink != null) onClickListener?.onDeeplinkClick(
+                                storyModel.deeplink
+                            )
                             else finishStories()
                         }
                     }
@@ -178,7 +180,9 @@ class StoryView : ConstraintLayout {
                         visible()
                         text = storyModel.buttonText
                         setOnSingleClickListener {
-                            if (storyModel.deeplink != null) onClickListener?.onDeeplinkClick(storyModel.deeplink)
+                            if (storyModel.deeplink != null) onClickListener?.onDeeplinkClick(
+                                storyModel.deeplink
+                            )
                             else finishStories()
                         }
                     }
@@ -261,7 +265,11 @@ class StoryView : ConstraintLayout {
                 repeatCount = LottieDrawable.INFINITE
                 setAnimationFromUrl(currentStory?.mediaUrl)
                 addLottieOnCompositionLoadedListener {
-                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) this.post { horizontalFitBottom(it) }
+                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) this.post {
+                        horizontalFitBottom(
+                            it
+                        )
+                    }
                     else this.post { applyCenterCrop() }
                     binding.progressCircular.gone()
                     playAnimation()
@@ -294,7 +302,9 @@ class StoryView : ConstraintLayout {
         currentStory?.mediaUrl?.let { videoUrl ->
             try {
                 exoPlayer?.run {
-                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) binding.storyVideoView.horizontalFitBottom(this)
+                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP) binding.storyVideoView.horizontalFitBottom(
+                        this
+                    )
                     else binding.storyVideoView.applyFitCenter()
                     setMediaItem(MediaItem.fromUri(videoUrl))
                     prepare()
@@ -402,6 +412,56 @@ class StoryView : ConstraintLayout {
         onFinishListener?.onStoryClose()
     }
 
+    private fun initializeContent(storyType: ChilliStoryType) {
+        with(binding) {
+
+            binding.storyImageView.gone()
+            binding.storyVideoView.gone()
+            binding.storyLottieView.gone()
+
+            when (storyType) {
+                ChilliStoryType.IMAGE -> {
+                    progressCircular.visible()
+                    storyImageView.apply {
+                        visible()
+                        try {
+                            setDrawableFromUrlWithListeners(
+                                currentStory?.mediaUrl,
+                                RequestOptions(),
+                                { drawable ->
+                                    progressCircular.gone()
+                                    if (currentStory?.scaleType == StoryScaleType.BOTTOM_HORIZONTAL_CROP)
+                                        horizontalFitBottom(drawable)
+                                    else applyCenterCrop()
+                                }, {
+                                    progressCircular.gone()
+                                }
+                            )
+                        } catch (e: Exception) {
+                            progressCircular.gone()
+                        }
+                    }
+                }
+
+                ChilliStoryType.VIDEO -> {
+                    binding.storyVideoView.visible()
+                    exoPlayer?.let { player ->
+                        binding.storyVideoView.player = player
+                        currentStory?.mediaUrl?.let {
+                            player.setMediaItem(MediaItem.fromUri(it))
+                            player.prepare()
+                        }
+                    }
+                }
+
+                ChilliStoryType.LOTTIE -> {
+                    binding.storyLottieView.visible()
+                    binding.storyLottieView.setAnimationFromUrl(currentStory?.mediaUrl)
+                }
+            }
+        }
+    }
+
     //region timer
 
     private fun getTimer(time: Long = 0) = object :
@@ -459,6 +519,7 @@ class StoryView : ConstraintLayout {
     fun resumeTimer() {
         when {
             isPaused -> {
+                currentStory?.storyType?.let { initializeContent(it) }
                 isPaused = false
                 timer = getTimer(timeRemaining).also { it.start() }
 
@@ -507,9 +568,8 @@ class StoryView : ConstraintLayout {
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
+        resetTimer()
         binding.storyLottieView.cancelAnimation()
-        timer?.cancel()
-        timer = null
     }
 }
 

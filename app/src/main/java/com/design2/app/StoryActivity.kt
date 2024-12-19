@@ -155,6 +155,30 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
                 storyType = ChilliStoryType.LOTTIE
             ),
             ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
+                storyType = ChilliStoryType.LOTTIE
+            ),
+            ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
+                storyType = ChilliStoryType.LOTTIE
+            ),
+            ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
+                storyType = ChilliStoryType.LOTTIE
+            ),
+            ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
+                storyType = ChilliStoryType.LOTTIE
+            ),
+            ChilliStoryModel(
                 title = "Bla bla bla bla",
                 mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
                 storyType = ChilliStoryType.VIDEO
@@ -181,6 +205,30 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
                 title = "What is Lorem Ipsum?",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
                 mediaUrl = "https://minio.o.kg/media-service/UserStory/aa6553e8-9c54-49f9-8a4d-a73668217670",
+                storyType = ChilliStoryType.LOTTIE
+            ),
+            ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
+                storyType = ChilliStoryType.LOTTIE
+            ),
+            ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
+                storyType = ChilliStoryType.LOTTIE
+            ),
+            ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
+                storyType = ChilliStoryType.LOTTIE
+            ),
+            ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
                 storyType = ChilliStoryType.LOTTIE
             ),
         ),
@@ -212,6 +260,14 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
     private fun setupViews() {
         binding.storiesView.setupStories(
             listOf(
+                storyBlock4,
+                storyBlock3,
+                storyBlock1,
+                storyBlock2,
+                storyBlock4,
+                storyBlock3,
+                storyBlock1,
+                storyBlock2,
                 storyBlock4,
                 storyBlock3,
                 storyBlock1,
