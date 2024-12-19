@@ -1348,6 +1348,18 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_16dp" />
 
+        <kg.devcats.chili3.view.card.InfoBlockCardView
+            android:id="@+id/info_block_card_view4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp" />
+
+        <kg.devcats.chili3.view.card.InfoBlockCardView
+            android:id="@+id/info_block_card_view5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp" />
+
         <com.design2.chili2.view.card.SimplePromoBannerCardView
             android:id="@+id/simplePromoBanner"
             android:layout_width="match_parent"

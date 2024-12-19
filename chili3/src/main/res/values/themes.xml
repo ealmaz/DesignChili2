@@ -248,15 +248,22 @@
         <item name="ChiliCaptionsCardViewCornerRadius">@dimen/radius_12dp</item>
 
         <!-- InfoBlockCardView -->
-        <item name="ChiliInfoBlockViewBackgroundColorNeutral">@color/c_F5F5F8</item>
-        <item name="ChiliInfoBlockViewBackgroundColorWarning">@color/c_FEF9E7</item>
-        <item name="ChiliInfoBlockViewBackgroundColorError">@color/c_FFEEEE</item>
+        <item name="ChiliInfoBlockViewBackgroundColorNeutral">@color/c_E4F1FF</item>
+        <item name="ChiliInfoBlockViewBackgroundColorWarning">@color/c_FFF9E3</item>
+        <item name="ChiliInfoBlockViewBackgroundColorError">@color/c_FFE4E4</item>
+        <item name="ChiliInfoBlockViewBackgroundColorSuccess">@color/c_E6FAD4</item>
         <item name="ChiliInfoBlockViewContentColorNeutral">@color/c_007AFF</item>
         <item name="ChiliInfoBlockViewContentColorWarning">@color/c_FF9500</item>
         <item name="ChiliInfoBlockViewContentColorError">@color/c_FF3B30</item>
+        <item name="ChiliInfoBlockViewContentColorSuccess">@color/c_80C01B</item>
         <item name="ChiliInfoBlockViewTextColorNeutral">@color/c_2A4C84</item>
         <item name="ChiliInfoBlockViewTextColorWarning">@color/c_806330</item>
         <item name="ChiliInfoBlockViewTextColorError">@color/c_AE2A47</item>
+        <item name="ChiliInfoBlockViewTextColorSuccess">@color/c_3D3D3D</item>
+        <item name="ChiliInfoBlockBorderColorNeutral">@color/c_DEEBF9</item>
+        <item name="ChiliInfoBlockBorderColorWarning">@color/c_F6F0DA</item>
+        <item name="ChiliInfoBlockBorderColorError">@color/c_FBE4E4</item>
+        <item name="ChiliInfoBlockBorderColorSuccess">@color/c_DEF2CC</item>
 
         <!-- StoriesCardView -->
         <item name="ChiliStrokeColorBgViewedStories">@color/c_c8c8c8</item>

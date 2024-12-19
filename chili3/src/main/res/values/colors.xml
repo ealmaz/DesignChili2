@@ -70,6 +70,9 @@
     <color name="c_04E762">#04E762</color>
     <color name="c_32D74B">#32D74B</color>
     <color name="c_3CC86B">#3CC86B</color>
+    <color name="c_081B00">#081B00</color>
+    <color name="c_E6FAD4">#E6FAD4</color>
+    <color name="c_49821E">#49821E</color>
 
     <!-- Blue -->
     <color name="c_2A4C84">#2A4C84</color>
@@ -84,6 +87,9 @@
     <color name="c_001B33">#001B33</color>
     <color name="c_0059BB">#0059BB</color>
     <color name="c_001429">#001429</color>
+    <color name="c_DEF2CC">#DEF2CC</color>
+    <color name="c_DEEBF9">#DEEBF9</color>
+    <color name="c_001227">#001227</color>
 
     <!-- Red -->
     <color name="c_AE2A47">#AE2A47</color>
@@ -98,6 +104,8 @@
     <color name="c_1A0706">#1A0706</color>
     <color name="c_BF251D">#BF251D</color>
     <color name="c_290200">#290200</color>
+    <color name="c_FFE4E4">#FFE4E4</color>
+    <color name="c_FBE4E4">#FBE4E4</color>
 
     <!-- Orange -->
     <color name="c_FF9400">#FF9400</color>
@@ -110,6 +118,8 @@
     <color name="c_FFF4E5">#FFF4E5</color>
     <color name="c_D57D00">#D57D00</color>
     <color name="c_291800">#291800</color>
+    <color name="c_F6F0DA">#F6F0DA</color>
+    <color name="c_271600">#271600</color>
 
 
     <!-- Cyan -->
@@ -117,6 +127,7 @@
     <color name="c_42D8D8">#42D8D8</color>
     <color name="c_67E8C8">#67E8C8</color>
     <color name="c_65F5F8">#65F5F8</color>
+    <color name="c_E4F1FF">#E4F1FF</color>
 
     <!-- Purple -->
     <color name="c_B620E0">#B620E0</color>
@@ -129,6 +140,7 @@
     <color name="c_FFE600">#FFE600</color>
     <color name="c_FAF45A">#FAF45A</color>
     <color name="c_FFFCAF">#FFFCAF</color>
+    <color name="c_FFF9E3">#FFF9E3</color>
 
     <!-- Brown -->
     <color name="c_806330">#806330</color>

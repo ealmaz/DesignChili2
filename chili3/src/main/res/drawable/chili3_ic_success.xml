@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="21dp"
+    android:height="20dp"
+    android:viewportWidth="21"
+    android:viewportHeight="20">
+  <path
+      android:pathData="M10.5,18.333C15.083,18.333 18.833,14.583 18.833,10C18.833,5.417 15.083,1.667 10.5,1.667C5.917,1.667 2.167,5.417 2.167,10C2.167,14.583 5.917,18.333 10.5,18.333Z"
+      android:fillColor="?attr/ChiliInfoBlockViewContentColorSuccess"/>
+  <path
+      android:pathData="M14.484,7.2C14.728,7.444 14.727,7.84 14.483,8.084L9.758,12.801C9.514,13.044 9.119,13.044 8.875,12.8L6.516,10.442C6.272,10.198 6.272,9.802 6.516,9.558C6.76,9.314 7.156,9.314 7.4,9.558L9.317,11.475L13.6,7.199C13.844,6.955 14.24,6.956 14.484,7.2Z"
+      android:fillColor="#ffffff"
+      android:fillType="evenOdd"/>
+</vector>
