@@ -12,7 +12,6 @@ import android.hardware.SensorManager
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.util.Log
 import androidx.core.content.edit
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -87,10 +86,10 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER && _isAppActiveNow) {
-            val yAxis = event.values[1]
+            val isValidYAxis = event.values[1] in -1.0..1.0
             val zAxis = event.values[2]
 
-            if (zAxis < -8.0 && yAxis < 4 && !_isScreenDown) {
+            if (zAxis < -8.0 && isValidYAxis && !_isScreenDown) {
                 _isScreenDown = true
                 _screenDownTriggerTime = System.currentTimeMillis()
             } else if (zAxis > 8.0 && _isScreenDown) {
