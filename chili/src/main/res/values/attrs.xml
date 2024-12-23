@@ -192,6 +192,7 @@
         <attr name="subtitleMaxLines"/>
         <attr name="subtitleAsSecure" format="boolean"/>
         <attr name="endIcon" format="reference" />
+        <attr name="endIconTint" />
     </declare-styleable>
 
     <declare-styleable name="ToggleCellView">

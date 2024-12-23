@@ -644,6 +644,8 @@
             style="@style/ShadowLayoutStyle">
 
             <com.design2.chili2.view.cells.ToggleCellView
+                app:endIcon="@drawable/ic_cat"
+                app:endIconTint="@color/red_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:isDividerVisible="false"

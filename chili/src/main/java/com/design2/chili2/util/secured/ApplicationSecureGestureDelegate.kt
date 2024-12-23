@@ -137,6 +137,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
         _isSecureGestureWorking = false
         _prefs.isTextViewsSecuredNow = _isSecuredNow
         _prefs.isSecureGestureWorking = _isSecureGestureWorking
+        LocalBroadcastManager.getInstance(_context).sendBroadcast(Intent(BROADCAST_TAG))
     }
 
     companion object {

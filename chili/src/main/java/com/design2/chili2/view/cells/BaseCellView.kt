@@ -76,6 +76,9 @@ open class BaseCellView @JvmOverloads constructor(
                 getResourceId(R.styleable.BaseCellView_endIcon, -1).takeIf { it != -1 }?.let {
                     setEndIcon(it)
                 }
+                getColor(R.styleable.BaseCellView_endIconTint, -1).takeIf { it != -1 }?.let {
+                    setEndIconTint(it)
+                }
                 getString(R.styleable.BaseCellView_title)?.let { setTitle(it) }
                 getString(R.styleable.BaseCellView_subtitle)?.let { setSubtitle(it) }
                 getBoolean(R.styleable.BaseCellView_isDividerVisible, true).let {
@@ -172,6 +175,10 @@ open class BaseCellView @JvmOverloads constructor(
                 }
                 recycle()
             }
+    }
+
+    fun setEndIconTint(color: Int) {
+        vb.ivEndIcon.setColorFilter(color)
     }
 
     private fun setupShimmerViews() {
