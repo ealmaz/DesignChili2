@@ -33,13 +33,13 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
     private var _isScreenDown = false
     private var _screenDownTriggerTime: Long = 0
     private var _isSecuredNow = false
-    private var isSecureGestureWorking = false
+    private var _isSecureGestureWorking = false
     private var _isAppActiveNow = false
 
     override fun onApplicationCreated(context: Context) {
         _context = context.applicationContext
         _isSecuredNow = _prefs.isTextViewsSecuredNow
-        isSecureGestureWorking = _prefs.isSecureGestureWorking
+        _isSecureGestureWorking = _prefs.isSecureGestureWorking
         _isHasVibratePermission = _context.packageManager.checkPermission(
             android.Manifest.permission.VIBRATE,
             _context.packageName
@@ -79,6 +79,8 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     override fun isSecuredNow(): Boolean = _isSecuredNow
 
+    override fun isSecureGestureWorking(): Boolean = _isSecureGestureWorking
+
     override fun switchSecuredState() {
         _isSecuredNow = !_isSecuredNow
         _prefs.isTextViewsSecuredNow = _isSecuredNow
@@ -87,13 +89,13 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
     }
 
     override fun updateSecureGestureState(isWorking: Boolean) {
-        isSecureGestureWorking = isWorking
-        if (isSecureGestureWorking) _prefs.isSecureGestureWorking = isSecureGestureWorking
+        _isSecureGestureWorking = isWorking
+        if (_isSecureGestureWorking) _prefs.isSecureGestureWorking = _isSecureGestureWorking
         else resetAllState()
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
-        if (!isSecureGestureWorking) return
+        if (!_isSecureGestureWorking) return
         if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER && _isAppActiveNow) {
             val isValidYAxis = event.values[1] in -1.0..1.0
             val zAxis = event.values[2]
@@ -132,9 +134,9 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     override fun resetAllState() {
         _isSecuredNow = false
-        isSecureGestureWorking = false
+        _isSecureGestureWorking = false
         _prefs.isTextViewsSecuredNow = _isSecuredNow
-        _prefs.isSecureGestureWorking = isSecureGestureWorking
+        _prefs.isSecureGestureWorking = _isSecureGestureWorking
     }
 
     companion object {

@@ -9,5 +9,6 @@ interface OnApplicationSecureGestureListener {
     fun isSecuredNow(): Boolean
     fun switchSecuredState()
     fun updateSecureGestureState(isWorking: Boolean)
+    fun isSecureGestureWorking(): Boolean
     fun resetAllState()
 }
