@@ -24,6 +24,7 @@ import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setIsSurfaceClickable
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setupAsSecure
 import com.design2.chili2.extensions.setupRoundedCellCornersMode
@@ -71,6 +72,9 @@ open class BaseCellView @JvmOverloads constructor(
                     }
                 getResourceId(R.styleable.BaseCellView_android_icon, -1).takeIf { it != -1 }?.let {
                     setIcon(it)
+                }
+                getResourceId(R.styleable.BaseCellView_endIcon, -1).takeIf { it != -1 }?.let {
+                    setEndIcon(it)
                 }
                 getString(R.styleable.BaseCellView_title)?.let { setTitle(it) }
                 getString(R.styleable.BaseCellView_subtitle)?.let { setSubtitle(it) }
@@ -285,6 +289,24 @@ open class BaseCellView @JvmOverloads constructor(
                 .into(vb.ivIcon)
             setupIconShimmer()
         }
+    }
+
+    open fun setEndIcon(@DrawableRes drawableRes: Int) {
+        vb.ivEndIcon.apply {
+            visible()
+            setImageResource(drawableRes)
+        }
+    }
+
+    open fun setEndIcon(drawable: Drawable?) {
+        vb.ivEndIcon.apply {
+            visible()
+            setImageDrawable(drawable)
+        }
+    }
+
+    open fun setEndIconClickListener(action: () -> Unit) {
+        vb.ivEndIcon.setOnSingleClickListener(action)
     }
 
     fun setChevronColor(@ColorRes id: Int) {

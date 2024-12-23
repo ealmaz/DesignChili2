@@ -3,7 +3,6 @@ package com.design2.chili2.util.secured
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -81,20 +80,20 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
     override fun isSecuredNow(): Boolean = _isSecuredNow
 
     override fun switchSecuredState() {
-        if (!isSecureGestureWorking) return
         _isSecuredNow = !_isSecuredNow
         _prefs.isTextViewsSecuredNow = _isSecuredNow
-        _prefs.isSecureGestureWorking
         LocalBroadcastManager.getInstance(_context).sendBroadcast(Intent(BROADCAST_TAG))
         pushVibration()
     }
 
     override fun updateSecureGestureState(isWorking: Boolean) {
         isSecureGestureWorking = isWorking
-        _prefs.isSecureGestureWorking = isSecureGestureWorking
+        if (isSecureGestureWorking) _prefs.isSecureGestureWorking = isSecureGestureWorking
+        else resetAllState()
     }
 
     override fun onSensorChanged(event: SensorEvent?) {
+        if (!isSecureGestureWorking) return
         if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER && _isAppActiveNow) {
             val isValidYAxis = event.values[1] in -1.0..1.0
             val zAxis = event.values[2]
@@ -129,6 +128,13 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
+    }
+
+    override fun resetAllState() {
+        _isSecuredNow = false
+        isSecureGestureWorking = false
+        _prefs.isTextViewsSecuredNow = _isSecuredNow
+        _prefs.isSecureGestureWorking = isSecureGestureWorking
     }
 
     companion object {

@@ -125,6 +125,10 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
             setSwitchGreenStyle()
             setSwitchEndPadding(10.dp)
         }
+
+        vb.testToggleCellView.setEndIconClickListener {
+            Toast.makeText(context, "End Icon Clicked", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun CardCellView.setBlockedState() {

@@ -86,7 +86,7 @@ open class EndIconCellView @JvmOverloads constructor(
         }
     }
 
-    fun setEndIcon(drawable: Drawable?) {
+    override fun setEndIcon(drawable: Drawable?) {
         drawable?.let {
             endIcon?.setImageDrawable(drawable)
         }
@@ -110,7 +110,7 @@ open class EndIconCellView @JvmOverloads constructor(
         endIcon?.isClickable = isClickable
     }
 
-    fun setEndIconClickListener(action: () -> Unit) {
+    override fun setEndIconClickListener(action: () -> Unit) {
         endIcon?.setOnSingleClickListener(action)
     }
 

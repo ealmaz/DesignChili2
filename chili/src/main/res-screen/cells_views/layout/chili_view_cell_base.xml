@@ -21,13 +21,13 @@
         android:layout_height="@dimen/view_32dp"
         android:layout_marginStart="@dimen/padding_12dp"
         android:layout_marginTop="@dimen/padding_8dp"
-        android:layout_marginBottom="@dimen/padding_8dp"
         android:layout_marginEnd="@dimen/padding_12dp"
+        android:layout_marginBottom="@dimen/padding_8dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_title"
         app:layout_constraintStart_toEndOf="@id/fl_start_place_holder"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_title"
         tools:src="@tools:sample/avatars" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -35,14 +35,15 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/iv_icon"
         app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintEnd_toEndOf="@id/iv_icon"
         app:layout_constraintStart_toStartOf="@id/iv_icon"
-        app:layout_constraintEnd_toEndOf="@id/iv_icon">
+        app:layout_constraintTop_toTopOf="@id/iv_icon">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/chili_bg_shimmer"/>
+            android:background="@drawable/chili_bg_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
 
@@ -54,29 +55,40 @@
         android:layout_marginTop="@dimen/padding_12dp"
         android:layout_marginEnd="@dimen/padding_4dp"
         android:layout_marginBottom="@dimen/padding_4dp"
-        android:textAppearance="@style/Chili.H7.Primary"
-        app:layout_goneMarginBottom="@dimen/padding_12dp"
         android:ellipsize="end"
         android:maxLines="2"
+        android:textAppearance="@style/Chili.H7.Primary"
         app:layout_constraintBottom_toTopOf="@id/tv_subtitle"
-        app:layout_constraintEnd_toStartOf="@id/fl_end_place_holder"
+        app:layout_constraintEnd_toStartOf="@id/iv_end_icon"
         app:layout_constraintStart_toEndOf="@id/iv_icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
+        app:layout_goneMarginBottom="@dimen/padding_12dp"
         tools:text="Заголовок" />
+
+    <ImageView
+        android:id="@+id/iv_end_icon"
+        android:layout_width="@dimen/view_32dp"
+        android:layout_height="@dimen/view_32dp"
+        android:layout_marginEnd="@dimen/padding_8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fl_end_place_holder"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_title_shimmer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/tv_title"
         app:layout_constraintBottom_toBottomOf="@id/tv_title"
-        app:layout_constraintStart_toStartOf="@id/tv_title">
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintTop_toTopOf="@id/tv_title">
+
         <View
             android:layout_width="@dimen/view_200dp"
             android:layout_height="@dimen/view_8dp"
-            android:background="@drawable/chili_bg_shimmer"/>
+            android:background="@drawable/chili_bg_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
@@ -99,13 +111,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintTop_toTopOf="@id/tv_subtitle"
         app:layout_constraintBottom_toBottomOf="@id/tv_subtitle"
-        app:layout_constraintStart_toStartOf="@id/tv_subtitle">
+        app:layout_constraintStart_toStartOf="@id/tv_subtitle"
+        app:layout_constraintTop_toTopOf="@id/tv_subtitle">
+
         <View
             android:layout_width="@dimen/view_82dp"
             android:layout_height="@dimen/view_8dp"
-            android:background="@drawable/chili_bg_shimmer"/>
+            android:background="@drawable/chili_bg_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <FrameLayout
@@ -122,22 +135,22 @@
         android:layout_width="@dimen/view_32dp"
         android:layout_height="@dimen/view_32dp"
         android:layout_marginEnd="@dimen/padding_8dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:src="?ChiliChevronDrawable"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="?ChiliChevronDrawable"
-        app:tint="?attr/ChiliChevronColor"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/ChiliChevronColor" />
 
     <View
         android:id="@+id/divider"
         android:layout_width="0dp"
         android:layout_height="?attr/ChiliDividerHeightSize"
-        android:background="?attr/ChiliDividerColor"
         android:layout_marginStart="@dimen/padding_12dp"
-        app:layout_goneMarginStart="0dp"
+        android:background="?attr/ChiliDividerColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/iv_icon" />
+        app:layout_constraintStart_toEndOf="@id/iv_icon"
+        app:layout_goneMarginStart="0dp" />
 
     <LinearLayout
         android:id="@+id/edit_tools_place_holder"
@@ -147,6 +160,6 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

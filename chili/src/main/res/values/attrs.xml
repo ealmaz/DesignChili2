@@ -191,6 +191,7 @@
         <attr name="titleMaxLines"/>
         <attr name="subtitleMaxLines"/>
         <attr name="subtitleAsSecure" format="boolean"/>
+        <attr name="endIcon" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="ToggleCellView">
@@ -202,7 +203,7 @@
     </declare-styleable>
 
     <declare-styleable name="EndIconCellView">
-        <attr name="endIcon" format="reference" />
+        <attr name="endIcon" />
         <attr name="isEndIconVisible" format="boolean" />
         <attr name="endIconSize" format="dimension">
             <enum name="small" value="-1" />
