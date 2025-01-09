@@ -11,6 +11,7 @@ import android.hardware.SensorManager
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
@@ -28,7 +29,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     private lateinit var _sensorManager: SensorManager
     private lateinit var _vibrator: Vibrator
-    private var _accelerometer: Sensor? = null
+    private var _gravitySensor: Sensor? = null
 
     private var _isScreenDown = false
     private var _screenDownTriggerTime: Long = 0
@@ -47,7 +48,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
         initComponents()
         setupAppLifecycleListener()
-        _sensorManager.registerListener(this, _accelerometer, SensorManager.SENSOR_DELAY_NORMAL)
+        _sensorManager.registerListener(this, _gravitySensor, SensorManager.SENSOR_DELAY_NORMAL)
     }
 
     private fun setupAppLifecycleListener() {
@@ -55,10 +56,9 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
             override fun onStart(owner: LifecycleOwner) {
                 super.onStart(owner)
                 _isAppActiveNow = true
-                _sensorManager
-                    .registerListener(
+                _sensorManager.registerListener(
                         this@ApplicationSecureGestureDelegate,
-                        _accelerometer,
+                        _gravitySensor,
                         SensorManager.SENSOR_DELAY_NORMAL
                     )
             }
@@ -73,7 +73,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     private fun initComponents() {
         _sensorManager = _context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        _accelerometer = _sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        _gravitySensor = _sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)
         _vibrator = _context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
     }
 
@@ -96,7 +96,8 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (!_isSecureGestureWorking) return
-        if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER && _isAppActiveNow) {
+        if (event?.sensor?.type == Sensor.TYPE_GRAVITY && _isAppActiveNow) {
+            
             val isValidYAxis = event.values[1] in -1.0..1.0
             val zAxis = event.values[2]
 

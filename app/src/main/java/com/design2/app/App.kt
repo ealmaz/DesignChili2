@@ -9,5 +9,6 @@ class App: Application(), OnApplicationSecureGestureListener by ApplicationSecur
     override fun onCreate() {
         super.onCreate()
         onApplicationCreated(this)
+        updateSecureGestureState(true)
     }
 }
