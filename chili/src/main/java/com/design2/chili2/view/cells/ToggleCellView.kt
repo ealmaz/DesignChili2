@@ -56,6 +56,10 @@ class ToggleCellView @JvmOverloads constructor(
         switch?.isChecked = isChecked
     }
 
+    fun getIsSwitchChecked(): Boolean {
+        return switch?.isChecked ?: false
+    }
+
     fun setOnCheckChangeListener(listener: (CompoundButton, Boolean) -> Unit) {
         switch?.setOnCheckedChangeListener(listener)
     }
