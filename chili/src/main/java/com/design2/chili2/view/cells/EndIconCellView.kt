@@ -22,8 +22,6 @@ open class EndIconCellView @JvmOverloads constructor(
     defStyleRes: Int = R.style.Chili_CellViewStyle_BaseCellViewStyle_EndIcon
 ) : BaseCellView(context, attrs, defStyleAttr, defStyleRes) {
 
-    private var endIcon: ImageView? = null
-
     override fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         super.obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         context.obtainStyledAttributes(attrs, R.styleable.EndIconCellView, defStyleAttr, defStyleRes)
@@ -70,36 +68,28 @@ open class EndIconCellView @JvmOverloads constructor(
 
     fun setEndIcon(@DrawableRes drawableRes: Int?) {
         drawableRes?.let {
-            endIcon?.setImageDrawable(context.drawable(drawableRes))
-        }
-    }
-
-    override fun setEndIcon(drawable: Drawable?) {
-        drawable?.let {
-            endIcon?.setImageDrawable(drawable)
+            vb.ivEndIcon.setImageDrawable(context.drawable(drawableRes))
         }
     }
 
     fun setEndIcon(url: String?) {
         url?.let {
-            endIcon?.setImageByUrl(url)
+            vb.ivEndIcon.setImageByUrl(url)
         }
     }
 
     fun setIsEndIconVisible(isVisible: Boolean) {
-        endIcon?.visibility = when (isVisible) {
+        vb.ivEndIcon.visibility = when (isVisible) {
             true -> View.VISIBLE
             else -> View.GONE
         }
     }
 
-    fun setIsEndIconClickable(isClickable: Boolean) {
-        endIcon?.isFocusable = isClickable
-        endIcon?.isClickable = isClickable
-    }
-
-    override fun setEndIconClickListener(action: () -> Unit) {
-        endIcon?.setOnSingleClickListener(action)
+    fun setIsEndIconClickable(clickable: Boolean) {
+        vb.ivEndIcon.apply {
+            isFocusable = clickable
+            isClickable = clickable
+        }
     }
 
     fun setEndIconSize(iconSize: IconSize) {
