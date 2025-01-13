@@ -24,11 +24,6 @@ open class EndIconCellView @JvmOverloads constructor(
 
     private var endIcon: ImageView? = null
 
-    override fun inflateView(context: Context) {
-        super.inflateView(context)
-        inflateEndIcon()
-    }
-
     override fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         super.obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         context.obtainStyledAttributes(attrs, R.styleable.EndIconCellView, defStyleAttr, defStyleRes)
@@ -55,13 +50,6 @@ open class EndIconCellView @JvmOverloads constructor(
                 }
                 recycle()
             }
-    }
-
-    private fun inflateEndIcon() {
-        this.endIcon = ImageView(context).apply {
-            shimmeringPairs[this] = null
-        }
-        vb.flEndPlaceHolder.addView(endIcon)
     }
 
     override fun onStartShimmer() {
@@ -121,19 +109,6 @@ open class EndIconCellView @JvmOverloads constructor(
             IconSize.SMALL -> R.dimen.view_32dp
         }
         setEndIconSize(size, size)
-    }
-
-    fun setEndIconSize(@DimenRes widthDimenRes: Int, @DimenRes heightDimenRes: Int) {
-        val widthPx = resources.getDimensionPixelSize(widthDimenRes)
-        val heightPx = resources.getDimensionPixelSize(heightDimenRes)
-        setupEndIconSize(widthPx, heightPx)
-    }
-
-    private fun setupEndIconSize(widthPx: Int, heightPx: Int) {
-        val params = endIcon?.layoutParams
-        params?.height = heightPx
-        params?.width = widthPx
-        endIcon?.layoutParams = params
     }
 
     fun setEndIconEndMargin(@DimenRes endMarginRes: Int) {

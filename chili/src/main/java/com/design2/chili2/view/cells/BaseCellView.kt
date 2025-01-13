@@ -316,6 +316,19 @@ open class BaseCellView @JvmOverloads constructor(
         vb.ivEndIcon.setOnSingleClickListener(action)
     }
 
+    fun setEndIconSize(@DimenRes widthDimenRes: Int, @DimenRes heightDimenRes: Int) {
+        val widthPx = resources.getDimensionPixelSize(widthDimenRes)
+        val heightPx = resources.getDimensionPixelSize(heightDimenRes)
+        setupEndIconSize(widthPx, heightPx)
+    }
+
+    fun setupEndIconSize(widthPx: Int, heightPx: Int) {
+        val params = vb.ivEndIcon.layoutParams
+        params?.height = heightPx
+        params?.width = widthPx
+        vb.ivEndIcon.layoutParams = params
+    }
+
     fun setChevronColor(@ColorRes id: Int) {
         vb.ivChevron.setColorFilter(
             ContextCompat.getColor(context, id),
