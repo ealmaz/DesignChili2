@@ -11,12 +11,13 @@ import android.hardware.SensorManager
 import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
-import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.design2.chili2.storage.ChiliComponentsPreferences
+import kotlin.math.abs
+import kotlin.math.sqrt
 
 class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, SensorEventListener {
 
@@ -73,7 +74,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     private fun initComponents() {
         _sensorManager = _context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        _gravitySensor = _sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)
+        _gravitySensor = _sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         _vibrator = _context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
     }
 
@@ -94,14 +95,25 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
         else resetAllState()
     }
 
+    private var lastAcceleration = 0f
     override fun onSensorChanged(event: SensorEvent?) {
         if (!_isSecureGestureWorking) return
-        if (event?.sensor?.type == Sensor.TYPE_GRAVITY && _isAppActiveNow) {
-            
-            val isValidYAxis = event.values[1] in -1.0..1.0
+        if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER && _isAppActiveNow) {
+
+            val xAxis = event.values[0]
+            val yAxis = event.values[1]
             val zAxis = event.values[2]
 
-            if (zAxis < -8.0 && isValidYAxis && !_isScreenDown) {
+            val totalAcceleration = sqrt(xAxis * xAxis + yAxis * yAxis + zAxis * zAxis)
+            if (abs(totalAcceleration - lastAcceleration) > 10) {
+                _isScreenDown = false
+                lastAcceleration = totalAcceleration
+                return
+            }
+
+            val isHorizontal = abs(xAxis) < 2 && abs(yAxis) < 2
+
+            if (zAxis < -8.0 && isHorizontal && !_isScreenDown) {
                 _isScreenDown = true
                 _screenDownTriggerTime = System.currentTimeMillis()
             } else if (zAxis > 8.0 && _isScreenDown) {
