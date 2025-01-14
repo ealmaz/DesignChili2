@@ -48,7 +48,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
         initComponents()
         setupAppLifecycleListener()
-        _sensorManager.registerListener(this, _gravitySensor, SensorManager.SENSOR_DELAY_NORMAL)
+        _sensorManager.registerListener(this, _gravitySensor, SensorManager.SENSOR_DELAY_UI)
     }
 
     private fun setupAppLifecycleListener() {
@@ -59,7 +59,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
                 _sensorManager.registerListener(
                         this@ApplicationSecureGestureDelegate,
                         _gravitySensor,
-                        SensorManager.SENSOR_DELAY_NORMAL
+                        SensorManager.SENSOR_DELAY_UI
                     )
             }
 
@@ -73,7 +73,7 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     private fun initComponents() {
         _sensorManager = _context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        _gravitySensor = _sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY)
+        _gravitySensor = _sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         _vibrator = _context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
     }
 
@@ -96,15 +96,15 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (!_isSecureGestureWorking) return
-        if (event?.sensor?.type == Sensor.TYPE_GRAVITY && _isAppActiveNow) {
+        if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER && _isAppActiveNow) {
             
             val isValidYAxis = event.values[1] in -1.0..1.0
             val zAxis = event.values[2]
 
-            if (zAxis < -8.0 && isValidYAxis && !_isScreenDown) {
+            if (zAxis < -9.0 && isValidYAxis && !_isScreenDown) {
                 _isScreenDown = true
                 _screenDownTriggerTime = System.currentTimeMillis()
-            } else if (zAxis > 8.0 && _isScreenDown) {
+            } else if (zAxis > 9.0 && _isScreenDown) {
                 val upTime = System.currentTimeMillis()
                 val timeDiff = upTime - _screenDownTriggerTime
                 if (timeDiff <= GESTURE_THRESHOLD) switchSecuredState()
