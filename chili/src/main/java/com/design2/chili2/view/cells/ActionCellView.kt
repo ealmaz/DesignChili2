@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
 import androidx.core.view.get
 import com.design2.chili2.R
 import com.design2.chili2.extensions.createShimmerLayout
@@ -91,6 +92,10 @@ class ActionCellView @JvmOverloads constructor(
             true -> View.VISIBLE
             else -> View.GONE
         }
+    }
+
+    fun setActionTextAppearance(@StyleRes resId: Int) {
+        tvAction?.setTextAppearance(resId)
     }
 
     fun setIsActionEnabled(isEnabled: Boolean) {
