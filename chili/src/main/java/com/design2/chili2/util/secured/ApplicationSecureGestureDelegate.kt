@@ -98,13 +98,13 @@ class ApplicationSecureGestureDelegate : OnApplicationSecureGestureListener, Sen
         if (!_isSecureGestureWorking) return
         if (event?.sensor?.type == Sensor.TYPE_ACCELEROMETER && _isAppActiveNow) {
             
-            val isValidYAxis = event.values[1] in -1.0..1.0
+            val isValidYAxis = event.values[1] in -2.5..2.5
             val zAxis = event.values[2]
 
-            if (zAxis < -9.0 && isValidYAxis && !_isScreenDown) {
+            if (zAxis < -8.0 && isValidYAxis && !_isScreenDown) {
                 _isScreenDown = true
                 _screenDownTriggerTime = System.currentTimeMillis()
-            } else if (zAxis > 9.0 && _isScreenDown) {
+            } else if (zAxis > 8.0 && _isScreenDown) {
                 val upTime = System.currentTimeMillis()
                 val timeDiff = upTime - _screenDownTriggerTime
                 if (timeDiff <= GESTURE_THRESHOLD) switchSecuredState()
