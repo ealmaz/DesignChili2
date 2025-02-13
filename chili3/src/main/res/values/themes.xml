@@ -146,7 +146,7 @@
         <item name="ChiliAccountCardViewChevronWidth">@dimen/view_20dp</item>
         <item name="ChiliAccountCardViewChevronHeight">@dimen/view_20dp</item>
 
-        <item name="ChiliAccountCardViewSubtitleContainerMarginTop">@dimen/padding_4dp</item>
+        <item name="ChiliAccountCardViewSubtitleContainerMarginTop">@dimen/padding_10dp</item>
         <item name="ChiliAccountCardViewSubtitleMaxLines">1</item>
         <item name="ChiliAccountCardViewToggleIconWidth">@dimen/view_20dp</item>
         <item name="ChiliAccountCardViewToggleIconHeight">@dimen/view_20dp</item>
@@ -156,7 +156,7 @@
 
         <item name="ChiliAccountCardViewActionButtonStyle">@style/Chili.ButtonStyle.AccountCard</item>
         <item name="ChiliAccountCardViewActionButtonWidth">@dimen/view_122dp</item>
-        <item name="ChiliAccountCardViewActionButtonHeight">@dimen/view_40dp</item>
+        <item name="ChiliAccountCardViewActionButtonHeight">@dimen/view_50dp</item>
         <item name="ChiliAccountCardViewActionButtonMarginVertical">@dimen/padding_18dp</item>
         <item name="ChiliAccountCardViewActionButtonMarginEnd">@dimen/padding_16dp</item>
         <item name="ChiliAccountCardViewActionButtonTheme">@style/ThemeOverlay.ChiliAdditionalButton</item>
