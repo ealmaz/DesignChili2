@@ -299,7 +299,7 @@
 
                             <kg.devcats.chili3.view.card.PromoCardView
                                 android:id="@+id/pcv_promo"
-                                android:layout_width="194dp"
+                                android:layout_width="148dp"
                                 android:layout_height="wrap_content"
                                 app:promoIcon="@drawable/market"
                                 app:promoStatus="create"
@@ -317,7 +317,7 @@
 
                             <kg.devcats.chili3.view.card.PromoCardView
                                 android:id="@+id/pcv_promo1"
-                                android:layout_width="194dp"
+                                android:layout_width="148dp"
                                 android:layout_height="wrap_content"
                                 app:promoIcon="@drawable/market"
                                 app:promoStatus="active"
@@ -335,7 +335,7 @@
 
                             <kg.devcats.chili3.view.card.PromoCardView
                                 android:id="@+id/pcv_promo2"
-                                android:layout_width="194dp"
+                                android:layout_width="148dp"
                                 android:layout_height="wrap_content"
                                 app:promoIcon="@drawable/market"
                                 app:promoStatus="expired"
@@ -354,7 +354,7 @@
 
                             <kg.devcats.chili3.view.card.PromoCardView
                                 android:id="@+id/pcv_promo4"
-                                android:layout_width="194dp"
+                                android:layout_width="148dp"
                                 android:layout_height="wrap_content"
                                 app:promoIcon="@drawable/market"
                                 app:promoStatus="wait"
@@ -372,7 +372,7 @@
 
                             <kg.devcats.chili3.view.card.PromoCardView
                                 android:id="@+id/pcv_promo143"
-                                android:layout_width="194dp"
+                                android:layout_width="148dp"
                                 android:layout_height="wrap_content"
                                 app:promoIcon="@drawable/market"
                                 app:promoStatus="freezed"
@@ -390,7 +390,7 @@
 
                             <kg.devcats.chili3.view.card.PromoCardView
                                 android:id="@+id/pcv_promo142323"
-                                android:layout_width="194dp"
+                                android:layout_width="148dp"
                                 android:layout_height="wrap_content"
                                 app:promoIcon="@drawable/market"
                                 app:promoStatus="approved"
@@ -409,7 +409,7 @@
 
                             <kg.devcats.chili3.view.card.PromoCardView
                                 android:id="@+id/pcv_promo3"
-                                android:layout_width="194dp"
+                                android:layout_width="148dp"
                                 android:layout_height="wrap_content"
                                 app:promoIcon="@drawable/market"
                                 app:promoStatus="no_status"

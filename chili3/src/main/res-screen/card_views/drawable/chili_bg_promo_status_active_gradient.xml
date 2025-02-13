@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="?ChiliPromoCardViewStatusCornerRadius" />
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <corners
+        android:bottomLeftRadius="?ChiliPromoCardViewStatusCornerRadius"
+        android:topRightRadius="?ChiliPromoCardViewStatusCornerRadius"
+        tools:bottomLeftRadius="12dp"
+        tools:topRightRadius="12dp"/>
     <gradient
         android:startColor="#79B815"
         android:endColor="#A3D555"

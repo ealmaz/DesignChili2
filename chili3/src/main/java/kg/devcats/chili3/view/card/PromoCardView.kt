@@ -31,9 +31,9 @@ class PromoCardView @JvmOverloads constructor(
         PromoStatus.NEW to null,
         PromoStatus.ACTIVE to null,
         PromoStatus.WAIT to null,
+        PromoStatus.EXPIRED to context.drawable(R.drawable.chili_bg_expired_promo),
         PromoStatus.FREEZED to null,
         PromoStatus.APPROVED to null,
-        PromoStatus.EXPIRED to context.drawable(R.drawable.chili_bg_expired_promo),
     )
 
     private lateinit var vb: ChiliViewCardPromoBinding
@@ -69,7 +69,7 @@ class PromoCardView @JvmOverloads constructor(
     override fun setupShimmeringViews() {
         shimmeringPairs[vb.tvLabel] = vb.viewLabelShimmer
         shimmeringPairs[vb.ivIcon] = vb.viewIconShimmer
-        shimmeringPairs[vb.tvStatus] = vb.viewStatusShimmer
+        shimmeringPairs[vb.tvStatus] = null
     }
 
     fun setTitle(charSequence: CharSequence?) {

@@ -104,6 +104,7 @@
     <dimen name="view_96dp">96dp</dimen>
     <dimen name="view_100dp">100dp</dimen>
     <dimen name="view_102dp">102dp</dimen>
+    <dimen name="view_104dp">104dp</dimen>
     <dimen name="view_110dp">110dp</dimen>
     <dimen name="view_120dp">120dp</dimen>
     <dimen name="view_122dp">122dp</dimen>
