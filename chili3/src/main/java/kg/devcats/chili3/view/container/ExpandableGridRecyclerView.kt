@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.design2.chili2.storage.ChiliComponentsPreferences
@@ -66,19 +67,46 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
         )
     }
 
-    private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        context.obtainStyledAttributes(attrs, R.styleable.ExpandableGridRecyclerView, defStyleAttr, defStyleRes).run {
-            setIsNeedToSaveExpandedState(getBoolean(R.styleable.ExpandableGridRecyclerView_isNeedToSaveExpandedState, false))
-            setIsExpandedOrRestoreStateFromPreferences(getBoolean(R.styleable.ExpandableGridRecyclerView_isExpanded, true))
-            visibleItemCount = getInteger(R.styleable.ExpandableGridRecyclerView_visibleItemCount, 0)
-            setupClosureButton(getDrawable(R.styleable.ExpandableGridRecyclerView_bottomIcon))
+    private fun obtainAttributes(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) {
+        context.obtainStyledAttributes(
+            attrs,
+            R.styleable.ExpandableGridRecyclerView,
+            defStyleAttr,
+            defStyleRes
+        ).run {
+            setIsNeedToSaveExpandedState(
+                getBoolean(
+                    R.styleable.ExpandableGridRecyclerView_isNeedToSaveExpandedState,
+                    false
+                )
+            )
+            setIsExpandedOrRestoreStateFromPreferences(
+                getBoolean(
+                    R.styleable.ExpandableGridRecyclerView_isExpanded,
+                    true
+                )
+            )
+            visibleItemCount =
+                getInteger(R.styleable.ExpandableGridRecyclerView_visibleItemCount, 0)
+            setupClosureButton(
+                getBoolean(R.styleable.ExpandableGridRecyclerView_isClosureButtonVisible, true),
+                getDrawable(R.styleable.ExpandableGridRecyclerView_bottomIcon)
+            )
             setupRecyclerView()
             recycle()
         }
     }
 
     override fun onSaveInstanceState(): Parcelable {
-        if (isNeedToSaveState) componentPref.saveIsExpandableContainerExpanded(id.toString(), isExpanded)
+        if (isNeedToSaveState) componentPref.saveIsExpandableContainerExpanded(
+            id.toString(),
+            isExpanded
+        )
         val superState = super.onSaveInstanceState()
         return Bundle().apply {
             putParcelable(SUPER_STATE, superState)
@@ -104,7 +132,8 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
 
     private fun setupRecyclerView() = with(vb.recyclerView) {
         adapter = gridAdapter
-        layoutManager = GridLayoutManager(context, visibleItemCount, LinearLayoutManager.VERTICAL, false)
+        layoutManager =
+            GridLayoutManager(context, visibleItemCount, LinearLayoutManager.VERTICAL, false)
         addItemDecoration(GridSpacesDecoration(8, 8, 12))
     }
 
@@ -113,11 +142,14 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
         else setIsExpanded(componentPref.getIsExpandableContainerExpanded(id.toString()))
     }
 
-    private fun setupClosureButton(drawable: Drawable?) = with(vb) {
+    private fun setupClosureButton(isBtnVisible: Boolean, drawable: Drawable?) = with(vb) {
         drawable?.let { ivClosureIndicator.setImageDrawable(it) }
-        llClosureContainer.setOnClickListener {
-            setIsExpanded(!isExpanded)
-            onClosureAction?.invoke(isExpanded)
+        llClosureContainer.apply {
+            isVisible = isBtnVisible
+            setOnClickListener {
+                setIsExpanded(!isExpanded)
+                onClosureAction?.invoke(isExpanded)
+            }
         }
     }
 
@@ -158,7 +190,7 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
         vb.ivClosureIndicator.animate().rotation(rotation)
     }
 
-    fun setListener(listener: Listener?){
+    fun setListener(listener: Listener?) {
         this.listener = listener
     }
 
@@ -167,9 +199,15 @@ class ExpandableGridRecyclerView @JvmOverloads constructor(
         submitList(isExpanded)
     }
 
+    fun isClosureButtonVisible(isVisible: Boolean) {
+        vb.llClosureContainer.isVisible = isVisible
+    }
+
     interface Listener {
         @Deprecated("Use onExpandableGridItemClick() method")
-        fun onItemClick(deeplink: String?) {}
+        fun onItemClick(deeplink: String?) {
+        }
+
         fun onExpandableGridItemClick(item: ExpandableGridItem) {}
     }
 
