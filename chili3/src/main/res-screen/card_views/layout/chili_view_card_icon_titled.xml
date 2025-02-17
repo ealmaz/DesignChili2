@@ -37,10 +37,12 @@
 
     <TextView
         android:id="@+id/tv_title"
-        style="@style/Chili.H12.Primary.Bold"
+        style="@style/Chili.H14.Primary.Bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:layout_marginTop="?ChiliIconTitledCardViewTitleMarginTop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

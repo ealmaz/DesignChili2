@@ -291,6 +291,7 @@
         <attr name="title" />
         <attr name="android:scaleType" />
         <attr name="android:adjustViewBounds" />
+        <attr name="titleTextAppearance"/>
     </declare-styleable>
 
     <declare-styleable name="InfoCardView">

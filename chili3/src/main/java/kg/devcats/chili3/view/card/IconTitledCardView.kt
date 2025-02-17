@@ -56,6 +56,9 @@ class IconTitledCardView @JvmOverloads constructor(
         getBoolean(R.styleable.IconTitledCardView_android_adjustViewBounds, false).let {
             setAdjustViewBounds(it)
         }
+        getResourceId(R.styleable.IconTitledCardView_titleTextAppearance, -1).takeIf { it != -1 }?.let {
+            setTitleTextAppearance(it)
+        }
     }
 
     private fun getImageSize(@AttrRes resId: Int): Int {
@@ -93,4 +96,7 @@ class IconTitledCardView @JvmOverloads constructor(
         vb.tvTitle.text = title
     }
 
+    fun setTitleTextAppearance(textAppearanceResId: Int) {
+        vb.tvTitle.setTextAppearance(textAppearanceResId)
+    }
 }
