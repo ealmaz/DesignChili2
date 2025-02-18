@@ -164,6 +164,22 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .build()
                 .show(childFragmentManager)
         }
+
+        vb.detailDesc.setOnClickListener {
+            DetailedDescriptionBottomSheet.Builder()
+                .setIcon(R.drawable.ic_cat)
+                .setIconSizeDimenRes(com.design2.chili2.R.dimen.view_32dp)
+                .setHeaderText("Заголовок, текстовый блок для отображения заголовка")
+                .setSubtitleText("Текстовый блок, который содержит 120 символов, и этого количества, должно хватить для информации в четыре строки.")
+                .setDescription("Текстовый блок, который содержит 120 символов, и этого количества, должно хватить для информации в четыре строки.")
+                .setPrimaryButton("Ясно" to {
+                    Toast.makeText(context, "Ясно", Toast.LENGTH_SHORT).show()
+                    dismiss()
+                })
+                .build()
+                .show(childFragmentManager)
+        }
+
         vb.description.setOnClickListener {
             DescriptionBottomSheet.Builder()
                 .setIcon(R.drawable.ic_cat)
