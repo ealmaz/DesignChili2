@@ -26,4 +26,11 @@
         <item name="shadow_offset_y">@dimen/padding_8dp</item>
     </style>
 
+    <style name="Chili.HighlighterFrame">
+        <item name="cornerRadius">@dimen/radius_16dp</item>
+        <item name="strokeWidth">@dimen/view_2dp</item>
+        <item name="gradientStartColor">@color/folly_4</item>
+        <item name="gradientEndColor">@color/white_alpha_0</item>
+    </style>
+
 </resources>

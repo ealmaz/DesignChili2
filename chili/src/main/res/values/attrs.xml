@@ -59,6 +59,9 @@
         <!-- RectangleCameraOverlay -->
         <attr name="rectangleCameraOverlay" format="reference"/>
 
+        <!-- HighlighterFrame -->
+        <attr name="highlighterFrameDefaultStyle" format="reference"/>
+
 
     </declare-styleable>
 
@@ -589,6 +592,13 @@
         <attr name="android:layout_width"/>
         <attr name="android:layout_height"/>
         <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="HighlighterFrame">
+        <attr name="cornerRadius"/>
+        <attr name="strokeWidth"/>
+        <attr name="gradientStartColor" format="color"/>
+        <attr name="gradientEndColor" format="color"/>
     </declare-styleable>
 
 </resources>
