@@ -14,6 +14,7 @@ import androidx.annotation.DrawableRes
 import androidx.core.view.isGone
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
+import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.view.card.BaseCardView
 import com.google.android.material.internal.ViewUtils.dpToPx
@@ -84,6 +85,8 @@ class ProductCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setDiscountTextAppearance(it) }
         getResourceId(R.styleable.ProductCardView_discountBackgroundColor, R.drawable.chili_bg_product_discount_gradient)
             .takeIf { it != -1 }?.let { setDiscountBackground(it) }
+        getResourceId(R.styleable.ProductCardView_discountIcon, -1)
+            .takeIf { it != -1 }?.let { setDiscountIcon(it) }
     }
 
     private fun getImageSize(@AttrRes resId: Int, defaultValue: Float = 0F): Int {
@@ -164,7 +167,7 @@ class ProductCardView @JvmOverloads constructor(
         vb.tvDescription.setTextAppearance(resId)
     }
 
-    fun setDiscount(text: CharSequence?) {
+    fun setDiscount(text: CharSequence?, iconUrl: String? = null) {
         with(vb) {
             llDiscount.apply {
                 if (!text.isNullOrEmpty()) visible()
@@ -172,12 +175,36 @@ class ProductCardView @JvmOverloads constructor(
             }
             tvDiscount.text = text
         }
+        iconUrl?.let { setDiscountIcon(iconUrl) }
     }
 
-    fun setDiscount(resId: Int) {
+    fun setDiscount(resId: Int, iconRes: Int? = null) {
         with(vb) {
             llDiscount.visible()
             tvDiscount.setText(resId)
+        }
+        iconRes?.let { setDiscountIcon(iconRes) }
+    }
+
+    fun setDiscountIcon(@DrawableRes resId: Int? = null) {
+        vb.ivDiscountIcon.apply {
+            if (resId == null) {
+                gone()
+            } else {
+                setImageResource(resId)
+                visible()
+            }
+        }
+    }
+
+    fun setDiscountIcon(url: String?) {
+        vb.ivDiscountIcon.apply {
+            if (url.isNullOrEmpty()) {
+                gone()
+            } else {
+                setImageByUrl(url)
+                visible()
+            }
         }
     }
 

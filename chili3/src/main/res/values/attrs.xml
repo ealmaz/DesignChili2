@@ -200,6 +200,7 @@
         <attr name="discount" format="string" />
         <attr name="discountTextAppearance" format="reference" />
         <attr name="discountBackgroundColor" format="reference" />
+        <attr name="discountIcon" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="ChiliBottomNavigationView">
