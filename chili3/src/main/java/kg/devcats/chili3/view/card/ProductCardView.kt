@@ -51,7 +51,7 @@ class ProductCardView @JvmOverloads constructor(
         shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
         shimmeringPairs[vb.tvSubtitle] = vb.viewSubtitleShimmer
         shimmeringPairs[vb.tvDescription] = vb.viewDescriptionShimmer
-        shimmeringPairs[vb.tvDiscount] = null
+        shimmeringPairs[vb.llDiscount] = null
     }
 
     override fun TypedArray.obtainAttributes() {
@@ -165,17 +165,19 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     fun setDiscount(text: CharSequence?) {
-        vb.tvDiscount.apply {
-            this.text = text
-            if (!text.isNullOrEmpty()) visible()
-            else gone()
+        with(vb) {
+            llDiscount.apply {
+                if (!text.isNullOrEmpty()) visible()
+                else gone()
+            }
+            tvDiscount.text = text
         }
     }
 
     fun setDiscount(resId: Int) {
-        vb.tvDiscount.apply {
-            setText(resId)
-            visible()
+        with(vb) {
+            llDiscount.visible()
+            tvDiscount.setText(resId)
         }
     }
 
@@ -184,23 +186,23 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     fun setDiscountBackground(@DrawableRes drawableId: Int) {
-        if (vb.tvDiscount.isGone) return
-        vb.tvDiscount.background = context.drawable(drawableId)
+        if (vb.llDiscount.isGone) return
+        vb.llDiscount.background = context.drawable(drawableId)
     }
 
     fun setDiscountBackground(color: String?) {
-        if (vb.tvDiscount.isGone) return
+        if (vb.llDiscount.isGone) return
         val cornerRadiusInDp = context.pxToDp(context.getDimensionFromAttr(R.attr.ChiliProductCardViewDiscountCornerRadius, 6.dpF)).toInt()
         val drawable = GradientDrawable().apply {
             shape = GradientDrawable.RECTANGLE
             setColor(Color.parseColor(color))
             cornerRadius = dpToPx(context, cornerRadiusInDp)
         }
-        vb.tvDiscount.background = drawable
+        vb.llDiscount.background = drawable
     }
 
     fun setDiscountBackground(colors: Array<String>) {
-        if (vb.tvDiscount.isGone) return
+        if (vb.llDiscount.isGone) return
         val cornerRadiusInDp = context.pxToDp(context.getDimensionFromAttr(R.attr.ChiliProductCardViewDiscountCornerRadius, 6.dpF)).toInt()
         val cornerRadiusInPx = dpToPx(context, cornerRadiusInDp)
         val colorInts = colors.map { Color.parseColor(it) }.toIntArray()
@@ -215,7 +217,7 @@ class ProductCardView @JvmOverloads constructor(
             }
             cornerRadius = cornerRadiusInPx
         }
-        vb.tvDiscount.background = drawable
+        vb.llDiscount.background = drawable
     }
 
 }

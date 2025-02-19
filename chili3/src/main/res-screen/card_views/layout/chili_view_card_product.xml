@@ -33,17 +33,25 @@
             android:background="@drawable/chili_bg_shimmer" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <TextView
-        android:id="@+id/tv_discount"
+    <LinearLayout
+        android:id="@+id/ll_discount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="?ChiliProductCardViewDiscountStartMargin"
         android:layout_marginBottom="?ChiliProductCardViewDiscountBottomMargin"
+        android:orientation="horizontal"
         android:paddingHorizontal="?ChiliProductCardViewDiscountPaddingHorizontal"
-        android:paddingVertical="?ChiliProductCardViewDiscountPaddingVertical"
-        android:textAppearance="@style/Chili.H12.White1"
         app:layout_constraintBottom_toBottomOf="@id/siv_image"
-        app:layout_constraintStart_toStartOf="@id/siv_image" />
+        app:layout_constraintStart_toStartOf="@id/siv_image">
+
+        <TextView
+            android:id="@+id/tv_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="?ChiliProductCardViewDiscountPaddingVertical"
+            android:textAppearance="@style/Chili.H12.White1" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@id/tv_title"
