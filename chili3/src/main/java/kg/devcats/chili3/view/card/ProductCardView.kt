@@ -12,6 +12,7 @@ import android.widget.ImageView.ScaleType
 import androidx.annotation.AttrRes
 import androidx.annotation.DrawableRes
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
@@ -85,8 +86,10 @@ class ProductCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setDiscountTextAppearance(it) }
         getResourceId(R.styleable.ProductCardView_discountBackgroundColor, R.drawable.chili_bg_product_discount_gradient)
             .takeIf { it != -1 }?.let { setDiscountBackground(it) }
-        getResourceId(R.styleable.ProductCardView_discountIcon, -1)
+        getResourceId(R.styleable.ProductCardView_discountIconRes, -1)
             .takeIf { it != -1 }?.let { setDiscountIcon(it) }
+        getString(R.styleable.ProductCardView_discountIconUrl)?.let {
+            setDiscountIcon(it) }
     }
 
     private fun getImageSize(@AttrRes resId: Int, defaultValue: Float = 0F): Int {
@@ -175,7 +178,7 @@ class ProductCardView @JvmOverloads constructor(
             }
             tvDiscount.text = text
         }
-        iconUrl?.let { setDiscountIcon(iconUrl) }
+        iconUrl?.let { setDiscountIcon(it) }
     }
 
     fun setDiscount(resId: Int, iconRes: Int? = null) {
@@ -183,28 +186,20 @@ class ProductCardView @JvmOverloads constructor(
             llDiscount.visible()
             tvDiscount.setText(resId)
         }
-        iconRes?.let { setDiscountIcon(iconRes) }
+        iconRes?.let { setDiscountIcon(it) }
     }
 
-    fun setDiscountIcon(@DrawableRes resId: Int? = null) {
+    private fun setDiscountIcon(@DrawableRes resId: Int) {
         vb.ivDiscountIcon.apply {
-            if (resId == null) {
-                gone()
-            } else {
-                setImageResource(resId)
-                visible()
-            }
+            setImageResource(resId)
+            visible()
         }
     }
 
-    fun setDiscountIcon(url: String?) {
+    private fun setDiscountIcon(url: String) {
         vb.ivDiscountIcon.apply {
-            if (url.isNullOrEmpty()) {
-                gone()
-            } else {
-                setImageByUrl(url)
-                visible()
-            }
+            setImageByUrl(url)
+            isVisible = url.isNotEmpty()
         }
     }
 

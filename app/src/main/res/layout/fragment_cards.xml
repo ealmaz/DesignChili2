@@ -518,7 +518,7 @@
                                 android:scaleType="fitXY"
                                 app:description="Электрочайник BEREKE BR-810 серый"
                                 app:discount="-90%"
-                                app:discountIcon="@drawable/ic_bonus_new"
+                                app:discountIconRes="@drawable/ic_bonus_new"
                                 app:productImage="https://img.freepik.com/premium-photo/cosmetic-products-stand-orange-backdrop-providing-room-text-advertising-vertical-mobile_896558-17993.jpg"
                                 app:subtitle="174,1 с x 12мес"
                                 app:title="2 090,00 с" />
