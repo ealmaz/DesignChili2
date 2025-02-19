@@ -86,10 +86,8 @@ class ProductCardView @JvmOverloads constructor(
             .takeIf { it != -1 }?.let { setDiscountTextAppearance(it) }
         getResourceId(R.styleable.ProductCardView_discountBackgroundColor, R.drawable.chili_bg_product_discount_gradient)
             .takeIf { it != -1 }?.let { setDiscountBackground(it) }
-        getResourceId(R.styleable.ProductCardView_discountIconRes, -1)
+        getResourceId(R.styleable.ProductCardView_discountIcon, -1)
             .takeIf { it != -1 }?.let { setDiscountIcon(it) }
-        getString(R.styleable.ProductCardView_discountIconUrl)?.let {
-            setDiscountIcon(it) }
     }
 
     private fun getImageSize(@AttrRes resId: Int, defaultValue: Float = 0F): Int {
