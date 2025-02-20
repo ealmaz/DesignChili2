@@ -473,7 +473,7 @@ class StoryView : ConstraintLayout {
             if (currentStoryIndex < stories.size - 1) {
                 onMoveListener?.onFinished(currentStoryIndex)
                 currentStoryIndex++
-                playNext(stories[currentStoryIndex])
+                if (isVisible) playNext(stories[currentStoryIndex])
             } else {
                 resetTimer()
                 onMoveListener?.onAllStoriesCompleted()
