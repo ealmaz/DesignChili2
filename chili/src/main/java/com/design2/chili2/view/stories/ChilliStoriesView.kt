@@ -209,7 +209,7 @@ class ChilliStoriesView : ConstraintLayout {
             val currentItem = it.currentItem
             val nextItem = currentItem + 1
             if (nextItem < (it.adapter?.itemCount ?: 0))
-                it.setCurrentItem(nextItem, false)
+                it.setCurrentItem(nextItem, true)
             else onFinish()
         }
     }

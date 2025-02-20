@@ -24,16 +24,16 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
     private val storyBlock = ChilliStoryBlock(
         1, false, arrayListOf(
             ChilliStoryModel(
-                mediaUrl = "https://devminio.o.kg/media-service/UserStory/221bbc7d-9c65-4d21-ab6f-de27afdca23c",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/2015dea6-5254-478f-91a5-35ffb911cde0",
                 buttonText = "Go", buttonType = ChilliButtonType.ADDITIONAL
             ),
             ChilliStoryModel(
                 title = "What is Lorem Ipsum?",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://devminio.o.kg/media-service/UserStory/33bbbc34-50c5-4d7e-9204-e2bcae2a88bd"
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/fbf549d5-2678-49e2-a505-ae2b5160e750"
             ),
             ChilliStoryModel(
-                mediaUrl = "https://devminio.o.kg/media-service/UserStory/3a7279d1-6342-4f14-9496-8bd89b3afa66",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/7f641186-9c2c-43e0-863e-1da5828d32a9",
                 buttonText = "Go",
                 backgroundColor = "#000000",
                 buttonType = ChilliButtonType.SECONDARY,
@@ -42,197 +42,135 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
             ChilliStoryModel(
                 title = "What is Lorem Ipsum?",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://devminio.o.kg/media-service/UserStory/6e1a016d-f3dd-49a7-a482-3d2a61e7220a",
-                storyType = ChilliStoryType.LOTTIE
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/89c1063c-6a7f-4276-822e-c3734efb7e15",
+//                storyType = ChilliStoryType.LOTTIE
             ),
             ChilliStoryModel(
                 title = "What is Lorem Ipsum?",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://devminio.o.kg/media-service/UserStory/663d691d-7fb5-4d0c-8735-4fc8705dfddb",
-                storyType = ChilliStoryType.LOTTIE
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/7af372c5-5d4e-4d1b-947c-d88ab4b10f82",
+//                storyType = ChilliStoryType.LOTTIE
             ),
             ChilliStoryModel(
                 title = "What is Lorem Ipsum?",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://devminio.o.kg/media-service/UserStory/cdb6b7e3-98ba-41bb-b7ab-6c48f0f50a52",
-                storyType = ChilliStoryType.LOTTIE
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/6840d7c4-dded-4ab1-97a9-6d0b07b9d8ad",
+//                storyType = ChilliStoryType.LOTTIE
             ),
-            ChilliStoryModel(
-                title = "Bla bla bla bla",
-                mediaUrl = "https://devminio.o.kg/media-service/UserStory/94bd241a-3603-4d36-956b-4f385a664d0f",
-                storyType = ChilliStoryType.VIDEO
-            )
         ),
         "block1"
     )
 
-    private val storyBlock1 = ChilliStoryBlock(
+    private val storyBlock10 = ChilliStoryBlock(
         1, false, arrayListOf(
             ChilliStoryModel(
-                mediaUrl = "https://static.wikia.nocookie.net/adventures-of-chris-and-tifa/images/c/c6/71FA6EC3-137C-4A43-87A0-10130B2AC0A4.jpg/revision/latest?cb=20210830075712",
+                storyType = ChilliStoryType.LOTTIE,
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/782f2092-8761-4d9d-99eb-c24cab58f00b",
+                buttonText = "Go", buttonType = ChilliButtonType.ADDITIONAL
+            ),
+            ChilliStoryModel(
+                title = "What is Lorem Ipsum?",
+                storyType = ChilliStoryType.LOTTIE,
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/b66f3f44-1ffc-4367-9b51-93380186aff9"
+            ),
+            ChilliStoryModel(
+                storyType = ChilliStoryType.LOTTIE,
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/4c67d6e1-d3dc-4e5c-bfcf-3e2585d0b893",
+                buttonText = "Go",
+                backgroundColor = "#000000",
+                buttonType = ChilliButtonType.SECONDARY,
+                deeplink = "hello.kg"
+            )
+        ),
+        "block10"
+    )
+
+    private val storyBlock20 = ChilliStoryBlock(
+        1, false, arrayListOf(
+            ChilliStoryModel(
+                storyType = ChilliStoryType.LOTTIE,
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/b3639669-1831-4370-999f-11df9b02b563",
+                buttonText = "Go", buttonType = ChilliButtonType.ADDITIONAL
+            ),
+            ChilliStoryModel(
+                storyType = ChilliStoryType.LOTTIE,
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/05e76ae0-2e09-4c9a-b4cf-99489bd4f6a8"
+            ),
+        ),
+        "block20"
+    )
+
+    private val storyBlock30 = ChilliStoryBlock(
+        1, false, arrayListOf(
+            ChilliStoryModel(
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/8265a34b-d0bc-4f4f-a140-a5eaed36c4b8",
                 buttonText = "Go", buttonType = ChilliButtonType.ADDITIONAL
             ),
             ChilliStoryModel(
                 title = "What is Lorem Ipsum?",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://badgeland.com/media/webp_image/catalog/product/cache/afb3d9b5d6719d7ac9304f40f95ae75d/t/h/this-is-fine-katte-pin.webp"
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/1fa06dc2-7fb3-49bc-b4bf-27c23dc60063"
             ),
             ChilliStoryModel(
-                mediaUrl = "https://m.media-amazon.com/images/I/51U9SFk6SJL.jpg",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/447fcd60-0e25-4288-b19a-506c931222af",
                 buttonText = "Go",
-                buttonType = ChilliButtonType.SECONDARY
+                backgroundColor = "#000000",
+                buttonType = ChilliButtonType.SECONDARY,
+                deeplink = "hello.kg"
             ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://devminio.o.kg/media-service/UserStory/d2ca5499-e3f9-45dc-927f-d74b90b96193",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://devminio.o.kg/media-service/UserStory/a8275a33-0526-46a0-8aea-3fc22a76271d",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "Bla bla bla bla",
-                mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
-                storyType = ChilliStoryType.VIDEO
-            )
         ),
-        "block2"
+        "block30"
     )
 
-    private val storyBlock2 = ChilliStoryBlock(
-        1,  false, arrayListOf(
-            ChilliStoryModel(
-                isViewed = true,
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                isViewed = true,
-                mediaUrl = "https://static.wikia.nocookie.net/adventures-of-chris-and-tifa/images/c/c6/71FA6EC3-137C-4A43-87A0-10130B2AC0A4.jpg/revision/latest?cb=20210830075712"
-            ),
-            ChilliStoryModel(
-                isViewed = true,
-                title = "Bla bla bla bla",
-                mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
-                storyType = ChilliStoryType.VIDEO
-            )
-        ),
-        "block3",
-    )
-
-    private val storyBlock3 = ChilliStoryBlock(
+    private val storyBlock40 = ChilliStoryBlock(
         1, false, arrayListOf(
             ChilliStoryModel(
-                mediaUrl = "https://static.wikia.nocookie.net/adventures-of-chris-and-tifa/images/c/c6/71FA6EC3-137C-4A43-87A0-10130B2AC0A4.jpg/revision/latest?cb=20210830075712",
-                isViewed = true
+                storyType = ChilliStoryType.LOTTIE,
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/e1bcfae6-4fff-49bf-bead-caed5a248513",
+                buttonText = "Go", buttonType = ChilliButtonType.ADDITIONAL
+            ),
+            ChilliStoryModel(
+                storyType = ChilliStoryType.LOTTIE,
+                title = "What is Lorem Ipsum?",
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/93915eb7-955a-4218-9bae-2fdba8bbe0d3"
+            ),
+            ChilliStoryModel(
+                storyType = ChilliStoryType.LOTTIE,
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/0a8af819-be0e-45e2-a815-24f385a3e4f7",
+                buttonText = "Go",
+                backgroundColor = "#000000",
+                buttonType = ChilliButtonType.SECONDARY,
+                deeplink = "hello.kg"
             ),
             ChilliStoryModel(
                 title = "What is Lorem Ipsum?",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://badgeland.com/media/webp_image/catalog/product/cache/afb3d9b5d6719d7ac9304f40f95ae75d/t/h/this-is-fine-katte-pin.webp",
-                isViewed = true
-            ),
-            ChilliStoryModel(
-                mediaUrl = "https://m.media-amazon.com/images/I/51U9SFk6SJL.jpg",
-                isViewed = false
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/7d7e7560-a620-45b8-9873-59d2fee10bc8",
                 storyType = ChilliStoryType.LOTTIE
             ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "Bla bla bla bla",
-                mediaUrl = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4",
-                storyType = ChilliStoryType.VIDEO
-            )
         ),
-        "block4"
+        "block40"
     )
 
-    private val storyBlock4 = ChilliStoryBlock(
+    private val storyBlock50 = ChilliStoryBlock(
         1, false, arrayListOf(
             ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://minio.o.kg/media-service/UserStory/51616889-6945-4fc8-b275-83d832aab2f7",
-                storyType = ChilliStoryType.LOTTIE
+                storyType = ChilliStoryType.LOTTIE,
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/25fca244-d093-4d26-b063-234978c88764",
+                buttonText = "Go", buttonType = ChilliButtonType.ADDITIONAL
             ),
             ChilliStoryModel(
+                storyType = ChilliStoryType.LOTTIE,
                 title = "What is Lorem Ipsum?",
                 description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://minio.o.kg/media-service/UserStory/fb76372a-c453-45b9-9bdb-9c11bafea748",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://minio.o.kg/media-service/UserStory/aa6553e8-9c54-49f9-8a4d-a73668217670",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
-            ),
-            ChilliStoryModel(
-                title = "What is Lorem Ipsum?",
-                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-                mediaUrl = "https://lottie.host/68efeab0-c1cf-41ef-ade1-4cede3b3bacc/ZE6c1LKeNs.json",
-                storyType = ChilliStoryType.LOTTIE
+                mediaUrl = "https://minio.o.kg/media-service/UserStory/dd272959-b50f-4373-8ab7-c2e4a541c04d"
             ),
         ),
-        "block5",
+        "block50"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -260,18 +198,12 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
     private fun setupViews() {
         binding.storiesView.setupStories(
             listOf(
-                storyBlock4,
-                storyBlock3,
-                storyBlock1,
-                storyBlock2,
-                storyBlock4,
-                storyBlock3,
-                storyBlock1,
-                storyBlock2,
-                storyBlock4,
-                storyBlock3,
-                storyBlock1,
-                storyBlock2
+                storyBlock,
+                storyBlock10,
+                storyBlock20,
+                storyBlock30,
+                storyBlock40,
+                storyBlock50,
             ), this, this, this, this
         )
     }
