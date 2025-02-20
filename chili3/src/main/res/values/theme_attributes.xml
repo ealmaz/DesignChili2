@@ -49,6 +49,8 @@
     <attr name="ChiliProductCardViewDiscountBottomMargin" format="dimension"/>
     <attr name="ChiliProductCardViewDiscountPaddingHorizontal" format="dimension"/>
     <attr name="ChiliProductCardViewDiscountPaddingVertical" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountIconHeight" format="dimension"/>
+    <attr name="ChiliProductCardViewDiscountIconWidth" format="dimension"/>
     <attr name="ChiliProductCardViewTitleTopMargin" format="dimension"/>
     <attr name="ChiliProductCardViewTitleHorizontalMargin" format="dimension"/>
     <attr name="ChiliProductCardViewSubtitleTopMargin" format="dimension"/>

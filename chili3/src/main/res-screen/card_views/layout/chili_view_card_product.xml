@@ -40,6 +40,7 @@
         android:layout_marginStart="?ChiliProductCardViewDiscountStartMargin"
         android:layout_marginBottom="?ChiliProductCardViewDiscountBottomMargin"
         android:orientation="horizontal"
+        android:gravity="center"
         android:paddingHorizontal="?ChiliProductCardViewDiscountPaddingHorizontal"
         app:layout_constraintBottom_toBottomOf="@id/siv_image"
         app:layout_constraintStart_toStartOf="@id/siv_image">
@@ -51,6 +52,13 @@
             android:paddingVertical="?ChiliProductCardViewDiscountPaddingVertical"
             android:textAppearance="@style/Chili.H12.White1" />
 
+        <ImageView
+            android:id="@+id/iv_discount_icon"
+            android:layout_width="?ChiliProductCardViewDiscountIconWidth"
+            android:layout_height="?ChiliProductCardViewDiscountIconHeight"
+            android:layout_marginStart="@dimen/padding_4dp"
+            android:visibility="gone"
+            tools:src="@drawable/ic_bonus_new" />
     </LinearLayout>
 
     <TextView

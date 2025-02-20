@@ -231,6 +231,13 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
                 context.getColor(com.design2.chili2.R.color.white_1))
         }
 
+        vb.pcvProduct4.apply {
+            setDiscount(
+                text = "Электрочайник",
+                iconUrl = "https://img.freepik.com/premium-photo/cosmetic-products-stand-orange-backdrop-providing-room-text-advertising-vertical-mobile_896558-17993.jpg"
+            )
+        }
+
         vb.simplePromoBanner.apply {
             setCardBackgroundByUrl("https://minio.o.kg/lkab/lottery/RU.png")
             setTitle("Лотерея")
