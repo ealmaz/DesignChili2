@@ -176,7 +176,7 @@ class ProductCardView @JvmOverloads constructor(
             }
             tvDiscount.text = text
         }
-        setDiscountIcon(iconUrl)
+        iconUrl?.let { setDiscountIcon(it) }
     }
 
     fun setDiscount(resId: Int, iconRes: Int? = null) {
@@ -194,10 +194,10 @@ class ProductCardView @JvmOverloads constructor(
         }
     }
 
-    fun setDiscountIcon(url: String? = null) {
+    private fun setDiscountIcon(url: String) {
         vb.ivDiscountIcon.apply {
             setImageByUrl(url)
-            isVisible = !url.isNullOrEmpty()
+            visible()
         }
     }
 
