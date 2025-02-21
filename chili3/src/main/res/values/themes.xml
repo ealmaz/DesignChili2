@@ -190,6 +190,10 @@
         <item name="ChiliMarketCategoryCardViewTitleElevation">@dimen/elevation_4dp</item>
         <!-- endregion CategoryCardView -->
 
+        <!--region CardHorizontalDivider -->
+        <item name="ChiliCardHorizontalDividerBackground">@color/c_F7F7F7</item>
+        <!--endregion CardHorizontalDivider -->
+
         <!-- Divider -->
         <item name="ChiliDividerColor">@color/c_E0E0E5</item>
 

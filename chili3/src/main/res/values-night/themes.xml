@@ -132,6 +132,10 @@
         <!-- CategoryCardView -->
         <item name="ChiliMarketCategoryCardViewBackgroundColor">@color/c_28282a</item>
 
+        <!--region CardHorizontalDivider -->
+        <item name="ChiliCardHorizontalDividerBackground">@color/c_28282a</item>
+        <!--endregion CardHorizontalDivider -->
+
         <!-- ChiliBottomSheet-->
         <item name="ChiliBottomSheetBackgroundColor">@color/black_3</item>
         <item name="ChiliBottomSheetTopDrawableColor">@color/black_5</item>
