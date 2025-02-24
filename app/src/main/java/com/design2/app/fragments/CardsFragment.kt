@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.text.parseAsHtml
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.design2.app.MainActivity
@@ -29,6 +30,7 @@ import kg.devcats.chili3.model.PackageLeftOver
 import kg.devcats.chili3.model.PackageType
 import kg.devcats.chili3.util.StoriesStatus
 import kg.devcats.chili3.view.card.InfoBlockCardView
+import kg.devcats.chili3.view.card.TagData
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselImageAdapter.Listener {
     private lateinit var simpleAdapter: SimpleTextRecyclerViewAdapter
@@ -236,6 +238,24 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
                 text = "Электрочайник",
                 iconUrl = "https://img.freepik.com/premium-photo/cosmetic-products-stand-orange-backdrop-providing-room-text-advertising-vertical-mobile_896558-17993.jpg"
             )
+        }
+
+        vb.pcvProduct5.apply {
+            val tags = listOf(
+                TagData("facebook", icon = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png", backgroundColor = "#FF5733"),
+                TagData("empty", backgroundColor = "#10C44C"),
+                TagData("LALAFO", icon = "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/c8/23/69/c8236956-18cc-6236-3771-618884a9c4ed/AppIcon-0-0-1x_U007emarketing-0-11-0-0-85-220.png/1200x600wa.png", backgroundColor = "#F91155")
+            )
+
+            setTags(tags)
+
+            setDiscount(
+                text = "Discount!!!",
+                iconUrl = "https://static.vecteezy.com/system/resources/previews/015/452/522/non_2x/discount-icon-in-trendy-flat-style-isolated-on-background-discount-icon-page-symbol-for-your-web-site-design-discount-icon-logo-app-ui-discount-icon-eps-vector.jpg"
+            )
+
+            setSubtitle("<b>1 212,12<small> <u>c</u> x </small></b>12 мес".parseAsHtml())
+            setSubtitleBackground(kg.devcats.chili3.R.drawable.chili_bg_product_subtitle)
         }
 
         vb.simplePromoBanner.apply {

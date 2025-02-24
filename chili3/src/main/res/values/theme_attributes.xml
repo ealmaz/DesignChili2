@@ -42,6 +42,12 @@
 
 
     <!-- ProductCardView -->
+    <attr name="ChiliProductCardViewTagStartMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewTagTopMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewTagTopInnerMargin" format="dimension"/>
+    <attr name="ChiliProductCardViewTagPaddingHorizontal" format="dimension"/>
+    <attr name="ChiliProductCardViewTagPaddingVertical" format="dimension"/>
+    <attr name="ChiliProductCardViewTagCornerRadius" format="dimension"/>
     <attr name="ChiliCardViewImageRadius" format="dimension"/>
     <attr name="ChiliProductCardViewImageHeight" format="dimension"/>
     <attr name="ChiliProductCardViewImageWidth" format="dimension"/>

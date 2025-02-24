@@ -17,6 +17,18 @@
         app:shapeAppearanceOverlay="@style/RoundedCardImageView"
         tools:src="@drawable/chili_ic_info" />
 
+    <LinearLayout
+        android:id="@+id/ll_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:gravity="start"
+        android:layout_marginHorizontal="?ChiliProductCardViewTagStartMargin"
+        android:layout_marginTop="?ChiliProductCardViewTagTopMargin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_icon_shimmer"
         android:layout_width="0dp"
@@ -50,7 +62,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingVertical="?ChiliProductCardViewDiscountPaddingVertical"
-            android:textAppearance="@style/Chili.H12.White1" />
+            android:textAppearance="@style/Chili.H12.White1"
+            android:singleLine="true"
+            />
 
         <ImageView
             android:id="@+id/iv_discount_icon"
