@@ -1409,22 +1409,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            android:layout_margin="@dimen/padding_16dp"
-            app:firstSectionTitle="За этот месяц"
-            app:firstSectionSubtitle="0,00 с"
-            app:secondSectionTitle="За все время"
-            app:secondSectionSubtitle="100 000 с"/>
+            android:layout_margin="@dimen/padding_16dp"/>
 
         <kg.devcats.chili3.view.card.CardHorizontalDivider
             android:id="@+id/cardSections2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_16dp"
-            android:layout_margin="@dimen/padding_16dp"
-            app:firstSectionTitle="За этот месяц"
-            app:firstSectionSubtitle="0,00 с"
-            app:secondSectionTitle="За все время"
-            app:secondSectionSubtitle="100 000 с"/>
+            android:layout_margin="@dimen/padding_16dp"/>
 
         <com.design2.chili2.view.card.SimplePromoBannerCardView
             android:id="@+id/simplePromoBanner"
