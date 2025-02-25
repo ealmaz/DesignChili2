@@ -194,6 +194,12 @@
     <attr name="ChiliMarketCategoryCardViewTitleElevation" format="dimension" />
     <!--endregion CategoryCardView -->
 
+    <!--region CardHorizontalDivider -->
+    <attr name="ChiliCardHorizontalDividerBackground" format="color" />
+    <attr name="ChiliCardHorizontalDividerCornerRadius" format="dimension" />
+    <attr name="ChiliCardHorizontalDividerColorDivider" format="reference" />
+    <!--endregion CardHorizontalDivider -->
+
     <!--region InfoCardView -->
     <attr name="ChiliInfoCardViewSubtitleHorizontalMargin" format="reference" />
     <attr name="ChiliInfoCardViewSubtitleTopMargin" format="reference" />

@@ -27,6 +27,10 @@
         <item name="cornerSize">?ChiliCardViewImageRadius</item>
     </style>
 
+    <style name="Chili.CardViewStyle.CardHorizontalDivider">
+        <item name="cardBackground">@null</item>
+    </style>
+
     <style name="Chili.CardViewStyle.AccountCardView">
         <item name="android:clickable">?ChiliAccountCardViewClickable</item>
         <item name="android:focusable">?ChiliAccountCardViewFocusable</item>

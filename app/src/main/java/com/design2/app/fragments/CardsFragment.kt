@@ -28,6 +28,8 @@ import kg.devcats.chili3.model.MyConnectionProfile
 import kg.devcats.chili3.model.PackageLeftOver
 import kg.devcats.chili3.model.PackageType
 import kg.devcats.chili3.util.StoriesStatus
+import kg.devcats.chili3.view.card.DividerCardSection
+import kg.devcats.chili3.view.card.DividerTextView
 import kg.devcats.chili3.view.card.InfoBlockCardView
 
 class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselImageAdapter.Listener {
@@ -243,6 +245,69 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setTitle("Лотерея")
             setSubtitle("Накоплено билетов: 15")
         }
+
+        vb.cardSections1.setSections(
+            sectionList = listOf(
+                DividerCardSection(
+                    title = DividerTextView(
+                        text = "За этот месяц",
+                        textAppearance = com.design2.chili2.R.style.Chili_H9_Secondary
+                    ),
+                    subtitle = DividerTextView(
+                        text = "0,00 с",
+                        textAppearance = com.design2.chili2.R.style.Chili_H7_Primary_Bold
+                    )
+                ),
+                DividerCardSection(
+                    title = DividerTextView(
+                        text = "За все время",
+                        textAppearance = com.design2.chili2.R.style.Chili_H9_Secondary
+                    ),
+                    subtitle = DividerTextView(
+                        text = "100 000 с",
+                        textAppearance = com.design2.chili2.R.style.Chili_H7_Primary_Bold,
+                        textColorRes = kg.devcats.chili3.R.color.c_f0047f
+                    )
+                )
+            )
+        )
+
+        vb.cardSections2.setSections(
+            sectionList = listOf(
+                DividerCardSection(
+                    title = DividerTextView(
+                        text = "За этот месяц",
+                        textAppearance = com.design2.chili2.R.style.Chili_H9_Secondary
+                    ),
+                    subtitle = DividerTextView(
+                        text = "0,00 с",
+                        textAppearance = com.design2.chili2.R.style.Chili_H7_Primary_Bold
+                    )
+                ),
+                DividerCardSection(
+                    title = DividerTextView(
+                        text = "За все время",
+                        textAppearance = com.design2.chili2.R.style.Chili_H9_Secondary
+                    ),
+                    subtitle = DividerTextView(
+                        text = "100 000 с",
+                        textAppearance = com.design2.chili2.R.style.Chili_H7_Primary_Bold,
+                        textColorRes = kg.devcats.chili3.R.color.c_f0047f
+                    )
+                ),
+                DividerCardSection(
+                    title = DividerTextView(
+                        text = "За все время",
+                        textAppearance = com.design2.chili2.R.style.Chili_H9_Secondary
+                    ),
+                    subtitle = DividerTextView(
+                        text = "100 000 с",
+                        textAppearance = com.design2.chili2.R.style.Chili_H7_Primary_Bold,
+                        textColorRes = kg.devcats.chili3.R.color.c_f0047f
+                    )
+                )
+            )
+        )
     }
 
     private fun setExpandedState(isExpanded: Boolean) {

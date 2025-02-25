@@ -15,6 +15,7 @@
         <attr name="myConnectionCardViewDefaultStyle" format="reference" />
         <attr name="infoCardViewDefaultStyle" format="reference" />
         <attr name="bannerCardViewDefaultStyle" format="reference" />
+        <attr name="cardHorizontalDividerStyle" format="reference" />
         <attr name="chiliSliderViewDefaultStyle" format="reference" />
         <attr name="chiliChipGroupDefaultStyle" format="reference" />
         <attr name="chiliCaptionsCardViewDefaultStyle" format="reference" />
@@ -171,6 +172,8 @@
         <attr name="actionButtonTextAppearance" format="reference" />
         <attr name="subtitleTextAppearance" />
     </declare-styleable>
+
+    <declare-styleable name="CardHorizontalDivider" />
 
     <declare-styleable name="MarketCategoryCardView">
         <attr name="title" />
