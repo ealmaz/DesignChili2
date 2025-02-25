@@ -1,6 +1,7 @@
 package kg.devcats.chili3.view.card
 
 import android.content.Context
+import android.graphics.Color
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.Gravity
@@ -14,6 +15,8 @@ import androidx.annotation.ColorRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.extensions.color
 import com.design2.chili2.extensions.dp
+import com.design2.chili2.extensions.setLeftMargin
+import com.design2.chili2.extensions.setRightMargin
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewCardHorizontalDividerBinding
@@ -60,7 +63,10 @@ class CardHorizontalDivider @JvmOverloads constructor(
         verticalDivider: View?
     ): LinearLayout {
         val sectionContainer = createLinearLayoutContainer(orientation = LinearLayout.HORIZONTAL)
-        val contentContainer = createLinearLayoutContainer(orientation = LinearLayout.VERTICAL)
+        val contentContainer = createLinearLayoutContainer(orientation = LinearLayout.VERTICAL).apply {
+            setLeftMargin(12.dp)
+            setRightMargin(12.dp)
+        }
         val spacer = subtitle.takeIf { it != null }?.let { createSpacer(ViewGroup.LayoutParams.WRAP_CONTENT, 6.dp) }
 
         title?.let(contentContainer::addView)
