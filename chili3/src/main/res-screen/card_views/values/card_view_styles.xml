@@ -29,6 +29,8 @@
 
     <style name="Chili.CardViewStyle.CardHorizontalDivider">
         <item name="cardBackground">@null</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
     </style>
 
     <style name="Chili.CardViewStyle.AccountCardView">
