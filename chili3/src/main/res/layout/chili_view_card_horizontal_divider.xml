@@ -14,4 +14,77 @@
         android:paddingHorizontal="@dimen/padding_12dp"
         android:paddingVertical="@dimen/padding_16dp"
         android:orientation="horizontal" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/sectionShimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_12dp"
+            android:paddingVertical="@dimen/padding_16dp"
+            android:orientation="horizontal">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:gravity="center"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/shimmerDivider">
+                    <View
+                        android:layout_width="@dimen/view_44dp"
+                        android:layout_height="@dimen/view_6dp"
+                        android:background="@drawable/chili_bg_shimmer"/>
+
+                    <View
+                        android:layout_width="@dimen/view_68dp"
+                        android:layout_height="@dimen/view_6dp"
+                        android:layout_marginTop="@dimen/padding_16dp"
+                        android:background="@drawable/chili_bg_shimmer"/>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/shimmerDivider"
+                    android:layout_width="@dimen/view_1dp"
+                    android:layout_height="0dp"
+                    android:background="?attr/ChiliCardHorizontalDividerColor"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="6dp"
+                    android:gravity="center"
+                    app:layout_constraintStart_toEndOf="@id/shimmerDivider"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+                    <View
+                        android:layout_width="@dimen/view_44dp"
+                        android:layout_height="@dimen/view_6dp"
+                        android:background="@drawable/chili_bg_shimmer"/>
+
+                    <View
+                        android:layout_width="@dimen/view_68dp"
+                        android:layout_height="@dimen/view_6dp"
+                        android:layout_marginTop="@dimen/padding_16dp"
+                        android:background="@drawable/chili_bg_shimmer"/>
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 </androidx.cardview.widget.CardView>
