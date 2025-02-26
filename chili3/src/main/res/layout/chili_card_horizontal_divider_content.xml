@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="12dp"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/dividerView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textAppearance="@style/Chili.H12.Secondary" />
+
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:maxLines="1"
+            android:textAppearance="@style/Chili.H16.Primary.Bold" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="?attr/ChiliCardHorizontalDividerColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/contentContainer"
+        app:layout_constraintBottom_toBottomOf="@id/contentContainer"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -197,7 +197,7 @@
     <!--region CardHorizontalDivider -->
     <attr name="ChiliCardHorizontalDividerBackground" format="color" />
     <attr name="ChiliCardHorizontalDividerCornerRadius" format="dimension" />
-    <attr name="ChiliCardHorizontalDividerColorDivider" format="reference" />
+    <attr name="ChiliCardHorizontalDividerColor" format="color" />
     <!--endregion CardHorizontalDivider -->
 
     <!--region InfoCardView -->
