@@ -23,6 +23,7 @@ import com.design2.chili2.extensions.setScrollListener
 import com.design2.chili2.view.container.ExpandableContainer
 import com.design2.chili2.view.image.AutoScrollCarouselImageAdapter
 import com.design2.chili2.view.shimmer.startGroupShimmering
+import com.design2.chili2.view.shimmer.startShimmering
 import com.design2.chili2.view.shimmer.stopGroupShimmering
 import kg.devcats.chili3.model.MyConnectionProfile
 import kg.devcats.chili3.model.PackageLeftOver

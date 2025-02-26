@@ -35,6 +35,21 @@ class CardHorizontalDivider @JvmOverloads constructor(
         vb = ChiliViewCardHorizontalDividerBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
+    override fun setupShimmeringViews() {
+        super.setupShimmeringViews()
+        shimmeringPairs[vb.sectionsContainer] = vb.sectionShimmer
+    }
+
+    override fun onStartShimmer() {
+        super.onStartShimmer()
+        vb.sectionsContainer.gone()
+    }
+
+    override fun onStopShimmer() {
+        super.onStopShimmer()
+        vb.sectionsContainer.visible()
+    }
+
     fun setSections(sectionList: List<DividerCardSection>) {
         sectionList.forEachIndexed { index, section ->
             val sectionBinding = ChiliCardHorizontalDividerContentBinding.inflate(LayoutInflater.from(context), vb.sectionsContainer, false)
