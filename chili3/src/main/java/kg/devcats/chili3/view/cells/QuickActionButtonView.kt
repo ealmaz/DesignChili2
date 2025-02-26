@@ -4,11 +4,14 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.view.shimmer.ShimmeringView
+import com.facebook.shimmer.ShimmerFrameLayout
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliViewQuickActionButtonBinding
 import kg.devcats.chili3.extensions.setSurfaceClick
@@ -18,7 +21,7 @@ class QuickActionButtonView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.quickActionButtonViewStyle,
     defStyleRes: Int = R.style.QuickActionButtonTitleStyle
-) : FrameLayout(context, attrs, defStyleAttr, defStyleRes) {
+) : FrameLayout(context, attrs, defStyleAttr, defStyleRes), ShimmeringView {
 
     private lateinit var vb: ChiliViewQuickActionButtonBinding
 
@@ -26,10 +29,13 @@ class QuickActionButtonView @JvmOverloads constructor(
     @DrawableRes private var disabledIconId: Int? = null
     @DrawableRes private var iconId: Int ? = null
 
+    private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
+
     init {
         inflateView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         setupSurfaceClicks()
+        setupShimmering()
     }
 
     private fun inflateView(context: Context) {
@@ -65,9 +71,13 @@ class QuickActionButtonView @JvmOverloads constructor(
         }
     }
 
+    private fun setupShimmering() {
+        shimmeringPairs[vb.llContent] = vb.slShimmer
+    }
+
     private fun setupSurfaceClicks() {
-        with(vb){
-            if (root.isEnabled){
+        with(vb) {
+            if (root.isEnabled) {
                 setSurfaceClick(
                     onPressedState = {
                         rippleIconId?.let { setIcon(it) }
@@ -130,4 +140,6 @@ class QuickActionButtonView @JvmOverloads constructor(
         setTitleTextAppearance(R.style.QuickActionButtonTitleStyle)
         iconId?.let { setIcon(it) }
     }
+
+    override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
 }
