@@ -1,26 +1,58 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="@dimen/padding_48dp"
-        android:layout_height="@dimen/padding_48dp"
-        tools:src="@drawable/chili_ic_info" />
-
-    <TextView
-        android:id="@+id/tv_label"
-        android:layout_width="wrap_content"
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/sl_shimmer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/padding_10dp"
-        android:layout_marginTop="@dimen/padding_8dp"
-        android:gravity="center_horizontal"
-        android:textAppearance="@style/QuickActionButtonTitleStyle"
-        tools:text="Переводы" />
+        android:gravity="center"
+        android:visibility="gone">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="@dimen/view_48dp"
+                android:layout_height="@dimen/view_48dp"
+                android:background="@drawable/chili_quick_action_btn_shimmer" />
+
+            <View
+                android:gravity="center_horizontal"
+                android:layout_width="@dimen/view_50dp"
+                android:layout_height="@dimen/view_6dp"
+                android:layout_marginHorizontal="@dimen/padding_10dp"
+                android:layout_marginTop="@dimen/padding_16dp"
+                android:background="@drawable/chili_bg_shimmer" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/view_48dp"
+            android:layout_height="@dimen/view_48dp"
+            tools:src="@drawable/chili_ic_info" />
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_10dp"
+            android:layout_marginTop="@dimen/padding_8dp"
+            android:gravity="center_horizontal"
+            android:textAppearance="@style/QuickActionButtonTitleStyle"
+            tools:text="Переводы" />
+    </LinearLayout>
+</FrameLayout>
