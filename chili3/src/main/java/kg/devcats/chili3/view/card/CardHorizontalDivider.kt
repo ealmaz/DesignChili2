@@ -48,9 +48,8 @@ class CardHorizontalDivider @JvmOverloads constructor(
                     if (index > 0 && index < sectionList.size) visible()
                     else gone()
                 }
+                vb.sectionsContainer.addView(root)
             }
-
-            vb.sectionsContainer.addView(sectionBinding.root)
         }
     }
 }
