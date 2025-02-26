@@ -39,13 +39,15 @@ class CardHorizontalDivider @JvmOverloads constructor(
         sectionList.forEachIndexed { index, section ->
             val sectionBinding = ChiliCardHorizontalDividerContentBinding.inflate(LayoutInflater.from(context), vb.sectionsContainer, false)
 
-            sectionBinding.titleTV.text = section.title
-            sectionBinding.subtitleTV.text = section.subtitle
-            sectionBinding.titleTV.setTextAppearance(section.titleTextAppearance)
-            sectionBinding.subtitleTV.setTextAppearance(section.subtitleTextAppearance)
-            sectionBinding.dividerView.apply {
-                if (index > 0 && index < sectionList.size) visible()
-                else gone()
+            with(sectionBinding) {
+                tvTitle.text = section.title
+                tvSubtitle.text = section.subtitle
+                tvTitle.setTextAppearance(section.titleTextAppearance)
+                tvSubtitle.setTextAppearance(section.subtitleTextAppearance)
+                dividerView.apply {
+                    if (index > 0 && index < sectionList.size) visible()
+                    else gone()
+                }
             }
 
             vb.sectionsContainer.addView(sectionBinding.root)

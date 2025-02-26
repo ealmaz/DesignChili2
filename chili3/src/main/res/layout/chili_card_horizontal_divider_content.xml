@@ -18,14 +18,14 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
-            android:id="@+id/titleTV"
+            android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"
             android:textAppearance="@style/Chili.H12.Secondary" />
 
         <TextView
-            android:id="@+id/subtitleTV"
+            android:id="@+id/tv_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -37,7 +37,7 @@
         android:id="@+id/dividerView"
         android:layout_width="1dp"
         android:layout_height="0dp"
-        android:background="@color/gray_3"
+        android:background="?attr/ChiliCardHorizontalDividerColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/contentContainer"
         app:layout_constraintBottom_toBottomOf="@id/contentContainer"/>
