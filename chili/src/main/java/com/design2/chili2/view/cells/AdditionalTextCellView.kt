@@ -15,9 +15,11 @@ import com.design2.chili2.R
 import com.design2.chili2.extensions.createShimmerLayout
 import com.design2.chili2.extensions.createShimmerView
 import com.design2.chili2.extensions.dp
+import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setupAsSecure
+import com.design2.chili2.extensions.visible
 import com.facebook.shimmer.ShimmerFrameLayout
 
 class AdditionalTextCellView @JvmOverloads constructor(
@@ -64,17 +66,11 @@ class AdditionalTextCellView @JvmOverloads constructor(
     }
 
     private fun inflateAdditionalText() {
-        additionalText = createTextView().also {
-            shimmeringPairs[it] = createShimmerForAdditionalText()
-            additionalEndIconRight?.let {
-
-            }
-        }
+        additionalText = createTextView().also { shimmeringPairs[it] = createShimmerForAdditionalText() }
         additionalSubText = createTextView().apply { setPadding(0, 4.dp, 0,0) }
         additionalEndIconRight = ImageView(context).apply {
-            layoutParams = LinearLayout.LayoutParams(24.dp, 24.dp).apply {
-                marginStart = 8.dp
-            }
+            shimmeringPairs[this] = null
+            layoutParams = LinearLayout.LayoutParams(24.dp, 24.dp).apply { marginStart = 8.dp }
             visibility = GONE
         }
         additionalTextContainer = LinearLayout(context).apply {
@@ -104,6 +100,7 @@ class AdditionalTextCellView @JvmOverloads constructor(
             setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
         }
         shimmerLayout.addView(context.createShimmerView(R.dimen.view_46dp))
+        additionalEndIconRight?.gone()
         vb.flEndPlaceHolder.addView(shimmerLayout)
         return shimmerLayout
     }
@@ -176,10 +173,13 @@ class AdditionalTextCellView @JvmOverloads constructor(
         additionalText?.setupAsSecure()
     }
 
-    fun setAdditionalEndIcon(iconRes: Int) {
+    fun setAdditionalEndIcon(iconRes: Int? = null) {
         additionalEndIconRight?.apply {
-            setImageResource(iconRes)
-            visibility = VISIBLE
+            if (iconRes == null) gone()
+            else {
+                setImageResource(iconRes)
+                visible()
+            }
         }
     }
 
