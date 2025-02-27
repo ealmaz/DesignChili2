@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Spanned
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.DimenRes
@@ -14,6 +15,7 @@ import com.design2.chili2.R
 import com.design2.chili2.extensions.createShimmerLayout
 import com.design2.chili2.extensions.createShimmerView
 import com.design2.chili2.extensions.dp
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setupAsSecure
 import com.facebook.shimmer.ShimmerFrameLayout
@@ -28,6 +30,7 @@ class AdditionalTextCellView @JvmOverloads constructor(
     private var additionalTextContainer: LinearLayout? = null
     private var additionalText: TextView? = null
     private var additionalSubText: TextView? = null
+    private var additionalEndIconRight: ImageView? = null
 
     override fun inflateView(context: Context) {
         super.inflateView(context)
@@ -53,17 +56,35 @@ class AdditionalTextCellView @JvmOverloads constructor(
                 getBoolean(R.styleable.AdditionalTextCellView_additionalTextAsSecure, false).takeIf { it }?.let {
                     setupAdditionalTextAsSecure()
                 }
+                getResourceId(R.styleable.AdditionalTextCellView_additionalEndIcon, -1).takeIf { it != -1 }?.let {
+                    setAdditionalEndIcon(it)
+                }
                 recycle()
             }
     }
 
     private fun inflateAdditionalText() {
-        additionalText = createTextView().also { shimmeringPairs[it] = createShimmerForAdditionalText() }
+        additionalText = createTextView().also {
+            shimmeringPairs[it] = createShimmerForAdditionalText()
+            additionalEndIconRight?.let {
+
+            }
+        }
         additionalSubText = createTextView().apply { setPadding(0, 4.dp, 0,0) }
+        additionalEndIconRight = ImageView(context).apply {
+            layoutParams = LinearLayout.LayoutParams(24.dp, 24.dp).apply {
+                marginStart = 8.dp
+            }
+            visibility = GONE
+        }
         additionalTextContainer = LinearLayout(context).apply {
-            orientation = LinearLayout.VERTICAL
-            addView(additionalText)
-            addView(additionalSubText)
+            orientation = LinearLayout.HORIZONTAL
+            addView(LinearLayout(context).apply {
+                orientation = LinearLayout.VERTICAL
+                addView(additionalText)
+                addView(additionalSubText)
+            })
+            addView(additionalEndIconRight)
             setPadding(0, 0, 12.dp, 0)
         }
         vb.flEndPlaceHolder.addView(additionalTextContainer)
@@ -153,6 +174,17 @@ class AdditionalTextCellView @JvmOverloads constructor(
 
     fun setupAdditionalTextAsSecure() {
         additionalText?.setupAsSecure()
+    }
+
+    fun setAdditionalEndIcon(iconRes: Int) {
+        additionalEndIconRight?.apply {
+            setImageResource(iconRes)
+            visibility = VISIBLE
+        }
+    }
+
+    fun setAdditionalEndIconClickListener(action: () -> Unit) {
+        additionalEndIconRight?.setOnSingleClickListener(action)
     }
 
 }

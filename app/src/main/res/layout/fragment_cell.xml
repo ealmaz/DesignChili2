@@ -27,12 +27,6 @@
             app:title="CardCellViews" />
 
         <kg.devcats.chili3.view.cells.CardCellView
-            android:id="@+id/cardcell1"
-            android:layout_marginTop="@dimen/padding_16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <kg.devcats.chili3.view.cells.CardCellView
             android:id="@+id/cardcell2"
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
@@ -761,6 +755,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:additionalText="Additional text no chevron"
+                app:isChevronVisible="false"
+                app:isDividerVisible="false"
+                app:roundedCornerMode="single"
+                app:title="Заголовок" />
+
+        </com.design2.chili2.view.container.shadow_layout.ShadowLayout><com.design2.chili2.view.container.shadow_layout.ShadowLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_8dp"
+            style="@style/ShadowLayoutStyle">
+
+            <com.design2.chili2.view.cells.AdditionalTextCellView
+                android:id="@+id/atcv_with_icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:additionalText="12121212112"
+                app:additionalEndIcon="@drawable/chili_ic_copy"
                 app:isChevronVisible="false"
                 app:isDividerVisible="false"
                 app:roundedCornerMode="single"

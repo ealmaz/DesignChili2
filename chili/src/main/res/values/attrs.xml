@@ -242,6 +242,7 @@
         <attr name="additionalSubText" format="string"/>
         <attr name="additionalSubTextTextAppearance" format="reference" />
         <attr name="additionalTextAsSecure" format="boolean" />
+        <attr name="additionalEndIcon" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="AdditionalTextWithIconCellView">
