@@ -238,11 +238,12 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
                 text = "Электрочайник",
                 iconUrl = "https://img.freepik.com/premium-photo/cosmetic-products-stand-orange-backdrop-providing-room-text-advertising-vertical-mobile_896558-17993.jpg"
             )
+            setTags(null)
         }
 
         vb.pcvProduct5.apply {
             val tags = listOf(
-                TagData("Новинка", backgroundColor = "#10C44C"),
+                TagData("Новинка", icon = "", backgroundColor = "#10C44C"),
                 TagData("0-0-12", backgroundColor = "#10C44C"),
                 TagData("5%", icon = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png", backgroundColor = "#EC61AA")
             )
@@ -254,8 +255,8 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
                 iconUrl = "https://static.vecteezy.com/system/resources/previews/015/452/522/non_2x/discount-icon-in-trendy-flat-style-isolated-on-background-discount-icon-page-symbol-for-your-web-site-design-discount-icon-logo-app-ui-discount-icon-eps-vector.jpg"
             )
 
-            setSubtitle("<b>1 212,12<small> <u>c</u> x </small></b>12 мес".parseAsHtml())
-            setSubtitleBackground(kg.devcats.chili3.R.drawable.chili_bg_product_subtitle)
+            setSubtitle("<span style=\"color: #2FB552;\"><b >1 249,50</b> <u>c</u> х 12 мес</span>".parseAsHtml())
+            setSubtitleBackground("#1A2FB552")
         }
 
         vb.simplePromoBanner.apply {

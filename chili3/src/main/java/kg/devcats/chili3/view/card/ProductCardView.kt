@@ -153,8 +153,23 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     fun setSubtitleBackground(@DrawableRes drawableId: Int) {
-        if (vb.tvSubtitle.isGone) return
-        vb.tvSubtitle.background = context.drawable(drawableId)
+        vb.tvSubtitle.apply {
+            if (isGone) return
+            background = context.drawable(drawableId)
+        }
+    }
+
+    fun setSubtitleBackground(color: String?) {
+        vb.tvSubtitle.apply {
+            if (isGone || color.isNullOrEmpty()) return
+            val cornerRadiusInDp = context.pxToDp(context.getDimensionFromAttr(R.attr.ChiliProductCardViewTagCornerRadius, 6.dpF)).toInt()
+            val drawable = GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                setColor(Color.parseColor(color))
+                this.cornerRadius = dpToPx(context, cornerRadiusInDp)
+            }
+            background = drawable
+        }
     }
 
     fun setDescription(text: CharSequence?) {
@@ -241,14 +256,13 @@ class ProductCardView @JvmOverloads constructor(
         vb.llDiscount.background = drawable
     }
 
-    fun setTags(tags: List<TagData>) {
+    fun setTags(tags: List<TagData>?) {
         vb.llTags.apply {
             removeAllViews()
-            if (tags.isNotEmpty()) {
-                visible()
-                tags.forEach { tag ->
-                    val tagView = createTagView(tag)
-                    addView(tagView)
+            tags.run {
+                if (!isNullOrEmpty()) {
+                    visible()
+                    forEach { addView(createTagView(it)) }
                 }
             }
         }
