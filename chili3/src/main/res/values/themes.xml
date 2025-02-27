@@ -61,11 +61,16 @@
         <item name="ChiliBankCardViewFieldsBackground">@color/black_3_alpha_45</item>
 
         <!-- ProductCardView -->
+        <item name="ChiliProductCardViewTagStartMargin">@dimen/padding_8dp</item>
+        <item name="ChiliProductCardViewTagTopMargin">@dimen/padding_7dp</item>
+        <item name="ChiliProductCardViewTagTopInnerMargin">@dimen/padding_1dp</item>
+        <item name="ChiliProductCardViewTagPaddingHorizontal">@dimen/padding_4dp</item>
+        <item name="ChiliProductCardViewTagPaddingVertical">@dimen/padding_3dp</item>
         <item name="ChiliCardViewImageRadius">@dimen/radius_12dp</item>
         <item name="ChiliProductCardViewImageHeight">@dimen/view_210dp</item>
         <item name="ChiliProductCardViewImageWidth">@dimen/view_168dp</item>
         <item name="ChiliProductCardViewDiscountStartMargin">@dimen/padding_8dp</item>
-        <item name="ChiliProductCardViewDiscountBottomMargin">@dimen/padding_6dp</item>
+        <item name="ChiliProductCardViewDiscountBottomMargin">@dimen/padding_7dp</item>
         <item name="ChiliProductCardViewDiscountPaddingHorizontal">@dimen/padding_4dp</item>
         <item name="ChiliProductCardViewDiscountPaddingVertical">@dimen/padding_3dp</item>
         <item name="ChiliProductCardViewDiscountIconHeight">@dimen/view_16dp</item>
@@ -81,6 +86,7 @@
         <item name="ChiliProductCardViewDescriptionMaxLines">2</item>
         <item name="ChiliProductCardViewSubtitleCornerRadius">@dimen/radius_6dp</item>
         <item name="ChiliProductCardViewDiscountCornerRadius">@dimen/radius_6dp</item>
+        <item name="ChiliProductCardViewTagCornerRadius">@dimen/radius_6dp</item>
 
         <!-- NavigationBar -->
         <item name="ChiliNavigationBarActiveItemTextColor">@color/c_f0047f</item>

@@ -9,13 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
+import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.annotation.DrawableRes
 import androidx.core.view.isGone
-import androidx.core.view.isVisible
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.view.card.BaseCardView
 import com.google.android.material.internal.ViewUtils.dpToPx
@@ -240,4 +241,50 @@ class ProductCardView @JvmOverloads constructor(
         vb.llDiscount.background = drawable
     }
 
+    fun setTags(tags: List<TagData>) {
+        vb.llTags.apply {
+            removeAllViews()
+            if (tags.isNotEmpty()) {
+                visible()
+                tags.forEach { tag ->
+                    val tagView = createTagView(tag)
+                    addView(tagView)
+                }
+            }
+        }
+    }
+
+    private fun createTagView(tag: TagData): View {
+        val tagLayout = LayoutInflater.from(context).inflate(R.layout.chili_view_tag_item, vb.llTags, false)
+
+        val textView = tagLayout.findViewById<TextView>(R.id.tv_tag)
+        val iconView = tagLayout.findViewById<ImageView>(R.id.iv_tag_icon)
+
+        textView.apply {
+            text = tag.text
+            setTextAppearance(tag.textAppearance)
+        }
+
+        tag.backgroundColor?.let {
+            val drawable = GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                setColor(Color.parseColor(it))
+                cornerRadius = dpToPx(context, 6)
+            }
+            tagLayout.background = drawable
+        }
+
+        iconView.setImageOrHide(tag.icon)
+
+        return tagLayout
+    }
+
+
 }
+
+data class TagData(
+    val text: String?,
+    val icon: String? = null,
+    val backgroundColor: String? = null,
+    val textAppearance: Int = R.style.Chili_H12_White1
+)
