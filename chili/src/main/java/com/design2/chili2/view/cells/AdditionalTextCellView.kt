@@ -39,26 +39,48 @@ class AdditionalTextCellView @JvmOverloads constructor(
         inflateAdditionalText()
     }
 
-    override fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+    override fun obtainAttributes(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) {
         super.obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
-        context.obtainStyledAttributes(attrs, R.styleable.AdditionalTextCellView, defStyleAttr, defStyleRes)
+        context.obtainStyledAttributes(
+            attrs,
+            R.styleable.AdditionalTextCellView,
+            defStyleAttr,
+            defStyleRes
+        )
             .run {
                 getString(R.styleable.AdditionalTextCellView_additionalText)?.let {
                     setAdditionalText(it)
                 }
-                getResourceId(R.styleable.AdditionalTextCellView_additionalTextTextAppearance, -1).takeIf { it != -1 }?.let {
+                getResourceId(
+                    R.styleable.AdditionalTextCellView_additionalTextTextAppearance,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     setAdditionalTextTextAppearance(it)
                 }
                 getString(R.styleable.AdditionalTextCellView_additionalSubText).let {
                     setAdditionalSubText(it)
                 }
-                getResourceId(R.styleable.AdditionalTextCellView_additionalSubTextTextAppearance, -1).takeIf { it != -1 }?.let {
+                getResourceId(
+                    R.styleable.AdditionalTextCellView_additionalSubTextTextAppearance,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     setAdditionalSubTextTextAppearance(it)
                 }
-                getBoolean(R.styleable.AdditionalTextCellView_additionalTextAsSecure, false).takeIf { it }?.let {
+                getBoolean(
+                    R.styleable.AdditionalTextCellView_additionalTextAsSecure,
+                    false
+                ).takeIf { it }?.let {
                     setupAdditionalTextAsSecure()
                 }
-                getResourceId(R.styleable.AdditionalTextCellView_additionalEndIcon, -1).takeIf { it != -1 }?.let {
+                getResourceId(
+                    R.styleable.AdditionalTextCellView_additionalEndIcon,
+                    -1
+                ).takeIf { it != -1 }?.let {
                     setAdditionalEndIcon(it)
                 }
                 recycle()
@@ -66,8 +88,9 @@ class AdditionalTextCellView @JvmOverloads constructor(
     }
 
     private fun inflateAdditionalText() {
-        additionalText = createTextView().also { shimmeringPairs[it] = createShimmerForAdditionalText() }
-        additionalSubText = createTextView().apply { setPadding(0, 4.dp, 0,0) }
+        additionalText =
+            createTextView().also { shimmeringPairs[it] = createShimmerForAdditionalText() }
+        additionalSubText = createTextView().apply { setPadding(0, 4.dp, 0, 0) }
         additionalEndIconRight = ImageView(context).apply {
             shimmeringPairs[this] = null
             layoutParams = LinearLayout.LayoutParams(24.dp, 24.dp).apply { marginStart = 8.dp }
@@ -97,10 +120,14 @@ class AdditionalTextCellView @JvmOverloads constructor(
 
     private fun createShimmerForAdditionalText(): ShimmerFrameLayout {
         val shimmerLayout = context.createShimmerLayout {
-            setPadding(resources.getDimensionPixelSize(R.dimen.padding_8dp), 0, resources.getDimensionPixelSize(R.dimen.padding_8dp), 0)
+            setPadding(
+                resources.getDimensionPixelSize(R.dimen.padding_8dp),
+                0,
+                resources.getDimensionPixelSize(R.dimen.padding_8dp),
+                0
+            )
         }
         shimmerLayout.addView(context.createShimmerView(R.dimen.view_46dp))
-        additionalEndIconRight?.gone()
         vb.flEndPlaceHolder.addView(shimmerLayout)
         return shimmerLayout
     }
@@ -138,7 +165,7 @@ class AdditionalTextCellView @JvmOverloads constructor(
 
     override fun setIsChevronVisible(isVisible: Boolean) {
         super.setIsChevronVisible(isVisible)
-        if (isVisible) additionalTextContainer?.setPadding(0, 0,0, 0)
+        if (isVisible) additionalTextContainer?.setPadding(0, 0, 0, 0)
         else additionalTextContainer?.setPadding(0, 0, 12.dp, 0)
     }
 
@@ -146,11 +173,11 @@ class AdditionalTextCellView @JvmOverloads constructor(
         additionalText?.setTextAppearance(resId)
     }
 
-    fun setAdditionalTextWidth(@DimenRes dimenResId: Int){
+    fun setAdditionalTextWidth(@DimenRes dimenResId: Int) {
         additionalText?.width = resources.getDimensionPixelSize(dimenResId)
     }
 
-    fun setAdditionalTextMaxLines(maxLines: Int){
+    fun setAdditionalTextMaxLines(maxLines: Int) {
         additionalText?.maxLines = maxLines
     }
 
@@ -158,7 +185,12 @@ class AdditionalTextCellView @JvmOverloads constructor(
         additionalText?.alpha = alpha
     }
 
-    fun updateAdditionalTextMargin(startMarginPx: Int? = null, topMarginPx: Int? = null, endMarginPx: Int? = null, bottomMarginPx: Int? = null) {
+    fun updateAdditionalTextMargin(
+        startMarginPx: Int? = null,
+        topMarginPx: Int? = null,
+        endMarginPx: Int? = null,
+        bottomMarginPx: Int? = null
+    ) {
         val param = additionalText?.layoutParams as? MarginLayoutParams ?: return
         param.apply {
             leftMargin = startMarginPx ?: leftMargin
@@ -173,13 +205,10 @@ class AdditionalTextCellView @JvmOverloads constructor(
         additionalText?.setupAsSecure()
     }
 
-    fun setAdditionalEndIcon(iconRes: Int? = null) {
+    fun setAdditionalEndIcon(iconRes: Int) {
         additionalEndIconRight?.apply {
-            if (iconRes == null) gone()
-            else {
-                setImageResource(iconRes)
-                visible()
-            }
+            setImageResource(iconRes)
+            visible()
         }
     }
 
