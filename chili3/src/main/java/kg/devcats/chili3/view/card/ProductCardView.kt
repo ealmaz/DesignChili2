@@ -16,6 +16,7 @@ import androidx.core.view.isGone
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
+import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.view.card.BaseCardView
 import com.google.android.material.internal.ViewUtils.dpToPx
@@ -273,12 +274,7 @@ class ProductCardView @JvmOverloads constructor(
             tagLayout.background = drawable
         }
 
-        tag.icon?.let {
-            iconView.apply {
-                setImageByUrl(tag.icon)
-                visible()
-            }
-        }
+        iconView.setImageOrHide(tag.icon)
 
         return tagLayout
     }
