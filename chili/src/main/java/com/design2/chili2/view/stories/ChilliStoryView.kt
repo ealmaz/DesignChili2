@@ -390,7 +390,7 @@ class StoryView : ConstraintLayout {
 
         if (this.stories.isNotEmpty()) {
             onMoveListener?.onStart(currentStoryIndex)
-            onMoveListener?.onStart(currentStoryIndex, blockTypeName)
+            onMoveListener?.onStart(currentStoryIndex, null)
             playNext(this.stories[currentStoryIndex])
         }
         invalidate()

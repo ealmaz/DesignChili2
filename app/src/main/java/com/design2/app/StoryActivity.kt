@@ -235,6 +235,9 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
         // Remember lastStarted story
     }
 
+    override fun onStart(index: Int, blockType: String?) {
+    }
+
     override fun onAllStoriesFinished() {
     }
 

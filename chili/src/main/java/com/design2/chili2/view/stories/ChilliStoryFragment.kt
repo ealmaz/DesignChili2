@@ -42,7 +42,8 @@ class ChilliStoryFragment: Fragment() {
                 stories = it,
                 onMoveListener,
                 onFinishListener,
-                onClickListener
+                onClickListener,
+                storyBlock.blockType
             )
         }
     }
