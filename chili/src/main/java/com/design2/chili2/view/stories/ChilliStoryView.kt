@@ -54,6 +54,7 @@ class StoryView : ConstraintLayout {
 
     private var progressBars: ArrayList<ProgressBar> = arrayListOf()
     private var exoPlayer: ExoPlayer? = null
+    private var blockTypeName: String? = null
 
     constructor(context: Context) : super(context) {
         init(context)
@@ -92,6 +93,7 @@ class StoryView : ConstraintLayout {
     @SuppressLint("ClickableViewAccessibility")
     private fun playNext(storyModel: ChilliStoryModel) {
         onMoveListener?.onStart(currentStoryIndex)
+        onMoveListener?.onStart(currentStoryIndex, blockTypeName)
         resetTimer()
         timeRemaining = 0
         currentStory = storyModel
@@ -166,9 +168,14 @@ class StoryView : ConstraintLayout {
                         visible()
                         text = storyModel.buttonText
                         setOnSingleClickListener {
-                            if (storyModel.deeplink != null) onClickListener?.onDeeplinkClick(
-                                storyModel.deeplink
-                            )
+                            if (storyModel.deeplink != null) {
+                                onClickListener?.onDeeplinkClick(storyModel.deeplink)
+                                onClickListener?.onDeeplinkClick(
+                                    storyModel.deeplink,
+                                    currentStoryIndex,
+                                    blockTypeName
+                                )
+                            }
                             else finishStories()
                         }
                     }
@@ -180,9 +187,14 @@ class StoryView : ConstraintLayout {
                         visible()
                         text = storyModel.buttonText
                         setOnSingleClickListener {
-                            if (storyModel.deeplink != null) onClickListener?.onDeeplinkClick(
-                                storyModel.deeplink
-                            )
+                            if (storyModel.deeplink != null) {
+                                onClickListener?.onDeeplinkClick(storyModel.deeplink)
+                                onClickListener?.onDeeplinkClick(
+                                    storyModel.deeplink,
+                                    currentStoryIndex,
+                                    blockTypeName
+                                )
+                            }
                             else finishStories()
                         }
                     }
@@ -335,12 +347,14 @@ class StoryView : ConstraintLayout {
         stories: ArrayList<ChilliStoryModel> = arrayListOf(),
         moveListener: StoryMoveListener? = null,
         finishListener: StoryOnFinishListener? = null,
-        clickListener: StoryClickListener? = null
+        clickListener: StoryClickListener? = null,
+        blockType: String? = null
     ) {
         this.stories = stories
         this.onMoveListener = moveListener
         this.onFinishListener = finishListener
         this.onClickListener = clickListener
+        this.blockTypeName = blockType
 
         with(binding) {
             progressBarsContainer.removeAllViews()
@@ -376,6 +390,7 @@ class StoryView : ConstraintLayout {
 
         if (this.stories.isNotEmpty()) {
             onMoveListener?.onStart(currentStoryIndex)
+            onMoveListener?.onStart(currentStoryIndex, blockTypeName)
             playNext(this.stories[currentStoryIndex])
         }
         invalidate()
@@ -390,6 +405,7 @@ class StoryView : ConstraintLayout {
             playNext(this.stories[currentStoryIndex])
         } else {
             onMoveListener?.onAllStoriesCompleted()
+            onMoveListener?.onAllStoriesCompleted(blockTypeName)
             onFinishListener?.onAllStoriesFinished()
         }
     }
@@ -477,6 +493,7 @@ class StoryView : ConstraintLayout {
             } else {
                 resetTimer()
                 onMoveListener?.onAllStoriesCompleted()
+                onMoveListener?.onAllStoriesCompleted(blockTypeName)
                 onFinishListener?.onAllStoriesFinished()
                 isAllStoriesFinished = true
             }
@@ -579,15 +596,25 @@ enum class StoryScaleType {
 }
 
 interface StoryMoveListener {
-    fun onAllStoriesCompleted()
+    @Deprecated("Use onAllStoriesCompleted(blockType: String) instead")
+    fun onAllStoriesCompleted() {}
+    fun onAllStoriesCompleted(blockType: String?) {}
     fun onClose()
     fun onFinished(index: Int)
-    fun onStart(index: Int)
+    @Deprecated("Use onStart(index: Int, blockType: String) instead")
+    fun onStart(index: Int) {}
+    fun onStart(index: Int, blockType: String?) {}
     fun onPreviousClick() {}
 }
 
 interface StoryClickListener {
-    fun onDeeplinkClick(deeplink: String)
+    @Deprecated("Use onDeeplinkClick(deeplink: String) instead")
+    fun onDeeplinkClick(deeplink: String) {}
+    fun onDeeplinkClick(deeplink: String, position: Int, blockType: String?) {}
+}
+
+interface StoryPageSelectedListener {
+    fun onPageSelected(position: Int)
 }
 
 interface StoryOnFinishListener {

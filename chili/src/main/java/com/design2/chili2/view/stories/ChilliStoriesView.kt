@@ -166,7 +166,8 @@ class ChilliStoriesView : ConstraintLayout {
         onMoveListener: StoryMoveListener,
         onFinishListener: StoryOnFinishListener,
         onStoryClickListener: StoryClickListener? = null,
-        currentStoryBlock: String? = null
+        currentStoryBlock: String? = null,
+        onPageSelectedListener: StoryPageSelectedListener? = null
     ) {
         viewPager = binding.viewPager.apply {
             setPageTransformer(ChiliStoryPageTransformer())
@@ -194,6 +195,7 @@ class ChilliStoriesView : ConstraintLayout {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 currentFragment = storyViewPagerAdapter?.getFragmentByPosition(position)
+                if (position != list.indexOfFirst { it.blockType == currentStoryBlock }) onPageSelectedListener?.onPageSelected(position)
             }
         })
 

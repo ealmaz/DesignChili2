@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.design2.app.databinding.ActivityStoryBinding
 import com.design2.chili2.view.stories.ChilliButtonType
 import com.design2.chili2.view.stories.ChilliStoryBlock
@@ -12,6 +13,7 @@ import com.design2.chili2.view.stories.ChilliStoryType
 import com.design2.chili2.view.stories.StoryClickListener
 import com.design2.chili2.view.stories.StoryMoveListener
 import com.design2.chili2.view.stories.StoryOnFinishListener
+import com.design2.chili2.view.stories.StoryPageSelectedListener
 
 
 class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListener,
@@ -204,7 +206,7 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
                 storyBlock30,
                 storyBlock40,
                 storyBlock50,
-            ), this, this, this, this
+            ), this, this, this, this, currentStoryBlock = "block1"
         )
     }
 
@@ -213,7 +215,7 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
 //        overridePendingTransition(R.anim.stay, R.anim.zoom_out)
     }
 
-    override fun onAllStoriesCompleted() {
+    override fun onAllStoriesCompleted(blockType: String?) {
         binding.storiesView.moveToNextPage { finishWithAnimation() }
     }
 
