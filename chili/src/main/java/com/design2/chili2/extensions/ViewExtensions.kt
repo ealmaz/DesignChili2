@@ -167,8 +167,8 @@ fun ImageView.setImageOrHide(@DrawableRes resId: Int?) {
 }
 
 fun ImageView.setImageOrHide(string: String?) {
-    when (string) {
-        null -> gone()
+    when {
+        string.isNullOrEmpty() -> gone()
         else -> {
             setImageByUrl(string)
             visible()
