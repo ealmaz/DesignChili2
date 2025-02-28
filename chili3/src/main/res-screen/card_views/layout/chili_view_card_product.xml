@@ -141,6 +141,17 @@
         app:layout_constraintStart_toStartOf="@id/tv_title"
         app:layout_constraintTop_toBottomOf="@id/tv_subtitle" />
 
+    <TextView
+        android:id="@+id/placeholder"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="?ChiliProductCardViewSubtitlePaddingHorizontal"
+        android:paddingVertical="?ChiliProductCardViewSubtitlePaddingVertical"
+        android:visibility="gone"
+        android:textAppearance="@style/Chili.H10.Orange1"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_description_shimmer"
         android:layout_width="0dp"

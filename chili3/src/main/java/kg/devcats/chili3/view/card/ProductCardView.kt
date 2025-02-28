@@ -17,6 +17,7 @@ import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setImageOrHide
+import com.design2.chili2.extensions.setTextOrHide
 import com.design2.chili2.extensions.setUrlImageByCoil
 import com.design2.chili2.view.card.BaseCardView
 import com.google.android.material.internal.ViewUtils.dpToPx
@@ -136,9 +137,13 @@ class ProductCardView @JvmOverloads constructor(
     fun setSubtitle(text: CharSequence?) {
         vb.tvSubtitle.apply {
             this.text = text
-            if (!text.isNullOrEmpty()) visible()
-            else gone()
+            setTextOrHide(text)
+            setPlaceholderVisibility(text.isNullOrEmpty())
         }
+    }
+
+    private fun setPlaceholderVisibility(isVisible: Boolean) {
+        vb.placeholder.apply { if (isVisible) visible() else gone() }
     }
 
     fun setSubtitle(resId: Int) {
