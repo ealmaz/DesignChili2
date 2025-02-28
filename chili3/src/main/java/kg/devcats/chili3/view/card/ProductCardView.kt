@@ -162,7 +162,7 @@ class ProductCardView @JvmOverloads constructor(
     fun setSubtitleBackground(color: String?) {
         vb.tvSubtitle.apply {
             if (isGone || color.isNullOrEmpty()) return
-            val cornerRadiusInDp = context.pxToDp(context.getDimensionFromAttr(R.attr.ChiliProductCardViewTagCornerRadius, 6.dpF)).toInt()
+            val cornerRadiusInDp = context.pxToDp(context.getDimensionFromAttr(R.attr.ChiliProductCardViewSubtitleCornerRadius, 6.dpF)).toInt()
             val drawable = GradientDrawable().apply {
                 shape = GradientDrawable.RECTANGLE
                 setColor(Color.parseColor(color))
@@ -269,28 +269,27 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     private fun createTagView(tag: TagData): View {
-        val tagLayout = LayoutInflater.from(context).inflate(R.layout.chili_view_tag_item, vb.llTags, false)
+        return LayoutInflater.from(context).inflate(R.layout.chili_view_tag_item, vb.llTags, false).apply {
+            val textView = findViewById<TextView>(R.id.tv_tag)
+            val iconView = findViewById<ImageView>(R.id.iv_tag_icon)
 
-        val textView = tagLayout.findViewById<TextView>(R.id.tv_tag)
-        val iconView = tagLayout.findViewById<ImageView>(R.id.iv_tag_icon)
-
-        textView.apply {
-            text = tag.text
-            setTextAppearance(tag.textAppearance)
-        }
-
-        tag.backgroundColor?.let {
-            val drawable = GradientDrawable().apply {
-                shape = GradientDrawable.RECTANGLE
-                setColor(Color.parseColor(it))
-                cornerRadius = dpToPx(context, 6)
+            textView.apply {
+                text = tag.text
+                setTextAppearance(tag.textAppearance)
             }
-            tagLayout.background = drawable
+
+            tag.backgroundColor?.let {
+                val drawable = GradientDrawable().apply {
+                    shape = GradientDrawable.RECTANGLE
+                    setColor(Color.parseColor(it))
+                    val cornerRadiusInDp = context.pxToDp(context.getDimensionFromAttr(R.attr.ChiliProductCardViewTagCornerRadius, 6.dpF)).toInt()
+                    cornerRadius = dpToPx(context, cornerRadiusInDp)
+                }
+                background = drawable
+            }
+
+            iconView.setImageOrHide(tag.icon)
         }
-
-        iconView.setImageOrHide(tag.icon)
-
-        return tagLayout
     }
 
 
