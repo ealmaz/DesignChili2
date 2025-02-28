@@ -1,5 +1,6 @@
 package com.design2.chili2.view.card
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
@@ -30,19 +31,30 @@ class ExpandableCardItemView @JvmOverloads constructor(
 
     var isHidden: Boolean = false
 
-    init { initView(context, attrs, defStyleAttr, defStyleRes) }
+    init {
+        initView(context, attrs, defStyleAttr, defStyleRes)
+    }
 
     override fun inflateView(context: Context) {
         vb = ChiliViewCardExpandableItemBinding.inflate(LayoutInflater.from(context), this, true)
     }
 
+    @SuppressLint("ResourceAsColor")
     override fun TypedArray.obtainAttributes() {
         getString(R.styleable.ExpandableCardItemView_title).run { setTitle(this) }
         getString(R.styleable.ExpandableCardItemView_subtitle).run { setSubtitle(this) }
         getString(R.styleable.ExpandableCardItemView_titleValue).run { setTitleValue(this) }
         getString(R.styleable.ExpandableCardItemView_subtitleValue).run { setSubtitleValue(this) }
+        getString(R.styleable.ExpandableCardItemView_subtitleValue).run { setSubtitleValue(this) }
         getBoolean(R.styleable.ExpandableCardItemView_isHidden, false).run { isHidden = this }
-        getDrawable(R.styleable.ExpandableCardItemView_subtitleEndIcon).run { setSubtitleEndIcon(this) }
+        getColor(R.styleable.ExpandableCardItemView_setTitleColor, Int.MIN_VALUE).takeIf { it != Int.MIN_VALUE }?.let {
+            setTitleColor(it)
+        }
+        getDrawable(R.styleable.ExpandableCardItemView_subtitleEndIcon).run {
+            setSubtitleEndIcon(
+                this
+            )
+        }
     }
 
     override fun setupShimmeringViews() {
@@ -87,6 +99,10 @@ class ExpandableCardItemView @JvmOverloads constructor(
         else shimmeringPairs[vb.tvSubtitleValue] = vb.viewSubtitleValueShimmer
     }
 
+    fun setTitleColor(resId: Int) {
+        vb.tvTitle.setTextColor(resId)
+    }
+
     fun setSubtitleValue(resId: Int) {
         vb.tvSubtitleValue.setText(resId)
         shimmeringPairs[vb.tvSubtitleValue] = vb.viewSubtitleValueShimmer
@@ -115,6 +131,7 @@ class ExpandableCardItemView @JvmOverloads constructor(
         setSubtitleEndIcon(drawableRes)
         setSubtitleEndIconListener(onClickListener)
     }
+
 
     override fun onStopShimmer() {
         super.onStopShimmer()
