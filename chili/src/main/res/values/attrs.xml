@@ -356,6 +356,7 @@
         <attr name="subtitleValue" format="string"/>
         <attr name="isHidden" format="boolean"/>
         <attr name="subtitleEndIcon" format="reference"/>
+        <attr name="setTitleColor" format="color"/>
     </declare-styleable>
 
     <declare-styleable name="ExpandableContainer">
