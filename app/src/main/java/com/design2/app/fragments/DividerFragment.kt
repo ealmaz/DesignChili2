@@ -3,6 +3,7 @@ package com.design2.app.fragments
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.text.parseAsHtml
 import com.design2.app.MainActivity
 import com.design2.app.R
 import com.design2.app.base.BaseFragment
@@ -26,6 +27,8 @@ class DividerFragment : BaseFragment<FragmentDividerBinding>() {
         vb.divider1.setActionClickListener {
             Toast.makeText(context, "Action", Toast.LENGTH_SHORT).show()
         }
+
+        vb.divider5.setTitle("<span>100 000,00 <u>c</u></span>".parseAsHtml())
 
     }
 

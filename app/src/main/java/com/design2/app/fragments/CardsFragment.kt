@@ -270,11 +270,11 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             sectionList = listOf(
                 DividerCardSection(
                     title = "За этот месяц",
-                    subtitle = "0,00 с",
+                    subtitle = ("<span>0,00 <u>c</u></span>".parseAsHtml()),
                 ),
                 DividerCardSection(
                     title = "За все время",
-                    subtitle = "100 000 с",
+                    subtitle = ("<span>100 000,00 <u>c</u></span>".parseAsHtml()),
                     subtitleTextAppearance = kg.devcats.chili3.R.style.Chili_H16_AccentSecondary_Bold
                 )
             )
@@ -284,16 +284,16 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             sectionList = listOf(
                 DividerCardSection(
                     title = "За этот месяц",
-                    subtitle = "0,00 с",
+                    subtitle = ("<span>0,00 <u>c</u></span>".parseAsHtml()),
                 ),
                 DividerCardSection(
                     title = "За все время",
-                    subtitle = "100 000 с",
+                    subtitle = ("<span>100 000,00 <u>c</u></span>".parseAsHtml()),
                     subtitleTextAppearance = kg.devcats.chili3.R.style.Chili_H16_AccentSecondary_Bold
                 ),
                 DividerCardSection(
                     title = "За все время",
-                    subtitle = "100 000 с",
+                    subtitle = ("<span style=\"color: #2FB552;\">0,00 <u>c</u></span>".parseAsHtml()),
                 )
             )
         )

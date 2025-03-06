@@ -2,6 +2,7 @@ package kg.devcats.chili3.view.divider
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.text.Spanned
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.annotation.DrawableRes
@@ -72,6 +73,10 @@ class DividerView @JvmOverloads constructor(
         vb.tvTitle.setTextOrHide(title)
     }
 
+    fun setTitle(title: Spanned?) {
+        vb.tvTitle.setTextOrHide(title)
+    }
+
     fun setTitle(@StringRes resId: Int) {
         vb.tvTitle.setTextOrHide(resId)
     }
@@ -82,6 +87,10 @@ class DividerView @JvmOverloads constructor(
 
     fun setSubtitle(@StringRes resId: Int) {
         vb.tvSubtitle.setTextOrHide(resId)
+    }
+
+    fun setSubtitle(subtitle: Spanned?) {
+        vb.tvSubtitle.setTextOrHide(subtitle)
     }
 
     fun setActionText(value: String?) {

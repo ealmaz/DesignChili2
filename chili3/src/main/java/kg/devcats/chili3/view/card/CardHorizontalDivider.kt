@@ -50,7 +50,10 @@ class CardHorizontalDivider @JvmOverloads constructor(
         vb.sectionsContainer.visible()
     }
 
+    fun clearSections() = vb.sectionsContainer.removeAllViews()
+
     fun setSections(sectionList: List<DividerCardSection>) {
+        clearSections()
         sectionList.forEachIndexed { index, section ->
             val sectionBinding = ChiliCardHorizontalDividerContentBinding.inflate(LayoutInflater.from(context), vb.sectionsContainer, false)
 
@@ -70,8 +73,8 @@ class CardHorizontalDivider @JvmOverloads constructor(
 }
 
 data class DividerCardSection(
-    val title: String? = null,
-    val subtitle: String? = null,
+    val title: CharSequence? = null,
+    val subtitle: CharSequence? = null,
     @StyleRes val titleTextAppearance: Int = R.style.Chili_H12_Secondary,
     @StyleRes val subtitleTextAppearance: Int = R.style.Chili_H16_Primary_Bold,
 )

@@ -56,5 +56,14 @@
             app:dividerSubtitle="Подзаголовок"
             app:dividerTitle="Заголовок" />
 
+        <kg.devcats.chili3.view.divider.DividerView
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:dividerActionText="Кнопка"
+            app:dividerSubtitle="Подзаголовок"
+            app:dividerTitle="Заголовок" />
+
     </LinearLayout>
 </ScrollView>
