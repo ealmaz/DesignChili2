@@ -138,7 +138,7 @@ class ProductCardView @JvmOverloads constructor(
         vb.tvSubtitle.apply {
             this.text = text
             setTextOrHide(text)
-            setPlaceholderVisibility(text.isNullOrEmpty())
+            setPlaceholderVisibility(lineCount < 1 && text.isNullOrEmpty())
         }
     }
 

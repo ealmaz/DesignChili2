@@ -14,7 +14,11 @@ import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.core.view.updatePadding
 import com.design2.chili2.R
+import com.design2.chili2.extensions.createShimmerLayout
+import com.design2.chili2.extensions.createShimmerView
 import com.design2.chili2.extensions.setOnSingleClickListener
+import com.design2.chili2.extensions.setRippleForeground
+import com.facebook.shimmer.ShimmerFrameLayout
 
 class AdditionalTextWithIconCellView @JvmOverloads constructor(
     context: Context,
@@ -25,6 +29,7 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
 
     private var additionalText: TextView? = null
     private var additionalImage: ImageView? = null
+    private var isAdditionalTextShimmering = false
 
     override fun inflateView(context: Context) {
         super.inflateView(context)
@@ -47,8 +52,27 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
                 getDimensionPixelSize(R.styleable.AdditionalTextWithIconCellView_additionalIconSize, -1).takeIf { it != -1 }?.let {
                     setupAdditionalIconSize(it, it)
                 }
+
+                getBoolean(R.styleable.AdditionalTextWithIconCellView_isAdditionalFieldShimmering, false).takeIf { it }?.let {
+                    setIsAdditionalFieldShimmering(true)
+                }
                 recycle()
             }
+    }
+
+    private fun createShimmerForAdditionalText(): ShimmerFrameLayout {
+        return context.createShimmerLayout().apply {
+            addView(context.createShimmerView(R.dimen.view_46dp))
+            vb.flEndPlaceHolder.addView(this)
+        }
+    }
+
+    fun setIsAdditionalFieldShimmering(isShimmering: Boolean = false) {
+        additionalText?.let { textView ->
+            shimmeringPairs[textView] = if (isShimmering) {
+                createShimmerForAdditionalText()
+            } else null
+        }
     }
 
     private fun inflateAdditionalViews() {
@@ -126,5 +150,12 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
         params?.height = heightPx
         params?.width = widthPx
         additionalImage?.layoutParams = params
+    }
+
+    fun setAdditionalEndIconClickListener(action: () -> Unit) {
+        additionalImage?.apply {
+            setOnSingleClickListener { action.invoke() }
+            setRippleForeground(isSurfaceClickable = true)
+        }
     }
 }

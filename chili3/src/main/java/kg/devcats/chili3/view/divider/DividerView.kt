@@ -69,11 +69,7 @@ class DividerView @JvmOverloads constructor(
             }
     }
 
-    fun setTitle(title: String?) {
-        vb.tvTitle.setTextOrHide(title)
-    }
-
-    fun setTitle(title: Spanned?) {
+    fun setTitle(title: CharSequence?) {
         vb.tvTitle.setTextOrHide(title)
     }
 
@@ -81,16 +77,12 @@ class DividerView @JvmOverloads constructor(
         vb.tvTitle.setTextOrHide(resId)
     }
 
-    fun setSubtitle(subtitle: String?) {
+    fun setSubtitle(subtitle: CharSequence?) {
         vb.tvSubtitle.setTextOrHide(subtitle)
     }
 
     fun setSubtitle(@StringRes resId: Int) {
         vb.tvSubtitle.setTextOrHide(resId)
-    }
-
-    fun setSubtitle(subtitle: Spanned?) {
-        vb.tvSubtitle.setTextOrHide(subtitle)
     }
 
     fun setActionText(value: String?) {
