@@ -7,6 +7,7 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ImageView.ScaleType
 import android.widget.TextView
@@ -262,19 +263,19 @@ class ProductCardView @JvmOverloads constructor(
     }
 
     fun setTags(tags: List<TagData>?) {
-        vb.llTags.apply {
-            removeAllViews()
-            tags.run {
-                if (!isNullOrEmpty()) {
-                    visible()
-                    forEach { addView(createTagView(it)) }
+        tags.run {
+            if (!isNullOrEmpty()) {
+                forEach { tag ->
+                    val parent = if (tag.isTopTag) vb.llTopTags else vb.llBottomTags
+                    parent.addView(createTagView(tag, parent))
+                    parent.visible()
                 }
             }
         }
     }
 
-    private fun createTagView(tag: TagData): View {
-        return LayoutInflater.from(context).inflate(R.layout.chili_view_tag_item, vb.llTags, false).apply {
+    private fun createTagView(tag: TagData, root: ViewGroup): View {
+        return LayoutInflater.from(context).inflate(R.layout.chili_view_tag_item, root, false).apply {
             val textView = findViewById<TextView>(R.id.tv_tag)
             val iconView = findViewById<ImageView>(R.id.iv_tag_icon)
 
@@ -304,5 +305,6 @@ data class TagData(
     val text: String?,
     val icon: String? = null,
     val backgroundColor: String? = null,
-    val textAppearance: Int = R.style.Chili_H12_White1
+    val textAppearance: Int = R.style.Chili_H12_White1,
+    val isTopTag: Boolean = true
 )

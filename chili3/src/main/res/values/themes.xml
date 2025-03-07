@@ -63,6 +63,7 @@
         <!-- ProductCardView -->
         <item name="ChiliProductCardViewTagStartMargin">@dimen/padding_8dp</item>
         <item name="ChiliProductCardViewTagTopMargin">@dimen/padding_7dp</item>
+        <item name="ChiliProductCardViewTagBottomMargin">@dimen/padding_7dp</item>
         <item name="ChiliProductCardViewTagTopInnerMargin">@dimen/padding_1dp</item>
         <item name="ChiliProductCardViewTagPaddingHorizontal">@dimen/padding_4dp</item>
         <item name="ChiliProductCardViewTagPaddingVertical">@dimen/padding_3dp</item>
