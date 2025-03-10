@@ -280,6 +280,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
                 DividerCardSection(
                     title = "За этот месяц",
                     subtitle = ("<span>0,00 <u>c</u></span>".parseAsHtml()),
+                    isSecurable = true
                 ),
                 DividerCardSection(
                     title = "За все время",
@@ -289,6 +290,7 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
                 DividerCardSection(
                     title = "За все время",
                     subtitle = ("<span style=\"color: #2FB552;\">0,00 <u>c</u></span>".parseAsHtml()),
+                    isSecurable = true
                 )
             )
         )

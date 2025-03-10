@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.StyleRes
+import com.design2.chili2.extensions.setupAsSecure
 import com.design2.chili2.view.card.BaseCardView
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliCardHorizontalDividerContentBinding
@@ -58,10 +59,15 @@ class CardHorizontalDivider @JvmOverloads constructor(
             val sectionBinding = ChiliCardHorizontalDividerContentBinding.inflate(LayoutInflater.from(context), vb.sectionsContainer, false)
 
             with(sectionBinding) {
-                tvTitle.text = section.title
-                tvSubtitle.text = section.subtitle
-                tvTitle.setTextAppearance(section.titleTextAppearance)
-                tvSubtitle.setTextAppearance(section.subtitleTextAppearance)
+                tvTitle.apply {
+                    text = section.title
+                    setTextAppearance(section.titleTextAppearance)
+                }
+                tvSubtitle.apply {
+                    text = section.subtitle
+                    setTextAppearance(section.subtitleTextAppearance)
+                    if (section.isSecurable) setupAsSecure()
+                }
                 dividerView.apply {
                     if (index > 0 && index < sectionList.size) visible()
                     else gone()
@@ -77,4 +83,5 @@ data class DividerCardSection(
     val subtitle: CharSequence? = null,
     @StyleRes val titleTextAppearance: Int = R.style.Chili_H12_Secondary,
     @StyleRes val subtitleTextAppearance: Int = R.style.Chili_H16_Primary_Bold,
+    val isSecurable: Boolean = false
 )
