@@ -82,7 +82,7 @@
 
         <kg.devcats.chili3.view.toolbar.TailedToolbarView
             app:background="@android:color/transparent"
-            app:navigationIcon="@drawable/chili3_ic_back"
+            app:navigationIcon="@drawable/chili_ic_back"
             app:title="TailedToolbarView"
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
@@ -94,7 +94,7 @@
             app:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/chili3_ic_back"
+            app:navigationIcon="@drawable/chili_ic_back"
             android:layout_marginTop="@dimen/padding_16dp"
             app:title="ToolbarWithBonusTag" />
 
@@ -103,7 +103,7 @@
             app:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:navigationIcon="@drawable/chili3_ic_back"
+            app:navigationIcon="@drawable/chili_ic_back"
             android:layout_marginTop="@dimen/padding_16dp"
             app:title="ToolbarWithBonusTag" />
 

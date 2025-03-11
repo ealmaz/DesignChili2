@@ -114,7 +114,7 @@ class ChiliToolbar : LinearLayout {
             Configuration(
                 hostActivity = activity,
                 title = title,
-                navigationIconRes = R.drawable.chili_ic_back_arrow_rounded,
+                navigationIconRes = R.drawable.chili_ic_back,
                 isNavigateUpButtonEnabled = true
             ))
     }

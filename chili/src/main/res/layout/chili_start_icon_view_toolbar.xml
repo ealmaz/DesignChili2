@@ -15,7 +15,7 @@
         app:contentInsetStartWithNavigation="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/chili_ic_back_arrow">
+        app:navigationIcon="@drawable/chili_ic_back">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
