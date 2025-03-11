@@ -9,7 +9,7 @@
         <item name="toolbarLeftIconSize">@dimen/view_24dp</item>
         <item name="isDividerVisible">true</item>
         <item name="background">@color/white_1</item>
-        <item name="navigationIcon">@drawable/chili_ic_back_arrow</item>
+        <item name="navigationIcon">@drawable/chili_ic_back</item>
     </style>
 
 
