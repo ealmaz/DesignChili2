@@ -18,6 +18,7 @@ import com.design2.chili2.extensions.createShimmerLayout
 import com.design2.chili2.extensions.createShimmerView
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setRippleForeground
+import com.design2.chili2.extensions.setupAsSecure
 import com.facebook.shimmer.ShimmerFrameLayout
 
 class AdditionalTextWithIconCellView @JvmOverloads constructor(
@@ -29,7 +30,6 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
 
     private var additionalText: TextView? = null
     private var additionalImage: ImageView? = null
-    private var isAdditionalTextShimmering = false
 
     override fun inflateView(context: Context) {
         super.inflateView(context)
@@ -157,5 +157,9 @@ class AdditionalTextWithIconCellView @JvmOverloads constructor(
             setOnSingleClickListener { action.invoke() }
             setRippleForeground(isSurfaceClickable = true)
         }
+    }
+
+    fun setupAdditionalTextAsSecure() {
+        additionalText?.setupAsSecure()
     }
 }

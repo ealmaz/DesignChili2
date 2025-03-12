@@ -128,7 +128,9 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         vb.testToggleCellView.setEndIconClickListener {
             Toast.makeText(context, "End Icon Clicked", Toast.LENGTH_SHORT).show()
         }
+        vb.atcvWithIcon1.setupAdditionalTextAsSecure()
         vb.atcvWithIcon2.apply {
+            setupAdditionalTextAsSecure()
             isClickable = false
             setAdditionalEndIconClickListener{
                 Toast.makeText(context, "End Copy Icon Clicked", Toast.LENGTH_SHORT).show()
