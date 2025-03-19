@@ -103,9 +103,6 @@ class ToolbarActivity : AppCompatActivity() {
                         CircleStartIconChiliToolbar.ClickableElementType.PROFILE_CONTAINER -> {}
                         CircleStartIconChiliToolbar.ClickableElementType.END_ICON -> {}
                         CircleStartIconChiliToolbar.ClickableElementType.ADDITIONAL_END_ICON -> {}
-                        CircleStartIconChiliToolbar.ClickableElementType.TITLE_ICON -> {
-                            Toast.makeText(this, "Clicked on title icon", Toast.LENGTH_SHORT).show()
-                        }
                     }
                 },
             )

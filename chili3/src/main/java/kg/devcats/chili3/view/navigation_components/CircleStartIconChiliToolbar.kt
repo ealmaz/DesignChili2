@@ -85,7 +85,6 @@ class CircleStartIconChiliToolbar : LinearLayout {
         llProfileContainer.setOnSingleClickListener { config.onClick(ClickableElementType.PROFILE_CONTAINER) }
         ibEndIconPrimary.setOnSingleClickListener { config.onClick(ClickableElementType.END_ICON) }
         ibEndIconSecondary.setOnSingleClickListener { config.onClick(ClickableElementType.ADDITIONAL_END_ICON) }
-        setTitleIconClickListener { config.onClick(ClickableElementType.TITLE_ICON) }
     }
 
     fun setToolbarBackgroundColor(@ColorInt colorInt: Int) {
@@ -242,8 +241,7 @@ class CircleStartIconChiliToolbar : LinearLayout {
     enum class ClickableElementType {
         PROFILE_CONTAINER,
         END_ICON,
-        ADDITIONAL_END_ICON,
-        TITLE_ICON
+        ADDITIONAL_END_ICON
     }
 
 }
