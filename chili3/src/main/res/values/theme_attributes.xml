@@ -112,6 +112,10 @@
     <attr name="CircleStartIconChiliToolbarStartIconMarginEnd" format="dimension" />
     <attr name="CircleStartIconChiliToolbarTitleTextAppearance" format="reference" />
     <attr name="CircleStartIconChiliToolbarTitleMaxLines" format="integer" />
+    <attr name="CircleStartIconChiliToolbarSubtitleMaxLines" format="integer" />
+    <attr name="CircleStartIconChiliToolbarSubtitleTextAppearance" format="reference" />
+    <attr name="CircleStartIconChiliToolbarSubtitleTopMargin" format="dimension" />
+    <attr name="CircleStartIconChiliToolbarTitleIconSize" format="dimension" />
     <attr name="CircleStartIconChiliToolbarIconsContainerMarginEnd" format="dimension" />
     <attr name="CircleStartIconChiliToolbarEndIconPrimaryWidth" format="dimension" />
     <attr name="CircleStartIconChiliToolbarEndIconPrimaryHeight" format="dimension" />

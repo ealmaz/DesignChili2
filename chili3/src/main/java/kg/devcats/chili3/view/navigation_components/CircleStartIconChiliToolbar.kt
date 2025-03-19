@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.design2.chili2.extensions.applyStateListAnimatorFromTheme
+import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setOnSingleClickListener
@@ -49,9 +50,16 @@ class CircleStartIconChiliToolbar : LinearLayout {
             setStartIcon(
                 getResourceId(R.styleable.CircleStartIconChiliToolbar_startIcon, -1).takeIf { it != -1 }
             )
+            setTitleIcon(
+                getResourceId(R.styleable.CircleStartIconChiliToolbar_titleIcon, -1).takeIf { it != -1 }
+            )
             setTitle(getString(R.styleable.CircleStartIconChiliToolbar_title))
+            setSubtitle(getString(R.styleable.CircleStartIconChiliToolbar_subtitle))
             getResourceId(R.styleable.CircleStartIconChiliToolbar_titleTextAppearance, -1).takeIf { it != -1 }?.let {
                 setTitleTextAppearance(it)
+            }
+            getResourceId(R.styleable.CircleStartIconChiliToolbar_subtitleTextAppearance, -1).takeIf { it != -1 }?.let {
+                setSubtitleTextAppearance(it)
             }
             setClickableOnProfile(
                 getBoolean(R.styleable.CircleStartIconChiliToolbar_isProfileClickable, false)
@@ -66,10 +74,12 @@ class CircleStartIconChiliToolbar : LinearLayout {
         }
     }
 
-    fun initToolbar(config: Configuration): Unit = with(vb)  {
-        (config.hostActivity as? AppCompatActivity)?.run { setSupportActionBar(toolbar)}
+    fun initToolbar(config: Configuration): Unit = with(vb) {
+        (config.hostActivity as? AppCompatActivity)?.run { setSupportActionBar(toolbar) }
         setTitle(config.title)
-        setStartIcon(config.startIcon)
+        setSubtitle(config.subtitle)
+        setStartIcon(config.startIcon, config.startIconPlaceholder)
+        setTitleIcon(config.titleIcon)
         setPrimaryEndIcon(config.endIconPrimary)
         setSecondaryEndIcon(config.endIconSecondary)
         llProfileContainer.setOnSingleClickListener { config.onClick(ClickableElementType.PROFILE_CONTAINER) }
@@ -81,15 +91,15 @@ class CircleStartIconChiliToolbar : LinearLayout {
         vb.llRoot.setBackgroundColor(colorInt)
     }
 
-    private fun setTitle(icon: Any?) {
-        when (icon) {
-            is String -> setTitle(title = icon)
-            is Int -> setTitle(stringRes = icon)
+    private fun setTitle(text: Any?) {
+        when (text) {
+            is String -> setTitle(title = text)
+            is Int -> setTitle(stringRes = text)
             else -> setTitle(stringRes = null)
         }
     }
 
-    fun setTitle( @StringRes stringRes: Int?) {
+    fun setTitle(@StringRes stringRes: Int?) {
         vb.toolbarTitle.setTextOrHide(stringRes)
     }
 
@@ -103,9 +113,51 @@ class CircleStartIconChiliToolbar : LinearLayout {
         vb.toolbarTitle.setTextAppearance(textAppearanceRes)
     }
 
-    private fun setStartIcon(icon: Any?) {
+    private fun setSubtitle(text: Any?) {
+        when (text) {
+            is String -> setSubtitle(subtitle = text)
+            is Int -> setSubtitle(stringRes = text)
+            else -> setSubtitle(stringRes = null)
+        }
+    }
+
+    fun setSubtitle(@StringRes stringRes: Int?) {
+        vb.toolbarSubtitle.setTextOrHide(stringRes)
+    }
+
+    fun setSubtitle(subtitle: String?) {
+        vb.toolbarSubtitle.setTextOrHide(subtitle)
+    }
+
+    fun getSubtitle(): String = vb.toolbarSubtitle.text.toString()
+
+    fun setSubtitleTextAppearance(@StyleRes textAppearanceRes: Int) {
+        vb.toolbarSubtitle.setTextAppearance(textAppearanceRes)
+    }
+
+    private fun setTitleIcon(icon: Any?) {
         when (icon) {
-            is String -> setStartIcon(uri = icon)
+            is String -> setTitleIcon(url = icon)
+            is Int -> setTitleIcon(drawableRes = icon)
+            else -> setTitleIcon(drawableRes = null)
+        }
+    }
+
+    fun setTitleIcon(@DrawableRes drawableRes: Int?) {
+        vb.ivTitleIcon.setImageOrHide(drawableRes)
+    }
+
+    fun setTitleIcon(url: String?) {
+        vb.ivTitleIcon.setImageOrHide(url)
+    }
+
+    fun setTitleIconClickListener(onClick: () -> Unit) {
+        vb.ivTitleIcon.setOnSingleClickListener { onClick() }
+    }
+
+    private fun setStartIcon(icon: Any?, @DrawableRes placeholder: Int? = null) {
+        when (icon) {
+            is String -> setStartIcon(url = icon, placeholder = placeholder)
             is Int -> setStartIcon(drawableRes = icon)
             else -> setStartIcon(drawableRes = null)
         }
@@ -115,9 +167,10 @@ class CircleStartIconChiliToolbar : LinearLayout {
         vb.startIcon.setImageOrHide(drawableRes)
     }
 
-    fun setStartIcon(uri: String?) = with(vb.startIcon) {
-        isVisible = !uri.isNullOrEmpty()
-        setImageByUrl(uri)
+    fun setStartIcon(url: String?, @DrawableRes placeholder: Int? = null) = with(vb.startIcon) {
+        isVisible = !url.isNullOrEmpty()
+        val placeholderDrawable = placeholder?.let { context.drawable(it) }
+        setImageByUrl(url, placeholderDrawable)
     }
 
     private fun setClickableOnProfile(clickable: Boolean) = with(vb.llProfileContainer) {
@@ -176,7 +229,10 @@ class CircleStartIconChiliToolbar : LinearLayout {
     data class Configuration(
         val hostActivity: FragmentActivity,
         val title: Any? = null,
+        val subtitle: Any? = null,
+        val titleIcon: Int? = null,
         val startIcon: Any? = null,
+        @DrawableRes val startIconPlaceholder: Int? = null,
         val endIconPrimary: Any? = null,
         val endIconSecondary: Any? = null,
         val onClick: (ClickableElementType) -> Unit
