@@ -489,6 +489,7 @@
     <declare-styleable name="AgreementView">
         <attr name="android:checked" />
         <attr name="title" />
+        <attr name="titleTextAppearance"/>
         <attr name="isEditable" format="boolean"/>
     </declare-styleable>
 
