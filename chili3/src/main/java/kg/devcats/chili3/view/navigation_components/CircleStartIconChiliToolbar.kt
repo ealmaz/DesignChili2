@@ -9,6 +9,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import com.design2.chili2.extensions.applyStateListAnimatorFromTheme
@@ -168,7 +169,7 @@ class CircleStartIconChiliToolbar : LinearLayout {
     }
 
     fun setStartIcon(url: String?, @DrawableRes placeholder: Int? = null) = with(vb.startIcon) {
-        isVisible = url != null
+        isGone = url.isNullOrEmpty() && placeholder == null
         val placeholderDrawable = placeholder?.let { context.drawable(it) }
         setImageByUrl(url, placeholderDrawable)
     }
