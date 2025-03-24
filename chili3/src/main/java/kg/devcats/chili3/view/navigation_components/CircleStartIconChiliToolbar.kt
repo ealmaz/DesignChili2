@@ -168,7 +168,7 @@ class CircleStartIconChiliToolbar : LinearLayout {
     }
 
     fun setStartIcon(url: String?, @DrawableRes placeholder: Int? = null) = with(vb.startIcon) {
-        isVisible = !url.isNullOrEmpty()
+        isVisible = url != null
         val placeholderDrawable = placeholder?.let { context.drawable(it) }
         setImageByUrl(url, placeholderDrawable)
     }
