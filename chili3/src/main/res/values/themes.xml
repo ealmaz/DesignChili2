@@ -121,9 +121,9 @@
         <item name="CircleStartIconChiliToolbarStartIconWidth">@dimen/view_32dp</item>
         <item name="CircleStartIconChiliToolbarStartIconHeight">@dimen/view_32dp</item>
         <item name="CircleStartIconChiliToolbarStartIconMarginEnd">@dimen/padding_12dp</item>
-        <item name="CircleStartIconChiliToolbarTitleTextAppearance">@style/Chili.H20.Primary.Bold</item>
+        <item name="CircleStartIconChiliToolbarTitleTextAppearance">@style/Chili.H16.Primary.Bold</item>
         <item name="CircleStartIconChiliToolbarTitleMaxLines">1</item>
-        <item name="CircleStartIconChiliToolbarSubtitleTextAppearance">@style/Chili.H16.Secondary.Bold</item>
+        <item name="CircleStartIconChiliToolbarSubtitleTextAppearance">@style/Chili.H14.Secondary.Bold</item>
         <item name="CircleStartIconChiliToolbarSubtitleMaxLines">1</item>
         <item name="CircleStartIconChiliToolbarSubtitleTopMargin">@dimen/padding_2dp</item>
         <item name="CircleStartIconChiliToolbarIconsContainerMarginEnd">@dimen/padding_16dp</item>

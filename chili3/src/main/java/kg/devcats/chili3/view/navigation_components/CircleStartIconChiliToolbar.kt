@@ -3,6 +3,7 @@ package kg.devcats.chili3.view.navigation_components
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
@@ -18,11 +19,14 @@ import com.design2.chili2.extensions.setImageByUrl
 import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
+import com.design2.chili2.view.shimmer.ShimmeringView
+import com.facebook.shimmer.ShimmerFrameLayout
 import kg.devcats.chili3.R
 import kg.devcats.chili3.databinding.ChiliCircleStartIconViewToolbarBinding
 
-class CircleStartIconChiliToolbar : LinearLayout {
+class CircleStartIconChiliToolbar : LinearLayout, ShimmeringView {
 
+    private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
     private lateinit var vb: ChiliCircleStartIconViewToolbarBinding
 
     constructor(context: Context) : super(context) {
@@ -41,6 +45,7 @@ class CircleStartIconChiliToolbar : LinearLayout {
 
     private fun setupView() {
         vb = ChiliCircleStartIconViewToolbarBinding.inflate(LayoutInflater.from(context), this, true)
+        setupShimmering()
     }
 
     private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_CircleStartIconChiliToolbarStyle) {
@@ -75,6 +80,10 @@ class CircleStartIconChiliToolbar : LinearLayout {
         }
     }
 
+    private fun setupShimmering() {
+        shimmeringPairs[vb.llProfileContainer] = vb.viewShimmerContent
+    }
+
     fun initToolbar(config: Configuration): Unit = with(vb) {
         (config.hostActivity as? AppCompatActivity)?.run { setSupportActionBar(toolbar) }
         setTitle(config.title)
@@ -86,6 +95,10 @@ class CircleStartIconChiliToolbar : LinearLayout {
         llProfileContainer.setOnSingleClickListener { config.onClick(ClickableElementType.PROFILE_CONTAINER) }
         ibEndIconPrimary.setOnSingleClickListener { config.onClick(ClickableElementType.END_ICON) }
         ibEndIconSecondary.setOnSingleClickListener { config.onClick(ClickableElementType.ADDITIONAL_END_ICON) }
+    }
+
+    fun setProfileContainerClick(onClick: () -> Unit) {
+        vb.llProfileContainer.setOnSingleClickListener { onClick() }
     }
 
     fun setToolbarBackgroundColor(@ColorInt colorInt: Int) {
@@ -244,5 +257,7 @@ class CircleStartIconChiliToolbar : LinearLayout {
         END_ICON,
         ADDITIONAL_END_ICON
     }
+
+    override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
 
 }
