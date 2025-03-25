@@ -230,6 +230,7 @@ class DetailedDescriptionBottomSheet private constructor(): BaseViewBottomSheetD
         private var secondaryButtonRes: Pair<Int, (DetailedDescriptionBottomSheet.() -> Unit)>? = null
 
         private var isHideable: Boolean = true
+        private var isDraggable: Boolean = true
 
         private var dismissEvent: (() -> Unit)? = null
 
@@ -285,6 +286,11 @@ class DetailedDescriptionBottomSheet private constructor(): BaseViewBottomSheetD
 
         fun setIsHideable(isHideable: Boolean): Builder {
             this.isHideable = isHideable
+            return this
+        }
+
+        fun setIsDraggable(isDraggable: Boolean): Builder {
+            this.isDraggable = isDraggable
             return this
         }
 
@@ -352,6 +358,7 @@ class DetailedDescriptionBottomSheet private constructor(): BaseViewBottomSheetD
                 this.primaryButtonRes = this@Builder.primaryButtonRes
                 this.secondaryButtonRes = this@Builder.secondaryButtonRes
                 this.isHideable = this@Builder.isHideable
+                this.isDraggable = this@Builder.isDraggable
                 this.dismissEvent = this@Builder.dismissEvent
                 this.hasCloseIcon = this@Builder.hasCloseIcon
                 this.headerText = this@Builder.headerText
