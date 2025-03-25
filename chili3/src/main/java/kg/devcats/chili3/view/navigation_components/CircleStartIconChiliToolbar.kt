@@ -149,9 +149,9 @@ class CircleStartIconChiliToolbar : LinearLayout, ShimmeringView {
         vb.toolbarSubtitle.setTextAppearance(textAppearanceRes)
     }
 
-    private fun setTitleIcon(icon: Any?) {
+    private fun setTitleIcon(icon: Any?, @DrawableRes placeholder: Int? = null) {
         when (icon) {
-            is String -> setTitleIcon(url = icon)
+            is String -> setTitleIcon(url = icon, placeholder = placeholder)
             is Int -> setTitleIcon(drawableRes = icon)
             else -> setTitleIcon(drawableRes = null)
         }
@@ -161,8 +161,10 @@ class CircleStartIconChiliToolbar : LinearLayout, ShimmeringView {
         vb.ivTitleIcon.setImageOrHide(drawableRes)
     }
 
-    fun setTitleIcon(url: String?) {
-        vb.ivTitleIcon.setImageOrHide(url)
+    fun setTitleIcon(url: String?, @DrawableRes placeholder: Int? = null) = with(vb.ivTitleIcon) {
+        isGone = url.isNullOrEmpty() && placeholder == null
+        val placeholderDrawable = placeholder?.let { context.drawable(it) }
+        setImageByUrl(url, placeholderDrawable)
     }
 
     fun setTitleIconClickListener(onClick: () -> Unit) {
