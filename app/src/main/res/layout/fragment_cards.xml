@@ -1338,7 +1338,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_16dp"
                 app:horizontalPrimaryBtnText="Подтвердить"
-                app:horizontalAdditionalBtnText="O! Store картасындадаkfh sdfsdfsa asd"
+                app:horizontalAdditionalBtnText="Это не я"
                 app:subtitle="Подтвердите личность, чтобы получить доступ ко всем услугам"
                 app:title="У вас новый смартфон?" />
 
