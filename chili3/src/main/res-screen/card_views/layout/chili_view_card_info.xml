@@ -53,6 +53,10 @@
             android:layout_weight="1"
             style="@style/Chili.ButtonStyle.Additional"
             android:visibility="gone"
+            android:paddingStart="@dimen/padding_12dp"
+            android:paddingEnd="@dimen/padding_12dp"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:layout_marginEnd="@dimen/padding_12dp"
             tools:text="Это не я"
             tools:visibility="visible" />
@@ -63,6 +67,10 @@
             android:layout_weight="1"
             style="@style/Chili.ButtonStyle.Primary"
             android:visibility="gone"
+            android:paddingStart="@dimen/padding_12dp"
+            android:paddingEnd="@dimen/padding_12dp"
+            android:maxLines="1"
+            android:ellipsize="end"
             tools:text="Подтвердить личность"
             tools:visibility="visible" />
 
