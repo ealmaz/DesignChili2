@@ -21,11 +21,14 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
     override var horizontalMargin: Int = 0
     override var bottomMargin: Int = 0
 
+    override var skipCollapsed: Boolean = true
+
     override fun setupBottomSheetBehavior(behavior: BottomSheetBehavior<*>?) {
         behavior?.peekHeight = getWindowHeight() * 30 / 100
         behavior?.isHideable = isHideable
         behavior?.halfExpandedRatio = 0.3f
         behavior?.state = state
+        behavior?.skipCollapsed = skipCollapsed
     }
 
     override fun createFragment(): Fragment {
@@ -48,6 +51,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
         @StyleRes private var bottomSheetStyle: Int = R.style.Chili_BottomSheetStyle
 
         private var onCloseIconClick: (() -> Boolean)? = null
+        private var skipCollapsed: Boolean = true
 
 
         fun setContentFragment(contentFragment: Fragment): Builder {
@@ -115,6 +119,11 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
             return this
         }
 
+        fun setSkipCollapsed(skip: Boolean): Builder {
+            this.skipCollapsed = skip
+            return this
+        }
+
         fun build(): FragmentBottomSheet {
             return FragmentBottomSheet().apply {
                 contentFragment = this@Builder.contentFragment
@@ -130,6 +139,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
                 bottomMargin = this@Builder.bottomMargin
                 state = this@Builder.state
                 onCloseIconClick = this@Builder.onCloseIconClick
+                skipCollapsed = this@Builder.skipCollapsed
             }
         }
 

@@ -145,7 +145,8 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .setMessageTextAppearance(com.design2.chili2.R.style.Chili_H4_Error)
                 .setHeaderText("Pfgybnt lfyyst")
 //                .setDismissEvent { Toast.makeText(context, "Dismissed", Toast.LENGTH_SHORT).show() }
-                .setIsHideable(false)
+                .setIsHideable(true)
+                .setSkipCollapsed(false)
                 .build()
                 .show(childFragmentManager)
         }
@@ -242,11 +243,13 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
         }
         vb.customWithBuilder.setOnClickListener {
             FragmentBottomSheet.Builder()
-                .setContentFragment(CommonViewsFragment())
+                .setContentFragment(OverlaysFragment())
                 .setIsBackButtonEnabled(true)
                 .setHorizontalMargin(resources.getDimension(com.design2.chili2.R.dimen.padding_16dp).toInt())
                 .setBottomMargin(resources.getDimension(com.design2.chili2.R.dimen.padding_16dp).toInt())
                 .setState(BottomSheetBehavior.STATE_EXPANDED)
+                .setIsHideable(true)
+                .setSkipCollapsed(false)
                 .build()
                 .show(childFragmentManager)
         }

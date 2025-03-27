@@ -47,6 +47,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
 
     override var hasCloseIcon: Boolean = true
     override var closeIconView: View? = null
+    override var skipCollapsed: Boolean = true
 
     private var dismissEvent: (() -> Unit)? = null
 
@@ -205,6 +206,8 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
 
         private var dismissEvent: (() -> Unit)? = null
 
+        private var skipCollapsed: Boolean = true
+
         fun setMessage(text: String): Builder {
             this.text = text
             return this
@@ -295,6 +298,11 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
             return this
         }
 
+        fun setSkipCollapsed(skip: Boolean): Builder {
+            this.skipCollapsed = skip
+            return this
+        }
+
         fun build(): InfoBottomSheet {
             return InfoBottomSheet().apply {
                 this.text = this@Builder.text
@@ -314,6 +322,7 @@ class InfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment()
                 this.headerText = this@Builder.headerText
                 this.headerTextSpanned = this@Builder.headerTextSpanned
                 this.headerTextAppearance = this@Builder.headerTextAppearance
+                this.skipCollapsed = this@Builder.skipCollapsed
                 this@Builder.textMaxLines?.let { this.textMaxLines = it }
             }
         }

@@ -30,6 +30,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     protected open var isDraggable: Boolean = true
     protected open var isBackButtonEnabled: Boolean = true
     protected open var state: Int = BottomSheetBehavior.STATE_EXPANDED
+    protected open var skipCollapsed: Boolean = true
 
     protected open var onCloseIconClick: (() -> Boolean)? = null
 
@@ -113,7 +114,7 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 peekHeight = getWindowHeight() * 20 / 100
             }
             isDraggable = this@BaseBottomSheetDialogFragment.isDraggable
-            skipCollapsed = true
+            skipCollapsed = this@BaseBottomSheetDialogFragment.skipCollapsed
             state = this@BaseBottomSheetDialogFragment.state
         }
     }
