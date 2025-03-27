@@ -51,7 +51,6 @@
             android:id="@+id/btn_horizontal_additional"
             android:width="0dp"
             android:layout_weight="1"
-            android:paddingHorizontal="@dimen/padding_4dp"
             style="@style/Chili.ButtonStyle.Additional"
             android:visibility="gone"
             android:paddingStart="@dimen/padding_8dp"
