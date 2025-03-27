@@ -33,6 +33,7 @@ class AgreementView @JvmOverloads constructor(
     private fun obtainAttributes(context: Context, attrs: AttributeSet?) {
         context.obtainStyledAttributes(attrs, R.styleable.AgreementView).run {
             getString(R.styleable.AgreementView_title)?.let { title -> setTitle(title) }
+            getResourceId(R.styleable.AgreementView_titleTextAppearance, -1).takeIf { it != -1 }?.let { setTextAppearance(it) }
             setChecked(getBoolean(R.styleable.AgreementView_android_checked, false))
             setIsEditable(getBoolean(R.styleable.AgreementView_isEditable, true))
             recycle()

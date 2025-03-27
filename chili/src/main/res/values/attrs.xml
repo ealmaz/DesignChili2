@@ -329,6 +329,7 @@
         <attr name="android:text"/>
         <attr name="android:enabled"/>
         <attr name="isLoading" format="boolean"/>
+        <attr name="textAppearance"/>
     </declare-styleable>
 
     <declare-styleable name="IconedButton">
@@ -489,6 +490,7 @@
     <declare-styleable name="AgreementView">
         <attr name="android:checked" />
         <attr name="title" />
+        <attr name="titleTextAppearance"/>
         <attr name="isEditable" format="boolean"/>
     </declare-styleable>
 

@@ -274,8 +274,11 @@
 
     <declare-styleable name="CircleStartIconChiliToolbar">
         <attr name="title" />
+        <attr name="subtitle" />
         <attr name="startIcon" />
+        <attr name="titleIcon" />
         <attr name="titleTextAppearance" />
+        <attr name="subtitleTextAppearance" />
         <attr name="endIconPrimary" format="reference" />
         <attr name="endIconSecondary" format="reference" />
         <attr name="background" />

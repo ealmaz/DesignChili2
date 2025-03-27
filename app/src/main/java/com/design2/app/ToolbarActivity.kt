@@ -93,7 +93,9 @@ class ToolbarActivity : AppCompatActivity() {
             CircleStartIconChiliToolbar.Configuration(
                 hostActivity = this,
                 title = "Title",
+                subtitle = "Subtitle",
                 startIcon = R.drawable.cat_204_192,
+                titleIcon = R.drawable.ic_cat,
                 endIconPrimary = R.drawable.ic_search_filled,
                 endIconSecondary = R.drawable.ic_notification_with_events,
                 onClick = {

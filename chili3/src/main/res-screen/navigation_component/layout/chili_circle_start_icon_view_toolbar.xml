@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ll_root"
     android:layout_width="match_parent"
-    android:layout_height="?actionBarSize"
+    android:layout_height="wrap_content"
     android:background="@android:color/transparent">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -46,21 +47,110 @@
                     android:layout_height="?CircleStartIconChiliToolbarStartIconHeight"
                     android:layout_marginEnd="?CircleStartIconChiliToolbarStartIconMarginEnd"
                     android:scaleType="centerCrop"
+                    tools:src="@drawable/ic_info"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:shapeAppearanceOverlay="@style/ImageCircleTheme" />
 
-                <TextView
-                    android:id="@+id/toolbar_title"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_title_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="?CircleStartIconChiliToolbarTitleMaxLines"
-                    android:textAppearance="?CircleStartIconChiliToolbarTitleTextAppearance"
-                    tools:text="Title" />
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="?CircleStartIconChiliToolbarTitleMaxLines"
+                        android:textAppearance="?CircleStartIconChiliToolbarTitleTextAppearance"
+                        app:layout_constrainedWidth="true"
+                        app:layout_constraintEnd_toStartOf="@id/iv_title_icon"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Title1234567890123456789012345678901234567890" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/iv_title_icon"
+                        android:layout_width="@dimen/view_20dp"
+                        android:layout_height="@dimen/view_20dp"
+                        android:layout_marginHorizontal="@dimen/padding_4dp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@id/toolbar_title"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/toolbar_title"
+                        app:layout_constraintTop_toTopOf="@id/toolbar_title"
+                        tools:src="@drawable/ic_info"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/toolbar_subtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="?CircleStartIconChiliToolbarSubtitleMaxLines"
+                        android:textAppearance="?CircleStartIconChiliToolbarSubtitleTextAppearance"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/toolbar_title"
+                        tools:text="Subtitle"
+                        tools:visibility="visible" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/view_shimmer_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginStart="?CircleStartIconChiliToolbarProfileContainerMarginStart"
+                android:layout_marginEnd="?CircleStartIconChiliToolbarProfileContainerMarginEnd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/view_shimmer_icon"
+                        android:layout_width="?CircleStartIconChiliToolbarStartIconWidth"
+                        android:layout_height="?CircleStartIconChiliToolbarStartIconHeight"
+                        android:background="@drawable/chili_bg_circle_shimmer"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <View
+                        android:id="@+id/view_shimmer_title"
+                        android:layout_width="@dimen/view_120dp"
+                        android:layout_height="@dimen/view_8dp"
+                        android:layout_marginStart="@dimen/padding_12dp"
+                        android:layout_marginTop="@dimen/padding_4dp"
+                        android:background="@drawable/chili_bg_shimmer"
+                        app:layout_constraintStart_toEndOf="@id/view_shimmer_icon"
+                        app:layout_constraintTop_toTopOf="@id/view_shimmer_icon" />
+
+                    <View
+                        android:id="@+id/view_shimmer_subtitle"
+                        android:layout_width="@dimen/view_90dp"
+                        android:layout_height="@dimen/view_8dp"
+                        android:layout_marginStart="@dimen/padding_12dp"
+                        android:layout_marginBottom="@dimen/padding_4dp"
+                        android:background="@drawable/chili_bg_shimmer"
+                        app:layout_constraintBottom_toBottomOf="@id/view_shimmer_icon"
+                        app:layout_constraintStart_toEndOf="@id/view_shimmer_icon" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
             <LinearLayout
                 android:id="@+id/ll_icons"
@@ -69,6 +159,7 @@
                 android:layout_marginEnd="?CircleStartIconChiliToolbarIconsContainerMarginEnd"
                 android:orientation="horizontal"
                 android:visibility="gone"
+                tools:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -96,4 +187,4 @@
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

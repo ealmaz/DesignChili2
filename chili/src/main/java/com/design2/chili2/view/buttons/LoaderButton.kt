@@ -34,6 +34,9 @@ class LoaderButton @JvmOverloads constructor(
             setText(getString(R.styleable.LoaderButton_android_text))
             setEnabled(getBoolean(R.styleable.LoaderButton_android_enabled, true))
             setIsLoading(getBoolean(R.styleable.LoaderButton_isLoading, false))
+            getResourceId(R.styleable.LoaderButton_textAppearance, -1).takeIf { it != -1 }?.let {
+                setTextAppearance(it)
+            }
             recycle()
         }
     }
@@ -51,6 +54,10 @@ class LoaderButton @JvmOverloads constructor(
             true -> showLoader()
             else -> hideLoader()
         }
+    }
+
+    fun setTextAppearance(resId: Int) {
+        vb.button.setTextAppearance(resId)
     }
 
     private fun showLoader() = with(vb) {
