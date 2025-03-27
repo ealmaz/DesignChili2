@@ -22,13 +22,17 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
     override var bottomMargin: Int = 0
 
     override var skipCollapsed: Boolean = true
+    override var isFitToContents: Boolean? = null
+    override var halfExpandedRatio: Float? = null
+    override var peekHeight: Int? = null
 
     override fun setupBottomSheetBehavior(behavior: BottomSheetBehavior<*>?) {
-        behavior?.peekHeight = getWindowHeight() * 30 / 100
+        behavior?.peekHeight = peekHeight ?: (getWindowHeight() * 30 / 100)
         behavior?.isHideable = isHideable
-        behavior?.halfExpandedRatio = 0.3f
+        behavior?.halfExpandedRatio = halfExpandedRatio ?: 0.3f
         behavior?.state = state
         behavior?.skipCollapsed = skipCollapsed
+        isFitToContents?.let { behavior?.isFitToContents = it }
     }
 
     override fun createFragment(): Fragment {
@@ -52,7 +56,9 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
 
         private var onCloseIconClick: (() -> Boolean)? = null
         private var skipCollapsed: Boolean = true
-
+        private var halfExpandedRatio: Float? = null
+        private var peekHeight: Int? = null
+        private var isFitToContents: Boolean? = null
 
         fun setContentFragment(contentFragment: Fragment): Builder {
             this.contentFragment = contentFragment
@@ -124,6 +130,21 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
             return this
         }
 
+        fun setHalfExpandedRatio(ratio: Float): Builder {
+            this.halfExpandedRatio = ratio
+            return this
+        }
+
+        fun setPeekHeight(peekHeight: Int): Builder {
+            this.peekHeight = peekHeight
+            return this
+        }
+
+        fun setIsFitToContents(isFitToContents: Boolean): Builder {
+            this.isFitToContents = isFitToContents
+            return this
+        }
+
         fun build(): FragmentBottomSheet {
             return FragmentBottomSheet().apply {
                 contentFragment = this@Builder.contentFragment
@@ -140,6 +161,9 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
                 state = this@Builder.state
                 onCloseIconClick = this@Builder.onCloseIconClick
                 skipCollapsed = this@Builder.skipCollapsed
+                halfExpandedRatio = this@Builder.halfExpandedRatio
+                peekHeight = this@Builder.peekHeight
+                isFitToContents = this@Builder.isFitToContents
             }
         }
 

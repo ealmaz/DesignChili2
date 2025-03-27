@@ -30,7 +30,6 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     protected open var isDraggable: Boolean = true
     protected open var isBackButtonEnabled: Boolean = true
     protected open var state: Int = BottomSheetBehavior.STATE_EXPANDED
-    protected open var skipCollapsed: Boolean = true
 
     protected open var onCloseIconClick: (() -> Boolean)? = null
 
@@ -40,6 +39,11 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
     abstract var innerTopDrawableView: View?
     abstract var closeIconView: View?
     @StyleRes var bottomSheetStyle : Int = R.style.Chili_BottomSheetStyle
+
+    protected open var skipCollapsed: Boolean = true
+    protected open var isFitToContents: Boolean? = null
+    protected open var halfExpandedRatio: Float? = null
+    protected open var peekHeight: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -111,11 +115,13 @@ abstract class BaseBottomSheetDialogFragment : BottomSheetDialogFragment() {
         behavior?.run {
             if (!this@BaseBottomSheetDialogFragment.isHideable) {
                 isHideable = this@BaseBottomSheetDialogFragment.isHideable
-                peekHeight = getWindowHeight() * 20 / 100
+                peekHeight = this@BaseBottomSheetDialogFragment.peekHeight ?: (getWindowHeight() * 20 / 100)
             }
             isDraggable = this@BaseBottomSheetDialogFragment.isDraggable
             skipCollapsed = this@BaseBottomSheetDialogFragment.skipCollapsed
             state = this@BaseBottomSheetDialogFragment.state
+            this@BaseBottomSheetDialogFragment.halfExpandedRatio?.let { halfExpandedRatio = it }
+            this@BaseBottomSheetDialogFragment.isFitToContents?.let { isFitToContents = it }
         }
     }
 
