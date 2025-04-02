@@ -134,7 +134,7 @@
                 android:layout_width="@dimen/view_32dp"
                 android:layout_height="@dimen/view_32dp"
                 android:layout_marginStart="@dimen/padding_8dp"
-                android:src="@drawable/chili_ic_chevron"
+                android:src="@drawable/chili_ic_chevron_rounded"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
