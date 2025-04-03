@@ -46,7 +46,7 @@
         android:layout_marginTop="@dimen/padding_8dp"
         android:ellipsize="end"
         android:maxLines="4"
-        android:textAppearance="@style/Chili.H4.Primary.Bold"
+        android:textAppearance="@style/Chili.H4.Primary.700"
         android:visibility="gone"
         tools:text="Заголовок"
         tools:visibility="visible" />
@@ -59,7 +59,7 @@
         android:layout_marginTop="@dimen/padding_8dp"
         android:ellipsize="end"
         android:maxLines="4"
-        android:textAppearance="@style/Chili.H8.Primary"
+        android:textAppearance="@style/Chili.H7.Primary"
         android:visibility="gone"
         tools:text="Подзаголовок"
         tools:visibility="visible" />
@@ -86,7 +86,7 @@
             android:id="@+id/tv_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/padding_8dp"
+            android:layout_marginStart="@dimen/padding_12dp"
             android:ellipsize="end"
             android:maxLines="4"
             android:textAppearance="@style/Chili.H7.Primary.Bold"
