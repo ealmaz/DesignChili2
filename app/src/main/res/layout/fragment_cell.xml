@@ -26,17 +26,33 @@
             app:actionText="Action"
             app:title="CardCellViews" />
 
-        <kg.devcats.chili3.view.cells.CardCellView
-            android:id="@+id/cardcell2"
+        <FrameLayout
             android:layout_marginTop="@dimen/padding_16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCellTitle="Заголовок"
-            app:cardCellSubtitle="Подзаголовок"
-            app:cardCellValue="500 000,00 с"
-            app:cardCellIsMain="true"
-            app:cardCellIsBlocked="false"
-            app:cardCellIsUniqueStatused="false"/>
+            android:layout_height="wrap_content">
+
+            <kg.devcats.chili3.view.cells.CardCellView
+                android:id="@+id/cardcell2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/padding_12dp"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                app:cardCellTitle="Заголовок"
+                app:cardCellSubtitle="Подзаголовок"
+                app:cardCellIcon="@drawable/chili_ic_add_card_cell"
+                />
+
+            <com.design2.chili2.view.container.HighlighterFrame
+                android:id="@+id/hf2"
+                app:gradientStartColor="#DEE4FA"
+                app:gradientEndColor="#FF2A99"
+                app:gradientLengthRatio="8"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+
+        </FrameLayout>
+
 
         <kg.devcats.chili3.view.cells.CardCellView
             android:id="@+id/cardcell3"

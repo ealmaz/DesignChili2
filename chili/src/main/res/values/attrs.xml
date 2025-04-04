@@ -603,6 +603,7 @@
         <attr name="strokeWidth"/>
         <attr name="gradientStartColor" format="color"/>
         <attr name="gradientEndColor" format="color"/>
+        <attr name="gradientLengthRadius" format="float"/>
     </declare-styleable>
 
 </resources>
