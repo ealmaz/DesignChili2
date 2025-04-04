@@ -13,7 +13,7 @@
         android:layout_marginTop="@dimen/padding_8dp"
         android:layout_marginEnd="@dimen/padding_8dp"
         android:layout_gravity="end"
-        android:background="@drawable/chili_ic_close"/>
+        android:background="@drawable/chili_ic_close_rounded"/>
 
     <LinearLayout
         android:id="@+id/ll_search"
