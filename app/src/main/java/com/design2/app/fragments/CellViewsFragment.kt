@@ -99,7 +99,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
         }
 
         //CardCellView
-        vb.cardcell2.startShimmering()
+        vb.hf2.startAnimation()
         vb.cardcell3.setupAdditionalAsSecure()
         Handler(Looper.getMainLooper()).postDelayed({ vb.cardcell2.stopShimmering(false) }, 2000)
         vb.cardcell4.setBlockedState()

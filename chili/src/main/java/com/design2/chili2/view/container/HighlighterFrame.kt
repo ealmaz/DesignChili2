@@ -27,6 +27,7 @@ class HighlighterFrame @JvmOverloads constructor(
     private val strokeWidth: Float
     private var gradientColors: IntArray
     private val cornerRadius: Float
+    private var gradientLengthRadius: Float
 
     init {
         context.obtainStyledAttributes(attrs, R.styleable.HighlighterFrame, defStyleAttr, defStyleRes).run {
@@ -41,6 +42,7 @@ class HighlighterFrame @JvmOverloads constructor(
             val endColor = getColor(R.styleable.HighlighterFrame_gradientEndColor, Color.TRANSPARENT)
 
             gradientColors = intArrayOf(startColor, endColor)
+            gradientLengthRadius = getFloat(R.styleable.HighlighterFrame_gradientLengthRadius, 1f)
 
             recycle()
         }
@@ -74,7 +76,7 @@ class HighlighterFrame @JvmOverloads constructor(
 
         centerX = width / 2f
         centerY = height / 2f
-        radius = (Math.min(width, height) / 2f) * 0.9f
+        radius = (Math.min(width, height) / 2f) * 0.9f * gradientLengthRadius
 
         val startX = centerX + (radius * cos(Math.toRadians(angle.toDouble()))).toFloat()
         val startY = centerY + (radius * sin(Math.toRadians(angle.toDouble()))).toFloat()
