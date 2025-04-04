@@ -28,7 +28,7 @@ abstract class BaseFragmentBottomSheetDialogFragment : BaseBottomSheetDialogFrag
     protected open var backgroundDrawable: Int = R.drawable.chili_bg_rounded_bottom_sheet
 
     @DrawableRes
-    protected open var closeIconDrawable: Int = R.drawable.chili_ic_clear
+    protected open var closeIconDrawable: Int = R.drawable.chili_ic_close_rounded
 
 
     @Nullable

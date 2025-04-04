@@ -51,7 +51,7 @@ class FragmentBottomSheet : BaseFragmentBottomSheetDialogFragment() {
         private var bottomMargin: Int = 0
         private var state: Int = BottomSheetBehavior.STATE_HALF_EXPANDED
         @DrawableRes private var backgroundDrawable: Int = R.drawable.chili_bg_rounded_bottom_sheet
-        @DrawableRes private var closeIconDrawable: Int = R.drawable.chili_ic_clear
+        @DrawableRes private var closeIconDrawable: Int = R.drawable.chili_ic_close_rounded
         @StyleRes private var bottomSheetStyle: Int = R.style.Chili_BottomSheetStyle
 
         private var onCloseIconClick: (() -> Boolean)? = null

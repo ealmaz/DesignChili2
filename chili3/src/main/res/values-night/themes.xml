@@ -140,7 +140,7 @@
 
         <!-- ChiliBottomSheet-->
         <item name="ChiliBottomSheetBackgroundColor">@color/black_3</item>
-        <item name="ChiliBottomSheetTopDrawableColor">@color/black_5</item>
+        <item name="ChiliBottomSheetTopDrawableColor">@color/gray_1</item>
 
         <!-- ChiliCellViewBackgroundColor-->
         <item name="ChiliCellViewBackgroundColor">@color/c_efeff4</item>
