@@ -64,7 +64,7 @@
         android:layout_marginStart="@dimen/padding_8dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/chili_ic_close_rounded"
+        android:src="@drawable/chili_ic_close_rounded_20"
         android:visibility="gone"
         tools:visibility="visible" />
 

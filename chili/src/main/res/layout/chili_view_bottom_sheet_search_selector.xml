@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/iv_close"
-        android:layout_width="@dimen/padding_24dp"
-        android:layout_height="@dimen/padding_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_8dp"
         android:layout_marginEnd="@dimen/padding_8dp"
         android:layout_gravity="end"
