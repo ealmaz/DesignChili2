@@ -63,11 +63,11 @@ class ExpandableCardItemView @JvmOverloads constructor(
     }
 
     fun setTitle(charSequence: CharSequence?) {
-        vb.tvTitle.text = charSequence
+        vb.tvTitle.setTextOrHide(charSequence)
     }
 
     fun setTitle(resId: Int) {
-        vb.tvTitle.setText(resId)
+        vb.tvTitle.setTextOrHide(resId)
     }
 
     fun setSubtitle(charSequence: CharSequence?) {

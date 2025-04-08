@@ -658,6 +658,14 @@
                         app:titleValue="8 150,00 с" />
 
                     <com.design2.chili2.view.card.ExpandableCardItemView
+                        android:id="@+id/item2223"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:subtitle="Платеж в пользу 3х лиц"
+                        app:subtitleValue="200,00с"
+                        app:subtitleEndIcon="@drawable/chili_ic_warning" />
+
+                    <com.design2.chili2.view.card.ExpandableCardItemView
                         android:id="@+id/item23"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
