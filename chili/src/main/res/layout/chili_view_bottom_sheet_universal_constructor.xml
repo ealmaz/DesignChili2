@@ -9,19 +9,8 @@
     android:id="@+id/ll_root"
     tools:background="@color/gray_2">
 
-    <ImageView
-        android:id="@+id/iv_top_drawable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/padding_8dp"
-        android:layout_marginBottom="@dimen/padding_6dp"
-        android:background="@drawable/chili_bottom_sheet_top_drawable"
-        android:backgroundTint="?attr/ChiliBottomSheetTopDrawableColor"
-        android:visibility="visible"/>
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ll_content"
+        android:id="@+id/сl_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -32,13 +21,25 @@
         android:layout_marginBottom="?ChiliBottomSheetContainerBottomMargin">
 
         <ImageView
-            android:id="@+id/iv_close"
+            android:id="@+id/iv_top_drawable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/ic_bottom_sheet_top_drawable"
+            android:backgroundTint="?attr/ChiliBottomSheetTopDrawableColor"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/view_24dp"
+            android:layout_height="@dimen/view_24dp"
             android:layout_gravity="top|right"
-            android:layout_marginEnd="@dimen/padding_8dp"
+            android:layout_marginTop="@dimen/padding_4dp"
+            android:layout_marginEnd="@dimen/padding_12dp"
             android:layout_marginBottom="@dimen/padding_8dp"
-            android:background="@drawable/chili_ic_clear_24"
+            android:background="@drawable/chili_ic_close_rounded"
             android:visibility="visible"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

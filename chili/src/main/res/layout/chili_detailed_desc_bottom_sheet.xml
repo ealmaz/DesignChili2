@@ -28,10 +28,10 @@
             android:layout_width="@dimen/view_24dp"
             android:layout_height="@dimen/view_24dp"
             android:layout_gravity="top|right"
-            android:layout_marginTop="@dimen/padding_20dp"
-            android:layout_marginEnd="@dimen/padding_10dp"
+            android:layout_marginTop="@dimen/padding_12dp"
+            android:layout_marginEnd="@dimen/padding_12dp"
             android:layout_marginBottom="@dimen/padding_8dp"
-            android:background="@drawable/chili_ic_close"
+            android:background="@drawable/chili_ic_close_rounded"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
