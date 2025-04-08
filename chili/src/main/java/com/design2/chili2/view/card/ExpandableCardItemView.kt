@@ -57,17 +57,16 @@ class ExpandableCardItemView @JvmOverloads constructor(
         }
     }
 
-    override fun setupShimmeringViews() {
-        super.setupShimmeringViews()
-        shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
-    }
-
     fun setTitle(charSequence: CharSequence?) {
         vb.tvTitle.setTextOrHide(charSequence)
+        if (charSequence == null) shimmeringPairs.remove(vb.tvTitle)
+        else shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
     }
 
-    fun setTitle(resId: Int) {
+    fun setTitle(resId: Int?) {
         vb.tvTitle.setTextOrHide(resId)
+        if (resId == null) shimmeringPairs.remove(vb.tvTitle)
+        else shimmeringPairs[vb.tvTitle] = vb.viewTitleShimmer
     }
 
     fun setSubtitle(charSequence: CharSequence?) {
