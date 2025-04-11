@@ -2,9 +2,9 @@ package kg.devcats.chili3.view.divider
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.text.Spanned
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
@@ -64,6 +64,10 @@ class DividerView @JvmOverloads constructor(
                     R.styleable.DividerView_dividerActionTextAppearance,
                     -1
                 ).takeIf { it != -1 }?.let { setActionTextAppearance(it) }
+                getResourceId(
+                    R.styleable.DividerView_dividerEndContainerPaddingLeft,
+                    -1
+                ).takeIf { it != -1 }?.let { setEndContainerPaddingEnd(it) }
 
                 recycle()
             }
@@ -103,6 +107,10 @@ class DividerView @JvmOverloads constructor(
 
     fun setEndIcon(@DrawableRes resId: Int) {
         vb.ivEndIcon.setImageOrHide(resId)
+    }
+
+    fun setEndContainerPaddingEnd(@DimenRes padding: Int){
+        vb.endContainer.setPadding(resources.getDimensionPixelSize(padding), 0, 0, 0)
     }
 
     fun setIsNotificationVisible(isNotificationVisible: Boolean) {

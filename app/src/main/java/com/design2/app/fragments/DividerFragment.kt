@@ -28,7 +28,10 @@ class DividerFragment : BaseFragment<FragmentDividerBinding>() {
             Toast.makeText(context, "Action", Toast.LENGTH_SHORT).show()
         }
 
-        vb.divider5.setTitle("<span>100 000,00 <u>c</u></span>".parseAsHtml())
+        vb.divider5.apply {
+            setTitle("100 000,00 <u>c</u></span>".parseAsHtml())
+            setEndContainerPaddingEnd(com.design2.chili2.R.dimen.padding_44dp)
+        }
 
     }
 
