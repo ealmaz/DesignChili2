@@ -126,6 +126,7 @@
         <attr name="dividerTitleTextAppearance" format="reference" />
         <attr name="dividerSubtitleTextAppearance" format="reference" />
         <attr name="dividerActionTextAppearance" format="reference" />
+        <attr name="dividerEndContainerPaddingLeft" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="PinpadKeyboardView">

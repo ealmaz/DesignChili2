@@ -65,5 +65,16 @@
             app:dividerSubtitle="Подзаголовок"
             app:dividerTitle="Заголовок" />
 
+        <kg.devcats.chili3.view.divider.DividerView
+            android:id="@+id/divider6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            app:dividerEndContainerPaddingLeft="@dimen/padding_44dp"
+            app:dividerEndIcon="@drawable/ic_info"
+            app:dividerTitle="Test long name for double titling and long name. Test long name for double titling and long name"
+            app:dividerTitleTextAppearance="@style/Chili.H12.Secondary"
+            />
+
     </LinearLayout>
 </ScrollView>
