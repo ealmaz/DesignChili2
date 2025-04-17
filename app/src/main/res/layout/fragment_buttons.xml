@@ -13,9 +13,10 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <com.design2.chili2.view.buttons.LoaderButton
+        <com.design2.chili2.view.buttons.ChiliButton
             android:text="Loader button"
             android:id="@+id/loader"
+            style="@style/Chili.ButtonStyle.Additional"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_16dp"/>
@@ -23,6 +24,14 @@
         <TextView
             android:id="@+id/stop_loader"
             android:text="Stop loader"
+            android:layout_gravity="end"
+            style="@style/Chili.ButtonStyle.Component"
+            android:layout_marginStart="@dimen/padding_16dp"
+            android:layout_marginEnd="@dimen/padding_16dp"/>
+
+        <TextView
+            android:id="@+id/activate_loader"
+            android:text="Enable loader button"
             android:layout_gravity="end"
             style="@style/Chili.ButtonStyle.Component"
             android:layout_marginStart="@dimen/padding_16dp"
@@ -114,6 +123,7 @@
             android:id="@+id/iconed_button"
             style="@style/Chili.ButtonStyle.Additional"
             android:text="Iconed button"
+            app:startIcon="@drawable/chili_ic_info"
             android:layout_margin="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
