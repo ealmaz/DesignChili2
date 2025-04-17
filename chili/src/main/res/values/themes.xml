@@ -144,6 +144,9 @@
         <item  name="ChiliPrimaryButtonPaddingStart" >@dimen/padding_24dp</item>
         <item  name="ChiliPrimaryButtonPaddingEnd">@dimen/padding_24dp</item>
 
+        <item  name="ChiliLoadingButtonPaddingBottom">@dimen/padding_12dp</item>
+        <item  name="ChiliLoadingButtonPaddingTop">@dimen/padding_12dp</item>
+
         <!-- Primary Button attributes -->
         <item name="ChiliPrimaryButtonBackgroundActive">@color/green_1</item>
         <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_3</item>
@@ -169,7 +172,7 @@
         <item name="ChiliSecondaryButtonTextColorActive">@color/blue_1</item>
         <item name="ChiliSecondaryButtonTextColorPressed">@color/gray_1</item>
         <item name="ChiliSecondaryButtonTextColorDisabled">@color/blue_1_alpha_50</item>
-
+        <item name="ChiliSecondaryButtonRippleColor">@color/blue_6_alpha_60</item>
 
         <!-- Additional Button attributes -->
         <item name="ChiliAdditionalButtonBackgroundActive">@color/gray_5</item>

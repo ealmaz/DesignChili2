@@ -190,6 +190,9 @@
     <attr name="ChiliPrimaryButtonPaddingStart" format="dimension"/>
     <attr name="ChiliPrimaryButtonPaddingEnd" format="dimension"/>
 
+    <attr name="ChiliLoadingButtonPaddingTop" format="dimension"/>
+    <attr name="ChiliLoadingButtonPaddingBottom" format="dimension"/>
+
     <!-- Primary Button attributes -->
     <attr name="ChiliPrimaryButtonBackgroundActive" format="color"/>
     <attr name="ChiliPrimaryButtonBackgroundDisabled" format="color"/>
@@ -214,6 +217,7 @@
     <attr name="ChiliSecondaryButtonTextColorPressed" format="color"/>
     <attr name="ChiliSecondaryButtonTextColorDisabled" format="color"/>
     <attr name="ChiliSecondaryButtonTextAllCaps" format="boolean"/>
+    <attr name="ChiliSecondaryButtonRippleColor" format="color"/>
 
     <!-- Additional Button attributes -->
     <attr name="ChiliAdditionalButtonBackgroundActive" format="color"/>

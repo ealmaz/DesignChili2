@@ -11,6 +11,7 @@ import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.visible
 
+@Deprecated("Use [ChiliButton] instead")
 class LoaderButton @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,

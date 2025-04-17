@@ -19,16 +19,20 @@
         <item name="android:foreground">@drawable/chili_ripple_button_primary</item>
         <item name="android:background">@drawable/chili_bg_button_primary</item>
         <item name="android:textAppearance">@style/Chili.PrimaryButtonText</item>
+        <item name="loaderColor">?attr/ChiliPrimaryButtonTextColorActive</item>
     </style>
 
     <style name="Chili.ButtonStyle.Secondary">
+        <item name="android:foreground">@drawable/chili_ripple_button_secondary</item>
         <item name="android:background">@drawable/chili_bg_button_secondary</item>
         <item name="android:textAppearance">@style/Chili.SecondaryButtonText</item>
+        <item name="loaderColor">?attr/ChiliSecondaryButtonTextColorActive</item>
     </style>
 
     <style name="Chili.ButtonStyle.Additional">
         <item name="android:background">@drawable/chili_bg_button_additional</item>
         <item name="android:textAppearance">@style/Chili.AdditionalButtonText</item>
+        <item name="loaderColor">?attr/ChiliAdditionalButtonTextColorActive</item>
     </style>
 
     <style name="Chili.ButtonStyle.Component">

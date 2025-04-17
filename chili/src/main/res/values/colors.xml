@@ -54,6 +54,8 @@
     <color name="blue_3">#CAEDF7</color>
     <color name="blue_4">#52B1B7</color>
     <color name="blue_5">#4A90E2</color>
+    <color name="blue_6">#F2F9FF</color>
+    <color name="blue_7">#001B33</color>
     <color name="custom_blue_1">#2680ADF5</color>
     <color name="custom_blue_2">#1C67F8</color>
 
@@ -92,6 +94,8 @@
     <color name="black_alpha_0_08">#14000000</color>
     <color name="black_alpha_40">#66000000</color>
     <color name="white_alpha_0">#00FFFFFF</color>
+    <color name="blue_6_alpha_60">#99F2F9FF</color>
+    <color name="blue_7_alpha_60">#99001B33</color>
 
     <color name="c_2CBB42">#2CBB42</color>
 

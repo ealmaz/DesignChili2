@@ -30,6 +30,7 @@
         <attr name="toolbarDefaultStyle" format="reference"/>
         <attr name="loaderButtonDefaultStyle" format="reference"/>
         <attr name="componentButtonDefaultStyle" format="reference"/>
+        <attr name="chiliButtonDefaultStyle" format="reference"/>
 
 
         <!-- Container -->
@@ -330,6 +331,17 @@
         <attr name="android:enabled"/>
         <attr name="isLoading" format="boolean"/>
         <attr name="textAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="ChiliButton">
+        <attr name="android:text" />
+        <attr name="android:enabled" />
+        <attr name="android:textAppearance" />
+        <attr name="startIcon" />
+        <attr name="startIconWidth" />
+        <attr name="startIconHeight" />
+        <attr name="isLoading" />
+        <attr name="loaderColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="IconedButton">
