@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fl_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/ll_root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_start_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="?ChiliIconedButtonStartIconEndMargin"
+            android:layout_marginStart="?ChiliIconedButtonStartIconStartMargin"
+            android:layout_marginTop="?ChiliIconedButtonStartIconTopMargin"
+            android:visibility="gone"
+            tools:src="@drawable/ic_info" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Google Play"/>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="@dimen/view_24dp"
+        android:layout_height="@dimen/view_24dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:indeterminateOnly="true"
+        android:indeterminateTintMode="src_atop"
+        tools:visibility="visible" />
+
+</FrameLayout>
