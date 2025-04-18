@@ -3,14 +3,12 @@
     <item android:state_enabled="false">
         <shape android:shape="rectangle">
             <corners android:radius="?attr/ChiliAdditionalButtonCornerRadius" />
-            <stroke android:color="?attr/ChiliAdditionalButtonBorderColor" android:width="1dp"/>
             <solid android:color="?attr/ChiliAdditionalButtonBackgroundDisabled" />
         </shape>
     </item>
     <item android:state_enabled="true">
         <shape android:shape="rectangle">
             <corners android:radius="?attr/ChiliAdditionalButtonCornerRadius" />
-            <stroke android:color="?attr/ChiliAdditionalButtonBorderColor" android:width="1dp"/>
             <solid android:color="?attr/ChiliAdditionalButtonBackgroundActive" />
         </shape>
     </item>
