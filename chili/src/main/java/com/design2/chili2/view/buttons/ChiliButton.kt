@@ -152,8 +152,8 @@ class ChiliButton @JvmOverloads constructor(
     }
 
     private fun showLoader() = with(vb) {
-        val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoadingPaddingTop)
-        val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoadingPaddingBottom)
+        val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingTop)
+        val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingBottom)
 
         setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
         isClickable = false
