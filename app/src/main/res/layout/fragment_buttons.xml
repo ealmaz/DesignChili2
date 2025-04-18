@@ -14,9 +14,11 @@
         tools:context=".MainActivity">
 
         <com.design2.chili2.view.buttons.ChiliButton
-            android:text="Loader button"
+            android:text="Chili button"
             android:id="@+id/loader"
             style="@style/Chili.ButtonStyle.Additional"
+            app:isContentInvisibleOnShimmering="true"
+            app:startIcon="@drawable/chili_ic_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_16dp"/>
