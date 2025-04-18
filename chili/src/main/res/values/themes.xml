@@ -212,8 +212,8 @@
         <item name="ChiliButtonEndIconStartMargin">@dimen/padding_6dp</item>
         <item name="ChiliButtonStartIconEndMargin">@dimen/padding_6dp</item>
         <item name="ChiliButtonLoaderSize">@dimen/view_24dp</item>
-        <item  name="ChiliButtonLoadingPaddingBottom">@dimen/padding_12dp</item>
-        <item  name="ChiliButtonLoadingPaddingTop">@dimen/padding_12dp</item>
+        <item  name="ChiliButtonLoaderPaddingBottom">@dimen/padding_12dp</item>
+        <item  name="ChiliButtonLoaderPaddingTop">@dimen/padding_12dp</item>
 
         <!-- InputView -->
         <item name="ChiliInputViewEndIconTint">@color/gray_1</item>

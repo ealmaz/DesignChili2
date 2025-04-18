@@ -261,8 +261,8 @@
     <attr name="ChiliButtonLoaderSize" format="dimension" />
     <attr name="ChiliButtonStartIconEndMargin" format="dimension" />
     <attr name="ChiliButtonEndIconStartMargin" format="dimension" />
-    <attr name="ChiliButtonLoadingPaddingTop" format="dimension"/>
-    <attr name="ChiliButtonLoadingPaddingBottom" format="dimension"/>
+    <attr name="ChiliButtonLoaderPaddingTop" format="dimension"/>
+    <attr name="ChiliButtonLoaderPaddingBottom" format="dimension"/>
 
     <!-- InputView   -->
     <attr name="ChiliInputViewEndIconTint" format="color"/>
