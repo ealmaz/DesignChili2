@@ -17,23 +17,32 @@
             android:id="@+id/iv_start_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="?ChiliIconedButtonStartIconEndMargin"
-            android:layout_marginStart="?ChiliIconedButtonStartIconStartMargin"
-            android:layout_marginTop="?ChiliIconedButtonStartIconTopMargin"
+            android:layout_marginEnd="?ChiliButtonStartIconEndMargin"
             android:visibility="gone"
-            tools:src="@drawable/ic_info" />
+            tools:src="@drawable/ic_info"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Google Play"/>
+
+        <ImageView
+            android:id="@+id/iv_end_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="?ChiliButtonEndIconStartMargin"
+            android:visibility="gone"
+            tools:src="@drawable/ic_info"
+            tools:visibility="visible" />
+
     </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progress"
-        android:layout_width="@dimen/view_24dp"
-        android:layout_height="@dimen/view_24dp"
+        android:layout_width="?attr/ChiliButtonLoaderSize"
+        android:layout_height="?attr/ChiliButtonLoaderSize"
         android:layout_gravity="center"
         android:visibility="gone"
         android:indeterminateOnly="true"
