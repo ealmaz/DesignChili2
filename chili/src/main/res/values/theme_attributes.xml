@@ -132,7 +132,7 @@
     <attr name="ChiliRadioButtonCheckedColor" format="color"/>
     <attr name="ChiliRadioButtonUncheckedColor" format="color"/>
     <attr name="ChiliRadioButtonDisabledColor" format="color"/>
-    
+
     <!--  Switch box -->
     <attr name="ChiliSwitchBoxCheckedBg" format="color"/>
     <attr name="ChiliSwitchBoxUncheckedBg" format="color"/>
@@ -259,6 +259,11 @@
     <attr name="ChiliIconedButtonStartIconStartMargin" format="dimension"/>
     <attr name="ChiliIconedButtonStartIconEndMargin" format="dimension"/>
     <attr name="ChiliIconedButtonEndIconStartMargin" format="dimension"/>
+
+    <!-- Chili Button attributes -->
+    <attr name="ChiliButtonLoaderSize" format="dimension" />
+    <attr name="ChiliButtonStartIconEndMargin" format="dimension" />
+    <attr name="ChiliButtonEndIconStartMargin" format="dimension" />
 
     <!-- InputView   -->
     <attr name="ChiliInputViewEndIconTint" format="color"/>
