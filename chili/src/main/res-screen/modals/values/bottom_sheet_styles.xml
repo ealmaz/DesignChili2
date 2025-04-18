@@ -14,10 +14,12 @@
 
     <style name="Chili.ActionBottomSheetButtonStyle" parent="Chili.ButtonStyle.Secondary">
         <item name="android:textColor">?attr/ChiliActionBottomSheetButtonTextColor</item>
+        <item name="android:foreground">@drawable/chili_ripple_rounded_corner_foreground</item>
     </style>
 
     <style name="Chili.ActionBottomSheetAccentButtonStyle" parent="Chili.ButtonStyle.Secondary">
         <item name="android:textColor">?attr/ChiliActionBottomSheetAccentButtonTextColor</item>
+        <item name="android:foreground">@drawable/chili_ripple_rounded_corner_foreground</item>
     </style>
 
     <style name="Chili.AdjustResizeBottomSheet" parent="Chili.BottomSheetStyle">
