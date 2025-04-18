@@ -22,7 +22,7 @@ class ChiliButton @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyleAttr: Int = R.attr.chiliButtonDefaultStyle,
-    defStyle: Int = R.style.Chili_ButtonStyle
+    defStyle: Int = R.style.Chili_ButtonStyle_Primary
 ) : FrameLayout(context, attributeSet, defStyleAttr, defStyle), ShimmeringView {
 
     private lateinit var vb: ChiliViewButtonBinding
