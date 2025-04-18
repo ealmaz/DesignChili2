@@ -78,6 +78,10 @@ class ChiliButton @JvmOverloads constructor(
         vb.ivStartIcon.setImageOrHide(drawableRes)
     }
 
+    fun setStartIcon(url: String?) {
+        vb.ivStartIcon.setImageOrHide(url)
+    }
+
     fun setStartIconSize(@DimenRes widthDimenRes: Int, @DimenRes heightDimenRes: Int) {
         val widthPx = resources.getDimensionPixelSize(widthDimenRes)
         val heightPx = resources.getDimensionPixelSize(heightDimenRes)
