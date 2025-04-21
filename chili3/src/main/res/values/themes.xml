@@ -78,8 +78,10 @@
         <item name="ChiliProductCardViewDiscountIconWidth">@dimen/view_16dp</item>
         <item name="ChiliProductCardViewTitleTopMargin">@dimen/padding_4dp</item>
         <item name="ChiliProductCardViewTitleHorizontalMargin">@dimen/padding_8dp</item>
+        <item name="ChiliProductCardViewSubtitleHorizontalMargin">@dimen/padding_8dp</item>
         <item name="ChiliProductCardViewSubtitleTopMargin">@dimen/padding_2dp</item>
         <item name="ChiliProductCardViewSubtitlePaddingHorizontal">@dimen/padding_4dp</item>
+        <item name="ChiliProductCardViewSubtitlePartPaddingHorizontal">@dimen/padding_4dp</item>
         <item name="ChiliProductCardViewSubtitlePaddingVertical">@dimen/padding_2dp</item>
         <item name="ChiliProductCardViewDescriptionTopMargin">@dimen/padding_2dp</item>
         <item name="ChiliProductCardViewDescriptionBottomMargin">@dimen/padding_8dp</item>

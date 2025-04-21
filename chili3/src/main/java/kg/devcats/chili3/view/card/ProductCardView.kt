@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.annotation.DrawableRes
 import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import com.design2.chili2.extensions.dpF
 import com.design2.chili2.extensions.drawable
 import com.design2.chili2.extensions.setImageByUrl
@@ -137,14 +139,9 @@ class ProductCardView @JvmOverloads constructor(
 
     fun setSubtitle(text: CharSequence?) {
         vb.tvSubtitle.apply {
-            this.text = text
             setTextOrHide(text)
-            setPlaceholderVisibility(lineCount < 1 && text.isNullOrEmpty())
+            vb.placeholder.isVisible = text.isNullOrEmpty()
         }
-    }
-
-    private fun setPlaceholderVisibility(isVisible: Boolean) {
-        vb.placeholder.apply { if (isVisible) visible() else gone() }
     }
 
     fun setSubtitle(resId: Int) {
@@ -298,6 +295,44 @@ class ProductCardView @JvmOverloads constructor(
         }
     }
 
+    fun setSubtitleParts(parts: List<HtmlTextPart>?) {
+        with(vb){
+            parts.run {
+                if (!isNullOrEmpty()) {
+                    tvSubtitle.gone()
+                    llSubtitle.apply {
+                        removeAllViews()
+                        visible()
+                        forEach { addView(createSubtitlePartView(it)) }
+                    }
+                }
+            }
+        }
+
+    }
+
+    private fun createSubtitlePartView(part: HtmlTextPart): TextView {
+        return TextView(context).apply {
+            setTextAppearance(part.textAppearance)
+            maxLines = 1
+            ellipsize = TextUtils.TruncateAt.END
+            setTextOrHide(part.htmlText)
+            vb.placeholder.isVisible = text.isNullOrEmpty()
+            setPadding(
+                context.getDimensionFromAttr(R.attr.ChiliProductCardViewSubtitlePartPaddingHorizontal, 4.dpF).toInt(),
+                0,
+                context.getDimensionFromAttr(R.attr.ChiliProductCardViewSubtitlePartPaddingHorizontal, 4.dpF).toInt(),
+                0
+            )
+
+            background = GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                setColor(Color.parseColor(part.backgroundColor ?: "#00000000"))
+                cornerRadius = context.getDimensionFromAttr(R.attr.ChiliProductCardViewSubtitleCornerRadius, 6.dpF)
+            }
+        }
+    }
+
 
 }
 
@@ -307,4 +342,10 @@ data class TagData(
     val backgroundColor: String? = null,
     val textAppearance: Int = R.style.Chili_H12_White1,
     val isTopTag: Boolean = true
+)
+
+data class HtmlTextPart(
+    val htmlText: CharSequence? = null,
+    val backgroundColor: String? = null,
+    val textAppearance: Int = R.style.Chili_H14_Primary,
 )
