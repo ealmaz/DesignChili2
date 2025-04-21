@@ -115,16 +115,39 @@
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <TextView
-        android:id="@id/tv_subtitle"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_subtitle_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="?ChiliProductCardViewSubtitleHorizontalMargin"
         android:layout_marginTop="?ChiliProductCardViewSubtitleTopMargin"
-        android:paddingHorizontal="?ChiliProductCardViewSubtitlePaddingHorizontal"
-        android:paddingVertical="?ChiliProductCardViewSubtitlePaddingVertical"
-        android:textAppearance="@style/Chili.H10.Orange1"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="@id/tv_title"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+        <TextView
+            android:id="@id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingHorizontal="?ChiliProductCardViewSubtitlePaddingHorizontal"
+            android:paddingVertical="?ChiliProductCardViewSubtitlePaddingVertical"
+            android:textAppearance="@style/Chili.H10.Orange1"
+            android:maxLines="1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/view_subtitle_shimmer"
@@ -132,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_16dp"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="@id/tv_subtitle"
+        app:layout_constraintStart_toStartOf="@id/ll_subtitle_container"
         app:layout_constraintTop_toBottomOf="@id/view_title_shimmer">
 
         <View
@@ -152,7 +175,7 @@
         android:textAppearance="@style/Chili.H14.Primary"
         app:layout_constraintEnd_toEndOf="@id/tv_title"
         app:layout_constraintStart_toStartOf="@id/tv_title"
-        app:layout_constraintTop_toBottomOf="@id/tv_subtitle" />
+        app:layout_constraintTop_toBottomOf="@id/ll_subtitle_container" />
 
     <TextView
         android:id="@+id/placeholder"

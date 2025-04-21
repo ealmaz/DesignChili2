@@ -30,6 +30,7 @@ import kg.devcats.chili3.model.PackageLeftOver
 import kg.devcats.chili3.model.PackageType
 import kg.devcats.chili3.util.StoriesStatus
 import kg.devcats.chili3.view.card.DividerCardSection
+import kg.devcats.chili3.view.card.HtmlTextPart
 import kg.devcats.chili3.view.card.InfoBlockCardView
 import kg.devcats.chili3.view.card.TagData
 
@@ -254,6 +255,46 @@ class CardsFragment : BaseFragment<FragmentCardsBinding>(), AutoScrollCarouselIm
             setSubtitle("<span style=\"color: #2FB552;\"><b >1 249,50</b> <u>c</u> х 12 мес</span>".parseAsHtml())
             setSubtitleBackground("#1A2FB552")
         }
+
+        vb.pcvProduct6.apply {
+            val tags = listOf(
+                TagData("12%", icon = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png", backgroundColor = "#10C44C", isTopTag = true),
+                TagData("0-0-12", backgroundColor = "#10C44C", isTopTag = true),
+                TagData("Новинка", icon = "", backgroundColor = "#10C44C",  isTopTag = false),
+                TagData("5%", icon = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png", backgroundColor = "#EC61AA", isTopTag = false),
+            )
+            setTags(tags)
+            setTitleTextAppearance(kg.devcats.chili3.R.style.Chili_H16_Primary_700)
+            setSubtitleParts(
+                listOf(
+                    HtmlTextPart("<span style=\"color: #010101;\"><b>1 249,50  <u>с</u></b></span>".parseAsHtml(), "#D4FF00"),
+                    HtmlTextPart("x12 мес", "#00000000"),
+                )
+            )
+        }
+
+        vb.pcvProduct7.apply {
+            val tags = listOf(
+                TagData("12%", icon = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png", backgroundColor = "#10C44C", isTopTag = true),
+                TagData("0-0-12", backgroundColor = "#10C44C", isTopTag = true),
+                TagData("Новинка", icon = "", backgroundColor = "#10C44C",  isTopTag = false),
+                TagData("5%", icon = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png", backgroundColor = "#EC61AA", isTopTag = false),
+            )
+            setTags(tags)
+            setTitleTextAppearance(kg.devcats.chili3.R.style.Chili_H16_Primary_700)
+            setSubtitleParts(
+                listOf(
+                    HtmlTextPart("1 249,50 <u>с</u>".parseAsHtml(), "#00000000"),
+                    HtmlTextPart("<span style=\"color: #010101;\"><b>x12 мес</b></span>".parseAsHtml(), "#D4FF00"),
+                )
+            )
+        }
+        vb.pcvProduct8.apply {
+            setTags(null)
+            setTitleTextAppearance(kg.devcats.chili3.R.style.Chili_H16_Primary_700)
+            setSubtitleParts(null)
+        }
+
 
         vb.simplePromoBanner.apply {
             setCardBackgroundByUrl("https://minio.o.kg/lkab/lottery/RU.png")
