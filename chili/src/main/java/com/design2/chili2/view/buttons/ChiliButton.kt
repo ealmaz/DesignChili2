@@ -3,7 +3,6 @@ package com.design2.chili2.view.buttons
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
@@ -13,29 +12,26 @@ import com.design2.chili2.databinding.ChiliViewButtonBinding
 import com.design2.chili2.extensions.getPixelSizeFromAttr
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
+import com.design2.chili2.extensions.setBottomMargin
 import com.design2.chili2.extensions.setImageOrHide
+import com.design2.chili2.extensions.setLeftMargin
+import com.design2.chili2.extensions.setRightMargin
+import com.design2.chili2.extensions.setTopMargin
 import com.design2.chili2.extensions.visible
-import com.design2.chili2.view.shimmer.ShimmeringView
-import com.facebook.shimmer.ShimmerFrameLayout
 
 class ChiliButton @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyleAttr: Int = R.attr.chiliButtonDefaultStyle,
     defStyle: Int = R.style.Chili_ButtonStyle_Primary
-) : FrameLayout(context, attributeSet, defStyleAttr, defStyle), ShimmeringView {
+) : FrameLayout(context, attributeSet, defStyleAttr, defStyle) {
 
     private lateinit var vb: ChiliViewButtonBinding
-    private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
-    override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
-    private var isContentInvisibleOnShimmering = false
-    private var isShimmeringStart = false
     private var bIsLoading = false
 
     init {
         initView(context)
         obtainAttributes(context, attributeSet, defStyleAttr, defStyle)
-        setupShimmeringViews()
     }
 
     private fun initView(context: Context) {
@@ -44,7 +40,6 @@ class ChiliButton @JvmOverloads constructor(
 
     private fun obtainAttributes(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int, defStyle: Int) {
         context.obtainStyledAttributes(attributeSet, R.styleable.ChiliButton, defStyleAttr, defStyle).run {
-            isContentInvisibleOnShimmering = getBoolean(R.styleable.ChiliButton_isContentInvisibleOnShimmering, false)
             setText(getString(R.styleable.ChiliButton_android_text))
             setEnabled(getBoolean(R.styleable.ChiliButton_android_enabled, true))
             getResourceId(R.styleable.ChiliButton_android_textAppearance, -1).takeIf { it != -1 }?.let {
@@ -53,9 +48,12 @@ class ChiliButton @JvmOverloads constructor(
             setStartIcon(
                 getResourceId(R.styleable.ChiliButton_startIcon, -1).takeIf { it != -1 }
             )
-            setupStartIconSize(
-                widthPx = getDimensionPixelSize(R.styleable.ChiliButton_startIconWidth, -1).takeIf { it != -1 },
-                heightPx = getDimensionPixelSize(R.styleable.ChiliButton_startIconHeight, -1).takeIf { it != -1 }
+            setStartIconSize(
+                widthDimenRes = getResourceId(R.styleable.ChiliButton_iconWidth,  R.dimen.view_24dp),
+                heightDimenRes = getResourceId(R.styleable.ChiliButton_iconHeight,  R.dimen.view_24dp)
+            )
+            setStartIconEndPadding(
+                getResourceId(R.styleable.ChiliButton_startIconEndPadding, R.dimen.padding_8dp)
             )
             setEndIcon(
                 getResourceId(R.styleable.ChiliButton_endIcon, -1).takeIf { it != -1 }
@@ -70,10 +68,6 @@ class ChiliButton @JvmOverloads constructor(
             )
             recycle()
         }
-    }
-
-    private fun setupShimmeringViews() {
-        if (isContentInvisibleOnShimmering) shimmeringPairs[vb.tvTitle] = null
     }
 
     fun setText(text: String?) {
@@ -99,13 +93,8 @@ class ChiliButton @JvmOverloads constructor(
         vb.tvTitle.setTextAppearance(resId)
     }
 
-    fun setStartIcon(@DrawableRes drawableRes: Int?) = with(vb.ivStartIcon) {
-        if (isContentInvisibleOnShimmering) {
-            if (drawableRes == null) shimmeringPairs.remove(this)
-            else shimmeringPairs[this] = null
-        }
-        this.setImageOrHide(drawableRes)
-        if (isShimmeringStart && drawableRes != null) this.invisible()
+    fun setStartIcon(@DrawableRes drawableRes: Int?) {
+        vb.ivStartIcon.setImageOrHide(drawableRes)
     }
 
     fun setStartIcon(url: String?) {
@@ -190,13 +179,5 @@ class ChiliButton @JvmOverloads constructor(
 
     fun setLoaderColor(@DrawableRes colorResId: Int?) {
         vb.progress.indeterminateTintList = context.getColorStateList(colorResId ?: R.color.magenta_1)
-    }
-
-    override fun onStartShimmer() {
-        isShimmeringStart = true
-    }
-
-    override fun onStopShimmer() {
-        isShimmeringStart = false
     }
 }
