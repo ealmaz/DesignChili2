@@ -146,7 +146,7 @@
 
         <!-- Primary Button attributes -->
         <item name="ChiliPrimaryButtonBackgroundActive">@color/green_1</item>
-        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_7</item>
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_3</item>
         <item name="ChiliPrimaryButtonCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliPrimaryButtonTextSize">@dimen/text_14sp</item>
         <item name="ChiliPrimaryButtonTextFont">@font/roboto_medium</item>
