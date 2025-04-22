@@ -174,6 +174,7 @@ class ChiliButton @JvmOverloads constructor(
         isFocusable = false
         llRoot.invisible()
         progress.visible()
+        refreshDrawableState()
     }
 
     fun hideLoading() = with (vb) {
