@@ -98,7 +98,7 @@
 
 
         <!-- Primary Button attributes -->
-        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_2</item>
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_6</item>
 
         <!-- Secondary Button attributes -->
         <item name="ChiliSecondaryButtonRippleColor">@color/blue_7_alpha_60</item>
