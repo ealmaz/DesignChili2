@@ -27,7 +27,7 @@ class ButtonsFragment : BaseFragment<FragmentButtonsBinding>() {
         vb.activateLoader.setOnClickListener {
             vb.loader.isEnabled = true
         }
-        vb.iconedButton.setIcon(R.drawable.ic_market)
+        vb.iconedButton.setStartIcon(com.design2.chili2.R.drawable.ic_info)
         vb.iconedButton.setOnSingleClickListener {
             println("Click")
         }

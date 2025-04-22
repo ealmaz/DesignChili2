@@ -84,6 +84,10 @@ class ChiliButton @JvmOverloads constructor(
         vb.tvTitle.setText(textResId)
     }
 
+    fun setText(text: CharSequence?) {
+        vb.tvTitle.text = text
+    }
+
     fun setIsLoading(isLoading: Boolean) {
         when (isLoading) {
             true -> showLoading()
