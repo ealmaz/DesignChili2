@@ -30,6 +30,7 @@ class ChiliButton @JvmOverloads constructor(
     override fun getShimmeringViewsPair(): Map<View, ShimmerFrameLayout?> = shimmeringPairs
     private var isContentInvisibleOnShimmering = false
     private var isShimmeringStart = false
+    private var bIsLoading = false
 
     init {
         initView(context)
@@ -151,7 +152,16 @@ class ChiliButton @JvmOverloads constructor(
         }
     }
 
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        if(bIsLoading) {
+            mergeDrawableStates(drawableState, intArrayOf(R.attr.isLoading))
+        }
+        return drawableState
+    }
+
     fun showLoading() = with(vb) {
+        bIsLoading = true
         val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingTop)
         val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingBottom)
 
@@ -163,6 +173,7 @@ class ChiliButton @JvmOverloads constructor(
     }
 
     fun hideLoading() = with (vb) {
+        bIsLoading = false
         val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliPrimaryButtonPaddingTop)
         val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliPrimaryButtonPaddingBottom)
 
@@ -172,6 +183,7 @@ class ChiliButton @JvmOverloads constructor(
         progress.gone()
         isClickable = true
         isFocusable = true
+        refreshDrawableState()
     }
 
     fun setLoaderColor(@DrawableRes colorResId: Int?) {
