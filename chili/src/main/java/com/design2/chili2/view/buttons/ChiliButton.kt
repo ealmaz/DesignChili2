@@ -166,29 +166,26 @@ class ChiliButton @JvmOverloads constructor(
 
     fun showLoading() = with(vb) {
         bIsLoading = true
+        refreshDrawableState()
         val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingTop)
         val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingBottom)
-
         setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
         isClickable = false
         isFocusable = false
         llRoot.invisible()
         progress.visible()
-        refreshDrawableState()
     }
 
     fun hideLoading() = with (vb) {
         bIsLoading = false
+        refreshDrawableState()
         val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliPrimaryButtonPaddingTop)
         val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliPrimaryButtonPaddingBottom)
-
         setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
-
         llRoot.visible()
         progress.gone()
         isClickable = true
         isFocusable = true
-        refreshDrawableState()
     }
 
     fun setLoaderColor(@DrawableRes colorResId: Int?) {
