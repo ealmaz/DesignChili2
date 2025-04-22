@@ -124,7 +124,6 @@
             android:id="@+id/iconed_button"
             style="@style/Chili.ButtonStyle.Additional"
             android:text="Iconed button"
-            app:startIcon="@drawable/chili_ic_info"
             android:layout_margin="@dimen/padding_16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
