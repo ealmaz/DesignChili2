@@ -85,8 +85,8 @@ class ChiliButton @JvmOverloads constructor(
 
     fun setIsLoading(isLoading: Boolean) {
         when (isLoading) {
-            true -> showLoader()
-            else -> hideLoader()
+            true -> showLoading()
+            else -> hideLoading()
         }
     }
 
@@ -151,7 +151,7 @@ class ChiliButton @JvmOverloads constructor(
         }
     }
 
-    private fun showLoader() = with(vb) {
+    fun showLoading() = with(vb) {
         val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingTop)
         val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingBottom)
 
@@ -162,7 +162,7 @@ class ChiliButton @JvmOverloads constructor(
         progress.visible()
     }
 
-    private fun hideLoader() = with (vb) {
+    fun hideLoading() = with (vb) {
         val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliPrimaryButtonPaddingTop)
         val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliPrimaryButtonPaddingBottom)
 
