@@ -9,12 +9,10 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewButtonBinding
-import com.design2.chili2.extensions.getPixelSizeFromAttr
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.setBottomMargin
 import com.design2.chili2.extensions.setImageOrHide
-import com.design2.chili2.extensions.setLeftMargin
 import com.design2.chili2.extensions.setRightMargin
 import com.design2.chili2.extensions.setTopMargin
 import com.design2.chili2.extensions.visible
@@ -23,7 +21,7 @@ class ChiliButton @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyleAttr: Int = R.attr.chiliButtonDefaultStyle,
-    defStyle: Int = R.style.Chili_ButtonStyle_Primary
+    defStyle: Int = R.style.Chili_BtnStyle_Primary
 ) : FrameLayout(context, attributeSet, defStyleAttr, defStyle) {
 
     private lateinit var vb: ChiliViewButtonBinding
@@ -66,6 +64,9 @@ class ChiliButton @JvmOverloads constructor(
             setLoaderColor(
                 getResourceId(R.styleable.ChiliButton_loaderColor, -1).takeIf { it != -1 }
             )
+            setVerticalPadding(
+                getResourceId(R.styleable.ChiliButton_verticalPadding, R.dimen.padding_16dp)
+            )
             recycle()
         }
     }
@@ -107,13 +108,13 @@ class ChiliButton @JvmOverloads constructor(
         setupStartIconSize(widthPx, heightPx)
     }
 
-    fun setEndIcon(@DrawableRes drawableRes: Int?) = with(vb.ivEndIcon) {
-        if (isContentInvisibleOnShimmering) {
-            if (drawableRes == null) shimmeringPairs.remove(this)
-            else shimmeringPairs[this] = null
-        }
-        this.setImageOrHide(drawableRes)
-        if (isShimmeringStart && drawableRes != null) this.invisible()
+    fun setStartIconEndPadding(@DimenRes paddingEnd: Int) {
+        val padding = resources.getDimensionPixelSize(paddingEnd)
+        vb.ivStartIcon.setRightMargin(margin = padding)
+    }
+
+    fun setEndIcon(@DrawableRes drawableRes: Int?) {
+        vb.ivEndIcon.setImageOrHide(drawableRes)
     }
 
     fun setEndIcon(url: String?) {
@@ -156,9 +157,6 @@ class ChiliButton @JvmOverloads constructor(
     fun showLoading() = with(vb) {
         bIsLoading = true
         refreshDrawableState()
-        val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingTop)
-        val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliButtonLoaderPaddingBottom)
-        setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
         isClickable = false
         isFocusable = false
         llRoot.invisible()
@@ -168,13 +166,16 @@ class ChiliButton @JvmOverloads constructor(
     fun hideLoading() = with (vb) {
         bIsLoading = false
         refreshDrawableState()
-        val paddingTop = context.getPixelSizeFromAttr(R.attr.ChiliPrimaryButtonPaddingTop)
-        val paddingBottom = context.getPixelSizeFromAttr(R.attr.ChiliPrimaryButtonPaddingBottom)
-        setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
         llRoot.visible()
         progress.gone()
         isClickable = true
         isFocusable = true
+    }
+
+    private fun setVerticalPadding(@DimenRes resId: Int) = with(vb.tvTitle) {
+        val padding = resources.getDimensionPixelSize(resId)
+        setTopMargin(padding)
+        setBottomMargin(padding)
     }
 
     fun setLoaderColor(@DrawableRes colorResId: Int?) {
