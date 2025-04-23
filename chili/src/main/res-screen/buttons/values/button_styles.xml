@@ -22,16 +22,6 @@
         <item name="loaderColor">?attr/ChiliPrimaryButtonTextColorActive</item>
     </style>
 
-    <style name="Chili.ButtonStyle.Primary.Small">
-        <item name="android:paddingTop">@dimen/padding_12dp</item>
-        <item name="android:paddingBottom">@dimen/padding_12dp</item>
-        <item name="android:paddingStart">@dimen/padding_8dp</item>
-        <item name="android:paddingEnd">@dimen/padding_8dp</item>
-        <item name="iconWidth">@dimen/view_20dp</item>
-        <item name="iconHeight">@dimen/view_20dp</item>
-        <item name="startIconEndPadding">@dimen/padding_6dp</item>
-    </style>
-
     <style name="Chili.ButtonStyle.Secondary">
         <item name="android:foreground">@drawable/chili_ripple_button_secondary</item>
         <item name="android:background">@drawable/chili_bg_button_secondary</item>

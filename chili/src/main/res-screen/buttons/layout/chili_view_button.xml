@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fl_container"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/ll_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:layout_gravity="center">
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/iv_start_icon"
@@ -23,11 +23,11 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:maxLines="1"
-            android:ellipsize="end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Google Play"/>
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="Google Play" />
 
         <ImageView
             android:id="@+id/iv_end_icon"
@@ -45,9 +45,9 @@
         android:layout_width="?attr/ChiliButtonLoaderSize"
         android:layout_height="?attr/ChiliButtonLoaderSize"
         android:layout_gravity="center"
-        android:visibility="gone"
         android:indeterminateOnly="true"
         android:indeterminateTintMode="src_atop"
+        android:visibility="gone"
         tools:visibility="visible" />
 
 </FrameLayout>
