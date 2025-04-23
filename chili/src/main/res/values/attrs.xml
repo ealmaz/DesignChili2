@@ -360,6 +360,7 @@
         <attr name="endIconHeight" format="dimension" />
         <attr name="isLoading" />
         <attr name="startIconEndPadding" format="dimension"/>
+        <attr name="verticalPadding" format="dimension"/>
         <attr name="loaderColor" format="color" />
     </declare-styleable>
 
