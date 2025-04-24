@@ -21,7 +21,7 @@ class ChiliButton @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyleAttr: Int = R.attr.chiliButtonDefaultStyle,
-    defStyle: Int = R.style.Chili_BtnStyle_Primary
+    defStyle: Int = R.style.ChiliButton_Primary
 ) : FrameLayout(context, attributeSet, defStyleAttr, defStyle) {
 
     private lateinit var vb: ChiliViewButtonBinding
