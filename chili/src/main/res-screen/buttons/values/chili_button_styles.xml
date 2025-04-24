@@ -11,6 +11,7 @@
         <item name="android:focusable">true</item>
         <item name="android:stateListAnimator">@null</item>
         <item name="verticalPadding">@dimen/padding_14dp</item>
+        <item name="loaderSize">@dimen/view_24dp</item>
     </style>
 
     <style name="ChiliButton.Primary">
@@ -27,6 +28,7 @@
         <item name="startIconHeight">@dimen/view_20dp</item>
         <item name="startIconEndPadding">@dimen/padding_6dp</item>
         <item name="verticalPadding">@dimen/padding_12dp</item>
+        <item name="loaderSize">@dimen/view_20dp</item>
     </style>
 
     <style name="ChiliButton.Secondary">
@@ -43,6 +45,7 @@
         <item name="startIconHeight">@dimen/view_20dp</item>
         <item name="startIconEndPadding">@dimen/padding_6dp</item>
         <item name="verticalPadding">@dimen/padding_12dp</item>
+        <item name="loaderSize">@dimen/view_20dp</item>
     </style>
 
     <style name="ChiliButton.Additional">
@@ -58,6 +61,7 @@
         <item name="startIconHeight">@dimen/view_20dp</item>
         <item name="startIconEndPadding">@dimen/padding_6dp</item>
         <item name="verticalPadding">@dimen/padding_12dp</item>
+        <item name="loaderSize">@dimen/view_20dp</item>
     </style>
 
 </resources>
