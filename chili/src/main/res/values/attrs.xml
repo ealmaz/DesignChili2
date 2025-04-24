@@ -353,8 +353,8 @@
         <attr name="android:enabled" />
         <attr name="android:textAppearance" />
         <attr name="startIcon" />
-        <attr name="iconWidth" format="dimension" />
-        <attr name="iconHeight" format="dimension" />
+        <attr name="startIconWidth"/>
+        <attr name="startIconHeight"/>
         <attr name="endIcon" />
         <attr name="endIconWidth" format="dimension" />
         <attr name="endIconHeight" format="dimension" />
