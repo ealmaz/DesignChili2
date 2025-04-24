@@ -64,6 +64,9 @@ class ChiliButton @JvmOverloads constructor(
             setLoaderColor(
                 getResourceId(R.styleable.ChiliButton_loaderColor, -1).takeIf { it != -1 }
             )
+            setLoaderSize(
+                getResourceId(R.styleable.ChiliButton_loaderSize, R.dimen.view_24dp)
+            )
             setVerticalPadding(
                 getResourceId(R.styleable.ChiliButton_verticalPadding, R.dimen.padding_16dp)
             )
@@ -180,5 +183,13 @@ class ChiliButton @JvmOverloads constructor(
 
     fun setLoaderColor(@DrawableRes colorResId: Int?) {
         vb.progress.indeterminateTintList = context.getColorStateList(colorResId ?: R.color.magenta_1)
+    }
+
+    fun setLoaderSize(@DimenRes resId: Int) {
+        val size = resources.getDimensionPixelSize(resId)
+        vb.progress.layoutParams.apply {
+            width = size
+            height = size
+        }
     }
 }
