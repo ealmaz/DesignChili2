@@ -209,8 +209,9 @@
         <item name="ChiliIconedButtonEndIconStartMargin">@dimen/padding_4dp</item>
 
         <!-- Chili Button attributes -->
-        <item name="ChiliButtonEndIconStartMargin">@dimen/padding_6dp</item>
-        <item name="ChiliButtonStartIconEndMargin">@dimen/padding_6dp</item>
+        <item name="ChiliButtonEndIconStartMargin">@dimen/padding_8dp</item>
+        <item name="ChiliButtonStartIconEndMargin">@dimen/padding_8dp</item>
+        <item name="ChiliButtonLoaderSize">@dimen/view_24dp</item>
         <item  name="ChiliButtonLoaderPaddingBottom">@dimen/padding_12dp</item>
         <item  name="ChiliButtonLoaderPaddingTop">@dimen/padding_12dp</item>
 
