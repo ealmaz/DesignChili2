@@ -357,11 +357,14 @@
         <attr name="startIcon" />
         <attr name="startIconWidth" />
         <attr name="startIconHeight" />
+        <attr name="startIconEndMargin" format="dimension" />
         <attr name="endIcon" />
         <attr name="endIconWidth" format="dimension" />
         <attr name="endIconHeight" format="dimension" />
+        <attr name="endIconStartMargin" format="dimension" />
         <attr name="isLoading" />
         <attr name="loaderColor" format="color" />
+        <attr name="loaderSize" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="IconedButton">
