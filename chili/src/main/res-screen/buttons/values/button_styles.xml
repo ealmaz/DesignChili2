@@ -22,6 +22,18 @@
         <item name="loaderColor">?attr/ChiliPrimaryButtonTextColorActive</item>
     </style>
 
+    <style name="Chili.ButtonStyle.Primary.Small">
+        <item name="android:paddingStart">@dimen/padding_8dp</item>
+        <item name="android:paddingEnd">@dimen/padding_8dp</item>
+        <item name="android:paddingTop">@dimen/padding_12dp</item>
+        <item name="android:paddingBottom">@dimen/padding_12dp</item>
+        <item name="startIconWidth">@dimen/view_20dp</item>
+        <item name="startIconHeight">@dimen/view_20dp</item>
+        <item name="ChiliButtonStartIconEndMargin">@dimen/padding_6dp</item>
+        <item name="ChiliButtonEndIconStartMargin">@dimen/padding_6dp</item>
+        <item name="ChiliButtonLoaderSize">@dimen/view_20dp</item>
+    </style>
+
     <style name="Chili.ButtonStyle.Secondary">
         <item name="android:foreground">@drawable/chili_ripple_button_secondary</item>
         <item name="android:background">@drawable/chili_bg_button_secondary</item>
@@ -29,10 +41,34 @@
         <item name="loaderColor">?attr/ChiliSecondaryButtonTextColorActive</item>
     </style>
 
+    <style name="Chili.ButtonStyle.Secondary.Small">
+        <item name="android:paddingStart">@dimen/padding_8dp</item>
+        <item name="android:paddingEnd">@dimen/padding_8dp</item>
+        <item name="android:paddingTop">@dimen/padding_12dp</item>
+        <item name="android:paddingBottom">@dimen/padding_12dp</item>
+        <item name="startIconWidth">@dimen/view_20dp</item>
+        <item name="startIconHeight">@dimen/view_20dp</item>
+        <item name="ChiliButtonStartIconEndMargin">@dimen/padding_6dp</item>
+        <item name="ChiliButtonEndIconStartMargin">@dimen/padding_6dp</item>
+        <item name="ChiliButtonLoaderSize">@dimen/view_20dp</item>
+    </style>
+
     <style name="Chili.ButtonStyle.Additional">
         <item name="android:background">@drawable/chili_bg_button_additional</item>
         <item name="android:textAppearance">@style/Chili.AdditionalButtonText</item>
         <item name="loaderColor">?attr/ChiliAdditionalButtonTextColorActive</item>
+    </style>
+
+    <style name="Chili.ButtonStyle.Additional.Small">
+        <item name="android:paddingStart">@dimen/padding_8dp</item>
+        <item name="android:paddingEnd">@dimen/padding_8dp</item>
+        <item name="android:paddingTop">@dimen/padding_12dp</item>
+        <item name="android:paddingBottom">@dimen/padding_12dp</item>
+        <item name="startIconWidth">@dimen/view_20dp</item>
+        <item name="startIconHeight">@dimen/view_20dp</item>
+        <item name="ChiliButtonStartIconEndMargin">@dimen/padding_6dp</item>
+        <item name="ChiliButtonEndIconStartMargin">@dimen/padding_6dp</item>
+        <item name="ChiliButtonLoaderSize">@dimen/view_20dp</item>
     </style>
 
     <style name="Chili.ButtonStyle.Component">
