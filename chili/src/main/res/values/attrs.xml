@@ -337,16 +337,15 @@
         <attr name="android:text" />
         <attr name="android:enabled" />
         <attr name="android:textAppearance" />
+        <attr name="android:paddingBottom" format="dimension" />
+        <attr name="android:paddingTop" format="dimension" />
         <attr name="startIcon" />
-        <attr name="startIconWidth"/>
-        <attr name="startIconHeight"/>
+        <attr name="startIconWidth" />
+        <attr name="startIconHeight" />
         <attr name="endIcon" />
         <attr name="endIconWidth" format="dimension" />
         <attr name="endIconHeight" format="dimension" />
         <attr name="isLoading" />
-        <attr name="startIconEndPadding" format="dimension"/>
-        <attr name="verticalPadding" format="dimension"/>
-        <attr name="loaderSize" format="dimension"/>
         <attr name="loaderColor" format="color" />
     </declare-styleable>
 
