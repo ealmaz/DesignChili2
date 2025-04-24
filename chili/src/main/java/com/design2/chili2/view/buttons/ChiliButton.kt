@@ -13,7 +13,6 @@ import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.setBottomMargin
 import com.design2.chili2.extensions.setImageOrHide
-import com.design2.chili2.extensions.setRightMargin
 import com.design2.chili2.extensions.setTopMargin
 import com.design2.chili2.extensions.visible
 
@@ -21,7 +20,7 @@ class ChiliButton @JvmOverloads constructor(
     context: Context,
     attributeSet: AttributeSet? = null,
     defStyleAttr: Int = R.attr.chiliButtonDefaultStyle,
-    defStyle: Int = R.style.ChiliButton_Primary
+    defStyle: Int = R.style.Chili_ButtonStyle_Primary
 ) : FrameLayout(context, attributeSet, defStyleAttr, defStyle) {
 
     private lateinit var vb: ChiliViewButtonBinding
@@ -50,9 +49,6 @@ class ChiliButton @JvmOverloads constructor(
                 widthDimenRes = getResourceId(R.styleable.ChiliButton_startIconWidth,  R.dimen.view_24dp),
                 heightDimenRes = getResourceId(R.styleable.ChiliButton_startIconHeight,  R.dimen.view_24dp)
             )
-            setStartIconEndPadding(
-                getResourceId(R.styleable.ChiliButton_startIconEndPadding, R.dimen.padding_8dp)
-            )
             setEndIcon(
                 getResourceId(R.styleable.ChiliButton_endIcon, -1).takeIf { it != -1 }
             )
@@ -64,11 +60,9 @@ class ChiliButton @JvmOverloads constructor(
             setLoaderColor(
                 getResourceId(R.styleable.ChiliButton_loaderColor, -1).takeIf { it != -1 }
             )
-            setLoaderSize(
-                getResourceId(R.styleable.ChiliButton_loaderSize, R.dimen.view_24dp)
-            )
             setVerticalPadding(
-                getResourceId(R.styleable.ChiliButton_verticalPadding, R.dimen.padding_16dp)
+                getDimensionPixelSize(R.styleable.ChiliButton_android_paddingTop, -1).takeIf { it != -1 },
+                getDimensionPixelSize(R.styleable.ChiliButton_android_paddingBottom, -1).takeIf { it != -1 }
             )
             recycle()
         }
@@ -109,11 +103,6 @@ class ChiliButton @JvmOverloads constructor(
         val widthPx = resources.getDimensionPixelSize(widthDimenRes)
         val heightPx = resources.getDimensionPixelSize(heightDimenRes)
         setupStartIconSize(widthPx, heightPx)
-    }
-
-    fun setStartIconEndPadding(@DimenRes paddingEnd: Int) {
-        val padding = resources.getDimensionPixelSize(paddingEnd)
-        vb.ivStartIcon.setRightMargin(margin = padding)
     }
 
     fun setEndIcon(@DrawableRes drawableRes: Int?) {
@@ -175,21 +164,15 @@ class ChiliButton @JvmOverloads constructor(
         isFocusable = true
     }
 
-    private fun setVerticalPadding(@DimenRes resId: Int) = with(vb.tvTitle) {
-        val padding = resources.getDimensionPixelSize(resId)
-        setTopMargin(padding)
-        setBottomMargin(padding)
+    private fun setVerticalPadding(top: Int?, bottom: Int?) {
+        setPadding(paddingLeft, 0, paddingRight, 0)
+        with(vb.tvTitle) {
+            top?.let { setTopMargin(it) }
+            bottom?.let { setBottomMargin(it) }
+        }
     }
 
     fun setLoaderColor(@DrawableRes colorResId: Int?) {
         vb.progress.indeterminateTintList = context.getColorStateList(colorResId ?: R.color.magenta_1)
-    }
-
-    fun setLoaderSize(@DimenRes resId: Int) {
-        val size = resources.getDimensionPixelSize(resId)
-        vb.progress.layoutParams.apply {
-            width = size
-            height = size
-        }
     }
 }
