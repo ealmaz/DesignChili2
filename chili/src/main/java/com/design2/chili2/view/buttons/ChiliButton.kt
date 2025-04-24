@@ -47,8 +47,8 @@ class ChiliButton @JvmOverloads constructor(
                 getResourceId(R.styleable.ChiliButton_startIcon, -1).takeIf { it != -1 }
             )
             setStartIconSize(
-                widthDimenRes = getResourceId(R.styleable.ChiliButton_iconWidth,  R.dimen.view_24dp),
-                heightDimenRes = getResourceId(R.styleable.ChiliButton_iconHeight,  R.dimen.view_24dp)
+                widthDimenRes = getResourceId(R.styleable.ChiliButton_startIconWidth,  R.dimen.view_24dp),
+                heightDimenRes = getResourceId(R.styleable.ChiliButton_startIconHeight,  R.dimen.view_24dp)
             )
             setStartIconEndPadding(
                 getResourceId(R.styleable.ChiliButton_startIconEndPadding, R.dimen.padding_8dp)
