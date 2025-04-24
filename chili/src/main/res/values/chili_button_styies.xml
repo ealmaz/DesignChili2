@@ -23,8 +23,8 @@
     <style name="ChiliButton.Primary.Small">
         <item name="android:paddingStart">@dimen/padding_8dp</item>
         <item name="android:paddingEnd">@dimen/padding_8dp</item>
-        <item name="iconWidth">@dimen/view_20dp</item>
-        <item name="iconHeight">@dimen/view_20dp</item>
+        <item name="startIconWidth">@dimen/view_20dp</item>
+        <item name="startIconHeight">@dimen/view_20dp</item>
         <item name="startIconEndPadding">@dimen/padding_6dp</item>
         <item name="verticalPadding">@dimen/padding_12dp</item>
     </style>
@@ -39,8 +39,8 @@
     <style name="ChiliButton.Secondary.Small">
         <item name="android:paddingStart">@dimen/padding_8dp</item>
         <item name="android:paddingEnd">@dimen/padding_8dp</item>
-        <item name="iconWidth">@dimen/view_20dp</item>
-        <item name="iconHeight">@dimen/view_20dp</item>
+        <item name="startIconWidth">@dimen/view_20dp</item>
+        <item name="startIconHeight">@dimen/view_20dp</item>
         <item name="startIconEndPadding">@dimen/padding_6dp</item>
         <item name="verticalPadding">@dimen/padding_12dp</item>
     </style>
@@ -54,8 +54,8 @@
     <style name="ChiliButton.Additional.Small">
         <item name="android:paddingStart">@dimen/padding_8dp</item>
         <item name="android:paddingEnd">@dimen/padding_8dp</item>
-        <item name="iconWidth">@dimen/view_20dp</item>
-        <item name="iconHeight">@dimen/view_20dp</item>
+        <item name="startIconWidth">@dimen/view_20dp</item>
+        <item name="startIconHeight">@dimen/view_20dp</item>
         <item name="startIconEndPadding">@dimen/padding_6dp</item>
         <item name="verticalPadding">@dimen/padding_12dp</item>
     </style>
