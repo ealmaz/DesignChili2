@@ -337,6 +337,8 @@
         <attr name="android:text" />
         <attr name="android:enabled" />
         <attr name="android:textAppearance" />
+        <attr name="android:paddingBottom" format="dimension" />
+        <attr name="android:paddingTop" format="dimension" />
         <attr name="startIcon" />
         <attr name="startIconWidth" />
         <attr name="startIconHeight" />
@@ -345,7 +347,6 @@
         <attr name="endIconHeight" format="dimension" />
         <attr name="isLoading" />
         <attr name="loaderColor" format="color" />
-        <attr name="isContentInvisibleOnShimmering" />
     </declare-styleable>
 
     <declare-styleable name="IconedButton">
