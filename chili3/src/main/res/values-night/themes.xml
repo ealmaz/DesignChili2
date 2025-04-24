@@ -105,19 +105,23 @@
         <item name="ChiliShimmerHighlightColor">@color/c_111112</item>
 
         <!-- Primary Button attributes -->
-        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/green_2</item>
+        <item name="ChiliPrimaryButtonTextColorDisabled">@color/c_FFFFFF_alpha_20</item>
+        <item name="ChiliPrimaryButtonBackgroundDisabled">@color/c_415C29</item>
+
+        <!-- Secondary Button attributes -->
+        <item name="ChiliSecondaryButtonTextColorPressed">@color/blue_1</item>
+        <item name="ChiliSecondaryButtonTextColorDisabled">@color/c_535353</item>
+        <item name="ChiliSecondaryButtonRippleColor">@color/blue_7_alpha_60</item>
 
         <!-- Additional Button attributes -->
-        <item name="ChiliAdditionalButtonBackgroundActive">@color/black_5</item>
-        <item name="ChiliAdditionalButtonBackgroundDisabled">@color/black_5</item>
+        <item name="ChiliAdditionalButtonBackgroundActive">@color/c_3D3D3D</item>
+        <item name="ChiliAdditionalButtonBackgroundDisabled">@color/c_3D3D3D</item>
+        <item name="ChiliAdditionalButtonTextColorDisabled">@color/c_535353</item>
         <item name="ChiliAdditionalButtonTextColorActive">@color/white_1</item>
         <item name="ChiliAdditionalButtonTextColorPressed">@color/white_1</item>
 
         <item name="ChiliNewAdditionalButtonBackgroundActive">@color/black_5</item>
         <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/black_5</item>
-
-        <item name="ChiliAdditionalButtonBorderColor">@color/black_5</item>
-        <item name="ChiliAdditionalButtonDisabledBorderColor">@color/black_5</item>
 
         <!-- OtpInputView -->
         <item name="ChiliOtpInputViewItemActiveBorder">@color/white_1</item>

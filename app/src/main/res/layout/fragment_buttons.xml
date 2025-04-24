@@ -13,12 +13,88 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <com.design2.chili2.view.buttons.LoaderButton
-            android:text="Loader button"
-            android:id="@+id/loader"
+        <TextView
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/padding_16dp"/>
+            style="@style/Chili.H16.Primary"
+            android:text="ChilliButton" />
+
+        <com.design2.chili2.view.buttons.ChiliButton
+            android:text="Primary button"
+            android:id="@+id/primary1"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp" />
+
+        <com.design2.chili2.view.buttons.ChiliButton
+            android:text="Primary button with icon"
+            android:id="@+id/primary2"
+            app:startIcon="@drawable/ic_cat"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"/>
+
+        <com.design2.chili2.view.buttons.ChiliButton
+            android:text="Primary small button"
+            android:id="@+id/primary_small"
+            android:enabled="false"
+            style="@style/Chili.ButtonStyle.Primary.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"/>
+
+        <com.design2.chili2.view.buttons.ChiliButton
+            android:text="Primary small button"
+            android:id="@+id/primary_small2"
+            app:startIcon="@drawable/ic_cat"
+            style="@style/Chili.ButtonStyle.Primary.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"/>
+
+        <com.design2.chili2.view.buttons.ChiliButton
+            android:text="Primary small button"
+            android:id="@+id/primary_small3"
+            style="@style/Chili.ButtonStyle.Primary.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"/>
+        <com.design2.chili2.view.buttons.ChiliButton
+            android:text="Chili button"
+            android:id="@+id/loader"
+            style="@style/Chili.ButtonStyle.Additional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp" />
+
+        <com.design2.chili2.view.buttons.ChiliButton
+            android:text="Button with Additional Style"
+            android:id="@+id/additional1"
+            style="@style/Chili.ButtonStyle.Additional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp"/>
+
+        <com.design2.chili2.view.buttons.ChiliButton
+            android:text="Button with icon"
+            android:id="@+id/additional2"
+            app:startIcon="@drawable/ic_cat"
+            style="@style/Chili.ButtonStyle.Additional"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            android:layout_marginTop="@dimen/padding_16dp" />
 
         <TextView
             android:id="@+id/stop_loader"
@@ -27,6 +103,20 @@
             style="@style/Chili.ButtonStyle.Component"
             android:layout_marginStart="@dimen/padding_16dp"
             android:layout_marginEnd="@dimen/padding_16dp"/>
+
+        <TextView
+            android:id="@+id/activate_loader"
+            android:text="Enable loader button"
+            android:layout_gravity="end"
+            style="@style/Chili.ButtonStyle.Component"
+            android:layout_marginStart="@dimen/padding_16dp"
+            android:layout_marginEnd="@dimen/padding_16dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_1_alpha_50"
+            android:layout_marginTop="@dimen/padding_16dp"/>
 
         <Button
             android:id="@+id/primary"
