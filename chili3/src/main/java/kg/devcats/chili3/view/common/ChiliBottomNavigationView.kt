@@ -104,6 +104,10 @@ class ChiliBottomNavigationView : ConstraintLayout {
         return vb.bottomNav
     }
 
+    fun getBackgroundView(): View {
+        return vb.viewBackground
+    }
+
     fun setItemsAnimation(isAnimated: Boolean) {
         isItemAnimated = isAnimated
     }
