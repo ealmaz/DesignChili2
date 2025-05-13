@@ -16,13 +16,37 @@ class ButtonsFragment : BaseFragment<FragmentButtonsBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).setUpHomeEnabled(true)
+
+        vb.primary1.setOnClickListener {
+            vb.primary1.setIsLoading(true)
+        }
+        vb.primary2.setOnClickListener {
+            vb.primary2.setIsLoading(true)
+        }
+        vb.primarySmall2.setOnClickListener {
+            vb.primarySmall2.setIsLoading(true)
+        }
+
+        vb.primarySmall3.setOnClickListener {
+            vb.primarySmall3.setIsLoading(true)
+        }
+
         vb.loader.setOnClickListener {
             vb.loader.setIsLoading(true)
         }
         vb.stopLoader.setOnClickListener {
             vb.loader.setIsLoading(false)
+            vb.primary1.setIsLoading(false)
+            vb.primary2.setIsLoading(false)
+            vb.primarySmall2.setIsLoading(false)
+            vb.primarySmall3.setIsLoading(false)
+            vb.loader.isEnabled = false
         }
-        vb.iconedButton.setIcon(R.drawable.ic_market)
+
+        vb.activateLoader.setOnClickListener {
+            vb.loader.isEnabled = true
+        }
+        vb.iconedButton.setStartIcon(com.design2.chili2.R.drawable.ic_info)
         vb.iconedButton.setOnSingleClickListener {
             println("Click")
         }
