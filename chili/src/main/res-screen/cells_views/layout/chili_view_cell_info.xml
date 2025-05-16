@@ -68,7 +68,6 @@
         android:background="?attr/ChiliDividerColor"
         android:layout_width="match_parent"
         android:layout_height="?attr/ChiliDividerHeightSize"
-        android:layout_marginStart="@dimen/padding_8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>

@@ -30,6 +30,10 @@
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
     </style>
 
+    <style name="Chili.H64.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
+    </style>
+
     <style name="Chili.H64.AccentSecondary">
         <item name="android:textColor">?attr/ChiliAccentSecondaryTextColor</item>
     </style>
@@ -106,6 +110,18 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="Chili.H64.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H64.Success.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
     <style name="Chili.H64.AccentSecondary.Bold">
         <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
@@ -146,6 +162,10 @@
 
     <style name="Chili.H32.Warning">
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
+    </style>
+
+    <style name="Chili.H32.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
     </style>
 
     <style name="Chili.H32.AccentSecondary">
@@ -224,6 +244,18 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="Chili.H32.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H32.Success.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
     <style name="Chili.H32.AccentSecondary.Bold">
         <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
@@ -264,6 +296,10 @@
 
     <style name="Chili.H28.Warning">
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
+    </style>
+
+    <style name="Chili.H28.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
     </style>
 
     <style name="Chili.H28.AccentSecondary">
@@ -342,6 +378,18 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="Chili.H28.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H28.Success.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
     <style name="Chili.H28.AccentSecondary.Bold">
         <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
@@ -382,6 +430,10 @@
 
     <style name="Chili.H24.Warning">
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
+    </style>
+
+    <style name="Chili.H24.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
     </style>
 
     <style name="Chili.H24.AccentSecondary">
@@ -460,6 +512,18 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="Chili.H24.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H24.Success.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
     <style name="Chili.H24.AccentSecondary.Bold">
         <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
@@ -500,6 +564,10 @@
 
     <style name="Chili.H20.Warning">
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
+    </style>
+
+    <style name="Chili.H20.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
     </style>
 
     <style name="Chili.H20.AccentSecondary">
@@ -578,6 +646,18 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="Chili.H20.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H20.Success.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
     <style name="Chili.H20.AccentSecondary.Bold">
         <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
@@ -618,6 +698,10 @@
 
     <style name="Chili.H18.Warning">
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
+    </style>
+
+    <style name="Chili.H18.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
     </style>
 
     <style name="Chili.H18.AccentSecondary">
@@ -696,6 +780,18 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="Chili.H18.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H18.Success.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
     <style name="Chili.H18.AccentSecondary.Bold">
         <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
@@ -736,6 +832,10 @@
 
     <style name="Chili.H16.Warning">
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
+    </style>
+
+    <style name="Chili.H16.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
     </style>
 
     <style name="Chili.H16.AccentSecondary">
@@ -814,6 +914,18 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="Chili.H16.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H16.Success.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
     <style name="Chili.H16.AccentSecondary.Bold">
         <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
@@ -854,6 +966,10 @@
 
     <style name="Chili.H14.Warning">
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
+    </style>
+
+    <style name="Chili.H14.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
     </style>
 
     <style name="Chili.H14.AccentSecondary">
@@ -932,6 +1048,18 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="Chili.H14.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H14.Success.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
     <style name="Chili.H14.AccentSecondary.Bold">
         <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
@@ -972,6 +1100,10 @@
 
     <style name="Chili.H12.Warning">
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
+    </style>
+
+    <style name="Chili.H12.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
     </style>
 
     <style name="Chili.H12.AccentSecondary">
@@ -1050,6 +1182,18 @@
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
+    <style name="Chili.H12.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H12.Success.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
     <style name="Chili.H12.AccentSecondary.Bold">
         <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
     </style>
@@ -1090,6 +1234,10 @@
 
     <style name="Chili.H10.Warning">
         <item name="android:textColor">?attr/ChiliWarningTextColor</item>
+    </style>
+
+    <style name="Chili.H10.Success">
+        <item name="android:textColor">?attr/ChiliSuccessTextColor</item>
     </style>
 
     <style name="Chili.H10.AccentSecondary">
@@ -1165,6 +1313,18 @@
     </style>
 
     <style name="Chili.H10.Warning.700">
+        <item name="android:fontFamily">?attr/Chili700TextFont</item>
+    </style>
+
+    <style name="Chili.H10.Success.Bold">
+        <item name="android:fontFamily">?attr/ChiliBoldTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Success.Italic">
+        <item name="android:fontFamily">?attr/ChiliItalicTextFont</item>
+    </style>
+
+    <style name="Chili.H10.Success.700">
         <item name="android:fontFamily">?attr/Chili700TextFont</item>
     </style>
 
