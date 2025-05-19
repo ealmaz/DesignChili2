@@ -61,11 +61,10 @@ class InfoCellView @JvmOverloads constructor(
                     R.styleable.InfoCellView_isSurfaceClickable,
                     true
                 ).let { setupIsSurfaceClickable(it) }
-                getInteger(R.styleable.InfoCellView_roundedCornerMode, -1).takeIf { it != -1 }
-                    ?.let {
-                        roundedCornerMode = it
-                        vb.rootView.setupRoundedCellCornersMode(it, surfaceClickAbility)
-                    }
+                getInteger(R.styleable.InfoCellView_roundedCornerMode, roundedCornerMode).let {
+                    roundedCornerMode = it
+                    this@InfoCellView.setupRoundedCellCornersMode(it, surfaceClickAbility)
+                }
                 getResourceId(R.styleable.InfoCellView_titleTextAppearance, -1).takeIf { it != -1 }
                     ?.let {
                         setTitleTextAppearance(it)
@@ -88,7 +87,7 @@ class InfoCellView @JvmOverloads constructor(
     }
 
     private fun setupViews() {
-        this.setupCornerRoundedMode(RoundedCornerMode.SINGLE)
+       // this.setupCornerRoundedMode(RoundedCornerMode.SINGLE)
     }
 
     fun setTitle(@StringRes resId: Int) {

@@ -1292,8 +1292,8 @@
                 android:layout_height="wrap_content"
                 app:isDividerVisible="true"
                 app:roundedCornerMode="top"
-                app:subtitle="subtitle"
-                app:title="Title" />
+                app:subtitle="Title"
+                app:title="Not active till: 20.12.2012" />
 
             <com.design2.chili2.view.cells.InfoCellView
                 android:layout_width="match_parent"
