@@ -55,6 +55,7 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
                 setAdditionalText("0")
             }
         }
+        vb.atcvWithLongText.setAdditionalTextMaxEms(Int.MAX_VALUE)
 
         vb.progress.removeBackground()
 

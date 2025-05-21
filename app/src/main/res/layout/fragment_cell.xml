@@ -768,6 +768,7 @@
             style="@style/ShadowLayoutStyle">
 
             <com.design2.chili2.view.cells.AdditionalTextCellView
+                android:id="@+id/atcv_with_long_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:additionalText="Additional text no chevron"

@@ -140,6 +140,10 @@ class AdditionalTextCellView @JvmOverloads constructor(
         additionalText?.alpha = alpha
     }
 
+    fun setAdditionalTextMaxEms(maxEms: Int) {
+        additionalText?.maxEms = maxEms
+    }
+
     fun updateAdditionalTextMargin(startMarginPx: Int? = null, topMarginPx: Int? = null, endMarginPx: Int? = null, bottomMarginPx: Int? = null) {
         val param = additionalText?.layoutParams as? MarginLayoutParams ?: return
         param.apply {
