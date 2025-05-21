@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         app:titleCentered="true"
         app:isDividerVisible="true"
+        android:visibility="gone"
         app:navigationIcon="@drawable/chili_ic_close"
         app:title="@string/app_name"/>
 

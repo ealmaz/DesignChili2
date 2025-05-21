@@ -66,6 +66,10 @@ class AllViewsFragment : BaseFragment<FragmentAllViewsBinding>() {
         vb.dividers.setOnClickListener {
             openFragment(DividerFragment())
         }
+
+        vb.fontSizeTest.setOnClickListener {
+            openFragment(DemoTextFontScaleFragment())
+        }
         
         (activity as MainActivity).setUpHomeEnabled(false)
     }

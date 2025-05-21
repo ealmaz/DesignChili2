@@ -1,5 +1,6 @@
 package com.design2.app
 
+import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
@@ -52,6 +53,17 @@ class MainActivity : AppCompatActivity() {
             R.id.shimmer -> setupShimmer(!isShimmering)
         }
         return true
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        val prefs = newBase.getSharedPreferences("settings", Context.MODE_PRIVATE)
+        val scale = prefs.getFloat("fontScale", 1.0f)
+
+        val config = Configuration(newBase.resources.configuration)
+        config.fontScale = scale
+        val scaledContext = newBase.createConfigurationContext(config)
+
+        super.attachBaseContext(scaledContext)
     }
 
     private fun setupDarkTheme() {

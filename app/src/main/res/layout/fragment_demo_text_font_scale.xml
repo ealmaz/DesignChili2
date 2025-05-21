@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/padding_16dp"
+    android:paddingTop="@dimen/padding_16dp"
+    tools:context=".fragments.DemoTextFontScaleFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <kg.devcats.chili3.view.cells.CardCellView
+                android:id="@+id/cardcell"
+                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCellIcon="@drawable/ic_card_default"
+                app:cardCellTitle="Заголовок"
+                app:cardCellValue="500 000,00 с"/>
+
+            <kg.devcats.chili3.view.cells.CardCellView
+                android:id="@+id/cardcellBlocked"
+                android:layout_marginTop="@dimen/padding_16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCellIcon="@drawable/ic_card_default"
+                app:cardCellTitle="Заголовок"
+                app:cardCellValue="500 000,00 с"/>
+
+            <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_16dp"
+                style="@style/ShadowLayoutStyle">
+
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:isDividerVisible="false"
+                    app:subtitle="Подзаголовок"
+                    app:title="Заголовок" />
+
+            </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+            <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_16dp"
+                style="@style/ShadowLayoutStyle">
+
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:isDividerVisible="false"
+                    android:icon="@drawable/ic_bonus_new"
+                    app:subtitle="300 бонусов за первый заказ"
+                    app:title="Доставка Globus" />
+
+            </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+            <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                android:id="@+id/shadow_ex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                style="@style/ShadowLayoutStyle">
+
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:id="@+id/cell_first"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:roundedCornerMode="top"
+                    app:isDividerVisible="true"
+                    android:icon="@drawable/ic_stars"
+                    app:title="Заголовок" />
+            </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+
+            <com.design2.chili2.view.container.shadow_layout.ShadowLayout
+                android:id="@+id/shadow_ex2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ShadowLayoutStyle">
+
+                <com.design2.chili2.view.cells.BaseCellView
+                    android:id="@+id/cell_first2"
+                    android:layout_width="match_parent"
+                    app:roundedCornerMode="bottom"
+                    android:layout_height="wrap_content"
+                    app:isDividerVisible="false"
+                    android:icon="@drawable/ic_bonus_card_32dp"
+                    app:title="Заголовок" />
+
+            </com.design2.chili2.view.container.shadow_layout.ShadowLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/sliderValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/changeSizeSlider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/changeSizeSlider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+            app:thumbElevation="0dp"
+            app:thumbRadius="12dp"
+            android:valueFrom="0.8"
+            android:valueTo="2.0"
+            android:layout_weight="1"
+            app:layout_constraintTop_toBottomOf="@+id/text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/changeSizeButton"/>
+    </LinearLayout>
+</LinearLayout>
