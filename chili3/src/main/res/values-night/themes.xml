@@ -184,6 +184,13 @@
         <!-- StoriesCardView -->
         <item name="ChiliStrokeColorBgViewedStories">@color/c_4a4a4a</item>
 
+        <!-- TabLayout / Segmented Picker -->
+        <item name="ChiliTabLayoutBackgroundColor">@color/black_3</item>
+        <item name="ChiliSelectedTabColor">@color/black_4</item>
+
+        <!-- Border Colors -->
+        <item name="ChiliBorderColor">@color/black_5</item>
+
     </style>
 
     <style name="ChiliDesignTheme3" parent="BaseChiliDesignTheme3.Night"/>

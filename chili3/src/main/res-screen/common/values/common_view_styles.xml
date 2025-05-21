@@ -27,4 +27,16 @@
     <style name="ThemeOverlay.ChiliCardCellShimmerCornerRadiusTheme" parent="ThemeOverlay">
         <item name="ChiliShimmerBoneRadius">@dimen/radius_6dp</item>
     </style>
+
+    <style name="Chili.RoundedSegmentedPickerViewStyle" parent="Chili.BaseChiliViewStyle">
+        <item name="tabIndicator">@drawable/chili_selected_tab_bg</item>
+        <item name="tabIndicatorColor">@android:color/transparent</item>
+        <item name="tabIndicatorGravity">stretch</item>
+        <item name="tabRippleColor">@null</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabTextColor">?attr/ChiliSegmentedPickerTabTextColor</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/view_32dp</item>
+        <item name="tabTextAppearance">@android:style/TextAppearance.Widget.TabWidget</item>
+    </style>
 </resources>

@@ -252,4 +252,11 @@
     <!-- StoriesCardView -->
     <attr name="ChiliStrokeColorBgViewedStories" format="color"/>
 
+    <!-- TabLayout / Segmented Picker -->
+    <attr name="ChiliTabLayoutBackgroundColor" format="color"/>
+    <attr name="ChiliSelectedTabColor" format="color"/>
+
+    <!-- Border Colors -->
+    <attr name="ChiliBorderColor" format="color"/>
+
 </resources>

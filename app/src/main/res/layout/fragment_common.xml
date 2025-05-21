@@ -60,6 +60,41 @@
 
             </com.google.android.material.tabs.TabLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/padding_16dp"
+                android:text="Rounded Segmented Picker"
+                android:textAppearance="@style/Chili.H8.Primary" />
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/padding_16dp"
+                android:background="@drawable/chili_tab_background"
+                android:padding="@dimen/padding_2dp">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    style="@style/Chili.RoundedSegmentedPickerViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_32dp">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Segment one" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Segment two" />
+
+                </com.google.android.material.tabs.TabLayout>
+            </LinearLayout>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
