@@ -9,9 +9,9 @@ import com.design2.app.MainActivity
 import com.design2.app.R
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentSnackbarsBinding
+import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.showInfinitiveLoaderSnackbar
 import com.design2.chili2.extensions.showSimpleSnackbar
-import com.design2.chili2.extensions.showTimerActionBeforeSuccessCnackbar
 import com.design2.chili2.extensions.showTimerSnackbar
 import com.design2.chili2.view.snackbar.ChiliSnackBar
 
@@ -23,13 +23,13 @@ class SnackbarFragment : BaseFragment<FragmentSnackbarsBinding>() {
         vb.loadSnackbar.setOnClickListener {
             (requireActivity() as AppCompatActivity).showInfinitiveLoaderSnackbar(vb.root, "Snackbar meesage")
         }
-        vb.timerActionSnackbar.setOnClickListener {
+        vb.timerActionSnackbar.setOnSingleClickListener {
             showTimerSnackbar("Timer message bla bla bla", {
                 Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_SHORT).show()
                 it.dismiss()
             }, {
                 Toast.makeText(requireContext(), "Timer expired", Toast.LENGTH_SHORT).show()
-            })
+            }, actionText = "Cancel")
         }
 
         vb.simple.setOnClickListener {

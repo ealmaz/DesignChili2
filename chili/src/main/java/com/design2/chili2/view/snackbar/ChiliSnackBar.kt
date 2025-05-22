@@ -131,6 +131,7 @@ class ChiliSnackBar private constructor(
             override fun onTick(millisUntilFinished: Long) {
                 if (millisUntilFinished <= timerInfo.successDurationMills) {
                     setSnackbarIcon(timerInfo.successIcon)
+                    setupActionButton(null)
                 }
                 setTimeToView(millisUntilFinished - timerInfo.successDurationMills)
             }
