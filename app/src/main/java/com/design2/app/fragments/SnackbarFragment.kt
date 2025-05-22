@@ -3,6 +3,7 @@ package com.design2.app.fragments
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.design2.app.MainActivity
 import com.design2.app.R
@@ -11,6 +12,7 @@ import com.design2.app.databinding.FragmentSnackbarsBinding
 import com.design2.chili2.extensions.showInfinitiveLoaderSnackbar
 import com.design2.chili2.extensions.showSimpleSnackbar
 import com.design2.chili2.extensions.showTimerActionBeforeSuccessCnackbar
+import com.design2.chili2.extensions.showTimerSnackbar
 import com.design2.chili2.view.snackbar.ChiliSnackBar
 
 class SnackbarFragment : BaseFragment<FragmentSnackbarsBinding>() {
@@ -22,7 +24,12 @@ class SnackbarFragment : BaseFragment<FragmentSnackbarsBinding>() {
             (requireActivity() as AppCompatActivity).showInfinitiveLoaderSnackbar(vb.root, "Snackbar meesage")
         }
         vb.timerActionSnackbar.setOnClickListener {
-            (requireActivity() as AppCompatActivity).showTimerActionBeforeSuccessCnackbar(vb.root, "Tiner message bla bla bla", "onSuccess", "click", {}, {}, 5000)
+            showTimerSnackbar("Timer message bla bla bla", {
+                Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_SHORT).show()
+                it.dismiss()
+            }, {
+                Toast.makeText(requireContext(), "Timer expired", Toast.LENGTH_SHORT).show()
+            })
         }
 
         vb.simple.setOnClickListener {
