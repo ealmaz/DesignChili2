@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content"
                 style="@style/Chili.ButtonStyle.Component"
                 android:textColor="?attr/ChiliSnackbarActionTextColor"
+                android:fontFamily="?attr/ChiliBoldTextFont"
                 android:visibility="gone"
                 android:layout_marginStart="@dimen/padding_12dp"
                 app:layout_constraintStart_toEndOf="@id/tv_message"
