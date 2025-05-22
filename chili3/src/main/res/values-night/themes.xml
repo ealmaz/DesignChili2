@@ -38,6 +38,10 @@
         <!-- Chevron -->
         <item name="ChiliChevronColor">@color/c_efeff4</item>
 
+        <!-- Snackbar attributes -->
+        <item name="ChiliSnackbarBackground">@color/c_4a4a4a</item>
+        <item name="ChiliSnackbarTextColor">@color/c_FFFFFF</item>
+
         <!-- Segmented Picker   -->
         <item name="ChiliSegmentedPickerBackgroundColor">@color/black_4</item>
         <item name="ChiliSegmentedPickerTabIndicatorColor">@color/black_3</item>
