@@ -105,7 +105,6 @@
     <attr name="ChiliSnackbarCornerRadius" format="dimension"/>
     <attr name="ChiliSnackbarElevation" format="dimension"/>
     <attr name="ChiliSnackbarTextColor" format="color"/>
-    <attr name="ChiliSnackbarActionTextColor" format="color"/>
     <attr name="ChiliSnackbarMessageAppearance" format="reference"/>
     <attr name="ChiliSnackbarMarginStart" format="dimension"/>
     <attr name="ChiliSnackbarMarginEnd" format="dimension"/>

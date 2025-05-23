@@ -226,7 +226,6 @@
         <item name="ChiliSnackbarBackground">@color/c_4a4a4a</item>
         <item name="ChiliSnackbarElevation">@dimen/elevation_0dp</item>
         <item name="ChiliSnackbarTextColor">@color/c_FFFFFF</item>
-        <item name="ChiliSnackbarActionTextColor">@color/c_62ADFF</item>
         <item name="ChiliSnackbarMessageAppearance">@style/Chili.H16.Primary.Bold</item>
         <item name="ChiliSnackbarMarginTop">@dimen/padding_8dp</item>
         <item name="ChiliSnackbarContentPaddingHorizontal">@dimen/padding_12dp</item>

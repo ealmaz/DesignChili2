@@ -52,7 +52,6 @@
         <item name="ChiliSnackbarCornerRadius">@dimen/radius_12dp</item>
         <item name="ChiliSnackbarElevation">@dimen/elevation_4dp</item>
         <item name="ChiliSnackbarTextColor">@color/black_5</item>
-        <item name="ChiliSnackbarActionTextColor">@color/blue_1</item>
         <item name="ChiliSnackbarMessageAppearance">@style/Chili.H8.Primary</item>
         <item name="ChiliSnackbarMarginStart">@dimen/padding_16dp</item>
         <item name="ChiliSnackbarMarginEnd">@dimen/padding_16dp</item>
