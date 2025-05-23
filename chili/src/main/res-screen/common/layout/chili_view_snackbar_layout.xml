@@ -81,6 +81,7 @@
                 android:textColor="?attr/ChiliSnackbarActionTextColor"
                 android:visibility="gone"
                 android:layout_marginStart="@dimen/padding_12dp"
+                android:layout_marginEnd="@dimen/padding_12dp"
                 app:layout_constraintStart_toEndOf="@id/tv_message"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
