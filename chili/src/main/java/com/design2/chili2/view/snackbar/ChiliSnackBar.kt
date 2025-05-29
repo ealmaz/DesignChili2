@@ -233,7 +233,7 @@ data class TimerInfo(
     var durationMills: Long = 0,
     var onTimerExpire: ((ChiliSnackBar) -> Unit)? = null,
     var showCountDownTimer: Boolean = true,
-    @DrawableRes var successIcon: Int = R.drawable.chili_ic_success,
+    @DrawableRes var successIcon: Int = R.drawable.chili_ic_success_24,
     var successDurationMills: Long = 2000,
 ) {
     fun getSnackbarDuration(): Long {
