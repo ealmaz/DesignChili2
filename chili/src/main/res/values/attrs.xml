@@ -138,6 +138,7 @@
 
     <declare-styleable name="ChiliToolbar">
         <attr name="title"/>
+        <attr name="subtitle"/>
         <attr name="titleCentered"/>
         <attr name="toolbarTextAppearance" format="reference"/>
         <attr name="additionalText" format="string"/>

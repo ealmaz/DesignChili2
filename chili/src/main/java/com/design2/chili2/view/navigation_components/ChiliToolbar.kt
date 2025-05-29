@@ -17,9 +17,9 @@ import com.design2.chili2.databinding.ChiliViewToolbarBinding
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 
-class ChiliToolbar : LinearLayout {
+open class ChiliToolbar : LinearLayout {
 
-    private lateinit var vb: ChiliViewToolbarBinding
+    lateinit var vb: ChiliViewToolbarBinding
 
     constructor(context: Context) : super(context) {
         setupView()
@@ -43,6 +43,7 @@ class ChiliToolbar : LinearLayout {
         var navigationIconRes: Int = -1
         context?.obtainStyledAttributes(attrs, R.styleable.ChiliToolbar, R.attr.toolbarDefaultStyle, defStyle)?.run {
             setTitle(getString(R.styleable.ChiliToolbar_title))
+            setSubtitle(getString(R.styleable.ChiliToolbar_subtitle))
             setAdditionalText(getString(R.styleable.ChiliToolbar_additionalText))
             getBoolean(R.styleable.ChiliToolbar_isDividerVisible, true).let {
                 setupDividerVisibility(it)
@@ -105,6 +106,7 @@ class ChiliToolbar : LinearLayout {
         vb.toolbarView.apply {
             config.navigationIconRes?.let { this@ChiliToolbar.setNavigationIcon(it) }
             config.title?.let { this@ChiliToolbar.setTitle(it) }
+            config.subtitle?.let { this@ChiliToolbar.setSubtitle(it) }
             config.centeredTitle?.let { setIsTitleCentered(it) }
         }
     }
@@ -130,13 +132,21 @@ class ChiliToolbar : LinearLayout {
     fun setTitle(title: String?) {
         vb.toolbarView.title = title
     }
+    fun setSubtitle(subtitle: CharSequence?) {
+        vb.toolbarView.subtitle = subtitle
+    }
 
     fun setTitleTextAppearance(@StyleRes textAppearanceRes: Int) {
         vb.toolbarView.setTitleTextAppearance(context, textAppearanceRes)
     }
 
+    fun setSubtitleTextAppearance(@StyleRes textAppearanceRes: Int) {
+        vb.toolbarView.setSubtitleTextAppearance(context, textAppearanceRes)
+    }
+
     fun setIsTitleCentered(centered: Boolean) {
         vb.toolbarView.isTitleCentered = centered
+        vb.toolbarView.isSubtitleCentered = centered
     }
 
     fun setAdditionalText(@StringRes resId: Int?) {
@@ -238,5 +248,6 @@ class ChiliToolbar : LinearLayout {
         val navigationIconRes: Int? = null,
         val onNavigateUpClick: FragmentActivity.() -> Unit = { onBackPressed() },
         val isNavigateUpButtonEnabled: Boolean = false,
+        val subtitle: CharSequence? = null,
     )
 }
