@@ -49,7 +49,7 @@ class SnackbarFragment : BaseFragment<FragmentSnackbarsBinding>() {
                 .setSnackbarIcon(R.drawable.chili_ic_orange_warning)
                 .setSnackbarMessage("Похоже пропал интернет. \nПроверьте интернет-соединение")
                 .setSnackbarDurationMills(2000)
-                .setGravity(Gravity.TOP)
+                .setGravity(Gravity.BOTTOM)
                 .build()
                 .show()
         }
