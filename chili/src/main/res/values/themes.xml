@@ -37,7 +37,7 @@
 
         <!-- Ripple-->
         <item name="ChiliRippleForegroundColor">@color/black_1_alpha_20</item>
-        <item name="ChiliRippleForegroundCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliRippleForegroundCornerRadius">@dimen/radius_12dp</item>
 
         <!-- Divider -->
         <item name="ChiliDividerColor">@color/gray_6</item>
@@ -141,8 +141,8 @@
         <!-- Button attributes -->
         <item  name="ChiliPrimaryButtonPaddingTop">@dimen/padding_14dp</item>
         <item  name="ChiliPrimaryButtonPaddingBottom">@dimen/padding_14dp</item>
-        <item  name="ChiliPrimaryButtonPaddingStart" >@dimen/padding_24dp</item>
-        <item  name="ChiliPrimaryButtonPaddingEnd">@dimen/padding_24dp</item>
+        <item  name="ChiliPrimaryButtonPaddingStart" >@dimen/padding_16dp</item>
+        <item  name="ChiliPrimaryButtonPaddingEnd">@dimen/padding_16dp</item>
 
         <!-- Primary Button attributes -->
         <item name="ChiliPrimaryButtonBackgroundActive">@color/green_1</item>
@@ -158,8 +158,6 @@
         <item name="ChiliPrimaryButtonRippleColor">@color/black_1_alpha_20</item>
         <item name="ChiliPrimaryButtonBorderColor">@android:color/transparent</item>
 
-
-
         <!-- Secondary Button attributes -->
         <item name="ChiliSecondaryButtonBackgroundActive">@android:color/transparent</item>
         <item name="ChiliSecondaryButtonBackgroundDisabled">@android:color/transparent</item>
@@ -169,7 +167,7 @@
         <item name="ChiliSecondaryButtonTextColorActive">@color/blue_1</item>
         <item name="ChiliSecondaryButtonTextColorPressed">@color/gray_1</item>
         <item name="ChiliSecondaryButtonTextColorDisabled">@color/blue_1_alpha_50</item>
-
+        <item name="ChiliSecondaryButtonRippleColor">@color/blue_6_alpha_60</item>
 
         <!-- Additional Button attributes -->
         <item name="ChiliAdditionalButtonBackgroundActive">@color/gray_5</item>
@@ -186,7 +184,6 @@
 
         <item name="ChiliAdditionalButtonBorderColor">@color/gray_5</item>
         <item name="ChiliAdditionalButtonDisabledBorderColor">@color/gray_5</item>
-
 
         <!-- Component Button attributes -->
         <item name="ChiliComponentButtonBackgroundActive">@android:color/transparent</item>

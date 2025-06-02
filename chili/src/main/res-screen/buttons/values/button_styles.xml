@@ -13,22 +13,63 @@
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:stateListAnimator">@null</item>
+        <item name="loaderSize">@dimen/view_24dp</item>
     </style>
 
     <style name="Chili.ButtonStyle.Primary">
         <item name="android:foreground">@drawable/chili_ripple_button_primary</item>
         <item name="android:background">@drawable/chili_bg_button_primary</item>
         <item name="android:textAppearance">@style/Chili.PrimaryButtonText</item>
+        <item name="loaderColor">?attr/ChiliPrimaryButtonTextColorActive</item>
+    </style>
+
+    <style name="Chili.ButtonStyle.Primary.Small">
+        <item name="android:paddingStart">@dimen/padding_8dp</item>
+        <item name="android:paddingEnd">@dimen/padding_8dp</item>
+        <item name="android:paddingTop">@dimen/padding_12dp</item>
+        <item name="android:paddingBottom">@dimen/padding_12dp</item>
+        <item name="startIconWidth">@dimen/view_20dp</item>
+        <item name="startIconHeight">@dimen/view_20dp</item>
+        <item name="startIconEndMargin">@dimen/padding_6dp</item>
+        <item name="endIconStartMargin">@dimen/padding_6dp</item>
+        <item name="loaderSize">@dimen/view_20dp</item>
     </style>
 
     <style name="Chili.ButtonStyle.Secondary">
+        <item name="android:foreground">@drawable/chili_ripple_button_secondary</item>
         <item name="android:background">@drawable/chili_bg_button_secondary</item>
         <item name="android:textAppearance">@style/Chili.SecondaryButtonText</item>
+        <item name="loaderColor">?attr/ChiliSecondaryButtonTextColorActive</item>
+    </style>
+
+    <style name="Chili.ButtonStyle.Secondary.Small">
+        <item name="android:paddingStart">@dimen/padding_8dp</item>
+        <item name="android:paddingEnd">@dimen/padding_8dp</item>
+        <item name="android:paddingTop">@dimen/padding_12dp</item>
+        <item name="android:paddingBottom">@dimen/padding_12dp</item>
+        <item name="startIconWidth">@dimen/view_20dp</item>
+        <item name="startIconHeight">@dimen/view_20dp</item>
+        <item name="startIconEndMargin">@dimen/padding_6dp</item>
+        <item name="endIconStartMargin">@dimen/padding_6dp</item>
+        <item name="loaderSize">@dimen/view_20dp</item>
     </style>
 
     <style name="Chili.ButtonStyle.Additional">
         <item name="android:background">@drawable/chili_bg_button_additional</item>
         <item name="android:textAppearance">@style/Chili.AdditionalButtonText</item>
+        <item name="loaderColor">?attr/ChiliAdditionalButtonTextColorActive</item>
+    </style>
+
+    <style name="Chili.ButtonStyle.Additional.Small">
+        <item name="android:paddingStart">@dimen/padding_8dp</item>
+        <item name="android:paddingEnd">@dimen/padding_8dp</item>
+        <item name="android:paddingTop">@dimen/padding_12dp</item>
+        <item name="android:paddingBottom">@dimen/padding_12dp</item>
+        <item name="startIconWidth">@dimen/view_20dp</item>
+        <item name="startIconHeight">@dimen/view_20dp</item>
+        <item name="startIconEndMargin">@dimen/padding_6dp</item>
+        <item name="endIconStartMargin">@dimen/padding_6dp</item>
+        <item name="loaderSize">@dimen/view_20dp</item>
     </style>
 
     <style name="Chili.ButtonStyle.Component">
@@ -42,16 +83,9 @@
         <item name="android:paddingEnd">?attr/ChiliComponentButtonHorizontalPadding</item>
     </style>
 
-    <style name="Chili.LoaderButton">
-    </style>
+    <style name="Chili.LoaderButton" />
 
-    <style name="Chili.ButtonStyle.NewAdditional">
-        <item name="android:foreground">@drawable/chili_new_additional_button_ripple</item>
-        <item name="android:background">@drawable/chili_new_additional_button_background</item>
-        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
-        <item name="android:fontFamily">?attr/ChiliAdditionalButtonTextFont</item>
-        <item name="android:textSize">?attr/ChiliAdditionalButtonTextSize</item>
-    </style>
+    <style name="Chili.ButtonStyle.NewAdditional" parent="Chili.ButtonStyle.Additional" />
 
     <style name="Chili.ButtonStyle.Accent">
         <item name="android:textAppearance">@style/Chili.PrimaryButtonText</item>
