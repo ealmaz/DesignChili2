@@ -37,7 +37,7 @@
 
         <!-- Ripple-->
         <item name="ChiliRippleForegroundColor">@color/black_1_alpha_20</item>
-        <item name="ChiliRippleForegroundCornerRadius">@dimen/radius_4dp</item>
+        <item name="ChiliRippleForegroundCornerRadius">@dimen/radius_12dp</item>
 
         <!-- Divider -->
         <item name="ChiliDividerColor">@color/gray_6</item>
