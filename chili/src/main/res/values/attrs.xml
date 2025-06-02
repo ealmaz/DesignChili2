@@ -354,6 +354,7 @@
         <attr name="android:textAppearance" />
         <attr name="android:paddingBottom" format="dimension" />
         <attr name="android:paddingTop" format="dimension" />
+        <attr name="android:paddingVertical" format="dimension" />
         <attr name="startIcon" />
         <attr name="startIconWidth" />
         <attr name="startIconHeight" />

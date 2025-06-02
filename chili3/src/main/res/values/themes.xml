@@ -229,6 +229,10 @@
         <item name="ChiliAdditionalButtonBackgroundActive">@color/c_ececec</item>
         <item name="ChiliAdditionalButtonBackgroundDisabled">@color/c_ececec</item>
         <item name="ChiliAdditionalButtonTextColorDisabled">@color/c_c8c8c8</item>
+        <item name="ChiliAdditionalButtonBorderColor">@android:color/transparent</item>
+
+        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/c_ececec</item>
+        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/c_ececec</item>
 
         <!-- Chevron       -->
         <item name="ChiliChevronDrawable">@drawable/chili_ic_chevron_rounded</item>

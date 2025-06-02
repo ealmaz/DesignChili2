@@ -83,16 +83,9 @@
         <item name="android:paddingEnd">?attr/ChiliComponentButtonHorizontalPadding</item>
     </style>
 
-    <style name="Chili.LoaderButton">
-    </style>
+    <style name="Chili.LoaderButton" />
 
-    <style name="Chili.ButtonStyle.NewAdditional">
-        <item name="android:foreground">@drawable/chili_new_additional_button_ripple</item>
-        <item name="android:background">@drawable/chili_new_additional_button_background</item>
-        <item name="android:textColor">?attr/ChiliMarkedTextColor</item>
-        <item name="android:fontFamily">?attr/ChiliAdditionalButtonTextFont</item>
-        <item name="android:textSize">?attr/ChiliAdditionalButtonTextSize</item>
-    </style>
+    <style name="Chili.ButtonStyle.NewAdditional" parent="Chili.ButtonStyle.Additional" />
 
     <style name="Chili.ButtonStyle.Accent">
         <item name="android:textAppearance">@style/Chili.PrimaryButtonText</item>

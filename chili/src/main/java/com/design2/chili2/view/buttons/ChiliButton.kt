@@ -76,6 +76,10 @@ class ChiliButton @JvmOverloads constructor(
                 getDimensionPixelSize(R.styleable.ChiliButton_android_paddingBottom, -1).takeIf { it != -1 }
             )
 
+            getDimensionPixelSize(R.styleable.ChiliButton_android_paddingVertical, -1).takeIf { it != -1 }?.let {
+                setVerticalPadding(it)
+            }
+
             recycle()
         }
     }
@@ -191,6 +195,16 @@ class ChiliButton @JvmOverloads constructor(
         with(vb.tvTitle) {
             top?.let { setTopMargin(it) }
             bottom?.let { setBottomMargin(it) }
+        }
+    }
+
+    private fun setVerticalPadding(padding: Int?) {
+        setPadding(paddingLeft, 0, paddingRight, 0)
+        with(vb.tvTitle) {
+            padding?.let {
+                setTopMargin(it)
+                setBottomMargin(it)
+            }
         }
     }
 

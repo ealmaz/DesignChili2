@@ -119,9 +119,10 @@
         <item name="ChiliAdditionalButtonTextColorDisabled">@color/c_535353</item>
         <item name="ChiliAdditionalButtonTextColorActive">@color/white_1</item>
         <item name="ChiliAdditionalButtonTextColorPressed">@color/white_1</item>
+        <item name="ChiliAdditionalButtonBorderColor">@android:color/transparent</item>
 
-        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/black_5</item>
-        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/black_5</item>
+        <item name="ChiliNewAdditionalButtonBackgroundActive">@color/c_3D3D3D</item>
+        <item name="ChiliNewAdditionalButtonBackgroundDisabled">@color/c_3D3D3D</item>
 
         <!-- OtpInputView -->
         <item name="ChiliOtpInputViewItemActiveBorder">@color/white_1</item>
