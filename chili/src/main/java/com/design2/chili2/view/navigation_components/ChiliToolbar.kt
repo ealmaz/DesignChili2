@@ -241,6 +241,8 @@ open class ChiliToolbar : LinearLayout {
         vb.toolbarView.setOnLongClickListener { action.invoke(); true }
     }
 
+    fun getRootContainer() = vb.llRoot
+
     data class Configuration(
         val hostActivity: FragmentActivity,
         val title: String? = null,

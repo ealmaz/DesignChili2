@@ -138,6 +138,8 @@ class StartIconChiliToolbar : LinearLayout {
         vb.toolbar.menu?.findItem(id)?.isVisible = false
     }
 
+    fun getRootContainer() = vb.llRootStartIcon
+
     /** Configuration */
 
     data class Configuration(
