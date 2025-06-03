@@ -28,6 +28,14 @@
             android:layout_margin="@dimen/padding_16dp"
             style="@style/Chili.ButtonStyle.Primary"/>
 
+        <Button
+            android:id="@+id/btn_foreign_passport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ForeignPassportCardOverlay"
+            android:layout_margin="@dimen/padding_16dp"
+            style="@style/Chili.ButtonStyle.Primary"/>
+
 
     </LinearLayout>
 
