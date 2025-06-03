@@ -24,26 +24,14 @@ class ForeignPassportOverlay @JvmOverloads constructor(
 
     private var passportMaskRect: RectF? = null
 
-    private var description: String? = null
     private var headerText: String? = null
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         context.obtainStyledAttributes(attrs, R.styleable.ForeignPassportOverlay, defStyleAttr, defStyleRes).run {
             overlayAlpha = getInteger(R.styleable.RectangleOverlay_overlayAlpha, 77)
-            description = getString(R.styleable.PassportCardOverlay_description)
             headerText = getString(R.styleable.ForeignPassportOverlay_headerText)
             recycle()
         }
-    }
-
-    fun setDescription(text: String) {
-        description = text
-        invalidate()
-    }
-
-    fun setDescription(@StringRes textRes: Int) {
-        description = resources.getString(textRes)
-        invalidate()
     }
 
     fun setHeaderText(text: String) {
@@ -69,7 +57,6 @@ class ForeignPassportOverlay @JvmOverloads constructor(
         drawColor(canvas, R.color.black_1, overlayAlpha)
         var y = drawHeaderText(canvas, 0f)
         y = cutPassportCardShape(canvas, y)
-        drawDescription(canvas, y)
     }
 
     private fun drawHeaderText(canvas: Canvas, startY: Float): Float {
@@ -84,36 +71,23 @@ class ForeignPassportOverlay @JvmOverloads constructor(
         )
     }
 
-    private fun drawDescription(canvas: Canvas, startY: Float): Float {
-        if (description == null) return startY
-        val startYWithMargin = startY + 24.dp.toFloat()
-        return drawText(
-            canvas,
-            description ?: "",
-            (width / 2).toFloat(),
-            startYWithMargin,
-            TextConfig(16.dp.toFloat())
-        )
-    }
-
     private fun cutPassportCardShape(canvas: Canvas, startY: Float): Float {
         val startYWithMargin = startY + 24.dp.toFloat()
         val marginPx = 16.dp
 
+        val bottomMargin = 120.dp.toFloat()
+
         val rectWidth = canvas.width - (2 * marginPx)
-        val rectHeight = rectWidth * (700.0f / 512.0f)
+        val rectHeight = canvas.height - startYWithMargin - bottomMargin
 
         val left = marginPx.toFloat()
-        var top = startYWithMargin
         val right = left + rectWidth
-        val bottom = top + rectHeight
-
-        passportMaskRect = RectF(left, top, right, bottom)
+        val bottom = startYWithMargin + rectHeight
 
         return cutRectangleFromCanvas(
             canvas,
             left,
-            top,
+            startYWithMargin,
             right,
             bottom
         )

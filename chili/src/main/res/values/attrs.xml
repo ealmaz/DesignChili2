@@ -516,7 +516,6 @@
     <declare-styleable name="ForeignPassportOverlay">
         <attr name="overlayAlpha"/>
         <attr name="headerText"/>
-        <attr name="description"/>
     </declare-styleable>
 
     <declare-styleable name="ShadowLayout">
