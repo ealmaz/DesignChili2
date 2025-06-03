@@ -58,6 +58,8 @@
         <attr name="passportCardCameraOverlay" format="reference"/>
         <!-- RectangleCameraOverlay -->
         <attr name="rectangleCameraOverlay" format="reference"/>
+        <!-- ForeignPassportCameraOverlay -->
+        <attr name="foreignPassportCameraOverlay" format="reference"/>
 
         <!-- HighlighterFrame -->
         <attr name="highlighterFrameDefaultStyle" format="reference"/>
@@ -507,6 +509,13 @@
     <!-- Rectangle overlay -->
     <declare-styleable name="RectangleOverlay">
         <attr name="overlayAlpha"/>
+        <attr name="description"/>
+    </declare-styleable>
+
+    <!-- Foreign Passport overlay -->
+    <declare-styleable name="ForeignPassportOverlay">
+        <attr name="overlayAlpha"/>
+        <attr name="headerText"/>
         <attr name="description"/>
     </declare-styleable>
 
