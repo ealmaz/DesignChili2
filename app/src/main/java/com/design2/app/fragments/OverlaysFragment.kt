@@ -41,7 +41,6 @@ class OverlaysFragment : BaseFragment<FragmentOverlaysBinding>() {
                 OverlayFragment(
                     ForeignPassportOverlay(requireContext()).apply {
                         setHeaderText("Фото оборотной\n стороны паспорта")
-                        setDescription("Поместите паспорт в рамку \n и нажмите на кнопку «сфотографировать»")
                     }
                 ))
         }
