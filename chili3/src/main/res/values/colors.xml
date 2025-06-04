@@ -90,6 +90,7 @@
     <color name="c_DEF2CC">#DEF2CC</color>
     <color name="c_DEEBF9">#DEEBF9</color>
     <color name="c_001227">#001227</color>
+    <color name="c_62ADFF">#62ADFF</color>
 
     <!-- Red -->
     <color name="c_AE2A47">#AE2A47</color>
@@ -120,6 +121,8 @@
     <color name="c_291800">#291800</color>
     <color name="c_F6F0DA">#F6F0DA</color>
     <color name="c_271600">#271600</color>
+    <color name="c_B25400">#B25400</color>
+    <color name="c_EB6E00">#EB6E00</color>
 
 
     <!-- Cyan -->
