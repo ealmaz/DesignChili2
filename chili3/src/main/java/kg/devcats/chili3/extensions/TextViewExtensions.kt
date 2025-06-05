@@ -4,7 +4,7 @@ import android.graphics.Typeface
 import android.widget.TextView
 
 fun TextView.setNormalTextWeight() {
-    typeface = Typeface.create(typeface, Typeface.NORMAL)
+    setTypeface(null, Typeface.NORMAL)
 }
 
 fun TextView.setBoldTextWeight() {
