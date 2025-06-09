@@ -146,6 +146,7 @@ class HighlighterContainer @JvmOverloads constructor(
                 drawIconBackground(canvas)
                 canvas?.let { drawIcon(it) }
             }
+            else -> {}
         }
     }
 
