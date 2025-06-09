@@ -14,6 +14,14 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+        <Button
+            android:id="@+id/collapsingToolbar"
+            android:text="Collapsing Toolbar"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_16dp"/>
+
         <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
