@@ -3,7 +3,9 @@ package com.design2.app
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.updatePadding
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.design2.app.databinding.ActivityStoryBinding
 import com.design2.chili2.view.stories.ChilliButtonType
@@ -177,12 +179,9 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         _binding = ActivityStoryBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
-
-        hideStatusBar()
-
         setupViews()
     }
 

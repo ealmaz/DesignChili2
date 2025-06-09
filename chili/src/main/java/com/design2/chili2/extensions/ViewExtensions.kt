@@ -28,10 +28,16 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.ViewGroupCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.marginBottom
+import androidx.core.view.marginTop
+import androidx.core.view.updateLayoutParams
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewTreeLifecycleOwner
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.media3.common.Player
 import androidx.media3.ui.AspectRatioFrameLayout.RESIZE_MODE_ZOOM
@@ -551,14 +557,39 @@ fun TextView.setupAsSecure(additionalAction: ((isSecured: Boolean) -> Unit)? = n
             }
         }
         manager.registerReceiver(receiver, IntentFilter("UPDATE_SECURE_STATE"))
-        ViewTreeLifecycleOwner.get(this)?.lifecycle?.addObserver(object : DefaultLifecycleObserver {
+        this.findViewTreeLifecycleOwner()?.lifecycle?.addObserver(object : DefaultLifecycleObserver {
             override fun onDestroy(owner: LifecycleOwner) {
                 manager.unregisterReceiver(receiver)
                 super.onDestroy(owner)
             }
         })
+
     }
 
     updateViewState()
     setupReceiver()
+}
+
+fun View.applyEdgeToEdgeMargins(
+    applyTop: Boolean = false,
+    applyBottom: Boolean = false,
+    isConsumed: Boolean = true
+) {
+
+    val initialMarginTop = marginTop
+    val initialMarginBottom = marginBottom
+
+    ViewGroupCompat.installCompatInsetsDispatch(this)
+    ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+        val bars = insets.getInsets(
+            WindowInsetsCompat.Type.systemBars()
+                    or WindowInsetsCompat.Type.displayCutout()
+        )
+        v.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            bottomMargin =
+                if (applyBottom) bars.bottom + initialMarginBottom else initialMarginBottom
+            topMargin = if (applyTop) bars.top + initialMarginTop else initialMarginTop
+        }
+        if (isConsumed) WindowInsetsCompat.CONSUMED else insets
+    }
 }

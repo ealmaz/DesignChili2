@@ -558,6 +558,11 @@ class StoryView : ConstraintLayout {
         }
     }
 
+    fun getProgressBarsContainer() = binding.progressBarsContainer
+
+    fun getButtonsContainer() = binding.flButtons
+
+
     //endregion
 
     //region gesture listener
