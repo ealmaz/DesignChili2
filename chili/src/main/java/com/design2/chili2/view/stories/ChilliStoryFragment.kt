@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import com.design2.chili2.databinding.FragmentStoryBinding
+import com.design2.chili2.extensions.applyEdgeToEdgeMargins
 
 class ChilliStoryFragment: Fragment() {
 
@@ -28,12 +29,18 @@ class ChilliStoryFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         arguments?.let {
             storyBlock = it.getSerializable(ARG_STORY_BLOCK) as ChilliStoryBlock
         }
-
         setupViewsIfVisible()
+        setupEdgeToEdgePaddings()
+    }
+
+    private fun setupEdgeToEdgePaddings() {
+        with(binding.storyView) {
+            getProgressBarsContainer().applyEdgeToEdgeMargins(applyTop = true)
+            getButtonsContainer().applyEdgeToEdgeMargins(applyBottom = true)
+        }
     }
 
     private fun setupViews(storyBlock: ChilliStoryBlock) {
