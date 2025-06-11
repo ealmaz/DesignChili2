@@ -29,6 +29,9 @@
         <activity
             android:name="com.design2.app.StoryActivity"
              />
+        <activity
+            android:name=".activities.CollapsingToolbarActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

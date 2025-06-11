@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
@@ -54,11 +55,11 @@ class CollapsingChiliToolbar @JvmOverloads constructor(
 
             scrollView.setOnScrollChangeListener { _, _, _, _, _ ->
                 val location = IntArray(2)
-                triggerTextView.getLocationOnScreen(location)
+                triggerView.getLocationOnScreen(location)
                 val isCollapsed = location[1] <= this@CollapsingChiliToolbar.height
                 if (isCollapsed) {
                     (onCollapsed ?: {
-                        setSubtitle(triggerTextView.text)
+                        setSubtitle(collapsingSubtitle ?: (triggerView as? TextView)?.text)
                         setTitleTextAppearance(Chili_H14_Primary_Bold)
                     }).invoke()
                 } else {
@@ -71,7 +72,7 @@ class CollapsingChiliToolbar @JvmOverloads constructor(
         }
     }
 
-    fun setTitle(text: String?) = vb.tvTitle.setTextOrHide(text)
+    fun setTitle(text: CharSequence?) = vb.tvTitle.setTextOrHide(text)
 
     fun setSubtitle(text: CharSequence?) = vb.tvSubtitle.setTextOrHide(text)
 
@@ -128,13 +129,14 @@ class CollapsingChiliToolbar @JvmOverloads constructor(
 
     data class Configuration(
         val hostActivity: FragmentActivity,
-        val title: String? = null,
+        val title: CharSequence? = null,
+        val subtitle: CharSequence? = null,
+        val collapsingSubtitle: CharSequence? = null,
         val navigationIconRes: Int = R.drawable.chili_ic_back,
         val onNavigateUpClick: FragmentActivity.() -> Unit = { onBackPressedDispatcher.onBackPressed() },
         val isNavigateUpButtonEnabled: Boolean = false,
-        val subtitle: CharSequence? = null,
         val scrollView: NestedScrollView,
-        val triggerTextView: TextView,
+        val triggerView: View,
         val onDefault: (() -> Unit)? = null,
         val onCollapsed: (() -> Unit)? = null
     )

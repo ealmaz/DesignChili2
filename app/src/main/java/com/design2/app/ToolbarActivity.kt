@@ -1,9 +1,10 @@
 package com.design2.app
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.design2.app.activities.CollapsingToolbarActivity
 import com.design2.app.databinding.ActivityToolbarBinding
 import com.design2.chili2.view.navigation_components.ChiliToolbar
 import com.design2.chili2.view.navigation_components.StartIconChiliToolbar
@@ -107,6 +108,11 @@ class ToolbarActivity : AppCompatActivity() {
                 },
             )
         )
+
+        vb.collapsingToolbar.setOnClickListener {
+            val intent = Intent(this, CollapsingToolbarActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
