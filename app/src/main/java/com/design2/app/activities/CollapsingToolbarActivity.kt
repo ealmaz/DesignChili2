@@ -24,7 +24,6 @@ class CollapsingToolbarActivity : AppCompatActivity() {
                     triggerView = tvCollapsing,
                     collapsingSubtitle = tvCollapsing.text,
                     isNavigateUpButtonEnabled = true,
-                    onNavigateUpClick = { onBackPressed() },
                 )
             )
         }

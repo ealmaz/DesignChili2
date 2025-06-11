@@ -14,6 +14,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.FragmentActivity
 import com.design2.chili2.R
+import com.design2.chili2.extensions.setImageOrHide
 import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.setTextOrHide
 import kg.devcats.chili3.databinding.ChiliViewCollapsingToolbarBinding
@@ -28,8 +29,8 @@ class CollapsingChiliToolbar @JvmOverloads constructor(
 
     init { attrs?.let { obtainAttributes(it) } }
 
-    private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = R.style.Chili_BaseNavigationComponentsStyle_ChiliToolbar) {
-        context?.obtainStyledAttributes(attrs, R.styleable.CollapsingChiliToolbar, R.attr.toolbarDefaultStyle, defStyle)?.run {
+    private fun obtainAttributes(attrs: AttributeSet, defStyle: Int = Chili_CollapseToolbarView) {
+        context?.obtainStyledAttributes(attrs, R.styleable.CollapsingChiliToolbar, kg.devcats.chili3.R.attr.CollapsingToolbarDefaultStyle, defStyle)?.run {
             setTitle(getString(R.styleable.CollapsingChiliToolbar_title))
             setSubtitle(getString(R.styleable.CollapsingChiliToolbar_subtitle))
             getBoolean(R.styleable.CollapsingChiliToolbar_isDividerVisible, true).let { setupDividerVisibility(it) }
@@ -49,7 +50,7 @@ class CollapsingChiliToolbar @JvmOverloads constructor(
             subtitle?.let { setSubtitle(it) }
 
             if (isNavigateUpButtonEnabled) {
-                setNavigateIcon(navigationIconRes)
+                setNavigateIcon(navigationIconRes ?: R.drawable.chili_ic_back)
                 setNavigateIconClickListener { onNavigateUpClick(hostActivity) }
             }
 
@@ -82,30 +83,19 @@ class CollapsingChiliToolbar @JvmOverloads constructor(
 
     fun setTitleColor(@ColorInt color: Int) = vb.tvTitle.setTextColor(color)
 
-    fun setNavigateIcon(@DrawableRes resId: Int) = vb.ivNavigateIcon.apply {
-        setImageResource(resId)
-        isVisible = true
-    }
+    fun setNavigateIcon(@DrawableRes resId: Int?) = vb.ivNavigateIcon.setImageOrHide(resId)
 
-    fun setNavigateIcon(drawable: Drawable?) = vb.ivNavigateIcon.apply {
-        setImageDrawable(drawable)
-        isVisible = drawable != null
-    }
+    fun setNavigateIcon(drawable: Drawable?) = vb.ivNavigateIcon.setImageOrHide(drawable)
+
     fun setNavigateIconVisibility(visible: Boolean) {
         vb.ivNavigateIcon.isVisible = visible
     }
 
     fun setNavigateIconClickListener(action: () -> Unit) = vb.ivNavigateIcon.setOnSingleClickListener { action() }
 
-    fun setEndIcon(@DrawableRes resId: Int) = vb.ivEndIcon.apply {
-        setImageResource(resId)
-        isVisible = true
-    }
+    fun setEndIcon(@DrawableRes resId: Int?) = vb.ivEndIcon.setImageOrHide(resId)
 
-    fun setEndIcon(drawable: Drawable?) = vb.ivEndIcon.apply {
-        setImageDrawable(drawable)
-        isVisible = drawable != null
-    }
+    fun setEndIcon(drawable: Drawable?) = vb.ivEndIcon.setImageOrHide(drawable)
 
     fun setEndIconSize(widthPx: Int, heightPx: Int)  = vb.ivEndIcon.apply {
         val layParams = layoutParams?.apply {
@@ -132,7 +122,7 @@ class CollapsingChiliToolbar @JvmOverloads constructor(
         val title: CharSequence? = null,
         val subtitle: CharSequence? = null,
         val collapsingSubtitle: CharSequence? = null,
-        val navigationIconRes: Int = R.drawable.chili_ic_back,
+        val navigationIconRes: Int? = null,
         val onNavigateUpClick: FragmentActivity.() -> Unit = { onBackPressedDispatcher.onBackPressed() },
         val isNavigateUpButtonEnabled: Boolean = false,
         val scrollView: NestedScrollView,

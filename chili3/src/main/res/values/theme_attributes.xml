@@ -99,6 +99,9 @@
     <!-- TailedToolbarView -->
     <attr name="TailedToolbarDefaultStyle" format="reference"/>
 
+    <!-- CollapsingToolbarView -->
+    <attr name="CollapsingToolbarDefaultStyle" format="reference"/>
+
     <!--region CircledStartIconChiliToolbar -->
     <attr name="CircleStartIconChiliToolbarPaddingVertical" format="dimension" />
     <attr name="CircleStartIconChiliToolbarPaddingStart" format="dimension" />

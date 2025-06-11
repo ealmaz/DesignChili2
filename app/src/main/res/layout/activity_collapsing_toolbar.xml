@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:navigationIcon="@drawable/chili_ic_back"
-        app:background="@android:color/transparent"
         app:isDividerVisible="false"
         app:toolbarEndIcon="@drawable/chili_ic_star_outlined"
         />

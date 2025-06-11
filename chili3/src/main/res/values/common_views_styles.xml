@@ -20,6 +20,8 @@
 
     <style name="Chili.TailedToolbarView"/>
 
+    <style name="Chili.CollapseToolbarView"/>
+
     <style name="Chili.DividerViewStyle"/>
 
     <style name="Chili.CellViewStyle.BaseCellViewStyle.Radio">
