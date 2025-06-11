@@ -22,6 +22,16 @@
             app:titleCentered="true"
             app:title="Transparent Toolbar" />
 
+        <Button
+            android:id="@+id/collapsingToolbar"
+            android:text="Collapsing Toolbar"
+            style="@style/Chili.ButtonStyle.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_16dp"
+            android:layout_marginHorizontal="@dimen/padding_16dp"
+            />
+
         <com.design2.chili2.view.navigation_components.ChiliToolbar
             android:id="@+id/toolbar2"
             android:layout_width="match_parent"

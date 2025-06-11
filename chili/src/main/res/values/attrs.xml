@@ -164,6 +164,19 @@
         <attr name="navigationIcon"/>
     </declare-styleable>
 
+    <declare-styleable name="CollapsingChiliToolbar">
+        <attr name="title" format="string" />
+        <attr name="subtitle" format="string" />
+        <attr name="titleColor"  />
+        <attr name="toolbarTextAppearance"  />
+        <attr name="toolbarEndIcon" />
+        <attr name="toolbarEndIconSize" />
+        <attr name="navigationIcon" />
+        <attr name="background"  />
+        <attr name="isDividerVisible" />
+    </declare-styleable>
+
+
     <declare-styleable name="BaseCellView">
         <attr name="android:icon"/>
         <attr name="title"/>
