@@ -41,7 +41,7 @@
 
     <Button
         android:id="@+id/on_top_gravity"
-        android:text="Custom info snackbar on top"
+        android:text="Custom info snackbar on bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Chili.ButtonStyle.Primary"
