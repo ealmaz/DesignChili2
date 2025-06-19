@@ -389,16 +389,19 @@ open class BaseCellView @JvmOverloads constructor(
         val size = when (iconSize) {
             IconSize.LARGE -> {
                 updateIconMargin(topMarginPx = margin14px, bottomMarginPx = margin14px)
+                setIconShimmerBackground(R.drawable.chili_bg_shimmer_large_icon)
                 R.dimen.view_48dp
             }
 
             IconSize.MEDIUM -> {
                 updateIconMargin(topMarginPx = margin14px, bottomMarginPx = margin14px)
+                setIconShimmerBackground(R.drawable.chili_bg_shimmer_large_icon)
                 R.dimen.view_46dp
             }
 
             IconSize.SMALL -> {
                 updateIconMargin(topMarginPx = margin8px, bottomMarginPx = margin8px)
+                setIconShimmerBackground(R.drawable.chili_bg_shimmer)
                 R.dimen.view_32dp
             }
         }
@@ -487,6 +490,10 @@ open class BaseCellView @JvmOverloads constructor(
         drawableRes?.let {
             vb.rootView.background = context.drawable(drawableRes)
         }
+    }
+
+    fun setIconShimmerBackground(@DrawableRes drawableRes: Int) {
+        vb.iconShimmer.background = context.drawable(drawableRes)
     }
 
     fun setupSubtitleAsSecure() {
