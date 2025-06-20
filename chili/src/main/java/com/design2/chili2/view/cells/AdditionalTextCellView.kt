@@ -140,8 +140,8 @@ class AdditionalTextCellView @JvmOverloads constructor(
         additionalText?.alpha = alpha
     }
 
-    fun setAdditionalTextMaxEms(maxEms: Int) {
-        additionalText?.maxEms = maxEms
+    fun setAdditionalTextMaxWidth(width: Int = Integer.MAX_VALUE) {
+        additionalText?.maxWidth = width
     }
 
     fun updateAdditionalTextMargin(startMarginPx: Int? = null, topMarginPx: Int? = null, endMarginPx: Int? = null, bottomMarginPx: Int? = null) {
