@@ -55,7 +55,10 @@ class CellViewsFragment : BaseFragment<FragmentCellBinding>() {
                 setAdditionalText("0")
             }
         }
-        vb.atcvWithLongText.setAdditionalTextMaxEms(Int.MAX_VALUE)
+        vb.atcvWithLongText.apply {
+            setAdditionalTextMaxWidth()
+            setAdditionalTextTextAppearance(kg.devcats.chili3.R.style.Chili_H16_Success)
+        }
 
         vb.progress.removeBackground()
 
