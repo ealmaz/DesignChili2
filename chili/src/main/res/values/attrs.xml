@@ -30,6 +30,7 @@
         <attr name="toolbarDefaultStyle" format="reference"/>
         <attr name="loaderButtonDefaultStyle" format="reference"/>
         <attr name="componentButtonDefaultStyle" format="reference"/>
+        <attr name="chiliButtonDefaultStyle" format="reference"/>
 
 
         <!-- Container -->
@@ -345,6 +346,26 @@
         <attr name="android:enabled"/>
         <attr name="isLoading" format="boolean"/>
         <attr name="textAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="ChiliButton">
+        <attr name="android:text" />
+        <attr name="android:enabled" />
+        <attr name="android:textAppearance" />
+        <attr name="android:paddingBottom" format="dimension" />
+        <attr name="android:paddingTop" format="dimension" />
+        <attr name="android:paddingVertical" format="dimension" />
+        <attr name="startIcon" />
+        <attr name="startIconWidth" />
+        <attr name="startIconHeight" />
+        <attr name="startIconEndMargin" format="dimension" />
+        <attr name="endIcon" />
+        <attr name="endIconWidth" format="dimension" />
+        <attr name="endIconHeight" format="dimension" />
+        <attr name="endIconStartMargin" format="dimension" />
+        <attr name="isLoading" />
+        <attr name="loaderColor" format="color" />
+        <attr name="loaderSize" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="IconedButton">

@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item app:isLoading="true" android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <corners
+                android:radius="?attr/ChiliPrimaryButtonCornerRadius"
+                tools:radius="4dp"/>
+            <stroke android:color="?ChiliPrimaryButtonBorderColor" android:width="1dp"
+                tools:color="@color/chartreuse_2_alpha_50"/>
+            <solid
+                android:color="?attr/ChiliPrimaryButtonBackgroundActive"
+                tools:color="@color/green_1"/>
+        </shape>
+    </item>
+
     <item android:state_enabled="false">
         <shape android:shape="rectangle">
             <corners
@@ -12,6 +28,7 @@
                 tools:color="@color/chartreuse_2_alpha_50"/>
         </shape>
     </item>
+
     <item android:state_enabled="true">
         <shape android:shape="rectangle">
             <corners
