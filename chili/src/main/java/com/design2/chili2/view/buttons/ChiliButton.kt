@@ -1,14 +1,19 @@
 package com.design2.chili2.view.buttons
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.core.content.ContextCompat
 import com.design2.chili2.R
 import com.design2.chili2.databinding.ChiliViewButtonBinding
+import com.design2.chili2.extensions.getColorFromAttr
 import com.design2.chili2.extensions.gone
 import com.design2.chili2.extensions.invisible
 import com.design2.chili2.extensions.setBottomMargin
@@ -208,8 +213,15 @@ class ChiliButton @JvmOverloads constructor(
         }
     }
 
-    fun setLoaderColor(@DrawableRes colorResId: Int?) {
-        vb.progress.indeterminateTintList = context.getColorStateList(colorResId ?: R.color.magenta_1)
+    fun setLoaderColor(@ColorRes colorResId: Int?) {
+        val tint = colorResId?.let { ContextCompat.getColorStateList(context, it) }
+            ?: ContextCompat.getColorStateList(context, R.color.magenta_1)
+        vb.progress.indeterminateTintList = tint
+    }
+
+    fun setLoaderColorFromAttr(attrRes: Int) {
+        val color = context.getColorFromAttr(attrRes)
+        vb.progress.indeterminateTintList = ColorStateList.valueOf(color)
     }
 
     fun setLoaderSize(@DimenRes sizeRes: Int) {
