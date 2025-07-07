@@ -1,6 +1,7 @@
 package com.design2.app
 
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -179,7 +180,9 @@ class StoryActivity : AppCompatActivity(), StoryMoveListener, StoryOnFinishListe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            enableEdgeToEdge()
+        }
         _binding = ActivityStoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupViews()

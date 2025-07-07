@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Matrix
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
@@ -575,11 +576,11 @@ fun View.applyEdgeToEdgeMargins(
     applyBottom: Boolean = false,
     isConsumed: Boolean = true
 ) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return
 
     val initialMarginTop = marginTop
     val initialMarginBottom = marginBottom
 
-    ViewGroupCompat.installCompatInsetsDispatch(this)
     ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
         val bars = insets.getInsets(
             WindowInsetsCompat.Type.systemBars()
