@@ -39,6 +39,8 @@ class CardCellView @JvmOverloads constructor(
 
     private val shimmeringPairs = mutableMapOf<View, ShimmerFrameLayout?>()
 
+    private var isShimmering = false
+
     init {
         initView(context)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
@@ -120,23 +122,27 @@ class CardCellView @JvmOverloads constructor(
         shimmeringPairs[vb.clContent] = vb.viewShimmerContent
     }
 
-    fun setupSurfaceClicks(isSurfaceClickable: Boolean) {
-        with(vb) {
-            if (isSurfaceClickable) {
-                setSurfaceClick(
-                    onPressedState = {
-                        tvTitle.setBoldTextWeight()
-                        tvSubtitle.setBoldTextWeight()
-                        tvAdditionalText.setBoldTextWeight()
-                    },
-                    onDefaultState = {
-                        tvTitle.setNormalTextWeight()
-                        tvSubtitle.setNormalTextWeight()
-                        tvAdditionalText.setNormalTextWeight()
-                    }
-                )
-            }
+    fun setupSurfaceClicks(
+        isSurfaceClickable: Boolean,
+        onPressed: () -> Unit = { vb.root.alpha = 0.5f },
+        onDefault: () -> Unit = { vb.root.alpha = 1f }
+    ) {
+        if (isSurfaceClickable) {
+            setSurfaceClick(
+                onPressedState = { if (!isShimmering) onPressed() },
+                onDefaultState = { if (!isShimmering) onDefault() }
+            )
         }
+    }
+
+    override fun onStartShimmer() {
+        super.onStartShimmer()
+        isShimmering = true
+    }
+
+    override fun onStopShimmer() {
+        super.onStopShimmer()
+        isShimmering = false
     }
 
     private fun View.removeBottomConstraint() {
