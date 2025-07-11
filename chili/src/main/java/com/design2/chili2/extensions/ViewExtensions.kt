@@ -35,6 +35,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.marginBottom
 import androidx.core.view.marginTop
 import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
@@ -591,6 +592,33 @@ fun View.applyEdgeToEdgeMargins(
                 if (applyBottom) bars.bottom + initialMarginBottom else initialMarginBottom
             topMargin = if (applyTop) bars.top + initialMarginTop else initialMarginTop
         }
+        if (isConsumed) WindowInsetsCompat.CONSUMED else insets
+    }
+}
+
+fun View.applyEdgeToEdgePadding(
+    applyTop: Boolean = false,
+    applyBottom: Boolean = false,
+    isConsumed: Boolean = true
+) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return
+
+    val initialPaddingTop = paddingTop
+    val initialPaddingBottom = paddingBottom
+
+    ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+        val systemBars = insets.getInsets(
+            WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
+        )
+        val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
+
+        val bottomInset = maxOf(systemBars.bottom, imeInsets.bottom)
+
+        v.updatePadding(
+            top = if (applyTop) systemBars.top + initialPaddingTop else initialPaddingTop,
+            bottom = if (applyBottom) bottomInset + initialPaddingBottom else initialPaddingBottom,
+        )
+
         if (isConsumed) WindowInsetsCompat.CONSUMED else insets
     }
 }
