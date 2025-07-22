@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.Matrix
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
@@ -28,10 +29,17 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.ViewGroupCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.marginBottom
+import androidx.core.view.marginTop
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewTreeLifecycleOwner
+import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.media3.common.Player
 import androidx.media3.ui.AspectRatioFrameLayout.RESIZE_MODE_ZOOM
@@ -551,14 +559,66 @@ fun TextView.setupAsSecure(additionalAction: ((isSecured: Boolean) -> Unit)? = n
             }
         }
         manager.registerReceiver(receiver, IntentFilter("UPDATE_SECURE_STATE"))
-        ViewTreeLifecycleOwner.get(this)?.lifecycle?.addObserver(object : DefaultLifecycleObserver {
+        this.findViewTreeLifecycleOwner()?.lifecycle?.addObserver(object : DefaultLifecycleObserver {
             override fun onDestroy(owner: LifecycleOwner) {
                 manager.unregisterReceiver(receiver)
                 super.onDestroy(owner)
             }
         })
+
     }
 
     updateViewState()
     setupReceiver()
+}
+
+fun View.applyEdgeToEdgeMargins(
+    applyTop: Boolean = false,
+    applyBottom: Boolean = false,
+    isConsumed: Boolean = true
+) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return
+
+    val initialMarginTop = marginTop
+    val initialMarginBottom = marginBottom
+
+    ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+        val bars = insets.getInsets(
+            WindowInsetsCompat.Type.systemBars()
+                    or WindowInsetsCompat.Type.displayCutout()
+        )
+        v.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+            bottomMargin =
+                if (applyBottom) bars.bottom + initialMarginBottom else initialMarginBottom
+            topMargin = if (applyTop) bars.top + initialMarginTop else initialMarginTop
+        }
+        if (isConsumed) WindowInsetsCompat.CONSUMED else insets
+    }
+}
+
+fun View.applyEdgeToEdgePadding(
+    applyTop: Boolean = false,
+    applyBottom: Boolean = false,
+    isConsumed: Boolean = true
+) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) return
+
+    val initialPaddingTop = paddingTop
+    val initialPaddingBottom = paddingBottom
+
+    ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+        val systemBars = insets.getInsets(
+            WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
+        )
+        val imeInsets = insets.getInsets(WindowInsetsCompat.Type.ime())
+
+        val bottomInset = maxOf(systemBars.bottom, imeInsets.bottom)
+
+        v.updatePadding(
+            top = if (applyTop) systemBars.top + initialPaddingTop else initialPaddingTop,
+            bottom = if (applyBottom) bottomInset + initialPaddingBottom else initialPaddingBottom,
+        )
+
+        if (isConsumed) WindowInsetsCompat.CONSUMED else insets
+    }
 }

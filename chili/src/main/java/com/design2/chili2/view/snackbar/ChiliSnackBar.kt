@@ -25,6 +25,7 @@ class ChiliSnackBar private constructor(
     init {
         getView().setBackgroundColor(ContextCompat.getColor(view.context, android.R.color.transparent))
         getView().setPadding(0, 0, 0, 0)
+        getView().applyEdgeToEdgePadding(applyTop = true, applyBottom = true)
     }
 
     fun setupVisibilityCallback(listener: SnackbarVisibilityStateListener?) {
