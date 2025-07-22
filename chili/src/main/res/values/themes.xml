@@ -107,7 +107,7 @@
 
         <!-- InAppPush -->
         <item name="ChiliInAppPushBackground">@color/white_1</item>
-        <item name="ChiliInAppPushCornerRadius">@dimen/radius_24dp</item>
+        <item name="ChiliInAppPushCornerRadius">@dimen/radius_32dp</item>
 
         <!-- Picker dialog -->
         <item name="ChiliPickerDialogControlColor">@color/black_5</item>

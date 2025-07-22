@@ -7,5 +7,5 @@
         tools:color="@color/white_1" />
     <corners
         android:radius="?attr/ChiliInAppPushCornerRadius"
-        tools:radius="@dimen/padding_24dp" />
+        tools:radius="@dimen/padding_32dp" />
 </shape>
