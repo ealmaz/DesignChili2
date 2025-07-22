@@ -254,7 +254,7 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
         }
         vb.inApp.setOnClickListener {
             InAppPushBottomSheet.Builder()
-                .setBtnMoreInfo("Подробнее" to {
+                .setPrimaryButton("Подробнее" to {
                     dismiss()
                 })
                 .setDescription("Описание описания, которое описывает описанное описание описанного описания,\n" +
@@ -270,7 +270,7 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
         vb.inAppBanner.setOnClickListener {
             InAppPushBottomSheet.Builder()
                 .setBannerUrl("https://cdn.pixabay.com/photo/2016/11/29/12/13/fence-1869401_1280.jpg")
-                .setBtnMoreInfo("Подробнее" to {
+                .setPrimaryButton("Подробнее" to {
                     dismiss()
                 })
                 .setDescription("Описание описания, которое описывает описанное описание описанного описания,\n" +
@@ -279,6 +279,10 @@ class BottomSheetsFragment : BaseFragment<FrgmentBottomSheetsBinding>() {
                 .setTitle("Максимальная длина заголовка равна 60 символам, а если не помещается то verververveverv erverv erverv erverv erve")
                 .setOnBannerClick {
                     dismiss()
+                }
+                .setCheckBoxTitle("Больше не показывать этот банер")
+                .setOnCloseIconClickListener {
+                    false
                 }
                 .build()
                 .show(childFragmentManager)

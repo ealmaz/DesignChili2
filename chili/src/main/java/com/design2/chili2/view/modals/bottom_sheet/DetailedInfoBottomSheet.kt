@@ -24,7 +24,7 @@ import com.design2.chili2.extensions.setOnSingleClickListener
 import com.design2.chili2.extensions.visible
 import com.design2.chili2.view.modals.base.BaseViewBottomSheetDialogFragment
 
-class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFragment() {
+class DetailedInfoBottomSheet private constructor() : BaseViewBottomSheetDialogFragment() {
 
     private lateinit var vb: ChiliViewBottomSheetDetailedInfoBinding
 
@@ -50,7 +50,6 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     private var secondaryButtonRes: Pair<Int, (DetailedInfoBottomSheet.() -> Unit)>? = null
 
     private var onDismissCallback: (() -> Unit)? = null
-
 
     override var hasCloseIcon: Boolean = true
     override var closeIconView: View? = null
@@ -111,7 +110,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
         text?.let { setMessage(it) }
         textSpanned?.let { setMessage(it) }
-        textResId?.let { setMessage(it)}
+        textResId?.let { setMessage(it) }
 
 
         iconRes?.let { setIcon(it) }
@@ -184,13 +183,16 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     }
 
     private fun updateMessageMargin() = with(vb) {
-        if(!btnPrimary.isVisible() && !btnSecondary.isVisible()) {
+        if (!btnPrimary.isVisible() && !btnSecondary.isVisible()) {
             tvText.setBottomMargin(0)
         }
         if (!tvText.isVisible()) tvTitle.setBottomMargin(24.dp)
     }
 
-    private fun setPrimaryButton(@StringRes resId: Int, action: (DetailedInfoBottomSheet.() -> Unit)? = null) {
+    private fun setPrimaryButton(
+        @StringRes resId: Int,
+        action: (DetailedInfoBottomSheet.() -> Unit)? = null
+    ) {
         vb.btnPrimary.apply {
             visible()
             setText(resId)
@@ -198,7 +200,10 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         }
     }
 
-    private fun setPrimaryButton(text: String, action: (DetailedInfoBottomSheet.() -> Unit)? = null) {
+    private fun setPrimaryButton(
+        text: String,
+        action: (DetailedInfoBottomSheet.() -> Unit)? = null
+    ) {
         vb.btnPrimary.apply {
             visible()
             setText(text)
@@ -207,7 +212,10 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
     }
 
 
-    private fun setSecondaryButton(@StringRes resId: Int, action: (DetailedInfoBottomSheet.() -> Unit)? = null) {
+    private fun setSecondaryButton(
+        @StringRes resId: Int,
+        action: (DetailedInfoBottomSheet.() -> Unit)? = null
+    ) {
         vb.btnSecondary.apply {
             visible()
             setText(resId)
@@ -220,7 +228,10 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
         vb.ivTopDrawable.isVisible = isVisible
     }
 
-    private fun setSecondaryButton(text: String, action: (DetailedInfoBottomSheet.() -> Unit)? = null) {
+    private fun setSecondaryButton(
+        text: String,
+        action: (DetailedInfoBottomSheet.() -> Unit)? = null
+    ) {
         vb.btnSecondary.apply {
             visible()
             setText(text)
@@ -269,6 +280,8 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
 
         private var topDrawableBackgroundTint: Int? = null
         private var topDrawableBackgroundRes: Int? = null
+
+        private var onCloseIconClick: (() -> Boolean)? = null
 
         fun setMessage(text: String): Builder {
             this.text = text
@@ -396,6 +409,11 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
             return this
         }
 
+        fun setOnCloseIconClickListener(onCloseIconClick: () -> Boolean): Builder {
+            this.onCloseIconClick = onCloseIconClick
+            return this
+        }
+
         fun build(): DetailedInfoBottomSheet {
             return DetailedInfoBottomSheet().apply {
                 this.text = this@Builder.text
@@ -423,6 +441,7 @@ class DetailedInfoBottomSheet private constructor(): BaseViewBottomSheetDialogFr
                 this.messageTextAppearance = this@Builder.messageTextAppearance
                 this.topDrawableBackgroundTint = this@Builder.topDrawableBackgroundTint
                 this.topDrawableBackgroundRes = this@Builder.topDrawableBackgroundRes
+                onCloseIconClick = this@Builder.onCloseIconClick
             }
         }
     }

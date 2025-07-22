@@ -135,6 +135,7 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
         private var btnPrimary: Pair<String, InAppPushBottomSheet.() -> Unit>? = null
         private var isHideable: Boolean = false
         private var onDismissCallback: ((Boolean?) -> Unit)? = null
+        private var onCloseIconClick: (() -> Boolean)? = null
 
         fun setTitle(title: String): Builder {
             this.title = title
@@ -161,8 +162,8 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
             return this
         }
 
-        fun setBtnMoreInfo(btnMoreInfo: Pair<String, InAppPushBottomSheet.() -> Unit>?): Builder {
-            this.btnPrimary = btnMoreInfo
+        fun setPrimaryButton(primaryButton: Pair<String, InAppPushBottomSheet.() -> Unit>?): Builder {
+            this.btnPrimary = primaryButton
             return this
         }
 
@@ -176,6 +177,11 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
             return this
         }
 
+        fun setOnCloseIconClickListener(onCloseIconClick: () -> Boolean): Builder {
+            this.onCloseIconClick = onCloseIconClick
+            return this
+        }
+
         fun build(): InAppPushBottomSheet {
             return InAppPushBottomSheet().apply {
                 bannerUrl = this@Builder.bannerUrl
@@ -186,6 +192,7 @@ class InAppPushBottomSheet private constructor() : BaseBottomSheetDialogFragment
                 btnPrimary = this@Builder.btnPrimary
                 isHideable = this@Builder.isHideable
                 onDismissCallback = this@Builder.onDismissCallback
+                onCloseIconClick = this@Builder.onCloseIconClick
             }
         }
     }
