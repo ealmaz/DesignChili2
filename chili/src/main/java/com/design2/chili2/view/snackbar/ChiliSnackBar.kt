@@ -28,18 +28,18 @@ class ChiliSnackBar private constructor(
         getView().applyEdgeToEdgePadding(applyTop = true, applyBottom = true)
     }
 
-    fun setupVisibilityCallback(listener: SnackbarVisibilityStateListener?) {
+    private fun setupVisibilityCallback(onDismissCallback: (() -> (Unit))?, onShowCallback: (() -> (Unit))?, onTimerExpire : ((ChiliSnackBar) -> Unit)?) {
         addCallback(object : BaseTransientBottomBar.BaseCallback<ChiliSnackBar>() {
             override fun onDismissed(transientBottomBar: ChiliSnackBar?, event: Int) {
                 super.onDismissed(transientBottomBar, event)
+                if (event == DISMISS_EVENT_CONSECUTIVE) onTimerExpire?.invoke(this@ChiliSnackBar)
                 timer?.cancel()
-                listener?.onDismissed()
+                onDismissCallback?.invoke()
             }
 
             override fun onShown(transientBottomBar: ChiliSnackBar?) {
                 super.onShown(transientBottomBar)
-                listener?.onShown()
-                timer?.start()
+                onShowCallback?.invoke()
             }
         })
     }
@@ -97,6 +97,7 @@ class ChiliSnackBar private constructor(
             true -> setupTimerWithCountDown(timerInfo)
             else -> setupInvisibleTimer(timerInfo)
         }
+        timer?.start()
     }
 
     fun setupBackgroundColor(@ColorRes color: Int?) {
@@ -121,22 +122,32 @@ class ChiliSnackBar private constructor(
 
     private fun setupTimerWithCountDown(timerInfo: TimerInfo): CountDownTimer {
         vb.ivIcon.invisible()
-        vb.tvSecondsLeft.visible()
         vb.pbProgress.apply {
             visible()
-            max = timerInfo.durationMills.toInt()
             progressDrawable = context?.drawable(R.drawable.chili_circular_progress_bar)
+            max = timerInfo.durationMills.toInt()
         }
-        return object : CountDownTimer(timerInfo.durationMills, 1000) {
+        vb.tvSecondsLeft.visible()
+        return object : CountDownTimer(timerInfo.getSnackbarDuration(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                vb.tvSecondsLeft.text = (millisUntilFinished / 1000 + 1).toString()
-                vb.pbProgress.progress = millisUntilFinished.toInt()
+                if (millisUntilFinished <= timerInfo.successDurationMills) {
+                    setSnackbarIcon(timerInfo.successIcon)
+                    setupActionButton(null)
+                }
+                setTimeToView(millisUntilFinished - timerInfo.successDurationMills)
             }
 
             override fun onFinish() {
                 timerInfo.onTimerExpire?.invoke(this@ChiliSnackBar)
+                dismiss()
             }
         }
+    }
+
+    private fun setTimeToView(time: Long) = with(vb) {
+        val secondsLeft = (time / 1000 + 1).toString()
+        tvSecondsLeft.text = secondsLeft
+        pbProgress.progress = time.toInt()
     }
 
     class Builder(val rootView: View) {
@@ -144,13 +155,14 @@ class ChiliSnackBar private constructor(
         private var snackbarMessage: String? = null
         private var snackbarDurationMills: Long? = null
         private var snackbarActionInfo: ActionInfo? = null
-        private var snackbarVisibilityStateListener: SnackbarVisibilityStateListener? = null
 
         private var snackbarTimerInfo: TimerInfo? = null
         @DrawableRes private var snackbarIcon: Int = -1
         private var isInfiniteLoaderSnackbar: Boolean = false
         @ColorRes private var backgroundColor: Int? = null
-        private var gravity: Int = Gravity.BOTTOM
+        private var gravity: Int = Gravity.TOP
+        private var onDismissCallback: (() -> (Unit))? = null
+        private var onShowCallback: (() -> (Unit))? = null
 
         fun setSnackbarMessage(snackbarMessage: String): Builder {
             this.snackbarMessage = snackbarMessage
@@ -164,8 +176,12 @@ class ChiliSnackBar private constructor(
             this.snackbarActionInfo = snackbarActionInfo
             return this
         }
-        fun setSnackbarVisibilityStateListener(snackbarVisibilityStateListener: SnackbarVisibilityStateListener): Builder {
-            this.snackbarVisibilityStateListener = snackbarVisibilityStateListener
+        fun setOnDismissCallback(action: () -> (Unit)): Builder {
+            this.onDismissCallback = action
+            return this
+        }
+        fun setOnShowCallback(action: () -> Unit): Builder {
+            this.onShowCallback = action
             return this
         }
         fun setSnackbarTimerInfo(snackbarTimerInfo: TimerInfo): Builder {
@@ -193,15 +209,16 @@ class ChiliSnackBar private constructor(
             val parent = rootView.findSuitableParent()
             val snackbarLayoutView = SnackbarLayoutView(parent.context)
             return ChiliSnackBar(parent, snackbarLayoutView).apply {
+                setAnimationMode(ANIMATION_MODE_FADE)
                 setMessage(snackbarMessage)
-                duration = snackbarDurationMills?.toInt() ?: 3000
-                setupActionButton(snackbarActionInfo)
-                setupVisibilityCallback(snackbarVisibilityStateListener)
                 setupTimer(snackbarTimerInfo)
+                duration = snackbarDurationMills?.toInt() ?: snackbarTimerInfo?.getSnackbarDuration()?.toInt() ?: 5000
+                setupActionButton(snackbarActionInfo)
                 setSnackbarIcon(snackbarIcon)
                 setupSnackbarAsLoading(isInfiniteLoaderSnackbar)
                 setupBackgroundColor(backgroundColor)
                 setupGravity(gravity)
+                setupVisibilityCallback(onDismissCallback, onShowCallback, snackbarTimerInfo?.onTimerExpire)
             }
         }
     }
@@ -215,12 +232,15 @@ data class ActionInfo(
 data class TimerInfo(
     var durationMills: Long = 0,
     var onTimerExpire: ((ChiliSnackBar) -> Unit)? = null,
-    var showCountDownTimer: Boolean = true
-)
-
-open class SnackbarVisibilityStateListener {
-    open fun onShown() {}
-    open fun onDismissed() {}
+    var showCountDownTimer: Boolean = true,
+    @DrawableRes var successIcon: Int = R.drawable.chili_ic_success_24,
+    var successDurationMills: Long = 2000,
+) {
+    fun getSnackbarDuration(): Long {
+        return (durationMills).let {
+            if(showCountDownTimer) it + successDurationMills else it
+        }
+    }
 }
 
 private fun View?.findSuitableParent(): ViewGroup {
