@@ -53,7 +53,7 @@
             android:ellipsize="end"
             android:maxLength="60"
             android:maxLines="1"
-            android:textAppearance="@style/Chili.H7.Primary.Bold"
+            android:textAppearance="@style/Chili.H7.Primary.700"
             tools:text="Супер текст специально для тебя!" />
 
         <TextView
