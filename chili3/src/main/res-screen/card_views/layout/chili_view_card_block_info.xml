@@ -47,6 +47,10 @@
         <Button
             android:id="@+id/btn_action"
             style="@style/Chili.ButtonStyle.Primary"
+            android:paddingVertical="@dimen/padding_12dp"
+            android:paddingHorizontal="@dimen/padding_16dp"
+            android:minHeight="@dimen/view_0dp"
+            android:minWidth="@dimen/view_0dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_12dp"
