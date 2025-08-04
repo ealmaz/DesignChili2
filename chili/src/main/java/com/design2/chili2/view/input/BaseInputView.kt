@@ -45,7 +45,7 @@ open class BaseInputView @JvmOverloads constructor(
 
     protected val textWatchers by lazy { mutableListOf<TextWatcher>() }
 
-    protected var messageText: Any? = null
+    protected var messageText: CharSequence? = null
     protected var isErrorShown: Boolean = false
     protected var isLabelBehaviorEnabled: Boolean = false
 
@@ -579,21 +579,10 @@ open class BaseInputView @JvmOverloads constructor(
     }
 
     fun setMessage(text: String?) {
-        messageText = text
-        when (text.isNullOrBlank()) {
-            true -> vb.tvMessage.gone()
-            else -> {
-                vb.tvMessage.apply {
-                    setText(text)
-                    setTextColor(messageTextColor)
-                    visible()
-                    if (isLabelBehaviorEnabled && !(getInputField().hasFocus())) gone()
-                }
-            }
-        }
+        setMessageSequence(text)
     }
 
-    fun setMessage(text: Spanned?) {
+    fun setMessageSequence(text: CharSequence?) {
         messageText = text
         when (text.isNullOrBlank()) {
             true -> vb.tvMessage.gone()
@@ -634,10 +623,7 @@ open class BaseInputView @JvmOverloads constructor(
     fun clearFieldError() {
         if (!isErrorShown) return
         vb.tilInputContainer.setBackgroundResource(fieldBackground)
-        when(messageText) {
-            is String? -> setMessage(messageText as String?)
-            is Spanned? -> setMessage(messageText as Spanned?)
-        }
+        setMessageSequence(messageText)
         isErrorShown = false
     }
 

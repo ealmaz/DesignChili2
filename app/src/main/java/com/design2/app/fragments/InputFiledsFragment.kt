@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.text.parseAsHtml
 import com.design2.app.MainActivity
+import com.design2.app.R
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentInputFieldsBinding
 import com.design2.chili2.view.input.otp.OnOtpCompleteListener
@@ -18,7 +19,8 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
 
         vb.field1.apply {
             setupClearTextButton()
-            setMessage("Message spanned <u>c</c>".parseAsHtml())
+            setMessage("reroerik")
+            setMessageSequence("Message spanned <u>c</c>".parseAsHtml())
             doAfterTextChanged {
                 if ((it?.length ?: 0) > 5) {
                     setupFieldAsError("error")
