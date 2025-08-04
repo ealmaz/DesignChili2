@@ -3,7 +3,9 @@ package com.design2.app.fragments
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.text.parseAsHtml
 import com.design2.app.MainActivity
+import com.design2.app.R
 import com.design2.app.base.BaseFragment
 import com.design2.app.databinding.FragmentInputFieldsBinding
 import com.design2.chili2.view.input.otp.OnOtpCompleteListener
@@ -14,7 +16,17 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as MainActivity).setUpHomeEnabled(true)
-        vb.field1.setupClearTextButton()
+
+        vb.field1.apply {
+            setupClearTextButton()
+            setMessage("reroerik")
+            setMessageSequence("Message spanned <u>c</c>".parseAsHtml())
+            doAfterTextChanged {
+                if ((it?.length ?: 0) > 5) {
+                    setupFieldAsError("error")
+                } else clearFieldError()
+            }
+        }
         vb.field2Mask.setupNewMask("12313123123XXXXXXXXX")
         vb.field2Mask.requestFocus()
         vb.field0.setMaxLength(3)
@@ -24,6 +36,7 @@ class InputFields : BaseFragment<FragmentInputFieldsBinding>() {
             Toast.makeText(requireContext(), "Focus", Toast.LENGTH_SHORT).show()
             vb.inputSv.smoothScrollTo(0, vb.input57.bottom + resources.getDimensionPixelSize(com.design2.chili2.R.dimen.padding_16dp))
         }
+
 
         vb.otp.apply {
             setActionText("Сбросить пароль")
